@@ -17,7 +17,7 @@ query getFiltersQuery($handle: String = "all-products") {
 
 export async function getFilters() {
   const { data, errors } = await shopifyClient.request(fetchProductFilters);
-  console.log("Filters Data:", data);
+  // console.log("Filters Data:", data);
 
   if (errors) {
     throw new Error("Failed to fetch filters");

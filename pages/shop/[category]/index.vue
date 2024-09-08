@@ -1,5 +1,12 @@
 <template>
     <div>
-        this is [category] shop page like hair , skin , baby care
+        this is [category] shop page like hair , skin , baby care {{ category }}
     </div>
 </template>
+
+<script setup>
+const route = useRoute();
+const category = route.params.category;
+
+console.log(category)
+</script>

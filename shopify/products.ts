@@ -50,7 +50,7 @@ export const fetchProducts = async (after?: string) => {
       price: node.priceRange.minVariantPrice.amount,
       currency: node.priceRange.minVariantPrice.currencyCode,
     }));
-    console.log("this is product",products)
+    // console.log("this is product",products)
     return {
       products,
       pageInfo: {

@@ -1,9 +1,12 @@
 <template>
+    MAKE A FUNCTION THAT LOAD A SHOP CARD 30 EACH TIME AND AS THE USER REACH AT END THNEXT 30 WILL WE RENDER
     <div>
-        <h1>
-            this is shop page
+        <ShopFilterbar/>     
+    </div>
+
+
+    <div>
             <ShopCard :productDetails="products"/>
-        </h1>
     </div>
 </template>
 

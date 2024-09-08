@@ -1,6 +1,6 @@
 <template>
 
 home
-    
+<ShopUserSidebar/>
 </template>
 
