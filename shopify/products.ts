@@ -3,7 +3,7 @@ import shopifyClient from "./shopify-client";
 
 const fetchProductsQuery = `
 query fetchProductsQuery($after: String) {
-  products(first: 30, after: $after) {
+  products(first: 60, after: $after) {
     nodes {
       handle
       id
