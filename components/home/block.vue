@@ -1,8 +1,8 @@
 <template>
   <a href="#"
-    class=" rounded-lg flex items-center justify-between mt-72  object-cover"
+    class="flex items-center justify-between mt-72  object-cover"
   >
-  <img src="https://ccdstest.b-cdn.net/Medi%20u/Main.png" alt=""></a>
+  <img src="https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(11)%20(1).png" alt=""></a>
 </template>
 
 <script>

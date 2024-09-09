@@ -1,49 +1,52 @@
 <template>
-  <div
-    class="bg-[#28564D] text-white py-16  mb-10  rounded-lg"
-  >
+  <div class="bg-[#28564D] text-white py-16 mb-10 rounded-lg">
     <h2 class="text-[50px] text-center pb-14">World's Top Doctors</h2>
     <div class="flex justify-center space-x-6 my-10">
-      <!-- Dr. Wade Warren -->
-      <div class="relative w-60 lg:w-64 xl:w-72 group transform -translate-y-8">
+      <!-- Dr. Akhil Agarwal -->
+      <div class="relative w-60 lg:w-96 xl:w-96 group transform -translate-y-8">
         <img
-          src="https://ccdstest.b-cdn.net/Medi%20u/Image%20(3).png"
-          alt="Dr. Wade Warren"
+          src="https://ccdstest.b-cdn.net/Medi%20u/sir.jpg"
+          alt="Dr. Akhil Agarwal"
           class="w-full rounded-2xl shadow-lg"
         />
         <div
           class="absolute inset-0 bg-black bg-opacity-75 rounded-2xl top-0 flex-col flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
-          <span class="text-lg">Dr. Wade Warren</span>
+          <span class="text-lg">Dr. Akhil Agarwal</span>
           <p class="text-white p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            interdum dui et magna blandit, quis facilisis sapien sagittis.
+            Health is a precious asset that we often take for granted. By
+            embracing a balanced lifestyle and early preventive care, we can
+            avoid many challenges. My message to all is simple: invest in your
+            health today for a better tomorrow." – Dr. Akhil Agarwal
           </p>
         </div>
         <div
-          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-80  flex  justify-center items-center"
+          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-80 flex justify-center items-center"
         >
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
           >
-            Dr. Wade Warren
+            Dr. Akhil Agarwal
           </p>
         </div>
       </div>
-      <!-- Dr. Cameron Williamson -->
-      <div class="relative w-60 lg:w-64 xl:w-72 group transform translate-y-4">
+      <!-- Dr. Sumiti Pareek -->
+      <div class="relative w-60 lg:w-96 xl:w-96 group transform translate-y-4">
         <img
-          src="https://ccdstest.b-cdn.net/Medi%20u/Image%20(3).png"
-          alt="Dr. Cameron Williamson"
+          src="https://ccdstest.b-cdn.net/Medi%20u/mam%202.jpg"
+          alt="Dr. Sumiti Pareek"
           class="w-full rounded-2xl shadow-lg"
         />
         <div
           class="absolute inset-0 bg-black bg-opacity-75 rounded-2xl top-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
-          <span class="text-lg">Dr. Cameron Williamson</span>
+          <span class="text-lg">Dr. Sumiti Pareek</span>
           <p class="text-white p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            interdum dui et magna blandit, quis facilisis sapien sagittis.
+            Good health is the foundation of a fulfilling life. As healthcare
+            professionals, we must prioritize patient-centered care, focusing
+            not only on treatment but also on preventive measures. Together, we
+            can create a healthier, more informed society by promoting wellness
+            and compassion." – Dr. Sumiti Pareek
           </p>
         </div>
         <div
@@ -52,50 +55,56 @@
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
           >
-            Dr. Cameron Williamson
+            Dr. Sumiti Pareek
           </p>
         </div>
       </div>
-      <!-- Dr. Guy Hawkins -->
-      <div class="relative w-60 lg:w-64 xl:w-72 group transform -translate-y-8">
+      <!-- Dr. Akhil Agarwal -->
+      <div class="relative w-60 lg:w-96 xl:w-96 group transform -translate-y-8">
         <img
-          src="https://ccdstest.b-cdn.net/Medi%20u/Image%20(2).png"
-          alt="Dr. Guy Hawkins"
+          src="https://ccdstest.b-cdn.net/Medi%20u/sir.jpg"
+          alt="Dr. Akhil Agarwal"
           class="w-full rounded-2xl shadow-lg"
         />
         <div
           class="absolute inset-0 bg-black bg-opacity-75 rounded-2xl top-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
-          <span class="text-lg">Dr. Guy Hawkins</span>
+          <span class="text-lg">Dr. Akhil Agarwal</span>
           <p class="text-white p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            interdum dui et magna blandit, quis facilisis sapien sagittis.
+            Health is a precious asset that we often take for granted. By
+            embracing a balanced lifestyle and early preventive care, we can
+            avoid many challenges. My message to all is simple: invest in your
+            health today for a better tomorrow." – Dr. Akhil Agarwal
           </p>
         </div>
         <div
-          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-80  flex justify-center items-center"
+          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-80 flex justify-center items-center"
         >
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
           >
-            Dr. Guy Hawkins
+            Dr. Akhil Agarwal
           </p>
         </div>
       </div>
-      <!-- Dr. Leslie Alexander -->
-      <div class="relative w-60 lg:w-64 xl:w-72 group transform translate-y-4">
+      <!-- Dr. Sumiti Pareek -->
+      <div class="relative w-60 lg:w-96 xl:w-96 group transform translate-y-4">
         <img
-          src="https://ccdstest.b-cdn.net/Medi%20u/Rectangle.png"
-          alt="Dr. Leslie Alexander"
+          src="https://ccdstest.b-cdn.net/Medi%20u/mam%202.jpg"
+          alt="Dr. Sumiti Pareek"
           class="w-full rounded-2xl shadow-lg"
         />
         <div
           class="absolute inset-0 bg-black bg-opacity-75 rounded-2xl flex flex-col top-0 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
-          <span class="text-lg">Dr. Leslie Alexander</span>
+          <span class="text-lg">Dr. Sumiti Pareek</span>
           <p class="text-white p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            interdum dui et magna blandit, quis facilisis sapien sagittis.
+            <span class="text-lg">Dr. Sumiti Pareek</span>
+            Good health is the foundation of a fulfilling life. As healthcare
+            professionals, we must prioritize patient-centered care, focusing
+            not only on treatment but also on preventive measures. Together, we
+            can create a healthier, more informed society by promoting wellness
+            and compassion." – Dr. Sumiti Pareek
           </p>
         </div>
         <div
@@ -104,7 +113,7 @@
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
           >
-            Dr. Leslie Alexander
+            Dr. Sumiti Pareek
           </p>
         </div>
       </div>
