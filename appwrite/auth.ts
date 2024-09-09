@@ -60,4 +60,4 @@ export const loginUser = async (data: { email: string; password: string }) => {
   accessTokenCookie.value = accessToken;
 };
 
-export   const getUser = async () => account.get();
+export const getUser = async () => account.get();

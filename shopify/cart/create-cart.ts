@@ -11,17 +11,19 @@ mutation createCartMutation {
 }
 `;
 
-
-
-
 export default async function createShopifyCart() {
   const { data } = await shopifyClient.request(createCartMutation);
-  const cart = data?.cartCreate?.cart;
+  const userStore = useUserStore();
+  const cart = data?.cartCreate?.cart as
+    | null
+    | undefined
+    | { id: string; checkoutUrl: string };
   if (cart?.id) {
-    return cart as { id: string; checkoutUrl: string };
+    userStore.setShopifyCartId(cart.id);
+    return cart;
   }
-  console.log("cart",cart)
+  console.log("cart", cart);
   throw new Error(
-    "Unable to create create at the time... Please try again later."
+    "Unable to create cart at the time... Please try again later."
   );
 }
