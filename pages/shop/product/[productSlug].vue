@@ -19,7 +19,7 @@
          <!-- {{ data }} -->
          <ShopAddingToCartBtn :productID="data.id" cartID="#cartid" />
          <ShopAddingToWishList :productID="data.id" cartID="#cartid" />
-
+            <ShopSharebtn :productLink="`http://localhost:3000/shop/product/${data.handle}`"/>
     </div>
 </template>
 
