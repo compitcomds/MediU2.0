@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui"],
+  modules: ["@nuxt/ui", "@pinia/nuxt"],
   compatibilityDate: "2024-09-08",
   runtimeConfig: {
     public: {
@@ -11,7 +11,7 @@ export default defineNuxtConfig({
 
       appwriteDatabaseId: "66b48885002523c4c882",
       appwriteUsersCollectionId: "66b5c37300113936e9a1",
-      baseURL: "http://localhost:3000 "
-    }
-  }
-})
+      baseURL: "http://localhost:3000 ",
+    },
+  },
+});
