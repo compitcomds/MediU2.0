@@ -17,6 +17,7 @@ export default async function createShopifyCart() {
   if (cart?.id) {
     return cart as { id: string; checkoutUrl: string };
   }
+  
   throw new Error(
     "Unable to create create at the time... Please try again later."
   );
