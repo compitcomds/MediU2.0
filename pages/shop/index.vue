@@ -8,6 +8,7 @@
     <div>
             <ShopCard :productDetails="products"/>
     </div>
+    
 </template>
 
 <script setup>
