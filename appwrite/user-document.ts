@@ -1,4 +1,4 @@
-import { Permission, Role } from "node-appwrite";;
+import { Permission, Role } from "appwrite";
 import { database } from "./config";
 
 const appwriteDatabaseId = String(import.meta.env.VITE_APPWRITE_DATABASE_ID);

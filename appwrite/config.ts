@@ -1,5 +1,5 @@
 // import { Account, Client, Databases } from "appwrite"
-import { Account, Client, Databases }  from "node-appwrite";
+import { Account, Client, Databases }  from "appwrite";
 
 const client = new Client();
 
