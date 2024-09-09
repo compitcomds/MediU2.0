@@ -7,4 +7,7 @@ export const useTestStore = defineStore("test", {
       this.count++;
     },
   },
+  persist: {
+    storage: piniaPluginPersistedstate.localStorage(),
+  },
 });
