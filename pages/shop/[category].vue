@@ -3,10 +3,10 @@
       this is [category] shop page like hair, skin, baby care {{ category }}
       <ShopFilterbar :category="category" />
       
-      <!-- Display products when available -->
+      
       <ShopCard v-if="products.length" :productDetails="products" />
       
-      <!-- Loading state -->
+
       <p v-else>Loading products...</p>
     </div>
   </template>
@@ -24,7 +24,7 @@
   onMounted(async () => {
     try {
       const result = await fetchProductsByCollection(category);
-      products.value = result.products; // Assign the products to the ref
+      products.value = result.products;
     } catch (error) {
       console.error('Error fetching products:', error);
     }
