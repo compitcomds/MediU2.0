@@ -6,6 +6,7 @@
       
       <ShopCard v-if="products.length" :productDetails="products" />
       
+      
 
       <p v-else>Loading products...</p>
     </div>
