@@ -68,7 +68,7 @@ watch(isOpen, async (newValue) => {
         </pre> -->
 
          <hr>
-         <ShopAddingToCartBtn />
+         <ShopAddingToCartBtn :productID="singleProduct.id" cartID="#cartid" />
          <ShopAddingToWishList />
          <ShopSharebtn :productLink="`http://localhost:3000/shop/product/${singleProduct.handle}`" />
 

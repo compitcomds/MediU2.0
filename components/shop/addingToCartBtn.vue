@@ -1,15 +1,31 @@
 <template>
     <div>
-        add to cart btn
+        <div class="p-2 bg-orange-400 ">
+          click to add to cart btn
+        {{ productID }}
+        <br>
+        {{ cartID }}
+      </div>
     </div>
-</template>
+  </template>
+  
+  <script>
+  export default {
 
-<script>
-    export default {
-        
-    }
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+    props: {
+      productID: {
+        type: String,
+        required: true,
+      },
+      cartID: {
+        type: String,
+        required: true,
+      },
+    },
+  };
+  </script>
+  
+  <style scoped>
+  /* Add styles here if needed */
+  </style>
+  

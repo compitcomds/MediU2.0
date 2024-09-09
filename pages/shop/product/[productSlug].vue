@@ -17,6 +17,9 @@
          {{ data.price.currencyCode }}
          {{ data.currentlyNotInStock }} <br>
          <!-- {{ data }} -->
+         <ShopAddingToCartBtn :productID="data.id" cartID="#cartid" />
+         <ShopAddingToWishList :productID="data.id" cartID="#cartid" />
+
     </div>
 </template>
 
