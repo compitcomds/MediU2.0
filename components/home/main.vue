@@ -1,6 +1,6 @@
 <template>
   <section
-    class="bg-[#28574E] text-white py-12 h-[550px] xl:h-[650px] lg:h-[550px] mt-[150px]"
+    class="bg-[#28574E] text-white py-12 h-[550px] xl:h-[650px] lg:h-[550px] mt-[0px] pt-16"
   >
     <div class="w-full text-center px-4">
       <h1 class="text-4xl xl:text-5xl font-bold mb-4">
@@ -59,7 +59,7 @@
             @click="currentSlide = index"
             :class="[
               ' rounded-full cursor-pointer',
-              currentSlide === index ? 'bg-teal-800 h-3 w-6' : 'bg-gray-400 h-3 w-3',
+              currentSlide === index ? 'bg-teal-800 h-3 w-6' : 'bg-slate-400 h-3 w-3',
             ]"
           ></span>
         </div>

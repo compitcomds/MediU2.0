@@ -1,9 +1,9 @@
 <template>
     <section class="lg:px-4 xl:px-12 mt-56 mb-16">
-      <div class="bg-gray-900 text-white xl:h-[488.035px] h-[437.000px] rounded-3xl flex flex-col md:flex-row items-center justify-between p-8 relative ">
+      <div class="bg-black text-white xl:h-[488.035px] h-[437.000px] rounded-3xl flex flex-col md:flex-row items-center justify-between p-8 relative ">
         <div class="md:w-1/2 mb-6 md:mb-0 ">
           <h2 class="text-5xl font-semibold py-4 mb-4">Teleconsult Our <br> Expert Team</h2>
-          <a href="#" class="bg-white text-lg text-gray-900 py-2 px-4 rounded-full shadow-md">
+          <a href="#" class="bg-white text-lg text-black py-2 px-4 rounded-full shadow-md">
             Book a Call
           </a>
         </div>
