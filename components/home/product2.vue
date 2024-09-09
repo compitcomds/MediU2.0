@@ -11,10 +11,10 @@
       <div class="w-5/12">
         <div class="diff lg:aspect-[9/14] xl:aspect-[9/13]">
           <div class="diff-item-1">
-            <img alt="daisy" src="https://img.daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a.webp" />
+            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/4.png" />
           </div>
           <div class="diff-item-2">
-            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/blur.webp" />
+            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/3.png" />
           </div>
           <div class="diff-resizer"></div>
         </div>
@@ -25,20 +25,20 @@
           <button @click="filterProducts('Hyperpigmentation')" :class="{
             'bg-[#28574E] text-white':
               selectedCategory === 'Hyperpigmentation',
-            'bg-gray-300 text-black':
+            'bg-slate-300 text-black':
               selectedCategory !== 'Hyperpigmentation',
           }" class="py-2 px-4 rounded-full w-full">
             Hyperpigmentation
           </button>
           <button @click="filterProducts('Eczema')" :class="{
             'bg-[#28574E] text-white': selectedCategory === 'Eczema',
-            'bg-gray-300 text-black': selectedCategory !== 'Eczema',
+            'bg-slate-300 text-black': selectedCategory !== 'Eczema',
           }" class="py-2 px-4 rounded-full ml-2 w-full">
             Eczema
           </button>
           <button @click="filterProducts('Acne')" :class="{
             'bg-[#28574E] text-white': selectedCategory === 'Acne',
-            'bg-gray-300 text-black': selectedCategory !== 'Acne',
+            'bg-slate-300 text-black': selectedCategory !== 'Acne',
           }" class="py-2 px-4 rounded-full ml-2 w-full">
             Acne
           </button>
