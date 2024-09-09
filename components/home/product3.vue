@@ -69,10 +69,10 @@
       <div class="w-5/12">
         <div class="diff lg:aspect-[9/14] xl:aspect-[9/13]">
           <div class="diff-item-1">
-            <img alt="daisy" src="https://img.daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a.webp" />
+            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/8.png" />
           </div>
           <div class="diff-item-2">
-            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/blur.webp" />
+            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/7.png" />
           </div>
           <div class="diff-resizer"></div>
         </div>
