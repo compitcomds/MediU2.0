@@ -2,6 +2,7 @@
     <div>
         {{ productHandle }}
         <hr>
+=
          {{ data.title }} <br>
          {{ data.descriptionHtml }} <br>
          {{ data.options }} <br>
@@ -14,9 +15,12 @@
          {{ ! data.currentlyNotInStock }} <br>
         qty -- {{ data.quantityAvailable }} <br>
          {{ data.price.currencyCode }}
-         {{ data.price.currencyCode }}
-         {{ data.currentlyNotInStock }} <br>
+         {{ data.price.amount }}
+                             <br>
          <!-- {{ data }} -->
+         <ShopAddingToCartBtn :productID="data.id" cartID="#cartid" />
+         <ShopAddingToWishList :productID="data.id" cartID="#cartid" />
+            <ShopSharebtn :productLink="`http://localhost:3000/shop/product/${data.handle}`"/>
     </div>
 </template>
 

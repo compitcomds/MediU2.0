@@ -1,6 +1,7 @@
 import registerUserIntoShopify from "~/shopify/user/register";
 import { createUserDocument, getUserDocument } from "./user-document";
-import { ID } from "appwrite";
+// import { ID } from '~appwrite';
+import { ID } from "node-appwrite";
 import { account } from "./config";
 import loginShopifyUserAccount from "~/shopify/user/login";
 

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-purple-300">
       <button @click="shareProduct">Share this product</button>
       <p>Link: {{ productLink }}</p>
     </div>
