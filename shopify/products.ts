@@ -1,8 +1,9 @@
+import Product from "~/components/home/product.vue";
 import shopifyClient from "./shopify-client";
 
 const fetchProductsQuery = `
 query fetchProductsQuery($after: String) {
-  products(first: 100, after: $after) {
+  products(first: 60, after: $after) {
     nodes {
       handle
       id
@@ -33,6 +34,8 @@ query fetchProductsQuery($after: String) {
 }
 `;
 
+
+
 export const fetchProducts = async (after?: string) => {
   const { data } = await shopifyClient.request(fetchProductsQuery, {
     variables: { after },
@@ -62,3 +65,11 @@ export const fetchProducts = async (after?: string) => {
 
   throw new Error("Failed to fetch products.");
 };
+
+
+
+
+// #_________________________________________________________________________________________________
+
+
+

@@ -73,6 +73,7 @@ watch(isOpen, async (newValue) => {
          <ShopSharebtn :productLink="`http://localhost:3000/shop/product/${singleProduct.handle}`" />
 
       </div>
+      
     </UModal>
   </div>
 </template>
