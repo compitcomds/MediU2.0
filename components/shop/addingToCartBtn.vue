@@ -1,26 +1,43 @@
 <template>
   <div>
-    <div class="p-2 bg-orange-400">
+    <button
+      @click="addProductToCart"
+      class="p-2 bg-orange-100 text-black disabled:cursor-not-allowed disabled:animate-pulse"
+      :disabled="isAddingProductToCart"
+    >
       click to add to cart btn
-      {{ productID }}
+      {{ props.productId }}
       <br />
-      {{ cartID }}
-    </div>
+      {{ store.shopifyCartId }}
+    </button>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    productID: {
-      type: String,
-      required: true,
-    },
-    cartID: {
-      type: String,
-      required: true,
-    },
+<script setup>
+import addToCart from "~/shopify/cart/add-to-cart";
+
+const props = defineProps({
+  productId: {
+    type: String,
+    required: true,
   },
+});
+
+const isAddingProductToCart = ref(false);
+
+const store = useUserStore();
+
+const addProductToCart = async () => {
+  if (!props.productId) return;
+  isAddingProductToCart.value = true;
+  try {
+    await addToCart({ merchandiseId: props.productId });
+    alert("Successfully added to the cart.");
+  } catch (error) {
+    alert("Unable to add the product to cart");
+  } finally {
+    isAddingProductToCart.value = false;
+  }
 };
 </script>
 

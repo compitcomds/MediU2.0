@@ -21,7 +21,7 @@ export default async function addToCart({
 }: {
   merchandiseId: string;
 }) {
-  const cartId = useUserStore().shopifyCartId;
+  const cartId = await useUserStore().getShopifyCartId();
   if (!cartId) {
     await createShopifyCart();
     return await addToCart({ merchandiseId });
