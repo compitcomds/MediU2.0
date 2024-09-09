@@ -9,6 +9,7 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+
 });
 
 // Watch for changes to `isOpen`
@@ -67,9 +68,10 @@ watch(isOpen, async (newValue) => {
         </pre> -->
 
          <hr>
-         <nuxt-link to="#">add to cart</nuxt-link> <br>
-         <nuxt-link to="#">wishlist</nuxt-link> <br>
-         <nuxt-link to="#">Share</nuxt-link> <br>
+         <ShopAddingToCartBtn />
+         <ShopAddingToWishList />
+         <ShopSharebtn :productLink="`http://localhost:3000/shop/product/${singleProduct.handle}`" />
+
       </div>
     </UModal>
   </div>
