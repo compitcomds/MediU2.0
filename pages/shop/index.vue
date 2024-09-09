@@ -3,8 +3,6 @@
     <div>
         <ShopFilterbar/>     
     </div>
-
-
     <div>
             <ShopCard :productDetails="products"/>
     </div>
