@@ -1,18 +1,30 @@
 <template>
-    
-
     <div>
-        <br>
-        {{ filterBarDataBabycare }} 
-        <br>
-        {{ filterBarDataHair }}
-        <br>
-        {{ filterBarDataBabycare }}
+        <div v-if="category==='skin'">
+            {{ filterBarDataSkin }} 
+        </div>  
+        <div v-else-if="category ==='hair'">      
+            {{ filterBarDataHair }}
+        </div>
+        <div v-else-if="category === 'babycare'">
+            {{ filterBarDataBabycare }}
+        </div>
+        <div v-else>
+            {{allShopFilter}}
+        </div>
+        
     </div>
 
 </template>
 
 <script setup>
+
+const props = defineProps({
+    category: {
+    type: Object,
+    required: true,
+  },
+});
 
 const filterBarDataSkin = {
     brand: [
@@ -106,6 +118,93 @@ const filterBarDataBabycare = {
         "Baby Powder"
     ]
 };
+
+const allShopFilter = {
+    brand: [
+        ...new Set([
+            // Brands from Skin
+            "Neutrogena",
+            "Olay",
+            "CeraVe",
+            "La Roche-Posay",
+            "Eucerin",
+            // Brands from Hair
+            "Pantene",
+            "Garnier",
+            "Tresemmé",
+            "Redken",
+            "Matrix",
+            // Brands from Babycare
+            "Johnson's Baby",
+            "Aveeno Baby",
+            "Burt's Bees Baby",
+            "Mustela",
+            "Huggies"
+        ])
+    ],
+    filter: [
+        ...new Set([
+            // Filters from Skin
+            "Hydrating",
+            "Anti-Aging",
+            "Sensitive Skin",
+            "Oil-Free",
+            "Non-Comedogenic",
+            // Filters from Hair
+            "Volume",
+            "Color Protection",
+            "Frizz Control",
+            "Repair",
+            // Filters from Babycare
+            "Hypoallergenic",
+            "Fragrance-Free",
+            "Gentle",
+            "Moisturizing",
+            "Dermatologist-Tested"
+        ])
+    ],
+    tags: [
+        ...new Set([
+            // Tags from Skin
+            "Cruelty-Free",
+            "Fragrance-Free",
+            "Organic",
+            "Vegan",
+            "Dermatologist-Tested",
+            // Tags from Hair
+            "Sulfate-Free",
+            "Paraben-Free",
+            "For Curly Hair",
+            // Tags from Babycare
+            "Sensitive Skin",
+            "Clinically Proven"
+        ])
+    ],
+    category: [
+        ...new Set([
+            // Categories from Skin
+            "Cleansers",
+            "Moisturizers",
+            "Serums",
+            "Sunscreens",
+            "Face Masks",
+            // Categories from Hair
+            "Shampoos",
+            "Conditioners",
+            "Hair Treatments",
+            "Styling Products",
+            "Hair Masks",
+            // Categories from Babycare
+            "Diapers",
+            "Baby Wipes",
+            "Baby Lotion",
+            "Shampoo & Body Wash",
+            "Baby Powder"
+        ])
+    ]
+};
+
+
 
 </script>
 

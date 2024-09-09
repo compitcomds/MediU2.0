@@ -5,11 +5,13 @@
         {{ product.title }} <br>
         {{ product.currency }}
         {{ product.price }} <br>
+        {{ product.handle}}
         
         <hr>
         <nuxt-link to="#">add to cart</nuxt-link> <br>
         <shopQuickview :singleProduct="product" />
-        <nuxt-link to="#">open the product </nuxt-link> <br>
+        <nuxt-link :to="`shop/product/${product.handle}`">Open the product</nuxt-link>
+
     </div>
 </template>
 
