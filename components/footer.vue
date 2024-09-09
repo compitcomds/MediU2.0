@@ -62,7 +62,7 @@
             </a>
             <a href="#">
               <img
-                src="https://mcqmate.com/public/images/icons/playstore.svg"
+                src="https://ccdstest.b-cdn.net/Medi%20u/image%2010.png"
                 alt="Google Play"
                 class="w-32 inline-block"
               />
