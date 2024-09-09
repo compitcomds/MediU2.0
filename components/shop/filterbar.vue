@@ -1,5 +1,5 @@
 <template>
-    <div class="w-1/6 p-2 m-2">
+    <div >
         <div v-if="category==='skin'">
             {{ filterBarDataSkin }} 
         </div>  
