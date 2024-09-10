@@ -1,32 +1,3 @@
-<script setup lang="ts">
-import { getProductData } from '~/shopify/productDetails';
-const isOpen = ref(false);
-// for solving an error for not geting open the model or not defaluti function make an *product define* 
-const productData = ref({});
-
-const props = defineProps({
-    singleProduct: {
-    type: Object,
-    required: true,
-  },
-
-});
-
-// Watch for changes to `isOpen`
-watch(isOpen, async (newValue) => {
-  if (newValue) {
-    try {
-      const data = await getProductData(props.singleProduct.handle);
-      productData.value = data; // Update reactive variable
-
-    } catch (error) {
-      console.error('Error fetching product data:', error);
-    }
-  }
-});
-
-</script>
-
 <template>
   <div>
     <UButton label="QUICK VIEW" @click="isOpen = true" />
@@ -77,3 +48,31 @@ watch(isOpen, async (newValue) => {
     </UModal>
   </div>
 </template>
+<script setup lang="ts">
+import { getProductData } from '~/shopify/productDetails';
+const isOpen = ref(false);
+// for solving an error for not geting open the model or not defaluti function make an *product define* 
+const productData = ref({});
+
+const props = defineProps({
+    singleProduct: {
+    type: Object,
+    required: true,
+  },
+
+});
+
+// Watch for changes to `isOpen`
+watch(isOpen, async (newValue) => {
+  if (newValue) {
+    try {
+      const data = await getProductData(props.singleProduct.handle);
+      productData.value = data; // Update reactive variable
+
+    } catch (error) {
+      console.error('Error fetching product data:', error);
+    }
+  }
+});
+
+</script>
