@@ -18,7 +18,7 @@ export const registerUser = async (data: {
     `${data.firstName} ${data.lastName}`
   );
 
-  const loggedInUser = await loginUser(data);
+  await createLoggedSession(data);
 
   const shopifyPassword = ID.unique();
   const { id: shopifyCustomerId } = await registerUserIntoShopify({
@@ -32,16 +32,11 @@ export const registerUser = async (data: {
     wishlist: [],
   });
 
-  return loggedInUser;
+  return await loginUser(data);
 };
 
 export const loginUser = async (data: { email: string; password: string }) => {
-  try {
-    await account.createEmailPasswordSession(data.email, data.password);
-  } catch (error) {
-    await account.deleteSession("current");
-    await account.createEmailPasswordSession(data.email, data.password);
-  }
+  await createLoggedSession(data);
 
   const userAccount = await getUser();
   const userDocument = await getUserDocument(userAccount.$id);
@@ -61,3 +56,12 @@ export const loginUser = async (data: { email: string; password: string }) => {
 };
 
 export const getUser = async () => account.get();
+
+async function createLoggedSession(data: { email: string; password: string }) {
+  try {
+    await account.createEmailPasswordSession(data.email, data.password);
+  } catch (error) {
+    await account.deleteSession("current");
+    await account.createEmailPasswordSession(data.email, data.password);
+  }
+}
