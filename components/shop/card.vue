@@ -43,7 +43,7 @@
             <button
               class="bg-white text-black rounded-lg font-semibold py-2 px-4 align-middle flex justify-center items-center text-center shadow-md"
             >
-              Quick View
+              <ShopQuickview :singleProduct="product"/>
             </button>
           </div>
         </div>
