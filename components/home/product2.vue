@@ -50,19 +50,19 @@
               <span v-if="product.isOnSale" class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 py-1 rounded">Sale 50%</span>
               <img :src="product.image" class="w-full" alt="" />
             </div>
-            <div class="mt-4">
-              <h3 class="text-black">{{ product.name }}</h3>
+            <div class="mt-4 space-y-2">
+              <h3 class="text-black uppercase text-2xl">{{ product.name }}</h3>
               <div class="flex justify-between items-center">
-                <div class="flex">
+                <div class="flex text-xl">
                   <p class="text-[#28574E] font-bold">
-                    {{ product.salePrice }}
+                    ₹{{ product.salePrice }}
                   </p>
                   <p class="text-gray-500 text-sm line-through" v-if="product.isOnSale">
-                    {{ product.originalPrice }}
+                    ₹{{ product.originalPrice }}
                   </p>
                 </div>
                 <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
-                  <a :href="product.url"><img src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg" alt="" /></a>
+                  <a :href="product.url"><img src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg" class="w-8 p-1"  alt="" /></a>
                 </div>
               </div>
               <div class="flex items-center mt-2">
@@ -78,7 +78,7 @@
           </a>
         </div>
         <div class="mt-4 text-right">
-          <a href="#" class="text-blue-500">Explore More →</a>
+          <a href="/shop" class="text-blue-500">Explore More →</a>
         </div>
       </div>
     </div>
@@ -93,66 +93,66 @@ export default {
       products: [
         {
           id: 1,
-          name: "Fresh Day Serum",
-          salePrice: "$14.99",
-          originalPrice: "$20.99",
+          name: "Bontess Pro",
+          salePrice: "1225",
+          originalPrice: "2500",
           rating: 4,
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/products/productDescription",
         },
         {
           id: 2,
-          name: "Calming Lotion",
-          salePrice: "$19.99",
-          originalPrice: "$29.99",
+          name: "ACNE OC MOISTURISER",
+          salePrice: "567",
+          originalPrice: "1120",
           rating: 5,
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/products/productDescription",
         },
         {
           id: 3,
-          name: "Clear Skin Cream",
-          salePrice: "$24.99",
-          originalPrice: "$34.99",
+          name: "DERMATICA HA PURE SE...",
+          salePrice: "1180",
+          originalPrice: "2360",
           rating: 4,
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/products/productDescription",
         },
         {
           id: 4,
-          name: "Brightening Toner",
-          salePrice: "$15.99",
-          originalPrice: "$25.99",
+          name: "DERMATICA RAY PROTECT BARELYON",
+          salePrice: "1080",
+          originalPrice: "2160",
           rating: 3,
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/products/productDescription",
         },
         {
           id: 5,
-          name: "Soothing Balm",
-          salePrice: "$12.99",
-          originalPrice: "$18.99",
+          name: "RACINE PRO CONDITIONING SHA...",
+          salePrice: "635.0",
+          originalPrice: "1270",
           rating: 5,
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/products/productDescription",
         },
         {
           id: 6,
-          name: "Anti-Acne Gel",
-          salePrice: "$16.99",
-          originalPrice: "$22.99",
+          name: "ACNE UV SPF 50 SUNSCREEN 50 GM",
+          salePrice: "915.0",
+          originalPrice: "1830",
           rating: 4,
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4357.jpg?v=1725638245",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/products/productDescription",

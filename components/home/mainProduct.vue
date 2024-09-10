@@ -216,7 +216,7 @@
                   </div>
                   <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                     <img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
+                      src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg" class="w-8 p-1" 
                       alt=""
                     />
                   </div>
@@ -283,7 +283,7 @@
                   </div>
                   <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                     <img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
+                      src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg" class="w-8 p-1" 
                       alt=""
                     />
                   </div>
@@ -388,7 +388,7 @@
                   </div>
                   <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                     <img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
+                      src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg" class="w-8 p-1" 
                       alt=""
                     />
                   </div>
@@ -460,7 +460,7 @@
                 <span class="text-green-500 text-xl">${{ product.price }}</span>
               </div>
               <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
-                <img src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg" alt="" />
+                <img src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg" class="w-8 p-1"  alt="" />
               </div>
             </div>
             <div class="flex items-center mt-2">

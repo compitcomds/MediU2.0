@@ -1,9 +1,5 @@
 <template>
-  {{ store.count }}
-  <button @click="store.increment">Increase count</button>
-  <div>
-    <ShopFilterbar />
-  </div>
+<ShopUserSidebar/>
 </template>
 
 <script setup>

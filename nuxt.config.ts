@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"],
+  modules: [
+    "@nuxt/ui",
+    "@pinia/nuxt",
+    "pinia-plugin-persistedstate/nuxt",
+    "vue3-carousel-nuxt",
+  ],
   compatibilityDate: "2024-09-08",
   runtimeConfig: {
     public: {
@@ -14,4 +19,5 @@ export default defineNuxtConfig({
       baseURL: "http://localhost:3000 ",
     },
   },
+  
 });
