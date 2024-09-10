@@ -1,7 +1,7 @@
 import shopifyClient from "./shopify-client";
 
 const intialProductQuery = `
-query productInitialQuery($handle: String!) {
+query productWithVariantsQuery($handle: String!) {
   product(handle: $handle) {
     availableForSale
     descriptionHtml
@@ -42,6 +42,30 @@ query productInitialQuery($handle: String!) {
     otherInfo: metafield(key: "other_info", namespace: "custom") {
       value
     }
+    variants(first: 10) {
+      edges {
+        node {
+          id
+          title
+          availableForSale
+          price {
+            amount
+            currencyCode
+          }
+          quantityAvailable
+          selectedOptions {
+            name
+            value
+          }
+          image {
+            url
+            altText
+            height
+            width
+          }
+        }
+      }
+    }
   }
 }
 `;
@@ -77,98 +101,121 @@ query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInp
 `;
 
 export async function getInitalProductData(handle: string) {
-  const { data } = await shopifyClient.request(intialProductQuery, {
-    variables: { handle },
-  });
-  if (!data.product) throw new Error("Product could not be found.");
-  const product = data.product as {
-    handle: string;
-    id: string;
-    title: string;
-    description: string;
-    descriptionHtml: string;
-    availableForSale: boolean;
-    options: Array<{ name: string; values: string[] }>;
-    keyBenefits: {
-      value: string;
-    };
-    howToUse: {
-      value: string;
-    };
-    safetyInformationAndPrecaution: {
-      value: string;
-    };
-    otherInfo: {
-      value: string;
-    };
-    featuredImage: {
-      url: string;
-      altText: string;
-      width: number;
-      height: number;
-    };
-    images: {
-      nodes: Array<{
+  try {
+    const { data } = await shopifyClient.request(intialProductQuery, {
+      variables: { handle },
+    });
+    console.log('Initial Product Data:', data);
+    if (!data.product) throw new Error("Product could not be found.");
+    const product = data.product as {
+      handle: string;
+      id: string;
+      title: string;
+      description: string;
+      descriptionHtml: string;
+      availableForSale: boolean;
+      options: Array<{ name: string; values: string[] }>;
+      keyBenefits: {
+        value: string;
+      };
+      howToUse: {
+        value: string;
+      };
+      safetyInformationAndPrecaution: {
+        value: string;
+      };
+      otherInfo: {
+        value: string;
+      };
+      featuredImage: {
         url: string;
         altText: string;
         width: number;
         height: number;
-      }>;
+      };
+      images: {
+        nodes: Array<{
+          url: string;
+          altText: string;
+          width: number;
+          height: number;
+        }>;
+      };
     };
-  };
-  const returnData = {
-    ...product,
-    images: product.images.nodes,
-    currentlyNotInStock: false,
-    productId: product.id,
-  };
+    const returnData = {
+      ...product,
+      images: product.images.nodes,
+      currentlyNotInStock: false,
+      productId: product.id,
+    };
 
-  return returnData;
+    return returnData;
+  } catch (error) {
+    console.error('Error fetching initial product data:', error);
+    throw error;
+  }
 }
 
 export async function getProductData(
   handle: string,
   options?: Record<string, string | string[]>
 ) {
-  const initalProductData = await getInitalProductData(handle);
-  const selectedOptions: Array<{ name: string; value: string }> = [];
-  const toFetchOptions = Object.keys(options || {});
-  for (const opt of initalProductData.options) {
-    if (toFetchOptions.includes(opt.name) && options) {
-      const optionValue = options[opt.name];
-      const value = Array.isArray(optionValue) ? optionValue[0] : optionValue;
-      selectedOptions.push({ name: opt.name, value });
-      continue;
+  try {
+    const initalProductData = await getInitalProductData(handle);
+    console.log('Initial Product Data for Variant Query:', initalProductData);
+    
+    const selectedOptions: Array<{ name: string; value: string }> = [];
+    const toFetchOptions = Object.keys(options || {});
+    for (const opt of initalProductData.options) {
+      if (toFetchOptions.includes(opt.name) && options) {
+        const optionValue = options[opt.name];
+        const value = Array.isArray(optionValue) ? optionValue[0] : optionValue;
+        selectedOptions.push({ name: opt.name, value });
+        continue;
+      }
+      selectedOptions.push({ name: opt.name, value: opt.values[0] });
     }
-    selectedOptions.push({ name: opt.name, value: opt.values[0] });
-  }
-  const { data } = await shopifyClient.request(productVariantQuery, {
-    variables: { handle, selectedOptions },
-  });
-  if (!data?.product?.variantBySelectedOptions)
-    throw new Error("Internal Server Error While Fetching Product Variant.");
-  const variant = data.product.variantBySelectedOptions as {
-    quantityAvailable: number;
-    id: string;
-    currentlyNotInStock: boolean;
-    image: Array<{
-      url: string;
-      altText: string;
-      height: number;
-      width: number;
-    }>;
-    price: {
-      amount: string;
-      currencyCode: string;
+    
+    const { data } = await shopifyClient.request(productVariantQuery, {
+      variables: { handle, selectedOptions },
+    });
+    console.log('Product Variant Data:', data);
+    
+    if (!data?.product?.variantBySelectedOptions)
+      throw new Error("Internal Server Error While Fetching Product Variant.");
+      
+    const variant = data.product.variantBySelectedOptions as {
+      quantityAvailable: number;
+      id: string;
+      currentlyNotInStock: boolean;
+      image: {
+        url: string;
+        altText: string;
+        height: number;
+        width: number;
+      };
+      price: {
+        amount: string;
+        currencyCode: string;
+      };
+      selectedOptions: Array<{
+        name: string;
+        value: string;
+      }>;
     };
-    selectedOptions: Array<{
-      name: string;
-      value: string;
-    }>;
-  };
 
-  return {
-    ...initalProductData,
-    ...variant,
-  };
+    return {
+      ...initalProductData,
+      ...variant,
+      variantId: variant.id,
+      quantityAvailable: variant.quantityAvailable,
+      currentlyNotInStock: variant.currentlyNotInStock,
+      variantImages: [variant.image],
+      price: variant.price,
+      selectedOptions: variant.selectedOptions,
+    };
+  } catch (error) {
+    console.error('Error fetching product variant data:', error);
+    throw error;
+  }
 }

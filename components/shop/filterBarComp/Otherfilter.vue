@@ -1,12 +1,12 @@
 <template>
     <div class="bg-white rounded px-2">
         <div class="py-2">
-           <p class="text-black">
+           <p class="text-black font-bold">
             Other Filter
            </p>
         </div>
         <hr>
-        <div class="h-48 overflow-x-scroll slim-scrollbar">
+        <div class="h-48 overflow-x-scroll slim-scrollbar text-black">
         <div v-for="(items, index) in category" :key="index">
             <div class="p-1">
                 {{items}}

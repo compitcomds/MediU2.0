@@ -2,7 +2,7 @@
   <div>
     <button
       @click="addProductToCart"
-      class="p-2 bg-orange-100 text-black disabled:cursor-not-allowed disabled:animate-pulse"
+      class="p-2 bg-white rounded-full shadow text-black disabled:cursor-not-allowed disabled:animate-pulse"
       :disabled="isAddingProductToCart"
     >
     <img

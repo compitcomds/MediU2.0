@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-[#28574E] text-white py-8">
       <div
-        class="container mx-auto px-20 flex flex-wrap justify-between items-start"
+        class="container mx-auto px-20 flex flex-wrap justify-between items-start "
       >
         <div class="w-full md:w-1/3 mb-2 md:mb-0">
           <h2 class="font-bold text-6xl mb-4">Medi U</h2>
