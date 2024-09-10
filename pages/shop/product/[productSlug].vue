@@ -1,8 +1,10 @@
 <template>
   <div v-if="data" class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div class="bg-blue-500 p-4 text-white">
+      <!-- Display the featured image if it exists -->
       <img v-if="data.featuredImage" :src="data.featuredImage.url" :alt="data.featuredImage.altText" />
       
+      <!-- Display additional images if they exist -->
       <div v-if="data.images && data.images.length">
         <div v-for="item in data.images" :key="item.url">
           <img :src="item.url" :alt="item.altText" />
@@ -11,9 +13,11 @@
     </div>
 
     <div class="bg-green-500 p-4 text-white">
+      <!-- Display product title and description -->
       <h1>{{ data.title }}</h1>
       <div v-html="data.descriptionHtml"></div>
       
+      <!-- Display product options -->
       <div>
         <h2>Options:</h2>
         <ul>
@@ -23,21 +27,25 @@
         </ul>
       </div>
       
+      <!-- Display key benefits, how to use, safety info, and other info -->
       <div v-html="convertShopifyRichTextToHTML(data.keyBenefits?.value)"></div>
       <div v-html="convertShopifyRichTextToHTML(data.howToUse?.value)"></div>
       <div v-html="convertShopifyRichTextToHTML(data.safetyInformationAndPrecaution?.value)"></div>
       <div v-html="convertShopifyRichTextToHTML(data.otherInfo?.value)"></div>
       
+      <!-- Display availability and price -->
       <div>
         <p>Available: {{ !data.currentlyNotInStock ? 'In Stock' : 'Out of Stock' }}</p>
         <p>Quantity Available: {{ data.quantityAvailable }}</p>
         <p>Price: {{ data.price.currencyCode }} {{ data.price.amount }}</p>
       </div>
       
+      <!-- Add to cart button -->
       <ShopAddingToCartBtn :productId="data.id" cartID="#cartid" />
     </div>
   </div>
   <div v-else>
+    <!-- Loader or message while data is being fetched -->
     <p>Loading product details...</p>
   </div>
 </template>
@@ -60,13 +68,14 @@ onMounted(async () => {
   }
 });
 
+// Convert Shopify rich text to HTML
 function convertShopifyRichTextToHTML(value) {
   if (!value) return '';
-
+  // Assuming value is a string with HTML content
   return value;
 }
 </script>
 
 <style scoped>
-
+/* Add your styles here */
 </style>
