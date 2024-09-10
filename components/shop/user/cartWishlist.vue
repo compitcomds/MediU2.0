@@ -1,26 +1,19 @@
 <template>
-  <UTabs :items="items" class="w-full">
-    <template #default="{ item, index, selected }">
-      <span
-        class="truncate"
-        :class="[selected && 'text-primary-500 dark:text-primary-400']"
-        >{{ index + 1 }}. {{ item.label }}</span
-      >
-    </template>
-  </UTabs>
+<div role="tablist" class="tabs tabs-lifted">
+  <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Cart" />
+  <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+    <ShopUserCart/>
+  </div>
+
+  
+
+  <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Wishlist" />
+  <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+   Wishlist
+  </div>
+</div>
 </template>
 
 <script setup lang="ts">
-const items = [
-  {
-    label: "cart",
-    icon: "i-heroicons-information-circle",
-    content: "This is the content shown for Tab1",
-  },
-  {
-    label: "wishlist",
-    icon: "i-heroicons-arrow-down-tray",
-    content: "And, this is the content for Tab2",
-  },
-];
+
 </script>

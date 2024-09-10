@@ -1,42 +1,16 @@
-<script setup lang="ts">
-const isOpen = ref(false)
-</script>
-
 <template>
-  <div>
-    <UButton label="cart" @click="isOpen = true" />
-
-    <USlideover v-model="isOpen">
-      <UCard
-        class="flex flex-col flex-1"
-        :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }"
-      >
-        <template #header>
-          <UButton
-            color="gray"
-            variant="ghost"
-            size="sm"
-            icon="i-heroicons-x-mark-20-solid"
-            class="flex sm:hidden absolute end-5 top-5 z-10"
-            square
-            padded
-            @click="isOpen = false"
-          />
-          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="isOpen = false" />
-          <Placeholder class="h-8" />
-
-
-
-        </template>
-
-        <Placeholder class="h-full" >
-            <ShopUserCartWishlist/>
-</Placeholder>
-        <template #footer>
-          <Placeholder class="h-8" />
-        </template>
-      </UCard>
-    </USlideover>
+<div class="drawer drawer-end">
+  <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    <!-- Page content here -->
+    <label for="my-drawer-4" class="drawer-button btn btn-primary">Open drawer</label>
   </div>
+  <div class="drawer-side">
+    <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+    <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+      <!-- Sidebar content here -->
+<ShopUserCartWishlist/>
+    </ul>
+  </div>
+</div>
 </template>
-
