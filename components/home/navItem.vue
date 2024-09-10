@@ -7,7 +7,9 @@
       <!-- Main Menu -->
       <ul class="flex justify-center space-x-24 bg-[#537971] text-white py-4">
         <li class="group relative cursor-pointer py-2">
-          <NuxtLink to="/" class="font-semibold hover:opacity-70 text-xl">Home</NuxtLink>
+          <NuxtLink to="/" class="font-semibold hover:opacity-70 text-xl"
+            >Home</NuxtLink
+          >
         </li>
 
         <!-- Hair Concerns Menu -->
@@ -24,37 +26,51 @@
                   <h2 class="font-bold text-lg mb-4">Hair Concerns</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Dandruff</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Hairfall
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Hair Thining
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Damaged & Frizzy Hair
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Bald Patches</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Dull Hair</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Oily Scalp</NuxtLink
                       >
                     </li>
@@ -66,27 +82,37 @@
                   <h2 class="font-bold text-lg mb-4">select By Ingredients</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Minoxidil</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Redensyl</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Capixyl
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Feptide</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Carnitine</NuxtLink
                       >
                     </li>
@@ -98,22 +124,30 @@
                   <h2 class="font-bold text-lg mb-4">Hair Care</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Shampoo</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Conditioner</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Mask</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Serum</NuxtLink
                       >
                     </li>
@@ -169,30 +203,32 @@
 
               <!-- Deal of the Month -->
               <div class="mt-8 bg-gray-100 p-4 rounded-lg shadow-lg">
-    <h2 class="font-bold text-2xl mb-4 text-gray-800">Deal of the Month</h2>
-    <p class="text-gray-600 mb-6 text-sm">
-      Yes! Send me exclusive offers, personalized, and unique gift ideas,
-      tips for shopping on Mediu.
-    </p>
-    <div class="flex items-center space-x-4 text-gray-800">
-      <div class="countdown-item">
-        <span class="countdown-number">{{ days }}</span>
-        <span class="countdown-label">Days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ hours }}</span>
-        <span class="countdown-label">Hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ minutes }}</span>
-        <span class="countdown-label">Minutes</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ seconds }}</span>
-        <span class="countdown-label">Seconds</span>
-      </div>
-    </div>
-  </div>
+                <h2 class="font-bold text-2xl mb-4 text-gray-800">
+                  Deal of the Month
+                </h2>
+                <p class="text-gray-600 mb-6 text-sm">
+                  Yes! Send me exclusive offers, personalized, and unique gift
+                  ideas, tips for shopping on Mediu.
+                </p>
+                <div class="flex items-center space-x-4 text-gray-800">
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ days }}</span>
+                    <span class="countdown-label">Days</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ hours }}</span>
+                    <span class="countdown-label">Hours</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ minutes }}</span>
+                    <span class="countdown-label">Minutes</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ seconds }}</span>
+                    <span class="countdown-label">Seconds</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </li>
@@ -211,52 +247,72 @@
                   <h2 class="font-bold text-lg mb-4">Shop By Concern</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Acne & Acne Scar</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Aging
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Dehydration
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Damaged & Sensitive Skin
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Under Eye Darkness</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Under Arm Darkness</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Stretch Marks</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Pigmentation</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Oiliness</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Sip(Cracked/Darkness)</NuxtLink
                       >
                     </li>
@@ -268,37 +324,51 @@
                   <h2 class="font-bold text-lg mb-4">Shop By Ingrdients</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Vitamin C</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >BHA / Salicylic Acid</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Retinoid / Retinol
                       </NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Niacinamide</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >UV Filters</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Ceramide</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Hyaluronic Acid</NuxtLink
                       >
                     </li>
@@ -310,32 +380,44 @@
                   <h2 class="font-bold text-lg mb-4">Skin Care</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Cleanse</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Tone</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Treat</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Moisturize</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >SPF</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Under Eye</NuxtLink
                       >
                     </li>
@@ -391,35 +473,37 @@
 
               <!-- Deal of the Month -->
               <div class="mt-8 bg-gray-100 p-4 rounded-lg shadow-lg">
-    <h2 class="font-bold text-2xl mb-4 text-gray-800">Deal of the Month</h2>
-    <p class="text-gray-600 mb-6 text-sm">
-      Yes! Send me exclusive offers, personalized, and unique gift ideas,
-      tips for shopping on Mediu.
-    </p>
-    <div class="flex items-center space-x-4 text-gray-800">
-      <div class="countdown-item">
-        <span class="countdown-number">{{ days }}</span>
-        <span class="countdown-label">Days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ hours }}</span>
-        <span class="countdown-label">Hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ minutes }}</span>
-        <span class="countdown-label">Minutes</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ seconds }}</span>
-        <span class="countdown-label">Seconds</span>
-      </div>
-    </div>
-  </div>
+                <h2 class="font-bold text-2xl mb-4 text-gray-800">
+                  Deal of the Month
+                </h2>
+                <p class="text-gray-600 mb-6 text-sm">
+                  Yes! Send me exclusive offers, personalized, and unique gift
+                  ideas, tips for shopping on Mediu.
+                </p>
+                <div class="flex items-center space-x-4 text-gray-800">
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ days }}</span>
+                    <span class="countdown-label">Days</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ hours }}</span>
+                    <span class="countdown-label">Hours</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ minutes }}</span>
+                    <span class="countdown-label">Minutes</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ seconds }}</span>
+                    <span class="countdown-label">Seconds</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </li>
         <li class="group relative cursor-pointer py-2">
-          <NuxtLink to="/products" class="font-semibold hover:opacity-70 text-xl"
+          <NuxtLink to="/shop" class="font-semibold hover:opacity-70 text-xl"
             >Baby Care</NuxtLink
           >
         </li>
@@ -437,12 +521,16 @@
                   <h2 class="font-bold text-lg mb-4">A</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2
                       </NuxtLink>
                     </li>
@@ -454,12 +542,16 @@
                   <h2 class="font-bold text-lg mb-4">B</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2</NuxtLink
                       >
                     </li>
@@ -471,12 +563,16 @@
                   <h2 class="font-bold text-lg mb-4">C</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2</NuxtLink
                       >
                     </li>
@@ -486,12 +582,16 @@
                   <h2 class="font-bold text-lg mb-4">D</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2</NuxtLink
                       >
                     </li>
@@ -501,12 +601,16 @@
                   <h2 class="font-bold text-lg mb-4">E</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2</NuxtLink
                       >
                     </li>
@@ -516,12 +620,16 @@
                   <h2 class="font-bold text-lg mb-4">F</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2</NuxtLink
                       >
                     </li>
@@ -531,12 +639,16 @@
                   <h2 class="font-bold text-lg mb-4">G</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2</NuxtLink
                       >
                     </li>
@@ -546,12 +658,16 @@
                   <h2 class="font-bold text-lg mb-4">H</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 1</NuxtLink
                       >
                     </li>
                     <li>
-                      <NuxtLink to="/products" class="text-gray-800 hover:text-blue-600"
+                      <NuxtLink
+                        to="/shop"
+                        class="text-gray-800 hover:text-blue-600"
                         >Brand 2</NuxtLink
                       >
                     </li>
@@ -607,36 +723,38 @@
 
               <!-- Deal of the Month -->
               <div class="mt-8 bg-gray-100 p-4 rounded-lg shadow-lg">
-    <h2 class="font-bold text-2xl mb-4 text-gray-800">Deal of the Month</h2>
-    <p class="text-gray-600 mb-6 text-sm">
-      Yes! Send me exclusive offers, personalized, and unique gift ideas,
-      tips for shopping on Mediu.
-    </p>
-    <div class="flex items-center space-x-4 text-gray-800">
-      <div class="countdown-item">
-        <span class="countdown-number">{{ days }}</span>
-        <span class="countdown-label">Days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ hours }}</span>
-        <span class="countdown-label">Hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ minutes }}</span>
-        <span class="countdown-label">Minutes</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ seconds }}</span>
-        <span class="countdown-label">Seconds</span>
-      </div>
-    </div>
-  </div>
+                <h2 class="font-bold text-2xl mb-4 text-gray-800">
+                  Deal of the Month
+                </h2>
+                <p class="text-gray-600 mb-6 text-sm">
+                  Yes! Send me exclusive offers, personalized, and unique gift
+                  ideas, tips for shopping on Mediu.
+                </p>
+                <div class="flex items-center space-x-4 text-gray-800">
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ days }}</span>
+                    <span class="countdown-label">Days</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ hours }}</span>
+                    <span class="countdown-label">Hours</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ minutes }}</span>
+                    <span class="countdown-label">Minutes</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ seconds }}</span>
+                    <span class="countdown-label">Seconds</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </li>
         <!-- Supplements Menu -->
         <li class="group relative cursor-pointer py-2">
-          <NuxtLink to="/products" class="font-semibold hover:opacity-70 text-xl"
+          <NuxtLink to="/shop" class="font-semibold hover:opacity-70 text-xl"
             >Supplements</NuxtLink
           >
         </li>
@@ -718,30 +836,32 @@
 
               <!-- Deal of the Month -->
               <div class="mt-8 bg-gray-100 p-4 rounded-lg shadow-lg">
-    <h2 class="font-bold text-2xl mb-4 text-gray-800">Deal of the Month</h2>
-    <p class="text-gray-600 mb-6 text-sm">
-      Yes! Send me exclusive offers, personalized, and unique gift ideas,
-      tips for shopping on Mediu.
-    </p>
-    <div class="flex items-center space-x-4 text-gray-800">
-      <div class="countdown-item">
-        <span class="countdown-number">{{ days }}</span>
-        <span class="countdown-label">Days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ hours }}</span>
-        <span class="countdown-label">Hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ minutes }}</span>
-        <span class="countdown-label">Minutes</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ seconds }}</span>
-        <span class="countdown-label">Seconds</span>
-      </div>
-    </div>
-  </div>
+                <h2 class="font-bold text-2xl mb-4 text-gray-800">
+                  Deal of the Month
+                </h2>
+                <p class="text-gray-600 mb-6 text-sm">
+                  Yes! Send me exclusive offers, personalized, and unique gift
+                  ideas, tips for shopping on Mediu.
+                </p>
+                <div class="flex items-center space-x-4 text-gray-800">
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ days }}</span>
+                    <span class="countdown-label">Days</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ hours }}</span>
+                    <span class="countdown-label">Hours</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ minutes }}</span>
+                    <span class="countdown-label">Minutes</span>
+                  </div>
+                  <div class="countdown-item">
+                    <span class="countdown-number">{{ seconds }}</span>
+                    <span class="countdown-label">Seconds</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </li>
@@ -781,7 +901,9 @@ export default {
         this.days = Math.floor(distance / (1000 * 60 * 60 * 24))
           .toString()
           .padStart(2, "0");
-        this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        this.hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        )
           .toString()
           .padStart(2, "0");
         this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
@@ -842,4 +964,3 @@ p {
   line-height: 1.5;
 }
 </style>
-
