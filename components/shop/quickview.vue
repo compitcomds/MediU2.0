@@ -14,8 +14,9 @@
         </div>
 
         <div >
-            {{ props.singleProduct.title || productData.title }} <br> 
-            
+          {{ props.singleProduct.title || productData.title }} <br> 
+          {{ props.singleProduct.id || productData.id }} <br> 
+            <hr>
             {{ props.singleProduct.descriptionHtml || productData.descriptionHtml }} <br> 
             {{ props.singleProduct.price || productData.price}}   <br> 
 
@@ -39,7 +40,10 @@
         </pre> -->
 
          <hr>
-         <ShopAddingToCartBtn :productID="singleProduct.id" cartID="#cartid" />
+         <ShopAddingToCartBtn :productId="singleProduct.id" cartID="#cartid" />
+        
+          
+
          <ShopAddingToWishList :productID="singleProduct.id" />
          <ShopSharebtn :productLink="`http://localhost:3000/shop/product/${singleProduct.handle}`" />
 

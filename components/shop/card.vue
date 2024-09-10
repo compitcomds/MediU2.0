@@ -25,7 +25,7 @@
       <shopQuickview :singleProduct="product" />
 
       <nuxt-link
-        :to="`shop/product/${product.handle}`"
+        :to="`/shop/product/${product.handle}`"
         class="text-blue-500 hover:underline"
       >
         Open the product

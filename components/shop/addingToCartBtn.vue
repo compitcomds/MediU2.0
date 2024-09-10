@@ -6,7 +6,7 @@
       :disabled="isAddingProductToCart"
     >
       click to add to cart btn
-      {{ props.productId }}
+       || id--{{ productId }}
       <br />
       {{ store.shopifyCartId }}
     </button>
