@@ -1,3 +1,3 @@
 <template>
-this is labs page
+this is labs pages
 </template>

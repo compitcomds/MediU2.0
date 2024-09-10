@@ -5,10 +5,10 @@
       class="p-2 bg-orange-100 text-black disabled:cursor-not-allowed disabled:animate-pulse"
       :disabled="isAddingProductToCart"
     >
-      click to add to cart btn
-       || id--{{ productId }}
-      <br />
-      {{ store.shopifyCartId }}
+    <img
+                    src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg"
+                    class="w-8 p-1"
+                  />
     </button>
   </div>
 </template>
