@@ -49,7 +49,7 @@
         </div>
 
         <!-- Dynamic Link for the Product -->
-        <nuxt-link :to="`/shop/product/${product.handle}`">
+        <!-- <nuxt-link :to="`/shop/product/${product.handle}`"> -->
           <div class="mt-4">
             <h3 class="text-lg font-semibold uppercase text-black truncate">
               {{ product.title }}
@@ -62,17 +62,19 @@
               <button
                 class="bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition duration-200"
               >
-                <nuxt-link :to="`/shop/product/${product.handle}`">
+                <!-- <nuxt-link :to="`/shop/product/${product.handle}`">
                   <img
                     src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg"
                     class="w-8 p-1"
                   />
-                </nuxt-link>
+                </nuxt-link> -->
+                
+                <ShopAddingToCartBtn :productId="product.id"/>
               </button>
             </div>
             <!-- <p class="text-gray-500 text-xs">{{ product.handle }}</p> -->
           </div>
-        </nuxt-link>
+        <!-- </nuxt-link> -->
       </div>
     </div>
   </div>
