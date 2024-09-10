@@ -39,13 +39,15 @@
             <img :src="card.image" :alt="card.name" class="w-full object-cover rounded-md" />
           </nuxt-link>
           <div class="flex justify-between items-center gap-3">
-            <nuxt-link :key="card.link" :to="card.link" to="#" class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"><svg
-                xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
+            <nuxt-link :key="card.link" :to="card.link" to="#"
+              class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="31"
+                height="30" viewBox="0 0 31 30" fill="none">
                 <path
                   d="M15.5724 26.146C-8.74825 12.7035 8.27652 -1.88915 15.5724 7.33835C22.8692 -1.88916 39.894 12.7035 15.5724 26.146Z"
                   stroke="#1A1A1A" stroke-width="2.1889" />
               </svg></nuxt-link>
-            <nuxt-link :key="card.link" :to="card.link" class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-lg px-4 py-2 rounded-full gap-4">
+            <nuxt-link :key="card.link" :to="card.link"
+              class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-lg px-4 py-2 rounded-full gap-4">
               <button>Shop Now</button>
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
                 <path
@@ -53,8 +55,9 @@
                   stroke="white" stroke-width="1.89705" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </nuxt-link>
-            <nuxt-link :key="card.link" :to="card.link" to="#" class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"><svg
-                xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <nuxt-link :key="card.link" :to="card.link" to="#"
+              class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                height="30" viewBox="0 0 30 30" fill="none">
                 <path
                   d="M15.0825 5.70947C5.9621 5.70947 2.31393 15.135 2.31393 15.135C2.31393 15.135 5.9621 24.5583 15.0825 24.5583C24.203 24.5583 27.8511 15.135 27.8511 15.135C27.8511 15.135 24.203 5.70947 15.0825 5.70947V5.70947Z"
                   stroke="#1A1A1A" stroke-width="2.1889" stroke-linecap="round" stroke-linejoin="round" />
@@ -138,12 +141,8 @@
                   <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                 </div>
               </div>
-              <nuxt-link to="#" class="flex bg-slate-200 text-black mt-4 rounded-full px-2 py-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M7.72213 10.0705H4.07396L1.64185 23.4471H23.5309L21.0988 10.0705H17.4506M7.72213 10.0705V6.42233C7.72213 3.73589 9.89992 1.55811 12.5864 1.55811V1.55811C15.2728 1.55811 17.4506 3.73589 17.4506 6.42233V10.0705M7.72213 10.0705H17.4506M7.72213 10.0705V13.7187M17.4506 10.0705V13.7187"
-                    stroke="black" stroke-width="1.89705" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+              <nuxt-link to="#" class="flex bg-slate-200 text-black mt-4 rounded-full px-2 py-2 ">
+                <img src="https://ccdstest.b-cdn.net/Medi%20u/shopping-bag.svg" alt="" class="w-8">
               </nuxt-link>
             </div>
             <!-- Timer -->
@@ -174,11 +173,11 @@ export default {
         {
           id: 1,
           link: "/cards/cardDescription",
-          name: "Anthelios Melt-in Milk Sunscreen SPF 60",
+          name: "BLOWSHINE",
           description: "A description of the card.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 12.0,
-          originalPrice: 24.0,
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01.jpg?v=1725546603",
+          discountedPrice: 1000,
+          originalPrice: 2000,
           rating: 5,
           feedbackCount: 524,
           isOnSale: true,
@@ -191,11 +190,11 @@ export default {
         {
           id: 2,
           link: "/cards/cardDescription",
-          name: "Hydrating Facial Cleanser",
+          name: "DERMATICA HA PURE SERUM",
           description: "A description of the card.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349",
+          discountedPrice: 1180,
+          originalPrice: 2360,
           rating: 4,
           feedbackCount: 200,
           isOnSale: true,
@@ -204,11 +203,11 @@ export default {
         {
           id: 3,
           link: "/cards/cardDescription",
-          name: "Hydro Boost Water Gel",
+          name: "DERMATICA RAY PROTECT BARELYON",
           description: "A description of the card.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
+          discountedPrice: 1080,
+          originalPrice: 2160,
           rating: 4,
           feedbackCount: 200,
           category: "Skin", // Added category
@@ -216,11 +215,11 @@ export default {
         {
           id: 4,
           link: "/cards/cardDescription",
-          name: "Melt-in Milk Sunscreen",
+          name: "ACNE OC MOISTURISER",
           description: "A description of the card.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
+          discountedPrice: 567,
+          originalPrice: 1120,
           rating: 4,
           feedbackCount: 200,
           category: "Skin", // Added category
@@ -228,11 +227,11 @@ export default {
         {
           id: 5,
           link: "/cards/cardDescription",
-          name: "Niacinamide 10% + Zinc 1%",
+          name: "BONTESS PRO",
           description: "A description of the card.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
+          image: "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+          discountedPrice: 1225,
+          originalPrice: 2500,
           rating: 4,
           feedbackCount: 200,
           isOnSale: true,
