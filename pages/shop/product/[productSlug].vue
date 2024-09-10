@@ -4,14 +4,9 @@
       class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative"
     >
       <div class="col-span-8 lg:col-span-6 relative">
-        <img
-          :src="
-            data.featuredImage?.url ||
-            `https://placehold.co/500x500/png?text=${data.title}`
-          "
-          :alt="data.featuredImage?.altText || `Image | ${data.title}`"
-          class="w-full object-cover sticky top-0"
-        />
+        <div class="sticky top-0">
+          <ShopImages :title="data.title" :images="data.images" />
+        </div>
       </div>
       <div class="col-span-8 lg:col-span-6 lg:px-3">
         <h1 class="uppercase text-4xl font-bold lg:text-5xl text-black mb-6">
@@ -24,9 +19,9 @@
             {{ data.price?.currencyCode }} {{ data.price?.amount }}
           </p>
         </div>
-        <div class="flex gap-5 flex-wrap items-center">
+        <div class="flex gap-5 flex-wrap items-center mb-8">
           <div
-            class="border-black border w-1/3 py-3 px-4 flex items-center justify-between"
+            class="border-black border w-1/4 py-3 px-4 flex items-center justify-between"
           >
             <button class="text-3xl">-</button>
             <p class="text-2xl">1</p>
@@ -38,14 +33,31 @@
             ADD TO CART
           </button>
         </div>
+        <div>
+          <template v-for="key in accordionKeys">
+            <div
+              v-if="!!data[key.value]"
+              class="collapse collapse-plus border-b-2 shadow-none rounded-none"
+            >
+              <input type="radio" name="my-accordion-3" checked="checked" />
+              <div class="collapse-title text-xl font-medium">
+                <h3 class="font-medium uppercase">
+                  {{ key.name }}
+                </h3>
+              </div>
+              <div
+                class="collapse-content"
+                v-html="convertShopifyRichTextToHTML(data[key.value].value)"
+              ></div>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
 import { getProductData } from "~/shopify/productDetails";
 
 const route = useRoute();
@@ -53,22 +65,32 @@ const productHandle = route.params.productSlug;
 
 const data = ref(null);
 
+const accordionKeys = [
+  {
+    name: "Safety information / Precaution",
+    value: "safetyInformationAndPrecaution",
+  },
+  {
+    name: "How to use?",
+    value: "howToUse",
+  },
+  {
+    name: "Key benefits",
+    value: "keyBenefits",
+  },
+];
+
 onMounted(async () => {
   try {
     const product = await getProductData(productHandle);
     data.value = product;
+    product.images;
+    console.log(product.images);
     console.log(product);
   } catch (error) {
     console.error("Error fetching product data:", error);
   }
 });
-
-// Convert Shopify rich text to HTML
-function convertShopifyRichTextToHTML(value) {
-  if (!value) return "";
-  // Assuming value is a string with HTML content
-  return value;
-}
 </script>
 
 <style scoped>
