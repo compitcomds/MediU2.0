@@ -10,13 +10,13 @@
             {{ filterBarDataBabycare }}
         </div>
         <div v-else>
-            <!-- {{allShopFilter}} -->
+            
              <div class="space-y-5">
-            <ShopFilterBarCompCategories :category="allShopFilter.category" />
+            <!-- <ShopFilterBarCompCategories :category="allShopFilter.category" />
             <ShopFilterBarCompBrands :category="allShopFilter.brand" />
+            <ShopFilterBarCompOtherfilter :category="allShopFilter.filter" /> -->
             <ShopFilterBarCompPrice/>
-            <ShopFilterBarCompOtherfilter :category="allShopFilter.filter" />
-            <ShopFilterBarCompCategories :category="allShopFilter.tags" />
+            <ShopFilterBarCompTags :tags="allShopFilter.tags" />
         </div>
         </div>
         

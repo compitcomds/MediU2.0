@@ -5,6 +5,7 @@
     </div>
     <hr />
     <div class="">price filter bar</div>
+    
     <hr />
   </div>
 </template>

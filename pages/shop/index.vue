@@ -29,7 +29,8 @@
     <div
       :class="['flex-1', { 'lg:w-5/6': !isDrawerOpen, 'w-full': isDrawerOpen }]"
     >
-      <ShopCard :productDetails="products" />
+    <ShopSelectedFilter/>
+      <!-- <ShopCard :productDetails="products" /> -->
     </div>
   </div>
 </template>
