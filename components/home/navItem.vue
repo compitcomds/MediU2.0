@@ -15,7 +15,7 @@
           <div class="font-semibold hover:opacity-70 text-xl">Hair</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute -left-[400px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+            class="invisible absolute p-4 -left-[300px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
           >
             <div class="p-6">
               <div class="grid grid-cols-3 gap-6">
@@ -122,47 +122,47 @@
               </div>
 
               <!-- Products Row -->
-              <div class="grid grid-cols-6 gap-6 mt-6">
+              <div class="grid grid-cols-6 gap-6 mt-6 z-50">
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153"
                     alt="Product 1"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277"
                     alt="Product 2"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349"
                     alt="Product 3"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 4"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00029.jpg?v=1725639090"
                     alt="Product 5"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 6"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
               </div>
@@ -202,7 +202,7 @@
           <div class="font-semibold hover:opacity-70 text-xl">Skin</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute -left-[500px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+            class="invisible absolute p-4 -left-[400px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
           >
             <div class="p-6">
               <div class="grid grid-cols-3 gap-6">
@@ -344,47 +344,47 @@
               </div>
 
               <!-- Products Row -->
-              <div class="grid grid-cols-6 gap-6 mt-6">
+              <div class="grid grid-cols-6 gap-6 mt-6 z-50">
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153"
                     alt="Product 1"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277"
                     alt="Product 2"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349"
                     alt="Product 3"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 4"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00029.jpg?v=1725639090"
                     alt="Product 5"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 6"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
               </div>
@@ -428,7 +428,7 @@
           <div class="font-semibold hover:opacity-70 text-xl">Brands</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute -left-[600px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+            class="invisible absolute p-4 -left-[600px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
           >
             <div class="p-6">
               <div class="grid grid-cols-4 gap-6">
@@ -560,47 +560,47 @@
               </div>
 
               <!-- Products Row -->
-              <div class="grid grid-cols-6 gap-6 mt-6">
+              <div class="grid grid-cols-6 gap-6 mt-6 z-50">
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153"
                     alt="Product 1"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277"
                     alt="Product 2"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349"
                     alt="Product 3"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 4"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00029.jpg?v=1725639090"
                     alt="Product 5"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 6"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
               </div>
@@ -644,7 +644,7 @@
           <div class="font-semibold hover:opacity-70 text-xl">Mediu Kit</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute -left-[900px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+            class="invisible absolute p-4 -left-[1000px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
           >
             <div class="p-6">
               <div class="grid grid-cols-3 gap-6">
@@ -671,47 +671,47 @@
               </div>
 
               <!-- Products Row -->
-              <div class="grid grid-cols-6 gap-6 mt-6">
+              <div class="grid grid-cols-6 gap-6 mt-6 z-50">
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153"
                     alt="Product 1"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277"
                     alt="Product 2"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349"
                     alt="Product 3"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 4"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00029.jpg?v=1725639090"
                     alt="Product 5"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
                 <div>
                   <img
                     src="https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738"
                     alt="Product 6"
-                    class="rounded-lg shadow-lg"
+                    class="rounded-lg shadow-lg z-50"
                   />
                 </div>
               </div>

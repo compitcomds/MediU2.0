@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white rounded px-2">
         <div class="py-2">
-           <p class="text-black">
+           <p class="text-black font-bold">
             tags
            </p>
         </div>

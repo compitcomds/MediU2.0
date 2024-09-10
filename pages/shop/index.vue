@@ -27,7 +27,7 @@
     <!-- Main content -->
     
     <div
-      :class="['flex-1', { 'lg:w-5/6 h-full': !isDrawerOpen, 'w-full h-full': isDrawerOpen }]"
+      :class="['flex-1', { 'lg:w-5/6 h-full': !isDrawerOpen, 'w-auto h-full': isDrawerOpen }]"
     >
       <ShopCard :productDetails="products" />
     </div>
