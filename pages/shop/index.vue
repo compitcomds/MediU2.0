@@ -1,6 +1,5 @@
 <template>
-  <HomeNavbar />
-  <button @click="toggleDrawer" class="p-4 lg:hidden block ">
+  <button @click="toggleDrawer" class="p-4 lg:hidden block">
     <span>☰</span>
     <!-- Hamburger Icon -->
   </button>
@@ -25,12 +24,15 @@
     </div>
 
     <!-- Main content -->
-    
+
     <div
-      :class="['flex-1', { 'lg:w-5/6 h-full': !isDrawerOpen, 'w-auto h-full': isDrawerOpen }]"
+      :class="[
+        'flex-1',
+        { 'lg:w-5/6 h-full': !isDrawerOpen, 'w-auto h-full': isDrawerOpen },
+      ]"
     >
-    <ShopCard :productDetails="products" />
-    <ShopSelectedFilter/>
+      <ShopSelectedFilter />
+      <!-- <ShopCard :productDetails="products" /> -->
     </div>
   </div>
 </template>
@@ -42,8 +44,8 @@ import { getFilters } from "~/shopify/productFilters";
 
 //   const products = ref({});
 const { products } = await fetchProducts();
-const {filters}= await getFilters();
-console.log(filters)
+const { filters } = await getFilters();
+console.log(filters);
 const isDrawerOpen = ref(false);
 let currentPage = 1;
 const perPage = 30;

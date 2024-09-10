@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
     <UButton label="QUICK VIEW" @click="isOpen = true" />
 
     <UModal v-model="isOpen" :transition="false">
@@ -33,11 +33,11 @@
         <div v-else>
             loading
         </div>
-        <!-- <pre>
+      <pre>
 
          {{ productData }}
 
-        </pre> -->
+        </pre> 
 
          <hr>
          <ShopAddingToCartBtn :productId="singleProduct.id" cartID="#cartid" />
@@ -50,20 +50,19 @@
       </div>
       
     </UModal>
-  </div>
+  </div> -->
 </template>
 <script setup lang="ts">
-import { getProductData } from '~/shopify/productDetails';
+import { getProductData } from "~/shopify/productDetails";
 const isOpen = ref(false);
-// for solving an error for not geting open the model or not defaluti function make an *product define* 
+// for solving an error for not geting open the model or not defaluti function make an *product define*
 const productData = ref({});
 
 const props = defineProps({
-    singleProduct: {
+  singleProduct: {
     type: Object,
     required: true,
   },
-
 });
 
 // Watch for changes to `isOpen`
@@ -72,11 +71,9 @@ watch(isOpen, async (newValue) => {
     try {
       const data = await getProductData(props.singleProduct.handle);
       productData.value = data; // Update reactive variable
-
     } catch (error) {
-      console.error('Error fetching product data:', error);
+      console.error("Error fetching product data:", error);
     }
   }
 });
-
 </script>

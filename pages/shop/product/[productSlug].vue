@@ -1,59 +1,52 @@
 <template>
-  <div v-if="data" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="bg-blue-500 p-4 text-white">
-      <!-- Display the featured image if it exists -->
-      <img v-if="data.featuredImage" :src="data.featuredImage.url" :alt="data.featuredImage.altText" />
-      
-      <!-- Display additional images if they exist -->
-      <div v-if="data.images && data.images.length">
-        <div v-for="item in data.images" :key="item.url">
-          <img :src="item.url" :alt="item.altText" />
+  <div v-if="data" class="py-6 mt-10 text-black">
+    <div
+      class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative"
+    >
+      <div class="col-span-8 lg:col-span-6 relative">
+        <img
+          :src="
+            data.featuredImage?.url ||
+            `https://placehold.co/500x500/png?text=${data.title}`
+          "
+          :alt="data.featuredImage?.altText || `Image | ${data.title}`"
+          class="w-full object-cover sticky top-0"
+        />
+      </div>
+      <div class="col-span-8 lg:col-span-6 lg:px-3">
+        <h1 class="uppercase text-4xl font-bold lg:text-5xl text-black mb-6">
+          {{ data.title }}
+        </h1>
+        <p v-html="data.descriptionHtml" class="text-black text-sm mb-8"></p>
+        <div class="mb-8">
+          <h2 class="font-medium text-black">PRICE</h2>
+          <p class="uppercase text-xl font-bold">
+            {{ data.price?.currencyCode }} {{ data.price?.amount }}
+          </p>
+        </div>
+        <div class="flex gap-5 flex-wrap items-center">
+          <div
+            class="border-black border w-1/3 py-3 px-4 flex items-center justify-between"
+          >
+            <button class="text-3xl">-</button>
+            <p class="text-2xl">1</p>
+            <button class="text-3xl">+</button>
+          </div>
+          <button
+            class="bg-black text-white text-lg flex items-center flex-1 justify-center h-full py-4"
+          >
+            ADD TO CART
+          </button>
         </div>
       </div>
     </div>
-
-    <div class="bg-green-500 p-4 text-white">
-      <!-- Display product title and description -->
-      <h1>{{ data.title }}</h1>
-      <div v-html="data.descriptionHtml"></div>
-      
-      <!-- Display product options -->
-      <div>
-        <h2>Options:</h2>
-        <ul>
-          <li v-for="option in data.options" :key="option.name">
-            {{ option.name }}: {{ option.values.join(', ') }}
-          </li>
-        </ul>
-      </div>
-      
-      <!-- Display key benefits, how to use, safety info, and other info -->
-      <div v-html="convertShopifyRichTextToHTML(data.keyBenefits?.value)"></div>
-      <div v-html="convertShopifyRichTextToHTML(data.howToUse?.value)"></div>
-      <div v-html="convertShopifyRichTextToHTML(data.safetyInformationAndPrecaution?.value)"></div>
-      <div v-html="convertShopifyRichTextToHTML(data.otherInfo?.value)"></div>
-      
-      <!-- Display availability and price -->
-      <div>
-        <p>Available: {{ !data.currentlyNotInStock ? 'In Stock' : 'Out of Stock' }}</p>
-        <p>Quantity Available: {{ data.quantityAvailable }}</p>
-        <p>Price: {{ data.price.currencyCode }} {{ data.price.amount }}</p>
-      </div>
-      
-      <!-- Add to cart button -->
-      <ShopAddingToCartBtn :productId="data.id" cartID="#cartid" />
-    </div>
-  </div>
-  <div v-else>
-    <!-- Loader or message while data is being fetched -->
-    <p>Loading product details...</p>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
-import { getProductData } from '~/shopify/productDetails';
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { getProductData } from "~/shopify/productDetails";
 
 const route = useRoute();
 const productHandle = route.params.productSlug;
@@ -62,15 +55,17 @@ const data = ref(null);
 
 onMounted(async () => {
   try {
-    data.value = await getProductData(productHandle);
+    const product = await getProductData(productHandle);
+    data.value = product;
+    console.log(product);
   } catch (error) {
-    console.error('Error fetching product data:', error);
+    console.error("Error fetching product data:", error);
   }
 });
 
 // Convert Shopify rich text to HTML
 function convertShopifyRichTextToHTML(value) {
-  if (!value) return '';
+  if (!value) return "";
   // Assuming value is a string with HTML content
   return value;
 }
