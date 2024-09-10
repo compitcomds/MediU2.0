@@ -1,5 +1,6 @@
 <template>
-    <div >
+    <div class="bg-white w-full h-full">
+      
         <div v-if="category==='skin'">
             {{ filterBarDataSkin }} 
         </div>  

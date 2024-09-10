@@ -32,6 +32,7 @@
           >
             ADD TO CART
           </button>
+          <ShopAddingToCartBtn :productId="data.id"/>
         </div>
         <div>
           <template v-for="key in accordionKeys">

@@ -1,38 +1,47 @@
 <template>
-  <button @click="toggleDrawer" class="p-4 lg:hidden block">
-    <span>☰</span>
-    <!-- Hamburger Icon -->
-  </button>
-  <div class="flex p-2 gap-4 px-6 bg-white h-full">
-    <!-- Drawer for screens larger than 1024px -->
-    <div class="hidden lg:block lg:w-1/4 xl:w-1/6 h-full">
+  <div class="grid grid-cols-12 gap-4">
+    <div
+      class="hidden sm:block lg:col-span-3 md:col-span-4 xl:col-span-2 bg-gray-200"
+    >
       <ShopFilterbar />
     </div>
 
-    <!-- Drawer for screens smaller than 1024px -->
-    <div class="lg:hidden">
-      <transition name="drawer">
-        <div
-          v-if="isDrawerOpen"
-          class="fixed inset-0 bg-white z-10 p-4 lg:hidden"
-        >
-          <button @click="toggleDrawer" class="mt-4">Close</button>
-          <ShopFilterbar />
-          <button @click="toggleDrawer" class="mt-4">Close</button>
+    <div class="block md:hidden z-40">
+      <div class="drawer">
+        <!-- Drawer toggle checkbox -->
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+
+        <!-- Drawer content -->
+        <div class="drawer-content">
+          <!-- Page content here -->
+          <label for="my-drawer" class="btn btn-primary drawer-button"
+            >Open drawer</label
+          >
         </div>
-      </transition>
+
+        <!-- Drawer side (where the ShopFilterbar is) -->
+        <div class="drawer-side">
+          <!-- Close button -->
+          
+          <!-- ShopFilterbar component -->
+          <ShopFilterbar />
+          <label
+            for="my-drawer"
+            class="btn btn-secondary"
+            >Close</label
+          >
+        </div>
+      </div>
     </div>
 
-    <!-- Main content -->
-
     <div
-      :class="[
-        'flex-1',
-        { 'lg:w-5/6 h-full': !isDrawerOpen, 'w-auto h-full': isDrawerOpen },
-      ]"
+      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 bg-emerald-100 m-2"
     >
+      <ShopBanner />
+
       <ShopSelectedFilter />
-      <ShopCard :productDetails="products" />
+
+      <LazyShopCard :productDetails="products" />
     </div>
   </div>
 </template>
@@ -67,14 +76,3 @@ const handleScroll = () => {
   }
 };
 </script>
-
-<style scoped>
-/* Drawer Transition */
-.drawer-enter-active,
-.drawer-leave-active {
-  transition: opacity 0.5s;
-}
-.drawer-enter, .drawer-leave-to /* .drawer-leave-active in <2.1.8 */ {
-  opacity: 0;
-}
-</style>

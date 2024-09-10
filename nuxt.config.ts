@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "vue3-carousel-nuxt",
     "nuxt-swiper",
     "@nuxtjs/tailwindcss",
+    '@nuxt/image'
   ],
   compatibilityDate: "2024-09-08",
   runtimeConfig: {
@@ -21,4 +22,15 @@ export default defineNuxtConfig({
       baseURL: "http://localhost:3000 ",
     },
   },
+  // image: {
+  //   provider: 'static', // or 'imgix', 'cloudinary', etc.
+  //   presets: {
+  //     cover: {
+  //       modifiers: {
+  //         format: 'webp',
+  //         quality: 75
+  //       }
+  //     }
+  //   }
+  // }
 });

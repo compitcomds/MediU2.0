@@ -19,6 +19,7 @@
     "vue3-carousel-nuxt": "^1.1.2"
   },
   "dependencies": {
+    "@nuxt/image": "^1.8.0",
     "@shopify/storefront-api-client": "^1.0.2",
     "appwrite": "^15.0.0",
     "js-image-zoom": "^0.7.0",

@@ -1,5 +1,5 @@
 <template>
-<ShopBanner/>
+<ShopQuickview/>
 </template>
 
 <script setup></script>
