@@ -31,7 +31,12 @@ export const registerUser = async (data: {
     shopifyPassword,
     wishlist: [],
   });
-
+  
+  // Add a delay before fetching the document
+  await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
+  
+  const userDocument = await getUserDocument(userId);
+  console.log(userDocument)
   return loggedInUser;
 };
 

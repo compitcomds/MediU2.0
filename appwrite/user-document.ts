@@ -15,15 +15,24 @@ export const createUserDocument = async (
     shopifyCartId?: string;
   }
 ) => {
-  return await database.createDocument(
-    appwriteDatabaseId,
-    appwriteUsersCollectionId,
-    userId,
-    data,
-    [Permission.read(Role.user(userId)), Permission.update(Role.user(userId))]
-  );
+  try {
+    const document = await database.createDocument(
+      appwriteDatabaseId,
+      appwriteUsersCollectionId,
+      userId,
+      data,
+      [
+        Permission.read(Role.user(userId)),
+        Permission.update(Role.user(userId))
+      ]
+    );
+    console.log("Document created successfully:", document);
+    return document;
+  } catch (error) {
+    console.error("Error creating document:", error);
+    throw error;
+  }
 };
-
 export const getUserDocument = async (userId: string) => {
   return await database.getDocument(
     appwriteDatabaseId,
