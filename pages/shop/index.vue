@@ -35,9 +35,12 @@
 <script setup>
 import { ref } from "vue";
 import { fetchProducts } from "~/shopify/products";
+import { getFilters } from "~/shopify/productFilters";
 
 //   const products = ref({});
 const { products } = await fetchProducts();
+const {filters}= await getFilters();
+console.log(filters)
 const isDrawerOpen = ref(false);
 let currentPage = 1;
 const perPage = 30;
