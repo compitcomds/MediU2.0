@@ -32,7 +32,7 @@
       ]"
     >
       <ShopSelectedFilter />
-      <!-- <ShopCard :productDetails="products" /> -->
+      <ShopCard :productDetails="products" />
     </div>
   </div>
 </template>

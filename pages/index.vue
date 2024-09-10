@@ -1,7 +1,7 @@
 <template>
   <!--  -->
   <div class="bg-white">
-    <HomeNavbar />
+    <!-- <HomeNavbar /> -->
     <HomeMain />
     <HomeBlock />
     <HomeCard class="md:px-4 xl:px-[163px]" />

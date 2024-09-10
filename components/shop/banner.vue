@@ -1,54 +1,57 @@
-
 <template>
-    <div class="relative inline-block w-full mx-auto my-4 container">
-        <!-- Image slider with transition -->
-        <transition name="fade" mode="out-in">
-          <img
-            :key="slides[currentSlide].doctorImage"
-            class="rounded-xl w-full mx-auto"
-            :src="slides[currentSlide].doctorImage"
-            alt="Doctor"
-          />
-        </transition>
+  <swiper 
+    :slidesPerView="1"
+    :spaceBetween="40"
+    :loop="true"
+    :pagination="{
+      clickable: true,
+    }"
+    :navigation="true"
+    :modules="modules"
+    class="mySwiper rounded bg-white"
+  >
+    <swiper-slide v-for="item in slides" :key="item.id">
+      <img :src="item" alt="" class="rounded object-cover scale-105"/>
+    </swiper-slide>
 
-        <!-- Pagination Dots -->
-        <div
-          class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2"
-        >
-          <span
-            v-for="(slide, index) in slides"
-            :key="index"
-            @click="currentSlide = index"
-            :class="[
-              'rounded-full cursor-pointer',
-              currentSlide === index ? 'bg-teal-800 h-3 w-6' : 'bg-slate-400 h-3 w-3 ',
-            ]"
-          ></span>
-        </div>
-      </div>
+  </swiper>
 </template>
-<script setup>
-import { ref, onMounted, computed } from "vue";
-// Slide show data
-const slides = ref([
-  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/1.png" },
-  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/4.png" },
-  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/6.png" },
-]);
-const currentSlide = ref(0);
+<script>
 
-// Handle slide transition
-onMounted(() => {
-  // Ensure this runs only in the browser
-  if (process.client) {
-    setInterval(() => {
-      currentSlide.value = (currentSlide.value + 1) % slides.value.length;
-    }, 3000);
-  }
-});
+  import { Swiper, SwiperSlide } from 'swiper/vue';
 
+  import { Pagination, Navigation } from 'swiper/modules';
+  export default {
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    setup() {
+      return {
+        modules: [Pagination, Navigation],
+      };
+    },
+    data(){
+      return{
+        slides:[
+    "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/1.png",
+    "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/4.png",
+    "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/6.png"
+  ]
+      }
+    }
+
+  };
 </script>
 
-<style  scoped>
-    
-</style>
+<style> 
+
+.swiper-button-prev .swiper-button-next .mySwiper {
+
+color: rgb(0, 68, 0) !important;
+
+}
+
+</style> 
+
+
