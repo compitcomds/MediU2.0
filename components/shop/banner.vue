@@ -31,9 +31,9 @@
 import { ref, onMounted, computed } from "vue";
 // Slide show data
 const slides = ref([
-  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/image%2034.png" },
-  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/image%2034.png" },
-  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/image%2034.png" },
+  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/1.png" },
+  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/4.png" },
+  { doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/6.png" },
 ]);
 const currentSlide = ref(0);
 

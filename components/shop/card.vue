@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full px-4 space-y-8">
+  <div class="flex flex-col w-full h-full px-4 space-y-8">
     <ShopBanner />
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
@@ -38,7 +38,7 @@
 
           <!-- Quick view button -->
           <div
-            class="absolute flex justify-center items-center inset-x-0 bottom-2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"
+            class="absolute flex justify-center items-center inset-x-0 bottom-2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
           >
             <button
               class="bg-white text-black rounded-lg font-semibold py-2 px-4 align-middle flex justify-center items-center text-center shadow-md"

@@ -4,9 +4,9 @@
     <span>☰</span>
     <!-- Hamburger Icon -->
   </button>
-  <div class="flex p-2 gap-4 px-6 bg-white">
+  <div class="flex p-2 gap-4 px-6 bg-white h-full">
     <!-- Drawer for screens larger than 1024px -->
-    <div class="hidden lg:block lg:w-1/4 xl:w-1/6">
+    <div class="hidden lg:block lg:w-1/4 xl:w-1/6 h-full">
       <ShopFilterbar />
     </div>
 
@@ -27,7 +27,7 @@
     <!-- Main content -->
     
     <div
-      :class="['flex-1', { 'lg:w-5/6': !isDrawerOpen, 'w-full': isDrawerOpen }]"
+      :class="['flex-1', { 'lg:w-5/6 h-full': !isDrawerOpen, 'w-full h-full': isDrawerOpen }]"
     >
       <ShopCard :productDetails="products" />
     </div>
