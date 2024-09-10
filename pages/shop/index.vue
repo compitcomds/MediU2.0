@@ -1,9 +1,10 @@
 <template>
-  <button @click="toggleDrawer" class="p-4 lg:hidden block">
+  <HomeNavbar />
+  <button @click="toggleDrawer" class="p-4 lg:hidden block ">
     <span>☰</span>
     <!-- Hamburger Icon -->
   </button>
-  <div class="flex m-2 p-2 gap-4">
+  <div class="flex p-2 gap-4 px-6 bg-white">
     <!-- Drawer for screens larger than 1024px -->
     <div class="hidden lg:block lg:w-1/4 xl:w-1/6">
       <ShopFilterbar />
@@ -24,6 +25,7 @@
     </div>
 
     <!-- Main content -->
+    
     <div
       :class="['flex-1', { 'lg:w-5/6': !isDrawerOpen, 'w-full': isDrawerOpen }]"
     >
