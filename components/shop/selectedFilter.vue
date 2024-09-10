@@ -1,26 +1,31 @@
 <template>
-  <div class="bg-white rounded px-4 py-2 shadow-md">
-    <h3 class="text-lg font-semibold mb-2">Selected Tags</h3>
-    <ul v-if="selectedTags.length > 0" class="list-disc pl-4">
-      <li v-for="(tag, index) in selectedTags" :key="index" class="mb-1 flex items-center">
-        <span class="flex-1">{{ tag }}</span>
-        <button 
-          @click="removeTag(tag)" 
-          class="text-red-500 hover:text-red-700 ml-2"
-          aria-label="Remove tag"
-        >
-          &#x2715; <!-- Unicode for a cross icon (✗) -->
-        </button>
+  <div>
+    <ul class="flex gap-3">
+      <li
+        v-for="(tag, index) in selectedTags"
+        :key="index"
+        class="flex items-center rounded-full border-spacing-1 border border-green-900 px-3"
+      >
+        <div onclick="removeTag(tag)" class="flex">
+          <span class="flex mr-2">{{ tag }}</span>
+          <button
+            @click="removeTag(tag)"
+            class="text-red-500 mt-0.5 hover:text-red-700"
+            aria-label="Remove tag"
+          >
+            <div class="flex items-center">
+              <UIcon name="i-heroicons-x-mark" />
+            </div>
+          </button>
+        </div>
       </li>
     </ul>
-    <p v-else class="text-gray-500">No tags selected.</p>
   </div>
-  
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useShopFilterStore } from '@/stores/user-filter-store-tags'; // Update the path if necessary
+import { computed } from "vue";
+import { useShopFilterStore } from "@/stores/user-filter-store-tags"; // Update the path if necessary
 
 // Use the Pinia store
 const store = useShopFilterStore();
