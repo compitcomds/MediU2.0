@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
         <div v-if="category==='skin'">
             {{ filterBarDataSkin }} 
         </div>  
@@ -10,7 +10,14 @@
             {{ filterBarDataBabycare }}
         </div>
         <div v-else>
-            {{allShopFilter}}
+            <!-- {{allShopFilter}} -->
+             <div class="space-y-5">
+            <ShopFilterBarCompCategories :category="allShopFilter.category" />
+            <ShopFilterBarCompBrands :category="allShopFilter.brand" />
+            <ShopFilterBarCompPrice/>
+            <ShopFilterBarCompOtherfilter :category="allShopFilter.filter" />
+            <ShopFilterBarCompCategories :category="allShopFilter.tags" />
+        </div>
         </div>
         
     </div>
@@ -18,6 +25,8 @@
 </template>
 
 <script setup>
+
+
 
 const props = defineProps({
     category: {

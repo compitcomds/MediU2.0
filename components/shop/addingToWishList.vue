@@ -1,23 +1,30 @@
 <template>
-    <div class="bg-fuchsia-500">
-        btn to add wishlist -- {{ productID }}
-    </div>
+  <button
+    @click="removeProductFromWishlist"
+    class="bg-blue-100 text-black px-5 py-2"
+  >
+    {{
+      wishlist.includes(props.productId)
+        ? "Remove from wishlist"
+        : "Add To Wishlist"
+    }}
+    -- {{ props.productId }}
+  </button>
 </template>
 
-<script>
-export default {
-
-  props: {
-    productID: {
-      type: String,
-      required: true,
-    },
-    
+<script setup>
+const props = defineProps({
+  productId: {
+    type: String,
+    required: true,
   },
+});
+
+const { wishlist, toggleProductIdFromWishlist } = useUserStore();
+
+const removeProductFromWishlist = () => {
+  toggleProductIdFromWishlist(props.productId);
 };
 </script>
 
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

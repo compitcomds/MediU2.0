@@ -15,13 +15,14 @@
       >
         <UIcon name="i-heroicons-building-storefront" class="w-5 h-5" />
       </nuxt-link>
-      <nuxt-link
+      <ShopUserSidebar/>
+      <!-- <nuxt-link
         to="/testing"
         exact-active-class="active"
         class="flex items-center justify-center w-12 h-12"
       >
         <UIcon name="i-heroicons-shopping-cart" class="w-5 h-5" />
-      </nuxt-link>
+      </nuxt-link> -->
       <nuxt-link
         to="/profile"
         exact-active-class="active"
