@@ -1,5 +1,5 @@
 <template>
-  <div class="  me-2   py-2 px-2 m-2 rounded-md shadow bg-slate-200 ">   
+  <div class="  me-2 mb-4 py-2 px-2 m-2 rounded-md     ">   
     <div class="text-xl   font-medium">Type of Products</div>
     <div class="p-3 " >
       <div v-for="(item, index) in TypeOfProducts" :key="index">
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="  me-2   py-2 px-2 m-2 rounded-md shadow bg-slate-200 "> 
+  <div class="  me-2  mb-4 py-2 px-2 m-2 rounded-md     "> 
       
     <div class="   text-xl   font-medium ">Skin Concern</div>
     <div class="p-3  " >
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="  me-2   py-2 px-2 m-2 rounded-md shadow bg-slate-200 "> 
+  <div class="  me-2 mb-4  py-2 px-2 m-2 rounded-md     "> 
       
     <div class="   text-xl   font-medium ">Hair Concern</div>
     <div class="p-3  " >
@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <div class="  me-2   py-2 px-2 m-2 rounded-md shadow bg-slate-200 "> 
+  <div class="  me-2 mb-4  py-2 px-2 m-2 rounded-md     "> 
       
     <div class="   text-xl   font-medium ">Nutrition and Diet</div>
     <div class="p-3  " >
@@ -74,7 +74,7 @@
     </div>
   </div>
 
-  <div class="  me-2   py-2 px-2 m-2 rounded-md shadow bg-slate-200 "> 
+  <div class="  me-2  mb-4 py-2 px-2 m-2 rounded-md     "> 
       
     <div class="   text-xl   font-medium ">Pediatric</div>
     <div class="p-3  " >
@@ -93,9 +93,9 @@
     </div>
   </div>
 
-  <div class="  me-2   py-2 px-2 m-2 rounded-md shadow bg-slate-200 "> 
+  <div class="  me-2  mb-4 py-2 px-2 m-2 rounded-md     "> 
       
-    <div class="   text-xl   font-medium ">Ingredient</div>
+    <div class="   text-xl   font-medium text-[#22423c]">Ingredient</div>
     <div class="p-3  " >
       <div v-for="(item, index) in Ingredent" :key="index">
         <label class="flex justify-start items-center mt-2">
@@ -164,4 +164,8 @@ const updateQueryParams = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+p{
+    color: #22423c;
+}
+</style>
