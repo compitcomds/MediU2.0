@@ -1,9 +1,8 @@
 <template>
   <!--  -->
-  <div class="bg-white">
-    <!-- <HomeNavbar /> -->
-    <HomeMain />
-    <HomeBlock />
+  <HomeNavbar />
+  <HomeMain /><HomeBlock class="" />
+  <div class="bg-white space-y-20">
     <HomeCard class="md:px-4 xl:px-[163px]" />
     <HomeContainers class="md:px-4 xl:px-[163px]" />
     <HomeFeatures class="md:px-4 xl:px-[163px]" />

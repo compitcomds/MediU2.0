@@ -1,14 +1,20 @@
 <template>
-  <div class="my-10">
+  <div class="font-serif">
+    <div class="flex flex-col space-y-6">
+      <h1 class="text-4xl text-center text-gray-500">Top Picks</h1>
+      <h2 class="text-6xl font-bold text-center text-[#28574E]">
+        Featured Products
+      </h2>
+    </div>
     <!-- Category Buttons -->
-    <div class="flex flex-wrap justify-center my-10">
+    <div class="flex flex-wrap justify-center my-12 text-2xl">
       <button
         @click="filtercards('Skin')"
         :class="{
           'bg-[#28574E] text-white': selectedCategory === 'Skin',
-          'bg-slate-300 text-[#28574E]': selectedCategory !== 'Skin',
+          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
         }"
-        class="px-4 py-2 rounded-full mx-2 mb-2"
+        class="px-20 py-4 font-semibold rounded-full mx-2 mb-2"
       >
         Skin
       </button>
@@ -16,9 +22,9 @@
         @click="filtercards('Hair')"
         :class="{
           'bg-[#28574E] text-white': selectedCategory === 'Hair',
-          'bg-slate-300 text-[#28574E]': selectedCategory !== 'Hair',
+          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
         }"
-        class="px-4 py-2 rounded-full mx-2 mb-2"
+        class="px-20 py-4 font-semibold rounded-full mx-2 mb-2"
       >
         Hair
       </button>
@@ -26,9 +32,9 @@
         @click="filtercards('Child')"
         :class="{
           'bg-[#28574E] text-white': selectedCategory === 'Child',
-          'bg-slate-300 text-[#28574E]': selectedCategory !== 'Child',
+          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Child',
         }"
-        class="px-4 py-2 rounded-full mx-2 mb-2"
+        class="px-20 py-4 font-semibold rounded-full mx-2 mb-2"
       >
         Child
       </button>
@@ -42,7 +48,7 @@
           v-for="card in filteredcards.slice(0, 1)"
           :key="card.link"
           :to="card.link"
-          class="border p-4 rounded-lg shadow-lg block no-underline h-full"
+          class="border p-4 rounded-3xl shadow-lg block no-underline h-full"
         >
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- card sale and bestseller tags -->
@@ -133,14 +139,14 @@
           </div>
           <div class="flex flex-col items-center mt-4">
             <!-- card name and price -->
-            <h2 class="text-2xl text-[#28574E] my-6 font-semibold">
+            <h2 class="text-3xl text-[#28574E] my-6 font-semibold capitalize">
               {{ card.name }}
             </h2>
             <div class="my-4 text-center space-x-2">
-              <span class="text-2xl font-bold text-black"
+              <span class="text-4xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
-              <span class="line-through text-slate-500"
+              <span class="line-through text-slate-500 text-2xl"
                 >₹{{ card.originalPrice }}</span
               >
             </div>
@@ -174,49 +180,47 @@
                   class="mask mask-star-2 bg-orange-400"
                 />
               </div>
-              <span class="ml-2 text-sm text-black"
+              <span class="ml-2 text-md text-black"
                 >({{ card.feedbackCount }} Feedback)</span
               >
             </div>
             <!-- Timer -->
-            <div v-if="card.timer" class="mt-8 text-center text-md text-black">
+            <div v-if="card.timer" class="mt-8 text-center text-xl text-black">
               <div>Hurry up! Offer ends in:</div>
               <div
-                class="font-semibold flex justify-center items-center text-black"
+                class="font-semibold flex justify-center text-xl items-center text-black"
               >
-                <div class="p-2 mx-1 rounded bg-slate-300">
-                  {{ card.timer.days }} days
-                </div>
+                <div class="p-2 mx-1 rounded">{{ card.timer.days }} days</div>
                 <span>:</span>
-                <div class="p-2 mx-1 rounded bg-slate-300">
-                  {{ card.timer.hours }} hours
-                </div>
+                <div class="p-2 mx-1 rounded">{{ card.timer.hours }} hours</div>
                 <span>:</span>
-                <div class="p-2 mx-1 rounded bg-slate-300">
+                <div class="p-2 mx-1 rounded">
                   {{ card.timer.minutes }} mins
                 </div>
                 <span>:</span>
-                <div class="p-2 mx-1 rounded bg-slate-300">
+                <div class="p-2 mx-1 rounded">
                   {{ card.timer.seconds }} secs
                 </div>
               </div>
             </div>
-            <nuxt-link :key="card.link" :to="card.link" class="mt-6">
+            <!-- <nuxt-link :key="card.link" :to="card.link" class="mt-6">
               <button class="bg-[#28574E] text-white px-4 py-2 rounded-full">
                 Shop Now
               </button>
-            </nuxt-link>
+            </nuxt-link> -->
           </div>
         </div>
       </div>
 
       <!-- Remaining card Cards -->
-      <div class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div
+        class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6 capitalize font-sans"
+      >
         <div
           v-for="card in filteredcards.slice(1)"
           :key="card.link"
           :to="card.link"
-          class="border p-4 rounded-lg shadow-lg block no-underline h-full"
+          class="border p-4 rounded-3xl shadow-lg block no-underline h-full"
         >
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- card sale and bestseller tags -->
@@ -233,15 +237,17 @@
             <img
               :src="card.image"
               :alt="card.name"
-              class="w-full h-76 object-cover rounded-md"
+              class="w-full h-76 object-cover rounded-md capitalize"
             />
           </nuxt-link>
 
           <div class="mt-4 text-left">
             <!-- card name and price -->
-            <h2 class="text-md text-black text-xl">{{ card.name }}</h2>
+            <h2 class="text-md text-black text-2xl capitalize">
+              {{ card.name }}
+            </h2>
             <div class="mt-2">
-              <span class="text-md font-bold text-black"
+              <span class="text-xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
               <span class="line-through text-black"
@@ -282,10 +288,10 @@
               </div>
               <nuxt-link
                 to="#"
-                class="flex bg-slate-200 text-black mt-4 rounded-full px-2 py-2"
+                class="flex bg-gray-200 text-black mt-4 rounded-full p-3"
               >
                 <img
-                  src="https://ccdstest.b-cdn.net/Medi%20u/shopping-bag.svg"
+                  src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
                   alt=""
                   class="w-8"
                 />
@@ -319,7 +325,7 @@ export default {
         {
           id: 1,
           link: "/",
-          name: "BLOWSHINE",
+          name: "Blowshine",
           description: "A description of the card.",
           image:
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01.jpg?v=1725546603",
@@ -337,7 +343,7 @@ export default {
         {
           id: 2,
           link: "/",
-          name: "DERMATICA HA PURE SERUM",
+          name: "dermatica hs pure serum",
           description: "A description of the card.",
           image:
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349",
@@ -351,7 +357,7 @@ export default {
         {
           id: 3,
           link: "/",
-          name: "DERMATICA RAY PROTECT BARELYON",
+          name: "dermatica ray protect barelyon",
           description: "A description of the card.",
           image:
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
@@ -364,7 +370,7 @@ export default {
         {
           id: 4,
           link: "/",
-          name: "ACNE OC MOISTURISER",
+          name: "acne oc moisturiser",
           description: "A description of the card.",
           image:
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
@@ -377,7 +383,7 @@ export default {
         {
           id: 5,
           link: "/",
-          name: "BONTESS PRO",
+          name: "bontess pro",
           description: "A description of the card.",
           image:
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
