@@ -1,54 +1,60 @@
 <template>
-  <div class=" mb-10">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="font-serif">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-80">
       <!-- First row, three cards -->
-      <div class="col-span-1">
+      <div class="">
         <div
           class="relative bg-cover rounded-lg h-full"
           style="
-            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Rectangle%2074.png');
+            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Artboard%201%402x.png');
           "
         >
           <div class="absolute inset-0 bg-opacity-50 rounded-lg"></div>
-          <div class="relative p-6 text-[#3C4242]">
-            <h2 class="text-2xl font-semibold">Serene Meadow Glow</h2>
-            <p>Dress up in summer vibe</p>
-            <p class="mt-4 font-bold">UPTO 50% OFF</p>
-            <div class="flex justify-start mt-4 ml-10">
+          <div class="relative p-6 text-white flex justify-between">
+            <div>
+              <h2 class="text-2xl font-semibold">Serene Meadow Glow</h2>
+              <p>Dress up in summer vibe</p>
+              <div class="flex items-center mt-4 gap-6">
+              <p class=" font-bold">UPTO 50% OFF</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#3C4242"
+                stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="lucide lucide-move-down"
+                class="lucide lucide-move-right"
               >
-                <path d="M8 18L12 22L16 18" />
-                <path d="M12 2V22" />
-              </svg>
+                <path d="M18 8L22 12L18 16" />
+                <path d="M2 12H22" />
+              </svg></div>
             </div>
-            <button
-              class="mt-6 px-4 py-2 bg-transparent border border-[#3C4242] rounded-lg"
-            >
-              SHOP NOW
-            </button>
+            <div class="mt-14 ">
+              
+
+              <nuxt-link
+                to="#"
+                class="flex items-center justify-center px-4 h-5 py-6 bg-transparent border border-white rounded-lg"
+              >
+                SHOP NOW
+              </nuxt-link>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-span-1">
+      <div class="">
         <div
           class="relative bg-cover rounded-lg h-full"
           style="
-            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/image%2027.png');
+            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Artboard%203%402x.png');
           "
         >
           <div class="absolute inset-0 bg-opacity-50 rounded-lg"></div>
-          <div class="relative text-end p-6 text-[#3C4242]">
+          <div class="relative text-end p-6 text-white">
             <h2 class="text-2xl font-semibold">Dew Drops</h2>
             <p>Weekly New Launch</p>
             <p class="mt-4 font-bold">UPTO 40% OFF</p>
@@ -59,7 +65,7 @@
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#3C4242"
+                stroke="#fff"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -70,7 +76,7 @@
               </svg>
             </div>
             <button
-              class="mt-6 px-4 py-2 bg-transparent border border-[#3C4242] rounded-lg"
+              class="mt-6 px-4 py-2 bg-transparent border border-white rounded-lg"
             >
               SHOP NOW
             </button>
@@ -78,11 +84,11 @@
         </div>
       </div>
 
-      <div class="col-span-1">
+      <div class="">
         <div
           class="relative bg-cover rounded-lg h-full"
           style="
-            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Rectangle%2076.png');
+            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Artboard%204%402x.png');
           "
         >
           <div class="absolute inset-0 bg-opacity-50 rounded-lg"></div>
@@ -116,9 +122,9 @@
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 mt-6 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 mt-6 gap-6 h-80">
       <!-- Second row, two cards -->
-      <div class="col-span-1">
+      <div class="">
         <div
           class="relative bg-cover rounded-lg h-full"
           style="
@@ -156,11 +162,11 @@
         </div>
       </div>
 
-      <div class="col-span-1 md:col-span-1">
+      <div class="">
         <div
           class="relative bg-cover rounded-lg h-full"
           style="
-            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Rectangle%2078.png');
+            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Artboard%202_1%402x.png');
           "
         >
           <div class="absolute inset-0 bg-opacity-50 rounded-lg"></div>

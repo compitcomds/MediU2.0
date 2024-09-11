@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[showNotification ? 'top-0 xl:top-0' : 'top-0']"
-    class="flex sticky z-50 bg-white inset-x-0 justify-between items-center border-b border-gray-300 h-20 px-1 lg:px-6 xl:px-2 transition-all duration-300"
+    class="flex sticky z-50 bg-white inset-x-0 justify-between items-center border-b border-gray-300 h-20 px-1 lg:px-6 transition-all duration-300"
   >
     <div class="flex items-center w-3/12">
       <img
@@ -10,7 +10,7 @@
         alt="Logo"
       />
     </div>
-    <div class="flex relative rounded-md w-7/12 h-[40px] xl:h-[50px]">
+    <div class="flex relative rounded-md w-6/12 h-[40px] xl:h-[50px]">
       <input
         type="text"
         name="q"
@@ -43,8 +43,30 @@
     <!-- End Home Cart and loyalty points  -->
 
     <div class="w-2/12 flex justify-end gap-3 text-black">
-      <nuxt-link to="/auth/login" class="bg-blue-500 hover:bg-green-500 text-center shadow text-white rounded-md px-4 py-2 text-xl">Sign In</nuxt-link>
-      <nuxt-link to="/auth/register" class="bg-blue-500 hover:bg-green-500 text-center shadow text-white rounded-md px-4 py-2 text-xl">Sign Up</nuxt-link>
+      <nuxt-link
+        to="/auth/login"
+        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
+      >
+        <span
+          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-indigo-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
+        ></span>
+        <span
+          class="relative text-indigo-600 transition duration-300 group-hover:text-white ease"
+          >Sign In</span
+        >
+      </nuxt-link>
+      <nuxt-link
+        to="/auth/register"
+        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
+      >
+        <span
+          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-indigo-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
+        ></span>
+        <span
+          class="relative text-indigo-600 transition duration-300 group-hover:text-white ease"
+          >Sign Up</span
+        >
+      </nuxt-link>
     </div>
   </div>
 </template>

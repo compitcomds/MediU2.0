@@ -1,15 +1,16 @@
 <template>
-  <div class="py-8 mb-16">
-    <div class="text-center mb-16">
-      <h1 class="text-xl text-[#8D8BA7]">Glow Getters</h1>
-      <h2 class="text-3xl font-semibold text-[#28574E]">
+  <div class="py-8 font-serif">
+    <div class="flex flex-col space-y-6 mb-10">
+      <h1 class="text-4xl text-center text-gray-500">Glow Getters</h1>
+      <h2 class="text-6xl font-bold text-center text-[#28574E]">
         Radiant Skin Secrets
       </h2>
     </div>
+
     <div class="flex mb-8">
       <!-- first section -->
-      <div class="w-5/12">
-        <div class="diff lg:aspect-[9/14] xl:aspect-[9/13]">
+      <div class="w-4/12">
+        <div class="diff lg:aspect-[9/14] xl:aspect-[9/16]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/4.png" />
           </div>
@@ -20,8 +21,8 @@
         </div>
       </div>
       <!-- second section -->
-      <div class="w-7/12 ml-4">
-        <div class="flex justify-start mb-4">
+      <div class="w-8/12 ml-4">
+        <div class="flex justify-start mb-4 text-xl">
           <button
             @click="filterProducts('Hyperpigmentation')"
             :class="{
@@ -55,13 +56,13 @@
             Acne
           </button>
         </div>
-        <div class="grid grid-cols-3 gap-4 h-auto">
+        <div class="grid grid-cols-3 gap-6 h-auto font-sans">
           <!-- make it anchor -->
           <a
             v-for="product in filteredProducts"
             :key="product.id"
             :href="product.url"
-            class="border p-4 rounded-lg block no-underline"
+            class="shadow-md p-4 rounded-2xl block no-underline"
           >
             <div class="relative">
               <span
@@ -72,7 +73,7 @@
               <img :src="product.image" class="w-full" alt="" />
             </div>
             <div class="mt-4 space-y-2">
-              <h3 class="text-black uppercase text-2xl">{{ product.name }}</h3>
+              <h3 class="text-black capitalize text-2xl">{{ product.name }}</h3>
               <div class="flex justify-between items-center">
                 <div class="flex text-xl">
                   <p class="text-[#28574E] font-bold">
@@ -88,7 +89,7 @@
                 <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                   <a :href="product.url"
                     ><img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg"
+                      src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
                       class="w-8 p-1"
                       alt=""
                   /></a>
@@ -128,7 +129,7 @@
           </a>
         </div>
         <div class="mt-4 text-right">
-          <a href="/shop" class="text-blue-500">Explore More →</a>
+          <a href="/shop" class="text-blue-500 text-2xl">Explore More →</a>
         </div>
       </div>
     </div>
@@ -155,7 +156,7 @@ export default {
         },
         {
           id: 2,
-          name: "ACNE OC MOISTURISER",
+          name: "acne oc moisturiser",
           salePrice: "567",
           originalPrice: "1120",
           rating: 5,
@@ -167,7 +168,7 @@ export default {
         },
         {
           id: 3,
-          name: "DERMATICA HA PURE SE...",
+          name: "dermatica hs pure serum",
           salePrice: "1180",
           originalPrice: "2360",
           rating: 4,
@@ -179,7 +180,7 @@ export default {
         },
         {
           id: 4,
-          name: "DERMATICA RAY PROTECT BARELYON",
+          name: "dermatica ray protect barelyon",
           salePrice: "1080",
           originalPrice: "2160",
           rating: 3,
@@ -191,7 +192,7 @@ export default {
         },
         {
           id: 5,
-          name: "RACINE PRO CONDITIONING SHA...",
+          name: "Racine pro conditioning sha...",
           salePrice: "635.0",
           originalPrice: "1270",
           rating: 5,
@@ -203,7 +204,7 @@ export default {
         },
         {
           id: 6,
-          name: "ACNE UV SPF 50 SUNSCREEN 50 GM",
+          name: "acne uv spf 50 sunscreen 50gm",
           salePrice: "915.0",
           originalPrice: "1830",
           rating: 4,
