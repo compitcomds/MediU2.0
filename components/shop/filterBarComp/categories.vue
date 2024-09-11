@@ -1,11 +1,11 @@
 <template>
-    <div class="bg-white rounded px-2">
+    <div class="shadow-[#537971] shadow-lg rounded-xl border m-2 p-2">
       <div class="py-2">
         <p class="text-black text-xl font-bold">Categories</p>
       </div>
       <hr>
-      <div class="h-80 overflow-x-scroll slim-scrollbar text-black">
-        <div v-for="(item, index) in category" :key="index" class="flex items-center py-1.5 px-2">
+      <div class="text-black overflow-y-scroll min-h-48 max-h-64 ">
+        <div v-for="(item, index) in category" :key="index" class="flex px-2">
           <input
             type="checkbox"
             :value="item"
@@ -16,7 +16,7 @@
           <span>{{ item }}</span>
         </div>
       </div>
-      <hr>
+      
     </div>
   </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded px-2">
+    <div class="bg-gray-200 rounded m-2 p-2">
       <div class="py-2">
         <p class="text-black">Tags</p>
       </div>

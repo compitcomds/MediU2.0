@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white w-full h-full">
+    <div class="bg-white h-full">
       
         <div v-if="category==='skin'">
             {{ filterBarDataSkin }} 
@@ -12,12 +12,12 @@
         </div>
         <div v-else>
             
-             <div class="space-y-5">
-            <!-- <ShopFilterBarCompCategories :category="allShopFilter.category" />
+             <div class="mt-3">
+            <ShopFilterBarCompCategories :category="allShopFilter.category" />
             <ShopFilterBarCompBrands :category="allShopFilter.brand" />
-            <ShopFilterBarCompOtherfilter :category="allShopFilter.filter" /> -->
-            <ShopFilterBarCompPrice/>
+            <ShopFilterBarCompOtherfilter :category="allShopFilter.filter" /> 
             <ShopFilterBarCompTags :tags="allShopFilter.tags" />
+            <!-- <ShopFilterBarCompPrice/> -->
         </div>
         </div>
         
