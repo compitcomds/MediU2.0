@@ -114,6 +114,8 @@ import { ref } from "vue";
 const router = useRouter();
 const route = useRoute();
 
+const shopStore = useShopStore();
+
 const TypeOfProducts = ["Product Type 1", "Product Type 2", "Product Type 3"];
 const SkinConcern = ["Concern 1", "Concern 2", "Concern 3"];
 const HairConcern = ["Hair Concern 1", "Hair Concern 2", "Hair Concern 3"];
@@ -151,6 +153,8 @@ const updateQueryParams = () => {
   };
 
   router.push({ query, path: "/shop" });
+
+  shopStore.updateSHopifyProductsQuery(convertQueryParamsToQueryString(query));
 };
 </script>
 

@@ -8,7 +8,7 @@
       class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
     >
       <ShopBanner />
-      <LazyShopCard :productDetails="products" />
+      <LazyShopCard :productDetails="data.products" />
     </div>
   </div>
 </template>
@@ -17,34 +17,11 @@
 import { fetchProducts } from "~/shopify/products";
 // import { getFilters } from "~/shopify/productFilters";
 
-const route = useRoute();
+const shopStore = useShopStore();
+const { shopifyProductsQuery } = storeToRefs(shopStore);
 
-const query = route.query;
+const data = await fetchProducts({ query: shopifyProductsQuery.value });
 
-const availableTypeOfTags = [
-  "selectedTypeOfProducts",
-  "selectedSkinConcern",
-  "selectedHairConcern",
-  "selectedNutrionAndDiet",
-  "selectedPediatric",
-  "selectedIngredents",
-];
-
-let shopifyQuery = "";
-
-for (const tag of availableTypeOfTags) {
-  let miniQuery = "";
-  const selectedTags = ifStringMakeArray(query[tag]);
-  if (selectedTags.length === 0) continue;
-  for (let i = 0; i < selectedTags.length; i++) {
-    miniQuery += `(tag:${selectedTags[i]})`;
-    if (i < selectedTags.length - 1) miniQuery += " OR ";
-  }
-
-  shopifyQuery += miniQuery + " AND ";
-}
-
-const { products } = await fetchProducts({ query: shopifyQuery });
 // const { filters } = await getFilters();
 // console.log(filters);
 const isDrawerOpen = ref(false);

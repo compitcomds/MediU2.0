@@ -10,19 +10,16 @@ type ShopStoreState = {
 };
 
 export const useShopStore = defineStore("userStore", {
-  state: (): { filters: ShopStoreState } => ({
-    filters: {
-      selectedTypeOfProducts: [],
-      selectedSkinConcern: [],
-      selectedHairConcern: [],
-      selectedNutrionAndDiet: [],
-      selectedPediatric: [],
-      selectedIngredent: [],
-    },
-  }),
+  state: (): { shopifyProductsQuery: string } => {
+    const route = useRoute();
+    const shopifyQuery = convertQueryParamsToQueryString(route.query);
+    return {
+      shopifyProductsQuery: shopifyQuery,
+    };
+  },
   actions: {
-    updateShopFilterValues(newValues: Partial<ShopStoreState>) {
-      this.filters = { ...this.filters, ...newValues };
+    updateSHopifyProductsQuery(newQuery: string) {
+      this.shopifyProductsQuery = newQuery;
     },
   },
 });
