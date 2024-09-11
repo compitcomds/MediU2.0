@@ -1,5 +1,5 @@
 <template>
-<ShopQuickview/>
+<ShopFilterbar/>
 </template>
 
 <script setup></script>

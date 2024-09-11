@@ -35,7 +35,7 @@
     </div>
 
     <div
-      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 bg-emerald-100 me-7 mt-3"
+      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 me-7 mt-3"
     >
       <ShopBanner />
 
