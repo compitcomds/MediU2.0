@@ -1,5 +1,5 @@
 <template>
-<ShopQuickview/>
+  <ShopUserSidebar />
 </template>
 
 <script setup></script>

@@ -23,16 +23,16 @@ export async function getFilters() {
   }
 
   // Transform the data into the expected format for price and color
-  const filters = {
+  const filters: Record<string, string[]> = {
     priceRanges: [],
     Availability: [],
     Brand: [],
-    Manufacturers: []
+    Manufacturers: [],
   };
 
-//   if (!data.collection || !data.collection.products || !data.collection.products.filters) {
-//     throw new Error("Collection or products not found");
-//   }
+  //   if (!data.collection || !data.collection.products || !data.collection.products.filters) {
+  //     throw new Error("Collection or products not found");
+  //   }
 
   data.collection.products.filters.forEach((filter: any) => {
     if (filter.label === "Price") {
@@ -45,7 +45,6 @@ export async function getFilters() {
       filters.Manufacturers = filter.values;
     }
   });
-
 
   return filters;
 }

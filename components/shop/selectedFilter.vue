@@ -14,7 +14,8 @@
             aria-label="Remove tag"
           >
             <div class="flex items-center">
-              <UIcon name="i-heroicons-x-mark" />
+              <!-- <UIcon name="i-heroicons-x-mark" /> -->
+              ICON
             </div>
           </button>
         </div>
