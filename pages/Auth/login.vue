@@ -179,7 +179,7 @@
 
           <p class="mt-6 text-sm text-gray-600">
             Don’t have an account?
-            <a href="#" class="text-blue-600 hover:text-blue-800"
+            <a href="/auth/register" class="text-blue-600 hover:text-blue-800"
               >Sign up for free</a
             >
           </p>
