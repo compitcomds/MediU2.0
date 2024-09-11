@@ -1,20 +1,22 @@
 <template>
   <div class="font-serif">
-    <div class="flex flex-col space-y-6">
-      <h1 class="text-4xl text-center text-gray-500">Top Picks</h1>
-      <h2 class="text-6xl font-bold text-center text-[#28574E]">
+    <div class="flex flex-col space-y-6 text-center">
+      <!-- Responsive Heading -->
+      <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Top Picks</h1>
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#28574E]">
         Featured Products
       </h2>
     </div>
-    <!-- Category Buttons -->
-    <div class="flex flex-wrap justify-center my-12 text-2xl">
+
+    <!-- Responsive Category Buttons -->
+    <div class="flex flex-wrap justify-center my-8 md:my-12 text-lg sm:text-xl md:text-2xl">
       <button
         @click="filtercards('Skin')"
         :class="{
           'bg-[#28574E] text-white': selectedCategory === 'Skin',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
         }"
-        class="px-20 py-4 font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2 sm:py-3 md:py-4 font-semibold rounded-full mx-2 mb-2"
       >
         Skin
       </button>
@@ -24,7 +26,7 @@
           'bg-[#28574E] text-white': selectedCategory === 'Hair',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
         }"
-        class="px-20 py-4 font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2 sm:py-3 md:py-4 font-semibold rounded-full mx-2 mb-2"
       >
         Hair
       </button>
@@ -34,15 +36,15 @@
           'bg-[#28574E] text-white': selectedCategory === 'Child',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Child',
         }"
-        class="px-20 py-4 font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2 sm:py-3 md:py-4 font-semibold rounded-full mx-2 mb-2"
       >
         Child
       </button>
     </div>
 
-    <!-- card Grid -->
+    <!-- Responsive Card Grid -->
     <div class="flex flex-wrap lg:flex-nowrap gap-6">
-      <!-- First card Card -->
+      <!-- First card -->
       <div class="w-full lg:w-5/12">
         <div
           v-for="card in filteredcards.slice(0, 1)"
@@ -50,18 +52,19 @@
           :to="card.link"
           class="border p-4 rounded-3xl shadow-lg block no-underline h-full"
         >
-          <nuxt-link class="relative" :key="card.link" :to="card.link">
-            <!-- card sale and bestseller tags -->
+          <nuxt-link class="relative " :key="card.link" :to="card.link">
+            <!-- Sale and Best Seller Tags -->
+             <div class="space-x-4">
             <span
               v-if="card.isOnSale"
-              class="absolute top-0 left-0 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded"
+              class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
               >Sale 50%</span
             >
             <span
               v-if="card.isBestSeller"
-              class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded"
+              class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
               >Best Sale</span
-            >
+            ></div>
             <img
               :src="card.image"
               :alt="card.name"
@@ -72,9 +75,10 @@
             <nuxt-link
               :key="card.link"
               :to="card.link"
-              to="#"
               class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"
-              ><svg
+            >
+              <!-- Heart Icon -->
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="31"
                 height="30"
@@ -87,12 +91,14 @@
                   stroke-width="2.1889"
                 /></svg
             ></nuxt-link>
+
             <nuxt-link
               :key="card.link"
               :to="card.link"
-              class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-lg px-4 py-2 rounded-full gap-4"
+              class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-base md:text-lg px-4 py-2 rounded-full gap-4"
             >
               <button>Shop Now</button>
+              <!-- Shop Icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -109,44 +115,19 @@
                 />
               </svg>
             </nuxt-link>
-            <nuxt-link
-              :key="card.link"
-              :to="card.link"
-              to="#"
-              class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                fill="none"
-              >
-                <path
-                  d="M15.0825 5.70947C5.9621 5.70947 2.31393 15.135 2.31393 15.135C2.31393 15.135 5.9621 24.5583 15.0825 24.5583C24.203 24.5583 27.8511 15.135 27.8511 15.135C27.8511 15.135 24.203 5.70947 15.0825 5.70947V5.70947Z"
-                  stroke="#1A1A1A"
-                  stroke-width="2.1889"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M15.0776 19.6951C16.2871 19.6951 17.447 19.2147 18.3022 18.3595C19.1574 17.5043 19.6378 16.3444 19.6378 15.1349C19.6378 13.9255 19.1574 12.7656 18.3022 11.9104C17.447 11.0552 16.2871 10.5747 15.0776 10.5747C13.8682 10.5747 12.7083 11.0552 11.8531 11.9104C10.9978 12.7656 10.5174 13.9255 10.5174 15.1349C10.5174 16.3444 10.9978 17.5043 11.8531 18.3595C12.7083 19.2147 13.8682 19.6951 15.0776 19.6951V19.6951Z"
-                  stroke="#1A1A1A"
-                  stroke-width="2.1889"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></nuxt-link>
           </div>
+
           <div class="flex flex-col items-center mt-4">
-            <!-- card name and price -->
-            <h2 class="text-3xl text-[#28574E] my-6 font-semibold capitalize">
+            <!-- Responsive card name and price -->
+            <h2 class="text-xl sm:text-2xl md:text-3xl text-[#28574E] my-4 font-semibold capitalize">
               {{ card.name }}
             </h2>
             <div class="my-4 text-center space-x-2">
-              <span class="text-4xl font-bold text-black"
+              <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
-              <span class="line-through text-slate-500 text-2xl"
+              <span
+                class="line-through text-slate-500 text-lg sm:text-xl md:text-2xl"
                 >₹{{ card.originalPrice }}</span
               >
             </div>
@@ -180,15 +161,16 @@
                   class="mask mask-star-2 bg-orange-400"
                 />
               </div>
-              <span class="ml-2 text-md text-black"
+              <span class="ml-2 text-sm sm:text-md text-black"
                 >({{ card.feedbackCount }} Feedback)</span
               >
             </div>
+
             <!-- Timer -->
-            <div v-if="card.timer" class="mt-8 text-center text-xl text-black">
+            <div v-if="card.timer" class="mt-6 text-center text-base sm:text-lg md:text-xl text-black">
               <div>Hurry up! Offer ends in:</div>
               <div
-                class="font-semibold flex justify-center text-xl items-center text-black"
+                class="font-semibold flex justify-center text-base sm:text-lg md:text-xl items-center text-black"
               >
                 <div class="p-2 mx-1 rounded">{{ card.timer.days }} days</div>
                 <span>:</span>
@@ -203,16 +185,11 @@
                 </div>
               </div>
             </div>
-            <!-- <nuxt-link :key="card.link" :to="card.link" class="mt-6">
-              <button class="bg-[#28574E] text-white px-4 py-2 rounded-full">
-                Shop Now
-              </button>
-            </nuxt-link> -->
           </div>
         </div>
       </div>
 
-      <!-- Remaining card Cards -->
+      <!-- Remaining Cards -->
       <div
         class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6 capitalize font-sans"
       >
@@ -223,15 +200,15 @@
           class="border p-4 rounded-3xl shadow-lg block no-underline h-full"
         >
           <nuxt-link class="relative" :key="card.link" :to="card.link">
-            <!-- card sale and bestseller tags -->
+            <!-- Sale and Best Seller Tags -->
             <span
               v-if="card.isOnSale"
-              class="absolute top-0 left-0 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded"
+              class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
               >Sale 50%</span
             >
             <span
               v-if="card.isBestSeller"
-              class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded"
+              class="absolute top-0 right-0 bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
               >Best Sale</span
             >
             <img
@@ -243,14 +220,14 @@
 
           <div class="mt-4 text-left">
             <!-- card name and price -->
-            <h2 class="text-md text-black text-2xl capitalize">
+            <h2 class="text-lg sm:text-xl md:text-2xl text-black capitalize">
               {{ card.name }}
             </h2>
             <div class="mt-2">
-              <span class="text-xl font-bold text-black"
+              <span class="text-xl sm:text-2xl md:text-3xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
-              <span class="line-through text-black"
+              <span class="line-through text-black text-sm sm:text-lg md:text-xl"
                 >₹{{ card.originalPrice }}</span
               >
             </div>
@@ -286,6 +263,8 @@
                   />
                 </div>
               </div>
+
+              <!-- Shop Button -->
               <nuxt-link
                 to="#"
                 class="flex bg-gray-200 text-black mt-4 rounded-full p-3"
@@ -297,8 +276,12 @@
                 />
               </nuxt-link>
             </div>
+
             <!-- Timer -->
-            <div v-if="card.timer" class="mt-4 text-center text-sm text-black">
+            <div
+              v-if="card.timer"
+              class="mt-4 text-center text-sm sm:text-base md:text-lg text-black"
+            >
               <div>Hurry up! Offer ends in:</div>
               <div class="font-semibold">
                 {{ card.timer.days }} days {{ card.timer.hours }} hours
@@ -311,11 +294,12 @@
     </div>
 
     <!-- Footer -->
-    <div class="text-end px-2 py-4 text-lg text-[#28574E] font-semibold">
+    <div class="text-end px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold">
       <nuxt-link to="#">View All 240 Products -> </nuxt-link>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -443,28 +427,19 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+/* Custom responsive adjustments */
 @media (max-width: 768px) {
-  .text-xl {
-    font-size: 1.25rem;
-  }
-
-  .text-md {
-    font-size: 1rem;
-  }
-
   .w-full {
     width: 100%;
   }
-
   .lg\:w-5\/12 {
     width: 100%;
   }
-
   .lg\:w-7\/12 {
     width: 100%;
   }
-
   .h-60 {
     height: auto;
   }
