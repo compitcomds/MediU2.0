@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-12 gap-4">
+  <div class="grid grid-cols-12 ">
     <div
-      class="hidden sm:block lg:col-span-3 md:col-span-4 xl:col-span-2 bg-gray-200"
+      class="hidden sm:block lg:col-span-3 md:col-span-4 xl:col-span-2 ms-7"
     >
       <ShopFilterbar />
     </div>
@@ -35,7 +35,7 @@
     </div>
 
     <div
-      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 bg-emerald-100 m-2"
+      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 me-7 mt-3"
     >
       <ShopBanner />
 
@@ -69,10 +69,10 @@ const toggleDrawer = () => {
 };
 
 //  handle the produc by scrolling
-const handleScroll = () => {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
-    currentPage++;
-    loadProducts();
-  }
-};
+// const handleScroll = () => {
+//   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
+//     currentPage++;
+//     loadProducts();
+//   }
+// };
 </script>
