@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-[#28564D] text-white py-16 mb-10 rounded-lg">
-    <h2 class="text-[50px] text-center pb-14">World's Top Doctors</h2>
+  <div class="bg-[#28564D] text-white py-16 mb-10 ">
+    <h2 class="text-[70px] text-center pb-14 font-serif font-bold">World's Top Doctors</h2>
     <div class="flex justify-center space-x-6 my-10">
       <!-- Dr. Akhil Agarwal -->
       <div class="relative w-60 lg:w-96 xl:w-96 group transform -translate-y-8">

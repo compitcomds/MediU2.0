@@ -1,15 +1,16 @@
 <template>
-  <div class="my-36">
-    <div class="text-center mb-16">
-      <h1 class="text-xl text-[#8D8BA7]">Nourishing Treatments</h1>
-      <h2 class="text-3xl font-semibold text-[#28574E]">
+  <div class="my-36 font-serif md:px-4 xl:px-[163px]">
+    <div class="flex flex-col space-y-6 mb-10">
+      <h1 class="text-4xl text-center text-gray-500">Nourishing Treatments</h1>
+      <h2 class="text-6xl font-bold text-center text-[#28574E]">
         Hair Care Must-Haves
       </h2>
     </div>
+
     <div class="flex gap-4 mb-8">
       <!-- first section -->
-      <div class="w-7/12 ml-4">
-        <div class="flex justify-between px-4 mb-4">
+      <div class="w-8/12 ml-4">
+        <div class="flex justify-between px-4 mb-4 text-xl">
           <button
             @click="filterProducts('Hyperpigmentation')"
             :class="{
@@ -43,13 +44,13 @@
             Acne
           </button>
         </div>
-        <div class="grid grid-cols-3 gap-4 h-auto">
+        <div class="grid grid-cols-3 gap-6 capitalize font-sans h-auto">
           <!-- make it anchor -->
           <a
             v-for="product in filteredProducts"
             :key="product.id"
             :href="product.url"
-            class="border p-4 rounded-lg block no-underline"
+            class="shadow-md p-4 rounded-2xl block no-underline"
           >
             <div class="relative">
               <span
@@ -60,23 +61,23 @@
               <img :src="product.image" class="w-full" alt="" />
             </div>
             <div class="mt-4 space-y-2">
-              <h3 class="text-black uppercase text-2xl">{{ product.name }}</h3>
+              <h3 class="text-black capitalize text-2xl">{{ product.name }}</h3>
               <div class="flex justify-between items-center text-xl">
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
-                    {{ product.salePrice }}
+                    ₹{{ product.salePrice }}
                   </p>
                   <p
                     class="text-gray-500 text-sm line-through"
                     v-if="product.isOnSale"
                   >
-                    {{ product.originalPrice }}
+                    ₹{{ product.originalPrice }}
                   </p>
                 </div>
                 <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                   <a :href="product.url"
                     ><img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/add-to-basket.svg"
+                      src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
                       class="w-8 p-1"
                       alt=""
                   /></a>
@@ -116,14 +117,12 @@
           </a>
         </div>
         <div class="mt-4 text-left">
-          <a href="#" class="text-black hover:text-blue-500 text-lg"
-            >Explore More →</a
-          >
+          <a href="/shop" class="text-blue-500 text-2xl">Explore More →</a>
         </div>
       </div>
 
-      <div class="w-5/12">
-        <div class="diff lg:aspect-[9/14] xl:aspect-[9/13]">
+      <div class="w-4/12">
+        <div class="diff lg:aspect-[9/14] xl:aspect-[9/16]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/8.png" />
           </div>
@@ -136,6 +135,7 @@
       <!-- second section -->
     </div>
   </div>
+  <HomeText />
 </template>
 
 <script>
@@ -145,8 +145,20 @@ export default {
       selectedCategory: "Hyperpigmentation",
       products: [
         {
-          id: 2,
-          name: "ACNE OC MOISTURISER",
+          id: 4,
+          name: "Bontess Pro",
+          salePrice: "1225",
+          originalPrice: "2500",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+          category: "Hyperpigmentation",
+          isOnSale: true,
+          url: "/",
+        },
+        {
+          id: 6,
+          name: "acne oc moisturiser",
           salePrice: "567",
           originalPrice: "1120",
           rating: 5,
@@ -158,31 +170,7 @@ export default {
         },
         {
           id: 5,
-          name: "RACINE PRO CONDITIONING SHA...",
-          salePrice: "635.0",
-          originalPrice: "1270",
-          rating: 5,
-          image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738",
-          category: "Hyperpigmentation",
-          isOnSale: true,
-          url: "/",
-        },
-        {
-          id: 4,
-          name: "DERMATICA RAY PROTECT BARELYON",
-          salePrice: "1080",
-          originalPrice: "2160",
-          rating: 3,
-          image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
-          category: "Hyperpigmentation",
-          isOnSale: true,
-          url: "/",
-        },
-        {
-          id: 3,
-          name: "DERMATICA HA PURE SE...",
+          name: "dermatica hs pure serum",
           salePrice: "1180",
           originalPrice: "2360",
           rating: 4,
@@ -193,25 +181,37 @@ export default {
           url: "/",
         },
         {
-          id: 6,
-          name: "ACNE UV SPF 50 SUNSCREEN 50 GM",
-          salePrice: "915.0",
-          originalPrice: "1830",
-          rating: 4,
+          id: 1,
+          name: "dermatica ray protect barelyon",
+          salePrice: "1080",
+          originalPrice: "2160",
+          rating: 3,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4357.jpg?v=1725638245",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/",
         },
         {
-          id: 1,
-          name: "Bontess Pro",
-          salePrice: "1225",
-          originalPrice: "2500",
+          id: 2,
+          name: "Racine pro conditioning sha...",
+          salePrice: "635.0",
+          originalPrice: "1270",
+          rating: 5,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738",
+          category: "Hyperpigmentation",
+          isOnSale: true,
+          url: "/",
+        },
+        {
+          id: 3,
+          name: "acne uv spf 50 sunscreen 50gm",
+          salePrice: "915.0",
+          originalPrice: "1830",
           rating: 4,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4357.jpg?v=1725638245",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/",
