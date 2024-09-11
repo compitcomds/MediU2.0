@@ -1,6 +1,6 @@
 <template>
   <!--  -->
-  <HomeNavbar />
+  <!-- <HomeNavbar /> -->
   <HomeMain /><HomeBlock class="" />
   <div class="bg-white space-y-20">
     <HomeCard class="md:px-4 xl:px-[163px]" />

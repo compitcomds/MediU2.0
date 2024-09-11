@@ -1,5 +1,5 @@
 <template>
-  <HomeNavbar />
+  
   <div class="min-h-screen flex bg-gray-50">
     <div
       class="flex flex-col md:flex-row w-full bg-white overflow-hidden justify-center"
