@@ -60,7 +60,7 @@ export const getUser = async () => account.get();
 async function createLoggedSession(data: { email: string; password: string }) {
   try {
     await account.createEmailPasswordSession(data.email, data.password);
-  } catch (error) {
+  } catch (error: any) {
     await account.deleteSession("current");
     await account.createEmailPasswordSession(data.email, data.password);
   }

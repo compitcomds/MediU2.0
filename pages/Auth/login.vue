@@ -1,5 +1,4 @@
 <template>
-  
   <div class="min-h-screen flex bg-gray-50">
     <div
       class="flex flex-col md:flex-row w-full bg-white overflow-hidden justify-center"
@@ -7,14 +6,16 @@
       <!-- Left Section (Form) -->
       <div class="w-full md:w-1/2 p-8 flex flex-col md:flex-row justify-center">
         <div class="w-8/12 space-y-10 p-5">
-          <h2 class="text-4xl font-serif font-semibold text-[#285742]">Sign In</h2>
+          <h2 class="text-4xl font-serif font-semibold text-[#285742]">
+            Sign In
+          </h2>
           <p class="text-black mb-6 text-xl">
             Welcome, please login to your account
           </p>
 
           <div class="flex justify-between mb-4">
             <button
-              class="flex items-center justify-center gap-4  w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-4 w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
             >
               <svg
                 width="22"
@@ -50,7 +51,7 @@
               <p>Log In With Google</p>
             </button>
             <button
-              class="flex items-center justify-center gap-4  w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-4 w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
@@ -69,7 +70,9 @@
 
           <form @submit.prevent="submitForm">
             <div class="mb-4">
-              <label class="block text-black text-xl font-semibold mb-2" for="email"
+              <label
+                class="block text-black text-xl font-semibold mb-2"
+                for="email"
                 >Email Address</label
               >
               <input
@@ -200,8 +203,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { loginUser } from "~/appwrite/auth";
 
+const router = useRouter();
 const formData = ref({
   email: "",
   password: "",
@@ -215,7 +219,8 @@ const togglePasswordVisibility = () => {
 
 const submitForm = async () => {
   try {
-    // Handle form submission logic here
+    await loginUser(formData.value);
+    router.replace("/dashboard");
   } catch (error) {
     alert(`Error: ${error.message}`);
   }

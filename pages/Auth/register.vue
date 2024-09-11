@@ -6,7 +6,9 @@
       <!-- Left Section (Form) -->
       <div class="w-full md:w-1/2 p-8 flex flex-col md:flex-row justify-center">
         <div class="w-8/12 space-y-10 p-5">
-          <h2 class="text-4xl font-serif font-semibold text-[#285742]">Sign Up</h2>
+          <h2 class="text-4xl font-serif font-semibold text-[#285742]">
+            Sign Up
+          </h2>
           <p class="text-gray-600 mb-6">
             Welcome, please login to your account
           </p>
@@ -14,7 +16,7 @@
           <!-- Social Login Buttons -->
           <div class="flex justify-between mb-4">
             <button
-              class="flex items-center justify-center gap-4  w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-4 w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
             >
               <svg
                 width="22"
@@ -50,7 +52,7 @@
               <p>Log In With Google</p>
             </button>
             <button
-              class="flex items-center justify-center gap-4  w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-4 w-full md:w-1/2 bg-white text-gray-600 border border-gray-300 px-4 py-2 mr-2 rounded-lg shadow hover:shadow-lg"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
@@ -161,7 +163,9 @@
       <!-- Right Section (Image) -->
       <div
         class="hidden md:block md:w-1/2 bg-cover bg-center"
-        :style="{ backgroundImage: 'url(https://ccdstest.b-cdn.net/Medi%20u/1.png)' }"
+        :style="{
+          backgroundImage: 'url(https://ccdstest.b-cdn.net/Medi%20u/1.png)',
+        }"
       >
         <!-- Background Image -->
       </div>
@@ -169,8 +173,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { registerUser } from "~/appwrite/auth";
 
 const router = useRouter();
 
@@ -183,7 +186,7 @@ const formData = ref({
 
 const submitForm = async () => {
   try {
-    // Handle form submission logic here (API call or state management)
+    await registerUser(formData.value);
     await router.replace("/dashboard");
   } catch (error) {
     alert(`Error: ${error.message}`);
