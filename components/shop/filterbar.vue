@@ -156,7 +156,7 @@ const updateQueryParams = () => {
 
   router.push({ path: route.path, query: { ...route.query, ...query } });
 
-  shopStore.updateSHopifyProductsQuery(convertQueryParamsToQueryString(query));
+  shopStore.updateShopifyProductsQuery(convertQueryParamsToQueryString(query));
 };
 </script>
 

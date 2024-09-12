@@ -110,9 +110,10 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
   | null
   | undefined
 > {
-  const { data } = await shopifyClient.request(getCartDataQuery, {
+  const { data, errors } = await shopifyClient.request(getCartDataQuery, {
     variables: { cartId },
   });
+
   if (data?.cart) {
     const items: Array<CartItemType> = [];
     items.push(...convertCartLinesToCartItemType(data.cart.lines.nodes));

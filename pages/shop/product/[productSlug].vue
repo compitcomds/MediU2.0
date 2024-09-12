@@ -102,28 +102,31 @@ onMounted(async () => {
  -->
 
 <template>
-   <div v-if="data" class="py-6 mt-10 text-black">
-    <div class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative">
-
+  <div v-if="data" class="py-6 mt-10 text-black">
+    <div
+      class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative"
+    >
       <div class="col-span-8 lg:col-span-6 relative">
         <div class="sticky top-0" ref="imageContainer">
-          <div id="img-container" class="relative overflow-hidden rounded-lg shadow-lg  bg-slate-500">
+          <div
+            id="img-container"
+            class="relative overflow-hidden rounded-lg shadow-lg bg-slate-500"
+          >
             <ShopImages :title="data.title" :images="data.images" />
           </div>
         </div>
       </div>
 
-      
       <div class="col-span-8 lg:col-span-6 lg:px-3">
-       
         <h1 class="uppercase text-4xl font-bold lg:text-5xl text-black mb-6">
           {{ data.title }}
         </h1>
 
-       
-        <p v-html="data.descriptionHtml" class="text-gray-700 text-sm mb-8 leading-relaxed"></p>
+        <p
+          v-html="data.descriptionHtml"
+          class="text-gray-700 text-sm mb-8 leading-relaxed"
+        ></p>
 
-        
         <div class="mb-8">
           <h2 class="font-medium text-gray-900">PRICE</h2>
           <p class="uppercase text-2xl font-bold text-gray-800">
@@ -131,26 +134,24 @@ onMounted(async () => {
           </p>
         </div>
 
-        
         <div class="flex gap-5 flex-wrap items-center mb-8">
-          <div class="border-gray-400 border w-1/4 py-3 px-4 flex items-center justify-between rounded-lg">
+          <div
+            class="border-gray-400 border w-1/4 py-3 px-4 flex items-center justify-between rounded-lg"
+          >
             <button @click="decreaseQuantity" class="text-3xl">-</button>
             <p class="text-2xl">{{ quantity }}</p>
             <button @click="increaseQuantity" class="text-3xl">+</button>
           </div>
 
-          
           <button
             class="bg-purple-600 text-white text-lg flex items-center justify-center flex-1 h-full py-4 rounded-lg shadow-md hover:bg-purple-700 transition duration-300"
           >
             ADD TO CART
           </button>
 
-         
-          <ShopAddingToCartBtn :productId="data.id"/>
+          <ShopAddingToCartBtn :productId="data.id" />
         </div>
 
-        
         <div>
           <template v-for="key in accordionKeys">
             <div
@@ -170,8 +171,7 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-  </div> 
-  
+  </div>
 </template>
 
 <script setup>
@@ -207,7 +207,6 @@ const accordionKeys = [
 try {
   const product = await getProductData(productHandle);
   data.value = product;
-  setupImageZoom();
 } catch (error) {
   console.error("Error fetching product data:", error);
 }
@@ -217,8 +216,12 @@ const setupImageZoom = () => {
     fillContainer: true,
     offset: { vertical: 0, horizontal: 10 },
   };
-  new ImageZoom(document.getElementById("img-container"), options2);
+  // new ImageZoom(document.getElementById("img-container"), options2);
 };
+
+onMounted(() => {
+  setupImageZoom();
+});
 
 // Methods to increase/decrease quantity
 const increaseQuantity = () => {
