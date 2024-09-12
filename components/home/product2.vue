@@ -1,16 +1,23 @@
 <template>
-  <div class="py-8 font-serif">
-    <div class="flex flex-col space-y-6 mb-10">
+  <div class="py-8 font-serif space-y-6">
+    <div class="flex flex-col space-y-4 text-center">
+      <!-- Responsive Heading -->
+      <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Glow Getters</h1>
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#28574E]">
+        Radiant Skin Secrets
+      </h2>
+    </div>
+    <!-- <div class="flex flex-col space-y-6 mb-10">
       <h1 class="text-4xl text-center text-gray-500">Glow Getters</h1>
       <h2 class="text-6xl font-bold text-center text-[#28574E]">
         Radiant Skin Secrets
       </h2>
-    </div>
+    </div> -->
 
     <div class="flex mb-8">
       <!-- first section -->
-      <div class="w-4/12">
-        <div class="diff lg:aspect-[9/14] xl:aspect-[9/16]">
+      <div class="w-4/12 hidden lg:block">
+        <div class="diff lg:aspect-[9/14] xl:aspect-[9/17]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/4.png" />
           </div>
@@ -21,17 +28,15 @@
         </div>
       </div>
       <!-- second section -->
-      <div class="w-8/12 ml-4">
-        <div class="flex justify-start mb-4 text-xl">
+      <div class="lg:w-8/12 ml-4">
+        <div class="flex  justify-start mb-4 text-lg lg:text-xl">
           <button
             @click="filterProducts('Hyperpigmentation')"
             :class="{
-              'bg-[#28574E] text-white':
-                selectedCategory === 'Hyperpigmentation',
-              'bg-slate-300 text-black':
-                selectedCategory !== 'Hyperpigmentation',
+              'bg-[#28574E] text-white': selectedCategory === 'Hyperpigmentation',
+              'bg-slate-300 text-black': selectedCategory !== 'Hyperpigmentation',
             }"
-            class="py-2 px-4 rounded-full w-full"
+            class="py-2 px-4 lg:w-2/6 rounded-full w-full sm:w-auto mb-2 sm:mb-0"
           >
             Hyperpigmentation
           </button>
@@ -41,7 +46,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Eczema',
               'bg-slate-300 text-black': selectedCategory !== 'Eczema',
             }"
-            class="py-2 px-4 rounded-full ml-2 w-full"
+            class="py-2 px-4 rounded-full  lg:w-2/6 w-full sm:w-auto ml-0 sm:ml-2 mb-2 sm:mb-0"
           >
             Eczema
           </button>
@@ -51,12 +56,12 @@
               'bg-[#28574E] text-white': selectedCategory === 'Acne',
               'bg-slate-300 text-black': selectedCategory !== 'Acne',
             }"
-            class="py-2 px-4 rounded-full ml-2 w-full"
+            class="py-2 px-4 rounded-full lg:w-2/6 w-full sm:w-auto ml-0 sm:ml-2"
           >
             Acne
           </button>
         </div>
-        <div class="grid grid-cols-3 gap-6 h-auto font-sans">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-auto font-sans">
           <!-- make it anchor -->
           <a
             v-for="product in filteredProducts"

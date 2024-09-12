@@ -16,5 +16,5 @@
     <Footer />
   </div>
   <!--  -->
-  <ShopUserSidebar />
+  <!-- <ShopUserSidebar /> -->
 </template>

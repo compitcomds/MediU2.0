@@ -1,9 +1,8 @@
-import Product from "~/components/home/product.vue";
 import shopifyClient from "./shopify-client";
 
 const fetchProductsQuery = `
-query fetchProductsQuery($after: String) {
-  products(first: 60, after: $after) {
+query fetchProductsQuery($after: String, $query: String) {
+  products(first: 60, after: $after, query: $query) {
     nodes {
       handle
       id
@@ -34,11 +33,15 @@ query fetchProductsQuery($after: String) {
 }
 `;
 
-
-
-export const fetchProducts = async (after?: string) => {
+export const fetchProducts = async ({
+  after,
+  query,
+}: {
+  after?: string;
+  query?: string;
+}) => {
   const { data } = await shopifyClient.request(fetchProductsQuery, {
-    variables: { after },
+    variables: { after: after || null, query: query || null },
   });
   const pageInfo = data?.products?.pageInfo;
   const nodes = data?.products?.nodes;
@@ -53,7 +56,6 @@ export const fetchProducts = async (after?: string) => {
       price: node.priceRange.minVariantPrice.amount,
       currency: node.priceRange.minVariantPrice.currencyCode,
     }));
-    // console.log("this is product",products)
     return {
       products,
       pageInfo: {
@@ -65,11 +67,3 @@ export const fetchProducts = async (after?: string) => {
 
   throw new Error("Failed to fetch products.");
 };
-
-
-
-
-// #_________________________________________________________________________________________________
-
-
-

@@ -39,35 +39,35 @@
       </button>
     </div>
     <!-- Home Cart and loyalty points  -->
-    <!-- <HomeCart /> -->
+    <HomeCart />
     <!-- End Home Cart and loyalty points  -->
 
-    <div class="w-2/12 flex justify-end gap-3 text-black">
+    <!-- <div class="w-2/12 flex justify-end gap-3 text-black">
       <nuxt-link
         to="/auth/login"
-        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
+        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#285742] text-[#285742] text-white"
       >
         <span
-          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-indigo-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
+          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#285742] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
         ></span>
         <span
-          class="relative text-indigo-600 transition duration-300 group-hover:text-white ease"
+          class="relative text-[#285742] transition duration-300 group-hover:text-white ease"
           >Sign In</span
         >
       </nuxt-link>
       <nuxt-link
         to="/auth/register"
-        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
+        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#285742] text-[#285742] text-white"
       >
         <span
-          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-indigo-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
+          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#285742] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
         ></span>
         <span
-          class="relative text-indigo-600 transition duration-300 group-hover:text-white ease"
+          class="relative text-[#285742] transition duration-300 group-hover:text-white ease"
           >Sign Up</span
         >
       </nuxt-link>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>

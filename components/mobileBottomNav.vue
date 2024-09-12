@@ -6,16 +6,17 @@
         exact-active-class="active"
         class="flex items-center justify-center w-12 h-12"
       >
-        <UIcon name="i-heroicons-home" class="w-5 h-5" />
+        <!-- <UIcon name="i-heroicons-home" class="w-5 h-5" /> -->
+        ICON
       </nuxt-link>
       <nuxt-link
         to="/shop"
         exact-active-class="active"
         class="flex items-center justify-center w-12 h-12"
       >
-        <UIcon name="i-heroicons-building-storefront" class="w-5 h-5" />
+        ICON
       </nuxt-link>
-      <ShopUserSidebar/>
+      <ShopUserSidebar />
       <!-- <nuxt-link
         to="/testing"
         exact-active-class="active"
@@ -28,7 +29,8 @@
         exact-active-class="active"
         class="flex items-center justify-center w-12 h-12"
       >
-        <UIcon name="i-heroicons-user-circle" class="w-5 h-5" />
+        <!-- <UIcon name="i-heroicons-user-circle" class="w-5 h-5" /> -->
+        ICON
       </nuxt-link>
     </div>
   </div>

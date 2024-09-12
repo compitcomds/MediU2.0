@@ -103,28 +103,29 @@ onMounted(async () => {
 
 
  <template>
-  <div v-if="data" class="py-6 mt-10 text-black">
+  
+  <!-- <div v-if="data" class="py-6 mt-10 text-black">
     <div class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative">
-      <!-- Product Images Section with Magnifier -->
+
       <div class="col-span-8 lg:col-span-6 relative">
         <div class="sticky top-0" ref="imageContainer">
-          <div id="img-container" class="relative overflow-hidden rounded-lg shadow-lg">
+          <div id="img-container" class="relative overflow-hidden rounded-lg shadow-lg  bg-slate-500">
             <ShopImages :title="data.title" :images="data.images" />
           </div>
         </div>
       </div>
 
-      <!-- Product Details Section -->
+      
       <div class="col-span-8 lg:col-span-6 lg:px-3">
-        <!-- Product Title -->
+       
         <h1 class="uppercase text-4xl font-bold lg:text-5xl text-black mb-6">
           {{ data.title }}
         </h1>
 
-        <!-- Product Description -->
+       
         <p v-html="data.descriptionHtml" class="text-gray-700 text-sm mb-8 leading-relaxed"></p>
 
-        <!-- Product Price and Quantity -->
+        
         <div class="mb-8">
           <h2 class="font-medium text-gray-900">PRICE</h2>
           <p class="uppercase text-2xl font-bold text-gray-800">
@@ -132,7 +133,7 @@ onMounted(async () => {
           </p>
         </div>
 
-        <!-- Add to Cart & Quantity Section -->
+        
         <div class="flex gap-5 flex-wrap items-center mb-8">
           <div class="border-gray-400 border w-1/4 py-3 px-4 flex items-center justify-between rounded-lg">
             <button @click="decreaseQuantity" class="text-3xl">-</button>
@@ -140,18 +141,18 @@ onMounted(async () => {
             <button @click="increaseQuantity" class="text-3xl">+</button>
           </div>
 
-          <!-- Add to Cart Button -->
+          
           <button
             class="bg-purple-600 text-white text-lg flex items-center justify-center flex-1 h-full py-4 rounded-lg shadow-md hover:bg-purple-700 transition duration-300"
           >
             ADD TO CART
           </button>
 
-          <!-- Optional: Add Additional Cart Button -->
+         
           <ShopAddingToCartBtn :productId="data.id"/>
         </div>
 
-        <!-- Accordion for Additional Information -->
+        
         <div>
           <template v-for="key in accordionKeys">
             <div
@@ -170,6 +171,22 @@ onMounted(async () => {
           </template>
         </div>
       </div>
+    </div>
+  </div> -->
+  <div class="p-4">
+
+    <div class="grid grid-cols-5 gap-4 md:grid-cols-5">
+  
+      <div class="col-span-5 md:col-span-2 bg-blue-500 ">
+        <div class="flex justify-center items-center">
+          <img :src="data.featuredImage.url" class="w-fit p-12" alt="">
+        </div>
+        <div class="flex">
+          
+        </div>
+      </div>
+     
+      <div class="col-span-5 md:col-span-3 bg-green-500 ">2 (3/5)</div>
     </div>
   </div>
 </template>
