@@ -9,7 +9,7 @@
     <div class="flex mb-8">
       <!-- first section -->
       <div class="w-4/12">
-        <div class="diff lg:aspect-[9/16] xl:aspect-[9/16]  xxl:aspect-[9/14]">
+        <div class="diff lg:aspect-[9/16] xl:aspect-[9/18]  xxl:aspect-[9/17]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/6.png" />
           </div>

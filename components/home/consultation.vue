@@ -15,10 +15,10 @@
             </div>
             <div>
               <select v-model="form.concern" class="form-select blury w-full">
-                <option value="" disabled selected>Concern</option>
-                <option value="concern1">Concern 1</option>
-                <option value="concern2">Concern 2</option>
-                <option value="concern3">Concern 3</option>
+                <option value="" disabled selected>Hair</option>
+                <!-- <option value="concern1">Hair</option> -->
+                <option value="concern2">Skin</option>
+                <option value="concern3">Baby Care</option>
               </select>
             </div>
             <div>

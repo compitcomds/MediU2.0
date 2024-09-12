@@ -39,10 +39,10 @@
       </button>
     </div>
     <!-- Home Cart and loyalty points  -->
-    <!-- <HomeCart /> -->
+    <HomeCart />
     <!-- End Home Cart and loyalty points  -->
 
-    <div class="w-2/12 flex justify-end gap-3 text-black">
+    <!-- <div class="w-2/12 flex justify-end gap-3 text-black">
       <nuxt-link
         to="/auth/login"
         class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#285742] text-[#285742] text-white"
@@ -67,7 +67,7 @@
           >Sign Up</span
         >
       </nuxt-link>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
