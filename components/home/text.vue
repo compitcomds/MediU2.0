@@ -1,9 +1,9 @@
 <template>
     <div class="flex w-full justify-between items-center text-[#285742] md:px-4 xl:px-[163px] gap-8">
-        <p class="w-1/2 text-6xl font-semibold font-mono">
+        <p class="w-1/2 text-5xl font-semibold font-serif">
           Superior Health Services with MediU: Your Trusted Care Provider.
         </p>
-        <p class="w-1/2 text-3xl">
+        <p class="w-1/2 text-xl font-serif">
           Superior Health Services with MediU provides exceptional, patient-centered
           care through advanced medical treatments and compassionate support. Our
           dedicated team of experienced professionals ensures personalized
