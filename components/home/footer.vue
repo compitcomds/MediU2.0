@@ -4,7 +4,13 @@
       class="container mx-auto px-20 flex flex-wrap justify-between items-start"
     >
       <div class="w-full md:w-1/3 mb-2 md:mb-0">
-        <h2 class="font-bold text-6xl mb-4">Medi U</h2>
+        <nuxt-link to="/" class="flex items-center w-3/12">
+          <img
+            src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png"
+            class="w-auto h-16"
+            alt="Logo"
+          />
+        </nuxt-link>
         <ul class="space-y-4">
           <li class="flex items-center font-bold lg:text-lg xl:text-xl mb-4 mt-16">Contact Us</li>
           <li class="flex items-center space-x-2">
