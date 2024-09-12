@@ -76,13 +76,13 @@
               <div class="flex justify-between items-center text-xl">
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
-                    {{ product.salePrice }}
+                    ₹{{ product.salePrice }}
                   </p>
                   <p
                     class="text-gray-500 text-sm line-through"
                     v-if="product.isOnSale"
                   >
-                    {{ product.originalPrice }}
+                  ₹{{ product.originalPrice }}
                   </p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default {
         },
         {
           id: 2,
-          name: "ACNE OC MOISTURISER",
+          name: "acne oc moisturiser",
           salePrice: "567",
           originalPrice: "1120",
           rating: 5,
@@ -162,7 +162,7 @@ export default {
         },
         {
           id: 3,
-          name: "DERMATICA HA PURE SE...",
+          name: "dermatica hs pure serum",
           salePrice: "1180",
           originalPrice: "2360",
           rating: 4,
@@ -174,7 +174,7 @@ export default {
         },
         {
           id: 4,
-          name: "DERMATICA RAY PROTECT BARELYON",
+          name: "dermatica ray protect barelyon",
           salePrice: "1080",
           originalPrice: "2160",
           rating: 3,
@@ -186,7 +186,7 @@ export default {
         },
         {
           id: 5,
-          name: "RACINE PRO CONDITIONING SHA...",
+          name: "Racine pro conditioning sha...",
           salePrice: "635.0",
           originalPrice: "1270",
           rating: 5,
@@ -198,7 +198,7 @@ export default {
         },
         {
           id: 6,
-          name: "ACNE UV SPF 50 SUNSCREEN 50 GM",
+          name: "acne uv spf 50 sunscreen 50gm",
           salePrice: "915.0",
           originalPrice: "1830",
           rating: 4,
