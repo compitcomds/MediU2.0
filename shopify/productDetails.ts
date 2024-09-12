@@ -66,6 +66,7 @@ query productWithVariantsQuery($handle: String!) {
         }
       }
     }
+    tags
   }
 }
 `;
@@ -141,6 +142,7 @@ export async function getInitalProductData(handle: string) {
           height: number;
         }>;
       };
+      tags:string[];
     };
     const returnData = {
       ...product,
