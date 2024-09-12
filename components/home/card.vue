@@ -9,7 +9,9 @@
     </div>
 
     <!-- Responsive Category Buttons -->
-    <div class="flex flex-wrap justify-center my-8 md:my-12 text-lg sm:text-xl md:text-2xl">
+    <div
+      class="flex flex-wrap justify-center my-8 md:my-12 text-lg sm:text-xl md:text-2xl"
+    >
       <button
         @click="filtercards('Skin')"
         :class="{
@@ -52,19 +54,20 @@
           :to="card.link"
           class="border p-4 rounded-3xl shadow-lg block no-underline h-full font-sans"
         >
-          <nuxt-link class="relative " :key="card.link" :to="card.link">
+          <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
-             <div class="space-x-4">
-            <span
-              v-if="card.isOnSale"
-              class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-              >Sale 50%</span
-            >
-            <span
-              v-if="card.isBestSeller"
-              class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-              >Best Sale</span
-            ></div>
+            <div class="space-x-4">
+              <span
+                v-if="card.isOnSale"
+                class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
+                >Sale 50%</span
+              >
+              <span
+                v-if="card.isBestSeller"
+                class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
+                >Best Sale</span
+              >
+            </div>
             <img
               :src="card.image"
               :alt="card.name"
@@ -101,8 +104,8 @@
               <!-- Shop Icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
+                width="24"
+                height="24"
                 viewBox="0 0 25 25"
                 fill="none"
               >
@@ -115,15 +118,44 @@
                 />
               </svg>
             </nuxt-link>
+            <nuxt-link class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"
+              ><svg
+                data-v-b581078d=""
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+              >
+                <path
+                  data-v-b581078d=""
+                  d="M15.0825 5.70947C5.9621 5.70947 2.31393 15.135 2.31393 15.135C2.31393 15.135 5.9621 24.5583 15.0825 24.5583C24.203 24.5583 27.8511 15.135 27.8511 15.135C27.8511 15.135 24.203 5.70947 15.0825 5.70947V5.70947Z"
+                  stroke="#1A1A1A"
+                  stroke-width="2.1889"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  data-v-b581078d=""
+                  d="M15.0776 19.6951C16.2871 19.6951 17.447 19.2147 18.3022 18.3595C19.1574 17.5043 19.6378 16.3444 19.6378 15.1349C19.6378 13.9255 19.1574 12.7656 18.3022 11.9104C17.447 11.0552 16.2871 10.5747 15.0776 10.5747C13.8682 10.5747 12.7083 11.0552 11.8531 11.9104C10.9978 12.7656 10.5174 13.9255 10.5174 15.1349C10.5174 16.3444 10.9978 17.5043 11.8531 18.3595C12.7083 19.2147 13.8682 19.6951 15.0776 19.6951V19.6951Z"
+                  stroke="#1A1A1A"
+                  stroke-width="2.1889"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path></svg
+            ></nuxt-link>
           </div>
 
           <div class="flex flex-col items-center mt-4">
             <!-- Responsive card name and price -->
-            <h2 class="text-xl sm:text-2xl md:text-3xl text-[#28574E] my-4 font-semibold capitalize">
+            <h2
+              class="text-xl sm:text-2xl md:text-3xl text-[#28574E] my-4 font-semibold capitalize"
+            >
               {{ card.name }}
             </h2>
             <div class="my-4 text-center space-x-2">
-              <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
+              <span
+                class="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
               <span
@@ -133,33 +165,28 @@
             </div>
             <!-- Rating -->
             <div class="flex justify-center items-center my-2">
-              <div class="rating">
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                  checked="checked"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
+              <div class="flex justify-center items-center">
+                <div class="rating flex gap-1">
+                  <svg
+                    v-for="i in 5"
+                    :key="i"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star text-yellow-500"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    />
+                  </svg>
+                </div>
+                <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
               </div>
               <span class="ml-2 text-sm sm:text-md text-black"
                 >({{ card.feedbackCount }} Feedback)</span
@@ -167,7 +194,10 @@
             </div>
 
             <!-- Timer -->
-            <div v-if="card.timer" class="mt-6 text-center text-base sm:text-lg md:text-xl text-black">
+            <div
+              v-if="card.timer"
+              class="mt-6 text-center text-base sm:text-lg md:text-xl text-black"
+            >
               <div>Hurry up! Offer ends in:</div>
               <div
                 class="font-semibold flex justify-center text-base sm:text-lg md:text-xl items-center text-black"
@@ -227,40 +257,36 @@
               <span class="text-xl sm:text-2xl md:text-2xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
-              <span class="line-through text-slate-600 text-sm sm:text-lg md:text-xl"
+              <span
+                class="line-through text-slate-600 text-sm sm:text-lg md:text-xl"
                 >₹{{ card.originalPrice }}</span
               >
             </div>
             <div class="text-left flex items-center justify-between">
               <!-- Rating -->
               <div class="flex justify-start items-center mt-2">
-                <div class="rating">
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                    checked="checked"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
+                <div class="flex justify-start">
+                  <div class="rating flex gap-1">
+                    <svg
+                      v-for="i in 5"
+                      :key="i"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star text-yellow-500"
+                    >
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
                 </div>
               </div>
 
@@ -294,7 +320,9 @@
     </div>
 
     <!-- Footer -->
-    <div class="text-end px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold">
+    <div
+      class="text-end px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold"
+    >
       <nuxt-link to="#">View All 240 Products -> </nuxt-link>
     </div>
   </div>

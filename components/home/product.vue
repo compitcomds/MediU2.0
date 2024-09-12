@@ -9,7 +9,7 @@
     <div class="flex mb-8">
       <!-- first section -->
       <div class="w-4/12">
-        <div class="diff lg:aspect-[9/16] xl:aspect-[9/18]  xxl:aspect-[9/17]">
+        <div class="diff lg:aspect-[9/16] xl:aspect-[9/18] xxl:aspect-[9/17]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/6.png" />
           </div>
@@ -76,14 +76,39 @@
               <div class="flex justify-between items-center text-xl">
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
-                    {{ product.salePrice }}
+                    ₹{{ product.salePrice }}
                   </p>
                   <p
                     class="text-gray-500 text-sm line-through"
                     v-if="product.isOnSale"
                   >
-                    {{ product.originalPrice }}
+                  ₹{{ product.originalPrice }}
                   </p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex justify-start">
+                  <div class="rating flex gap-1">
+                    <svg
+                      v-for="i in 5"
+                      :key="i"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star text-yellow-500"
+                    >
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
                 </div>
                 <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                   <a :href="product.url"
@@ -92,36 +117,6 @@
                       class="w-8 p-1"
                       alt=""
                   /></a>
-                </div>
-              </div>
-              <div class="flex items-center mt-2">
-                <div class="rating">
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                    checked="checked"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
                 </div>
               </div>
             </div>
@@ -155,7 +150,7 @@ export default {
         },
         {
           id: 2,
-          name: "ACNE OC MOISTURISER",
+          name: "acne oc moisturiser",
           salePrice: "567",
           originalPrice: "1120",
           rating: 5,
@@ -167,7 +162,7 @@ export default {
         },
         {
           id: 3,
-          name: "DERMATICA HA PURE SE...",
+          name: "dermatica hs pure serum",
           salePrice: "1180",
           originalPrice: "2360",
           rating: 4,
@@ -179,7 +174,7 @@ export default {
         },
         {
           id: 4,
-          name: "DERMATICA RAY PROTECT BARELYON",
+          name: "dermatica ray protect barelyon",
           salePrice: "1080",
           originalPrice: "2160",
           rating: 3,
@@ -191,7 +186,7 @@ export default {
         },
         {
           id: 5,
-          name: "RACINE PRO CONDITIONING SHA...",
+          name: "Racine pro conditioning sha...",
           salePrice: "635.0",
           originalPrice: "1270",
           rating: 5,
@@ -203,7 +198,7 @@ export default {
         },
         {
           id: 6,
-          name: "ACNE UV SPF 50 SUNSCREEN 50 GM",
+          name: "acne uv spf 50 sunscreen 50gm",
           salePrice: "915.0",
           originalPrice: "1830",
           rating: 4,

@@ -2,7 +2,9 @@
   <div class="py-8 font-serif space-y-6">
     <div class="flex flex-col space-y-4 text-center">
       <!-- Responsive Heading -->
-      <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Glow Getters</h1>
+      <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">
+        Glow Getters
+      </h1>
       <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#28574E]">
         Radiant Skin Secrets
       </h2>
@@ -29,12 +31,14 @@
       </div>
       <!-- second section -->
       <div class="lg:w-8/12 ml-4">
-        <div class="flex  justify-start mb-4 text-lg lg:text-xl">
+        <div class="flex justify-start mb-4 text-lg lg:text-xl">
           <button
             @click="filterProducts('Hyperpigmentation')"
             :class="{
-              'bg-[#28574E] text-white': selectedCategory === 'Hyperpigmentation',
-              'bg-slate-300 text-black': selectedCategory !== 'Hyperpigmentation',
+              'bg-[#28574E] text-white':
+                selectedCategory === 'Hyperpigmentation',
+              'bg-slate-300 text-black':
+                selectedCategory !== 'Hyperpigmentation',
             }"
             class="py-2 px-4 lg:w-2/6 rounded-full w-full sm:w-auto mb-2 sm:mb-0"
           >
@@ -46,7 +50,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Eczema',
               'bg-slate-300 text-black': selectedCategory !== 'Eczema',
             }"
-            class="py-2 px-4 rounded-full  lg:w-2/6 w-full sm:w-auto ml-0 sm:ml-2 mb-2 sm:mb-0"
+            class="py-2 px-4 rounded-full lg:w-2/6 w-full sm:w-auto ml-0 sm:ml-2 mb-2 sm:mb-0"
           >
             Eczema
           </button>
@@ -61,7 +65,9 @@
             Acne
           </button>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-auto font-sans">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-auto font-sans"
+        >
           <!-- make it anchor -->
           <a
             v-for="product in filteredProducts"
@@ -78,7 +84,7 @@
               <img :src="product.image" class="w-full" alt="" />
             </div>
             <div class="mt-4 space-y-2">
-              <h3 class="text-black capitalize text-2xl">{{ product.name }}</h3>
+              <h3 class="text-black capitalize text-xl">{{ product.name }}</h3>
               <div class="flex justify-between items-center">
                 <div class="flex text-xl">
                   <p class="text-[#28574E] font-bold">
@@ -91,43 +97,38 @@
                     ₹{{ product.originalPrice }}
                   </p>
                 </div>
-                <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
+                
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex justify-start">
+                  <div class="rating flex gap-1">
+                    <svg
+                      v-for="i in 5"
+                      :key="i"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star text-yellow-500"
+                    >
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
+                </div><div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                   <a :href="product.url"
                     ><img
                       src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
                       class="w-8 p-1"
                       alt=""
                   /></a>
-                </div>
-              </div>
-              <div class="flex items-center mt-2">
-                <div class="rating">
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                    checked="checked"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
                 </div>
               </div>
             </div>
