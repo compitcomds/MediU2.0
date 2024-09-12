@@ -5,7 +5,7 @@
     </div>
 
     <div
-      class="lg:co  l-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
+      class="lg:co l-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
     >
       <ShopBanner />
       <LazyShopCard :productDetails="data.products" />
@@ -21,7 +21,6 @@ const shopStore = useShopStore();
 const { shopifyProductsQuery } = storeToRefs(shopStore);
 
 const data = await fetchProducts({ query: shopifyProductsQuery.value });
-
 // const { filters } = await getFilters();
 // console.log(filters);
 const isDrawerOpen = ref(false);
