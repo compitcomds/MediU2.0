@@ -1,5 +1,6 @@
 <template>
 <ShopQuickview/>
+
 </template>
 
 <script setup></script>
