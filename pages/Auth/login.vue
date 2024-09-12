@@ -220,7 +220,7 @@ const togglePasswordVisibility = () => {
 const submitForm = async () => {
   try {
     await loginUser(formData.value);
-    router.replace("/dashboard");
+    router.replace("/profile");
   } catch (error) {
     alert(`Error: ${error.message}`);
   }

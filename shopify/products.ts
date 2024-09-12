@@ -22,6 +22,11 @@ query fetchProductsQuery($after: String, $query: String) {
           currencyCode
         }
       }
+      variants(first: 1) {
+        nodes {
+          id
+        }
+      }
     }
     pageInfo {
       hasNextPage
@@ -48,7 +53,8 @@ export const fetchProducts = async ({
   if (nodes) {
     const products = nodes.map((node: any) => ({
       handle: node.handle,
-      id: node.id,
+      productId: node.id,
+      id: node.variants.nodes[0].id,
       title: node.title,
       description: node.descriptionHtml,
       image: node.images.edges[0]?.node.url || "", // Image URL

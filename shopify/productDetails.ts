@@ -106,7 +106,6 @@ export async function getInitalProductData(handle: string) {
     const { data } = await shopifyClient.request(intialProductQuery, {
       variables: { handle },
     });
-    console.log('Initial Product Data:', data);
     if (!data.product) throw new Error("Product could not be found.");
     const product = data.product as {
       handle: string;
@@ -142,7 +141,7 @@ export async function getInitalProductData(handle: string) {
           height: number;
         }>;
       };
-      tags:string[];
+      tags: string[];
     };
     const returnData = {
       ...product,
@@ -153,7 +152,7 @@ export async function getInitalProductData(handle: string) {
 
     return returnData;
   } catch (error) {
-    console.error('Error fetching initial product data:', error);
+    console.error("Error fetching initial product data:", error);
     throw error;
   }
 }
@@ -164,8 +163,7 @@ export async function getProductData(
 ) {
   try {
     const initalProductData = await getInitalProductData(handle);
-    console.log('Initial Product Data for Variant Query:', initalProductData);
-    
+
     const selectedOptions: Array<{ name: string; value: string }> = [];
     const toFetchOptions = Object.keys(options || {});
     for (const opt of initalProductData.options) {
@@ -177,15 +175,14 @@ export async function getProductData(
       }
       selectedOptions.push({ name: opt.name, value: opt.values[0] });
     }
-    
+
     const { data } = await shopifyClient.request(productVariantQuery, {
       variables: { handle, selectedOptions },
     });
-    console.log('Product Variant Data:', data);
-    
+
     if (!data?.product?.variantBySelectedOptions)
       throw new Error("Internal Server Error While Fetching Product Variant.");
-      
+
     const variant = data.product.variantBySelectedOptions as {
       quantityAvailable: number;
       id: string;
@@ -217,7 +214,7 @@ export async function getProductData(
       selectedOptions: variant.selectedOptions,
     };
   } catch (error) {
-    console.error('Error fetching product variant data:', error);
+    console.error("Error fetching product variant data:", error);
     throw error;
   }
 }

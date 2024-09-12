@@ -48,7 +48,7 @@
                     alt=""
                 /></a>
               </div> -->
-              <ShopAddingToCartBtn />
+              <!-- <ShopAddingToCartBtn :product-id="product.id" /> -->
             </div>
             <ShopAddToCart />
           </div>

@@ -18,14 +18,16 @@ mutation addToCartMutation($cartId: ID!, $lines:[CartLineInput!]!) {
 
 export default async function addToCart({
   merchandiseId,
+  cartId,
 }: {
   merchandiseId: string;
+  cartId?: string;
 }) {
-  const cartId = await useUserStore().getShopifyCartId();
   if (!cartId) {
     await createShopifyCart();
     return await addToCart({ merchandiseId });
   }
+
   const { data, errors } = await shopifyClient.request(addToCartMutation, {
     variables: { cartId, lines: [{ merchandiseId }] },
   });
@@ -37,7 +39,6 @@ export default async function addToCart({
   }
 
   if (errors) {
-    console.log("Error occurred while attaching identity.");
     console.log(errors);
     throw new Error(
       "Error while addToCart. (Probably some error in implementation, see for yourself)."
