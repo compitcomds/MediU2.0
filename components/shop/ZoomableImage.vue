@@ -27,10 +27,10 @@ onMounted(() => {
 
 <template>
   <div :id="id" class="relative">
-    <img
+    <img 
       :src="image?.url || `https://placehold.co/500x500/png?text=${title}`"
       :alt="image?.altText || `Image | ${title}`"
-      class="w-full object-cover"
+      class="w-full object-cover  bg-slate-500"
     />
   </div>
 </template>

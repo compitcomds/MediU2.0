@@ -1,6 +1,8 @@
 <template>
   <NuxtLayout>
-    <HomeNavbar />
+    <NuxtLoadingIndicator />
+
+    <!-- <HomeNavbar /> -->
     <NuxtPage />
     <SiteFooter />
     <MobileBottomNav />

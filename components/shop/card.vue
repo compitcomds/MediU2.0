@@ -2,7 +2,7 @@
   <!-- {{ productDetails }} -->
   <div class="my-2">
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-4 gap-4"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4"
     >
       <div
         v-for="(product, index) in productDetails"
@@ -21,11 +21,11 @@
             <img :src="product.image" class="min-h-48 max-h-52" alt="" />
           </div>
           <div class="mt-4 space-y-2">
-            <h3
-              class="text-black uppercase text-xl min-h-10 max-h-12 lg:text-lg"
-            >
+            <NuxtLink :to="`/shop/product/${product.handle}`">
+            <h3 class="text-black uppercase text-xl min-h-10 max-h-12 lg:text-lg">
               {{ product.title }}
-            </h3>
+            </h3> 
+          </NuxtLink>
             <div class="flex justify-between items-center text-xl">
               <div>
                 <p class="text-[#28574E] font-bold">
