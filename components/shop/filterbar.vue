@@ -1,108 +1,110 @@
 <template>
-  <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md">
-    <div class="text-xl font-medium">Type of Products</div>
-    <div class="p-3">
-      <div v-for="(item, index) in TypeOfProducts" :key="index">
-        <label class="flex justify-start items-center mt-2">
-          <input
-            type="checkbox"
-            :value="item"
-            v-model="selectedTypeOfProducts"
-            @change="updateQueryParams"
-            class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-          />
-          <p class="text-sm font-semiboldbold">{{ item }}</p>
-        </label>
+  <div class="mt-3">
+    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+      <div class="text-xl font-medium">Type of Products</div>
+      <div class="p-3">
+        <div v-for="(item, index) in TypeOfProducts" :key="index">
+          <label class="flex justify-start items-center mt-2">
+            <input
+              type="checkbox"
+              :value="item"
+              v-model="selectedTypeOfProducts"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="text-sm font-semiboldbold">{{ item }}</p>
+          </label>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md">
-    <div class="text-xl font-medium">Skin Concern</div>
-    <div class="p-3">
-      <div v-for="(item, index) in SkinConcern" :key="index">
-        <label class="flex justify-start items-center mt-2">
-          <input
-            type="checkbox"
-            :value="item"
-            v-model="selectedSkinConcern"
-            @change="updateQueryParams"
-            class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-          />
-          <p class="text-sm font-semiboldbold">{{ item }}</p>
-        </label>
+    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+      <div class="text-xl font-medium">Skin Concern</div>
+      <div class="p-3">
+        <div v-for="(item, index) in SkinConcern" :key="index">
+          <label class="flex justify-start items-center mt-2">
+            <input
+              type="checkbox"
+              :value="item"
+              v-model="selectedSkinConcern"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="text-sm font-semiboldbold">{{ item }}</p>
+          </label>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md">
-    <div class="text-xl font-medium">Hair Concern</div>
-    <div class="p-3">
-      <div v-for="(item, index) in HairConcern" :key="index">
-        <label class="flex justify-start items-center mt-2">
-          <input
-            type="checkbox"
-            :value="item"
-            v-model="selectedHairConcern"
-            @change="updateQueryParams"
-            class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-          />
-          <p class="text-sm font-semiboldbold">{{ item }}</p>
-        </label>
+    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+      <div class="text-xl font-medium">Hair Concern</div>
+      <div class="p-3">
+        <div v-for="(item, index) in HairConcern" :key="index">
+          <label class="flex justify-start items-center mt-2">
+            <input
+              type="checkbox"
+              :value="item"
+              v-model="selectedHairConcern"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="text-sm font-semiboldbold">{{ item }}</p>
+          </label>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md">
-    <div class="text-xl font-medium">Nutrition and Diet</div>
-    <div class="p-3">
-      <div v-for="(item, index) in NutrionAndDiet" :key="index">
-        <label class="flex justify-start items-center mt-2">
-          <input
-            type="checkbox"
-            :value="item"
-            v-model="selectedNutrionAndDiet"
-            @change="updateQueryParams"
-            class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-          />
-          <p class="text-sm font-semiboldbold">{{ item }}</p>
-        </label>
+    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+      <div class="text-xl font-medium">Nutrition and Diet</div>
+      <div class="p-3">
+        <div v-for="(item, index) in NutrionAndDiet" :key="index">
+          <label class="flex justify-start items-center mt-2">
+            <input
+              type="checkbox"
+              :value="item"
+              v-model="selectedNutrionAndDiet"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="text-sm font-semiboldbold">{{ item }}</p>
+          </label>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md">
-    <div class="text-xl font-medium">Pediatric</div>
-    <div class="p-3">
-      <div v-for="(item, index) in Pediatric" :key="index">
-        <label class="flex justify-start items-center mt-2">
-          <input
-            type="checkbox"
-            :value="item"
-            v-model="selectedPediatric"
-            @change="updateQueryParams"
-            class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-          />
-          <p class="text-sm font-semiboldbold">{{ item }}</p>
-        </label>
+    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+      <div class="text-xl font-medium">Pediatric</div>
+      <div class="p-3">
+        <div v-for="(item, index) in Pediatric" :key="index">
+          <label class="flex justify-start items-center mt-2">
+            <input
+              type="checkbox"
+              :value="item"
+              v-model="selectedPediatric"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="text-sm font-semiboldbold">{{ item }}</p>
+          </label>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md">
-    <div class="text-xl font-medium text-[#22423c]">Ingredient</div>
-    <div class="p-3">
-      <div v-for="(item, index) in Ingredent" :key="index">
-        <label class="flex justify-start items-center mt-2">
-          <input
-            type="checkbox"
-            :value="item"
-            v-model="selectedIngredent"
-            @change="updateQueryParams"
-            class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-          />
-          <p class="text-sm font-semiboldbold">{{ item }}</p>
-        </label>
+    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+      <div class="text-xl font-medium text-[#22423c]">Ingredient</div>
+      <div class="p-3">
+        <div v-for="(item, index) in Ingredent" :key="index">
+          <label class="flex justify-start items-center mt-2">
+            <input
+              type="checkbox"
+              :value="item"
+              v-model="selectedIngredent"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="text-sm font-semiboldbold">{{ item }}</p>
+          </label>
+        </div>
       </div>
     </div>
   </div>

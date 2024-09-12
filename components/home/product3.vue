@@ -61,7 +61,7 @@
               <img :src="product.image" class="w-full" alt="" />
             </div>
             <div class="mt-4 space-y-2">
-              <h3 class="text-black capitalize text-2xl">{{ product.name }}</h3>
+              <h3 class="text-black capitalize text-xl">{{ product.name }}</h3>
               <div class="flex justify-between items-center text-xl">
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
@@ -74,6 +74,32 @@
                     ₹{{ product.originalPrice }}
                   </p>
                 </div>
+                
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex justify-start">
+                  <div class="rating flex gap-1">
+                    <svg
+                      v-for="i in 5"
+                      :key="i"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star text-yellow-500"
+                    >
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
+                </div>
                 <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                   <a :href="product.url"
                     ><img
@@ -81,36 +107,6 @@
                       class="w-8 p-1"
                       alt=""
                   /></a>
-                </div>
-              </div>
-              <div class="flex items-center mt-2">
-                <div class="rating">
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                    checked="checked"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
                 </div>
               </div>
             </div>

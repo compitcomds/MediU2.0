@@ -44,7 +44,7 @@
         class="flex items-center focus:outline-none"
       >
         <div
-          class="bg-center bg-cover bg-no-repeat rounded-full h-12 w-12 "
+          class="bg-center bg-cover bg-no-repeat rounded-full h-10 w-10 "
           :style="{
             backgroundImage:
               'url(https://ccdstest.b-cdn.net/Medi%20u/person.png)',
