@@ -175,47 +175,52 @@ onMounted(async () => {
   </div> -->
   <div class="mx-20 my-5">
     {{data}}
-    <div class="grid grid-cols-5 gap-4 md:grid-cols-5">
+    <div v-if="data">
+      <div class="grid grid-cols-5 gap-4 md:grid-cols-5">
 
-      <div class="col-span-5 md:col-span-2  ">
-        <div class="flex justify-center items-center border rounded-md mb-3 bg-emerald-50 border-gray-200 p-2">
-          <img :src="data.featuredImage.url " alt="" srcset="" class="rounded object-cover">
-        </div>
-        <div class="flex w-full bg-slate-200 gap-2 px-2 py-1 ">
-          <div v-for="(item,index) in data.images" :key="item.url">
-            <img :src=item.url alt="" srcset="" class="border border-cyan-300 h-32 w-32 object-cover rounded ">
+        <div class="col-span-5 md:col-span-2  ">
+          <div class="flex justify-center items-center border rounded-md mb-3 bg-emerald-50 border-gray-200 p-2">
+            <img :src="data?.featuredImage.url " alt="" srcset="" class="rounded object-cover">
           </div>
-        </div>
-      </div>
-
-      <div class="col-span-5 md:col-span-3 bg-green-500 ">
-        <div>{{data.title}}</div>
-        <div>Treats Active Acne | Unclogs Pores</div>
-        <div class="flex">
-          <div>4.7</div>
-          <div class="flex gap-5">
-            <div>tick icon</div>
-            <div class="flex gap-2">
-              <div>icon-verified Ratings</div>
-              <div>verified Ratings</div>
+          <div class="flex w-full bg-slate-200 gap-2 px-2 py-1 ">
+            <div v-for="(item,index) in data.images" :key="item.url">
+              <img :src=item.url alt="" srcset="" class="border border-cyan-300 h-32 w-32 object-cover rounded ">
             </div>
           </div>
         </div>
-        <div v-if="true"> <!-- for salse-->
-          <div>Special Price</div>
+  
+        <div class="col-span-5 md:col-span-3 bg-green-500 ">
+          <div>{{data.title}}</div>
+          <div>Treats Active Acne | Unclogs Pores</div>
           <div class="flex">
-            actual price
+            <div>4.7</div>
+            <div class="flex gap-5">
+              <div>tick icon</div>
+              <div class="flex gap-2">
+                <div>icon-verified Ratings</div>
+                <div>verified Ratings</div>
+              </div>
+            </div>
           </div>
-          <div>
-            price
+          <div v-if="true"> <!-- for salse-->
+            <div>Special Price</div>
+            <div class="flex">
+              actual price
+            </div>
+            <div>
+              price
+            </div>
+            <div>
+              percentage discount%
+            </div>
+  
           </div>
-          <div>
-            percentage discount%
-          </div>
-
         </div>
       </div>
     </div>
+    <div v-else>
+      asd
+      </div>
   </div>
 </template>
 
@@ -226,7 +231,7 @@ onMounted(async () => {
   const route = useRoute();
   const productHandle = route.params.productSlug;
 
-  const data = ref(null);
+  const data = ref({});
   const quantity = ref(1);  // Initialize the quantity
 
   // Computed property for total price
@@ -249,7 +254,7 @@ onMounted(async () => {
     },
   ];
 
-  onMounted(async () => {
+
     try {
       const product = await getProductData(productHandle);
       data.value = product;
@@ -257,7 +262,7 @@ onMounted(async () => {
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
-  });
+  
 
   const setupImageZoom = () => {
     var options2 = {
