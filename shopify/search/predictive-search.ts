@@ -1,4 +1,4 @@
-import shopifyClient from "./shopify-client";
+import shopifyClient from "../shopify-client";
 
 const predictiveSearchQuery = `
 query predictiveSearchQueryForProducts($query: String!) {

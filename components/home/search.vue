@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-import predictiveSearchProducts from "~/shopify/predictive-search";
+import predictiveSearchProducts from "~/shopify/search/predictive-search";
 
 const showNotification = ref(true);
 
