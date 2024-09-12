@@ -1,330 +1,256 @@
-<!-- <template>
-  <div v-if="data" class="py-6 mt-10 text-black">
-    <div
-      class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative"
-    >
-      <div class="col-span-8 lg:col-span-6 relative">
-        <div class="sticky top-0 ">
-          <ShopImages :title="data.title" :images="data.images" />
-        </div>
-      </div>
-      <div class="col-span-8 lg:col-span-6 lg:px-3">
-        <h1 class="uppercase text-4xl font-bold lg:text-5xl text-black mb-6">
-          {{ data.title }}
-        </h1>
-        <p v-html="data.descriptionHtml" class="text-black text-sm mb-8"></p>
-        <div class="mb-8">
-          <h2 class="font-medium text-black">PRICE</h2>
-          <p class="uppercase text-xl font-bold">
-            {{ data.price?.currencyCode }} {{ data.price?.amount }}
-          </p>
-        </div>
-        <div class="flex gap-5 flex-wrap items-center mb-8">
-          <div
-            class="border-black border w-1/4 py-3 px-4 flex items-center justify-between"
-          >
-            <button class="text-3xl">-</button>
-            <p class="text-2xl">1</p>
-            <button class="text-3xl">+</button>
-          </div>
-          <button
-            class="bg-black text-white text-lg flex items-center flex-1 justify-center h-full py-4"
-          >
-            ADD TO CART
-          </button>
-          <ShopAddingToCartBtn :productId="data.id"/>
-        </div>
-        <div>
-          <template v-for="key in accordionKeys">
-            <div
-              v-if="!!data[key.value]"
-              class="collapse collapse-plus border-b-2 shadow-none rounded-none"
-            >
-              <input type="radio" name="my-accordion-3" checked="checked" />
-              <div class="collapse-title text-xl font-medium">
-                <h3 class="font-medium uppercase">
-                  {{ key.name }}
-                </h3>
-              </div>
-              <div
-                class="collapse-content"
-                v-html="convertShopifyRichTextToHTML(data[key.value].value)"
-              ></div>
-            </div>
-          </template>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { getProductData } from "~/shopify/productDetails";
-
-const route = useRoute();
-const productHandle = route.params.productSlug;
-
-const data = ref(null);
-
-const accordionKeys = [
-  {
-    name: "Safety information / Precaution",
-    value: "safetyInformationAndPrecaution",
-  },
-  {
-    name: "How to use?",
-    value: "howToUse",
-  },
-  {
-    name: "Key benefits",
-    value: "keyBenefits",
-  },
-];
-
-onMounted(async () => {
-  try {
-    const product = await getProductData(productHandle);
-    data.value = product;
-    product.images;
-    console.log(product.images);
-    console.log(product);
-  } catch (error) {
-    console.error("Error fetching product data:", error);
-  }
-});
-</script>
-
-<style scoped>
-
-</style> 
-
-
- -->
 
 <template>
-  <!-- <div v-if="data" class="py-6 mt-10 text-black">
-    <div class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative">
-
-      <div class="col-span-8 lg:col-span-6 relative">
-        <div class="sticky top-0" ref="imageContainer">
-          <div
-            id="img-container"
-            class="relative overflow-hidden rounded-lg shadow-lg bg-slate-500"
-          >
-            <ShopImages :title="data.title" :images="data.images" />
-          </div>
-        </div>
-      </div>
-
-      <div class="col-span-8 lg:col-span-6 lg:px-3">
-        <h1 class="uppercase text-4xl font-bold lg:text-5xl text-black mb-6">
-          {{ data.title }}
-        </h1>
-
-        <p
-          v-html="data.descriptionHtml"
-          class="text-gray-700 text-sm mb-8 leading-relaxed"
-        ></p>
-
-        <div class="mb-8">
-          <h2 class="font-medium text-gray-900">PRICE</h2>
-          <p class="uppercase text-2xl font-bold text-gray-800">
-            {{ data.price?.currencyCode }} {{ totalPrice }}
-          </p>
-        </div>
-
-        <div class="flex gap-5 flex-wrap items-center mb-8">
-          <div
-            class="border-gray-400 border w-1/4 py-3 px-4 flex items-center justify-between rounded-lg"
-          >
-            <button @click="decreaseQuantity" class="text-3xl">-</button>
-            <p class="text-2xl">{{ quantity }}</p>
-            <button @click="increaseQuantity" class="text-3xl">+</button>
-          </div>
-
-          <button
-            class="bg-purple-600 text-white text-lg flex items-center justify-center flex-1 h-full py-4 rounded-lg shadow-md hover:bg-purple-700 transition duration-300"
-          >
-            ADD TO CART
-          </button>
-
-          <ShopAddingToCartBtn :productId="data.id" />
-        </div>
-
-        <div>
-          <template v-for="key in accordionKeys">
-            <div
-              v-if="!!data[key.value]"
-              class="collapse collapse-plus border-b-2 shadow-none rounded-none"
-            >
-              <input type="checkbox" class="collapse-toggle" />
-              <div class="collapse-title text-xl font-medium">
-                <h3 class="font-medium uppercase">{{ key.name }}</h3>
-              </div>
-              <div
-                class="collapse-content"
-                v-html="convertShopifyRichTextToHTML(data[key.value].value)"
-              ></div>
-            </div>
-          </template>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <div class="mx-20 my-5">
-    {{ data }}
+  <div class="lg:mx-20 lg:my-5 sm:mx-2 sm:my-3 mx-2 my-3">
     <div v-if="data">
-      <div class="grid grid-cols-5 gap-4 md:grid-cols-5">
-        <div class="col-span-5 md:col-span-2">
-          <div
-            class="flex justify-center items-center border rounded-md mb-3 bg-emerald-50 border-gray-200 p-2"
-          >
-            <img
-              :src="data?.featuredImage.url"
-              alt=""
-              srcset=""
-              class="rounded object-cover"
-            />
-          </div>
-          <div class="flex w-full bg-slate-200 gap-2 px-2 py-1">
-            <div v-for="(item, index) in data.images" :key="item.url">
-              <img
-                :src="item.url"
-                alt=""
-                srcset=""
-                class="border border-cyan-300 h-32 w-32 object-cover rounded"
-              />
-            </div>
-          </div>
+      <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
+        <div class="col-span-5 lg:col-span-2">
+          <div class="col-span-5 lg:col-span-2">
+  <!-- Main Swiper -->
+  <swiper-container
+    style="
+      --swiper-navigation-color: #000;
+      --swiper-pagination-color: #000;
+    "
+    class="mySwiper"
+    thumbs-swiper=".mySwiper2"
+    space-between="15"
+    navigation="true"
+    pagination="true"
+    autoplay="true"
+    @slideChange="onSlideChange"
+  >
+    <swiper-slide v-for="(item, index) in data.images" :key="item.url">
+      <img
+        :src="item.url"
+        alt="Product Image"
+        class="object-cover w-full h-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- Thumbnail Swiper -->
+  <swiper-container
+    class="mySwiper2 mt-4"
+    space-between="10"
+    slides-per-view="4"
+    free-mode="true"
+    watch-slides-progress="true"
+  >
+    <swiper-slide
+      v-for="(item, index) in data.images"
+      :key="item.url"
+      :class="{ 'border-blue-500 border-4': currentThumbnail === index }"
+      @click="thumbClick(index)"
+    >
+      <img
+        :src="item.url"
+        alt="Thumbnail Image"
+        class="object-cover w-full h-full rounded-lg border-2 border-gray-300 transition-transform duration-300 hover:scale-105"
+      />
+    </swiper-slide>
+  </swiper-container>
+</div>
+
         </div>
 
-        <div class="col-span-5 md:col-span-3 bg-green-100">
-          <div>{{ data.title }}</div>
-          <div>Treats Active Acne | Unclogs Pores</div>
-          <div class="flex">
-            <div>4.7</div>
-            <div class="flex gap-5">
-              <div>tick icon</div>
-              <div class="flex gap-2">
-                <div>icon-verified Ratings</div>
-                <div>verified Ratings</div>
-              </div>
+        <div class="col-span-5 md:col-span-3">
+          <div class="text-3xl font-semibold text-gray-900 capitalize mb-1">
+            {{ data.title }}
+          </div>
+          <div class="text-md mb-4 text-cyan-500">
+            Treats Active Acne | Unclogs Pores
+          </div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="flex items-center gap-1 text-yellow-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <div class="text-gray-900 font-medium">4.7</div>
+            </div>
+            <div class="text-gray-400">|</div>
+            <div class="flex items-center text-gray-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5 text-cyan-500 stroke-white"
+              >
+                <path
+                  d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+                />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              <div class="ml-1">752 Verified Ratings</div>
             </div>
           </div>
-          <div v-if="true">
-            <!-- for salse-->
-            <div>Special Price</div>
-            <div class="flex gap-2">
-              <div>actual price</div>
-              <div>price</div>
-              <div>percentage discount%</div>
+          <div>
+            <div class="text-lg text-cyan-500 font-bold">Special Price</div>
+            <div class="flex items-center gap-2">
+              <div class="text-2xl font-bold text-gray-900">
+                {{ data.price.currencyCode }} {{ data.price.amount }}
+              </div>
             </div>
-            <div>Inclusive of all Taxes</div>
-            <hr class="border-t-2 border-dotted border-gray-400" />
-            <div>Select Variant</div>
-            <div v-for="(item,index) in data.options">
-              {{ item.name }}
-              {{ item.values }}
-              <div class="flex gap-6">
-                <div v-for="(variant,index) in data.variants">
-                  <div v-for="(variantValue,index) in variant" :key="index">
-                    {{ variantValue.node.title }} <br>
-                    {{ variantValue.node.price.currencyCode }} {{ variantValue.node.price.amount }} <br>
-                    {{ variantValue.node.quantityAvailable }} <br>
-                    {{ variantValue.node.selectedOptions }} <br>
-                    {{ variantValue.node.image }} <br>
-                    <hr>
-                  </div>
+            <div class="text-xs -mt-1 mb-1">
+              Quantity Available {{ data.quantityAvailable }}
+            </div>
+            <div class="text-sm text-gray-500">Inclusive of all Taxes</div>
+            <hr class="my-4 border-dashed border-gray-300" />
+
+            <div
+              v-for="(item, itemIndex) in data.options"
+              :key="itemIndex"
+              class="mb-4"
+            >
+              <div v-if="item.name !== 'Title'">
+                <div class="font-semibold text-gray-700 mb-2">
+                  {{ item.name }}
                 </div>
-                <div class="h-28 w-48 rounded-lg border border-green-800 gap-6">
+                <div class="flex flex-wrap gap-4 overflow-x-scroll">
                   <div
-                    class="w-full p-2 text-white bg-green-800 rounded-tr-lg rounded-tl-lg"
+                    v-for="(variant, variantIndex) in data.variants"
+                    :key="variantIndex"
+                    class="flex gap-6 w-fit"
                   >
-                    varient 1
-                  </div>
-                  <div class="">
-                    <div class="flex justify-start gap-2 scale-80">
-                      <div>actual price</div>
-                      <div>price</div>
-                      <div>percentage discount%</div>
+                    <div
+                      v-for="(variantValue, variantValueIndex) in variant"
+                      :key="variantValueIndex"
+                      class="min-w-48"
+                    >
+                      <div class="border rounded-lg shadow-md">
+                        <div
+                          class="font-semibold bg-green-900 rounded-t-md text-white p-2"
+                        >
+                          {{ item.name }} : {{ variantValue.node.title }}
+                        </div>
+                        <div class="text-gray-700 mt-1 ps-2">
+                          {{ variantValue.node.price.currencyCode }}
+                          {{ variantValue.node.price.amount }}
+                        </div>
+                        <div class="text-sm text-gray-600 mt-1 mb-3 pb-4 ps-2">
+                          Quantity Available:
+                          {{ variantValue.node.quantityAvailable }}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <hr>
               </div>
-
             </div>
+            <hr
+              class="my-4 border-dashed border-gray-300"
+              v-if="data.options.title"
+            />
 
-            <hr>
-            
-            <hr class="border-t-2 border-dotted border-gray-400 mt-3" />
-            <div class="w-fit px-3 p-2 bg-green-400 rounded flex gap-2">
-              <div class="bg-white rounded-full">icon of van</div>
-              <div>Check your estimated delivery date</div>
-            </div>
-            <div>Free delivery on orders of ₹399 and above</div>
-            <hr class="border-t-2 border-dotted border-gray-400" />
-            <div class="flex items-center gap-6">
-              <div
-                class="border-gray-400 border w-1/4 py-3 px-4 flex items-center justify-between rounded-lg"
+            <div
+              class="bg-green-50 border border-green-400 rounded-lg flex items-center p-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                class="w-6 h-6 text-green-600"
               >
-                <button @click="decreaseQuantity" class="text-3xl">-</button>
-                <p class="text-2xl">{{ quantity }}</p>
-                <button @click="increaseQuantity" class="text-3xl">+</button>
+                <path
+                  d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                />
+                <path d="M15 18H9" />
+                <path
+                  d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                />
+                <circle cx="17" cy="18" r="2" />
+                <circle cx="7" cy="18" r="2" />
+              </svg>
+              <div class="ml-3 text-gray-700">
+                Check your estimated delivery date
               </div>
-              <div class="bg-green-400">
+            </div>
+            <div class="text-sm text-gray-600 mt-2">
+              Free delivery on orders of ₹1,000 and above
+            </div>
+
+            <hr class="my-4 border-dashed border-gray-300" />
+
+            <div class="flex items-center gap-4">
+              <div
+                class="border rounded-lg py-2 px-4 flex items-center justify-between w-1/4"
+              >
+                <button
+                  @click="decreaseQuantity"
+                  class="text-2xl text-gray-800"
+                >
+                  -
+                </button>
+                <p class="text-lg text-gray-800">{{ quantity }}</p>
+                <button
+                  @click="increaseQuantity"
+                  class="text-2xl text-gray-800"
+                >
+                  +
+                </button>
+              </div>
+              <div>
                 <ShopAddingToCartBtn :product-id="data.id" />
               </div>
             </div>
           </div>
-          <div class="my-3">
-            <img src="https://placehold.co/300x100" alt="" srcset="" />
+          <div class="my-4 w-full">
+            <img
+              src="https://placehold.co/300x100"
+              alt="Ad Banner"
+              class="w-full object-cover h-32 rounded-lg"
+            />
           </div>
         </div>
       </div>
 
-      <div class="w-full bg-gray-500 h-96 rounded" >
+      <div class="w-full bg-gray-100 rounded-lg mt-10 p-6">
         <div class="flex flex-col items-center">
-          <!-- Navigation Tabs -->
-          <nav class="flex space-x-4 w-full justify-between m-6 p-6">
-            <div v-for="(item, index) in accordionKeys" >
-            <button v-if="data[item.value]"
-              @click="activeTab = index + 1"
-              :class="{
-                'text-blue-500': activeTab === index + 1,
-                'z-10': activeTab === index + 1,
-                'z-0': activeTab !== index + 1,
-              }"
-              :key="index"
-              class="px-4 py-2 w-full rounded bg-gray-200"
-              
-            >
-              
-            <div  >
-              
-              {{ item.name }}
+          <nav class="flex space-x-4 w-full justify-center mb-6">
+            <div v-for="(item, index) in accordionKeys" :key="index">
+              <button
+                v-if="data[item.value]"
+                @click="activeTab = index + 1"
+                :class="{
+                  'text-blue-600 font-semibold': activeTab === index + 1,
+                  'bg-gray-200 rounded-md px-4 py-2 transition-all': true,
+                }"
+              >
+                {{ item.name }}
+              </button>
             </div>
-  
-            </button>
-          </div>
           </nav>
 
-          <!-- Tab Content -->
-          <div class="w-full h-64">
-            <div v-for="(item, index) in accordionKeys" :key="index" >
-              
-              <div 
-                v-if="activeTab === index + 1 &&  data[item.value]"
-                class="w-full h-full bg-blue-100 z-10 p-4">
-                <div v-html="convertShopifyRichTextToHTML(data[item.value].value) " ></div>
-                <div class="collapse-content"></div>
+          <div class="w-full bg-white rounded-lg shadow-lg">
+            <div v-for="(item, index) in accordionKeys" :key="index">
+              <div
+                v-if="activeTab === index + 1 && data[item.value]"
+                class="p-4"
+              >
+                <div
+                  v-html="convertShopifyRichTextToHTML(data[item.value].value)"
+                  class="text-gray-700 leading-relaxed"
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div v-else>asd</div>
+    <div v-else>Loading product details...</div>
   </div>
 </template>
 
@@ -375,6 +301,11 @@ const setupImageZoom = () => {
 
 onMounted(() => {
   setupImageZoom();
+  const script = document.createElement("script");
+  script.src =
+    "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js";
+  script.defer = true;
+  document.head.appendChild(script);
 });
 
 // Methods to increase/decrease quantity
@@ -392,6 +323,72 @@ const decreaseQuantity = () => {
 </script>
 
 <style scoped>
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body {
+  background: #000;
+  color: #000;
+}
+
+swiper-container {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiper2 {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper2 swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper2 .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Optional: Custom Styles for additional creativity */
 .collapse .collapse-title {
   cursor: pointer;
@@ -400,5 +397,28 @@ const decreaseQuantity = () => {
 .collapse .collapse-title:hover {
   color: #6b46c1;
   /* Hover effect for accordion title */
+}
+/* Add your custom Swiper styles here */
+.mySwiper, .mySwiper2 {
+  /* Set a maximum width for the Swiper containers */
+  max-width: 100%;
+}
+
+.mySwiper {
+  height: 400px; /* Adjust height as needed */
+}
+
+.mySwiper2 {
+  height: 80px; /* Adjust height as needed */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #000; /* Customize navigation arrow color */
 }
 </style>
