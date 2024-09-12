@@ -2,7 +2,7 @@
   <NuxtLayout>
     <NuxtLoadingIndicator />
 
-    <!-- <HomeNavbar /> -->
+    <HomeNavbar />
     <NuxtPage />
     <SiteFooter />
     <MobileBottomNav />
