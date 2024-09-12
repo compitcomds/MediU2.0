@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center justify-end gap-4 w-3/12">
+  <div class="flex items-center justify-end space-x-6 w-3/12">
     <!-- Add your additional elements here -->
-    <div class="flex items-center gap-2">
+    <!-- <div class="flex items-center gap-2">
       <button class="text-[#28574E]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,48 +31,27 @@
       <span class="text-xs md:text-xs xl:text-sm text-[#28574E]">
         100 Loyalty Points
       </span>
+    </div> -->
+    <div>
+      <ShopUserSidebar/>
+  </div>
+    <div class="w-5 h-5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#287542" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
     </div>
-    <button class="relative rounded-md">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-9 h-8 xl:w-10 xl:h-11"
-        viewBox="0 0 42 47"
-        fill="none"
-      >
-        <path
-          d="M14.3575 23.5913L14.3575 15.1282C14.3575 11.3794 17.3965 8.34037 21.1454 8.34037V8.34037C24.8942 8.34037 27.9332 11.3794 27.9332 15.1282L27.9332 23.5913"
-          stroke="#22423C"
-          stroke-width="2.94318"
-          stroke-linecap="round"
-        />
-        <path
-          d="M7.16524 23.323C7.35702 20.7376 7.45291 19.4449 8.29985 18.6585C9.14678 17.8721 10.443 17.8721 13.0355 17.8721H29.2552C31.8477 17.8721 33.1439 17.8721 33.9908 18.6585C34.8378 19.4449 34.9337 20.7376 35.1255 23.323L36.1836 37.5876C36.2934 39.0678 36.3483 39.808 35.9117 40.2782C35.475 40.7485 34.7328 40.7485 33.2485 40.7485H9.04221C7.55787 40.7485 6.8157 40.7485 6.37904 40.2782C5.94239 39.808 5.99729 39.0678 6.1071 37.5876L7.16524 23.323Z"
-          stroke="#22423C"
-          stroke-width="2.94318"
-        />
-      </svg>
-      <span
-        v-if="badgeCount > 0"
-        class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 rounded-full bg-red-500 text-black px-2 py-1 text-xs"
-      >
-        {{ badgeCount }}
-      </span>
-    </button>
-
-    <div class="relative inline-block text-left md:ml-2">
+    <div class="relative inline-block text-left ">
       <button
         @click="toggleDropdown"
         class="flex items-center focus:outline-none"
       >
         <div
-          class="bg-center bg-cover bg-no-repeat rounded-full h-12 w-12 ml-2"
+          class="bg-center bg-cover bg-no-repeat rounded-full h-10 w-10 "
           :style="{
             backgroundImage:
-              'url(https://i.pinimg.com/564x/de/0f/3d/de0f3d06d2c6dbf29a888cf78e4c0323.jpg)',
+              'url(https://ccdstest.b-cdn.net/Medi%20u/person.png)',
           }"
         ></div>
         <svg
-          class="w-5 h-5 ml-2 transition-transform transform"
+          class="w-5 h-5 transition-transform transform"
           :class="{ 'rotate-180': isOpen }"
           fill="none"
           stroke="currentColor"
@@ -87,6 +66,7 @@
           ></path>
         </svg>
       </button>
+      
       <div
         v-if="isOpen"
         class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 transition duration-300 ease-in-out opacity-100 transform scale-100"
@@ -95,19 +75,19 @@
         <ul class="py-1">
           <li>
             <a
-              href="/login"
+              href="/auth/login"
               class="block px-4 py-2 text-black hover:bg-gray-100"
               >Log In</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100"
               >Settings</a
             >
-          </li>
+          </li> -->
           <li>
-            <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100"
-              >Logout</a
+            <a href="/auth/register" class="block px-4 py-2 text-black hover:bg-gray-100"
+              >Register</a
             >
           </li>
         </ul>

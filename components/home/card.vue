@@ -50,7 +50,7 @@
           v-for="card in filteredcards.slice(0, 1)"
           :key="card.link"
           :to="card.link"
-          class="border p-4 rounded-3xl shadow-lg block no-underline h-full"
+          class="border p-4 rounded-3xl shadow-lg block no-underline h-full font-sans"
         >
           <nuxt-link class="relative " :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
@@ -220,14 +220,14 @@
 
           <div class="mt-4 text-left">
             <!-- card name and price -->
-            <h2 class="text-lg sm:text-xl md:text-2xl text-black capitalize">
+            <h2 class="text-lg sm:text-xl md:text-xl text-black capitalize">
               {{ card.name }}
             </h2>
             <div class="mt-2">
-              <span class="text-xl sm:text-2xl md:text-3xl font-bold text-black"
+              <span class="text-xl sm:text-2xl md:text-2xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
-              <span class="line-through text-black text-sm sm:text-lg md:text-xl"
+              <span class="line-through text-slate-600 text-sm sm:text-lg md:text-xl"
                 >₹{{ card.originalPrice }}</span
               >
             </div>

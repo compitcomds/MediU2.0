@@ -1,5 +1,7 @@
 <template>
   <NuxtLayout>
+    <NuxtLoadingIndicator />
+
     <HomeNavbar />
     <NuxtPage />
     <SiteFooter />
