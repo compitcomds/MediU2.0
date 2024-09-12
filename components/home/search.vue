@@ -10,15 +10,20 @@
         alt="Logo"
       />
     </nuxt-link>
-    <div class="flex relative rounded-md w-6/12 h-[40px] xl:h-[50px]">
+    <form
+      @submit.prevent="submitForm"
+      class="group relative rounded-md w-6/12 h-[40px] xl:h-[50px] flex"
+    >
       <input
         type="text"
         name="q"
         id="query"
         placeholder="What are you looking for?.."
         class="w-full p-3 rounded-full border-2 border-r-white rounded-r-none text-black border-gray-300 bg-white placeholder-gray-500"
+        v-model="searchQuery"
       />
       <button
+        type="submit"
         class="inline-flex items-center gap-2 bg-orange-500 text-white text-lg py-3 px-6 rounded-r-full"
       >
         <span class="hidden md:block">
@@ -37,57 +42,76 @@
           </svg>
         </span>
       </button>
-    </div>
-    <!-- Home Cart and loyalty points  -->
-    <HomeCart />
-    <!-- End Home Cart and loyalty points  -->
 
-    <!-- <div class="w-2/12 flex justify-end gap-3 text-black">
-      <nuxt-link
-        to="/auth/login"
-        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#285742] text-[#285742] text-white"
+      <div
+        class="bg-white w-full shadow rounded-lg absolute top-full translate-y-2 left-0 py-2 hidden group-focus-within:block"
+        v-if="searchQuery.length > 0"
       >
-        <span
-          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#285742] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
-        ></span>
-        <span
-          class="relative text-[#285742] transition duration-300 group-hover:text-white ease"
-          >Sign In</span
+        <ul>
+          <li v-for="product in productSuggestions">
+            <nuxt-link
+              :to="`/shop/product/${product.handle}`"
+              class="uppercase block w-full hover:bg-gray-100 h-full py-2 px-4"
+            >
+              {{ product.title }}
+            </nuxt-link>
+          </li>
+        </ul>
+        <p v-if="isSearching" class="py-2 px-4">Searching...</p>
+        <p
+          v-if="!isSearching && productSuggestions.length === 0"
+          class="py-2 px-4"
         >
-      </nuxt-link>
-      <nuxt-link
-        to="/auth/register"
-        class="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#285742] text-[#285742] text-white"
-      >
-        <span
-          class="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#285742] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"
-        ></span>
-        <span
-          class="relative text-[#285742] transition duration-300 group-hover:text-white ease"
-          >Sign Up</span
-        >
-      </nuxt-link>
-    </div> -->
+          No products found
+        </p>
+      </div>
+    </form>
+    <HomeCart />
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      showNotification: true, // Show notification by default
-      isOpen: false,
-      lastScrollTop: 0, // Store the last scroll position
-      showNavbar: true, // Initially show navbar
-    };
-  },
-  methods: {
-    closeNotification() {
-      this.showNotification = false; // Hide the notification bar
-    },
-    toggleDropdown() {
-      this.isOpen = !this.isOpen;
-    },
-  },
+
+<script setup>
+import predictiveSearchProducts from "~/shopify/search/predictive-search";
+
+const showNotification = ref(true);
+
+const router = useRouter();
+
+const isSearching = useState("searching-products", () => false);
+const searchQuery = useState("search-query", () => "");
+const productSuggestions = useState("product-suggestions", () => []);
+
+const searchProducts = useDebounceFn(async (query) => {
+  isSearching.value = true;
+  try {
+    const products = await predictiveSearchProducts(query);
+    productSuggestions.value = products;
+  } catch (error) {
+    alert("Unable to search products at the time. Please try again later.");
+  }
+
+  isSearching.value = false;
+}, 500);
+
+watch(searchQuery, () => searchProducts(searchQuery.value));
+
+const submitForm = async (e) => {
+  if (!searchQuery.value) {
+    alert("No search query provided");
+    return;
+  }
+
+  const search = searchQuery.value;
+  searchQuery.value = "";
+
+  await router.push({
+    path: "/shop/search",
+    query: { search },
+  });
+};
+
+const closeNotification = () => {
+  showNotification.value = false;
 };
 </script>
 

@@ -154,7 +154,7 @@ const updateQueryParams = () => {
     selectedIngredent: selectedIngredent.value,
   };
 
-  router.push({ query, path: "/shop" });
+  router.push({ path: route.path, query: { ...route.query, ...query } });
 
   shopStore.updateSHopifyProductsQuery(convertQueryParamsToQueryString(query));
 };

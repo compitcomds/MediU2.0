@@ -11,7 +11,9 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const showNotification = false;
+</script>
 
 <style scoped>
 /* Add additional styles if needed */

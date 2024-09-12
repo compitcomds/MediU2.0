@@ -1,14 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  
+
   modules: [
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "vue3-carousel-nuxt",
     "nuxt-swiper",
     "@nuxtjs/tailwindcss",
-    '@nuxt/image'
+    "@nuxt/image",
+    "@vueuse/nuxt",
   ],
   compatibilityDate: "2024-09-08",
   runtimeConfig: {
