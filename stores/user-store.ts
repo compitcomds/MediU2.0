@@ -6,6 +6,7 @@ export const useUserStore = defineStore("userStore", {
     shopifyCartId: "slkjflkdjsflkjlj",
     wishlist: [],
   }),
+
   actions: {
     setShopifyCartId(newCartId: string) {
       this.shopifyCartId = newCartId;

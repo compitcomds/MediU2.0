@@ -1,8 +1,11 @@
 <template>
-<ShopQuickview/>
-
+  <ShopQuickview />
 </template>
 
-<script setup></script>
+<script setup>
+const userStore = useUserStore();
+
+console.log(await userStore.getShopifyCartId());
+</script>
 
 <style scoped></style>

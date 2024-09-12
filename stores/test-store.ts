@@ -1,13 +1,8 @@
 import { defineStore } from "pinia";
+import createShopifyCart from "~/shopify/cart/create-cart";
 
-export const useTestStore = defineStore("test", {
-  state: () => ({ count: 0 }),
-  actions: {
-    increment() {
-      this.count++;
-    },
-  },
-  persist: {
-    storage: piniaPluginPersistedstate.localStorage(),
-  },
+export const useTestStore = defineStore("test-store", {
+  state: () => ({
+    count: 0,
+  }),
 });

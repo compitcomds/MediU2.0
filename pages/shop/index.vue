@@ -19,11 +19,10 @@ import { fetchProducts } from "~/shopify/products";
 
 const shopStore = useShopStore();
 const { shopifyProductsQuery } = storeToRefs(shopStore);
-
 const data = await fetchProducts({ query: shopifyProductsQuery.value });
 // const { filters } = await getFilters();
 // console.log(filters);
-const isDrawerOpen = ref(false);
-let currentPage = 1;
-const perPage = 30;
+// const isDrawerOpen = ref(false);
+// let currentPage = 1;
+// const perPage = 30;
 </script>
