@@ -165,33 +165,28 @@
             </div>
             <!-- Rating -->
             <div class="flex justify-center items-center my-2">
-              <div class="rating">
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                  checked="checked"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
+              <div class="flex justify-center items-center">
+                <div class="rating flex gap-1">
+                  <svg
+                    v-for="i in 5"
+                    :key="i"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star text-yellow-500"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    />
+                  </svg>
+                </div>
+                <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
               </div>
               <span class="ml-2 text-sm sm:text-md text-black"
                 >({{ card.feedbackCount }} Feedback)</span
@@ -270,33 +265,28 @@
             <div class="text-left flex items-center justify-between">
               <!-- Rating -->
               <div class="flex justify-start items-center mt-2">
-                <div class="rating">
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                    checked="checked"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
+                <div class="flex justify-start">
+                  <div class="rating flex gap-1">
+                    <svg
+                      v-for="i in 5"
+                      :key="i"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star text-yellow-500"
+                    >
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
                 </div>
               </div>
 
