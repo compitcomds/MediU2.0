@@ -2,7 +2,7 @@
   <div>
     <button
       @click="addProductToCart"
-      class="p-2 bg-white rounded-full shadow text-black disabled:cursor-not-allowed disabled:animate-pulse"
+      class="p-2 bg-gray-200 rounded-full shadow text-black disabled:cursor-not-allowed disabled:animate-pulse"
       :disabled="isAddingProductToCart"
     >
       <img src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg" class="w-8 p-1" />
