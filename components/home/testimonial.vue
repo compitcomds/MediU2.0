@@ -1,271 +1,147 @@
 <template>
-  <div class="lg:px-4 xl:px-12 mb-10 p-6 bg-[#F2F2F2]">
-    <h1 class="text-center text-gray-500 text-xl">Testimonials</h1>
+  <div class="lg:px-4 xl:px-12 mb-10 p-6 bg-[#f9f9f9]">
+    <h1 class="text-center text-gray-600 text-xl">Testimonials</h1>
     <h2 class="text-center text-[#28574E] text-3xl font-bold mb-10">
       What our customers say
     </h2>
-    <div class="testimonial-slider relative overflow-hidden">
+
+    <!-- Testimonials Container -->
+    <div class="testimonial-grid grid lg:grid-cols-3 gap-8">
       <div
-        class="slider-track flex transition-transform duration-500 my-16"
-        :style="{
-          transform: `translateX(-${currentSlide * (100 / 3)}%)`,
-          transition: sliding ? 'transform 0.5s ease-in-out' : 'none'
-        }"
+        class="testimonial-card bg-gradient-to-r from-white to-gray-100 p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-transform transform hover:-translate-y-2"
+        v-for="(testimonial, index) in testimonials"
+        :key="index"
       >
-        <div
-          class="slide bg-white p-6 rounded-lg shadow-md text-center mx-2"
-          v-for="(testimonial, index) in extendedTestimonials"
-          :key="index"
-          :class="{ 'active': isCenterSlide(index) }"
-        >
-          <div class="flex justify-start mb-4">
-            <span class="text-yellow-500 space-x-1">
-              <div class="rating">
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                  checked="checked"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-                <input
-                  type="radio"
-                  name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
-                />
-              </div>
-            </span>
-          </div>
-          <div class="flex justify-start mb-4">
-            <img
-              :src="testimonial.photo"
-              class="rounded-full"
-              alt="Customer photo"
-            />
-          </div>
-          <h3 class="text-xl text-black text-start font-semibold">
-            {{ testimonial.name }}
-          </h3>
-          <p class="text-start text-gray-500 text-sm mb-4">Customer</p>
-          <p class="text-start text-sm xl:text-base text-gray-600">
-            {{ testimonial.text }}
-          </p>
+        <!-- Profile Photo -->
+        <div class="flex justify-start mb-4">
+          <img
+            :src="testimonial.photo"
+            class="rounded-full w-24 h-24 object-cover border-2 border-gray-300"
+            alt="Customer photo"
+          />
         </div>
-      </div>
 
-      <!-- Navigation buttons -->
-      <button
-        @click="prevSlide"
-        class="absolute left-0 top-1/2 transform -translate-y-1/2 opacity-50 bg-gray-300 px-2 py-1 rounded"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#3C4242"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-chevron-left"
-        >
-          <path d="m15 18-6-6 6-6" />
-        </svg>
-      </button>
-      <button
-        @click="nextSlide"
-        class="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-50 bg-gray-300 px-2 py-1 rounded"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#3C4242"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-chevron-right"
-        >
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-      </button>
+        <!-- Star Rating -->
+        <div class="flex justify-start mb-4">
+          <div class="rating flex gap-1">
+            <svg
+              v-for="i in 5"
+              :key="i"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-star text-yellow-500"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span>
+        </div>
 
-      <!-- Pagination dots -->
-      <div
-        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"
-      >
-        <span
-          v-for="(slide, index) in testimonials"
-          :key="index"
-          @click="setSlide(index)"
-          class="block w-4 h-3 rounded-full cursor-pointer"
-          :class="{
-            'bg-gray-800 w-6': index === realSlideIndex,
-            'bg-gray-400': index !== realSlideIndex
-          }"
-        ></span>
+        <!-- Testimonial Content -->
+        <h3 class="text-lg text-black font-semibold mb-1">
+          {{ testimonial.name }}
+        </h3>
+        <p class="text-sm text-gray-500 mb-4">Customer</p>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          {{ testimonial.text }}
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import "swiper/swiper-bundle.css";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, Navigation } from 'swiper/modules';
 export default {
-  name: 'Testimonials',
+  name: "Testimonials",
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [Pagination, Navigation],
+    };
+  },
   data() {
     return {
-      currentSlide: 1, // Start at 1 because of cloned first slide
-      sliding: true,
-      autoplayInterval: null,
       testimonials: [
         {
-          name: 'Dipesh',
-          photo: 'https://ccdstest.b-cdn.net/Medi%20u/Image.svg',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+          name: "Dipesh Sharma",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/IMG_20240907_140115.jpg",
+          text:
+            "I've had a wonderful experience with this medical practice. The facility is clean and modern, and the staff is both knowledgeable and kind.",
         },
         {
-          name: 'Robert Fox',
-          photo: 'https://ccdstest.b-cdn.net/Medi%20u/Image.svg',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+          name: "Anant Raj",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/Image.svg",
+          text:
+            "I've been a patient at this clinic for over a year, and I couldn’t be more impressed with the level of care I receive. The staff is always professional.",
         },
         {
-          name: 'John Doe',
-          photo: 'https://ccdstest.b-cdn.net/Medi%20u/Image.svg',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+          name: "Ashwariya Singh",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
+          text:
+            "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
         },
-        {
-          name: 'Jane Smith',
-          photo: 'https://ccdstest.b-cdn.net/Medi%20u/Image.svg',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-        },
-        {
-          name: 'Alice Brown',
-          photo: 'https://ccdstest.b-cdn.net/Medi%20u/Image.svg',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-        }
       ],
     };
   },
-  computed: {
-    extendedTestimonials() {
-      // Add cloned first and last slides for the wrap-around effect
-      return [
-        this.testimonials[this.testimonials.length - 1], // Clone the last slide
-        ...this.testimonials, // Original slides
-        this.testimonials[0], // Clone the first slide
-      ];
-    },
-    realSlideIndex() {
-      // Handle the real index for the dots
-      if (this.currentSlide === 0) {
-        return this.testimonials.length - 1;
-      } else if (this.currentSlide === this.testimonials.length + 1) {
-        return 0;
-      }
-      return this.currentSlide - 1;
-    }
-  },
-  methods: {
-    nextSlide() {
-      if (this.currentSlide < this.extendedTestimonials.length - 1) {
-        this.currentSlide++;
-      }
-      this.sliding = true;
-      this.resetAfterTransition();
-    },
-    prevSlide() {
-      if (this.currentSlide > 0) {
-        this.currentSlide--;
-      }
-      this.sliding = true;
-      this.resetAfterTransition();
-    },
-    setSlide(index) {
-      this.currentSlide = index + 1;
-      this.sliding = true;
-    },
-    resetAfterTransition() {
-      setTimeout(() => {
-        if (this.currentSlide === this.extendedTestimonials.length - 1) {
-          // When reaching the cloned first slide, jump to the real first slide
-          this.sliding = false;
-          this.currentSlide = 1;
-        } else if (this.currentSlide === 0) {
-          // When reaching the cloned last slide, jump to the real last slide
-          this.sliding = false;
-          this.currentSlide = this.testimonials.length;
-        }
-      }, 500); // Wait for the slide transition to finish
-    },
-    startAutoplay() {
-      this.autoplayInterval = setInterval(this.nextSlide, 3000);
-    },
-    stopAutoplay() {
-      clearInterval(this.autoplayInterval);
-    },
-    isCenterSlide(index) {
-      // The center slide is the one in the middle of the visible area
-      return index === this.currentSlide;
-    }
-  },
-  mounted() {
-    this.sliding = true;
-    this.startAutoplay();
-  },
-  beforeDestroy() {
-    this.stopAutoplay();
-  }
 };
 </script>
 
 <style scoped>
-.testimonial-slider {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+/* Grid layout for testimonials */
+.testimonial-grid {
+  display: grid;
+  gap: 2rem; /* Space between cards */
 }
 
-.slider-track {
-  display: flex;
+/* Testimonial card styles */
+.testimonial-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.slide {
-  min-width: calc(100% / 3); /* Display 3 cards */
-  box-sizing: border-box;
-  transition: transform 0.5s ease-in-out;
+.testimonial-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
 
-.slide.active {
-  transform: translateY(-20px); /* Lift the center card up by 20px */
-  z-index: 1;
+/* Profile photo styling */
+img {
+  width: 6rem; /* 96px */
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
 }
 
-button {
-  transition: opacity 0.2s;
+/* Star rating size and alignment */
+.rating svg {
+  width: 1.75rem; /* 28px */
+  height: 1.75rem;
 }
 
-button:hover {
-  opacity: 1;
-}
-
-span {
-  cursor: pointer;
+/* Responsive design for mobile screens */
+@media (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
 }
 </style>
