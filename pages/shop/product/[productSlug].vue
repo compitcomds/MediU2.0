@@ -102,7 +102,7 @@ onMounted(async () => {
  -->
 
 <template>
-   <div v-if="data" class="py-6 mt-10 text-black">
+  <!-- <div v-if="data" class="py-6 mt-10 text-black">
     <div class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative">
 
       <div class="col-span-8 lg:col-span-6 relative">
@@ -170,8 +170,162 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-  </div> 
+  </div> -->
+  <div class="mx-20 my-5">
+    {{ data }}
+    <div v-if="data">
+      <div class="grid grid-cols-5 gap-4 md:grid-cols-5">
+        <div class="col-span-5 md:col-span-2">
+          <div
+            class="flex justify-center items-center border rounded-md mb-3 bg-emerald-50 border-gray-200 p-2"
+          >
+            <img
+              :src="data?.featuredImage.url"
+              alt=""
+              srcset=""
+              class="rounded object-cover"
+            />
+          </div>
+          <div class="flex w-full bg-slate-200 gap-2 px-2 py-1">
+            <div v-for="(item, index) in data.images" :key="item.url">
+              <img
+                :src="item.url"
+                alt=""
+                srcset=""
+                class="border border-cyan-300 h-32 w-32 object-cover rounded"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-5 md:col-span-3 bg-green-100">
+          <div>{{ data.title }}</div>
+          <div>Treats Active Acne | Unclogs Pores</div>
+          <div class="flex">
+            <div>4.7</div>
+            <div class="flex gap-5">
+              <div>tick icon</div>
+              <div class="flex gap-2">
+                <div>icon-verified Ratings</div>
+                <div>verified Ratings</div>
+              </div>
+            </div>
+          </div>
+          <div v-if="true">
+            <!-- for salse-->
+            <div>Special Price</div>
+            <div class="flex gap-2">
+              <div>actual price</div>
+              <div>price</div>
+              <div>percentage discount%</div>
+            </div>
+            <div>Inclusive of all Taxes</div>
+            <hr class="border-t-2 border-dotted border-gray-400" />
+            <div>Select Variant</div>
+            <div v-for="(item,index) in data.options">
+              {{ item.name }}
+              {{ item.values }}
+              <div class="flex gap-6">
+                <div v-for="(variant,index) in data.variants">
+                  <div v-for="(variantValue,index) in variant" :key="index">
+                    {{ variantValue.node.title }} <br>
+                    {{ variantValue.node.price.currencyCode }} {{ variantValue.node.price.amount }} <br>
+                    {{ variantValue.node.quantityAvailable }} <br>
+                    {{ variantValue.node.selectedOptions }} <br>
+                    {{ variantValue.node.image }} <br>
+                    <hr>
+                  </div>
+                </div>
+                <div class="h-28 w-48 rounded-lg border border-green-800 gap-6">
+                  <div
+                    class="w-full p-2 text-white bg-green-800 rounded-tr-lg rounded-tl-lg"
+                  >
+                    varient 1
+                  </div>
+                  <div class="">
+                    <div class="flex justify-start gap-2 scale-80">
+                      <div>actual price</div>
+                      <div>price</div>
+                      <div>percentage discount%</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+              </div>
+
+            </div>
+
+            <hr>
+            
+            <hr class="border-t-2 border-dotted border-gray-400 mt-3" />
+            <div class="w-fit px-3 p-2 bg-green-400 rounded flex gap-2">
+              <div class="bg-white rounded-full">icon of van</div>
+              <div>Check your estimated delivery date</div>
+            </div>
+            <div>Free delivery on orders of ₹399 and above</div>
+            <hr class="border-t-2 border-dotted border-gray-400" />
+            <div class="flex items-center gap-6">
+              <div
+                class="border-gray-400 border w-1/4 py-3 px-4 flex items-center justify-between rounded-lg"
+              >
+                <button @click="decreaseQuantity" class="text-3xl">-</button>
+                <p class="text-2xl">{{ quantity }}</p>
+                <button @click="increaseQuantity" class="text-3xl">+</button>
+              </div>
+              <div class="bg-green-400">
+                <ShopAddingToCartBtn :product-id="data.id" />
+              </div>
+            </div>
+          </div>
+          <div class="my-3">
+            <img src="https://placehold.co/300x100" alt="" srcset="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full bg-gray-500 h-96 rounded" >
+        <div class="flex flex-col items-center">
+          <!-- Navigation Tabs -->
+          <nav class="flex space-x-4 w-full justify-between m-6 p-6">
+            <div v-for="(item, index) in accordionKeys" >
+            <button v-if="data[item.value]"
+              @click="activeTab = index + 1"
+              :class="{
+                'text-blue-500': activeTab === index + 1,
+                'z-10': activeTab === index + 1,
+                'z-0': activeTab !== index + 1,
+              }"
+              :key="index"
+              class="px-4 py-2 w-full rounded bg-gray-200"
+              
+            >
+              
+            <div  >
+              
+              {{ item.name }}
+            </div>
   
+            </button>
+          </div>
+          </nav>
+
+          <!-- Tab Content -->
+          <div class="w-full h-64">
+            <div v-for="(item, index) in accordionKeys" :key="index" >
+              
+              <div 
+                v-if="activeTab === index + 1 &&  data[item.value]"
+                class="w-full h-full bg-blue-100 z-10 p-4">
+                <div v-html="convertShopifyRichTextToHTML(data[item.value].value) " ></div>
+                <div class="collapse-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else>asd</div>
+  </div>
 </template>
 
 <script setup>
