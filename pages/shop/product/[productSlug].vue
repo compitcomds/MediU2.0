@@ -1,4 +1,4 @@
- <!-- <template>
+<!-- <template>
   <div v-if="data" class="py-6 mt-10 text-black">
     <div
       class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative"
@@ -102,8 +102,8 @@ onMounted(async () => {
  -->
 
 
- <template>
-  
+<template>
+
   <!-- <div v-if="data" class="py-6 mt-10 text-black">
     <div class="grid grid-cols-8 lg:grid-cols-12 gap-x-3 lg:gap-x-4 gap-y-3 mx-3 relative">
 
@@ -173,93 +173,122 @@ onMounted(async () => {
       </div>
     </div>
   </div> -->
-  <div class="p-4">
-
+  <div class="mx-20 my-5">
+    {{data}}
     <div class="grid grid-cols-5 gap-4 md:grid-cols-5">
-  
-      <div class="col-span-5 md:col-span-2 bg-blue-500 ">
-        <div class="flex justify-center items-center">
-          <img :src="data.featuredImage.url" class="w-fit p-12" alt="">
+
+      <div class="col-span-5 md:col-span-2  ">
+        <div class="flex justify-center items-center border rounded-md mb-3 bg-emerald-50 border-gray-200 p-2">
+          <img :src="data.featuredImage.url " alt="" srcset="" class="rounded object-cover">
         </div>
-        <div class="flex">
-          
+        <div class="flex w-full bg-slate-200 gap-2 px-2 py-1 ">
+          <div v-for="(item,index) in data.images" :key="item.url">
+            <img :src=item.url alt="" srcset="" class="border border-cyan-300 h-32 w-32 object-cover rounded ">
+          </div>
         </div>
       </div>
-     
-      <div class="col-span-5 md:col-span-3 bg-green-500 ">2 (3/5)</div>
+
+      <div class="col-span-5 md:col-span-3 bg-green-500 ">
+        <div>{{data.title}}</div>
+        <div>Treats Active Acne | Unclogs Pores</div>
+        <div class="flex">
+          <div>4.7</div>
+          <div class="flex gap-5">
+            <div>tick icon</div>
+            <div class="flex gap-2">
+              <div>icon-verified Ratings</div>
+              <div>verified Ratings</div>
+            </div>
+          </div>
+        </div>
+        <div v-if="true"> <!-- for salse-->
+          <div>Special Price</div>
+          <div class="flex">
+            actual price
+          </div>
+          <div>
+            price
+          </div>
+          <div>
+            percentage discount%
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { getProductData } from "~/shopify/productDetails";
-import { onMounted, ref, computed } from 'vue';
+  import { getProductData } from "~/shopify/productDetails";
+  import { onMounted, ref, computed } from 'vue';
 
-const route = useRoute();
-const productHandle = route.params.productSlug;
+  const route = useRoute();
+  const productHandle = route.params.productSlug;
 
-const data = ref(null);
-const quantity = ref(1);  // Initialize the quantity
+  const data = ref(null);
+  const quantity = ref(1);  // Initialize the quantity
 
-// Computed property for total price
-const totalPrice = computed(() => {
-  return (data.value.price?.amount * quantity.value).toFixed(2);
-});
+  // Computed property for total price
+  const totalPrice = computed(() => {
+    return (data.value.price?.amount * quantity.value).toFixed(2);
+  });
 
-const accordionKeys = [
-  {
-    name: "Safety information / Precaution",
-    value: "safetyInformationAndPrecaution",
-  },
-  {
-    name: "How to use?",
-    value: "howToUse",
-  },
-  {
-    name: "Key benefits",
-    value: "keyBenefits",
-  },
-];
+  const accordionKeys = [
+    {
+      name: "Safety information / Precaution",
+      value: "safetyInformationAndPrecaution",
+    },
+    {
+      name: "How to use?",
+      value: "howToUse",
+    },
+    {
+      name: "Key benefits",
+      value: "keyBenefits",
+    },
+  ];
 
-onMounted(async () => {
-  try {
-    const product = await getProductData(productHandle);
-    data.value = product;
-    setupImageZoom();
-  } catch (error) {
-    console.error("Error fetching product data:", error);
-  }
-});
+  onMounted(async () => {
+    try {
+      const product = await getProductData(productHandle);
+      data.value = product;
+      setupImageZoom();
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
+  });
 
-const setupImageZoom = () => {
-  var options2 = {
-    fillContainer: true,
-    offset: {vertical: 0, horizontal: 10},
+  const setupImageZoom = () => {
+    var options2 = {
+      fillContainer: true,
+      offset: { vertical: 0, horizontal: 10 },
+    };
+    new ImageZoom(document.getElementById("img-container"), options2);
   };
-  new ImageZoom(document.getElementById("img-container"), options2);
-};
 
-// Methods to increase/decrease quantity
-const increaseQuantity = () => {
-  if (quantity.value < 5) {
-    quantity.value++;
-  }
-};
+  // Methods to increase/decrease quantity
+  const increaseQuantity = () => {
+    if (quantity.value < 5) {
+      quantity.value++;
+    }
+  };
 
-const decreaseQuantity = () => {
-  if (quantity.value > 1) {
-    quantity.value--;
-  }
-};
+  const decreaseQuantity = () => {
+    if (quantity.value > 1) {
+      quantity.value--;
+    }
+  };
 </script>
 
 <style scoped>
-/* Optional: Custom Styles for additional creativity */
-.collapse .collapse-title {
-  cursor: pointer;
-}
+  /* Optional: Custom Styles for additional creativity */
+  .collapse .collapse-title {
+    cursor: pointer;
+  }
 
-.collapse .collapse-title:hover {
-  color: #6b46c1; /* Hover effect for accordion title */
-}
+  .collapse .collapse-title:hover {
+    color: #6b46c1;
+    /* Hover effect for accordion title */
+  }
 </style>
