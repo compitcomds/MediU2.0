@@ -75,7 +75,6 @@ query productWithVariantsQuery($handle: String!) {
 }
 `;
 
-
 const productVariantQuery = `
 query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInput!] = {name: "", value: ""}) {
   product(handle: $handle) {
@@ -151,10 +150,10 @@ export async function getInitalProductData(handle: string) {
         }>;
       };
       tags: string[];
-      comareAtPrice:{
-        amount:string;
-        currencyCode:string;
-      }
+      comareAtPrice: {
+        amount: string;
+        currencyCode: string;
+      };
     };
     const returnData = {
       ...product,
@@ -210,10 +209,10 @@ export async function getProductData(
         amount: string;
         currencyCode: string;
       };
-      comareAtPrice:{
-        amount:string;
-        currencyCode:string;
-      }
+      comareAtPrice: {
+        amount: string;
+        currencyCode: string;
+      };
       selectedOptions: Array<{
         name: string;
         value: string;
