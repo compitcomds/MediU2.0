@@ -2,14 +2,12 @@
   <div>
     <button
       @click="addProductToCart"
-      class="group relative min-h-[40px] rounded-full w-full overflow-hidden border border-[#28574E] bg-white text-[#28574E] transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-[#28574E] before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-[#28574E] after:duration-500 hover:text-white hover:before:h-full hover:after:h-full"
+      class="relative h-[40px] w-full overflow-hidden rounded-full border border-[#28574E] bg-white text-[#28574E] hover:shadow-2xl transition-all before:absolute before:left-0 before:right-0 before:top-0 before:h-0 before:w-full before:bg-[#28574E] before:duration-500 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0 after:w-full after:bg-[#28574E] after:duration-500 hover:text-white hover:before:h-2/4 hover:after:h-2/4"
       :disabled="isAddingProductToCart"
     >
+      
       <span
-        class="top-0 flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 before:bg-[#28574E] before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 after:bg-[#28574E] after:duration-500 hover:text-white group-hover:before:h-full group-hover:after:h-full"
-      ></span>
-      <span
-        class="absolute inset-0 z-10 flex items-center justify-center group-hover:text-white"
+        class="relative z-10"
       >
         {{ testStore.count }}
         {{ isAddingProductToCart ? "Adding..." : "Add To Cart" }}
