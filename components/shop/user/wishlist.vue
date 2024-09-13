@@ -12,34 +12,9 @@
         <div
           v-for="(item, index) in cart.items"
           :key="index"
-          class="mt-2 border px-2 pt-4 pb-1 rounded-xl relative"
+          class="mt-2 border p-2 rounded-xl"
         >
-          <!-- Delete Icon (top-right corner) -->
-          <button
-            @click="removeItem(index)"
-            class="absolute top-1 right-2 mt-1"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#ef0b0b"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-trash-2"
-            >
-              <path d="M3 6h18" />
-              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-              <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-              <line x1="10" x2="10" y1="11" y2="17" />
-              <line x1="14" x2="14" y1="11" y2="17" />
-            </svg>
-          </button>
-
-          <div class="flex justify-between items-center space-x-3 mt-2">
+          <div class="flex justify-between items-center space-x-3">
             <div class="">
               <img
                 :src="item.image?.url || 'https://placehold.co/80x80/png'"
@@ -105,7 +80,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 import getCartData from "~/shopify/cart/get-cart-data";
 
 const cart = ref({
@@ -114,21 +88,15 @@ const cart = ref({
   totalAmount: { currencyCode: "", amount: "" },
 });
 
-const increaseQuantity = (index) => {
-  cart.value.items[index].quantity++;
-};
+const increaseQuantity = (index) => {};
 
-const decreaseQuantity = (index) => {
-  if (cart.value.items[index].quantity > 1) {
-    cart.value.items[index].quantity--;
-  }
-};
-
-const removeItem = (index) => {
-  cart.value.items.splice(index, 1);
-};
+const decreaseQuantity = (index) => {};
 
 onMounted(async () => {
   cart.value = await getCartData();
 });
 </script>
+
+<style scoped>
+/* Additional styles if needed */
+</style>

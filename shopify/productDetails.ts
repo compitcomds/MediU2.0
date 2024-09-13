@@ -52,6 +52,10 @@ query productWithVariantsQuery($handle: String!) {
             amount
             currencyCode
           }
+            compareAtPrice {
+            amount
+            currencyCode
+          }
           quantityAvailable
           selectedOptions {
             name
@@ -90,6 +94,10 @@ query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInp
         width
       }
       price {
+        amount
+        currencyCode
+      }
+      compareAtPrice {
         amount
         currencyCode
       }
@@ -143,11 +151,38 @@ export async function getInitalProductData(handle: string) {
         }>;
       };
       tags: string[];
+      variants: {
+        edges: Array<{
+          node: {
+            id: string;
+            title: string;
+            availableForSale: boolean;
+            price: {
+              amount: string;
+              currencyCode: string;
+            };
+            compareAtPrice: {
+              amount: string;
+              currencyCode: string;
+            };
+            quantityAvailable: number;
+            selectedOptions: Array<{ name: string; value: string }>;
+            image: {
+              url: string;
+              altText: string;
+              height: number;
+              width: number;
+            };
+          };
+        }>;
+      };
     };
+    console.log("v",product)
     const returnData = {
       ...product,
       images: product.images.nodes,
-      currentlyNotInStock: false,
+      variants: product.variants.edges.map(edge => edge.node),
+      currentlyNotInStock: product.variants.edges.some(edge => !edge.node.availableForSale),
       productId: product.id,
     };
 
@@ -198,12 +233,16 @@ export async function getProductData(
         amount: string;
         currencyCode: string;
       };
+      compareAtPrice: {
+        amount: string;
+        currencyCode: string;
+      };
       selectedOptions: Array<{
         name: string;
         value: string;
       }>;
     };
-
+    console.log("products",variant)
     return {
       ...initalProductData,
       ...variant,
@@ -212,6 +251,7 @@ export async function getProductData(
       currentlyNotInStock: variant.currentlyNotInStock,
       variantImages: [variant.image],
       price: variant.price,
+      compareAtPrice: variant.compareAtPrice,
       selectedOptions: variant.selectedOptions,
     };
   } catch (error) {

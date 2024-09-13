@@ -1,9 +1,9 @@
 <template>
-    <div class="min-h-screen bg-gray-900 flex flex-col items-center justify-center">
-        <h1 class="text-5xl text-white font-bold mb-8 animate-pulse">
+    <div class="min-h-screen bg-[#22423C] flex flex-col items-center justify-center font-serif">
+        <h1 class="text-6xl text-white font-bold mb-8 animate-pulse">
             Coming Soon
         </h1>
-        <p class="text-white text-lg mb-8">
+        <p class="text-white text-xl mb-8">
             We're working hard to bring you something amazing. Stay tuned!
         </p>
     </div>
