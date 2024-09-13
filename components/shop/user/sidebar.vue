@@ -38,7 +38,7 @@
         aria-label="close sidebar"
         class="drawer-overlay"
       ></label>
-      <ul class="menu text-base-content min-h-full w-80">
+      <ul class="menu text-base-content min-h-full w-96">
         <!-- Sidebar content here -->
         <ShopUserCartWishlist />
       </ul>

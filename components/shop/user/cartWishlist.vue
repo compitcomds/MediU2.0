@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen bg-gray-100  -mr-2 -mt-2">
     <!-- Cart Container -->
-    <div class="p-2 bg-white shadow-lg max-w-xl flex flex-col">
+    <div class="p-2 bg-white shadow-lg w-96 flex flex-col">
       <!-- Free Shipping Banner -->
       <div
         class="bg-[#b8d5c2] text-[#287542] text-center py-2 px-4 rounded-md"
