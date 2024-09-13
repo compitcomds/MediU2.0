@@ -48,7 +48,7 @@
                 </p>
               </div>
               <div>
-                <ShopSharebtn :product-link='`www.mediu.in/shop/product/${product.handle}`' />
+                <ShopSharebtn :product-link='`shop/product/${product.handle}`' />
               </div>
 
               <!-- Optional section for additional actions -->

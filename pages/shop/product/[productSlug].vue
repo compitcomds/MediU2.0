@@ -30,7 +30,7 @@
       />
       <!-- Overlay icon/button -->
       <ShopSharebtn
-        :product-link="`www.mediu.in/shop/product/${data.handle}`"
+        :product-link="`shop/product/${data.handle}`"
         class="absolute top-2 right-2 z-10"
       />
     </div>
