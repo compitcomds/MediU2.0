@@ -7,7 +7,7 @@
     <HomeSearch />
 
     <!-- navbar2 -->
-    <HomeNavItem />
+    <HomeNavItem class="hidden lg:block"/>
   </div>
 </template>
 
