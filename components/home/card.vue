@@ -18,7 +18,7 @@
           'bg-[#28574E] text-white': selectedCategory === 'Skin',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2 sm:py-3 md:py-4 font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
       >
         Skin
       </button>
@@ -28,7 +28,7 @@
           'bg-[#28574E] text-white': selectedCategory === 'Hair',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2 sm:py-3 md:py-4 font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
       >
         Hair
       </button>
@@ -38,7 +38,7 @@
           'bg-[#28574E] text-white': selectedCategory === 'Child',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Child',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2 sm:py-3 md:py-4 font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
       >
         Child
       </button>
@@ -253,7 +253,7 @@
             <h2 class="text-lg sm:text-xl md:text-xl text-black capitalize">
               {{ card.name }}
             </h2>
-            <div class="mt-2">
+            <div class="mt-2 space-x-2">
               <span class="text-xl sm:text-2xl md:text-2xl font-bold text-black"
                 >₹{{ card.discountedPrice }}</span
               >
@@ -321,7 +321,7 @@
 
     <!-- Footer -->
     <div
-      class="text-end px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold"
+      class="text-end font-sans px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold"
     >
       <nuxt-link to="#">View All 240 Products -> </nuxt-link>
     </div>
