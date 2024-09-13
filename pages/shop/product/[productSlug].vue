@@ -10,6 +10,7 @@
     style="
       --swiper-navigation-color: #000;
       --swiper-pagination-color: #000;
+      
     "
     class="mySwiper"
     thumbs-swiper=".mySwiper2"
@@ -32,7 +33,7 @@
   <swiper-container
     class="mySwiper2 mt-4"
     space-between="10"
-    slides-per-view="4"
+    slides-per-view="6"
     free-mode="true"
     watch-slides-progress="true"
   >
@@ -225,7 +226,7 @@
                 v-if="data[item.value]"
                 @click="activeTab = index + 1"
                 :class="{
-                  'bg-green-600 text-white font-semibold ': activeTab === index + 1,
+                  'bg-[#004400] text-white font-semibold ': activeTab === index + 1,
                   'bg-gray-200 border-1  border-green-600  rounded-md px-4 py-2 transition-all': true,
                 }"
               >
@@ -323,56 +324,46 @@ const decreaseQuantity = () => {
 </script>
 
 <style scoped>
-swiper-container {
+/* General Swiper Container Styles */
+.swiper-container {
   width: 100%;
-  height: 100%;
+  height: 300px; /* Adjust height as needed */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
-swiper-slide {
+/* General Swiper Slide Styles */
+.swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  background-position: center;
 }
 
-swiper-slide img {
+/* Image Styles within Slides */
+.swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-body {
-  background: #000;
-  color: #000;
-}
-
-swiper-container {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
+/* Swiper Specific Styles */
 .mySwiper {
-  height: 80%;
-  width: 100%;
+  height: 400px; /* Adjust height as needed */
 }
 
 .mySwiper2 {
-  height: 20%;
+  height: 80px; /* Adjust height as needed */
   box-sizing: border-box;
   padding: 10px 0;
 }
 
-.mySwiper2 swiper-slide {
+/* Thumbnail Slide Styles */
+.mySwiper2 .swiper-slide {
   width: 25%;
   height: 100%;
   opacity: 0.4;
@@ -382,44 +373,37 @@ swiper-slide {
   opacity: 1;
 }
 
-swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Navigation Button Styles */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000; /* Customize navigation arrow color */
+  width: 12px !important;  /* Adjust the width */
+  height: fit-content; /* Adjust the height */
 }
 
-/* Optional: Custom Styles for additional creativity */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px; /* Adjust the font size for the arrows */
+}
+
+/* Additional Custom Styles */
 .collapse .collapse-title {
   cursor: pointer;
 }
 
 .collapse .collapse-title:hover {
-  color: #6b46c1;
-  /* Hover effect for accordion title */
+  color: #6b46c1; /* Hover effect for accordion title */
 }
-/* Add your custom Swiper styles here */
+
+/* Optional: Ensure Swiper containers do not exceed available width */
 .mySwiper, .mySwiper2 {
-  /* Set a maximum width for the Swiper containers */
   max-width: 100%;
 }
 
-.mySwiper {
-  height: 400px; /* Adjust height as needed */
-}
-
-.mySwiper2 {
-  height: 80px; /* Adjust height as needed */
-}
-
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-button-next, .swiper-button-prev {
-  color: #000; /* Customize navigation arrow color */
+/* Body Styling */
+body {
+  background: #000;
+  color: #000;
 }
 
 </style>
