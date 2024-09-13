@@ -12,14 +12,14 @@
         <div
           class="border px-4 py-2 rounded-lg block no-underline border-gray-300 shadow-md"
         >
-          <nuxt-link :to="`/shop/product/${product.handle}`" class="relative">
+          <div class="relative">
             <span
               v-if="true"
               class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded"
               >Sale 5%</span
             >
             <img :src="product.image" class="min-h-48 max-h-52" alt="" />
-          </nuxt-link>
+          </div>
           <div class="space-y-4 flex flex-col justify-between">
             <NuxtLink :to="`/shop/product/${product.handle}`">
               <h3

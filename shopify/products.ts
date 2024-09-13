@@ -62,7 +62,6 @@ export const fetchProducts = async ({
       price: node.priceRange.minVariantPrice.amount,
       currency: node.priceRange.minVariantPrice.currencyCode,
     }));
-    
     return {
       products,
       pageInfo: {
