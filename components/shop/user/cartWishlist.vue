@@ -3,7 +3,7 @@
     <!-- Cart Container -->
     <div class="p-2 bg-white shadow-lg w-96 flex flex-col">
       <!-- Free Shipping Banner -->
-      <div class="bg-[#b8d5c2] text-[#287542] text-center py-2 px-4 rounded-md">
+      <div class="bg-[#b8d5c2] text-[#28574E] text-center py-2 px-4 rounded-md">
         🎉 CONGRATS! You get <span class="font-semibold">FREE SHIPPING</span>
       </div>
 
@@ -19,7 +19,24 @@
             @click="removeItem(index)"
             class="absolute top-1 right-2 mt-1"
           >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef0b0b" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#ef0b0b"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-trash-2"
+            >
+              <path d="M3 6h18" />
+              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+              <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+              <line x1="10" x2="10" y1="11" y2="17" />
+              <line x1="14" x2="14" y1="11" y2="17" />
+            </svg>
           </button>
 
           <div class="flex justify-between items-center space-x-3 mt-2">
@@ -63,16 +80,21 @@
       </div>
 
       <div class="mt-4">
-        <div class="flex justify-between items-center my-4 border border-black p-2 rounded-lg text-lg">
-          <p class="font-semibold text-slate-700">Subtotal ({{ totalItems }} items)</p>
+        <div
+          class="flex justify-between items-center my-4 border border-black p-2 rounded-lg text-lg"
+        >
+          <p class="font-semibold text-slate-700">
+            Subtotal ({{ totalItems }} items)
+          </p>
           <p class="text-green-600 font-bold">
-            {{ cart.subtotalAmount?.currencyCode }} {{ cart.subtotalAmount?.amount }}
+            {{ cart.subtotalAmount?.currencyCode }}
+            {{ cart.subtotalAmount?.amount }}
           </p>
         </div>
 
         <div class="mt-auto">
           <button
-            class="w-full bg-[#287542] text-white py-3 rounded-lg font-semibold"
+            class="w-full bg-[#28574E] text-white py-3 rounded-lg font-semibold"
           >
             🔒 SECURE CHECKOUT
           </button>
@@ -83,7 +105,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 import getCartData from "~/shopify/cart/get-cart-data";
 
 const cart = ref({

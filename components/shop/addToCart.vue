@@ -2,9 +2,12 @@
   <div>
     <button
       @click="addProductToCart"
-      class="group relative min-h-[40px] rounded-full w-full overflow-hidden border border-[#287542] bg-white text-[#287542] transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-[#287542] before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-[#287542] after:duration-500 hover:text-white hover:before:h-full hover:after:h-full"
+      class="group relative min-h-[40px] rounded-full w-full overflow-hidden border border-[#28574E] bg-white text-[#28574E] transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-[#28574E] before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-[#28574E] after:duration-500 hover:text-white hover:before:h-full hover:after:h-full"
       :disabled="isAddingProductToCart"
     >
+      <span
+        class="top-0 flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 before:bg-[#28574E] before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 after:bg-[#28574E] after:duration-500 hover:text-white group-hover:before:h-full group-hover:after:h-full"
+      ></span>
       <span
         class="absolute inset-0 z-10 flex items-center justify-center group-hover:text-white"
       >
