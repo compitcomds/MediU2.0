@@ -155,6 +155,7 @@ export async function getInitalProductData(handle: string) {
         currencyCode: string;
       };
     };
+    
     const returnData = {
       ...product,
       images: product.images.nodes,
