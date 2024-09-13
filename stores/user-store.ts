@@ -3,7 +3,7 @@ import createShopifyCart from "~/shopify/cart/create-cart";
 
 export const useUserStore = defineStore("userStore", {
   state: (): { shopifyCartId: null | string; wishlist: string[] } => ({
-    shopifyCartId: "slkjflkdjsflkjlj",
+    shopifyCartId: "",
     wishlist: [],
   }),
 
