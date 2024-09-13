@@ -12,7 +12,7 @@
         <div
           v-for="(item, index) in cart.items"
           :key="index"
-          class="mt-2 border px-2 py-4 rounded-xl relative"
+          class="mt-2 border px-2 pt-4 pb-1 rounded-xl relative"
         >
           <!-- Delete Icon (top-right corner) -->
           <button
