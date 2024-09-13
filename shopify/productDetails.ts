@@ -176,6 +176,7 @@ export async function getInitalProductData(handle: string) {
         }>;
       };
     };
+    console.log("v",product)
     const returnData = {
       ...product,
       images: product.images.nodes,
@@ -240,7 +241,7 @@ export async function getProductData(
         value: string;
       }>;
     };
-
+    console.log("products",variant)
     return {
       ...initalProductData,
       ...variant,
