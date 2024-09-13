@@ -35,9 +35,9 @@
     <div>
       <ShopUserSidebar/>
   </div>
-    <div class="w-5 h-5">
+    <!-- <div class="w-5 h-5">
       <ShopUserSidebarWishList />
-    </div>
+    </div> -->
     <div class="relative inline-block text-left ">
       <button
         @click="toggleDropdown"
