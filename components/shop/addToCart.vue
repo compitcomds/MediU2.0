@@ -5,12 +5,9 @@
       class="text-red rounded-full hover:before:bg-redborder-[#28574E] relative h-[40px] w-full overflow-hidden border border-[#28574E] bg-white px-3 text-[#28574E] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#28574E] before:transition-all before:duration-500 hover:text-white hover:before:left-0 hover:before:w-full"
       :disabled="isAddingProductToCart"
     >
-      <span
-        class="relative z-10"
-      >
-        {{ testStore.count }}
+      <span class="relative z-10">
         {{ isAddingProductToCart ? "Adding..." : "Add To Cart" }}
-        
+      </span>
     </button>
   </div>
 </template>
@@ -29,19 +26,18 @@ const props = defineProps({
 
 const isAddingProductToCart = ref(false);
 
-const testStore = useTestStore();
-
 const userStore = useUserStore();
-// console.log(await userStore.getShopifyCartId());
+
 
 const addProductToCart = async () => {
   if (!props.productId) return;
   isAddingProductToCart.value = true;
   try {
-    await addToCart({ merchandiseId: props.productId });
+    await addToCart({ merchandiseId: props.productId, cartId: await userStore.getShopifyCartId() });
     alert("Successfully added to the cart.");
   } catch (error) {
     alert("Unable to add the product to cart");
+    console.error(error);
   } finally {
     isAddingProductToCart.value = false;
   }
@@ -49,5 +45,4 @@ const addProductToCart = async () => {
 </script>
 
 <style scoped>
-/* Add styles here if needed */
 </style>

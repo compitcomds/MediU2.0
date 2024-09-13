@@ -11,8 +11,9 @@
 </template>
 
 <script setup>
-import addToCart from "~/shopify/cart/add-to-cart";
-import { useUserStore } from "~/stores/user-store";
+import { ref } from 'vue';
+import addToCart from '~/shopify/cart/add-to-cart';
+import { useUserStore } from '~/stores/user-store';
 
 const props = defineProps({
   productId: {
@@ -22,11 +23,7 @@ const props = defineProps({
 });
 
 const userStore = useUserStore();
-
 const isAddingProductToCart = ref(false);
-
-console.log(userStore.shopifyCartId);
-console.log(await userStore.getShopifyCartId());
 
 const addProductToCart = async () => {
   if (!props.productId) return;
@@ -36,9 +33,9 @@ const addProductToCart = async () => {
       merchandiseId: props.productId,
       cartId: await userStore.getShopifyCartId(),
     });
-    alert("Successfully added to the cart.");
+    alert('Successfully added to the cart.');
   } catch (error) {
-    alert("Unable to add the product to cart");
+    alert('Unable to add the product to cart');
     console.error(error);
   } finally {
     isAddingProductToCart.value = false;
