@@ -75,6 +75,7 @@ query productWithVariantsQuery($handle: String!) {
 }
 `;
 
+
 const productVariantQuery = `
 query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInput!] = {name: "", value: ""}) {
   product(handle: $handle) {
