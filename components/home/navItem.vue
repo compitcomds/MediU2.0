@@ -5,7 +5,7 @@
       <!-- Main Menu -->
       <ul class="flex justify-center space-x-24 bg-[#537971] text-white py-4">
         <li class="group relative cursor-pointer py-2">
-          <NuxtLink to="/" class="font-semibold hover:opacity-70 text-xl">Home</NuxtLink>
+          <a href="/" class="font-semibold hover:opacity-70 text-xl">Home</a>
         </li>
 
         <!-- Hair Concerns Menu -->
@@ -21,28 +21,28 @@
                   <h2 class="font-bold text-lg mb-4 border-b text-center">Hair Concerns</h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dandruff</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dandruff</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hairfall
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hairfall
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hair Thining
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hair Thining
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Damaged & Frizzy Hair
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Damaged & Frizzy Hair
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Bald Patches</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Bald Patches</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dull Hair</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dull Hair</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Oily Scalp</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Oily Scalp</a>
                     </li>
                   </ul>
                 </div>
@@ -52,20 +52,20 @@
                   <h2 class="font-bold text-lg mb-4 border-b text-center">Select By Ingredients</h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Minoxidil</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Minoxidil</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Redensyl</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Redensyl</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Capixyl
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Capixyl
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Feptide</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Feptide</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Carnitine</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Carnitine</a>
                     </li>
                   </ul>
                 </div>
@@ -75,16 +75,16 @@
                   <h2 class="font-bold text-lg mb-4 border-b text-center">Hair Care</h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Shampoo</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Shampoo</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Conditioner</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Conditioner</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Mask</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Mask</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Serum</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Serum</a>
                     </li>
                   </ul>
                 </div>
@@ -137,37 +137,37 @@
                   <h2 class="font-bold text-lg mb-4 border-b text-center">Shop By Concern</h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Acne & Acne Scar</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Acne & Acne Scar</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Aging
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Aging
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dehydration
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dehydration
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Damaged & Sensitive Skin
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Damaged & Sensitive Skin
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Eye Darkness</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Eye Darkness</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Arm Darkness</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Arm Darkness</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Stretch Marks</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Stretch Marks</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Pigmentation</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Pigmentation</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Oiliness</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Oiliness</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Sip(Cracked/Darkness)</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Sip(Cracked/Darkness)</a>
                     </li>
                   </ul>
                 </div>
@@ -177,26 +177,26 @@
                   <h2 class="font-bold text-lg mb-4 border-b text-center">Shop By Ingrdients</h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Vitamin C</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Vitamin C</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">BHA / Salicylic Acid</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">BHA / Salicylic Acid</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Retinoid / Retinol
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Retinoid / Retinol
+                      </a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Niacinamide</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Niacinamide</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">UV Filters</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">UV Filters</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Ceramide</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Ceramide</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hyaluronic Acid</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hyaluronic Acid</a>
                     </li>
                   </ul>
                 </div>
@@ -206,22 +206,22 @@
                   <h2 class="font-bold text-lg mb-4 border-b text-center">Skin Care</h2>
                   <ul class="space-y-2 text-center ">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Cleanse</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Cleanse</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Tone</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Tone</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Treat</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Treat</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Moisturize</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Moisturize</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">SPF</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">SPF</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Eye</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Eye</a>
                     </li>
                   </ul>
                 </div>
@@ -262,7 +262,7 @@
           </div>
         </li>
         <li class="group relative cursor-pointer py-2">
-          <NuxtLink to="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Baby Care</NuxtLink>
+          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Baby Care</a>
         </li>
         <!-- baby care -->
         <li class="group relative cursor-pointer py-2">
@@ -277,11 +277,11 @@
                   <h2 class="font-bold text-lg mb-4">A</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2
-                      </NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -291,10 +291,10 @@
                   <h2 class="font-bold text-lg mb-4">B</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</a>
                     </li>
                   </ul>
                 </div>
@@ -304,10 +304,10 @@
                   <h2 class="font-bold text-lg mb-4">C</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</a>
                     </li>
                   </ul>
                 </div>
@@ -315,10 +315,10 @@
                   <h2 class="font-bold text-lg mb-4">D</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</a>
                     </li>
                   </ul>
                 </div>
@@ -326,10 +326,10 @@
                   <h2 class="font-bold text-lg mb-4">E</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</a>
                     </li>
                   </ul>
                 </div>
@@ -337,10 +337,10 @@
                   <h2 class="font-bold text-lg mb-4">F</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</a>
                     </li>
                   </ul>
                 </div>
@@ -348,10 +348,10 @@
                   <h2 class="font-bold text-lg mb-4">G</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</a>
                     </li>
                   </ul>
                 </div>
@@ -359,10 +359,10 @@
                   <h2 class="font-bold text-lg mb-4">H</h2>
                   <ul class="space-y-2">
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 1</a>
                     </li>
                     <li>
-                      <NuxtLink to="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</NuxtLink>
+                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Brand 2</a>
                     </li>
                   </ul>
                 </div>
@@ -429,7 +429,7 @@
         </li>
         <!-- Supplements Menu -->
         <li class="group relative cursor-pointer py-2">
-          <NuxtLink to="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Supplements</NuxtLink>
+          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Supplements</a>
         </li>
         <li class="group relative cursor-pointer py-2">
           <nuxt-link to="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Mediu Kit</nuxt-link>

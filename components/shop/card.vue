@@ -21,13 +21,13 @@
             <img :src="product.image" class="min-h-48 max-h-52" alt="" />
           </div>
           <div class="space-y-4 flex flex-col justify-between">
-            <NuxtLink :to="`/shop/product/${product.handle}`">
+            <a :href="`/shop/product/${product.handle}`">
               <h3
                 class="text-black capitalize font-serif text-xl min-h-10 max-h-12 lg:text-lg mt-2"
               >
                 {{ product.title }}
               </h3>
-            </NuxtLink>
+            </a>
             <div class="flex justify-between text-xl">
               <div>
                 <p class="text-[#28574E] font-bold">
