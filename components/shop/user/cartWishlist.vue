@@ -20,11 +20,9 @@
 </script> -->
 
 <template>
-  <div
-    class="p-4 max-w-md mx-auto bg-white shadow-lg h-screen -mr-2 -mt-2 flex flex-col"
-  >
+  <div class="p-4 max-w-md mx-auto bg-white shadow-lg h-screen -mr-2 -mt-2 flex flex-col">
     <!-- Free Shipping Banner -->
-    <div class="bg-purple-200 text-purple-800 text-center py-2 rounded-md">
+    <div class="bg-emerald-100 p-2  text-[#28574E] text-center py-2 rounded-md">
       🎉 CONGRATS! You get <span class="font-semibold">FREE SHIPPING</span>
     </div>
 
@@ -79,9 +77,7 @@
       </div>
 
       <div class="mt-auto">
-        <button
-          class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold"
-        >
+        <button class="w-full bg-[#28574E] text-white py-3 rounded-lg font-semibold">
           🔒 SECURE CHECKOUT
         </button>
       </div>
