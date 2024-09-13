@@ -12,8 +12,8 @@
     <HomeProduct3 class="md:px-4 xl:px-[163px]" />
     <HomeDoctors class="md:px-4 xl:px-[163px]" />
     <HomeProduct class="md:px-4 xl:px-[163px]" />
-    <HomeConsultation />
-    <Footer />
+    <HomeConsultation class="mb-20 "   />
+    <!-- <Footer /> -->
   </div>
   <!--  -->
   <!-- <ShopUserSidebar /> -->

@@ -25,7 +25,7 @@
               <textarea v-model="form.message" placeholder="Message" class="form-textarea blury w-full h-24"></textarea>
             </div>
             <div class="flex justify-start">
-              <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+              <button type="submit" class="bg-[#28574E] text-white px-4 py-2 rounded-md">Submit</button>
             </div>
           </form>
         </div>

@@ -4,7 +4,8 @@
 
     <HomeNavbar />
     <NuxtPage />
-    <SiteFooter />
+    <SiteFooter class="hidden lg:block" />
+
     <MobileBottomNav />
   </NuxtLayout>
 </template>
