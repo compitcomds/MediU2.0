@@ -226,8 +226,8 @@
                 v-if="data[item.value]"
                 @click="activeTab = index + 1"
                 :class="{
-                  'bg-[#004400] text-white font-semibold ': activeTab === index + 1,
-                  'bg-gray-200 border-1  border-green-600  rounded-md px-4 py-2 transition-all': true,
+                  'bg-[#004400] text-white font-semibold border border-3 ': activeTab === index + 1,
+                  ' border-1  border-[#004400] border   rounded-md px-4 py-2 transition-all': true,
                 }"
               >
                 {{ item.name }}
