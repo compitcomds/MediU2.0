@@ -12,22 +12,22 @@
         <div
           class="border px-4 py-2 rounded-lg block no-underline border-gray-300 shadow-md"
         >
-          <div class="relative">
+          <a :href="`/shop/product/${product.handle}`" class="relative">
             <span
               v-if="true"
               class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded"
               >Sale 5%</span
             >
             <img :src="product.image" class="min-h-48 max-h-52" alt="" />
-          </div>
+          </a>
           <div class="space-y-4 flex flex-col justify-between">
-            <NuxtLink :to="`/shop/product/${product.handle}`">
+            <a :href="`/shop/product/${product.handle}`">
               <h3
                 class="text-black capitalize font-serif text-xl min-h-10 max-h-12 lg:text-lg mt-2"
               >
                 {{ product.title }}
               </h3>
-            </NuxtLink>
+            </a>
             <div class="flex justify-between text-xl">
               <div>
                 <p class="text-[#28574E] font-bold">
