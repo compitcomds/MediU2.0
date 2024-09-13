@@ -3,7 +3,7 @@
     class="w-full sticky z-10 top-0 bg-[#537971] text-black">
     <div class="relative bg-white">
       <!-- Main Menu -->
-      <ul class="flex justify-center space-x-24 bg-[#537971] text-white py-4">
+      <ul class="flex justify-center space-x-24 bg-[#537971] text-white py-2">
         <li class="group relative cursor-pointer py-2">
           <a href="/" class="font-semibold hover:opacity-70 text-xl">Home</a>
         </li>

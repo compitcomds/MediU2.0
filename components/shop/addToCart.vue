@@ -2,11 +2,13 @@
   <div>
     <button
       @click="addProductToCart"
-      class="group font-semibold hover:bg-[#287542] hover:text-white min-h-[40px] rounded-full w-full overflow-hidden border-2 border-[#287542] bg-white "
+      class="text-red rounded-full hover:before:bg-redborder-[#28574E] relative h-[40px] w-full overflow-hidden border border-[#28574E] bg-white px-3 text-[#28574E] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#28574E] before:transition-all before:duration-500 hover:text-white hover:before:left-0 hover:before:w-full"
       :disabled="isAddingProductToCart"
     >
-      
-        <!-- {{ testStore.count }} -->
+      <span
+        class="relative z-10"
+      >
+        {{ testStore.count }}
         {{ isAddingProductToCart ? "Adding..." : "Add To Cart" }}
         
     </button>
