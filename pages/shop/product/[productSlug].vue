@@ -20,13 +20,22 @@
     autoplay="true"
     @slideChange="onSlideChange"
   >
-    <swiper-slide v-for="(item, index) in data.images" :key="item.url">
+  <swiper-slide v-for="(item, index) in data.images" :key="item.url" class="relative">
+    <!-- Container for the image and the button -->
+    <div class="relative">
       <img
         :src="item.url"
         alt="Product Image"
         class="object-cover w-full h-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
       />
-    </swiper-slide>
+      <!-- Overlay icon/button -->
+      <ShopSharebtn
+        :product-link="`www.mediu.in/shop/product/${data.handle}`"
+        class="absolute top-2 right-2 z-10"
+      />
+    </div>
+  </swiper-slide>
+  
   </swiper-container>
 
   <!-- Thumbnail Swiper -->
@@ -55,8 +64,9 @@
         </div>
 
         <div class="col-span-5 md:col-span-3">
-          <div class="text-3xl font-semibold text-gray-900 capitalize mb-1">
+          <div class="text-3xl font-semibold text-gray-900 capitalize mb-1 ">
             {{ data.title }}
+            
           </div>
           <div class="text-md mb-4 text-cyan-500">
             Treats Active Acne | Unclogs Pores
@@ -404,6 +414,29 @@ const decreaseQuantity = () => {
 body {
   background: #000;
   color: #000;
+}
+.swiper-slide {
+  position: relative;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.top-2 {
+  top: 4rem; /* Adjust this value as needed */
+}
+
+.right-2 {
+  right: 1rem; /* Adjust this value as needed */
+}
+
+.z-10 {
+  z-index: 10; /* Ensure the button is above the image */
 }
 
 </style>

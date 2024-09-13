@@ -1,12 +1,17 @@
 <template>
   <div>
+
     <button
-      @click="addProductToCart"
-      class="p-2 bg-gray-200 rounded-full shadow text-black disabled:cursor-not-allowed disabled:animate-pulse"
-      :disabled="isAddingProductToCart"
-    >
-      <img src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg" class="w-8 p-1" />
-    </button>
+    @click="addProductToCart"
+    class="p-2 bg-[#28574E] text-xl rounded-full shadow text-white font-semibold px-3 py-3 disabled:cursor-not-allowed disabled:animate-pulse"
+    :disabled="isAddingProductToCart"
+  >
+    <div class="flex items-center px-2 justify-between gap-5">
+  <img src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg" class=" border rounded-full bg-white w-8 p-1" />
+  <p>Add To Cart</p>
+    </div>
+</button>
+
   </div>
 </template>
 
@@ -20,6 +25,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  name:{
+    type: String,
+    required: true,
+  }
 });
 
 const userStore = useUserStore();
