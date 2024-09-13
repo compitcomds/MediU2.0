@@ -217,16 +217,16 @@
         </div>
       </div>
 
-      <div class="w-full bg-gray-100 rounded-lg mt-10 p-6">
+      <div class="w-full  rounded-lg mt-10 p-6">
         <div class="flex flex-col items-center">
-          <nav class="flex space-x-4 w-full justify-center mb-6">
+          <nav class="flex space-x-4 w-full justify-start mb-4">
             <div v-for="(item, index) in accordionKeys" :key="index">
               <button
                 v-if="data[item.value]"
                 @click="activeTab = index + 1"
                 :class="{
-                  'text-blue-600 font-semibold': activeTab === index + 1,
-                  'bg-gray-200 rounded-md px-4 py-2 transition-all': true,
+                  'bg-green-600 text-white font-semibold ': activeTab === index + 1,
+                  'bg-gray-200 border-1  border-green-600  rounded-md px-4 py-2 transition-all': true,
                 }"
               >
                 {{ item.name }}
@@ -234,7 +234,7 @@
             </div>
           </nav>
 
-          <div class="w-full bg-white rounded-lg shadow-lg">
+          <div class="w-full bg-white border-1 border rounded-lg shadow-md">
             <div v-for="(item, index) in accordionKeys" :key="index">
               <div
                 v-if="activeTab === index + 1 && data[item.value]"
@@ -242,7 +242,7 @@
               >
                 <div
                   v-html="convertShopifyRichTextToHTML(data[item.value].value)"
-                  class="text-gray-700 leading-relaxed"
+                  class="text-gray-700  leading-relaxed"
                 ></div>
               </div>
             </div>
@@ -421,4 +421,5 @@ swiper-slide img {
 .swiper-button-next, .swiper-button-prev {
   color: #000; /* Customize navigation arrow color */
 }
+
 </style>
