@@ -1,6 +1,6 @@
 <template>
     <section class="lg:px-4 xl:px-12 font-serif">
-      <div class="bg-gray-800 text-white xl:h-[300.035px] h-[437.000px] rounded-[50px] flex flex-col md:flex-row items-center justify-between p-8 relative ">
+      <div class="bg-gray-800 text-white xl:h-[300.035px] h-[437.000px] rounded-[30px] flex flex-col md:flex-row items-center justify-between p-8 relative ">
         <div class="md:w-1/2 flex flex-col space-y-10">
           <h2 class="text-5xl font-semibold py-4">Teleconsult Our <br> Expert Team</h2>
           <a href="#" class="bg-white font-semibold text-2xl w-1/3 text-center text-black py-4 px-8 rounded-full shadow-md">
