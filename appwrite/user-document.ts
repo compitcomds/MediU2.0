@@ -1,8 +1,6 @@
 import { Permission, Role } from "appwrite";
 import { database } from "./config";
-
-const appwriteDatabaseId = "66b48885002523c4c882";
-const appwriteUsersCollectionId = "66b5c37300113936e9a1";
+const config = useRuntimeConfig();
 
 export const createUserDocument = async (
   userId: string,
@@ -16,8 +14,8 @@ export const createUserDocument = async (
   try {
     console.log("Creating document with ID:", userId);
     const document = await database.createDocument(
-      appwriteDatabaseId,
-      appwriteUsersCollectionId,
+      config.public.appwriteDatabaseId,
+      config.public.appwriteUsersCollectionId,
       userId,
       data,
       [Permission.read(Role.user(userId)), Permission.update(Role.user(userId))]
@@ -25,7 +23,7 @@ export const createUserDocument = async (
     console.log("Document created:", document);
     return document;
   } catch (error) {
-    // Log error details for debugging
+
     if (error) {
       console.error("Error response:", error);
     } else {
@@ -38,13 +36,13 @@ export const getUserDocument = async (userId: string) => {
   try {
     console.log(`Fetching document with ID: ${userId}`);
     const document = await database.getDocument(
-      appwriteDatabaseId,
-      appwriteUsersCollectionId,
+      config.public.appwriteDatabaseId,
+      config.public.appwriteUsersCollectionId,
       userId
     );
     console.log("Document fetched:", document);
     return document;
-  } catch (error:any) {
+  } catch (error: any) {
     console.error("Error fetching document:", error.response?.data || error);
     throw error;
   }
