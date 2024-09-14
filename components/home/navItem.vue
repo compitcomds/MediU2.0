@@ -1,6 +1,8 @@
 <template>
-  <div :class="[showNotification ? 'mt- xl:mt-[0px]' : 'mt- xl:mt-[0px]']"
-    class="w-full sticky z-10 top-0 bg-[#537971] text-black">
+  <div
+    :class="[showNotification ? 'mt- xl:mt-[0px]' : 'mt- xl:mt-[0px]']"
+    class="w-full sticky z-10 top-0 bg-[#537971] text-black"
+  >
     <div class="relative bg-white">
       <!-- Main Menu -->
       <ul class="flex justify-center space-x-24 bg-[#537971] text-white py-2">
@@ -13,85 +15,152 @@
           <div class="font-semibold hover:opacity-70 text-xl">Hair</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 -left-[300px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5">
+            class="invisible absolute p-4 -left-[300px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+          >
             <div class="p-6 flex justify-between w-full">
               <div class="w-8/12 grid grid-cols-3 gap-6">
                 <!-- Concerns Related to Hair -->
                 <div>
-                  <h2 class="font-bold text-lg mb-4 border-b text-center">Hair Concerns</h2>
+                  <h2 class="font-bold text-lg mb-4 border-b text-center">
+                    Hair Concerns
+                  </h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dandruff</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Dandruff</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hairfall
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Hairfall
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hair Thining
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Hair Thining
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Damaged & Frizzy Hair
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Damaged & Fizzy Hair
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Bald Patches</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Bald Patches</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dull Hair</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Dull Hair</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Oily Scalp</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Oily Scalp</a
+                      >
                     </li>
                   </ul>
                 </div>
 
                 <!-- Concerns Related to Skin -->
                 <div>
-                  <h2 class="font-bold text-lg mb-4 border-b text-center">Select By Ingredients</h2>
+                  <h2 class="font-bold text-lg mb-4 border-b text-center">
+                    Select By Ingredients
+                  </h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Minoxidil</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Minoxidil</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Redensyl</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Redensyl</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Capixyl
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Capixyl
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Feptide</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Peptide</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Carnitine</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Carnitine</a
+                      >
                     </li>
                   </ul>
                 </div>
 
                 <!-- Concerns Related to Pediatric -->
                 <div>
-                  <h2 class="font-bold text-lg mb-4 border-b text-center">Hair Care</h2>
+                  <h2 class="font-bold text-lg mb-4 border-b text-center">
+                    Hair Care
+                  </h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Shampoo</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Shampoo</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Conditioner</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Conditioner</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Mask</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Mask</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Serum</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Serum</a
+                      >
                     </li>
                   </ul>
                 </div>
               </div>
 
               <!-- Products Row -->
-              <HomeNavSlider  />
+              <HomeNavSlider />
               <!-- Deal of the Month -->
               <!-- <div class="mt-8 bg-gray-100 p-4 rounded-lg shadow-lg">
                 <h2 class="font-bold text-2xl mb-4 text-gray-800">
@@ -129,99 +198,194 @@
           <div class="font-semibold hover:opacity-70 text-xl">Skin</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 -left-[400px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5">
+            class="invisible absolute p-4 -left-[400px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+          >
             <div class="p-6 flex justify-between w-full">
               <div class="8/12 grid grid-cols-3 gap-6">
                 <!-- Concerns Related to Hair -->
                 <div>
-                  <h2 class="font-bold text-lg mb-4 border-b text-center">Shop By Concern</h2>
+                  <h2 class="font-bold text-lg mb-4 border-b text-center">
+                    Shop By Concern
+                  </h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Acne & Acne Scar</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Acne & Acne Scar</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Aging
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Aging
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Dehydration
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Dehydration
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Damaged & Sensitive Skin
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Damaged & Sensitive Skin
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Eye Darkness</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Under Eye Darkness</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Arm Darkness</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Under Arm Darkness</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Stretch Marks</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Stretch Marks</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Pigmentation</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Pigmentation</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Oiliness</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Oiliness</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Sip(Cracked/Darkness)</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Lip(Cracked/Darkness)</a
+                      >
                     </li>
                   </ul>
                 </div>
 
                 <!-- Concerns Related to Skin -->
                 <div>
-                  <h2 class="font-bold text-lg mb-4 border-b text-center">Shop By Ingrdients</h2>
+                  <h2 class="font-bold text-lg mb-4 border-b text-center">
+                    Shop By Ingrdients
+                  </h2>
                   <ul class="space-y-2 text-center">
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Vitamin C</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Vitamin C</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">BHA / Salicylic Acid</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >BHA / Salicylic Acid</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Retinoid / Retinol
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Retinoid / Retinol
                       </a>
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Niacinamide</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Niacinamide</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">UV Filters</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >UV Filters</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Ceramide</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Ceramide</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Hyaluronic Acid</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Hyaluronic Acid</a
+                      >
                     </li>
                   </ul>
                 </div>
 
                 <!-- Concerns Related to Pediatric -->
                 <div>
-                  <h2 class="font-bold text-lg mb-4 border-b text-center">Skin Care</h2>
-                  <ul class="space-y-2 text-center ">
+                  <h2 class="font-bold text-lg mb-4 border-b text-center">
+                    Skin Care
+                  </h2>
+                  <ul class="space-y-2 text-center">
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Cleanse</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Cleanser</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Tone</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Tonner</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Treat</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Roll On</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Moisturize</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Moisturize</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">SPF</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >SPF</a
+                      >
                     </li>
                     <li>
-                      <a href="/shop" class="text-gray-800 hover:text-blue-600 hover:underline">Under Eye</a>
+                      <a
+                        href="/shop"
+                        class="text-gray-800 hover:text-blue-600 hover:underline"
+                        >Under Eye</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -262,11 +426,17 @@
           </div>
         </li>
         <li class="group relative cursor-pointer py-2">
-          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Baby Care</a>
+          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl"
+            >Baby Care</a
+          >
         </li>
         <!-- baby care -->
         <li class="group relative cursor-pointer py-2">
-          <nuxt-link to="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Brands</nuxt-link>
+          <nuxt-link
+            to="/comingSoon"
+            class="font-semibold hover:opacity-70 text-xl"
+            >Brands</nuxt-link
+          >
           <!-- Mega Menu Dropdown for Hair -->
           <!-- <div
             class="invisible absolute p-4 -left-[600px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5">
@@ -397,7 +567,7 @@
               </div>
 
               <!-- Deal of the Month -->
-              <!-- <div class="mt-8 bg-gray-100 p-4 rounded-lg shadow-lg">
+          <!-- <div class="mt-8 bg-gray-100 p-4 rounded-lg shadow-lg">
                 <h2 class="font-bold text-2xl mb-4 text-gray-800">
                   Deal of the Month
                 </h2>
@@ -429,43 +599,40 @@
         </li>
         <!-- Supplements Menu -->
         <li class="group relative cursor-pointer py-2">
-          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Supplements</a>
+          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl"
+            >Supplements</a
+          >
         </li>
         <li class="group relative cursor-pointer py-2">
-          <nuxt-link to="/comingSoon" class="font-semibold hover:opacity-70 text-xl">Mediu Kit</nuxt-link>
-          
-          <!-- <div
-            class="invisible absolute p-4 -left-[1000px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5">
+          <div class="font-semibold hover:opacity-70 text-xl">Mediu Kit</div>
+
+          <div
+            class="invisible absolute p-4 -left-[1000px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+          >
             <div class="p-6 flex justify-between w-full">
               <div class="8/12 grid grid-cols-3 gap-6">
-                
-                <div>
-                  <h2 class="font-bold text-lg mb-4">Hair Growth Kits</h2>
-                </div>
+                <nuxt-link to="/comingSoon">
+                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">Hair Growth Kits</h2>
+                </nuxt-link>
 
-                
-                <div>
-                  <h2 class="font-bold text-lg mb-4">Dandruff Kits</h2>
-                </div>
+                <nuxt-link to="/comingSoon">
+                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">Dandruff Kits</h2>
+                </nuxt-link>
 
-                
-                <div>
-                  <h2 class="font-bold text-lg mb-4">Itchy Scalp Kits</h2>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg mb-4">Basic Kits</h2>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg mb-4">Advanced Kits</h2>
-                </div>
+                <nuxt-link to="/comingSoon">
+                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">Itchy Scalp Kits</h2>
+                </nuxt-link>
+                <nuxt-link to="/comingSoon">
+                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">Basic Kits</h2>
+                </nuxt-link>
+                <nuxt-link to="/comingSoon">
+                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">Advanced Kits</h2>
+                </nuxt-link>
               </div>
 
-              
               <HomeNavSlider />
-
-              
             </div>
-          </div> -->
+          </div>
         </li>
       </ul>
     </div>
@@ -606,7 +773,6 @@ p {
 
 /* Media query for tablets and smaller screens */
 @media (max-width: 768px) {
-
   .mySwiper .swiper-button-prev::after,
   .mySwiper .swiper-button-next::after {
     font-size: 18px !important;
@@ -616,7 +782,6 @@ p {
 
 /* Media query for mobile screens */
 @media (max-width: 480px) {
-
   .mySwiper .swiper-button-prev::after,
   .mySwiper .swiper-button-next::after {
     font-size: 14px !important;

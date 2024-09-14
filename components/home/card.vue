@@ -33,14 +33,14 @@
         Hair
       </button>
       <button
-        @click="filtercards('Child')"
+        @click="filtercards('Baby Care')"
         :class="{
-          'bg-[#28574E] text-white': selectedCategory === 'Child',
-          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Child',
+          'bg-[#28574E] text-white': selectedCategory === 'Baby Care',
+          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Baby Care',
         }"
         class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
       >
-        Child
+        Baby Care
       </button>
     </div>
 
