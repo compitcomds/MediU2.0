@@ -12,7 +12,7 @@
     </a>
     <form
       @submit.prevent="submitForm"
-      class="group relative rounded-md w-6/12 h-[40px] xl:h-[50px] flex"
+      class="group relative rounded-md w-6/12 h-[40px] xl:h-[50px] flex justify-center"
     >
       <input
         type="text"

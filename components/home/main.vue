@@ -4,7 +4,7 @@
   >
     <div class="w-full text-center px-4">
       <!-- Hide heading on sm and md screens -->
-      <h1 class="hidden sm:hidden md:hidden lg:block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+      <h1 class="hidden sm:hidden md:hidden lg:block text-3xl sm:text-4xl lg:text-5xl  font-bold mb-4 font-serif">
         From You to Your Little One, We’ve Got <br />
         You Covered
       </h1>
@@ -31,7 +31,7 @@
           <transition name="fade" mode="out-in">
             <div
               :key="slides[currentSlide].doctorText"
-              class="absolute top-4 lg:top-24 left-0 lg:-left-12 xl:-left-16 bg-black z-50 flex justify-center items-center text-white text-xs lg:text-base xl:text-lg w-[100px] lg:w-[192px] xl:w-[220px] h-[56px] lg:h-[103px] xl:h-[112px] rounded-full hidden sm:block md:block"
+              class="absolute top-4 lg:top-24 left-0 lg:-left-12 xl:-left-16 bg-slate-900 z-50 flex justify-center items-center text-white text-xs lg:text-base xl:text-lg w-[100px] lg:w-[192px] xl:w-[220px] h-[56px] lg:h-[103px] xl:h-[112px] rounded-full hidden sm:block md:block"
             >
               <!-- Centering text vertically and horizontally -->
               <div class="flex justify-center items-center text-center w-full h-full">
@@ -44,7 +44,7 @@
           <transition name="fade" mode="out-in">
             <div
               :key="slides[currentSlide].clientText"
-              class="absolute bottom-4 lg:bottom-20 right-0 lg:-right-16 xl:-right-24 z-50 bg-black text-white flex justify-center items-center text-xs lg:text-base xl:text-lg w-[100px] lg:w-[192px] xl:w-[220px] h-[56px] lg:h-[103px] xl:h-[112px] rounded-full hidden sm:block md:block"
+              class="absolute bottom-4 lg:bottom-20 right-0 lg:-right-16 xl:-right-24 z-50 bg-slate-900 text-white flex justify-center items-center text-xs lg:text-base xl:text-lg w-[100px] lg:w-[192px] xl:w-[220px] h-[56px] lg:h-[103px] xl:h-[112px] rounded-full hidden sm:block md:block"
             >
               <!-- Centering text vertically and horizontally -->
               <div class="flex justify-center items-center text-center w-full h-full">
