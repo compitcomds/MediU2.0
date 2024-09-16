@@ -2,7 +2,7 @@
     <div class="w-3/4 pl-8">
       <h1 class="text-2xl font-bold mb-4 text-[#28574E]">Request for Product Return ({{ returnRequests.length }})</h1>
       <div class="grid grid-cols-2 gap-8">
-        <NuxtLink
+        <div
           v-for="(item, index) in returnRequests"
           :key="index"
           :to="`/return/${item.requestNumber}`"
@@ -33,7 +33,7 @@
               </div>
             </div>
           </div>
-        </NuxtLink>
+        </div>
       </div>
     </div>
   </template>
