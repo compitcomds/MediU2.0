@@ -97,14 +97,14 @@
           <div class="h-0.5 w-4/6 bg-white mb-4 text-center"></div>
           
           <ul class="space-y-2 lg:text-base xl:text-lg">
-            <li class="list-disc"><a href="#" class="hover:underline">About Us</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Terms & Conditions</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">FAQ</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Privacy Policy</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">E-waste Policy</a></li>
-            <li class="list-disc">
+            <li class="list-disc"><a href="/" class="hover:underline">About Us</a></li>
+            <li class="list-disc"><a href="/legal/termsAndCondition" class="hover:underline">Terms & Conditions</a></li>
+            <li class="list-disc"><a href="/legal/refundPolicy" class="hover:underline">Refund Policy</a></li>
+            <li class="list-disc"><a href="/legal/privacyPolicy" class="hover:underline">Privacy Policy</a></li>
+            <li class="list-disc"><a href="/legal/shipingPolicy" class="hover:underline">Shiping Policy</a></li>
+            <!-- <li class="list-disc">
               <a href="#" class="hover:underline">Cancellation & Return<br> Policy</a>
-            </li>
+            </li> -->
           </ul>
         </div>
         
