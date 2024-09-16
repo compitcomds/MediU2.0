@@ -1,5 +1,5 @@
 <template>
-    <main class="w-3/4 ">
+    <main class="w-3/4 h-screen">
         <!-- Greeting and Info -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
           <p>
