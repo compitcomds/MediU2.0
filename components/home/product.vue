@@ -16,7 +16,7 @@
           <div class="diff-item-2">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/5.png" />
           </div>
-          <div class="diff-resizer"></div>
+          <div class="diff-resizer">ffff</div>
         </div>
       </div>
       <!-- second section -->

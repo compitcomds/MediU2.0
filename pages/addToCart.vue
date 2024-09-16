@@ -1,70 +1,90 @@
 <template>
-    <section class="py-16 relative">
-      <div class="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
-        <h2 class="title font-manrope font-bold text-4xl leading-10 mb-8 text-center text-black">
+  <section class="pb-16 pt-10 relative">
+    <div class="w-full max-w-7xl px-4 md:px-5 lg:px-6 mx-auto grid grid-cols-12 gap-8">
+      
+      <!-- Left Cart Section -->
+      <div class="col-span-12 lg:col-span-8 max-h-[75vh] overflow-y-auto pr-4 custom-scrollbar">
+        <h2 class="title font-manrope font-bold text-4xl leading-10 mb-8 text-center text-[#28574E]">
           Shopping Cart
         </h2>
-        
+
         <!-- Cart Item Loop -->
-        <div v-for="(item, index) in cart.items" :key="index" class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4">
-          <div class="col-span-12 lg:col-span-2 img box">
-            <img :src="item.image?.url || 'https://placehold.co/400x400/png'" :alt="item.image?.altText || item.title" class="max-lg:w-full lg:w-[180px] rounded-lg object-cover">
+        <div
+         v-for="(item, index) in cart.items" :key="index"
+          class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 gap-y-4 space-x-6"
+        >
+          <!-- Image -->
+          <div class="col-span-12 lg:col-span-2">
+            <img
+              :src="item.image?.url || 'https://placehold.co/400x400/png'" :alt="item.image?.altText || item.title"
+              class="max-lg:w-full lg:w-[250px] rounded-lg object-cover"
+            />
           </div>
-          <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-            <div class="flex items-center justify-between w-full mb-4">
-              <h5 class="font-manrope font-bold text-2xl capitalize leading-9 text-gray-900">
+
+          <!-- Product Details -->
+          <div class="col-span-12 lg:col-span-10">
+            <div class="flex items-center justify-between mb-4">
+              <h5 class="font-manrope font-bold text-2xl capitalize text-[#28574E]">
                 {{ item.title }}
               </h5>
-              <button class="rounded-full group flex items-center justify-center focus-within:outline-red-500">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="fill-red-50 transition-all duration-500 group-hover:fill-red-400" cx="17" cy="17" r="17" />
-                  <path class="stroke-red-500 transition-all duration-500 group-hover:stroke-white" d="M14.1673 13.5997V12.5923C14.1673 11.8968 14.7311 11.333 15.4266 11.333H18.5747C19.2702 11.333 19.834 11.8968 19.834 12.5923V13.5997M19.834 13.5997C19.834 13.5997 14.6534 13.5997 11.334 13.5997C6.90804 13.5998 27.0933 13.5998 22.6673 13.5997C21.5608 13.5997 19.834 13.5997 19.834 13.5997ZM12.4673 13.5997H21.534V18.8886C21.534 20.6695 21.534 21.5599 20.9807 22.1131C20.4275 22.6664 19.5371 22.6664 17.7562 22.6664H16.2451C14.4642 22.6664 13.5738 22.6664 13.0206 22.1131C12.4673 21.5599 12.4673 20.6695 12.4673 18.8886V13.5997Z" stroke="#EF4444" stroke-width="1.6" stroke-linecap="round" />
-                </svg>
-              </button>
+              <button @click="decreaseQuantity(index)" class="text-red-500 border border-red-500 rounded-md py-0 px-1">✕</button>
             </div>
-            <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-              {{ item.description }}
-              <a href="javascript:;" class="text-[#28574E]">More....</a>
-            </p>
-            <div class="flex justify-between items-center">
-              <div class="flex items-center gap-4">
-                <button @click="decreaseQuantity(index)" class="group rounded-[50px] border border-gray-200 shadow-sm p-2.5 bg-white transition-all duration-500 hover:shadow-gray-200 hover:bg-gray-50">
-                  <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.5 9.5H13.5" stroke="" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <input type="text" v-model="item.quantity" class="border border-gray-200 rounded-full w-10 aspect-square text-gray-900 font-semibold text-sm py-1.5 px-3 bg-gray-100 text-center" />
-                <button @click="increaseQuantity(index)" class="group rounded-[50px] border border-gray-200 shadow-sm p-2.5 bg-white transition-all duration-500 hover:shadow-gray-200 hover:bg-gray-50">
-                  <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.75 9.5H14.25M9 14.75V4.25" stroke="" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
+            <p class="text-gray-500">{{ item.description }}</p>
+            <div class="flex justify-between items-center mt-4">
+              <div class="flex items-center">
+                <button @click="decreaseQuantity(index)" class="btn-minus rounded-lg text-[#28574E]">−</button>
+                <input
+                  type="text"
+                  v-model="item.quantity"
+                  class="quantity-input bg-white text-[#28574E] rounded-lg"
+                />
+                <button @click="increaseQuantity(index)" class="btn-plus rounded-lg text-[#28574E]">+</button>
               </div>
-              <h6 class="text-[#28574E] font-manrope font-bold text-2xl leading-9 text-right">{{ item.cost.currencyCode }} {{ item.cost.amount }}</h6>
+              <span class="text-2xl font-bold text-[#28574E]">{{ item.cost.currencyCode }} {{ item.cost.amount }}</span>
             </div>
           </div>
         </div>
-  
-        <!-- Subtotal Section -->
-        <div class="flex flex-col md:flex-row items-center justify-between lg:px-6 pb-6 border-b border-gray-200 max-lg:max-w-lg max-lg:mx-auto">
-          <h5 class="text-gray-900 font-manrope font-semibold text-2xl leading-9 w-full text-center mb-4">Subtotal</h5>
-          <div class="flex items-center justify-between gap-5">
-            <button class="rounded-full py-2.5 px-3 bg-indigo-50 text-[#28574E] font-semibold text-xs text-center whitespace-nowrap transition-all duration-500 hover:bg-indigo-100">Promo Code?</button>
-            <h6 class="font-manrope font-bold text-3xl lead-10 text-[#28574E]">{{ totalItems }}</h6>
+
+      </div>
+
+      <!-- Right Side Summary Section -->
+      <div class="col-span-12 lg:col-span-4 lg:sticky lg:top-0">
+        <div class="bg-[#edf8f3] rounded-lg p-6">
+          <h5 class="font-manrope font-semibold text-2xl mb-4 text-[#28574E]">Summary</h5>
+          <div class="flex justify-between mb-2">
+            <span class="text-[#28574E]">Subtotal</span>
+            <span class="text-[#28574E] font-semibold">{{ cartSubtotal }}</span>
           </div>
-        </div>
-  
-        <!-- Checkout Section -->
-        <div class="max-lg:max-w-lg max-lg:mx-auto">
-          <p class="font-normal text-base leading-7 text-gray-500 text-center mb-5 mt-6">Shipping taxes, and discounts calculated at checkout</p>
-          <button class="rounded-full py-4 px-6 bg-[#28574E] text-white font-semibold text-lg w-full text-center transition-all duration-500 hover:bg-[#568f84]">Checkout</button>
+          <div class="flex justify-between mb-4">
+            <span class="text-[#28574E]">Shipping</span>
+            <span class="text-[#28574E] font-semibold">$20.00</span>
+          </div>
+          <div class="flex justify-between border-t pt-4 mt-4">
+            <span class="text-[#28574E] font-bold text-xl">Total</span>
+            <span class="text-[#28574E] font-bold text-xl">{{ totalItems }}</span>
+          </div>
+
+          <!-- Coupon Input -->
+          <div class="mt-4">
+            <input
+              type="text"
+              placeholder="Enter coupon code here"
+              class="w-full border border-gray-300 rounded-lg py-2 px-3 text-gray-600 bg-white"
+            />
+          </div>
+
+          <!-- Checkout Button -->
+          <button class="mt-6 w-full py-3 bg-[#28574E] text-white rounded-full font-semibold text-lg">
+            Check Out
+          </button>
         </div>
       </div>
-    </section>
-  </template>
-  
-  <script setup>
-  import getCartData from "~/shopify/cart/get-cart-data";
+    </div>
+  </section>
+</template>
+
+<script setup>
+import getCartData from "~/shopify/cart/get-cart-data";
 
 const cart = ref({
   items: [],
@@ -79,5 +99,36 @@ const decreaseQuantity = (index) => {};
 onMounted(async () => {
   cart.value = await getCartData();
 });
-  </script>
-  
+</script>
+
+<style scoped>
+/* Global Styles */
+.quantity-input {
+  text-align: center;
+  width: 50px;
+  margin: 0 10px;
+  border: 1px solid #000000;
+  padding: 2px;
+}
+
+.btn-minus,
+.btn-plus {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 2px 5px 2px 5px;
+  cursor: pointer;
+}
+
+.bg-gray-100 {
+  background-color: #f7f7f7;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.custom-scrollbar {
+  scrollbar-width: none; /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+</style>

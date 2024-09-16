@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-100 p-6">
+    <div class="min-h-screen bg-[#edf8f3] p-6">
       <div class="flex  gap-6">
         <!-- Sidebar -->
         <DashboardSidenav />
