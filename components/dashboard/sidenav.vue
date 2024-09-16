@@ -17,10 +17,10 @@
         <nav>
           <ul class="space-y-4 text-sm pb-4">
             <li class="font-semibold text-gray-700 bg-[#edf8f3] p-3">DASHBOARD</li>
-            <li><a href="#" class="hover:text-[#28574E] text-black  p-3">Dashboard</a></li>
+            <li><a href="/dashboard/" class="hover:text-[#28574E] text-black  p-3">Dashboard</a></li>
             <li><a href="/dashboard/orders" class="hover:text-[#28574E] text-black  p-3">Orders</a></li>
-            <li><a href="#" class="hover:text-[#28574E] text-black  p-3">Downloads</a></li>
-            <li><a href="#" class="hover:text-[#28574E] text-black  p-3">Return request</a></li>
+            <li><a href="/dashboard/downloads" class="hover:text-[#28574E] text-black  p-3">Downloads</a></li>
+            <li><a href="/dashboard/return" class="hover:text-[#28574E] text-black  p-3">Return request</a></li>
 
             <li class="font-semibold text-gray-700 mt-6 bg-[#edf8f3] p-3">ACCOUNT SETTINGS</li>
             <li><a href="#" class="hover:text-[#28574E] text-black  p-3">Profile</a></li>
