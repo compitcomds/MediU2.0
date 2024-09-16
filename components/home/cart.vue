@@ -32,45 +32,46 @@
         100 Loyalty Points
       </span>
     </div> -->
-    <a href="/addToCart" class="relative inline-block">
-      <!-- Shopping Cart SVG Icon -->
+    <div class="">
+      <a href="/addToCart" class="relative inline-block">
+        <!-- Shopping Cart SVG Icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#285742"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-shopping-cart"
+        >
+          <circle cx="8" cy="21" r="1" />
+          <circle cx="19" cy="21" r="1" />
+          <path
+            d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+          />
+        </svg>
+
+        <!-- Badge Count -->
+        <span
+          v-if="badgeCount > 0"
+          class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-green-400 text-white px-2 py-1 text-xs"
+        >
+          {{ badgeCount }}
+        </span>
+      </a>
+    </div>
+    <div class="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
         height="32"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#285742"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-shopping-cart"
-      >
-        <circle cx="8" cy="21" r="1" />
-        <circle cx="19" cy="21" r="1" />
-        <path
-          d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
-        />
-      </svg>
-    
-      <!-- Badge Count -->
-      <span
-        v-if="badgeCount > 0"
-        class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-green-400 text-white px-2 py-1 text-xs"
-      >
-        {{ badgeCount }}
-      </span>
-    </a>
-    
-    <div class="w-5 h-5">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#287542"
-        stroke-width="2.5"
+        stroke="#28574E"
+        stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
         class="lucide lucide-heart"
@@ -80,32 +81,30 @@
         />
       </svg>
     </div>
-    <div class="relative inline-block text-left">
+    <div class="relative inline-block">
       <button
         @click="toggleDropdown"
-        class="flex items-center focus:outline-none"
+        class="flex items-center justify-center focus:outline-none"
       >
         <div
-          class="bg-center bg-cover bg-no-repeat rounded-full h-10 w-10"
+          class="bg-cover bg-no-repeat rounded-full h-12 w-12"
           :style="{
-            backgroundImage: 'url(https://ccdstest.b-cdn.net/Medi%20u/person.png)',
+            backgroundImage:
+              'url(https://ccdstest.b-cdn.net/Medi%20u/profile.svg)',
           }"
         ></div>
-        <svg
-          class="w-5 h-5 ml-2 transition-transform transform"
+
+        <!-- <svg
+          class="transition-transform transform"
           :class="{ 'rotate-180': isOpen }"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+          height="40"
+          color="#28574E"
+          width="40"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
+          <path d="M14 20l10 10 10-10z" />
+          <path d="M0 0h48v48h-48z" fill="none" />
+        </svg> -->
       </button>
 
       <div
@@ -115,7 +114,11 @@
       >
         <ul class="py-1">
           <li>
-            <a href="/auth/login" class="block px-4 py-2 text-black hover:bg-gray-100">Log In</a>
+            <a
+              href="/auth/login"
+              class="block px-4 py-2 text-black hover:bg-gray-100"
+              >Log In</a
+            >
           </li>
           <!-- <li>
             <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100">Settings</a>
@@ -131,7 +134,6 @@
       </div>
     </div>
   </div>
-  
 </template>
 <script>
 export default {
