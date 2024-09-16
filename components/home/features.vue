@@ -1,9 +1,9 @@
 <template>
   <div class="font-serif space-y-6">
     <div class="flex flex-col space-y-6">
-      <h1 class="text-4xl text-center text-gray-500">Top Picks</h1>
+      <h1 class="text-4xl text-center text-gray-500">We Offers</h1>
       <h2 class="text-6xl font-bold text-center text-[#28574E]">
-        Featured Products
+        Complete Care
       </h2>
     </div>
 
@@ -37,8 +37,7 @@
 
           <h3 class="text-black text-3xl font-bold">Expert Consultations</h3>
           <p class="text-gray-600 text-xl">
-            Get help from the best chosen hospitals and specialists that excel
-            in providing premium healthcare directly from us.
+            Expert consultations in healthcare provide specialized advice, improving diagnosis, treatment, and patient care quality.
           </p>
         </div>
         <div class="w-full flex justify-center">
@@ -85,10 +84,9 @@
               d="M25.5948 61.0169L25.5954 61.0169C26.4577 61.0129 27.2835 60.6686 27.8932 60.0589C28.503 59.4492 28.8473 58.6234 28.8513 57.7611V57.7605C28.8513 57.1164 28.6603 56.4868 28.3024 55.9513C27.9446 55.4158 27.436 54.9984 26.841 54.752C26.246 54.5055 25.5912 54.441 24.9595 54.5666C24.3279 54.6923 23.7476 55.0024 23.2922 55.4579C22.8368 55.9133 22.5266 56.4935 22.401 57.1252C22.2754 57.7569 22.3398 58.4116 22.5863 59.0067C22.8328 59.6017 23.2502 60.1103 23.7857 60.4681C24.3212 60.8259 24.9508 61.0169 25.5948 61.0169ZM22.316 52.8534C23.2866 52.2049 24.4276 51.8588 25.5948 51.8588C27.1601 51.8588 28.6612 52.4806 29.768 53.5874C30.8747 54.6942 31.4965 56.1953 31.4965 57.7605C31.4965 58.9277 31.1504 60.0688 30.5019 61.0393C29.8534 62.0098 28.9317 62.7662 27.8533 63.2129C26.7749 63.6596 25.5883 63.7765 24.4435 63.5488C23.2987 63.321 22.2471 62.759 21.4217 61.9336C20.5964 61.1082 20.0343 60.0567 19.8066 58.9118C19.5789 57.767 19.6957 56.5804 20.1424 55.502C20.5891 54.4236 21.3455 53.5019 22.316 52.8534Z"
               fill="#1E232F" stroke="white" stroke-width="0.262069" />
           </svg>
-          <h3 class="text-black text-3xl font-bold">Self Assisment</h3>
+          <h3 class="text-black text-3xl font-bold">Self Assessment</h3>
           <p class="text-gray-600 text-xl">
-            Get help from the best chosen hospitals and specialists that excel
-            in providing premium healthcare directly from us.
+            Self-assessment in healthcare helps professionals improve skills and patients monitor symptoms for better outcomes.
           </p>
         </div>
         <div class="w-full flex justify-center">
@@ -116,8 +114,7 @@
           </svg>
           <h3 class="text-black text-3xl font-bold">Pharmacy</h3>
           <p class="text-gray-600 text-xl">
-            Get help from the best chosen hospitals and specialists that excel
-            in providing premium healthcare directly from us.
+            Pharmacy services ensure safe medication management, patient education, and support for better health outcomes.
           </p>
         </div>
         <div class="w-full flex justify-center">

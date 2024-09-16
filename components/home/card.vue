@@ -13,32 +13,33 @@
       class="flex flex-wrap justify-center my-8 md:my-12 text-lg sm:text-xl md:text-2xl"
     >
       <button
-        @click="filtercards('Skin')"
-        :class="{
-          'bg-[#28574E] text-white': selectedCategory === 'Skin',
-          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
-        }"
-        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
-      >
-        Skin
-      </button>
-      <button
         @click="filtercards('Hair')"
         :class="{
           'bg-[#28574E] text-white': selectedCategory === 'Hair',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
       >
         Hair
       </button>
+      <button
+        @click="filtercards('Skin')"
+        :class="{
+          'bg-[#28574E] text-white': selectedCategory === 'Skin',
+          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
+        }"
+        class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
+      >
+        Skin
+      </button>
+
       <button
         @click="filtercards('Baby Care')"
         :class="{
           'bg-[#28574E] text-white': selectedCategory === 'Baby Care',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Baby Care',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
+        class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
       >
         Baby Care
       </button>

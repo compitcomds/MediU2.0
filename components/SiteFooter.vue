@@ -112,7 +112,7 @@
   
       <div class="container mx-auto text-center mt-8">
         <div class="h-0.5 w-full bg-slate-500 mb-4"></div>
-        <p class="text-sm">© 2024 All rights reserved. MediU Retail Ltd.</p>
+        <a class="text-sm">© 2024 All rights reserved. DCLARIO TECHNOLOGIES INDIA PRIVATE LIMITED</a>
       </div>
     </footer>
   </template>
