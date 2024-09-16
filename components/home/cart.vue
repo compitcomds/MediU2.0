@@ -56,7 +56,7 @@
       <!-- Badge Count -->
       <span
         v-if="badgeCount > 0"
-        class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500 text-white px-2 py-1 text-xs"
+        class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-green-400 text-white px-2 py-1 text-xs"
       >
         {{ badgeCount }}
       </span>

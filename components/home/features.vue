@@ -1,5 +1,5 @@
 <template>
-  <div class="font-serif space-y-6">
+  <div class=" space-y-6">
     <div class="flex flex-col space-y-6">
       <h1 class="text-4xl text-center text-gray-500">We Offers</h1>
       <h2 class="text-6xl font-bold text-center text-[#28574E]">
