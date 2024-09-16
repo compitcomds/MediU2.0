@@ -1208,39 +1208,39 @@
           <div class="font-semibold hover:opacity-70 text-xl">Mediu Kit</div>
 
           <div
-            class="invisible absolute p-4 -left-[1000px] text-black top-full z-50 w-[90vw] max-w-7xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5">
+            class="invisible absolute p-4 -left-[500px] text-black top-full z-50 w-[90vw] max-w-3xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5">
             <div class="p-6 flex justify-between w-full">
               <div class="8/12 grid grid-cols-3 gap-6">
-                <nuxt-link to="/comingSoon">
-                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">
+                <nuxt-link to="/comingSoon" class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg ">
+                  <h2 class="font-semibold text-lg hover:text-[#28574E] hover:underline">
                     Hair Growth Kits
                   </h2>
                 </nuxt-link>
 
-                <nuxt-link to="/comingSoon">
-                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">
+                <nuxt-link to="/comingSoon" class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg ">
+                  <h2 class="font-semibold text-lg hover:text-[#28574E] hover:underline">
                     Dandruff Kits
                   </h2>
                 </nuxt-link>
 
-                <nuxt-link to="/comingSoon">
-                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">
+                <nuxt-link to="/comingSoon" class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg ">
+                  <h2 class="font-semibold text-lg hover:text-[#28574E] hover:underline">
                     Itchy Scalp Kits
                   </h2>
                 </nuxt-link>
-                <nuxt-link to="/comingSoon">
-                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">
+                <nuxt-link to="/comingSoon" class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg ">
+                  <h2 class="font-semibold text-lg hover:text-[#28574E] hover:underline">
                     Basic Kits
                   </h2>
                 </nuxt-link>
-                <nuxt-link to="/comingSoon">
-                  <h2 class="font-bold text-lg mb-4 hover:text-[#28574E] hover:underline">
+                <nuxt-link to="/comingSoon" class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg ">
+                  <h2 class="font-semibold text-lg hover:text-[#28574E] hover:underline">
                     Advanced Kits
                   </h2>
                 </nuxt-link>
               </div>
 
-              <HomeNavSlider />
+              <!-- <HomeNavSlider /> -->
             </div>
           </div>
         </li>
