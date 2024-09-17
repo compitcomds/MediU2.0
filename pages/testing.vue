@@ -82,9 +82,8 @@ cart.value = await getCartData();
 });
 </script> -->
 <template>
-  <div>
 
-  </div>
+
 </template>
 
 <script>
