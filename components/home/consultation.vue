@@ -37,7 +37,7 @@ export default {
         { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/6.png', alt: 'brand' },
         { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/7.png', alt: 'brand' },
         { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/8.png', alt: 'brand' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/1.png', alt: 'brand' },
+        // { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/1.png', alt: 'brand' },
       ]
     };
   }
