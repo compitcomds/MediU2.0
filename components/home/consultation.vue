@@ -1,7 +1,14 @@
 <template>
   <div class="relative w-full overflow-hidden">
+    <div class="flex flex-col space-y-6 text-center">
+      <!-- Responsive Heading -->
+      <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Our Superior Brands</h1>
+      <!-- <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#28574E]">
+        Featured Products
+      </h2> -->
+    </div>
     <!-- Container for the marquee effect -->
-    <div class="overflow-hidden relative mb-20">
+    <div class="overflow-hidden relative mb-20 mt-5">
       <div class="absolute inset-y-0 left-0 w-20 bg-white z-10"></div>
       <div class="absolute inset-y-0 right-0 w-20 bg-white z-10"></div>
       <ul class="flex whitespace-nowrap animate-marquee">
@@ -22,15 +29,15 @@ export default {
   data() {
     return {
       imageItems: [
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Facebook' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Disney' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Airbnb' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Facebook' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Disney' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Airbnb' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Facebook' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Disney' },
-        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/17.png', alt: 'Airbnb' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/1.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/2.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/3.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/4.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/5.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/6.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/7.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/8.png', alt: 'brand' },
+        { src: 'https://ccdstest.b-cdn.net/Medi%20u/brands/1.png', alt: 'brand' },
       ]
     };
   }
