@@ -82,16 +82,11 @@ cart.value = await getCartData();
 });
 </script> -->
 <template>
-
-
+  <div></div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style scoped></style>

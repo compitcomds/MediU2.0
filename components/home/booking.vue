@@ -10,7 +10,7 @@
         <div class="md:w-1/2 relative flex items-center justify-center">
           <img
             src="https://ccdstest.b-cdn.net/Medi%20u/Mam.png"
-            class=" h-[420px]  rounded-lg object-cover"
+            class=" h-[420px]  rounded-lg object-cover  z-20"
             alt="Expert Team"
             style="position: absolute; top: 50%; right: 40%; transform: translate(50%, -65%);"
           />
