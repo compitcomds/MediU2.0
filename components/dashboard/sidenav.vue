@@ -8,7 +8,7 @@
         class="w-20 h-20 rounded-full border-2 border-gray-200 object-cover"
       />
       <div class="ml-4">
-        <h2 class="font-semibold text-lg text-[#28574e]">Ronald M. Spino</h2>
+        <h2 class="font-semibold text-lg text-[#28574e]">Dipesh Sharma</h2>
         <p class="text-sm text-gray-500">info@example.com</p>
       </div>
     </div>

@@ -21,16 +21,16 @@
   
             <!-- Action Buttons -->
             <div class="mt-8 space-x-4">
-              <button
+              <a href="/dashboard/view-order"
                 class="bg-[#28574E] text-white px-4 py-2 rounded-lg hover:bg-[#809e99]"
               >
                 View Order
-              </button>
-              <button
+              </a>
+              <a href="/dashboard/"
                 class="border border-gray-300 text-gray-700 hover:text-white px-4 py-2 rounded-lg hover:bg-[#28574E]"
               >
                 Back To Home
-              </button>
+              </a>
             </div>
           </div>
         </div>

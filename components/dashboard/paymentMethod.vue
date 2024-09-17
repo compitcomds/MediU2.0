@@ -176,11 +176,14 @@
       </div>
     </div>
     <!-- Continue to Payment Button -->
-    <button
-      class="w-full bg-[#28574e] text-white text-lg font-semibold py-3 rounded-lg mt-4 hover:bg-[#437e73]"
-    >
-      Confirm Order
-    </button>
+    <div class="mt-4">
+      <nuxt-link
+        to="/dashboard/orderComplete"
+        class="w-full bg-[#28574e] text-white mt-4 text-lg font-semibold p-3 rounded-lg hover:bg-[#437e73]"
+      >
+        Confirm Order
+      </nuxt-link>
+    </div>
   </section>
 </template>
 
