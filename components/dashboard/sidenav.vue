@@ -72,7 +72,7 @@
           >
         </li>
         <li>
-          <a href="#" class="hover:text-[#28574E] text-black p-3">Review</a>
+          <a href="/dashboard/reviews" class="hover:text-[#28574E] text-black p-3">Review</a>
         </li>
       </ul>
     </nav>
