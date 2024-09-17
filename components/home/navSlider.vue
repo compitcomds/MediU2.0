@@ -1,7 +1,22 @@
 <template>
-  <div class="bg-gray-500 w-full h-full">
-data
-  </div>
+  <div class="bg-gray-500 h-full">
+  <Swiper
+    :modules="[SwiperAutoplay, SwiperEffectCreative]"
+    :slides-per-view="1"
+    :loop="true"
+    :autoplay="{
+      delay: 1000,
+      disableOnInteraction: true,
+    }"
+    
+  >
+    <SwiperSlide v-for="slide in slides" :key="slide.id" class="relative w-full h-full">
+      <img :src="slide.src" alt="" class="object-cover h-72">
+    </SwiperSlide>
+    
+  </Swiper>
+</div>
+
 </template>
 
 <script setup>

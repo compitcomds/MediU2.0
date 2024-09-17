@@ -391,7 +391,7 @@
           <div class="font-semibold hover:opacity-70 text-xl w-28">Mediu Kit</div>
 
           <div
-            class="invisible absolute p-4 lg:-left-[500px]  text-black top-full z-50 w-[90vw] max-w-3xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+            class="invisible absolute p-4 lg:-left-[500px] text-black top-full z-50 w-[90vw] max-w-3xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
           >
             <div class="p-6 flex justify-between w-full">
               <div class="8/12 grid grid-cols-3 gap-6">
