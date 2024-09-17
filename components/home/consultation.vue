@@ -2,7 +2,7 @@
   <div class="relative w-full overflow-hidden">
     <div class="flex flex-col space-y-6 text-center">
       <!-- Responsive Heading -->
-      <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Our Superior Brands</h1>
+      <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Our Associated Brands</h1>
       <!-- <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#28574E]">
         Featured Products
       </h2> -->
