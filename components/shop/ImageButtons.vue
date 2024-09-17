@@ -18,4 +18,4 @@ const swiper = useSwiper();
 console.log({ swiper });
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
