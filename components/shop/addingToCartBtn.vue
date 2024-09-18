@@ -10,18 +10,21 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import addToCart from '~/shopify/cart/add-to-cart';
 import { useUserStore } from '~/stores/user-store';
 
-const props = defineProps({
-  productId: {
-    type: String,
-    required: true,
-  },
-});
+// Define the props with types
+interface Props {
+  productId: string;
+}
+const cartids = useUserStore()
+console.log("cart id", cartids.shopifyCartId)
 
+const props = defineProps<Props>();
+
+// Initialize the store and loading state
 const userStore = useUserStore();
 const isAddingProductToCart = ref(false);
 
@@ -29,14 +32,22 @@ const addProductToCart = async () => {
   if (!props.productId) return;
   isAddingProductToCart.value = true;
   try {
-    await addToCart({
-      merchandiseId: props.productId,
-      cartId: await userStore.getShopifyCartId(),
-    });
-    alert('Successfully added to the cart.');
+    // Ensure correct type inference for cartId
+    const cartId = await userStore.getShopifyCartId();
+    console.log("Cart id")
+    if (cartId) {
+      await addToCart({
+        merchandiseId: props.productId,
+        cartId,
+      });
+      console.log("add to cart",addToCart)
+      alert('Successfully added to the cart.');
+    } else {
+      throw new Error('No cart ID found');
+    }
   } catch (error) {
+    console.error('Failed to add product to cart', error);
     alert('Unable to add the product to cart');
-    console.error(error);
   } finally {
     isAddingProductToCart.value = false;
   }
