@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-12">
+  <div class="grid grid-cols-12 pt-10">
     <div class="hidden sm:block lg:col-span-3 md:col-span-4 xl:col-span-2 ms-7">
       <ShopFilterbar />
     </div>

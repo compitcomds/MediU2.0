@@ -6,8 +6,20 @@
     </h2>
 
     <!-- Testimonials Container -->
-    <div class="testimonial-grid grid lg:grid-cols-3 gap-5">
-      <div
+    <swiper
+      :slides-per-view="3"
+      :modules="[SwiperAutoplay, SwiperEffectCreative]"
+      :space-between="50"
+      @swiper="onSwiper"
+      @slideChange="onSlideChange"
+      :autoplay="{
+        delay: 2000,
+        disableOnInteraction: false,
+      }"
+      :loop="true"
+      class="testimonial-grid grid lg:grid-cols-3 gap-5 -z-20"
+    >
+      <swiper-slide
         class="testimonial-card border border-gray-300 rounded-xl shadow-lg flex p-6 bg-gradient-to-r from-white to-gray-100 hover:shadow-2xl transition-transform transform hover:-translate-y-4"
         v-for="(testimonial, index) in testimonials"
         :key="index"
@@ -25,7 +37,9 @@
         <div class="w-2/3 pl-6 flex flex-col">
           <!-- Name and Designation -->
           <div class="mb-4 flex items-center space-x-4">
-            <h3 class="text-lg text-black font-semibold">{{ testimonial.name }}</h3>
+            <h3 class="text-lg text-black font-semibold">
+              {{ testimonial.name }}
+            </h3>
             <p>|</p>
             <p class="text-sm text-gray-500">Customer</p>
           </div>
@@ -60,15 +74,15 @@
             {{ testimonial.text }}
           </p>
         </div>
-      </div>
-    </div>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <script>
 import "swiper/swiper-bundle.css";
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Pagination, Navigation } from "swiper/modules";
 export default {
   name: "Testimonials",
   components: {
@@ -86,20 +100,32 @@ export default {
         {
           name: "Dipesh Sharma",
           photo: "https://ccdstest.b-cdn.net/Medi%20u/IMG_20240907_140115.jpg",
-          text:
-            "I've had a wonderful experience with this medical practice. The facility is clean and modern, and the staff is both knowledgeable and kind.",
+          text: "I've had a wonderful experience with this medical practice. The facility is clean and modern, and the staff is both knowledgeable and kind.",
         },
         {
           name: "Anant Raj",
           photo: "https://ccdstest.b-cdn.net/Medi%20u/IMG_20240728_143911.jpg",
-          text:
-            "I've been a patient at this clinic for over a year, and I couldn’t be more impressed with the level of care I receive. The staff is always professional.",
+          text: "I've been a patient at this clinic for over a year, and I couldn’t be more impressed with the level of care I receive. The staff is always professional.",
         },
         {
           name: "Ashwariya Singh",
           photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
-          text:
-            "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
+          text: "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
+        },
+        {
+          name: "Archit Jain",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
+          text: "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
+        },
+        {
+          name: "Ravi Jain",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
+          text: "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
+        },
+        {
+          name: "Usha tiwari",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
+          text: "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
         },
       ],
     };
@@ -136,8 +162,6 @@ img {
   object-fit: cover;
   border: 3px solid #eaeaea;
 }
-
-
 
 /* Star rating size and alignment */
 .rating svg {

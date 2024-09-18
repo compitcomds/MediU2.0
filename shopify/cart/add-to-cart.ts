@@ -31,7 +31,7 @@ export default async function addToCart({
   const { data, errors } = await shopifyClient.request(addToCartMutation, {
     variables: { cartId, lines: [{ merchandiseId }] },
   });
-
+console.log(data)
   if (data.cartLinesAdd?.userErrors?.length > 0) {
     throw new Error(
       data.cartLinesAdd.userErrors.map((error: any) => error.message).join(", ")

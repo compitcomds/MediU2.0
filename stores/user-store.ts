@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+
 import createShopifyCart from "~/shopify/cart/create-cart";
 
 export const useUserStore = defineStore("userStore", {

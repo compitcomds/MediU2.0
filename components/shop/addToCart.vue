@@ -24,16 +24,17 @@ const props = defineProps({
   },
 });
 
-const isAddingProductToCart = ref(false);
-
 const userStore = useUserStore();
-
+const isAddingProductToCart = ref(false);
 
 const addProductToCart = async () => {
   if (!props.productId) return;
   isAddingProductToCart.value = true;
   try {
-    await addToCart({ merchandiseId: props.productId, cartId: await userStore.getShopifyCartId() });
+    await addToCart({
+      merchandiseId: props.productId,
+      cartId: await userStore.getShopifyCartId(),
+    });
     alert("Successfully added to the cart.");
   } catch (error) {
     alert("Unable to add the product to cart");
@@ -44,5 +45,4 @@ const addProductToCart = async () => {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
