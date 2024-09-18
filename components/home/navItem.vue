@@ -21,13 +21,13 @@
           >
             <div
               class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3
-               lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-gray-200"
+               lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
             >
               <!-- Concerns Related to Hair -->
               <div>
                 <h2 class="font-bold text-lg mb-4 w-fit text-left">
                   Hair Concerns
-                  <hr />
+                  <!-- <hr /> -->
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
@@ -86,7 +86,7 @@
               <div>
                 <h2 class="font-bold text-lg mb-4 w-fit text-left">
                   Select By Ingredients
-                  <hr />
+                  <!-- <hr /> -->
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
@@ -130,7 +130,7 @@
               <!-- Concerns Related to Hair Care -->
               <div>
                 <h2 class="font-bold text-lg mb-4 w-fit text-left">
-                  Hair Care <hr
+                  Hair Care 
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
@@ -183,13 +183,13 @@
           >
             <div
               class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3
-               lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-gray-200"
+               lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
             >
               <!-- Concerns Related to Hair -->
               <div>
                 <h2 class="font-bold text-lg mb-4 text-left">
                   Shop By Concern
-                  <hr />
+                  <!-- <hr /> -->
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
@@ -269,7 +269,7 @@
               <div>
                 <h2 class="font-bold text-lg mb-4 text-left">
                   Select By Ingredients
-                  <hr />
+                  
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>

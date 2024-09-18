@@ -21,7 +21,7 @@
             }"
             class="py-2 px-4 rounded-full w-full"
           >
-            Hyperpigmentation
+            Hairfall
           </button>
           <button
             @click="filterProducts('Eczema')"
@@ -31,7 +31,7 @@
             }"
             class="py-2 px-4 rounded-full ml-2 w-full"
           >
-            Eczema
+            Bald Patches
           </button>
           <button
             @click="filterProducts('Acne')"
@@ -41,7 +41,7 @@
             }"
             class="py-2 px-4 rounded-full ml-2 w-full"
           >
-            Acne
+            Oily Scalp
           </button>
         </div>
         <div class="grid grid-cols-3 gap-6 capitalize font-sans h-auto">

@@ -102,6 +102,19 @@ export default {
           doctorText: "Expert Pediatricians",
           clientText: "2000 plus happy <br> clients",
         },
+        {
+          doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/Mask%20Group.png",
+          clientImage: "https://ccdstest.b-cdn.net/Medi%20u/Image.png",
+          doctorText: "World’s Leading <br> Doctors",
+          clientText: "1000 plus happy <br> clients",
+        },
+        {
+          doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(13).png",
+          clientImage:
+            "https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(12).png",
+          doctorText: "Expert Pediatricians",
+          clientText: "2000 plus happy <br> clients",
+        },
         // Add more slides as needed
       ],
     };
