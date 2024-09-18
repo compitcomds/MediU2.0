@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-500 h-full">
+  <div class="bg-white p-4">
   <Swiper
     :modules="[SwiperAutoplay, SwiperEffectCreative]"
     :slides-per-view="1"

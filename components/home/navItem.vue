@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[showNotification ? 'mt- xl:mt-[0px]' : 'mt- xl:mt-[0px]']"
-    class="w-full sticky z-10 top-0 bg-[#537971] text-black"
+    class="w-full  z-10  bg-[#537971] text-black"
   >
     <div class="relative bg-white">
       <!-- Main Menu -->
