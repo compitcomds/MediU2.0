@@ -32,4 +32,4 @@
 const { images, title } = defineProps(["images", "title"]);
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

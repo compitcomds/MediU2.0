@@ -9,37 +9,24 @@
     </div>
 
     <!-- Responsive Category Buttons -->
-    <div
-      class="flex flex-wrap justify-center my-8 md:my-12 text-lg sm:text-xl md:text-2xl"
-    >
-      <button
-        @click="filtercards('Skin')"
-        :class="{
-          'bg-[#28574E] text-white': selectedCategory === 'Skin',
-          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
-        }"
-        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
-      >
-        Skin
-      </button>
-      <button
-        @click="filtercards('Hair')"
-        :class="{
-          'bg-[#28574E] text-white': selectedCategory === 'Hair',
-          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
-        }"
-        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
-      >
+    <div class="flex flex-wrap justify-center my-8 md:my-12 text-lg sm:text-xl md:text-2xl">
+      <button @click="filtercards('Hair')" :class="{
+        'bg-[#28574E] text-white': selectedCategory === 'Hair',
+        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
+      }" class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2">
         Hair
       </button>
-      <button
-        @click="filtercards('Baby Care')"
-        :class="{
-          'bg-[#28574E] text-white': selectedCategory === 'Baby Care',
-          'bg-gray-300 text-[#28574E]': selectedCategory !== 'Baby Care',
-        }"
-        class="px-6 sm:px-16 md:px-20 py-2  font-semibold rounded-full mx-2 mb-2"
-      >
+      <button @click="filtercards('Skin')" :class="{
+        'bg-[#28574E] text-white': selectedCategory === 'Skin',
+        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
+      }" class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2">
+        Skin
+      </button>
+
+      <button @click="filtercards('Baby Care')" :class="{
+        'bg-[#28574E] text-white': selectedCategory === 'Baby Care',
+        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Baby Care',
+      }" class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2">
         Baby Care
       </button>
     </div>
@@ -48,170 +35,95 @@
     <div class="flex flex-wrap lg:flex-nowrap gap-6">
       <!-- First card -->
       <div class="w-full lg:w-5/12">
-        <div
-          v-for="card in filteredcards.slice(0, 1)"
-          :key="card.link"
-          :to="card.link"
-          class="border p-4 rounded-3xl shadow-lg block no-underline h-full font-sans"
-        >
+        <div v-for="card in filteredcards.slice(0, 1)" :key="card.link" :to="card.link"
+          class="border p-4 rounded-3xl shadow-lg block no-underline h-full font-sans">
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
             <div class="space-x-4">
-              <span
-                v-if="card.isOnSale"
-                class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-                >Sale 50%</span
-              >
-              <span
-                v-if="card.isBestSeller"
-                class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-                >Best Sale</span
-              >
+              <span v-if="card.isOnSale"
+                class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Sale
+                50%</span>
+              <span v-if="card.isBestSeller"
+                class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Best
+                Sale</span>
             </div>
-            <img
-              :src="card.image"
-              :alt="card.name"
-              class="w-full object-cover rounded-md"
-            />
+            <img :src="card.image" :alt="card.name" class="w-full object-cover rounded-md h-96" />
           </nuxt-link>
           <div class="flex justify-between items-center gap-3">
-            <nuxt-link
-              :key="card.link"
-              :to="card.link"
-              class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"
-            >
+            <nuxt-link :key="card.link" :to="card.link" class="flex bg-gray-200 mt-4 rounded-full px-2 py-2">
               <!-- Heart Icon -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="31"
-                height="30"
-                viewBox="0 0 31 30"
-                fill="none"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 31 30" fill="none">
                 <path
                   d="M15.5724 26.146C-8.74825 12.7035 8.27652 -1.88915 15.5724 7.33835C22.8692 -1.88916 39.894 12.7035 15.5724 26.146Z"
-                  stroke="#1A1A1A"
-                  stroke-width="2.1889"
-                /></svg
-            ></nuxt-link>
+                  stroke="#1A1A1A" stroke-width="2.1889" />
+              </svg></nuxt-link>
 
-            <nuxt-link
-              :key="card.link"
-              :to="card.link"
-              class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-base md:text-lg px-4 py-2 rounded-full gap-4"
-            >
+            <nuxt-link :key="card.link" :to="card.link"
+              class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-base md:text-lg px-4 py-2 rounded-full gap-4">
               <button>Shop Now</button>
               <!-- Shop Icon -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 25 25"
-                fill="none"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 25 25" fill="none">
                 <path
                   d="M7.72213 10.0705H4.07396L1.64185 23.4471H23.5309L21.0988 10.0705H17.4506M7.72213 10.0705V6.42233C7.72213 3.73589 9.89992 1.55811 12.5864 1.55811V1.55811C15.2728 1.55811 17.4506 3.73589 17.4506 6.42233V10.0705M7.72213 10.0705H17.4506M7.72213 10.0705V13.7187M17.4506 10.0705V13.7187"
-                  stroke="white"
-                  stroke-width="1.89705"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+                  stroke="white" stroke-width="1.89705" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </nuxt-link>
-            <nuxt-link class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"
-              ><svg
-                data-v-b581078d=""
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                fill="none"
-              >
-                <path
-                  data-v-b581078d=""
+            <nuxt-link class="flex bg-gray-200 mt-4 rounded-full px-2 py-2"><svg data-v-b581078d=""
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none">
+                <path data-v-b581078d=""
                   d="M15.0825 5.70947C5.9621 5.70947 2.31393 15.135 2.31393 15.135C2.31393 15.135 5.9621 24.5583 15.0825 24.5583C24.203 24.5583 27.8511 15.135 27.8511 15.135C27.8511 15.135 24.203 5.70947 15.0825 5.70947V5.70947Z"
-                  stroke="#1A1A1A"
-                  stroke-width="2.1889"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-                <path
-                  data-v-b581078d=""
+                  stroke="#1A1A1A" stroke-width="2.1889" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path data-v-b581078d=""
                   d="M15.0776 19.6951C16.2871 19.6951 17.447 19.2147 18.3022 18.3595C19.1574 17.5043 19.6378 16.3444 19.6378 15.1349C19.6378 13.9255 19.1574 12.7656 18.3022 11.9104C17.447 11.0552 16.2871 10.5747 15.0776 10.5747C13.8682 10.5747 12.7083 11.0552 11.8531 11.9104C10.9978 12.7656 10.5174 13.9255 10.5174 15.1349C10.5174 16.3444 10.9978 17.5043 11.8531 18.3595C12.7083 19.2147 13.8682 19.6951 15.0776 19.6951V19.6951Z"
-                  stroke="#1A1A1A"
-                  stroke-width="2.1889"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path></svg
-            ></nuxt-link>
+                  stroke="#1A1A1A" stroke-width="2.1889" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></nuxt-link>
           </div>
 
           <div class="flex flex-col items-center mt-4">
             <!-- Responsive card name and price -->
-            <h2
-              class="text-xl sm:text-2xl md:text-3xl text-[#28574E] my-4 font-semibold capitalize"
-            >
+            <h2 class="text-xl sm:text-2xl md:text-3xl text-[#28574E] my-4 font-semibold capitalize">
               {{ card.name }}
             </h2>
             <div class="my-4 text-center space-x-2">
-              <span
-                class="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
-                >₹{{ card.discountedPrice }}</span
-              >
-              <span
-                class="line-through text-slate-500 text-lg sm:text-xl md:text-2xl"
-                >₹{{ card.originalPrice }}</span
-              >
+              <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-black">₹{{ card.discountedPrice }}</span>
+              <span class="line-through text-slate-500 text-lg sm:text-xl md:text-2xl">₹{{ card.originalPrice }}</span>
             </div>
             <!-- Rating -->
             <div class="flex justify-center items-center my-2">
               <div class="flex justify-center items-center">
                 <div class="rating flex gap-1">
-                  <svg
-                    v-for="i in 5"
-                    :key="i"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star text-yellow-500"
-                  >
+                  <svg v-for="i in 5" :key="i" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star text-[#FFD700]">
                     <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
                 </div>
                 <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
               </div>
-              <span class="ml-2 text-sm sm:text-md text-black"
-                >({{ card.feedbackCount }} Feedback)</span
-              >
+              <span class="ml-2 text-sm sm:text-md text-black">({{ card.feedbackCount }} Feedback)</span>
             </div>
 
             <!-- Timer -->
-            <div
-              v-if="card.timer"
-              class="mt-6 text-center text-base sm:text-lg md:text-xl text-black"
-            >
+            <div v-if="card.timer" class="mt-6 text-center text-lg text-slate-500">
               <div>Hurry up! Offer ends in:</div>
-              <div
-                class="font-semibold flex justify-center text-base sm:text-lg md:text-xl items-center text-black"
-              >
-                <div class="p-2 mx-1 rounded">{{ card.timer.days }} days</div>
-                <span>:</span>
-                <div class="p-2 mx-1 rounded">{{ card.timer.hours }} hours</div>
-                <span>:</span>
+              <div class="font-semibold flex justify-center text-base sm:text-lg md:text-xl items-center text-black">
                 <div class="p-2 mx-1 rounded">
-                  {{ card.timer.minutes }} mins
+                  <p>{{ card.timer.days }}</p><span> days</span>
                 </div>
                 <span>:</span>
                 <div class="p-2 mx-1 rounded">
-                  {{ card.timer.seconds }} secs
+                  <p>{{ card.timer.hours }}</p><span> hours</span>
+                </div>
+                <span>:</span>
+                <div class="p-2 mx-1 rounded">
+                  <p>{{ card.timer.minutes }}</p><span> mins</span>
+
+                </div>
+                <span>:</span>
+                <div class="p-2 mx-1 rounded">
+                  <p>{{ card.timer.seconds }}</p><span> secs</span>
+
                 </div>
               </div>
             </div>
@@ -220,32 +132,18 @@
       </div>
 
       <!-- Remaining Cards -->
-      <div
-        class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6 capitalize font-sans"
-      >
-        <div
-          v-for="card in filteredcards.slice(1)"
-          :key="card.link"
-          :to="card.link"
-          class="border p-4 rounded-3xl shadow-lg block no-underline h-full"
-        >
+      <div class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6 capitalize font-sans">
+        <div v-for="card in filteredcards.slice(1)" :key="card.link" :to="card.link"
+          class="border p-4 rounded-3xl shadow-lg block no-underline h-full">
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
-            <span
-              v-if="card.isOnSale"
-              class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-              >Sale 50%</span
-            >
-            <span
-              v-if="card.isBestSeller"
-              class="absolute top-0 right-0 bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-              >Best Sale</span
-            >
-            <img
-              :src="card.image"
-              :alt="card.name"
-              class="w-full h-76 object-cover rounded-md capitalize"
-            />
+            <span v-if="card.isOnSale"
+              class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Sale
+              50%</span>
+            <span v-if="card.isBestSeller"
+              class="absolute top-0 right-0 bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Best
+              Sale</span>
+            <img :src="card.image" :alt="card.name" class="w-full h-76 object-cover rounded-md capitalize" />
           </nuxt-link>
 
           <div class="mt-4 text-left">
@@ -254,36 +152,19 @@
               {{ card.name }}
             </h2>
             <div class="mt-2 space-x-2">
-              <span class="text-xl sm:text-2xl md:text-2xl font-bold text-black"
-                >₹{{ card.discountedPrice }}</span
-              >
-              <span
-                class="line-through text-slate-600 text-sm sm:text-lg md:text-xl"
-                >₹{{ card.originalPrice }}</span
-              >
+              <span class="text-xl sm:text-2xl md:text-2xl font-bold text-black">₹{{ card.discountedPrice }}</span>
+              <span class="line-through text-slate-600 text-sm sm:text-lg md:text-xl">₹{{ card.originalPrice }}</span>
             </div>
             <div class="text-left flex items-center justify-between">
               <!-- Rating -->
               <div class="flex justify-start items-center mt-2">
                 <div class="flex justify-start">
                   <div class="rating flex gap-1">
-                    <svg
-                      v-for="i in 5"
-                      :key="i"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-star text-yellow-500"
-                    >
+                    <svg v-for="i in 5" :key="i" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                      viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"
+                      stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star text-[#FFD700]">
                       <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   </div>
                   <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
@@ -291,23 +172,13 @@
               </div>
 
               <!-- Shop Button -->
-              <nuxt-link
-                to="#"
-                class="flex bg-gray-200 text-black mt-4 rounded-full p-3"
-              >
-                <img
-                  src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
-                  alt=""
-                  class="w-8"
-                />
+              <nuxt-link to="#" class="flex bg-gray-200 text-black mt-4 rounded-full p-3">
+                <img src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg" alt="" class="w-8" />
               </nuxt-link>
             </div>
 
             <!-- Timer -->
-            <div
-              v-if="card.timer"
-              class="mt-4 text-center text-sm sm:text-base md:text-lg text-black"
-            >
+            <div v-if="card.timer" class="mt-4 text-center text-sm sm:text-base md:text-lg text-black">
               <div>Hurry up! Offer ends in:</div>
               <div class="font-semibold">
                 {{ card.timer.days }} days {{ card.timer.hours }} hours
@@ -320,9 +191,7 @@
     </div>
 
     <!-- Footer -->
-    <div
-      class="text-end font-sans px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold"
-    >
+    <div class="text-end font-sans px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold">
       <nuxt-link to="#">View All 240 Products -> </nuxt-link>
     </div>
   </div>
@@ -462,12 +331,15 @@ export default {
   .w-full {
     width: 100%;
   }
+
   .lg\:w-5\/12 {
     width: 100%;
   }
+
   .lg\:w-7\/12 {
     width: 100%;
   }
+
   .h-60 {
     height: auto;
   }

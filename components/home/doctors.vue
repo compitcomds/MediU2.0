@@ -1,9 +1,9 @@
 <template>
   <div class="bg-[#28564D] text-white py-16 mb-10 ">
-    <h2 class="text-[70px] text-center pb-14 font-serif font-bold">World's Top Doctors</h2>
+    <h2 class="text-[70px] text-center pb-14 font-serif font-bold">Our Doctor's Team</h2>
     <div class="flex justify-center space-x-6 my-10">
       <!-- Dr. Akhil Agarwal -->
-      <div class="relative w-60 lg:w-96 xl:w-96 group transform -translate-y-8">
+      <div class="relative w-60 lg:w-96 xl:w-[420px] group transform -translate-y-8">
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/sir.jpg"
           alt="Dr. Akhil Agarwal"
@@ -21,8 +21,9 @@
           </p>
         </div>
         <div
-          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-80 flex justify-center items-center"
+          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-100 group-hover:opacity-0 flex justify-center items-center transition-opacity duration-300"
         >
+          <!-- doctor name heading -->
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
           >
@@ -30,8 +31,9 @@
           </p>
         </div>
       </div>
+
       <!-- Dr. Sumiti Pareek -->
-      <div class="relative w-60 lg:w-96 xl:w-96 group transform translate-y-4">
+      <div class="relative w-60 lg:w-96 xl:w-[420px] group transform translate-y-4">
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/mam%202.jpg"
           alt="Dr. Sumiti Pareek"
@@ -50,7 +52,7 @@
           </p>
         </div>
         <div
-          class="absolute bottom-4 lg:left-1 xl:left-10 opacity-80 flex justify-center items-center"
+          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-100 group-hover:opacity-0 flex justify-center items-center transition-opacity duration-300"
         >
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
@@ -59,8 +61,9 @@
           </p>
         </div>
       </div>
-      <!-- Dr. Akhil Agarwal -->
-      <div class="relative w-60 lg:w-96 xl:w-96 group transform -translate-y-8">
+
+      <!-- Dr. Akhil Agarwal (duplicate for layout purposes) -->
+      <div class="relative w-60 lg:w-96 xl:w-[420px] group transform -translate-y-8">
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/sir.jpg"
           alt="Dr. Akhil Agarwal"
@@ -78,7 +81,7 @@
           </p>
         </div>
         <div
-          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-80 flex justify-center items-center"
+          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-100 group-hover:opacity-0 flex justify-center items-center transition-opacity duration-300"
         >
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
@@ -87,19 +90,19 @@
           </p>
         </div>
       </div>
-      <!-- Dr. Sumiti Pareek -->
-      <div class="relative w-60 lg:w-96 xl:w-96 group transform translate-y-4">
+
+      <!-- Dr. Sumiti Pareek (duplicate for layout purposes) -->
+      <div class="relative w-60 lg:w-96 xl:w-[420px] group transform translate-y-4">
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/mam%202.jpg"
           alt="Dr. Sumiti Pareek"
           class="w-full rounded-2xl shadow-lg"
         />
         <div
-          class="absolute inset-0 bg-black bg-opacity-75 rounded-2xl flex flex-col top-0 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          class="absolute inset-0 bg-black bg-opacity-75 rounded-2xl top-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
           <span class="text-lg">Dr. Sumiti Pareek</span>
           <p class="text-white p-4">
-            <span class="text-lg">Dr. Sumiti Pareek</span>
             Good health is the foundation of a fulfilling life. As healthcare
             professionals, we must prioritize patient-centered care, focusing
             not only on treatment but also on preventive measures. Together, we
@@ -108,7 +111,7 @@
           </p>
         </div>
         <div
-          class="absolute bottom-4 lg:left-6 xl:left-14 opacity-80 flex justify-center items-center"
+          class="absolute bottom-4 lg:left-9 xl:left-16 opacity-100 group-hover:opacity-0 flex justify-center items-center transition-opacity duration-300"
         >
           <p
             class="text-black font-semibold bg-white rounded-full px-4 py-4 text-center"
