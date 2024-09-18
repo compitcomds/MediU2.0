@@ -1,163 +1,131 @@
 <template>
-  <div class="mb-10">
-    <h1 class="text-3xl mb-2 text-center text-[#8D8BA7]">Top Picks</h1>
-    <h1 class="text-3xl font-bold mb-10 text-center text-[#28574E]">
-      Featured Products
-    </h1>
-    <div class="flex justify-center my-10">
-      <button @click="filterProducts('Skin')" :class="{
-        'bg-[#28574E] text-white': selectedCategory === 'Skin',
-        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
-      }" class="px-4 py-2 rounded-full mx-2">
-        Skin
-      </button>
-      <button @click="filterProducts('Hair')" :class="{
-        'bg-[#28574E] text-white': selectedCategory === 'Hair',
-        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
-      }" class="px-4 py-2 rounded-full mx-2">
-        Hair
-      </button>
-      <button @click="filterProducts('Child')" :class="{
-        'bg-[#28574E] text-white': selectedCategory === 'Child',
-        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Child',
-      }" class="px-4 py-2 rounded-full mx-2">
-        Child
-      </button>
+  <div class="font-serif">
+    <div class="flex flex-col space-y-6 mb-10">
+      <h1 class="text-4xl text-center text-gray-500">Nourishing Treatments</h1>
+      <h2 class="text-6xl font-bold text-center text-[#28574E]">
+        Hair Care Must-Haves
+      </h2>
     </div>
-    <div class="flex flex-wrap lg:flex-nowrap gap-6">
-      <!-- First product card on the left -->
-      <div class="w-full lg:w-5/12">
-        <nuxt-link v-for="product in filteredProducts.slice(0, 1)" :key="product.link" :to="product.link"
-          class="border p-4 rounded-lg shadow-lg h-full block no-underline">
-          <div class="relative">
-            <span v-if="product.isOnSale"
-              class="absolute top-0 left-0 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">Sale
-              50%</span>
-            <span v-if="product.isBestSeller"
-              class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded">Best
-              Sale</span>
-            <img :src="product.image" :alt="product.name" class="w-full h-full object-cover rounded-md" />
+    <div class="flex mb-8">
+      <!-- first section -->
+      <div class="w-4/12">
+        <div class="diff lg:aspect-[9/16] xl:aspect-[9/18] xxl:aspect-[9/17]">
+          <div class="diff-item-1">
+            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/6.png" />
           </div>
-          <div class="flex justify-between items-center gap-3">
-            <nuxt-link to="#" class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"><svg xmlns="http://www.w3.org/2000/svg"
-                width="31" height="30" viewBox="0 0 31 30" fill="none">
-                <path
-                  d="M15.5724 26.146C-8.74825 12.7035 8.27652 -1.88915 15.5724 7.33835C22.8692 -1.88916 39.894 12.7035 15.5724 26.146Z"
-                  stroke="#1A1A1A" stroke-width="2.1889" />
-              </svg></nuxt-link>
-            <div class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-lg px-4 py-2 rounded-full gap-4">
-              <button>Shop Now</button>
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                <path
-                  d="M7.72213 10.0705H4.07396L1.64185 23.4471H23.5309L21.0988 10.0705H17.4506M7.72213 10.0705V6.42233C7.72213 3.73589 9.89992 1.55811 12.5864 1.55811V1.55811C15.2728 1.55811 17.4506 3.73589 17.4506 6.42233V10.0705M7.72213 10.0705H17.4506M7.72213 10.0705V13.7187M17.4506 10.0705V13.7187"
-                  stroke="white" stroke-width="1.89705" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-            <nuxt-link to="#" class="flex bg-slate-200 mt-4 rounded-full px-1 py-1"><svg xmlns="http://www.w3.org/2000/svg"
-                width="30" height="30" viewBox="0 0 30 30" fill="none">
-                <path
-                  d="M15.0825 5.70947C5.9621 5.70947 2.31393 15.135 2.31393 15.135C2.31393 15.135 5.9621 24.5583 15.0825 24.5583C24.203 24.5583 27.8511 15.135 27.8511 15.135C27.8511 15.135 24.203 5.70947 15.0825 5.70947V5.70947Z"
-                  stroke="#1A1A1A" stroke-width="2.1889" stroke-linecap="round" stroke-linejoin="round" />
-                <path
-                  d="M15.0776 19.6951C16.2871 19.6951 17.447 19.2147 18.3022 18.3595C19.1574 17.5043 19.6378 16.3444 19.6378 15.1349C19.6378 13.9255 19.1574 12.7656 18.3022 11.9104C17.447 11.0552 16.2871 10.5747 15.0776 10.5747C13.8682 10.5747 12.7083 11.0552 11.8531 11.9104C10.9978 12.7656 10.5174 13.9255 10.5174 15.1349C10.5174 16.3444 10.9978 17.5043 11.8531 18.3595C12.7083 19.2147 13.8682 19.6951 15.0776 19.6951V19.6951Z"
-                  stroke="#1A1A1A" stroke-width="2.1889" stroke-linecap="round" stroke-linejoin="round" />
-              </svg></nuxt-link>
+          <div class="diff-item-2">
+            <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/5.png" />
           </div>
-          <div class="mt-6 text-center">
-            <h2 class="text-xl text-[#28574E] my-6 font-semibold">
-              {{ product.name }}
-            </h2>
-            <!-- <div class="text-[#28574E] text-lg">{{ product.description }}</div> -->
-            <div class="my-4">
-              <span class="text-xl font-bold">${{ product.discountedPrice }}</span>
-              <span class="line-through text-gray-500">${{ product.originalPrice }}</span>
-            </div>
-            <div class="flex justify-center items-center my-2">
-              <div class="rating">
-                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked="checked" />
-                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-              </div>
-              <span class="ml-2 text-sm text-gray-500">({{ product.feedbackCount }} Feedback)</span>
-            </div>
-            <div v-if="product.timer" class="mt-8 text-center text-md text-gray-500">
-              <div>Hurry up! Offer ends in:</div>
-              <div class="font-semibold flex justify-center items-center">
-                <div class="p-2 mx-1 rounded">
-                  {{ product.timer.days }} days
-                </div>
-                <span>:</span>
-                <div class="p-2 mx-1 rounded">
-                  {{ product.timer.hours }} hours
-                </div>
-                <span>:</span>
-                <div class="p-2 mx-1 rounded">
-                  {{ product.timer.minutes }} mins
-                </div>
-                <span>:</span>
-                <div class="p-2 mx-1 rounded">
-                  {{ product.timer.seconds }} secs
-                </div>
-              </div>
-            </div>
-          </div>
-        </nuxt-link>
+          <div class="diff-resizer">ffff</div>
+        </div>
       </div>
-
-      <!-- Remaining product cards on the right -->
-      <div class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <nuxt-link v-for="product in filteredProducts.slice(1)" :key="product.link" :to="product.link"
-          class="border p-4 rounded-lg shadow-lg block no-underline">
-          <div class="relative">
-            <span v-if="product.isOnSale"
-              class="absolute top-0 left-0 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">Sale
-              50%</span>
-            <span v-if="product.isBestSeller"
-              class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded">Best
-              Sale</span>
-            <img :src="product.image" :alt="product.name" class="w-full" />
-          </div>
-          <div class="mt-4 text-left flex items-center justify-between">
-            <div class="flex flex-col">
-              <h2 class="text-md text-black">{{ product.name }}</h2>
-              <!-- <div class="text-gray-500">{{ product.description }}</div> -->
-              <div class="mt-2">
-                <span class="text-md font-bold text-black">${{ product.discountedPrice }}</span>
-                <span class="line-through text-gray-500">${{ product.originalPrice }}</span>
-              </div>
-              <div class="flex justify-start items-center mt-2">
-                <div class="rating">
-                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked="checked" />
-                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+      <!-- second section -->
+      <div class="w-8/12 ml-4">
+        <div class="flex justify-between px-4 mb-4 text-xl">
+          <button
+            @click="filterProducts('Hairfall')"
+            :class="{
+              'bg-[#28574E] text-white':
+                selectedCategory === 'Hairfall',
+              'bg-slate-300 text-black':
+                selectedCategory !== 'Hairfall',
+            }"
+            class="py-2 px-4 rounded-full w-full"
+          >
+            Hairfall
+          </button>
+          <button
+            @click="filterProducts('Oily Scalp')"
+            :class="{
+              'bg-[#28574E] text-white': selectedCategory === 'Oily Scalp',
+              'bg-slate-300 text-black': selectedCategory !== 'Oily Scalp',
+            }"
+            class="py-2 px-4 rounded-full ml-2 w-full"
+          >
+            Oily Scalp
+          </button>
+          <button
+            @click="filterProducts('Bald Patches')"
+            :class="{
+              'bg-[#28574E] text-white': selectedCategory === 'Bald Patches',
+              'bg-slate-300 text-black': selectedCategory !== 'Bald Patches',
+            }"
+            class="py-2 px-4 rounded-full ml-2 w-full"
+          >
+            Bald Patches
+          </button>
+        </div>
+        <div class="grid grid-cols-3 gap-6 h-auto font-sans">
+          <!-- make it anchor -->
+          <a
+            v-for="product in filteredProducts"
+            :key="product.id"
+            :href="product.url"
+            class="shadow-md p-4 rounded-2xl block no-underline"
+          >
+            <div class="relative">
+              <span
+                v-if="product.isOnSale"
+                class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 py-1 rounded"
+                >Sale 50%</span
+              >
+              <img :src="product.image" class="w-full" alt="" />
+            </div>
+            <div class="mt-4 space-y-2">
+              <h3 class="text-black text-2xl capitalize">{{ product.name }}</h3>
+              <div class="flex justify-between items-center text-xl">
+                <div class="flex">
+                  <p class="text-[#28574E] font-bold">
+                    ₹{{ product.salePrice }}
+                  </p>
+                  <p
+                    class="text-gray-500 text-sm line-through"
+                    v-if="product.isOnSale"
+                  >
+                  ₹{{ product.originalPrice }}
+                  </p>
                 </div>
-                <!-- <span class="ml-2 text-sm text-gray-500">({{ product.feedbackCount }} Feedback)</span> -->
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex justify-start">
+                  <div class="rating flex gap-1">
+                    <svg
+                      v-for="i in 5"
+                      :key="i"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star text-[#FFD700]"
+                    >
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
+                </div>
+                <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
+                  <a :href="product.url"
+                    ><img
+                      src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
+                      class="w-8 p-1"
+                      alt=""
+                  /></a>
+                </div>
               </div>
             </div>
-            <nuxt-link to="#" class="flex bg-slate-200 text-black mt-4 rounded-full px-2 py-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M7.72213 10.0705H4.07396L1.64185 23.4471H23.5309L21.0988 10.0705H17.4506M7.72213 10.0705V6.42233C7.72213 3.73589 9.89992 1.55811 12.5864 1.55811V1.55811C15.2728 1.55811 17.4506 3.73589 17.4506 6.42233V10.0705M7.72213 10.0705H17.4506M7.72213 10.0705V13.7187M17.4506 10.0705V13.7187"
-                  stroke="black" stroke-width="1.89705" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </nuxt-link>
-          </div>
-          <div v-if="product.timer" class="mt-4 text-center text-sm text-gray-500">
-            <div>Hurry up! Offer ends in:</div>
-            <div class="font-semibold">
-              {{ product.timer.days }} days {{ product.timer.hours }} hours
-              {{ product.timer.minutes }} mins {{ product.timer.seconds }} secs
-            </div>
-          </div>
-        </nuxt-link>
+          </a>
+        </div>
+        <div class="mt-4 text-end">
+          <a href="/shop" class="text-blue-500 text-2xl">Explore More →</a>
+        </div>
       </div>
-    </div>
-    <div class="text-end px-2 py-4 text-lg text-[#28574E] font-semibold">
-      <nuxt-link to="#">View All 240 Products -> </nuxt-link>
     </div>
   </div>
 </template>
@@ -166,118 +134,91 @@
 export default {
   data() {
     return {
-      selectedCategory: "Skin", // Default category
-      allProducts: [
+      selectedCategory: "Hairfall",
+      products: [
         {
           id: 1,
-          link: "/products/productDescription",
-          name: "Anthelios Melt-in Milk Sunscreen SPF 60",
-          description: "A description of the product.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 12.0,
-          originalPrice: 24.0,
-          rating: 5,
-          feedbackCount: 524,
+          name: "Bontess Pro",
+          salePrice: "1225",
+          originalPrice: "2500",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+          category: "Hairfall",
           isOnSale: true,
-          isBestSeller: true,
-          category: "Skin", // Added category
-          timer: {
-            end: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000), // Example 2 days from now
-          },
+          url: "/",
         },
         {
           id: 2,
-          link: "/products/productDescription",
-          name: "Hydrating Facial Cleanser",
-          description: "A description of the product.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
-          rating: 4,
-          feedbackCount: 200,
+          name: "Bald Patches oc moisturiser",
+          salePrice: "567",
+          originalPrice: "1120",
+          rating: 5,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
+          category: "Hairfall",
           isOnSale: true,
-          category: "Skin", // Added category
+          url: "/",
         },
         {
           id: 3,
-          link: "/products/productDescription",
-          name: "Hydro Boost Water Gel",
-          description: "A description of the product.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
+          name: "dermatica hs pure serum",
+          salePrice: "1180",
+          originalPrice: "2360",
           rating: 4,
-          feedbackCount: 200,
-          category: "Skin", // Added category
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349",
+          category: "Hairfall",
+          isOnSale: true,
+          url: "/",
         },
         {
           id: 4,
-          link: "/products/productDescription",
-          name: "Melt-in Milk Sunscreen",
-          description: "A description of the product.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
-          rating: 4,
-          feedbackCount: 200,
-          category: "Skin", // Added category
+          name: "dermatica ray protect barelyon",
+          salePrice: "1080",
+          originalPrice: "2160",
+          rating: 3,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
+          category: "Hairfall",
+          isOnSale: true,
+          url: "/",
         },
         {
           id: 5,
-          link: "/products/productDescription",
-          name: "Niacinamide 10% + Zinc 1%",
-          description: "A description of the product.",
-          image: "https://ccdstest.b-cdn.net/Medi%20u/disbeyazlaticiset-2.png",
-          discountedPrice: 14.99,
-          originalPrice: 20.99,
-          rating: 4,
-          feedbackCount: 200,
+          name: "Racine pro conditioning sha...",
+          salePrice: "635.0",
+          originalPrice: "1270",
+          rating: 5,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738",
+          category: "Hairfall",
           isOnSale: true,
-          category: "Skin", // Added category
+          url: "/",
+        },
+        {
+          id: 6,
+          name: "Bald Patches uv spf 50 sunscreen 50gm",
+          salePrice: "915.0",
+          originalPrice: "1830",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4357.jpg?v=1725638245",
+          category: "Hairfall",
+          isOnSale: true,
+          url: "/",
         },
       ],
     };
   },
   computed: {
     filteredProducts() {
-      return this.allProducts.filter(
+      return this.products.filter(
         (product) => product.category === this.selectedCategory
       );
     },
   },
-  mounted() {
-    this.allProducts.forEach((product, index) => {
-      if (product.timer) {
-        this.updateTimer(index);
-        setInterval(() => {
-          this.updateTimer(index);
-        }, 1000);
-      }
-    });
-  },
   methods: {
-    updateTimer(index) {
-      const product = this.allProducts[index];
-      const now = new Date().getTime();
-      const distance = product.timer.end - now;
-
-      if (distance > 0) {
-        product.timer.days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        product.timer.hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        product.timer.minutes = Math.floor(
-          (distance % (1000 * 60 * 60)) / (1000 * 60)
-        );
-        product.timer.seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      } else {
-        product.timer.days = 0;
-        product.timer.hours = 0;
-        product.timer.minutes = 0;
-        product.timer.seconds = 0;
-      }
-      this.$forceUpdate(); // Force Vue to re-render
-    },
     filterProducts(category) {
       this.selectedCategory = category;
     },
@@ -286,7 +227,5 @@ export default {
 </script>
 
 <style scoped>
-.fa-star {
-  margin-right: 2px;
-}
+/* Add any additional styles here */
 </style>
