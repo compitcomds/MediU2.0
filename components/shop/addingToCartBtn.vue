@@ -10,13 +10,14 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
-import addToCart from '~/shopify/cart/add-to-cart';
-import { useUserStore } from '~/stores/user-store';
+import addToCart from "~/shopify/cart/add-to-cart";
+import { useUserStore } from "~/stores/user-store";
 
 interface Props {
   productId: string;
+  quantity?: number;
 }
+
 const props = defineProps<Props>();
 
 const userStore = useUserStore();
@@ -27,25 +28,21 @@ const addProductToCart = async () => {
   isAddingProductToCart.value = true;
 
   try {
-    const cartId = await userStore.getShopifyCartId(); 
-    if (cartId) {
-      await addToCart({
-        merchandiseId: props.productId,
-        cartId,
-      });
-      alert('Successfully added to the cart.');
-    } else {
-      throw new Error('No cart ID found');
-    }
-  } catch (error) {
-    console.error('Failed to add product to cart', error);
-    alert('Unable to add the product to cart');
+    const cartId = await userStore.getShopifyCartId();
+    await addToCart({
+      merchandiseId: props.productId,
+      cartId,
+      quantity: props.quantity,
+    });
+    alert("Successfully added to the cart.");
+  } catch (error: any) {
+    console.error(error);
+    alert(error?.message || "Unable to add the product to cart");
   } finally {
     isAddingProductToCart.value = false;
   }
 };
 </script>
-
 
 <style scoped>
 /* Add styles here if needed */
