@@ -7,7 +7,7 @@
       </h2>
     </div>
 
-    <div class="flex gap-4 mb-8">
+    <div class="responsive-div flex gap-6 overflow-hidden">
       <!-- first section -->
       <div class="w-8/12 ml-4">
         <div class="flex justify-between px-4 mb-4 text-xl">
@@ -131,7 +131,7 @@
       <!-- second section -->
     </div>
   </div>
-  <HomeText />
+  <!-- <HomeText /> -->
 </template>
 
 <script>
@@ -231,5 +231,32 @@ export default {
 </script>
 
 <style scoped>
-/* Add any additional styles here */
+.responsive-div {
+  /* Custom CSS for responsiveness */
+  height: 50vh; /* Default height for small screens */
+}
+
+@media (min-width: 640px) { /* sm */
+  .responsive-div {
+    height: 60vh; /* Height for small devices */
+  }
+}
+
+@media (min-width: 768px) { /* md */
+  .responsive-div {
+    height: 70vh; /* Height for medium devices */
+  }
+}
+
+@media (min-width: 1120px) { /* lg */
+  .responsive-div {
+    height: 800px; /* Height for large devices */
+  }
+}
+
+@media (min-width: 1280px) { /* xl */
+  .responsive-div {
+    height: 850px; /* Height for extra large devices */
+  }
+}
 </style>
