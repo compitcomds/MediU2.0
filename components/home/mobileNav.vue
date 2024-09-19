@@ -114,7 +114,7 @@ const menuItems = [
     subItems: [
       {
         name: 'Shampoo',
-        link: '/hair/shampoo',
+        link: '/',
         subItems: [
           { name: 'Dry Shampoo', link: '/hair/shampoo/dry' },
           { name: 'Anti-Dandruff', link: '/hair/shampoo/anti-dandruff' },
@@ -129,17 +129,17 @@ const menuItems = [
     subItems: [
       {
         name: 'Face Wash',
-        link: '/skin/face-wash', // Link for Face Wash
+        link: '/', // Link for Face Wash
         subItems: ['Foam Cleanser', 'Gel Cleanser', 'Exfoliating Cleanser']
       },
       {
         name: 'Moisturizer',
-        link: '/skin/moisturizer', // Link for Moisturizer
+        link: '/', // Link for Moisturizer
         subItems: ['Day Cream', 'Night Cream', 'Gel Moisturizer']
       },
       {
         name: 'Sunscreen',
-        link: '/skin/sunscreen', // Link for Sunscreen
+        link: '/', // Link for Sunscreen
         subItems: ['SPF 30', 'SPF 50', 'Mineral Sunscreen']
       }
     ]
@@ -149,15 +149,15 @@ const menuItems = [
     subItems: [
       {
         name: 'Diapers',
-        link: '/baby-care/diapers' // Link for Diapers
+        link: '/' // Link for Diapers
       },
       {
         name: 'Baby Lotion',
-        link: '/baby-care/lotion' // Link for Baby Lotion
+        link: '/' // Link for Baby Lotion
       },
       {
         name: 'Baby Shampoo',
-        link: '/baby-care/shampoo' // Link for Baby Shampoo
+        link: '/' // Link for Baby Shampoo
       }
     ]
   },
@@ -166,11 +166,11 @@ const menuItems = [
     subItems: [
       {
         name: 'First Aid',
-        link: '/medi-kit/first-aid' // Link for First Aid
+        link: '/' // Link for First Aid
       },
       {
         name: 'OTC Medicines',
-        link: '/medi-kit/otc-medicines' // Link for OTC Medicines
+        link: '/' // Link for OTC Medicines
       }
     ]
   },
@@ -179,15 +179,15 @@ const menuItems = [
     subItems: [
       {
         name: 'Brand 1',
-        link: '/brands/brand1' // Link for Brand 1
+        link: '/' // Link for Brand 1
       },
       {
         name: 'Brand 2',
-        link: '/brands/brand2' // Link for Brand 2
+        link: '/' // Link for Brand 2
       },
       {
         name: 'Brand 3',
-        link: '/brands/brand3' // Link for Brand 3
+        link: '/' // Link for Brand 3
       }
     ]
   },
