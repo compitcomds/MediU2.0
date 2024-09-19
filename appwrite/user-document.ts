@@ -1,6 +1,9 @@
 import { Permission, Role } from "appwrite";
 import { database } from "./config";
-const config = useRuntimeConfig();
+
+const APPWRITE_DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
+const APPWRITE_USERS_COLLECTION_ID = import.meta.env
+  .VITE_APPWRITE_USERS_COLLECTION_ID;
 
 export const createUserDocument = async (
   userId: string,
@@ -11,39 +14,23 @@ export const createUserDocument = async (
     shopifyCartId?: string;
   }
 ) => {
-  try {
-    console.log("Creating document with ID:", userId);
-    const document = await database.createDocument(
-      config.public.appwriteDatabaseId,
-      config.public.appwriteUsersCollectionId,
-      userId,
-      data,
-      [Permission.read(Role.user(userId)), Permission.update(Role.user(userId))]
-    );
-    console.log("Document created:", document);
-    return document;
-  } catch (error) {
-
-    if (error) {
-      console.error("Error response:", error);
-    } else {
-      console.error("Error message:", error);
-    }
-    throw error;
-  }
+  const document = await database.createDocument(
+    APPWRITE_DATABASE_ID,
+    APPWRITE_USERS_COLLECTION_ID,
+    userId,
+    data,
+    [Permission.read(Role.user(userId)), Permission.update(Role.user(userId))]
+  );
 };
 export const getUserDocument = async (userId: string) => {
   try {
-    console.log(`Fetching document with ID: ${userId}`);
     const document = await database.getDocument(
-      config.public.appwriteDatabaseId,
-      config.public.appwriteUsersCollectionId,
+      APPWRITE_DATABASE_ID,
+      APPWRITE_USERS_COLLECTION_ID,
       userId
     );
-    console.log("Document fetched:", document);
     return document;
   } catch (error: any) {
-    console.error("Error fetching document:", error.response?.data || error);
     throw error;
   }
 };

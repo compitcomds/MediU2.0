@@ -15,7 +15,7 @@
 
           <div class="flex justify-between mb-4 gap-1">
             <button
-              class="flex items-center justify-center gap-2 w-full md:w-4/6 bg-white text-gray-600 border border-gray-300 px-4 py-2  rounded-lg shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-2 w-full md:w-4/6 bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-lg shadow hover:shadow-lg"
             >
               <svg
                 width="22"
@@ -51,7 +51,7 @@
               <p>Log In With Google</p>
             </button>
             <button
-              class="flex items-center justify-center gap-1 w-full md:w-4/6 bg-white text-gray-600 border border-gray-300 px-4 py-2  rounded-lg shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-1 w-full md:w-4/6 bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-lg shadow hover:shadow-lg"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
@@ -203,7 +203,7 @@
 </template>
 
 <script setup>
-import { loginUser } from "~/appwrite/auth";
+import { getUser, loginUser } from "~/appwrite/auth";
 
 const router = useRouter();
 const formData = ref({
