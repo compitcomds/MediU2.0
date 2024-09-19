@@ -1,72 +1,64 @@
-
 <template>
   <div class="lg:mx-20 lg:my-5 sm:mx-2 sm:my-3 mx-2 my-3">
     <div v-if="data">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
         <div class="col-span-5 lg:col-span-2">
           <div class="col-span-5 lg:col-span-2">
-  <!-- Main Swiper -->
-  <swiper-container
-    style="
-      --swiper-navigation-color: #000;
-      --swiper-pagination-color: #000;
-      
-    "
-    class="mySwiper"
-    thumbs-swiper=".mySwiper2"
-    space-between="15"
-    navigation="true"
-    pagination="true"
-    autoplay="true"
-    @slideChange="onSlideChange"
-  >
-  <swiper-slide v-for="(item, index) in data.images" :key="item.url" class="relative">
-    <!-- Container for the image and the button -->
-    <div class="relative">
-      <img
-        :src="item.url"
-        alt="Product Image"
-        class="object-cover w-full h-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
-      />
-      <!-- Overlay icon/button -->
-      <ShopSharebtn
-        :product-link="`shop/product/${data.handle}`"
-        class="absolute top-2 right-2 z-10"
-      />
-    </div>
-  </swiper-slide>
-  
-  </swiper-container>
+            <!-- Main Swiper -->
+            <swiper-container
+              style="
+                --swiper-navigation-color: #000;
+                --swiper-pagination-color: #000;
+              "
+              class="mySwiper"
+              thumbs-swiper=".mySwiper2"
+              space-between="15"
+              navigation="true"
+              pagination="true"
+              autoplay="true"
+              @slideChange="onSlideChange"
+            >
+              <swiper-slide
+                v-for="(item, index) in data.images"
+                :key="item.url"
+              >
+                <img
+                  :src="item.url"
+                  alt="Product Image"
+                  class="object-cover w-full h-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+                />
+              </swiper-slide>
+            </swiper-container>
 
-  <!-- Thumbnail Swiper -->
-  <swiper-container
-    class="mySwiper2 mt-4"
-    space-between="10"
-    slides-per-view="6"
-    free-mode="true"
-    watch-slides-progress="true"
-  >
-    <swiper-slide
-      v-for="(item, index) in data.images"
-      :key="item.url"
-      :class="{ 'border-blue-500 border-4': currentThumbnail === index }"
-      @click="thumbClick(index)"
-    >
-      <img
-        :src="item.url"
-        alt="Thumbnail Image"
-        class="object-cover w-full h-full rounded-lg border-2 border-gray-300 transition-transform duration-300 hover:scale-105"
-      />
-    </swiper-slide>
-  </swiper-container>
-</div>
-
+            <!-- Thumbnail Swiper -->
+            <swiper-container
+              class="mySwiper2 mt-4"
+              space-between="10"
+              slides-per-view="6"
+              free-mode="true"
+              watch-slides-progress="true"
+            >
+              <swiper-slide
+                v-for="(item, index) in data.images"
+                :key="item.url"
+                :class="{
+                  'border-blue-500 border-4': currentThumbnail === index,
+                }"
+                @click="thumbClick(index)"
+              >
+                <img
+                  :src="item.url"
+                  alt="Thumbnail Image"
+                  class="object-cover w-full h-full rounded-lg border-2 border-gray-300 transition-transform duration-300 hover:scale-105"
+                />
+              </swiper-slide>
+            </swiper-container>
+          </div>
         </div>
 
         <div class="col-span-5 md:col-span-3">
-          <div class="text-3xl font-semibold text-gray-900 capitalize mb-1 ">
+          <div class="text-3xl font-semibold text-gray-900 capitalize mb-1">
             {{ data.title }}
-            
           </div>
           <div class="text-md mb-4 text-cyan-500">
             Treats Active Acne | Unclogs Pores
@@ -214,7 +206,10 @@
                 </button>
               </div>
               <div>
-                <ShopAddingToCartBtn :product-id="data.id" />
+                <ShopAddingToCartBtn
+                  :product-id="data.id"
+                  :quantity="quantity"
+                />
               </div>
             </div>
           </div>
@@ -228,7 +223,7 @@
         </div>
       </div>
 
-      <div class="w-full  rounded-lg mt-10 p-6">
+      <div class="w-full rounded-lg mt-10 p-6">
         <div class="flex flex-col items-center">
           <nav class="flex space-x-4 w-full justify-start mb-4">
             <div v-for="(item, index) in accordionKeys" :key="index">
@@ -236,7 +231,8 @@
                 v-if="data[item.value]"
                 @click="activeTab = index + 1"
                 :class="{
-                  'bg-[#004400] text-white font-semibold border border-3 ': activeTab === index + 1,
+                  'bg-[#004400] text-white font-semibold border border-3 ':
+                    activeTab === index + 1,
                   ' border-1  border-[#004400] border   rounded-md px-4 py-2 transition-all': true,
                 }"
               >
@@ -253,7 +249,7 @@
               >
                 <div
                   v-html="convertShopifyRichTextToHTML(data[item.value].value)"
-                  class="text-gray-700  leading-relaxed"
+                  class="text-gray-700 leading-relaxed"
                 ></div>
               </div>
             </div>
@@ -273,12 +269,7 @@ const route = useRoute();
 const productHandle = route.params.productSlug;
 
 const data = ref({});
-const quantity = ref(1); // Initialize the quantity
-
-// Computed property for total price
-const totalPrice = computed(() => {
-  return (data.value.price?.amount * quantity.value).toFixed(2);
-});
+const quantity = ref(1);
 
 const accordionKeys = [
   {
@@ -302,16 +293,7 @@ try {
   console.error("Error fetching product data:", error);
 }
 
-const setupImageZoom = () => {
-  var options2 = {
-    fillContainer: true,
-    offset: { vertical: 0, horizontal: 10 },
-  };
-  // new ImageZoom(document.getElementById("img-container"), options2);
-};
-
 onMounted(() => {
-  setupImageZoom();
   const script = document.createElement("script");
   script.src =
     "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js";
@@ -319,7 +301,6 @@ onMounted(() => {
   document.head.appendChild(script);
 });
 
-// Methods to increase/decrease quantity
 const increaseQuantity = () => {
   if (quantity.value < 5) {
     quantity.value++;
@@ -387,7 +368,7 @@ const decreaseQuantity = () => {
 .swiper-button-next,
 .swiper-button-prev {
   color: #000; /* Customize navigation arrow color */
-  width: 12px !important;  /* Adjust the width */
+  width: 12px !important; /* Adjust the width */
   height: fit-content; /* Adjust the height */
 }
 
@@ -406,7 +387,8 @@ const decreaseQuantity = () => {
 }
 
 /* Optional: Ensure Swiper containers do not exceed available width */
-.mySwiper, .mySwiper2 {
+.mySwiper,
+.mySwiper2 {
   max-width: 100%;
 }
 
@@ -415,28 +397,4 @@ body {
   background: #000;
   color: #000;
 }
-.swiper-slide {
-  position: relative;
-}
-
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.top-2 {
-  top: 4rem; /* Adjust this value as needed */
-}
-
-.right-2 {
-  right: 1rem; /* Adjust this value as needed */
-}
-
-.z-10 {
-  z-index: 10; /* Ensure the button is above the image */
-}
-
 </style>
