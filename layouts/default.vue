@@ -1,9 +1,5 @@
 <template>
   <HomeNavbar />
-  <div class="my-20">
-    {{ route.fullPath }}
-  </div>
-
   <template v-if="!preventAccess">
     <slot />
   </template>
