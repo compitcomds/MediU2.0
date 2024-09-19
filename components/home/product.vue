@@ -6,7 +6,7 @@
         Hair Care Must-Haves
       </h2>
     </div>
-    <div class="flex mb-8">
+    <div class="responsive-div flex mb-8 overflow-hidden">
       <!-- first section -->
       <div class="w-4/12">
         <div class="diff lg:aspect-[9/16] xl:aspect-[9/18] xxl:aspect-[9/17]">
@@ -225,7 +225,33 @@ export default {
   },
 };
 </script>
-
 <style scoped>
-/* Add any additional styles here */
+.responsive-div {
+  /* Custom CSS for responsiveness */
+  height: 50vh; /* Default height for small screens */
+}
+
+@media (min-width: 640px) { /* sm */
+  .responsive-div {
+    height: 60vh; /* Height for small devices */
+  }
+}
+
+@media (min-width: 768px) { /* md */
+  .responsive-div {
+    height: 70vh; /* Height for medium devices */
+  }
+}
+
+@media (min-width: 1120px) { /* lg */
+  .responsive-div {
+    height: 800px; /* Height for large devices */
+  }
+}
+
+@media (min-width: 1280px) { /* xl */
+  .responsive-div {
+    height: 850px; /* Height for extra large devices */
+  }
+}
 </style>
