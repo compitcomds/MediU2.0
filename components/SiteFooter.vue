@@ -11,8 +11,9 @@
               alt="Logo"
             />
           </nuxt-link>
+          <p>Radiance Aesthetic and Cosmetic Studio</p>
           <ul class="space-y-4">
-            <li class="flex items-center font-bold lg:text-lg xl:text-xl mb-4 mt-16">Contact Us</li>
+            <li class="flex items-center font-bold lg:text-lg xl:text-xl mb-4 mt-10">Contact Us</li>
             <li class="flex items-center space-x-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +76,7 @@
             </a>
           </div>
         </div>
-        <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
+        <!-- <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
           <h2 class="font-bold lg:text-lg xl:text-xl mb-4">Most Popular Categories
           </h2>
           <div class="h-0.5 w-4/6 bg-white mb-4 text-center"></div>
@@ -90,7 +91,7 @@
             <li class="list-disc"><a href="#" class="hover:underline">Hair Growth Serums</a></li>
             <li class="list-disc"><a href="#" class="hover:underline">Anti-Frizz Products</a></li>
           </ul>
-        </div>
+        </div> -->
         <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
           <h2 class="font-bold lg:text-lg xl:text-xl mb-4">Customer Services
           </h2>

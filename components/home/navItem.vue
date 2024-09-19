@@ -380,13 +380,13 @@
             </div>
           </div>
         </li>
-
+<!-- 
         <li class="group relative cursor-pointer py-2 ">
           <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl "
             >Baby Care</a
           >
         </li>
-        <!-- mediu KIT -->
+
         <li class="group relative cursor-pointer py-2">
           <div class="font-semibold hover:opacity-70 text-xl w-28">Mediu Kit</div>
 
@@ -449,26 +449,25 @@
                 </nuxt-link>
               </div>
 
-              <!-- <HomeNavSlider /> -->
             </div>
           </div>
         </li>
-        <!-- Brands -->
-<li class="group relative cursor-pointer py-2">
+
+        <li class="group relative cursor-pointer py-2">
           <div class="font-semibold hover:opacity-70 text-xl">Brands</div>
-          <!-- Dropdown -->
+
           <div
             class="invisible absolute p- top-full -right-[100px] z-50 w-96 bg-white shadow-lg overflow-y-auto max-h-[400px] custom-scrollbar opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
           >
             <div class="px-6 py-2">
-              <!-- Sticky Heading -->
+
               <div class="sticky top-0 bg-white z-10">
                 <div
                   class="text-[#28574E] mb-2 text-xl font-serif font-semibold"
                 >
                   Brands -
                 </div>
-                <!-- Sticky Search bar -->
+
                 <input
                   type="text"
                   placeholder="Search by brand..."
@@ -476,9 +475,9 @@
                 />
               </div>
 
-              <!-- Brands list -->
+
               <div class="space-y-2">
-                <!-- A -->
+
                 <div>
                   <h2 class="font-bold text-lg">A</h2>
                   <ul class="pl-4">
@@ -645,7 +644,7 @@
                     </li>
                   </ul>
                 </div>
-                <!-- B -->
+
                 <div>
                   <h2 class="font-bold text-lg">B</h2>
                   <ul class="pl-4">
@@ -1473,7 +1472,7 @@
                     </li>
                   </ul>
                 </div>
-                <!-- L -->
+     
                 <div>
                   <h2 class="font-bold text-lg">L</h2>
                   <ul class="pl-4">
@@ -1543,7 +1542,7 @@
                   </ul>
                 </div>
 
-                <!-- M -->
+
                 <div>
                   <h2 class="font-bold text-lg">M</h2>
                   <ul class="pl-4">
@@ -1641,7 +1640,7 @@
                   </ul>
                 </div>
 
-                <!-- N -->
+
                 <div>
                   <h2 class="font-bold text-lg">N</h2>
                   <ul class="pl-4">
@@ -1697,7 +1696,6 @@
                   </ul>
                 </div>
 
-                <!-- O -->
                 <div>
                   <h2 class="font-bold text-lg">O</h2>
                   <ul class="pl-4">
@@ -1739,7 +1737,7 @@
                   </ul>
                 </div>
 
-                <!-- P -->
+
                 <div>
                   <h2 class="font-bold text-lg">P</h2>
                   <ul class="pl-4">
@@ -1802,7 +1800,7 @@
                   </ul>
                 </div>
 
-                <!-- Q -->
+
                 <div>
                   <h2 class="font-bold text-lg">Q</h2>
                   <ul class="pl-4">
@@ -1823,7 +1821,7 @@
                   </ul>
                 </div>
 
-                <!-- R -->
+  
                 <div>
                   <h2 class="font-bold text-lg">R</h2>
                   <ul class="pl-4">
@@ -1893,7 +1891,6 @@
                   </ul>
                 </div>
 
-                <!-- S -->
                 <div>
                   <h2 class="font-bold text-lg">S</h2>
                   <ul class="pl-4">
@@ -2053,7 +2050,7 @@
                     </li>
                   </ul>
                 </div>
-                <!-- T -->
+
                 <div>
                   <h2 class="font-bold text-lg">T</h2>
                   <ul class="pl-4">
@@ -2123,7 +2120,7 @@
                   </ul>
                 </div>
 
-                <!-- U -->
+
                 <div>
                   <h2 class="font-bold text-lg">U</h2>
                   <ul class="pl-4">
@@ -2179,7 +2176,6 @@
                   </ul>
                 </div>
 
-                <!-- V -->
                 <div>
                   <h2 class="font-bold text-lg">V</h2>
                   <ul class="pl-4">
@@ -2200,7 +2196,6 @@
                   </ul>
                 </div>
 
-                <!-- W -->
                 <div>
                   <h2 class="font-bold text-lg">W</h2>
                   <ul class="pl-4">
@@ -2249,7 +2244,7 @@
                   </ul>
                 </div>
 
-                <!-- Y -->
+
                 <div>
                   <h2 class="font-bold text-lg">Y</h2>
                   <ul class="pl-4">
@@ -2263,7 +2258,7 @@
                   </ul>
                 </div>
 
-                <!-- Z -->
+
                 <div>
                   <h2 class="font-bold text-lg">Z</h2>
                   <ul class="pl-4">
@@ -2283,18 +2278,18 @@
                     </li>
                   </ul>
                 </div>
-                <!-- Continue with other alphabetical sections -->
+
               </div>
             </div>
           </div>
         </li>
 
-        <!-- Supplements Menu -->
+
         <li class="group relative cursor-pointer py-2">
           <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl"
             >Supplements</a
           >
-        </li>
+        </li> -->
 
 
         
