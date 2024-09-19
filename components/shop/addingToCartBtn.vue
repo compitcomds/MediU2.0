@@ -19,25 +19,12 @@ import { ref } from 'vue';
 import addToCart from '~/shopify/cart/add-to-cart';
 import { useUserStore } from '~/stores/user-store';
 
-<<<<<<< HEAD
-const props = defineProps({
-  productId: {
-    type: String,
-    required: true,
-  },
-  name:{
-    type: String,
-    required: true,
-  }
-});
-=======
 // Define the props with types
 interface Props {
   productId: string;
 }
 const cartids = useUserStore()
 console.log("cart id", cartids.shopifyCartId)
->>>>>>> main
 
 const props = defineProps<Props>();
 
