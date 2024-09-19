@@ -50,7 +50,6 @@
               <div>
                 <ShopSharebtn :product-link="`shop/product/${product.handle}`" />
               </div>
-<<<<<<< HEAD
 
               <!-- Optional section for additional actions -->
               <!-- <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
@@ -87,27 +86,6 @@
                 </div>
               </button>
             </div>
-=======
-            </div>
-
-            <!-- Action buttons -->
-            <div class="flex gap-2 mt-4">
-              <!-- Add To Cart Button -->
-              <!-- <addingToCartBtn :product-id="product.id" /> -->
-
-              <!-- Buy Now Button -->
-              <a
-                @click.prevent="!isAddingProductToCart && addProductToCart"
-                :href="
-                  isAddingProductToCart ? undefined : `/shop/product/${product.handle}`
-                "
-                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center"
-                :class="{ 'opacity-70 cursor-not-allowed': isAddingProductToCart }"
-              >
-                BUY NOW
-              </a>
-            </div>
->>>>>>> main
           </div>
         </div>
       </div>
