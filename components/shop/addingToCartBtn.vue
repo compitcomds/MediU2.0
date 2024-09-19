@@ -14,7 +14,6 @@
 
   </div>
 </template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 import addToCart from '~/shopify/cart/add-to-cart';
@@ -42,23 +41,20 @@ console.log("cart id", cartids.shopifyCartId)
 
 const props = defineProps<Props>();
 
-// Initialize the store and loading state
 const userStore = useUserStore();
 const isAddingProductToCart = ref(false);
 
 const addProductToCart = async () => {
   if (!props.productId) return;
   isAddingProductToCart.value = true;
+
   try {
-    // Ensure correct type inference for cartId
-    const cartId = await userStore.getShopifyCartId();
-    console.log("Cart id")
+    const cartId = await userStore.getShopifyCartId(); 
     if (cartId) {
       await addToCart({
         merchandiseId: props.productId,
         cartId,
       });
-      console.log("add to cart",addToCart)
       alert('Successfully added to the cart.');
     } else {
       throw new Error('No cart ID found');
@@ -71,6 +67,7 @@ const addProductToCart = async () => {
   }
 };
 </script>
+
 
 <style scoped>
 /* Add styles here if needed */

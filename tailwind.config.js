@@ -3,6 +3,7 @@ export default {
   content: ["*"],
   theme: {
     screens: {
+      'max800': {'max': '800px'},
       sm: '480px',
       md: '768px',
       lg: '976px',

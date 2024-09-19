@@ -48,7 +48,7 @@
                 </p>
               </div>
               <div>
-                <ShopSharebtn :product-link='`shop/product/${product.handle}`' />
+                <ShopSharebtn :product-link="`shop/product/${product.handle}`" />
               </div>
 <<<<<<< HEAD
 
@@ -93,18 +93,19 @@
             <!-- Action buttons -->
             <div class="flex gap-2 mt-4">
               <!-- Add To Cart Button -->
-              <addingToCartBtn :product-id="product.id" />
+              <!-- <addingToCartBtn :product-id="product.id" /> -->
 
               <!-- Buy Now Button -->
-              <button
-                @click="addProductToCart"
-                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold disabled:cursor-not-allowed disabled:opacity-70"
-                :disabled="isAddingProductToCart"
+              <a
+                @click.prevent="!isAddingProductToCart && addProductToCart"
+                :href="
+                  isAddingProductToCart ? undefined : `/shop/product/${product.handle}`
+                "
+                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center"
+                :class="{ 'opacity-70 cursor-not-allowed': isAddingProductToCart }"
               >
-                <div class="flex items-center justify-center gap-2">
-                  <p>Buy Now</p>
-                </div>
-              </button>
+                BUY NOW
+              </a>
             </div>
 >>>>>>> main
           </div>
@@ -115,11 +116,7 @@
 </template>
 
 <script setup>
-<<<<<<< HEAD
-
-=======
 import addingToCartBtn from './addingToCartBtn.vue';
->>>>>>> main
 const { productDetails } = defineProps({
   productDetails: {
     type: Array, // Change this to an array since you have multiple products
