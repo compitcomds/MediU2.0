@@ -117,8 +117,8 @@ const menuItems = [
         link: '/',
         subItems: [
           { name: 'Dry Shampoo', link: '/' },
-          { name: 'Anti-Dandruff', link: '/hair' },
-          { name: 'Herbal Shampoo', link: '/hair' }
+          { name: 'Anti-Dandruff', link: '/' },
+          { name: 'Herbal Shampoo', link: '/' }
         ]
       },
       // ... other items
