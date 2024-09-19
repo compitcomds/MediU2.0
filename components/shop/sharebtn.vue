@@ -62,8 +62,4 @@ const copyToClipboard = (text) => {
 
 <style scoped>
 /* Add your scoped styles here */
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> main
