@@ -57,7 +57,7 @@
           </div>
           <div class="flex justify-between mb-4">
             <span class="text-[#28574E]">Shipping</span>
-            <span class="text-[#28574E] font-semibold">$20.00</span>
+            <span class="text-[#28574E] font-semibold">INR 20.00</span>
           </div>
           <div class="flex justify-between border-t pt-4 mt-4">
             <span class="text-[#28574E] font-bold text-xl">Total</span>
