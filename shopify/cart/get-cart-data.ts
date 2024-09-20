@@ -40,6 +40,10 @@ query getCartData($cartId: ID!) {
         amount
         currencyCode
       }
+      totalDutyAmount {
+        amount
+        currencyCode
+      }
     }
     lines(first: 100) {
       nodes {
@@ -83,6 +87,7 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
       checkoutUrl: string;
       note: string;
       subtotalAmount: { amount: number; currencyCode: string };
+      totalDutyAmount: { amount: number; currencyCode: string };
       totalAmount: { amount: number; currencyCode: string };
       buyerIdentity: {
         email: string;
@@ -121,6 +126,7 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
       items,
       checkoutUrl: data.cart.checkoutUrl,
       subtotalAmount: data.cart.cost.subtotalAmount,
+      totalDutyAmount: data.cart.cost.totalDutyAmount,
       totalAmount: data.cart.cost.totalAmount,
       buyerIdentity: data.cart.buyerIdentity,
       note: data.cart.note || "",

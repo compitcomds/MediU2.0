@@ -6,15 +6,15 @@
     </div>
     <!-- Container for the marquee effect -->
     <div class="overflow-hidden relative mb-20 mt-5">
-      <div class="absolute inset-y-0 left-0 w-20 bg-white z-10"></div>
-      <div class="absolute inset-y-0 right-0 w-20 bg-white z-10"></div>
+      <div class="absolute inset-y-0 left-0 w-20 bg-white z-10 hidden lg:block"></div>
+      <div class="absolute inset-y-0 right-0 w-20 bg-white z-10 hidden lg:block"></div>
       <ul class="flex whitespace-nowrap animate-marquee">
         <li v-for="(item, index) in imageItems" :key="index" class="flex-shrink-0">
-          <img :src="item.src" :alt="item.alt" class="border border-black rounded-2xl p-2 sm:p-4 md:p-6 max-w-none w-24 sm:w-36 md:w-48" />
+          <img :src="item.src" :alt="item.alt" class="border border-black rounded-2xl p-2 sm:p-4 md:p-6" />
         </li>
         <!-- Duplicate items to ensure continuous flow -->
         <li v-for="(item, index) in imageItems" :key="`duplicate-${index}`" class="flex-shrink-0">
-          <img :src="item.src" :alt="item.alt" class="border border-black rounded-2xl p-2 sm:p-4 md:p-6 max-w-none w-24 sm:w-36 md:w-48" />
+          <img :src="item.src" :alt="item.alt" class="border border-black rounded-2xl p-2 sm:p-4 md:p-6" />
         </li>
       </ul>
     </div>
@@ -62,24 +62,30 @@ ul {
 
 /* Responsive padding for images */
 img {
-  width: 6rem;
+  width: 6rem; /* Default size */
 }
 
 @media (min-width: 640px) {
   img {
-    width: 9rem;
+    width: 9rem; /* Small devices */
   }
 }
 
 @media (min-width: 768px) {
   img {
-    width: 12rem;
+    width: 12rem; /* Medium devices */
   }
 }
 
 @media (min-width: 1024px) {
   img {
-    width: 14rem;
+    width: 14rem; /* Large devices */
+  }
+}
+
+@media (min-width: 1280px) {
+  img {
+    width: 16rem; /* Extra large devices */
   }
 }
 </style>

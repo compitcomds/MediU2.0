@@ -1,14 +1,15 @@
 <template>
+  <NuxtLoadingIndicator />
   <NuxtLayout>
-    <NuxtLoadingIndicator />
-
-    <HomeNavbar />
     <NuxtPage />
-    <SiteFooter class="hidden lg:block" />
-
-    <MobileBottomNav />
   </NuxtLayout>
 </template>
+
+<script setup lang="ts">
+const userStore = useUserStore();
+
+await userStore.initialiseUserStore();
+</script>
 
 <style>
 html,
@@ -16,5 +17,3 @@ body {
   background-color: white !important;
 }
 </style>
-
-<script setup></script>

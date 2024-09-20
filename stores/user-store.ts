@@ -1,10 +1,17 @@
 import { defineStore } from "pinia";
+import { getUser } from "~/appwrite/auth";
+
 import createShopifyCart from "~/shopify/cart/create-cart";
 
 export const useUserStore = defineStore("userStore", {
-  state: (): { shopifyCartId: null | string; wishlist: string[] } => ({
+  state: (): {
+    shopifyCartId: null | string;
+    wishlist: string[];
+    isAuthenticated: boolean;
+  } => ({
     shopifyCartId: "",
     wishlist: [],
+    isAuthenticated: false,
   }),
 
   actions: {
@@ -23,6 +30,19 @@ export const useUserStore = defineStore("userStore", {
 
     toggleProductIdFromWishlist(productId: string) {
       this.wishlist = toggleElementFromArray(this.wishlist, productId);
+    },
+
+    async checkAuthenticated() {
+      try {
+        await getUser();
+        this.isAuthenticated = true;
+      } catch (error) {
+        this.isAuthenticated = false;
+      }
+    },
+
+    async initialiseUserStore() {
+      await this.checkAuthenticated();
     },
   },
   persist: {
