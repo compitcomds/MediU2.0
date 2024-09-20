@@ -32,7 +32,7 @@
           class="absolute bottom-4 left-1/2 transform -translate-x-1/2 opacity-100 lg:group-hover:opacity-0 flex justify-center items-center transition-opacity duration-300"
         >
           <p
-            class="text-black font-semibold bg-white rounded-full px- lg:px-4 py-2 lg:py-4 text-center text-[10px] md:text-base lg:text-xl"
+            class="text-black font-semibold bg-white rounded-full px-2 lg:px-4 py-2 lg:py-4 text-center text-[10px] md:text-base lg:text-xl"
           >
             Dr. Akhil Agarwal
           </p>
