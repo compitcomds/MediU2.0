@@ -17,9 +17,7 @@
 import { fetchProducts } from "~/shopify/products";
 // import { getFilters } from "~/shopify/productFilters";
 
-const shopStore = useShopStore();
-const { shopifyProductsQuery } = storeToRefs(shopStore);
-const data = await fetchProducts({ query: shopifyProductsQuery.value });
+const data = await fetchProducts({ query: "" });
 // const { filters } = await getFilters();
 // console.log(filters);
 // const isDrawerOpen = ref(false);
