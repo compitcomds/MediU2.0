@@ -1,8 +1,8 @@
 <template>
-  <div class=" space-y-6">
-    <div class="flex flex-col space-y-6">
-      <h1 class="text-4xl text-center text-gray-500">We Offer</h1>
-      <h2 class="text-6xl font-bold text-center text-[#28574E]">
+  <div class="space-y-6">
+    <div class="flex flex-col lg:space-y-6">
+      <h1 class="text-2xl lg:text-4xl text-center text-gray-500">We Offer</h1>
+      <h2 class="text-4xl lg:text-6xl font-bold text-center text-[#28574E]">
         Complete Care
       </h2>
     </div>
@@ -11,7 +11,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
       <!-- Card 1 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl text-center relative h-[400px] flex flex-col justify-between items-center">
+        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative md:h-[400px] flex flex-col justify-between items-center">
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 90 90" fill="#fff"
             class="bg-white">
@@ -49,7 +49,7 @@
 
       <!-- Card 2 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl text-center relative h-[400px] flex flex-col justify-between items-center">
+        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative md:h-[400px] flex flex-col justify-between items-center">
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 86 85" fill="none">
             <mask id="path-1-inside-1_1_601" fill="white">
@@ -98,7 +98,7 @@
 
       <!-- Card 3 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl text-center relative h-[400px] flex flex-col justify-between items-center">
+        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative md:h-[400px] flex flex-col justify-between items-center">
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 90 90" fill="none">
             <g clip-path="url(#clip0_1_618)">

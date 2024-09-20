@@ -1,14 +1,14 @@
 <template>
   <div class="font-serif">
-    <div class="flex flex-col space-y-6 mb-10">
-      <h1 class="text-4xl text-center text-gray-500">Nourishing Treatments</h1>
-      <h2 class="text-6xl font-bold text-center text-[#28574E]">
+    <div class="flex flex-col lg:space-y-6 mb-5 lg:mb-10">
+      <h1 class="text-xl lg:text-4xl text-center text-gray-500">Nourishing Treatments</h1>
+      <h2 class="text-3xl lg:text-6xl font-bold text-center text-[#28574E]">
         Hair Care Must-Haves
       </h2>
     </div>
-    <div class="responsive-div flex mb-8 overflow-hidden">
-      <!-- first section -->
-      <div class="w-4/12">
+    <div class="responsive-div flex flex-col lg:flex-row mb-8 overflow-hidden">
+      <!-- Image Section - Displayed on large screens only -->
+      <div class="w-full md:w-4/12 hidden lg:block">
         <div class="diff lg:aspect-[9/16] xl:aspect-[9/18] xxl:aspect-[9/17]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/6.png" />
@@ -16,12 +16,12 @@
           <div class="diff-item-2">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/5.png" />
           </div>
-          <div class="diff-resizer">ffff</div>
+          <div class="diff-resizer">Drag</div>
         </div>
       </div>
-      <!-- second section -->
-      <div class="w-8/12 ml-4">
-        <div class="flex justify-between px-4 mb-4 text-xl">
+      <!-- Products Section -->
+      <div class="w-full lg:w-8/12 lg:ml-4">
+        <div class="flex justify-center lg:justify-between px-4 mb-4 text-xl gap-2">
           <button
             @click="filterProducts('Hairfall')"
             :class="{
@@ -30,7 +30,7 @@
               'bg-slate-300 text-black':
                 selectedCategory !== 'Hairfall',
             }"
-            class="py-2 px-4 rounded-full w-full"
+            class="py-2 px-2 lg:px-4 rounded-full w-full  text-sm lg:text-lg"
           >
             Hairfall
           </button>
@@ -40,7 +40,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Oily Scalp',
               'bg-slate-300 text-black': selectedCategory !== 'Oily Scalp',
             }"
-            class="py-2 px-4 rounded-full ml-2 w-full"
+            class="py-2 px-2 rounded-full w-full text-sm lg:text-lg"
           >
             Oily Scalp
           </button>
@@ -50,13 +50,14 @@
               'bg-[#28574E] text-white': selectedCategory === 'Bald Patches',
               'bg-slate-300 text-black': selectedCategory !== 'Bald Patches',
             }"
-            class="py-2 px-4 rounded-full ml-2 w-full"
+            class="py-2 px-2 lg:px-4 rounded-full w-full  text-sm lg:text-lg"
           >
             Bald Patches
           </button>
         </div>
-        <div class="grid grid-cols-3 gap-6 h-auto font-sans">
-          <!-- make it anchor -->
+        <!-- Grid for Products -->
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 h-auto font-sans">
+          <!-- Products -->
           <a
             v-for="product in filteredProducts"
             :key="product.id"
@@ -72,17 +73,17 @@
               <img :src="product.image" class="w-full" alt="" />
             </div>
             <div class="mt-4 space-y-2">
-              <h3 class="text-black text-2xl capitalize">{{ product.name }}</h3>
-              <div class="flex justify-between items-center text-xl">
+              <h3 class="text-black text-base md:text-2xl capitalize">{{ product.name }}</h3>
+              <div class="flex justify-between items-center text-sm sm:text-lg md:text-xl">
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
                     ₹{{ product.salePrice }}
                   </p>
                   <p
-                    class="text-gray-500 text-sm line-through"
+                    class="text-gray-500 text-sm sm:text-md line-through"
                     v-if="product.isOnSale"
                   >
-                  ₹{{ product.originalPrice }}
+                    ₹{{ product.originalPrice }}
                   </p>
                 </div>
               </div>
@@ -93,8 +94,8 @@
                       v-for="i in 5"
                       :key="i"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       stroke="currentColor"
@@ -108,13 +109,12 @@
                       />
                     </svg>
                   </div>
-                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
                 </div>
                 <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                   <a :href="product.url"
                     ><img
                       src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
-                      class="w-8 p-1"
+                      class="w-6 sm:w-8 p-1"
                       alt=""
                   /></a>
                 </div>
@@ -122,8 +122,8 @@
             </div>
           </a>
         </div>
-        <div class="mt-4 text-end">
-          <a href="/shop" class="text-blue-500 text-2xl">Explore More →</a>
+        <div class="mt-4 text-right md:text-end">
+          <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl">Explore More →</a>
         </div>
       </div>
     </div>
@@ -225,21 +225,22 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .responsive-div {
   /* Custom CSS for responsiveness */
-  height: 50vh; /* Default height for small screens */
+  height: auto; /* Default height for small screens */
 }
 
 @media (min-width: 640px) { /* sm */
   .responsive-div {
-    height: 60vh; /* Height for small devices */
+    height: auto; /* Height for small devices */
   }
 }
 
 @media (min-width: 768px) { /* md */
   .responsive-div {
-    height: 70vh; /* Height for medium devices */
+    height: auto; /* Height for medium devices */
   }
 }
 

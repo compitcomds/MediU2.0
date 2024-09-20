@@ -7,75 +7,87 @@
 
     <!-- Testimonials Container -->
     <swiper
-      :slides-per-view="3"
-      :modules="[SwiperAutoplay, SwiperEffectCreative]"
-      :space-between="50"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
-      :autoplay="{
-        delay: 2000,
-        disableOnInteraction: false,
-      }"
-      :loop="true"
-      class="testimonial-grid grid lg:grid-cols-3 gap-5 -z-20"
+    :modules="[SwiperAutoplay, SwiperEffectCreative]"
+    :space-between="50"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+    :autoplay="{
+      delay: 2000,
+      disableOnInteraction: false,
+    }"
+    :loop="true"
+    :breakpoints="{
+      640: {
+        slidesPerView: 1, // 1 slide for sm view
+        spaceBetween: 20, // Space between slides for sm view
+      },
+      768: {
+        slidesPerView: 2, // 2 slides for md view
+        spaceBetween: 30, // Space between slides for md view
+      },
+      1024: {
+        slidesPerView: 3, // 3 slides for lg view
+        spaceBetween: 40, // Space between slides for lg view
+      }
+    }"
+    class="testimonial-grid"
+  >
+    <swiper-slide
+      class="testimonial-card border border-gray-300 rounded-xl shadow-lg flex p-6 bg-gradient-to-r from-white to-gray-100 hover:shadow-2xl transition-transform transform hover:-translate-y-4"
+      v-for="(testimonial, index) in testimonials"
+      :key="index"
     >
-      <swiper-slide
-        class="testimonial-card border border-gray-300 rounded-xl shadow-lg flex p-6 bg-gradient-to-r from-white to-gray-100 hover:shadow-2xl transition-transform transform hover:-translate-y-4"
-        v-for="(testimonial, index) in testimonials"
-        :key="index"
-      >
-        <!-- Profile Photo -->
-        <div class="w-1/3 flex-shrink-0">
-          <img
-            :src="testimonial.photo"
-            class="rounded-xl w-24 h-24 object-cover border-4 border-gray-200"
-            alt="Customer photo"
-          />
+      <!-- Profile Photo -->
+      <div class="w-1/3 flex-shrink-0">
+        <img
+          :src="testimonial.photo"
+          class="rounded-xl w-24 h-24 object-cover border-4 border-gray-200"
+          alt="Customer photo"
+        />
+      </div>
+
+      <!-- Content Section -->
+      <div class="w-2/3 pl-6 flex flex-col">
+        <!-- Name and Designation -->
+        <div class="mb-4 flex items-center space-x-4">
+          <h3 class="text-lg text-black font-semibold">
+            {{ testimonial.name }}
+          </h3>
+          <p>|</p>
+          <p class="text-sm text-gray-500">Customer</p>
         </div>
 
-        <!-- Content Section -->
-        <div class="w-2/3 pl-6 flex flex-col">
-          <!-- Name and Designation -->
-          <div class="mb-4 flex items-center space-x-4">
-            <h3 class="text-lg text-black font-semibold">
-              {{ testimonial.name }}
-            </h3>
-            <p>|</p>
-            <p class="text-sm text-gray-500">Customer</p>
+        <!-- Star Rating -->
+        <div class="flex items-center mb-4">
+          <div class="rating flex gap-1">
+            <svg
+              v-for="i in 5"
+              :key="i"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-star text-yellow-500"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
           </div>
-
-          <!-- Star Rating -->
-          <div class="flex items-center mb-4">
-            <div class="rating flex gap-1">
-              <svg
-                v-for="i in 5"
-                :key="i"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                stroke="currentColor"
-                stroke-width="1"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-star text-yellow-500"
-              >
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                />
-              </svg>
-            </div>
-            <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
-          </div>
-
-          <!-- Testimonial Content -->
-          <p class="text-sm text-gray-700 leading-relaxed">
-            {{ testimonial.text }}
-          </p>
         </div>
-      </swiper-slide>
-    </swiper>
+
+        <!-- Testimonial Content -->
+        <p class="text-sm text-gray-700 leading-relaxed">
+          {{ testimonial.text }}
+        </p>
+      </div>
+    </swiper-slide>
+  </swiper>
   </div>
 </template>
 

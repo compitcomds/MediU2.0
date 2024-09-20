@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full overflow-hidden">
+  <div class="relative w-full overflow-hidden pt-10 lg:pt-0">
     <div class="flex flex-col space-y-6 text-center">
       <!-- Responsive Heading -->
       <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Our Associated Brands</h1>

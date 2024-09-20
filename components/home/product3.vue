@@ -1,6 +1,6 @@
 <template>
-  <div class="my-36 font-serif md:px-4 xl:px-[163px]">
-    <div class="flex flex-col lg:space-y-6 mb-10">
+  <div class="my-16 lg:my-36 font-serif md:px-4 xl:px-[163px]">
+    <div class="flex flex-col lg:space-y-6 mb-5 lg:mb-10">
       <h1 class="text-xl lg:text-4xl text-center text-gray-500">Nourishing Treatments</h1>
       <h2 class="text-3xl lg:text-6xl font-bold text-center text-[#28574E]">
         Hair Care Must-Haves
@@ -19,7 +19,7 @@
               'bg-slate-300 text-black':
                 selectedCategory !== 'Hyperpigmentation',
             }"
-            class="py-2 px-4 rounded-full w-full text-base md:text-lg lg:text-xl"
+            class="py-2 px-2 lg:px-4 rounded-full w-full text-base md:text-lg lg:text-xl"
           >
             Hairfall
           </button>
@@ -29,7 +29,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Eczema',
               'bg-slate-300 text-black': selectedCategory !== 'Eczema',
             }"
-            class="py-2 px-4 rounded-full ml-2 w-full text-base md:text-lg lg:text-xl"
+            class="py-2 px-2 lg:px-4 rounded-full ml-2 w-full text-base md:text-lg lg:text-xl"
           >
             Bald Patches
           </button>
@@ -114,7 +114,7 @@
           </a>
         </div>
         <div class="mt-4 text-right lg:text-left">
-          <a href="/shop" class="text-blue-500 text-2xl">Explore More →</a>
+          <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl">Explore More →</a>
         </div>
       </div>
 

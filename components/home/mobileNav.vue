@@ -2,18 +2,38 @@
   <div v-if="isNavbarVisible" class="bg-white shadow-md fixed top-0 w-full z-50 block lg:hidden" ref="navbar">
     <div class="container mx-auto px-4 py-5 flex justify-center items-center w-full">
       <!-- Logo -->
-      <div class="text-lg font-semibold w-1/6">
+      <div class="text-lg font-semibold w-2/6">
         <img src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png" alt="Logo" class="h-8 w-auto" />
       </div>
   
       <!-- Search Bar -->
-      <div class="flex-grow mx-4 w-4/6">
-        <input
-          type="text"
-          placeholder="Search..."
-          class="w-full px-4 py-2 border rounded-lg focus:outline-none bg-white text-black"
-        />
+      <div class="flex-grow mx-4 w-full">
+        <div class="relative flex items-center justify-end">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="w-full px-4 py-2 md:py-3 pl-10 border rounded-full focus:outline-none bg-white text-black shadow-md transition duration-300 ease-in-out focus:shadow-lg"
+          />
+          <div class="absolute left-4 text-gray-500">
+            <!-- Search Icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 sm:h-6 sm:w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19a9 9 0 100-18 9 9 0 000 18zm7-2l5 5"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
+      
   
       <!-- Burger Menu Icon (Visible on small screens) -->
       <div class="w-1/6 text-end">
@@ -44,7 +64,7 @@
       <div class="px-4 py-2">
         <div v-for="(item, index) in menuItems" :key="index" class="border-t py-3">
           <div @click="item.subItems.length ? toggleDropdown(index) : null" class="flex items-center justify-between py-2 px-4 cursor-pointer text-lg">
-            <span>{{ item.name }}</span>
+            <span class="font-semibold">{{ item.name }}</span>
             <svg v-if="item.subItems.length" :class="{'transform rotate-180': isDropdownOpen(index)}" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>

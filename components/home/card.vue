@@ -1,5 +1,5 @@
 <template>
-  <div class="font-serif">
+  <div class="font-serif mt-4">
     <div class="flex flex-col lg:space-y-6 text-center">
       <!-- Responsive Heading -->
       <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Top Picks</h1>
@@ -9,7 +9,7 @@
     </div>
 
     <!-- Responsive Category Buttons -->
-    <div class="flex flex-wrap justify-center my-8 md:my-12 text-lg sm:text-xl md:text-2xl">
+    <div class="flex flex-wrap justify-center my-4 md:my-12 text-lg sm:text-xl md:text-2xl">
       <button @click="filtercards('Hair')" :class="{
         'bg-[#28574E] text-white': selectedCategory === 'Hair',
         'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
@@ -47,7 +47,7 @@
                 class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Best
                 Sale</span>
             </div>
-            <img :src="card.image" :alt="card.name" class="w-full object-cover rounded-md h-96" />
+            <img :src="card.image" :alt="card.name" class="w-full object-cover rounded-md lg:h-96" />
           </nuxt-link>
           <div class="flex justify-between items-center gap-3">
             <nuxt-link :key="card.link" :to="card.link" class="flex bg-gray-200 mt-4 rounded-full px-2 py-2">
@@ -84,12 +84,12 @@
             <h2 class="text-xl sm:text-2xl md:text-3xl text-[#28574E] my-4 font-semibold capitalize">
               {{ card.name }}
             </h2>
-            <div class="my-4 text-center space-x-2">
+            <div class="lg:my-4 text-center space-x-2">
               <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-black">₹{{ card.discountedPrice }}</span>
               <span class="line-through text-slate-500 text-lg sm:text-xl md:text-2xl">₹{{ card.originalPrice }}</span>
             </div>
             <!-- Rating -->
-            <div class="flex justify-center items-center my-2">
+            <div class="flex justify-center items-center lg:my-2">
               <div class="flex justify-center items-center">
                 <div class="rating flex gap-1">
                   <svg v-for="i in 5" :key="i" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -132,7 +132,7 @@
       </div>
 
       <!-- Remaining Cards -->
-      <div class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6 capitalize font-sans">
+      <div class="w-full lg:w-7/12 grid grid-cols-2 md:grid-cols-2 gap-2 lg:gap-6 capitalize font-sans">
         <div v-for="card in filteredcards.slice(1)" :key="card.link" :to="card.link"
           class="border p-4 rounded-3xl shadow-lg block no-underline h-full">
           <nuxt-link class="relative" :key="card.link" :to="card.link">
@@ -148,33 +148,46 @@
 
           <div class="mt-4 text-left">
             <!-- card name and price -->
-            <h2 class="text-lg sm:text-xl md:text-xl text-black capitalize">
+            <h2 class="text-lg md:text-xl text-black capitalize">
               {{ card.name }}
             </h2>
             <div class="mt-2 space-x-2">
               <span class="text-xl sm:text-2xl md:text-2xl font-bold text-black">₹{{ card.discountedPrice }}</span>
               <span class="line-through text-slate-600 text-sm sm:text-lg md:text-xl">₹{{ card.originalPrice }}</span>
             </div>
-            <div class="text-left flex items-center justify-between">
-              <!-- Rating -->
-              <div class="flex justify-start items-center mt-2">
-                <div class="flex justify-start">
-                  <div class="rating flex gap-1">
-                    <svg v-for="i in 5" :key="i" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                      viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"
-                      stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star text-[#FFD700]">
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                    </svg>
-                  </div>
-                  <!-- <span class="text-yellow-600 text-sm font-semibold ml-2">(Reviews)</span> -->
+            <div class="flex items-center justify-between mt-2">
+              <div class="flex justify-start">
+                <div class="rating flex md:gap-1">
+                  <svg
+                    v-for="i in 5"
+                    :key="i"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"  
+                    height="20" 
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star text-[#FFD700] sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    />
+                  </svg>
                 </div>
+                
+                
               </div>
-
-              <!-- Shop Button -->
-              <nuxt-link to="#" class="flex bg-gray-200 text-black mt-4 rounded-full p-3">
-                <img src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg" alt="" class="w-8" />
-              </nuxt-link>
+              <div class="bg-slate-300 rounded-full p-1 md:px-1 md:py-1 opacity-80">
+                <a :href="card.url"
+                  ><img
+                    src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
+                    class="w-5 lg:w-8"
+                    alt="bag icon"
+                /></a>
+              </div>
             </div>
 
             <!-- Timer -->
