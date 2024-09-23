@@ -218,7 +218,7 @@ export default {
       allcards: [
         {
           id: 1,
-          link: "/",
+          link: "/shop/product/aspirin",
           name: "Blowshine",
           description: "A description of the card.",
           image:
@@ -236,11 +236,11 @@ export default {
         },
         {
           id: 2,
-          link: "/",
-          name: "dermatica hs pure serum",
+          link: "/shop/product/venusia-max-cream",
+          name: "venusia max cream",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09989.jpg?v=1725709318",
           discountedPrice: 1180,
           originalPrice: 2360,
           rating: 4,
@@ -250,7 +250,7 @@ export default {
         },
         {
           id: 3,
-          link: "/",
+          link: "/shop/product/dermatica-ray-protect-barelyon",
           name: "dermatica ray protect barelyon",
           description: "A description of the card.",
           image:
@@ -263,7 +263,7 @@ export default {
         },
         {
           id: 4,
-          link: "/",
+          link: "/shop/product/acne-oc-moisturiser",
           name: "acne oc moisturiser",
           description: "A description of the card.",
           image:
@@ -276,7 +276,7 @@ export default {
         },
         {
           id: 5,
-          link: "/",
+          link: "/shop/product/bontess-pro",
           name: "bontess pro",
           description: "A description of the card.",
           image:

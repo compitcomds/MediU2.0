@@ -41,9 +41,9 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <button class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-11 ">
+          <nuxt-link to="/shop" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-11 ">
             Consult now
-          </button>
+          </nuxt-link>
         </div>
       </div>
 
@@ -90,9 +90,9 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <button class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
+          <nuxt-link to="/shop" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
             Diagnose
-          </button>
+          </nuxt-link>
         </div>
       </div>
 
@@ -118,9 +118,9 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <button class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
+          <nuxt-link to="/shop" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
             Buy Now
-          </button>
+          </nuxt-link>
         </div>
       </div>
     </div>
