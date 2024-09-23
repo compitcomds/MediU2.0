@@ -1,38 +1,23 @@
 <template>
   <!-- {{ productDetails }} -->
   <div class="my-2">
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4"
-    >
-      <div
-        v-for="(product, index) in productDetails"
-        :key="index"
-        class="flex justify-center p-4"
-      >
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
+      <div v-for="(product, index) in productDetails" :key="index" class="flex justify-center p-4">
         <div class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-80">
           <a :href="`/shop/product/${product.handle}`" class="relative block">
             <!-- Sale badge -->
-            <span
-              v-if="true"
-              class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-            >
+            <span v-if="true" class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
               Sale 5%
             </span>
 
             <!-- Product image -->
-            <img
-              :src="product.image"
-              class="w-full h-48 object-cover rounded-t-lg"
-              alt=""
-            />
+            <img :src="product.image" class="w-full h-48 object-cover rounded-t-lg" alt="" />
           </a>
 
           <div class="space-y-4 mt-4">
             <!-- Product title -->
             <a :href="`/shop/product/${product.handle}`" class="block">
-              <h3
-                class="text-black font-serif text-xl lg:text-lg font-semibold capitalize truncate"
-              >
+              <h3 class="text-black font-serif text-xl lg:text-lg font-semibold capitalize truncate">
                 {{ product.title }}
               </h3>
             </a>
@@ -66,16 +51,11 @@
 
             <!-- Action buttons -->
             <div class="flex gap-2 mt-4">
-              <a
-                @click.prevent="!isAddingProductToCart && addProductToCart"
-                :href="
-                  isAddingProductToCart ? undefined : `/shop/product/${product.handle}`
-                "
-                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center"
-                :class="{ 'opacity-70 cursor-not-allowed': isAddingProductToCart }"
-              >
+              <a :href="`shop/product/${product.handle}`"
+                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer">
                 BUY NOW
               </a>
+
             </div>
           </div>
         </div>

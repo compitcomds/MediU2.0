@@ -106,13 +106,14 @@
               class="w-full border border-gray-300 rounded-lg py-2 px-3 text-gray-600 bg-white"
             />
           </div>
-
+          <div class="mt-10"></div>
           <!-- Checkout Button -->
-          <button
-            class="mt-6 w-full py-3 bg-[#28574E] text-white rounded-full font-semibold text-lg"
+          <nuxt-link
+            to="/checkout"
+            class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg"
           >
             Check Out
-          </button>
+          </nuxt-link>
         </div>
       </div>
     </div>
