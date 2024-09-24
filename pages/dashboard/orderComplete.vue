@@ -3,7 +3,8 @@
       <!-- Main layout -->
       
         <!-- Sidebar -->
-        <DashboardSidenav />
+              <DashboardSidenav :UserData="UserData || ''"/>
+
   
         <!-- Order Confirmation -->
         <div class="w-3/4 rounded-lg p-6 ml-6 border space-y-6">
@@ -38,10 +39,30 @@
     </div>
   </template>
   
-  <script>
-  export default {
 
-  };
+  <script setup>
+  import { ref } from 'vue';
+  import { useRouter } from 'vue-router'; // Import useRouter
+  import { getUser } from '~/appwrite/auth';
+  
+  const UserData = ref(null); // Use ref for reactivity
+  const router = useRouter(); // Initialize the router
+  
+  async function fetchUserData() {
+    try {
+      const result = await getUser();
+      console.log("User Data:", result);
+      UserData.value = result; // Update the value of UserData
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      UserData.value = null; // Update the value of UserData
+      router.push('/auth/login'); // Redirect to /auth/login
+    }
+  
+    console.log(UserData.value); // Log here to see the final value
+  }
+  
+  fetchUserData();
   </script>
   
   <style>

@@ -8,8 +8,9 @@
         class="w-20 h-20 rounded-full border-2 border-gray-200 object-cover"
       />
       <div class="ml-4">
-        <h2 class="font-semibold text-lg text-[#28574e]">Dipesh Sharma</h2>
-        <p class="text-sm text-gray-500">info@example.com</p>
+        <h2 class="font-semibold text-lg text-[#28574e]">{{props.UserData.name}}</h2>
+        <p class="text-sm text-gray-500">{{props.UserData.email}}</p>
+        <p class="text-sm text-gray-500">{{props.UserData.phone}}</p>
       </div>
     </div>
 
@@ -79,8 +80,13 @@
   </aside>
 </template>
 
-<script>
-export default {};
+<script setup>
+const props = defineProps({
+  UserData: {
+    type: Object,
+    required: true
+  }
+});
 </script>
 
 <style scoped></style>

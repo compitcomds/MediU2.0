@@ -3,7 +3,8 @@
     <!-- Main Layout -->
 
     <!-- Sidebar -->
-    <DashboardSidenav />
+          <DashboardSidenav :UserData="UserData || ''"/>
+
 
     <!-- Content Section -->
     <div class="w-3/4 px-8">
@@ -86,45 +87,30 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      orders: [
-        {
-          requestNumber: 1374837,
-          date: "March 21, 2024",
-          productName: "Collar Casual Shirt",
-          quantity: 1,
-          price: 105,
-          image: "https://via.placeholder.com/150x50",
-        },
-        {
-          requestNumber: 1374837,
-          date: "March 21, 2024",
-          productName: "Collar Casual Shirt",
-          quantity: 1,
-          price: 304,
-          image: "https://via.placeholder.com/150x50",
-        },
-      ],
-      reasons: [
-        "I have changed my mind",
-        "Expected delivery time is very long",
-        "I want to change address for the order",
-        "I want to convert my order to Prepaid",
-        "Price for the product has decreased",
-        "I have purchased the product elsewhere",
-      ],
-      selectedReason: "",
-    };
-  },
-  methods: {
-    submitRequest() {
-      console.log("Submitting request with reason:", this.selectedReason);
-    },
-  },
-};
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router'; // Import useRouter
+import { getUser } from '~/appwrite/auth';
+
+const UserData = ref(null); // Use ref for reactivity
+const router = useRouter(); // Initialize the router
+
+async function fetchUserData() {
+  try {
+    const result = await getUser();
+    console.log("User Data:", result);
+    UserData.value = result; // Update the value of UserData
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    UserData.value = null; // Update the value of UserData
+    router.push('/auth/login'); // Redirect to /auth/login
+  }
+
+  console.log(UserData.value); // Log here to see the final value
+}
+
+fetchUserData();
+const order= []
 </script>
 
 <style scoped>
