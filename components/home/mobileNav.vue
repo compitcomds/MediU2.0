@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isNavbarVisible" class="bg-white shadow-md fixed top-0 w-full z-50 block lg:hidden" ref="navbar">
+  <div class="bg-white shadow-md fixed top-0 w-full z-50 block lg:hidden" ref="navbar">
     <div class="container mx-auto px-4 py-5 flex justify-center items-center w-full">
       <!-- Logo -->
       <div class="text-lg font-semibold w-2/6">

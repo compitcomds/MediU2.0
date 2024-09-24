@@ -1,11 +1,11 @@
 <template>
-  <div class="min-h-screen flex bg-gray-50">
+  <div class="min-h-screen flex bg-gray-50 justify-center w-full">
     <div
       class="flex flex-col md:flex-row w-full bg-white overflow-hidden justify-center"
     >
       <!-- Left Section (Form) -->
-      <div class="w-full md:w-1/2 p-8 flex flex-col md:flex-row justify-center">
-        <div class="w-8/12 space-y-10 p-3">
+      <div class="w-full md:w-1/2 p-8 flex justify-center">
+        <div class="sm:w-8/12 space-y-10 p-3">
           <h2 class="text-4xl font-serif font-semibold text-[#285742]">
             Sign Up
           </h2>
@@ -14,54 +14,28 @@
           </p>
 
           <!-- Social Login Buttons -->
-          <div class="flex justify-between mb-4 gap-1">
-            <button
-              class="flex items-center justify-center gap-2 w-full md:w-4/6 bg-white text-gray-600 border border-gray-300 px-4 py-2  rounded-lg shadow hover:shadow-lg"
-            >
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 26 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0_1381_2836)">
-                  <path
-                    d="M5.76215 15.7122L4.85713 19.0908L1.54929 19.1607C0.560727 17.3272 0 15.2294 0 13.0001C0 10.8443 0.524266 8.81147 1.45356 7.02148H1.45427L4.39918 7.56139L5.68923 10.4886C5.41922 11.2758 5.27206 12.1208 5.27206 13.0001C5.27216 13.9543 5.44502 14.8687 5.76215 15.7122Z"
-                    fill="#FBBB00"
-                  ></path>
-                  <path
-                    d="M25.7722 10.5715C25.9215 11.3579 25.9994 12.1701 25.9994 13.0001C25.9994 13.9308 25.9015 14.8387 25.7151 15.7144C25.0823 18.6944 23.4287 21.2965 21.138 23.138L21.1373 23.1373L17.428 22.948L16.903 19.6708C18.423 18.7794 19.6109 17.3844 20.2366 15.7144H13.2852V10.5715H20.338H25.7722Z"
-                    fill="#518EF8"
-                  ></path>
-                  <path
-                    d="M21.1374 23.1371L21.1381 23.1378C18.9103 24.9285 16.0802 26 12.9995 26C8.04883 26 3.74456 23.2329 1.54883 19.1607L5.76169 15.7122C6.85953 18.6421 9.68596 20.7279 12.9995 20.7279C14.4238 20.7279 15.7581 20.3428 16.9031 19.6707L21.1374 23.1371Z"
-                    fill="#28B446"
-                  ></path>
-                  <path
-                    d="M21.2974 2.99284L17.086 6.44069C15.901 5.69999 14.5003 5.27211 12.9996 5.27211C9.61098 5.27211 6.73168 7.45352 5.68884 10.4886L1.45384 7.02142H1.45312C3.61671 2.85 7.97527 0 12.9996 0C16.1538 0 19.046 1.12359 21.2974 2.99284Z"
-                    fill="#F14336"
-                  ></path>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1382_2836">
-                    <rect width="26" height="26" fill="white"></rect>
-                  </clipPath>
-                </defs>
+          <div class="grid-container">
+            <button class="grid-item bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-lg shadow hover:shadow-lg gap-3">
+              <svg width="22" height="22" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_1381_2836)">
+                      <path d="M5.76215 15.7122L4.85713 19.0908L1.54929 19.1607C0.560727 17.3272 0 15.2294 0 13.0001C0 10.8443 0.524266 8.81147 1.45356 7.02148H1.45427L4.39918 7.56139L5.68923 10.4886C5.41922 11.2758 5.27206 12.1208 5.27206 13.0001C5.27216 13.9543 5.44502 14.8687 5.76215 15.7122Z" fill="#FBBB00"></path>
+                      <path d="M25.7722 10.5715C25.9215 11.3579 25.9994 12.1701 25.9994 13.0001C25.9994 13.9308 25.9015 14.8387 25.7151 15.7144C25.0823 18.6944 23.4287 21.2965 21.138 23.138L21.1373 23.1373L17.428 22.948L16.903 19.6708C18.423 18.7794 19.6109 17.3844 20.2366 15.7144H13.2852V10.5715H20.338H25.7722Z" fill="#518EF8"></path>
+                      <path d="M21.1374 23.1371L21.1381 23.1378C18.9103 24.9285 16.0802 26 12.9995 26C8.04883 26 3.74456 23.2329 1.54883 19.1607L5.76169 15.7122C6.85953 18.6421 9.68596 20.7279 12.9995 20.7279C14.4238 20.7279 15.7581 20.3428 16.9031 19.6707L21.1374 23.1371Z" fill="#28B446"></path>
+                      <path d="M21.2974 2.99284L17.086 6.44069C15.901 5.69999 14.5003 5.27211 12.9996 5.27211C9.61098 5.27211 6.73168 7.45352 5.68884 10.4886L1.45384 7.02142H1.45312C3.61671 2.85 7.97527 0 12.9996 0C16.1538 0 19.046 1.12359 21.2974 2.99284Z" fill="#F14336"></path>
+                  </g>
+                  <defs>
+                      <clipPath id="clip0_1382_2836">
+                          <rect width="26" height="26" fill="white"></rect>
+                      </clipPath>
+                  </defs>
               </svg>
               <p>Log In With Google</p>
             </button>
-            <button
-              class="flex items-center justify-center gap-1 w-full md:w-4/6 bg-white text-gray-600 border border-gray-300 px-4 py-2  rounded-lg shadow hover:shadow-lg"
-            >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                class="h-5 w-5"
-                alt="Facebook Logo"
-              />
+          <button class="grid-item bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-lg shadow hover:shadow-lg gap-3">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="h-5 w-5" alt="Facebook Logo" />
               <p>Log In With Facebook</p>
-            </button>
-          </div>
+          </button>
+      </div>
 
           <!-- Separator -->
           <div class="flex items-center justify-center my-4">
@@ -193,3 +167,24 @@ const submitForm = async () => {
   }
 };
 </script>
+
+<style scoped>
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem; /* Space between grid items */
+  margin-bottom: 1rem;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1550) {
+  .grid-container {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens and above */
+  }
+}
+</style>
