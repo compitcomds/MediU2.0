@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:mx-20 lg:my-5 sm:mx-2 sm:my-3 mx-2 my-3">
+  <div class="lg:mx-20 lg:my-20 sm:mx-2 sm:my-3 mx-2 my-3">
     <div v-if="data">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
         <div class="col-span-5 lg:col-span-2">

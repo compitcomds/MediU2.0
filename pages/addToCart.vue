@@ -107,12 +107,38 @@
             />
           </div>
 
+          <!-- Upload Prescription Button -->
+          <div class="mt-6">
+            <label
+              for="prescription-upload"
+              class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
+            >
+              <input
+                type="file"
+                id="prescription-upload"
+                @change="uploadPrescription"
+                class="hidden"
+                accept="image/*"
+              />
+              <span>{{ prescriptionUploaded ? 'Prescription Uploaded' : 'Upload Prescription' }}</span>
+            </label>
+            <p v-if="!prescriptionUploaded" class="text-red-500 text-sm mt-2">
+              Please upload your prescription before checkout.
+            </p>
+          </div>
+
           <!-- Checkout Button -->
-          <button
-            class="mt-6 w-full py-3 bg-[#28574E] text-white rounded-full font-semibold text-lg"
-          >
-            Check Out
-          </button>
+          <div class="mt-4">
+            <nuxt-link
+              to="/checkout"
+              class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg"
+              :class="!prescriptionUploaded ? 'cursor-not-allowed opacity-50' : ''"
+              :disabled="!prescriptionUploaded"
+              @click.prevent="checkPrescription"
+            >
+              Check Out
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -122,10 +148,11 @@
 <script setup lang="ts">
 import getCartData from "~/shopify/cart/get-cart-data";
 import updateLineItemQuantity from "~/shopify/cart/update-line-item-quantity";
+import { ref, onMounted } from "vue";
 
 const userStore = useUserStore();
-
 const isUpdatingLineItemQuantity = ref(false);
+const prescriptionUploaded = ref(false); // Track if prescription is uploaded
 
 const cart = ref<{
   items: any[];
@@ -163,6 +190,22 @@ const changeQuantity = async (lineId: string, quantity: number) => {
     alert(error.message || "Unable to update the item's quantity");
   } finally {
     isUpdatingLineItemQuantity.value = false;
+  }
+};
+
+const uploadPrescription = (event: Event) => {
+  const file = (event.target as HTMLInputElement).files?.[0];
+  if (file) {
+    prescriptionUploaded.value = true;
+    alert("Prescription uploaded successfully");
+  }
+};
+
+const checkPrescription = () => {
+  if (!prescriptionUploaded.value) {
+    alert("Please upload your prescription before checkout.");
+  } else {
+    // Proceed to checkout
   }
 };
 

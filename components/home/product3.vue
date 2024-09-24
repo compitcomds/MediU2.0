@@ -151,7 +151,7 @@ export default {
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/",
+          url: "/shop/product/bontess-pro",
         },
         {
           id: 6,
@@ -163,19 +163,19 @@ export default {
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/",
+          url: "/shop/product/acne-oc-moisturiser",
         },
         {
           id: 5,
-          name: "dermatica hs pure serum",
+          name: "venusia max cream",
           salePrice: "1180",
           originalPrice: "2360",
           rating: 4,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4223.jpg?v=1725635349",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09989.jpg?v=1725709318",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/",
+          url: "/shop/product/venusia-max-cream",
         },
         {
           id: 1,
@@ -187,7 +187,7 @@ export default {
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/",
+          url: "/shop/product/dermatica-ray-protect-barelyon",
         },
         {
           id: 2,
@@ -199,7 +199,7 @@ export default {
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/",
+          url: "/shop/product/racine-pro-conditioning-shampoo",
         },
         {
           id: 3,
@@ -211,7 +211,7 @@ export default {
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4357.jpg?v=1725638245",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/",
+          url: "/shop/product/acne-uv-spf-50-sunscreen-50-gm",
         },
       ],
     };
