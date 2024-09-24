@@ -1,5 +1,6 @@
 <template>
-    <section class="min-h-screen p-6 bg-[#edf8f3] flex">
+
+    <section class="min-h-screen p-6 bg-[#edf8f3] flex" v-if="UserData">
       <!-- Sidebar -->
             <DashboardSidenav :UserData="UserData || ''"/>
 
@@ -34,7 +35,7 @@
   
   fetchUserData();
   </script>
-  
+
   <style scoped>
   /* Add any specific styles or global tailwind configuration if needed */
   </style>

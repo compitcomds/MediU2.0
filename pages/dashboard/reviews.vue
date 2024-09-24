@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen p-6 bg-[#edf8f3] flex">
+    <div class="min-h-screen p-6 bg-[#edf8f3] flex" v-if="UserData">
         
             <DashboardSidenav :UserData="UserData || ''"/>
 
