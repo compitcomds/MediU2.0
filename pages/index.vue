@@ -6,7 +6,7 @@
     <div class="lg:space-y-20 md:space-y-10 space-y-10">
       <HomeCard class="px-4 xl:px-[163px]" />
       <HomeContainers class="px-4 xl:px-[163px]" />
-      <HomeFeatures class="px-4 xl:px-[163px]" />
+      <!-- <HomeFeatures class="px-4 xl:px-[163px]" /> -->
 <!-- skin -->
       <HomeProduct2 class="px-4 xl:px-[163px]" />
     </div>
