@@ -1,7 +1,9 @@
 <template>
   <div class="font-serif">
     <div class="flex flex-col lg:space-y-6 mb-5 lg:mb-10">
-      <h1 class="text-xl lg:text-4xl text-center text-gray-500">Nourishing Treatments</h1>
+      <h1 class="text-xl lg:text-4xl text-center text-gray-500">
+        Nourishing Treatments
+      </h1>
       <h2 class="text-3xl lg:text-6xl font-bold text-center text-[#28574E]">
         Hair Care Must-Haves
       </h2>
@@ -21,16 +23,16 @@
       </div>
       <!-- Products Section -->
       <div class="w-full lg:w-8/12 lg:ml-4">
-        <div class="flex justify-center lg:justify-between px-4 mb-4 text-xl gap-2">
+        <div
+          class="flex justify-center lg:justify-between px-4 mb-4 text-xl gap-2"
+        >
           <button
             @click="filterProducts('Hairfall')"
             :class="{
-              'bg-[#28574E] text-white':
-                selectedCategory === 'Hairfall',
-              'bg-slate-300 text-black':
-                selectedCategory !== 'Hairfall',
+              'bg-[#28574E] text-white': selectedCategory === 'Hairfall',
+              'bg-slate-300 text-black': selectedCategory !== 'Hairfall',
             }"
-            class="py-2 px-2 lg:px-4 rounded-full w-full  text-sm lg:text-lg"
+            class="py-2 px-2 lg:px-4 rounded-full w-full text-sm lg:text-lg"
           >
             Hairfall
           </button>
@@ -50,7 +52,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Bald Patches',
               'bg-slate-300 text-black': selectedCategory !== 'Bald Patches',
             }"
-            class="py-2 px-2 lg:px-4 rounded-full w-full  text-sm lg:text-lg"
+            class="py-2 px-2 lg:px-4 rounded-full w-full text-sm lg:text-lg"
           >
             Bald Patches
           </button>
@@ -73,8 +75,12 @@
               <img :src="product.image" class="w-full" alt="" />
             </div>
             <div class="mt-4 space-y-2">
-              <h3 class="text-black text-base md:text-2xl capitalize">{{ product.name }}</h3>
-              <div class="flex justify-between items-center text-sm sm:text-lg md:text-xl">
+              <h3 class="text-black text-base md:text-2xl capitalize">
+                {{ product.name }}
+              </h3>
+              <div
+                class="flex justify-between items-center text-sm sm:text-lg md:text-xl"
+              >
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
                     ₹{{ product.salePrice }}
@@ -123,7 +129,11 @@
           </a>
         </div>
         <div class="mt-4 text-right md:text-end">
-          <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl">Explore More →</a>
+          <nuxt-link
+            to="/shop"
+            class="text-blue-500 text-lg sm:text-xl md:text-2xl"
+            >Explore More →</nuxt-link
+          >
         </div>
       </div>
     </div>
@@ -232,25 +242,29 @@ export default {
   height: auto; /* Default height for small screens */
 }
 
-@media (min-width: 640px) { /* sm */
+@media (min-width: 640px) {
+  /* sm */
   .responsive-div {
     height: auto; /* Height for small devices */
   }
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
+  /* md */
   .responsive-div {
     height: auto; /* Height for medium devices */
   }
 }
 
-@media (min-width: 1120px) { /* lg */
+@media (min-width: 1120px) {
+  /* lg */
   .responsive-div {
     height: 800px; /* Height for large devices */
   }
 }
 
-@media (min-width: 1280px) { /* xl */
+@media (min-width: 1280px) {
+  /* xl */
   .responsive-div {
     height: 900px; /* Height for extra large devices */
   }

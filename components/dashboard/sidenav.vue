@@ -8,9 +8,11 @@
         class="w-20 h-20 rounded-full border-2 border-gray-200 object-cover"
       />
       <div class="ml-4">
-        <h2 class="font-semibold text-lg text-[#28574e]">{{props.UserData.name}}</h2>
-        <p class="text-sm text-gray-500">{{props.UserData.email}}</p>
-        <p class="text-sm text-gray-500">{{props.UserData.phone}}</p>
+        <h2 class="font-semibold text-lg text-[#28574e]">
+          {{ props.UserData.name }}
+        </h2>
+        <p class="text-sm text-gray-500">{{ props.UserData.email }}</p>
+        <p class="text-sm text-gray-500">{{ props.UserData.phone }}</p>
       </div>
     </div>
 
@@ -19,29 +21,31 @@
       <ul class="space-y-4 text-sm pb-4">
         <li class="font-semibold text-gray-700 bg-[#edf8f3] p-3">DASHBOARD</li>
         <li>
-          <a href="/dashboard/" class="hover:text-[#28574E] text-black p-3"
-            >Dashboard</a
+          <nuxt-link
+            to="/dashboard/"
+            class="hover:text-[#28574E] text-black p-3"
+            >Dashboard</nuxt-link
           >
         </li>
         <li>
-          <a
-            href="/dashboard/orders"
+          <nuxt-link
+            to="/dashboard/orders"
             class="hover:text-[#28574E] text-black p-3"
-            >Orders</a
+            >Orders</nuxt-link
           >
         </li>
         <li>
-          <a
-            href="/dashboard/downloads"
+          <nuxt-link
+            to="/dashboard/downloads"
             class="hover:text-[#28574E] text-black p-3"
-            >Downloads</a
+            >Downloads</nuxt-link
           >
         </li>
         <li>
-          <a
-            href="/dashboard/return"
+          <nuxt-link
+            to="/dashboard/return"
             class="hover:text-[#28574E] text-black p-3"
-            >Return request</a
+            >Return request</nuxt-link
           >
         </li>
 
@@ -49,31 +53,39 @@
           ACCOUNT SETTINGS
         </li>
         <li>
-          <a
-            href="/dashboard/profile"
+          <nuxt-link
+            to="/dashboard/profile"
             class="hover:text-[#28574E] text-black p-3"
-            >Profile</a
+            >Profile</nuxt-link
           >
         </li>
         <li>
-          <a
-            href="/dashboard/address"
+          <nuxt-link
+            to="/dashboard/address"
             class="hover:text-[#28574E] text-black p-3"
-            >Address</a
+            >Address</nuxt-link
           >
         </li>
         <li>
-          <a href="/dashboard/shippingMethod" class="hover:text-[#28574E] text-black p-3"
-            >Shipping methods</a
+          <nuxt-link
+            to="/dashboard/shippingMethod"
+            class="hover:text-[#28574E] text-black p-3"
+            >Shipping methods</nuxt-link
           >
         </li>
         <li>
-          <a href="/dashboard/paymentMethod" class="hover:text-[#28574E] text-black p-3"
-            >Payment Methods</a
+          <nuxt-link
+            to="/dashboard/paymentMethod"
+            class="hover:text-[#28574E] text-black p-3"
+            >Payment Methods</nuxt-link
           >
         </li>
         <li>
-          <a href="/dashboard/reviews" class="hover:text-[#28574E] text-black p-3">Review</a>
+          <nuxt-link
+            to="/dashboard/reviews"
+            class="hover:text-[#28574E] text-black p-3"
+            >Review</nuxt-link
+          >
         </li>
       </ul>
     </nav>
@@ -84,8 +96,8 @@
 const props = defineProps({
   UserData: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 });
 </script>
 

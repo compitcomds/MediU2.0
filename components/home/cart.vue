@@ -33,7 +33,7 @@
       </span>
     </div> -->
     <div class="">
-      <a href="/addToCart" class="relative inline-block">
+      <nuxt-link to="/addToCart" class="relative inline-block">
         <!-- Shopping Cart SVG Icon -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@
         >
           {{ badgeCount }}
         </span>
-      </a>
+      </nuxt-link>
     </div>
     <!-- <div class="">
       <svg
@@ -114,20 +114,20 @@
       >
         <ul class="py-1">
           <li>
-            <a
-              href="/auth/login"
+            <nuxt-link
+              to="/auth/login"
               class="block px-4 py-2 text-black hover:bg-gray-100"
-              >Log In</a
+              >Log In</nuxt-link
             >
           </li>
           <!-- <li>
             <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100">Settings</a>
           </li> -->
           <li>
-            <a
-              href="/auth/register"
+            <nuxt-link
+              to="/auth/register"
               class="block px-4 py-2 text-black hover:bg-gray-100"
-              >Register</a
+              >Register</nuxt-link
             >
           </li>
         </ul>

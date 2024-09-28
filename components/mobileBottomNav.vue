@@ -1,7 +1,7 @@
 <template>
   <div class="block lg:hidden">
     <div class="btm-nav bg-[#28574E] flex justify-center items-center p-4">
-      <a href="/">
+      <nuxt-link to="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -19,8 +19,8 @@
             d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
           />
         </svg>
-      </a>
-      <a href="/shop">
+      </nuxt-link>
+      <nuxt-link to="/shop">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -43,7 +43,7 @@
             d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"
           />
         </svg>
-      </a>
+      </nuxt-link>
       <!-- <ShopUserSidebar /> -->
       <!-- <a href ="/testing"
         exact-active-class="active"
@@ -51,7 +51,7 @@
       >
         <UIcon name="i-heroicons-shopping-cart" class="w-5 h-5" />
       </a > -->
-      <a href="#">
+      <nuxt-link to="#">
         <!-- <UIcon name="i-heroicons-user-circle" class="w-5 h-5" /> -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@
           <circle cx="12" cy="10" r="3" />
           <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
         </svg>
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>

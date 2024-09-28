@@ -1,13 +1,15 @@
 <template>
   <div
     :class="[showNotification ? 'mt- xl:mt-[0px]' : 'mt- xl:mt-[0px]']"
-    class="w-full  z-10  bg-[#537971] text-black"
+    class="w-full z-10 bg-[#537971] text-black"
   >
     <div class="relative bg-white">
       <!-- Main Menu -->
       <ul class="flex justify-center space-x-24 bg-[#537971] text-white py-2">
         <li class="group relative cursor-pointer py-2">
-          <a href="/" class="font-semibold hover:opacity-70 text-xl">Home</a>
+          <nuxt-link to="/" class="font-semibold hover:opacity-70 text-xl"
+            >Home</nuxt-link
+          >
         </li>
 
         <!-- Hair Concerns Menu -->
@@ -15,13 +17,10 @@
           <div class="font-semibold hover:opacity-70 text-xl">Hair</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 
-            transform transition-all duration-500 ease-in-out group-hover:visible 
-            group-hover:opacity-100 group-hover:translate-y-5 -right-[500px] md:-right-[600px] "
+            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5 -right-[500px] md:-right-[600px]"
           >
             <div
-              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3
-               lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
+              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
             >
               <!-- Concerns Related to Hair -->
               <div>
@@ -31,52 +30,52 @@
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Dandruff</a
+                      >Dandruff</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Hairfall</a
+                      >Hairfall</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Hair Thinning</a
+                      >Hair Thinning</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Damaged & Fizzy Hair</a
+                      >Damaged & Fizzy Hair</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Bald Patches</a
+                      >Bald Patches</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Dull Hair</a
+                      >Dull Hair</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Oily Scalp</a
+                      >Oily Scalp</nuxt-link
                     >
                   </li>
                 </ul>
@@ -90,38 +89,38 @@
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-blue-600 hover:underline"
-                      >Minoxidil</a
+                      >Minoxidil</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Redensyl</a
+                      >Redensyl</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Capixyl</a
+                      >Capixyl</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Peptide</a
+                      >Peptide</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Carnitine</a
+                      >Carnitine</nuxt-link
                     >
                   </li>
                 </ul>
@@ -130,41 +129,40 @@
               <!-- Concerns Related to Hair Care -->
               <div>
                 <h2 class="font-bold text-lg mb-4 w-fit text-left">
-                  Hair Care 
+                  Hair Care
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Shampoo</a
+                      >Shampoo</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Conditioner</a
+                      >Conditioner</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Mask</a
+                      >Mask</nuxt-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="/shop"
+                    <nuxt-link
+                      to="/shop"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                      >Serum</a
+                      >Serum</nuxt-link
                     >
                   </li>
                 </ul>
               </div>
 
-              
               <div class="hidden lg:block">
                 <HomeNavSlider />
               </div>
@@ -177,13 +175,10 @@
           <div class="font-semibold hover:opacity-70 text-xl">Skin</div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 
-            transform transition-all duration-500 ease-in-out group-hover:visible 
-            group-hover:opacity-100 group-hover:translate-y-5 lg:-left-72 md:right-32"
+            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5 lg:-left-72 md:right-32"
           >
             <div
-              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3
-               lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
+              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
             >
               <!-- Concerns Related to Hair -->
               <div>
@@ -269,7 +264,6 @@
               <div>
                 <h2 class="font-bold text-lg mb-4 text-left">
                   Select By Ingredients
-                  
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
@@ -327,7 +321,8 @@
               <!-- Concerns Related to Hair Care -->
               <div>
                 <h2 class="font-bold text-lg mb-4 text-left">
-                  Hair Care <hr
+                  Hair Care
+                  <hr />
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
@@ -380,7 +375,7 @@
             </div>
           </div>
         </li>
-<!-- 
+        <!-- 
         <li class="group relative cursor-pointer py-2 ">
           <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl "
             >Baby Care</a
@@ -2290,9 +2285,6 @@
             >Supplements</a
           >
         </li> -->
-
-
-        
       </ul>
     </div>
   </div>
