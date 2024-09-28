@@ -31,7 +31,7 @@
       <!-- Navbar Items -->
       <div
         :class="[
-          'fixed w-full left-0 z-50 shadow bg-[#28574e] hidden lg:block',
+          'fixed w-full left-0  shadow bg-[#28574e] hidden lg:block',
           showNotification ? 'top-[80px] lg:top-[120px]' : 'top-[80px]',
           { 'navbar-hidden': !isNavbarVisible },
         ]"

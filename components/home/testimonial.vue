@@ -110,6 +110,11 @@ export default {
     return {
       testimonials: [
         {
+          name: "Ravi Jain",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/ravi%20jain.jpg",
+          text: "Finding a reliable healthcare provider can be difficult. However, the doctors here are not only highly skilled but also exceptionally attentive.",
+        },
+        {
           name: "Dipesh Sharma",
           photo: "https://ccdstest.b-cdn.net/Medi%20u/IMG_20240907_140115.jpg",
           text: "I've had a wonderful experience with this medical practice. The facility is clean and modern, and the staff is both knowledgeable and kind.",
@@ -126,18 +131,14 @@ export default {
         },
         {
           name: "Archit Jain",
-          photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
-          text: "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
+          photo: "https://www.compitcom.com/_nuxt/archit.D0UjA87Z.png",
+          text: "It can be tough to find a dependable medical provider, but the doctors here are both highly proficient and remarkably caring.",
         },
+        
         {
-          name: "Ravi Jain",
-          photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
-          text: "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
-        },
-        {
-          name: "Usha tiwari",
-          photo: "https://ccdstest.b-cdn.net/Medi%20u/images.jpeg",
-          text: "Finding a trustworthy medical provider can be challenging. The doctors here are not only highly skilled but also incredibly attentive.",
+          name: "Rahul Soni",
+          photo: "https://www.compitcom.com/_nuxt/rahul.DWItOIZd.jpg",
+          text: "Locating a trustworthy healthcare provider isn't always easy, but the doctors here are not only extremely competent but also deeply attentive to their patients.",
         },
       ],
     };
