@@ -7,12 +7,12 @@
           <label class="flex justify-start items-center mt-2">
             <input
               type="checkbox"
-              :value="item"
+              :value="item.value"
               v-model="selectedTypeOfProducts"
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item }}</p>
+            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -25,12 +25,12 @@
           <label class="flex justify-start items-center mt-2">
             <input
               type="checkbox"
-              :value="item"
+              :value="item.value"
               v-model="selectedSkinConcern"
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item }}</p>
+            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -43,12 +43,12 @@
           <label class="flex justify-start items-center mt-2">
             <input
               type="checkbox"
-              :value="item"
+              :value="item.value"
               v-model="selectedHairConcern"
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item }}</p>
+            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -61,12 +61,12 @@
           <label class="flex justify-start items-center mt-2">
             <input
               type="checkbox"
-              :value="item"
+              :value="item.value"
               v-model="selectedNutrionAndDiet"
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item }}</p>
+            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -79,12 +79,12 @@
           <label class="flex justify-start items-center mt-2">
             <input
               type="checkbox"
-              :value="item"
+              :value="item.value"
               v-model="selectedPediatric"
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item }}</p>
+            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -97,12 +97,12 @@
           <label class="flex justify-start items-center mt-2">
             <input
               type="checkbox"
-              :value="item"
+              :value="item.value"
               v-model="selectedIngredent"
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item }}</p>
+            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -116,14 +116,41 @@ import { ref } from "vue";
 const router = useRouter();
 const route = useRoute();
 
-const shopStore = useShopStore();
+const TypeOfProducts = [
+  { name: "Product Type 1", value: "product-type-1" },
+  { name: "Product Type 2", value: "product-type-2" },
+  { name: "Product Type 3", value: "product-type-3" },
+];
 
-const TypeOfProducts = ["Product Type 1", "Product Type 2", "Product Type 3"];
-const SkinConcern = ["Concern 1", "Concern 2", "Concern 3"];
-const HairConcern = ["Hair Concern 1", "Hair Concern 2", "Hair Concern 3"];
-const NutrionAndDiet = ["Diet 1", "Diet 2", "Diet 3"];
-const Pediatric = ["Pediatric 1", "Pediatric 2", "Pediatric 3"];
-const Ingredent = ["Ingredient 1", "Ingredient 2", "Ingredient 3"];
+const SkinConcern = [
+  { name: "Concern 1", value: "concern-1" },
+  { name: "Concern 2", value: "concern-2" },
+  { name: "Concern 3", value: "concern-3" },
+];
+
+const HairConcern = [
+  { name: "Hair Concern 1", value: "hair-concern-1" },
+  { name: "Hair Concern 2", value: "hair-concern-2" },
+  { name: "Hair Concern 3", value: "hair-concern-3" },
+];
+
+const NutrionAndDiet = [
+  { name: "Diet 1", value: "diet-1" },
+  { name: "Diet 2", value: "diet-2" },
+  { name: "Diet 3", value: "diet-3" },
+];
+
+const Pediatric = [
+  { name: "Pediatric 1", value: "pediatric-1" },
+  { name: "Pediatric 2", value: "pediatric-2" },
+  { name: "Pediatric 3", value: "pediatric-3" },
+];
+
+const Ingredent = [
+  { name: "Ingredient 1", value: "ingredient-1" },
+  { name: "Ingredient 2", value: "ingredient-2" },
+  { name: "Ingredient 3", value: "ingredient-3" },
+];
 
 const selectedTypeOfProducts = ref(
   ifStringMakeArray(route?.query?.selectedTypeOfProducts)
@@ -155,8 +182,6 @@ const updateQueryParams = () => {
   };
 
   router.push({ path: route.path, query: { ...route.query, ...query } });
-
-  shopStore.updateShopifyProductsQuery(convertQueryParamsToQueryString(query));
 };
 </script>
 

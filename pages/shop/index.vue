@@ -17,10 +17,20 @@
 import { fetchProducts } from "~/shopify/products";
 // import { getFilters } from "~/shopify/productFilters";
 
-const data = await fetchProducts({ query: "" });
-// const { filters } = await getFilters();
-// console.log(filters);
-// const isDrawerOpen = ref(false);
-// let currentPage = 1;
-// const perPage = 30;
+const route = useRoute();
+
+const data = useState("data", () => ({
+  products: [],
+}));
+
+watch(
+  () => route.query,
+  async (newQuery) => {
+    const queryString = convertQueryParamsToQueryString(newQuery);
+    const newData = await fetchProducts({ query: queryString });
+    console.log(queryString, newData);
+    data.value = newData;
+  },
+  { immediate: true }
+);
 </script>
