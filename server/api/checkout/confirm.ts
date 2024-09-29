@@ -1,28 +1,41 @@
 import { defineEventHandler } from "h3";
-import axios from "axios";
 import getCartDataForCheckout from "~/shopify/cart/get-cart-data-for-checkout";
+import { getOrderDocumentThroughTransactionId } from "~/appwrite/orders";
+import resetCart from "~/shopify/cart/reset-cart";
 
-const SHOPIFY_URL = `https://${process.env.NEXT_PUBLIC_STORE_DOMAIN}/admin/api/${process.env.SHOPIFY_ADMIN_API_VERSION}`;
-const SHOPIFY_ADMIN_ACCESS_TOKEN = String(
-  process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN
+const SHOPIFY_URL = `https://dev-mediu.myshopify.com/admin/api/2024-04`;
+const SHOPIFY_ADMIN_ACCESS_TOKEN = "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";
+const PHONEPAY_REDIRECT_SUCCESS_URL = String(
+  process.env.PHONEPAY_REDIRECT_SUCCESS_URL
+);
+const PHONEPAY_REDIRECT_ERROR_URL = String(
+  process.env.PHONEPAY_REDIRECT_ERROR_URL
 );
 
 export default defineEventHandler(async (event) => {
-  console.log(
-    "######################################################################"
-  );
-  console.log("Running checkout confirmation...");
-  const body = await readBody(event);
-  console.log(body);
+  try {
+    const body = await readBody(event);
+    if (body.code !== "PAYMENT_SUCCESS") throw new Error("Payment failed...");
+    const transactionId = body.transactionId;
+
+    if (!transactionId) throw new Error("Invalid confirmation.");
+    const { documents, total } = await getOrderDocumentThroughTransactionId(
+      transactionId
+    );
+    if (total === 0) throw new Error("Invalid order.");
+
+    await processOrder(documents[0].shopifyCartId);
+
+    return sendRedirect(event, PHONEPAY_REDIRECT_SUCCESS_URL);
+  } catch (error) {
+    return sendRedirect(event, PHONEPAY_REDIRECT_ERROR_URL);
+  }
 });
 
-async function processOrder(paymentObject: any) {
-  if (!paymentObject) return new Response("404", { status: 404 });
-
-  const cartId = paymentObject.metadata.cartId;
+async function processOrder(cartId: string) {
   if (!cartId) return new Response("404", { status: 404 });
 
-  const cartData: any = {};
+  const cartData: any = await getCartDataForCheckout(cartId);
 
   if (!cartData) return new Response("Invalid cart value.", { status: 400 });
 
@@ -51,9 +64,13 @@ async function processOrder(paymentObject: any) {
     ],
     total_tax: `${totalAmount.amount - subtotalAmount.amount}`,
     customer: {
-      first_name: buyerIdentity.customer.firstName,
-      last_name: buyerIdentity.customer.lastName,
-      email: buyerIdentity.customer.email,
+      first_name:
+        buyerIdentity?.customer?.firstName ||
+        billing_and_shipping_address.first_name,
+      last_name:
+        buyerIdentity?.customer?.lastName ||
+        billing_and_shipping_address.last_name,
+      email: buyerIdentity.customer?.email || buyerIdentity.email,
     },
 
     billing_address: billing_and_shipping_address,
@@ -92,8 +109,8 @@ async function processOrder(paymentObject: any) {
     }),
   });
 
-  //   await resetCart(
-  //     cartId,
-  //     items.map((item) => item.lineId)
-  //   );
+  await resetCart(
+    cartId,
+    items.map((item: any) => item.lineId)
+  );
 }

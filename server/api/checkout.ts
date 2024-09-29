@@ -3,6 +3,7 @@ import axios from "axios";
 import crypto from "crypto";
 import { v4 as uuidv4 } from "uuid";
 import getCartDataForCheckout from "~/shopify/cart/get-cart-data-for-checkout";
+import { createOrderDocument } from "~/appwrite/orders";
 
 const PHONEPAY_API_URL = process.env.PHONEPAY_API_URL;
 const PHONEPAY_API_KEY = process.env.PHONEPAY_API_KEY;
@@ -13,7 +14,7 @@ const PHONEPAY_PAYMENT_CALLBACK_URL = process.env.PHONEPAY_PAYMENT_CALLBACK_URL;
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const cartId = body.cart;
-
+  const userId = body.userId;
   try {
     if (!PHONEPAY_API_KEY || !PHONEPAY_API_URL) {
       return { error: "Missing environment variables" };
@@ -29,16 +30,17 @@ export default defineEventHandler(async (event) => {
     const data = {
       merchantId: MERCHANT_ID,
       merchantTransactionId: transactionId,
-      merchantUserId:
-        cartData.buyerIdentity.email || cartData.buyerIdentity.customer.email,
+      merchantUserId: userId,
       name: `${cartData.buyerIdentity.deliveryAddressPreferences[0].firstName} ${cartData.buyerIdentity.deliveryAddressPreferences[0].lastName}`,
       amount: cartData.totalAmount.amount * 100,
-      redirectUrl: "http://localhost:3000/checkout",
-      redirectMode: "REDIRECT",
-      callbackUrl: PHONEPAY_PAYMENT_CALLBACK_URL,
+      redirectUrl: "http://localhost:3000/api/checkout/confirm",
+      redirectMode: "POST",
+      callbackUrl: "http://localhost:3000/api/checkout/confirm",
       mobileNumber: cartData.buyerIdentity.deliveryAddressPreferences[0].phone,
       paymentInstrument: { type: "PAY_PAGE" },
     };
+
+    if (data.amount <= 0) throw new Error("Amount can't be zero.");
 
     const payload = JSON.stringify(data);
     const payloadMain = Buffer.from(payload).toString("base64");
@@ -56,6 +58,12 @@ export default defineEventHandler(async (event) => {
         "X-VERIFY": checksum,
       },
       data: { request: payloadMain },
+    });
+
+    await createOrderDocument({
+      userId,
+      transactionId,
+      shopifyCartId: cartId,
     });
 
     const instrumentResponse = await apiResponse.data.data.instrumentResponse;

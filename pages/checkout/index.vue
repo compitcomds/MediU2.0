@@ -59,7 +59,7 @@
               required
             />
             <!-- <input type="text" v-model="shipping.apartment" placeholder="Apartment, suite, etc. (optional)"
-                            class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
+                              class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
             <div class="grid md:grid-cols-3 gap-4">
               <input
                 type="text"
@@ -237,8 +237,8 @@
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
               />
               <!-- <input type="text" v-model="billing.apartment"
-                                placeholder="Apartment, suite, etc. (optional)"
-                                class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
+                                  placeholder="Apartment, suite, etc. (optional)"
+                                  class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
               <div class="grid md:grid-cols-3 gap-4">
                 <input
                   type="text"
@@ -323,21 +323,22 @@
 
 <script setup>
 import axios from "axios";
+import { getUser } from "~/appwrite/auth";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 
 const contact = ref("");
-const email = ref("");
+const email = ref("v@gmail.com");
 
 const shipping = ref({
-  firstName: "",
-  lastName: "",
-  address: "",
+  firstName: "a",
+  lastName: "b",
+  address: "5/145 Malviya Nagar",
   apartment: "",
-  city: "",
-  state: "",
-  pinCode: "",
-  phone: "",
-  country: "",
+  city: "Jaipur",
+  state: "Rajasthan",
+  pinCode: "302017",
+  phone: "8302320275",
+  country: "India",
 });
 
 const billingAddressOption = ref("same");
@@ -415,10 +416,12 @@ const addUserIdentityToCart = async () => {
 const submitOrder = async () => {
   try {
     const userCartId = await userStore.getShopifyCartId();
+    const appwriteUser = await getUser();
     await addUserIdentityToCart();
 
     const { data } = await axios.post("/api/checkout", {
       cart: userCartId,
+      userId: appwriteUser.$id,
     });
     if (data?.url) {
       window.location.href = data.url;
