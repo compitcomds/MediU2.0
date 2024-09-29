@@ -2,7 +2,8 @@
   <div class="min-h-screen bg-gray-100 py-8 px-4 md:px-16 mb-20 lg:mb-0">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
       <!-- Scrollable Form Section -->
-      <div
+      <form
+        @submit.prevent="submitOrder"
         class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg h-full overflow-y-auto"
       >
         <!-- Contact Section -->
@@ -11,9 +12,10 @@
           <div class="flex flex-col space-y-2">
             <input
               type="text"
-              v-model="contact"
-              placeholder="Email or mobile phone number"
+              v-model="email"
+              placeholder="Email"
               class="w-full p-3 border border-gray-300 rounded-lg bg-white"
+              required
             />
             <label class="flex items-center space-x-2 text-sm">
               <input type="checkbox" class="custom-checkbox" />
@@ -32,12 +34,14 @@
                 v-model="shipping.firstName"
                 placeholder="First name (optional)"
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                required
               />
               <input
                 type="text"
                 v-model="shipping.lastName"
                 placeholder="Last name"
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                required
               />
             </div>
             <input
@@ -45,6 +49,14 @@
               v-model="shipping.address"
               placeholder="Address"
               class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+              required
+            />
+            <input
+              type="text"
+              v-model="shipping.phone"
+              placeholder="Phone"
+              class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+              required
             />
             <!-- <input type="text" v-model="shipping.apartment" placeholder="Apartment, suite, etc. (optional)"
                             class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
@@ -54,20 +66,30 @@
                 v-model="shipping.city"
                 placeholder="City"
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                required
               />
               <input
                 type="text"
                 v-model="shipping.state"
                 placeholder="State"
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                required
               />
               <input
                 type="text"
                 v-model="shipping.pinCode"
                 placeholder="PIN code"
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                required
               />
             </div>
+            <input
+              type="text"
+              v-model="shipping.country"
+              placeholder="Country"
+              class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+              required
+            />
             <label class="flex items-center space-x-2 text-sm">
               <input type="checkbox" class="custom-checkbox" />
               <span>Save this information for next time</span>
@@ -243,12 +265,12 @@
 
         <!-- Pay Now Button -->
         <button
-          @click="submitOrder"
+          type="submit"
           class="w-full bg-[#28574e] text-white py-3 rounded-lg font-semibold hover:bg-[#70ccbb] transition duration-200"
         >
           Pay now
         </button>
-      </div>
+      </form>
 
       <!-- Order Summary Section -->
       <div
@@ -299,82 +321,117 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import axios from "axios";
+import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 
-export default {
-  data() {
-    return {
-      contact: "",
-      shipping: {
-        firstName: "",
-        lastName: "",
-        address: "",
-        apartment: "",
-        city: "",
-        state: "",
-        pinCode: "",
-      },
-      billingAddressOption: "same",
-      billing: {
-        firstName: "",
-        lastName: "",
-        address: "",
-        apartment: "",
-        city: "",
-        state: "",
-        pinCode: "",
-      },
-      products: [
-        {
-          id: 1,
-          name: "Bontess Pro",
-          price: 1225,
-          image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
-        },
-        // Additional products can be added here
-      ],
-      shippingCost: 50, // Example shipping cost
+const contact = ref("");
+const email = ref("");
+
+const shipping = ref({
+  firstName: "",
+  lastName: "",
+  address: "",
+  apartment: "",
+  city: "",
+  state: "",
+  pinCode: "",
+  phone: "",
+  country: "",
+});
+
+const billingAddressOption = ref("same");
+
+const billing = ref({
+  firstName: "",
+  lastName: "",
+  address: "",
+  apartment: "",
+  city: "",
+  state: "",
+  pinCode: "",
+});
+
+const products = ref([
+  {
+    id: 1,
+    name: "Bontess Pro",
+    price: 1225,
+    image:
+      "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+  },
+]);
+
+const shippingCost = ref(50); // Example shipping cost
+
+const shippingDetails = computed(() => {
+  return `${shipping.value.address}, ${shipping.value.apartment}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
+});
+
+const subtotal = computed(() => {
+  return products.value.reduce((total, product) => total + product.price, 0);
+});
+
+const total = computed(() => {
+  return subtotal.value + shippingCost.value;
+});
+
+watch(billingAddressOption, (newVal) => {
+  if (newVal === "same") {
+    billing.value = { ...shipping.value };
+  } else {
+    billing.value = {
+      firstName: "",
+      lastName: "",
+      address: "",
+      apartment: "",
+      city: "",
+      state: "",
+      pinCode: "",
     };
-  },
-  computed: {
-    // Computed property to return shipping details as a formatted string
-    shippingDetails() {
-      return `${this.shipping.address}, ${this.shipping.apartment}, ${this.shipping.city}, ${this.shipping.state} - ${this.shipping.pinCode}`;
-    },
-    subtotal() {
-      return this.products.reduce((total, product) => total + product.price, 0);
-    },
-    total() {
-      return this.subtotal + this.shippingCost;
-    },
-  },
-  watch: {
-    // Watch the billingAddressOption to sync data
-    billingAddressOption(newVal) {
-      if (newVal === "same") {
-        // Copy shipping info to billing info
-        this.billing = { ...this.shipping };
-      } else {
-        // Clear billing info
-        this.billing = {
-          firstName: "",
-          lastName: "",
-          address: "",
-          apartment: "",
-          city: "",
-          state: "",
-          pinCode: "",
-        };
-      }
-    },
-  },
-  methods: {
-    async submitOrder() {
-      await axios.post("/api/checkout", {});
-    },
-  },
+  }
+});
+
+const userStore = useUserStore();
+
+const addUserIdentityToCart = async () => {
+  const cartId = await userStore.getShopifyCartId();
+  const userEmail = email.value;
+  const { firstName, lastName, address, city, phone, pinCode, state, country } =
+    shipping.value;
+  await updateCartBuyerDetails(cartId, userEmail, {
+    firstName,
+    lastName,
+    address1: address,
+    city,
+    province: state,
+    country,
+    phone,
+    zip: pinCode,
+  });
+};
+
+// Submit order function
+const submitOrder = async () => {
+  try {
+    const userCartId = await userStore.getShopifyCartId();
+    await addUserIdentityToCart();
+
+    const { data } = await axios.post("/api/checkout", {
+      cart: userCartId,
+    });
+    if (data?.url) {
+      window.location.href = data.url;
+      return;
+    }
+
+    throw new Error(
+      "Some error occured while processing the details. Please try again later."
+    );
+  } catch (error) {
+    alert(error.message);
+    console.error(error);
+  }
 };
 </script>
 

@@ -1,4 +1,4 @@
-import { type CartItemType } from "~/shopify/cart/types";
+import { type CartItemType } from "~/shopify/_types/cart";
 
 export default function convertCartLinesToCartItemType(
   nodes: Array<any>

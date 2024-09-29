@@ -1,5 +1,6 @@
 import shopifyClient from "../shopify-client";
 import { type CartItemType } from "../_types/cart";
+import convertCartLinesToCartItemType from "~/utils/convertCartLinesToCartItemType";
 
 const getCartDataQuery = `
 query getCartData($cartId: ID!) {
@@ -7,6 +8,16 @@ query getCartData($cartId: ID!) {
     checkoutUrl
     id
     note
+    discountCodes {
+      applicable
+      code
+    }
+    discountAllocations {
+      discountedAmount {
+        amount
+        currencyCode
+      }
+    }
     buyerIdentity {
       email
       customer {
@@ -37,10 +48,6 @@ query getCartData($cartId: ID!) {
         currencyCode
       }
       totalAmount {
-        amount
-        currencyCode
-      }
-      totalDutyAmount {
         amount
         currencyCode
       }
@@ -81,14 +88,20 @@ query getCartData($cartId: ID!) {
 }
 `;
 
-export async function getCartDataThroughCartId(cartId: string): Promise<
+export default async function getCartDataForCheckout(cartId: string): Promise<
   | {
       items: CartItemType[];
       checkoutUrl: string;
       note: string;
       subtotalAmount: { amount: number; currencyCode: string };
-      totalDutyAmount: { amount: number; currencyCode: string };
       totalAmount: { amount: number; currencyCode: string };
+      discountCodes: Array<{ applicable: boolean; code: string }>;
+      discountAllocations: Array<{
+        discountedAmount: {
+          amount: string;
+          currencyCode: string;
+        };
+      }>;
       buyerIdentity: {
         email: string;
         customer: {
@@ -115,10 +128,9 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
   | null
   | undefined
 > {
-  const { data, errors } = await shopifyClient.request(getCartDataQuery, {
+  const { data } = await shopifyClient.request(getCartDataQuery, {
     variables: { cartId },
   });
-
   if (data?.cart) {
     const items: Array<CartItemType> = [];
     items.push(...convertCartLinesToCartItemType(data.cart.lines.nodes));
@@ -126,19 +138,11 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
       items,
       checkoutUrl: data.cart.checkoutUrl,
       subtotalAmount: data.cart.cost.subtotalAmount,
-      totalDutyAmount: data.cart.cost.totalDutyAmount,
       totalAmount: data.cart.cost.totalAmount,
       buyerIdentity: data.cart.buyerIdentity,
       note: data.cart.note || "",
+      discountCodes: data.cart.discountCodes,
+      discountAllocations: data.cart.discountAllocations,
     };
   }
-
-  throw new Error(
-    "Unable to fetch the cart. Try logging in the error from shopifyClient.request to see what might have happened."
-  );
-}
-
-export default async function getCartData() {
-  const cartId = await useUserStore().getShopifyCartId();
-  return await getCartDataThroughCartId(cartId);
 }
