@@ -17,8 +17,8 @@
                 class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
               >
             </div>
-            <div class="w-full flex space-x-5">
-            <div class="mb-4 w-full">
+            
+            <div class="mb-4">
               <label for="sex" class="block text-sm font-medium text-gray-700">Sex</label>
               <select 
                 id="sex" 
@@ -32,7 +32,7 @@
               </select>
             </div>
   
-            <div class="mb-4 w-full">
+            <div class="mb-4">
               <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
               <input 
                 type="number" 
@@ -41,10 +41,10 @@
                 required 
                 class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
               >
-            </div></div>
-  <div class="w-full flex space-x-5">
+            </div>
+  
             <!-- Conditional Pregnancy Status Field -->
-            <div v-if="showConditionalFields" class="mb-4 w-full">
+            <div v-if="showConditionalFields" class="mb-4">
               <label for="pregnancyStatus" class="block text-sm font-medium text-gray-700">Pregnancy Status</label>
               <select 
                 id="pregnancyStatus" 
@@ -59,7 +59,7 @@
             </div>
   
             <!-- Conditional Breastfeeding Field -->
-            <div v-if="showConditionalFields" class="mb-4 w-full">
+            <div v-if="showConditionalFields" class="mb-4">
               <label for="breastfeeding" class="block text-sm font-medium text-gray-700">Breastfeeding</label>
               <select 
                 id="breastfeeding" 
@@ -72,20 +72,20 @@
                 <option value="no">No</option>
               </select>
             </div>
-        </div>
-            <button 
-              type="submit" 
+  
+            <nuxt-link to="/self_assissment/concern_about"
+               
               class="w-full text-right flex items-center space-x-2 justify-end text-[#28574e] py-3 rounded-md transition duration-300 font-semibold"
             >
               <p class="text-lg">Next Page</p>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
-            </button>
+            </nuxt-link>
           </form>
         </div>
         
         <!-- Illustration Section -->
         <div class="hidden lg:flex items-center justify-center w-1/2">
-          <img src="https://placehold.co/600x300" alt="Form Illustration" class="w-full h-[500px]">
+          <img src="https://placehold.co/600x400" alt="Form Illustration" class="w-full h-[500px]">
         </div>
       </div>
     </div>
