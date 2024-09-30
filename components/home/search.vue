@@ -3,13 +3,13 @@
     :class="[showNotification ? 'top-0 xl:top-0' : 'top-0']"
     class="flex sticky z-50 bg-white inset-x-0 justify-between items-center border-b border-gray-300 h-20 px-1 lg:px-6 transition-all duration-300"
   >
-    <a href="/" class="flex items-center w-3/12">
+    <nuxt-link to="/" class="flex items-center w-3/12">
       <img
         src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png"
-        class="w-auto "
+        class="w-auto"
         alt="Logo"
       />
-    </a>
+    </nuxt-link>
     <form
       @submit.prevent="submitForm"
       class="group relative rounded-md w-6/12 h-[40px] xl:h-[50px] flex justify-center"

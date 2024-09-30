@@ -4,7 +4,7 @@
     <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
       <p>
         Hello <span class="font-bold text-green-600">John Doe</span> (not John
-        Doe? <a href="#" class="text-blue-500">Log out</a>)
+        Doe? <nuxt-link to="#" class="text-blue-500">Log out</nuxt-link>)
       </p>
       <p class="text-sm text-gray-500">
         From your account dashboard, you can view your recent orders, manage

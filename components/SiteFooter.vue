@@ -37,10 +37,12 @@
               />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <a href="https://www.google.com/maps/search/?api=1&query=F-97+MSS+COLONY,+SHASTRI+NAGAR,+Jaipur,+Rajasthan,+302016" class="hover:underline">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=F-97+MSS+COLONY,+SHASTRI+NAGAR,+Jaipur,+Rajasthan,+302016"
+              class="hover:underline"
+            >
               F-97, MSS COLONY, SHASTRI NAGAR, Jaipur, Rajasthan, 302016
             </a>
-            
           </li>
           <li class="flex items-center space-x-2">
             <svg
@@ -106,20 +108,20 @@
         </ul>
         <div class="mt-4">
           <h2 class="font-semibold lg:text-lg xl:text-xl my-4">Download App</h2>
-          <a href="#" class="mr-4">
+          <nuxt-link to="#" class="mr-4">
             <img
               src="https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(2).png"
               alt="App Store"
               class="w-32 inline-block"
             />
-          </a>
-          <a href="#">
+          </nuxt-link>
+          <nuxt-link to="#">
             <img
               src="https://ccdstest.b-cdn.net/Medi%20u/image%2010.png"
               alt="Google Play"
               class="w-32 inline-block"
             />
-          </a>
+          </nuxt-link>
         </div>
       </div>
       <!-- <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
@@ -147,23 +149,23 @@
         <ul class="space-y-2 lg:text-base xl:text-lg">
           <!-- <li class="list-disc"><a href="/" class="hover:underline">About Us</a></li> -->
           <li class="list-disc">
-            <a href="/legal/termsAndCondition" class="hover:underline"
-              >Terms & Conditions</a
+            <nuxt-link to="/legal/termsAndCondition" class="hover:underline"
+              >Terms & Conditions</nuxt-link
             >
           </li>
           <li class="list-disc">
-            <a href="/legal/refundPolicy" class="hover:underline"
-              >Refund Policy</a
+            <nuxt-link to="/legal/refundPolicy" class="hover:underline"
+              >Refund Policy</nuxt-link
             >
           </li>
           <li class="list-disc">
-            <a href="/legal/privacyPolicy" class="hover:underline"
-              >Privacy Policy</a
+            <nuxt-link to="/legal/privacyPolicy" class="hover:underline"
+              >Privacy Policy</nuxt-link
             >
           </li>
           <li class="list-disc">
-            <a href="/legal/shipingPolicy" class="hover:underline"
-              >Shiping Policy</a
+            <nuxt-link to="/legal/shipingPolicy" class="hover:underline"
+              >Shiping Policy</nuxt-link
             >
           </li>
           <!-- <li class="list-disc">
@@ -175,9 +177,9 @@
 
     <div class="container mx-auto text-center mt-8">
       <div class="h-0.5 w-full bg-slate-500 mb-4"></div>
-      <a class="text-sm"
+      <nuxt-link to="#" class="text-sm"
         >© 2024 All rights reserved. DCLARIO TECHNOLOGIES INDIA PRIVATE
-        LIMITED</a
+        LIMITED</nuxt-link
       >
     </div>
   </footer>

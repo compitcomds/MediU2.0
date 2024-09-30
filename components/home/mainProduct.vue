@@ -36,8 +36,8 @@
                 :key="subIndex"
               >
                 <div class="flex items-center border-b py-3 gap-2">
-                  <a
-                    :href="`/subcategory/${subCategory.slug}`"
+                  <nuxt-link
+                    :to="`/subcategory/${subCategory.slug}`"
                     class="flex hover:text-blue-500 hover:underline"
                   >
                     <span>
@@ -57,7 +57,7 @@
                       </svg>
                     </span>
                     {{ subCategory.name }}
-                  </a>
+                  </nuxt-link>
                 </div>
               </li>
             </ul>
