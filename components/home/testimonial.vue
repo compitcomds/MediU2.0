@@ -116,7 +116,7 @@ export default {
         },
         {
           name: "Dipesh Sharma",
-          photo: "https://ccdstest.b-cdn.net/Medi%20u/IMG_20240907_140115.jpg",
+          photo: "https://ccdstest.b-cdn.net/Medi%20u/dipesh.jpg",
           text: "I've had a wonderful experience with this medical practice. The facility is clean and modern, and the staff is both knowledgeable and kind.",
         },
         {

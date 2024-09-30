@@ -12,7 +12,7 @@
           <input
             type="text"
             placeholder="Search..."
-            class="w-full px-4 py-2 md:py-3 pl-10 border rounded-full focus:outline-none bg-white text-black shadow-md transition duration-300 ease-in-out focus:shadow-lg"
+            class="w-full px-4 py-2 md:py-3 pl-10 border rounded-full focus:outline-none bg-white text-black transition duration-300 ease-in-out "
           />
           <div class="absolute left-4 text-gray-500">
             <!-- Search Icon -->
