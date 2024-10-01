@@ -39,7 +39,9 @@
               {{ order.totalPrice.amount }}
             </td>
             <td>
-              <nuxt-link to="#" class="text-green-600 hover:underline"
+              <nuxt-link
+                :to="`/dashboard/orders/${order.orderNumber}`"
+                class="text-green-600 hover:underline"
                 >View</nuxt-link
               >
             </td>

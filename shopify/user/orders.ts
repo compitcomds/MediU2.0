@@ -13,6 +13,12 @@ query getAllUserOrders($accessToken: String!) {
           currencyCode
         }
         orderNumber
+        lineItems(first: 100) {
+          nodes {
+            title
+            quantity
+          }
+        }
       }
     }
   }
@@ -34,6 +40,17 @@ export async function getAllUserOrders() {
       processedAt: string;
       totalPrice: { amount: string; currencyCode: string };
       orderNumber: string;
+      lineItems: { nodes: Array<{ title: string; quantity: number | string }> };
     }>;
   return [];
+}
+
+export async function getUserOrder(orderNumber: string) {
+  const orders = await getAllUserOrders();
+  const foundOrder = orders.find((order) => order.orderNumber == orderNumber);
+
+  if (foundOrder)
+    return { ...foundOrder, lineItems: foundOrder.lineItems.nodes };
+
+  throw new Error("Unable to find the order with the given order number.");
 }
