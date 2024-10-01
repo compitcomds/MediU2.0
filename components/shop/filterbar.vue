@@ -123,15 +123,26 @@ const TypeOfProducts = [
 ];
 
 const SkinConcern = [
-  { name: "Concern 1", value: "concern-1" },
-  { name: "Concern 2", value: "concern-2" },
-  { name: "Concern 3", value: "concern-3" },
+  { name: "Acne & Acne Scar", value: "acne-and-ance-scar" },
+  { name: "Aging", value: "aging" },
+  { name: "Dehydration", value: "dehydration" },
+  { name: "Damaged & Sensitive Skin", value: "damaged-and-sensitive-skin" },
+  { name: "Under Eye Darkness", value: "under-eye-darkness" },
+  { name: "Under Arm Darkness", value: "under-arm-darkness" },
+  { name: "Stretch Marks", value: "stretch-marks" },
+  { name: "Pigmentation", value: "pigmentation" },
+  { name: "Oiliness", value: "oiliness" },
+  { name: "Lip (Cracked/Darkness)", value: "lip-cracked-or-darkness" },
 ];
 
 const HairConcern = [
-  { name: "Hair Concern 1", value: "hair-concern-1" },
-  { name: "Hair Concern 2", value: "hair-concern-2" },
-  { name: "Hair Concern 3", value: "hair-concern-3" },
+  { name: "Dandruff", value: "dandruff" },
+  { name: "Hairfall", value: "hairfall" },
+  { name: "Hair Thinning", value: "hair-thinning" },
+  { name: "Damaged & Fizzy Hair", value: "damaged-and-fizzy-hair" },
+  { name: "Bald Patches", value: "bald-patches" },
+  { name: "Dull Hair", value: "dull-hair" },
+  { name: "Oily Scalp", value: "oily-scalp" },
 ];
 
 const NutrionAndDiet = [
