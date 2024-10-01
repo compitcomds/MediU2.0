@@ -1,15 +1,15 @@
 <template>
   <div class="w-full mx-auto px-10 flex flex-col lg:py-10 mb-16 lg:mb-0">
     <div class="p-6 rounded-lg text-left">
-      <h1 class="text-3xl font-semibold text-black">
-        Hii <span class="text-yellow-500 capitalize">{{ name }}</span>, by analyzing your condition, we recomended the health care medicines...
+      <h1 class="text-2xl font-semibold text-black">
+        Hii <span class="text-yellow-500 capitalize">{{ name }}</span>, by analyzing your condition, we recomended the health care medicines for your cure...
       </h1>
     </div>
-    <div class="p-6 rounded-lg">
+    <!-- <div class="p-6 rounded-lg">
       <h1 class="text-3xl text-black">
         These are the medicines 
       </h1>
-    </div>
+    </div> -->
 
     <div class="my-2">
       <div v-if="problemDetails.length" class="text-xl font-bold mb-4 px-6">
