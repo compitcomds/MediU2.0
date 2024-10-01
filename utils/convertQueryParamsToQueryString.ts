@@ -9,7 +9,7 @@ export default function convertQueryParamsToQueryString(query: any) {
   ];
 
   let shopifyQuery = "";
-
+  let index = 0;
   for (const tag of availableTypeOfTags) {
     let miniQuery = "";
     const selectedTags = ifStringMakeArray(query[tag]);
@@ -20,6 +20,7 @@ export default function convertQueryParamsToQueryString(query: any) {
     }
 
     shopifyQuery += miniQuery + " AND ";
+    index++;
   }
 
   return shopifyQuery;

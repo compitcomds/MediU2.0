@@ -1,6 +1,9 @@
 <template>
   <div class="mt-3">
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <!-- <div
+      v-if="!!props.hideProductType"
+      class="me-2 mb-4 py-2 px-2 m-2 rounded-md border"
+    >
       <div class="text-xl font-medium">Type of Products</div>
       <div class="p-3">
         <div v-for="(item, index) in TypeOfProducts" :key="index">
@@ -16,7 +19,7 @@
           </label>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
       <div class="text-xl font-medium">Skin Concern</div>
@@ -116,11 +119,18 @@ import { ref } from "vue";
 const router = useRouter();
 const route = useRoute();
 
-const TypeOfProducts = [
-  { name: "Product Type 1", value: "product-type-1" },
-  { name: "Product Type 2", value: "product-type-2" },
-  { name: "Product Type 3", value: "product-type-3" },
-];
+const props = defineProps({
+  hideProductType: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+// const TypeOfProducts = [
+//   { name: "Hair", value: "hair" },
+//   { name: "Skin", value: "skin" },
+//   { name: "Baby Care", value: "baby-care" },
+// ];
 
 const SkinConcern = [
   { name: "Acne & Acne Scar", value: "acne-and-ance-scar" },
@@ -184,7 +194,6 @@ const selectedIngredent = ref(
 
 const updateQueryParams = () => {
   const query = {
-    selectedTypeOfProducts: selectedTypeOfProducts.value,
     selectedSkinConcern: selectedSkinConcern.value,
     selectedHairConcern: selectedHairConcern.value,
     selectedNutrionAndDiet: selectedNutrionAndDiet.value,

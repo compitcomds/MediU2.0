@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Notification Bar (removable) -->
-     <HomeMobileNav />
+    <HomeMobileNav />
     <div
       v-if="showNotification"
       class="notification-bar transition-all duration-300 fixed top-0 left-0 w-full z-50 hidden lg:block"
@@ -51,8 +51,6 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from "vue";
-
 // State to control visibility of the notification bar
 const showNotification = ref(true); // Control notification bar visibility
 
@@ -65,7 +63,7 @@ const windowWidth = ref(0);
 
 // Set initial window width on client-side only
 onMounted(() => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     windowWidth.value = window.innerWidth;
   }
 });
@@ -131,8 +129,6 @@ onUnmounted(() => {
 });
 </script>
 
-
-
 <style scoped>
 /* Notification Bar */
 .notification-bar {
@@ -164,5 +160,4 @@ onUnmounted(() => {
 .transition-top {
   transition: top 0.1s ease-in-out; /* Adjust the duration here */
 }
-
 </style>

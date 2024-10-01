@@ -27,6 +27,11 @@ query fetchProductsQuery($after: String, $query: String) {
           id
         }
       }
+      collections(first: 100) {
+        nodes {
+          handle
+        }
+      }
     }
     pageInfo {
       hasNextPage
@@ -61,6 +66,9 @@ export const fetchProducts = async ({
       altText: node.images.edges[0]?.node.altText || "Product Image",
       price: node.priceRange.minVariantPrice.amount,
       currency: node.priceRange.minVariantPrice.currencyCode,
+      collections: node.collections.nodes.map(
+        (collectionNode: any) => collectionNode.handle
+      ),
     }));
     return {
       products,
