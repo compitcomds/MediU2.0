@@ -321,24 +321,28 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import axios from "axios";
 import { getUser } from "~/appwrite/auth";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
+import getUserInfoForCheckout from "~/shopify/user/user-checkout";
+
+const userData = await getUserInfoForCheckout();
+
+console.log(userData);
 
 const contact = ref("");
-const email = ref("v@gmail.com");
+const email = ref(userData?.email || "");
 
 const shipping = ref({
-  firstName: "a",
-  lastName: "b",
-  address: "5/145 Malviya Nagar",
-  apartment: "",
-  city: "Jaipur",
-  state: "Rajasthan",
-  pinCode: "302017",
-  phone: "8302320275",
-  country: "India",
+  firstName: userData?.defaultAddress?.firstName || userData.firstName,
+  lastName: userData?.defaultAddress?.lastName || userData.lastName,
+  address: userData?.defaultAddress?.address1 || "",
+  city: userData?.defaultAddress?.city || "",
+  state: userData?.defaultAddress?.province || "",
+  pinCode: userData?.defaultAddress?.zip || "",
+  phone: userData?.defaultAddress?.phone || userData.phone || "",
+  country: userData?.defaultAddress?.country || "",
 });
 
 const billingAddressOption = ref("same");

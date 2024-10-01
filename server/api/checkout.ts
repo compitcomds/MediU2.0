@@ -33,9 +33,9 @@ export default defineEventHandler(async (event) => {
       merchantUserId: userId,
       name: `${cartData.buyerIdentity.deliveryAddressPreferences[0].firstName} ${cartData.buyerIdentity.deliveryAddressPreferences[0].lastName}`,
       amount: cartData.totalAmount.amount * 100,
-      callbackUrl: "https://localhost:3000/api/checkout/confirm",
-      redirectUrl: "http://localhost:3000/checkout",
-      redirectMode: "REDIRECT",
+      callbackUrl: "http://localhost:3000/api/checkout/confirm",
+      redirectUrl: "http://localhost:3000/api/checkout/confirm",
+      redirectMode: "POST",
       mobileNumber: cartData.buyerIdentity.deliveryAddressPreferences[0].phone,
       paymentInstrument: { type: "PAY_PAGE" },
     };
