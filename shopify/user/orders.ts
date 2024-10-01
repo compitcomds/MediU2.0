@@ -17,6 +17,14 @@ query getAllUserOrders($accessToken: String!) {
           nodes {
             title
             quantity
+            variant {
+              image {
+                altText
+                height
+                width
+                url
+              }
+            }
           }
         }
       }
@@ -40,7 +48,20 @@ export async function getAllUserOrders() {
       processedAt: string;
       totalPrice: { amount: string; currencyCode: string };
       orderNumber: string;
-      lineItems: { nodes: Array<{ title: string; quantity: number | string }> };
+      lineItems: {
+        nodes: Array<{
+          title: string;
+          quantity: number | string;
+          variant: {
+            image: {
+              altText: string;
+              height: number;
+              width: number;
+              url: string;
+            };
+          };
+        }>;
+      };
     }>;
   return [];
 }

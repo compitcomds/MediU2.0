@@ -31,7 +31,11 @@
                     : '',
                 ]"
               >
-                {{ order.fulfillmentStatus }}
+                {{
+                  order.fulfillmentStatus === "UNFULFILLED"
+                    ? "Will be confirmed within 12 hours."
+                    : "Confirmed"
+                }}
               </span>
             </td>
             <td>

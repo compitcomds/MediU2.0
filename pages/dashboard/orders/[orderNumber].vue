@@ -6,8 +6,7 @@
       </h1>
       <ul class="list-disc">
         <li v-for="item in orderData.lineItems">
-          Title: <strong>{{ item.title }}</strong
-          >, Quantity: <strong>{{ item.quantity }} </strong>
+          {{ item }}
         </li>
       </ul>
     </div>

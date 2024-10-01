@@ -18,7 +18,15 @@
               v-if="true"
               class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full"
             >
-              Sale 5%
+              Sale
+              {{
+                Math.floor(
+                  ((parseInt(product.compareAtPrice) -
+                    parseInt(product.price)) *
+                    100) /
+                    parseInt(product.compareAtPrice)
+                )
+              }}%
             </span>
 
             <!-- Product image -->
@@ -49,7 +57,7 @@
                   class="text-gray-500 text-sm font-bold line-through mt-1"
                   v-if="true"
                 >
-                  {{ product.currency }} 1000
+                  {{ product.currency }} {{ product.compareAtPrice }}
                 </p>
               </div>
               <div>

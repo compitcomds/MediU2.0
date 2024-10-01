@@ -32,6 +32,12 @@ query fetchProductsQuery($after: String, $query: String) {
           handle
         }
       }
+      compareAtPriceRange {
+        minVariantPrice {
+          amount
+          currencyCode
+        }
+      }
     }
     pageInfo {
       hasNextPage
@@ -65,6 +71,7 @@ export const fetchProducts = async ({
       image: node.images.edges[0]?.node.url || "", // Image URL
       altText: node.images.edges[0]?.node.altText || "Product Image",
       price: node.priceRange.minVariantPrice.amount,
+      compareAtPrice: node.compareAtPriceRange.minVariantPrice.amount,
       currency: node.priceRange.minVariantPrice.currencyCode,
       collections: node.collections.nodes.map(
         (collectionNode: any) => collectionNode.handle
