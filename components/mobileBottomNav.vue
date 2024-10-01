@@ -1,6 +1,6 @@
 <template>
   <div class="block lg:hidden">
-    <div class="btm-nav bg-[#28574E] flex justify-center items-center p-4">
+    <div class="btm-nav bg-[#28574E] flex justify-center items-center  p-4">
       <nuxt-link to="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
