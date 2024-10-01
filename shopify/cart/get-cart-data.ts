@@ -58,6 +58,12 @@ query getCartData($cartId: ID!) {
               handle
               id
               title
+              requiresPrescription: metafield(
+                key: "requiresPrescription"
+                namespace: "custom"
+              ) {
+                value
+              }
             }
             image {
               url

@@ -13,6 +13,20 @@
           Shopping Cart
         </h2>
 
+        <div v-if="cart.items.length === 0">
+          <nuxt-link
+            to="/shop"
+            class="group flex flex-col gap-y-5 w-1/2 mx-auto"
+          >
+            <img src="assets/images/empty-cart.webp" class="w-full" />
+            <h2
+              class="text-[#28574E] underline group-hover:no-underline text-center font-bold text-xl"
+            >
+              Continue shopping >
+            </h2>
+          </nuxt-link>
+        </div>
+
         <!-- Cart Item Loop -->
         <div
           v-for="(item, index) in cart.items"
@@ -108,7 +122,7 @@
           </div>
 
           <!-- Upload Prescription Button -->
-          <div class="mt-6">
+          <div v-if="requiresPrescription" class="mt-6">
             <label
               for="prescription-upload"
               class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
@@ -120,7 +134,11 @@
                 class="hidden"
                 accept="image/*"
               />
-              <span>{{ prescriptionUploaded ? 'Prescription Uploaded' : 'Upload Prescription' }}</span>
+              <span>{{
+                prescriptionUploaded
+                  ? "Prescription Uploaded"
+                  : "Upload Prescription"
+              }}</span>
             </label>
             <p v-if="!prescriptionUploaded" class="text-red-500 text-sm mt-2">
               Please upload your prescription before checkout.
@@ -131,9 +149,8 @@
           <div class="mt-4">
             <nuxt-link
               to="/checkout"
-              class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg"
-              :class="!prescriptionUploaded ? 'cursor-not-allowed opacity-50' : ''"
-              :disabled="!prescriptionUploaded"
+              class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg disabled:cursor-not-allowed disabled:opacity-50"
+              :disabled="!prescriptionUploaded && !requiresPrescription"
               @click.prevent="checkPrescription"
             >
               Check Out
@@ -148,11 +165,11 @@
 <script setup lang="ts">
 import getCartData from "~/shopify/cart/get-cart-data";
 import updateLineItemQuantity from "~/shopify/cart/update-line-item-quantity";
-import { ref, onMounted } from "vue";
 
 const userStore = useUserStore();
 const isUpdatingLineItemQuantity = ref(false);
 const prescriptionUploaded = ref(false); // Track if prescription is uploaded
+const requiresPrescription = ref(false);
 
 const cart = ref<{
   items: any[];
@@ -202,16 +219,27 @@ const uploadPrescription = (event: Event) => {
 };
 
 const checkPrescription = () => {
-  if (!prescriptionUploaded.value) {
+  if (!prescriptionUploaded.value && !!requiresPrescription.value) {
     alert("Please upload your prescription before checkout.");
   } else {
     // Proceed to checkout
   }
 };
 
+watch(
+  () => cart.value.items,
+  (newItems) => {
+    requiresPrescription.value =
+      newItems?.some((item) => item.requiresPrescription) || false;
+  },
+  { deep: true, immediate: true }
+);
+
 onMounted(async () => {
   const data = await getCartData();
-  if (data) cart.value = data;
+  if (data) {
+    cart.value = data;
+  }
 });
 </script>
 

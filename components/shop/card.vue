@@ -73,12 +73,12 @@
 
             <!-- Action buttons -->
             <div class="flex gap-2 mt-4">
-              <a
-                :href="`shop/product/${product.handle}`"
+              <nuxt-link
+                :to="`shop/product/${product.handle}`"
                 class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer"
               >
                 BUY NOW
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
