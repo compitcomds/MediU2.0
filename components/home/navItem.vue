@@ -375,7 +375,7 @@
             </div>
           </div>
         </li>
-        <!-- 
+        
         <li class="group relative cursor-pointer py-2 ">
           <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl "
             >Baby Care</a
@@ -2284,7 +2284,7 @@
           <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl"
             >Supplements</a
           >
-        </li> -->
+        </li> 
       </ul>
     </div>
   </div>

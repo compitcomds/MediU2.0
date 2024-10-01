@@ -124,22 +124,20 @@
           </nuxt-link>
         </div>
       </div>
-      <!-- <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
+      <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
           <h2 class="font-bold lg:text-lg xl:text-xl mb-4">Most Popular Categories
           </h2>
           <div class="h-0.5 w-4/6 bg-white mb-4 text-center"></div>
           
           <ul class="space-y-2 lg:text-base xl:text-lg">
-            <li class="list-disc"><a href="#" class="hover:underline">Hydrating Serums</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Scalp Treatments</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Anti-Aging Creams</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Hair Repair Masks</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Leave-In Conditioners</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Brightening Creams</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Hair Growth Serums</a></li>
-            <li class="list-disc"><a href="#" class="hover:underline">Anti-Frizz Products</a></li>
+            <li class="list-disc"><a href="/shop" class="hover:underline">Skin</a></li>
+            <li class="list-disc"><a href="/shop" class="hover:underline">Hair</a></li>
+            <li class="list-disc"><a href="/comingSoon" class="hover:underline">Baby Care</a></li>
+            <li class="list-disc"><a href="/comingSoon" class="hover:underline">MediU Kits</a></li>
+            <li class="list-disc"><a href="/comingSoon" class="hover:underline">Supplements</a></li>
+            
           </ul>
-        </div> -->
+        </div>
       <div
         class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0"
       >

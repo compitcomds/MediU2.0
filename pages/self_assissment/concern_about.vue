@@ -2,7 +2,7 @@
     <div class="w-full mx-auto px-10 flex flex-col lg:py-10 mb-16 lg:mb-0">
         <div class=" p-6 rounded-lg text-center">
             <h1 class="text-3xl font-semibold text-black">
-                Hi <span class="text-[#28574e] font-bold">Patient Name</span>, choose the problem you want to address...
+                Hi <span class="text-[#28574e] font-bold">{{name}}</span>, choose the problem you want to address...
             </h1>
         </div>
 
@@ -19,8 +19,10 @@
                     <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
                         style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
                     </div>
-                    <nuxt-link to="/self_assissment/category"><img class="relative" src="https://placehold.co/250x250" alt=""></nuxt-link>
-                </div>
+                    <nuxt-link :to="`/self_assissment/category?name=${name}&sex=${gender}&age=${age}&pregnancyStatus=${pregnancyStatus}&breastfeeding=${breastfeeding}&concernsAbout=skin`">
+                        <img class="relative" src="https://placehold.co/250x250" alt="">
+                    </nuxt-link>
+                                      </div>
                 <div class="relative flex justify-between text-white px-6 pb-6 mt-6">
                     <div class="flex flex-col justify-between">
                         <span class="block opacity-75 -mb-1">Concern About</span>
@@ -49,7 +51,9 @@
                     <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
                         style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
                     </div>
-                    <nuxt-link to="/self_assissment/category"><img class="relative" src="https://placehold.co/250x250" alt=""></nuxt-link>
+                    <nuxt-link :to="`/self_assissment/category?name=${name}&sex=${gender}&age=${age}&pregnancyStatus=${pregnancyStatus}&breastfeeding=${breastfeeding}&concernsAbout=hair`">
+                        <img class="relative" src="https://placehold.co/250x250" alt="">
+                    </nuxt-link>
                 </div>
                 <div class="relative flex justify-between text-white px-6 pb-6 mt-6">
                     <div class="flex flex-col justify-between">
@@ -80,7 +84,9 @@
                     <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
                         style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
                     </div>
-                    <nuxt-link to="/self_assissment/category"><img class="relative" src="https://placehold.co/250x250" alt=""></nuxt-link>
+                    <nuxt-link :to="`/self_assissment/category?name=${name}&sex=${gender}&age=${age}&pregnancyStatus=${pregnancyStatus}&breastfeeding=${breastfeeding}&concernsAbout=babycare`">
+                        <img class="relative" src="https://placehold.co/250x250" alt="">
+                    </nuxt-link>
                 </div>
                 <div class="relative flex justify-between text-white px-6 pb-6 mt-6">
                     <div class="flex flex-col justify-between">
@@ -103,9 +109,24 @@
 </template>
 
 <script>
-export default {
+import { useRoute } from 'vue-router';
 
-}
+export default {
+    
+
+    
+  setup() {
+    const route = useRoute();
+    const name = route.query.name;
+    const sex = route.query.sex;
+    const age = route.query.age;
+    const pregnancyStatus = route.query.pregnancyStatus;
+    const breastfeeding = route.query.breastfeeding;
+
+    return { name, sex, age, pregnancyStatus, breastfeeding };
+  }
+};
 </script>
 
 <style scoped></style>
+
