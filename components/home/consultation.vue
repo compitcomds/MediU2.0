@@ -10,11 +10,11 @@
       <div class="absolute inset-y-0 right-0 w-20 bg-white z-10 hidden lg:block"></div>
       <ul class="flex whitespace-nowrap animate-marquee">
         <li v-for="(item, index) in imageItems" :key="index" class="flex-shrink-0">
-          <img :src="item.src" :alt="item.alt" class="border border-black rounded-2xl p-2 sm:p-4 md:p-6" />
+          <img :src="item.src" :alt="item.alt" class=" rounded-2xl p-2 sm:p-4 md:p-6" />
         </li>
         <!-- Duplicate items to ensure continuous flow -->
         <li v-for="(item, index) in imageItems" :key="`duplicate-${index}`" class="flex-shrink-0">
-          <img :src="item.src" :alt="item.alt" class="border border-black rounded-2xl p-2 sm:p-4 md:p-6" />
+          <img :src="item.src" :alt="item.alt" class=" rounded-2xl p-2 sm:p-4 md:p-6" />
         </li>
       </ul>
     </div>
