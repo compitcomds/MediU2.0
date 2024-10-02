@@ -25,9 +25,9 @@
 
 <script setup lang="ts">
 import { getUser } from "~/appwrite/auth";
-console.log("RUNNING DEFAULT >>>>>");
+
 const route = useRoute();
-const userStore = useUserStore();
+
 const preventAccess = ref(false);
 const isLoading = ref(false);
 

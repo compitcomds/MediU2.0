@@ -63,6 +63,8 @@ export default defineEventHandler(async (event) => {
       data: { request: payloadMain },
     });
 
+    return apiResponse;
+
     await createOrderDocument({
       userId,
       transactionId,
@@ -71,14 +73,11 @@ export default defineEventHandler(async (event) => {
 
     const instrumentResponse = await apiResponse.data.data.instrumentResponse;
 
-    console.log("REDIRECTING TO PAYMENT PAGE >>>>>>>>>>>>>>>>>>");
     return instrumentResponse.redirectInfo;
   } catch (err: any) {
     console.error("Error occurred:", err);
     return {
-      error:
-        err.message ||
-        `An error occurred while processing your request. ${PHONEPAY_REDIRECT_URL} ${PHONEPAY_PAYMENT_CALLBACK_URL}`,
+      error: err.message || `An error occurred while processing your request`,
     };
   }
 });
