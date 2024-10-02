@@ -76,7 +76,9 @@ export default defineEventHandler(async (event) => {
   } catch (err: any) {
     console.error("Error occurred:", err);
     return {
-      error: err.message || "An error occurred while processing your request.",
+      error:
+        err.message ||
+        `An error occurred while processing your request. ${PHONEPAY_REDIRECT_URL} ${PHONEPAY_PAYMENT_CALLBACK_URL}`,
     };
   }
 });
