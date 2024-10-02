@@ -13,6 +13,7 @@ const PHONEPAY_REDIRECT_ERROR_URL = String(
 );
 
 export default defineEventHandler(async (event) => {
+  console.log("confirming payment status.");
   try {
     const body = await readBody(event);
     if (body.code !== "PAYMENT_SUCCESS") throw new Error("Payment failed...");

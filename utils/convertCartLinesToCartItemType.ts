@@ -14,6 +14,9 @@ export default function convertCartLinesToCartItemType(
     cost: node.cost.amountPerQuantity,
     quantityAvailable: node.merchandise.quantityAvailable,
     currentlyNotInStock: node.merchandise.currentlyNotInStock,
+    requiresPrescription:
+      node.merchandise.product.requiresPrescription !== null &&
+      node.merchandise.product.requiresPrescription.value === "true",
   }));
   return items;
 }

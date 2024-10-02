@@ -13,8 +13,8 @@
         </thead>
         <tbody>
           <tr v-for="order in orders" :key="order.id" class="text-sm border-b">
-            <td class="py-4">{{ order.id }}</td>
-            <td>{{ order.datePurchased }}</td>
+            <td class="py-4">{{ order.orderNumber }}</td>
+            <td>{{ new Date(order.processedAt).toLocaleDateString() }}</td>
             <td>
               <span
                 :class="[
@@ -31,12 +31,21 @@
                     : '',
                 ]"
               >
-                {{ order.status }}
+                {{
+                  order.fulfillmentStatus === "UNFULFILLED"
+                    ? "Will be confirmed within 12 hours."
+                    : "Confirmed"
+                }}
               </span>
             </td>
-            <td>{{ order.total }}</td>
             <td>
-              <nuxt-link to="#" class="text-green-600 hover:underline"
+              {{ order.totalPrice.currencyCode }}
+              {{ order.totalPrice.amount }}
+            </td>
+            <td>
+              <nuxt-link
+                :to="`/dashboard/orders/${order.orderNumber}`"
+                class="text-green-600 hover:underline"
                 >View</nuxt-link
               >
             </td>
@@ -70,63 +79,8 @@
   </main>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      orders: [
-        {
-          id: "#34VB5540K83",
-          datePurchased: "May 21, 2024",
-          status: "IN PROGRESS",
-          total: "$358.75",
-        },
-        {
-          id: "#78A643CD409",
-          datePurchased: "December 09, 2024",
-          status: "CANCELED",
-          total: "$760.50",
-        },
-        {
-          id: "#112P45A90V2",
-          datePurchased: "October 15, 2024",
-          status: "DELAYED",
-          total: "$1,264.00",
-        },
-        {
-          id: "#2BBA67U0981",
-          datePurchased: "July 19, 2024",
-          status: "DELIVERED",
-          total: "$198.35",
-        },
-        {
-          id: "#502TR872W2",
-          datePurchased: "April 04, 2024",
-          status: "DELIVERED",
-          total: "$2,133.90",
-        },
-        {
-          id: "#47H76609F33",
-          datePurchased: "March 30, 2024",
-          status: "DELIVERED",
-          total: "$86.40",
-        },
-        {
-          id: "#53U76609E38",
-          datePurchased: "April 21, 2024",
-          status: "DELIVERED",
-          total: "$86.40",
-        },
-        {
-          id: "#31M76609G76",
-          datePurchased: "May 07, 2024",
-          status: "DELIVERED",
-          total: "$112.40",
-        },
-      ],
-    };
-  },
-};
+<script setup>
+const { orders } = defineProps(["orders"]);
 </script>
 
 <style scoped>

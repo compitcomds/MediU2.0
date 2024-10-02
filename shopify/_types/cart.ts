@@ -16,6 +16,7 @@ export type CartItemType = {
   cost: { amount: number; currencyCode: string };
   quantityAvailable: number;
   currentlyNotInStock: boolean;
+  requiresPrescription: boolean;
 };
 
 export type MailingAddressInput = {

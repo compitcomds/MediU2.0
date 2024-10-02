@@ -1,6 +1,9 @@
 <template>
   <div class="mt-3">
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <!-- <div
+      v-if="!!props.hideProductType"
+      class="me-2 mb-4 py-2 px-2 m-2 rounded-md border"
+    >
       <div class="text-xl font-medium">Type of Products</div>
       <div class="p-3">
         <div v-for="(item, index) in TypeOfProducts" :key="index">
@@ -16,7 +19,7 @@
           </label>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
       <div class="text-xl font-medium">Skin Concern</div>
@@ -116,22 +119,40 @@ import { ref } from "vue";
 const router = useRouter();
 const route = useRoute();
 
-const TypeOfProducts = [
-  { name: "Product Type 1", value: "product-type-1" },
-  { name: "Product Type 2", value: "product-type-2" },
-  { name: "Product Type 3", value: "product-type-3" },
-];
+const props = defineProps({
+  hideProductType: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+// const TypeOfProducts = [
+//   { name: "Hair", value: "hair" },
+//   { name: "Skin", value: "skin" },
+//   { name: "Baby Care", value: "baby-care" },
+// ];
 
 const SkinConcern = [
-  { name: "Concern 1", value: "concern-1" },
-  { name: "Concern 2", value: "concern-2" },
-  { name: "Concern 3", value: "concern-3" },
+  { name: "Acne & Acne Scar", value: "acne-and-ance-scar" },
+  { name: "Aging", value: "aging" },
+  { name: "Dehydration", value: "dehydration" },
+  { name: "Damaged & Sensitive Skin", value: "damaged-and-sensitive-skin" },
+  { name: "Under Eye Darkness", value: "under-eye-darkness" },
+  { name: "Under Arm Darkness", value: "under-arm-darkness" },
+  { name: "Stretch Marks", value: "stretch-marks" },
+  { name: "Pigmentation", value: "pigmentation" },
+  { name: "Oiliness", value: "oiliness" },
+  { name: "Lip (Cracked/Darkness)", value: "lip-cracked-or-darkness" },
 ];
 
 const HairConcern = [
-  { name: "Hair Concern 1", value: "hair-concern-1" },
-  { name: "Hair Concern 2", value: "hair-concern-2" },
-  { name: "Hair Concern 3", value: "hair-concern-3" },
+  { name: "Dandruff", value: "dandruff" },
+  { name: "Hairfall", value: "hairfall" },
+  { name: "Hair Thinning", value: "hair-thinning" },
+  { name: "Damaged & Fizzy Hair", value: "damaged-and-fizzy-hair" },
+  { name: "Bald Patches", value: "bald-patches" },
+  { name: "Dull Hair", value: "dull-hair" },
+  { name: "Oily Scalp", value: "oily-scalp" },
 ];
 
 const NutrionAndDiet = [
@@ -173,7 +194,6 @@ const selectedIngredent = ref(
 
 const updateQueryParams = () => {
   const query = {
-    selectedTypeOfProducts: selectedTypeOfProducts.value,
     selectedSkinConcern: selectedSkinConcern.value,
     selectedHairConcern: selectedHairConcern.value,
     selectedNutrionAndDiet: selectedNutrionAndDiet.value,

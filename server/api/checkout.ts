@@ -33,9 +33,9 @@ export default defineEventHandler(async (event) => {
       merchantUserId: userId,
       name: `${cartData.buyerIdentity.deliveryAddressPreferences[0].firstName} ${cartData.buyerIdentity.deliveryAddressPreferences[0].lastName}`,
       amount: cartData.totalAmount.amount * 100,
+      callbackUrl: "http://localhost:3000/api/checkout/confirm",
       redirectUrl: "http://localhost:3000/api/checkout/confirm",
       redirectMode: "POST",
-      callbackUrl: "http://localhost:3000/api/checkout/confirm",
       mobileNumber: cartData.buyerIdentity.deliveryAddressPreferences[0].phone,
       paymentInstrument: { type: "PAY_PAGE" },
     };
@@ -68,6 +68,7 @@ export default defineEventHandler(async (event) => {
 
     const instrumentResponse = await apiResponse.data.data.instrumentResponse;
 
+    console.log("REDIRECTING TO PAYMENT PAGE >>>>>>>>>>>>>>>>>>");
     return instrumentResponse.redirectInfo;
   } catch (err) {
     console.error("Error occurred:", err);

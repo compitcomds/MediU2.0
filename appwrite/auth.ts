@@ -45,14 +45,17 @@ export const loginUser = async (data: { email: string; password: string }) => {
     email: data.email,
     password: userDocument.shopifyPassword,
   });
-  const accessTokenCookie = useCookie("accessToken", {
-    sameSite: true,
-    secure: true,
-    httpOnly: true,
-    expires: new Date(expiresAt),
-  });
 
-  accessTokenCookie.value = accessToken;
+  localStorage.setItem("accessToken", accessToken);
+  // const accessTokenCookie = useCookie("accessToken", {
+  //   sameSite: true,
+  //   secure: true,
+  //   httpOnly: true,
+  //   expires: new Date(expiresAt),
+  // });
+  // accessTokenCookie.value = accessToken;
+
+  // console.log(accessToken);
 };
 
 export const getUser = async () => account.get();
