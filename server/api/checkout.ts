@@ -73,8 +73,10 @@ export default defineEventHandler(async (event) => {
 
     console.log("REDIRECTING TO PAYMENT PAGE >>>>>>>>>>>>>>>>>>");
     return instrumentResponse.redirectInfo;
-  } catch (err) {
+  } catch (err: any) {
     console.error("Error occurred:", err);
-    return { error: "An error occurred while processing your request." };
+    return {
+      error: err.message || "An error occurred while processing your request.",
+    };
   }
 });
