@@ -329,8 +329,6 @@ import getUserInfoForCheckout from "~/shopify/user/user-checkout";
 
 const userData = await getUserInfoForCheckout();
 
-console.log(userData);
-
 const contact = ref("");
 const email = ref(userData?.email || "");
 
@@ -370,7 +368,7 @@ const products = ref([
 const shippingCost = ref(50); // Example shipping cost
 
 const shippingDetails = computed(() => {
-  return `${shipping.value.address}, ${shipping.value.apartment}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
+  return `${shipping.value.address}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
 });
 
 const subtotal = computed(() => {
@@ -431,6 +429,8 @@ const submitOrder = async () => {
       window.location.href = data.url;
       return;
     }
+
+    console.log(data);
 
     throw new Error(
       data.error ||
