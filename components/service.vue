@@ -75,7 +75,7 @@
       >
         <h3 class="font-semibold">{{ service.name }}</h3>
         <p>Duration: {{ service.duration }} mins</p>
-        <p>Price: ₹{{ service.price }}</p>
+        <p>Price: ₹{{ service.price }} ({{ service.category }} care)</p>
       </div>
     </div>
 
@@ -94,10 +94,24 @@ export default {
   data() {
     return {
       services: [
-        { id: 1, name: "Illness", duration: 60, price: 100, category: "Hair" },
-        { id: 2, name: "Cosmetic Dentistry", duration: 30, price: 100, category: "Skin" },
-        { id: 3, name: "Hair Infection", duration: 30, price: 100, category: "Hair" },
-        { id: 3, name: "Ear Infection", duration: 30, price: 100, category: "Baby" },
+        { id: 1, name: "Dandruff", duration: 60, price: 1000, category: "Hair" },
+        { id: 2, name: "Hairfall", duration: 60, price: 1000, category: "Hair" },
+        { id: 3, name: "Hair Thinning", duration: 60, price: 1000, category: "Hair" },
+        { id: 4, name: "Damaged & Fizzy Hair", duration: 60, price: 1000, category: "Hair" },
+        { id: 5, name: "Bald Patches", duration: 60, price: 1000, category: "Hair" },
+        { id: 6, name: "Dull Hair", duration: 60, price: 1000, category: "Hair" },
+        { id: 7, name: "Oily Scalp", duration: 60, price: 1000, category: "Hair" },
+
+        { id: 8, name: "Acne & Acne Scar", duration: 30, price: 1000, category: "Skin" },
+        { id: 9, name: "Aging", duration: 30, price: 1000, category: "Skin" },
+        { id: 10, name: "Dehydration", duration: 30, price: 1000, category: "Skin" },
+        { id: 11, name: "Damaged & Sensitive Skin", duration: 30, price: 1000, category: "Skin" },
+        { id: 12, name: "Under Eye Darkness", duration: 30, price: 1000, category: "Skin" },
+        { id: 13, name: "Under Arm Darkness", duration: 30, price: 1000, category: "Skin" },
+        { id: 14, name: "Stretch Marks", duration: 30, price: 1000, category: "Skin" },
+        { id: 15, name: "Pigmentation", duration: 30, price: 1000, category: "Skin" },
+        { id: 16, name: "Oiliness", duration: 30, price: 1000, category: "Skin" },
+        { id: 17, name: "Lip(Cracked/Darkness)", duration: 30, price: 1000, category: "Skin" },
       ],
       selectedService: null,
       filteredServices: [],
@@ -105,7 +119,8 @@ export default {
     };
   },
   created() {
-    this.filteredServices = this.services;
+    // Sort all services alphabetically by name when component is created
+    this.filteredServices = this.services.sort((a, b) => a.name.localeCompare(b.name));
   },
   methods: {
     filterServices(category) {
@@ -115,6 +130,8 @@ export default {
       } else {
         this.filteredServices = this.services.filter(service => service.category === category);
       }
+      // Sort the filtered services alphabetically
+      this.filteredServices.sort((a, b) => a.name.localeCompare(b.name));
     },
     selectService(service) {
       this.selectedService = service;
@@ -127,7 +144,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 /* Additional styles if needed */
 </style>
