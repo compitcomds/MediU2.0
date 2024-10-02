@@ -15,7 +15,7 @@ export default function convertCartLinesToCartItemType(
     quantityAvailable: node.merchandise.quantityAvailable,
     currentlyNotInStock: node.merchandise.currentlyNotInStock,
     requiresPrescription:
-      node.merchandise.product.requiresPrescription !== null &&
+      !!node.merchandise.product.requiresPrescription &&
       node.merchandise.product.requiresPrescription.value === "true",
   }));
   return items;
