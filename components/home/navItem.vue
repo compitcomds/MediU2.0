@@ -5,7 +5,7 @@
   >
     <div class="relative bg-white">
       <!-- Main Menu -->
-      <ul class="flex justify-center space-x-24 bg-[#537971] text-white py-2">
+      <ul class="flex justify-center space-x-20 bg-[#537971] text-white py-2">
         <li class="group relative cursor-pointer py-2">
           <nuxt-link to="/" class="font-semibold hover:opacity-70 text-xl"
             >Home</nuxt-link
