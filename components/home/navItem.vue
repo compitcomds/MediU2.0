@@ -321,7 +321,7 @@
               <!-- Concerns Related to Hair Care -->
               <div>
                 <h2 class="font-bold text-lg mb-4 text-left">
-                  Hair Care
+                  Skin Care
                   <hr />
                 </h2>
                 <ul class="space-y-2 text-left">
