@@ -48,9 +48,9 @@
 
               <div class="flex justify-between text-lg">
                 <div>
-                  <p class="text-[#28574E] font-bold">
+                  <span class="text-[#28574E] font-bold">
                     {{ detail.currency }} {{ detail.price }}
-                  </p>
+                  </span>
                   <p class="text-gray-500 text-sm font-bold line-through mt-1" v-if="detail.discountPrice">
                     {{ detail.currency }} {{ detail.discountPrice }}
                   </p>
