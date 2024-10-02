@@ -5,80 +5,60 @@
       <div class="text-lg font-semibold w-2/6">
         <img src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png" alt="Logo" class="h-8 w-auto" />
       </div>
-  
+
       <!-- Search Bar -->
       <div class="flex-grow mx-4 w-full">
         <div class="relative flex items-center justify-end">
-          <input
-            type="text"
-            placeholder="Search..."
-            class="w-full px-4 py-2 md:py-3 pl-10 border rounded-full focus:outline-none bg-white text-black transition duration-300 ease-in-out "
-          />
+          <input type="text" placeholder="Search..."
+            class="w-full px-4 py-2 md:py-3 pl-10 border rounded-full focus:outline-none bg-white text-black transition duration-300 ease-in-out " />
           <div class="absolute left-4 text-gray-500">
             <!-- Search Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 sm:h-6 sm:w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 19a9 9 0 100-18 9 9 0 000 18zm7-2l5 5"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 19a9 9 0 100-18 9 9 0 000 18zm7-2l5 5" />
             </svg>
           </div>
         </div>
       </div>
-      
-  
+
+
       <!-- Burger Menu Icon (Visible on small screens) -->
       <div class="w-1/6 text-end">
         <button @click="toggleMenu" class="focus:outline-none">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="#28574e"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
+          <svg class="w-6 h-6" fill="none" stroke="#28574e" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
       </div>
     </div>
-  
+
     <!-- Mobile Dropdown Menu -->
-    <div
-      v-if="isMenuOpen"
-      class="bg-white shadow-md absolute w-full left-0 top-16 z-40 text-[#28574e]"
-    >
+    <div v-if="isMenuOpen" class="bg-white shadow-md absolute w-full left-0 top-16 z-40 text-[#28574e]">
       <div class="px-4 py-2">
         <div v-for="(item, index) in menuItems" :key="index" class="border-t py-3">
-          <div @click="item.subItems.length ? toggleDropdown(index) : null" class="flex items-center justify-between py-2 px-4 cursor-pointer text-lg">
+          <div @click="item.subItems.length ? toggleDropdown(index) : null"
+            class="flex items-center justify-between py-2 px-4 cursor-pointer text-lg">
             <span class="font-semibold">{{ item.name }}</span>
-            <svg v-if="item.subItems.length" :class="{'transform rotate-180': isDropdownOpen(index)}" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg v-if="item.subItems.length" :class="{ 'transform rotate-180': isDropdownOpen(index) }"
+              class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
-        
+
           <div v-if="isDropdownOpen(index)" class="text-[#28574e] pl-4">
-            <div v-for="(subItem, subIndex) in item.subItems" :key="subIndex" class="py-2 hover:bg-gray-100 cursor-pointer">
+            <div v-for="(subItem, subIndex) in item.subItems" :key="subIndex"
+              class="py-2 hover:bg-gray-100 cursor-pointer">
               <!-- Remove the link for the main sub-item -->
               <span>{{ subItem.name }}</span>
-        
+
               <!-- Render nested sub-items -->
               <div v-if="typeof subItem === 'object' && subItem.subItems" class="pl-4">
-                <div v-for="(nestedSubItem, nestedSubIndex) in subItem.subItems" :key="nestedSubIndex" class="py-1 hover:bg-gray-200 cursor-pointer">
-                  <router-link v-if="nestedSubItem.link" :to="nestedSubItem.link" class="text-[#89ccc0] hover:underline">
+                <div v-for="(nestedSubItem, nestedSubIndex) in subItem.subItems" :key="nestedSubIndex"
+                  class="py-1 hover:bg-gray-200 cursor-pointer">
+                  <router-link v-if="nestedSubItem.link" :to="nestedSubItem.link"
+                    class="text-[#89ccc0] hover:underline">
                     {{ nestedSubItem.name }}
                   </router-link>
                   <span v-else>{{ nestedSubItem.name }}</span> <!-- Fallback if no link -->
@@ -87,7 +67,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -133,12 +113,38 @@ const menuItems = [
     name: 'Hair',
     subItems: [
       {
-        name: 'Shampoo',
-        link: '/',
+        name: 'Hair Concerns',
+        link: '/shop',
         subItems: [
-          { name: 'Dry Shampoo', link: '/' },
-          { name: 'Anti-Dandruff', link: '/' },
-          { name: 'Herbal Shampoo', link: '/' }
+          { name: 'Dandruff', link: '/shop' },
+          { name: 'Hairfall', link: '/shop' },
+          { name: 'Hair Thining', link: '/shop' },
+          { name: 'Damaged & Fizzy Hair', link: '/shop' },
+          { name: 'Bald Patches', link: '/shop' },
+          { name: 'Dull Hair', link: '/shop' },
+          { name: 'Oily Scalp', link: '/shop' },
+
+        ]
+      },
+      {
+        name: 'Selected By Ingredients',
+        link: '/shop',
+        subItems: [
+          { name: 'Minoxidil', link: '/shop' },
+          { name: 'Redensyl', link: '/shop' },
+          { name: 'Capixyl', link: '/shop' },
+          { name: 'Peptide', link: '/shop' },
+          { name: 'Carnitine', link: '/shop' },
+        ]
+      },
+      {
+        name: 'Hair Concerns',
+        link: '/shop',
+        subItems: [
+          { name: 'Shampoo', link: '/shop' },
+          { name: 'Conditioner', link: '/shop' },
+          { name: 'Mask', link: '/shop' },
+          { name: 'Serum', link: '/shop' },
         ]
       },
       // ... other items
@@ -148,20 +154,50 @@ const menuItems = [
     name: 'Skin',
     subItems: [
       {
-        name: 'Face Wash',
-        link: '/', // Link for Face Wash
-        subItems: ['Foam Cleanser', 'Gel Cleanser', 'Exfoliating Cleanser']
+        name: 'Shop By Concerns',
+        link: '/shop',
+        subItems: [
+          { name: 'Acne & Acne Scar', link: '/shop' },
+          { name: 'Aging', link: '/shop' },
+          { name: 'Dehydration', link: '/shop' },
+          { name: 'Damaged & Sensitive Skin', link: '/shop' },
+          { name: 'Under Eye Darkness', link: '/shop' },
+          { name: 'Under Arm Darkness', link: '/shop' },
+          { name: 'Stretch Marks', link: '/shop' },
+          { name: 'Pigmentation', link: '/shop' },
+          { name: 'Oiliness', link: '/shop' },
+          { name: 'Lip(Cracked/Darkness)', link: '/shop' },
+
+
+
+        ]
       },
       {
-        name: 'Moisturizer',
-        link: '/', // Link for Moisturizer
-        subItems: ['Day Cream', 'Night Cream', 'Gel Moisturizer']
+        name: 'Selected By Ingredients',
+        link: '/shop',
+        subItems: [
+          { name: 'Vitamin C', link: '/shop' },
+          { name: 'BHA/Salicylic Acid', link: '/shop' },
+          { name: 'Retinoid/Retinol', link: '/shop' },
+          { name: 'Niacinamide', link: '/shop' },
+          { name: 'UV Filters', link: '/shop' },
+          { name: 'Hyaluronic Acid', link: '/shop' },
+          { name: 'Ceramide', link: '/shop' },
+        ]
       },
       {
-        name: 'Sunscreen',
-        link: '/', // Link for Sunscreen
-        subItems: ['SPF 30', 'SPF 50', 'Mineral Sunscreen']
-      }
+        name: 'Skin Care',
+        link: '/shop',
+        subItems: [
+          { name: 'Cleanser', link: '/shop' },
+          { name: 'Toner', link: '/shop' },
+          { name: 'Roll On', link: '/shop' },
+          { name: 'Moisturize', link: '/shop' },
+          { name: 'SPF', link: '/shop' },
+          { name: 'Under Eye', link: '/shop' },
+        ]
+      },
+      // ... other items
     ]
   },
   {
@@ -169,15 +205,15 @@ const menuItems = [
     subItems: [
       {
         name: 'Diapers',
-        link: '/' // Link for Diapers
+        link: '/shop' // Link for Diapers
       },
       {
         name: 'Baby Lotion',
-        link: '/' // Link for Baby Lotion
+        link: '/shop' // Link for Baby Lotion
       },
       {
         name: 'Baby Shampoo',
-        link: '/' // Link for Baby Shampoo
+        link: '/shop' // Link for Baby Shampoo
       }
     ]
   },
@@ -186,31 +222,31 @@ const menuItems = [
     subItems: [
       {
         name: 'First Aid',
-        link: '/' // Link for First Aid
+        link: '/shop' // Link for First Aid
       },
       {
         name: 'OTC Medicines',
-        link: '/' // Link for OTC Medicines
+        link: '/shop' // Link for OTC Medicines
       }
     ]
   },
-  {
-    name: 'Brands',
-    subItems: [
-      {
-        name: 'Brand 1',
-        link: '/' // Link for Brand 1
-      },
-      {
-        name: 'Brand 2',
-        link: '/' // Link for Brand 2
-      },
-      {
-        name: 'Brand 3',
-        link: '/' // Link for Brand 3
-      }
-    ]
-  },
+  // {
+  //   name: 'Brands',
+  //   subItems: [
+  //     {
+  //       name: 'Brand 1',
+  //       link: '/shop'
+  //     },
+  //     {
+  //       name: 'Brand 2',
+  //       link: '/shop'
+  //     },
+  //     {
+  //       name: 'Brand 3',
+  //       link: '/shop'
+  //     }
+  //   ]
+  // },
   {
     name: 'Supplements',
     subItems: [] // No sub-items for Supplements
@@ -245,7 +281,7 @@ onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside); // Remove listener
 });
 </script>
-  
+
 <style scoped>
 /* Container styling */
 .container {
