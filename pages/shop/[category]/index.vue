@@ -5,7 +5,7 @@
     </div>
 
     <div
-      class="lg:co l-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
+      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
     >
       <ShopBanner />
       <ShopCard :productDetails="data.products" name="Add To Cart" />

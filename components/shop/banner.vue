@@ -8,10 +8,10 @@
     }"
     :navigation="true"
     :modules="modules"
-    class="mySwiper "
+    class="mySwiper w-10/12 lg:w-full"
   >
     <swiper-slide v-for="item in slides" :key="item.id" >
-      <img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center scale-105"/>
+      <img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center "/>
     </swiper-slide>
   </swiper>
 </template>
