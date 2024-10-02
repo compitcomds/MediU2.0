@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
 
     if (!cartData) throw new Error("Invalid cart data.");
 
-    const transactionId = uuidv4().slice(0, 33);
+    const transactionId = uuidv4().slice(0, 30);
     const data = {
       merchantId: MERCHANT_ID,
       merchantTransactionId: transactionId,
@@ -62,8 +62,6 @@ export default defineEventHandler(async (event) => {
       },
       data: { request: payloadMain },
     });
-
-    return apiResponse.data;
 
     await createOrderDocument({
       userId,
