@@ -383,7 +383,7 @@ const total = computed(() => {
 
 watch(billingAddressOption, (newVal) => {
   if (newVal === "same") {
-    billing.value = { ...shipping.value };
+    billing.value = { ...billing.value, ...shipping.value };
   } else {
     billing.value = {
       firstName: "",
@@ -433,9 +433,10 @@ const submitOrder = async () => {
     }
 
     throw new Error(
-      "Some error occured while processing the details. Please try again later."
+      data.error ||
+        "Some error occured while processing the details. Please try again later."
     );
-  } catch (error) {
+  } catch (error: any) {
     alert(error.message);
     console.error(error);
   }
