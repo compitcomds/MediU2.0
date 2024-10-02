@@ -20,11 +20,12 @@
 
       <!-- Grid for cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
-        <!-- Card component -->
+        <!-- Card component  -->
         <div v-for="(detail, index) in problemDetails" :key="index" class="flex justify-center w-full">
           <div class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-full">
+            
             <nuxt-link
-              :to="`/self_assissment/problem/${encodeURIComponent(problem)}/detail/${encodeURIComponent(detail.title)}`"
+              
               class="relative block">
               <!-- Sale badge -->
               <span v-if="detail.isOnSale"
@@ -38,8 +39,9 @@
             </nuxt-link>
 
             <div class="space-y-4 mt-4">
+              
               <nuxt-link
-                :to="`/self_assissment/problem/${encodeURIComponent(problem)}/detail/${encodeURIComponent(detail.title)}`"
+                
                 class="block">
                 <h3 class="text-black font-serif text-lg md:text-xl font-semibold capitalize truncate">
                   {{ detail.title }}
@@ -56,14 +58,14 @@
                   </p>
                 </div>
                 <div>
-                  <ShopSharebtn :product-link="`shop/product/${detail.handle}`" />
+                  <ShopSharebtn />
                 </div>
               </div>
             </div>
 
             <div class="flex gap-2 mt-4">
               <!-- <ShopAddingToCartBtn :product-id="detail.handle" /> -->
-              <nuxt-link :to="`/shop/product/${detail.handle}`"
+              <nuxt-link 
                 class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer">
                 BUY NOW
               </nuxt-link>

@@ -114,9 +114,9 @@ export default {
     const selectedConditions = conditions[categoryId] || [];
 
     const imageUrls = {
-      "Dry / Irritated Skin": "https://placehold.co/250x250",
-      "Oily Skin": "https://placehold.co/250x250",
-      "Normal Skin": "https://placehold.co/250x250",
+      "Dry / Irritated Skin": "https://ccdstest.b-cdn.net/Medi%20u/skin250250/self%20assissment/dry.jpg",
+      "Oily Skin": "https://ccdstest.b-cdn.net/Medi%20u/skin250250/self%20assissment/oily.jpg",
+      "Normal Skin": "https://ccdstest.b-cdn.net/Medi%20u/skin250250/self%20assissment/normal.jpg",
       "Dry Hair": "https://placehold.co/250x250",
       "Oily Hair": "https://placehold.co/250x250",
       "Normal Hair": "https://placehold.co/250x250",
