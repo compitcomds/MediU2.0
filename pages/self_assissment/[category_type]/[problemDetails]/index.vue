@@ -1,40 +1,52 @@
 <template>
-  <div class="w-full mx-auto px-10 flex flex-col lg:py-10 mb-16 lg:mb-0">
-    <div class="p-6 rounded-lg text-left">
-      <h1 class="text-2xl font-semibold text-black">
-        Hii <span class="text-yellow-500 capitalize">{{ name }}</span>, by analyzing your condition, we recomended the health care medicines for your cure...
+  <div class="w-full mx-auto px-6 sm:px-10 flex flex-col lg:py-10 mb-16 lg:mb-0">
+    <!-- Professional heading -->
+    <div class="p-3 rounded-lg text-left">
+      <h1 class="text-2xl md:text-4xl font-extrabold text-black text-center lg:mb-8">
+        Hello <span class="text-yellow-500 capitalize">{{ name }}</span>, <br />
+        Based on your condition, we recommend the following medicines for your recovery.
+        
       </h1>
+      <p class="text-gray-600 hidden lg:block text-center text-lg sm:text-xl max-w-3xl mx-auto ">
+        We have carefully selected these products to help you on your path to better health.
+      </p>
     </div>
-    <!-- <div class="p-6 rounded-lg">
-      <h1 class="text-3xl text-black">
-        These are the medicines 
-      </h1>
-    </div> -->
 
+    <!-- Card Section -->
     <div class="my-2">
-      <div v-if="problemDetails.length" class="text-xl font-bold mb-4 px-6">
-        Cure Medicines:
+      <div v-if="problemDetails.length" class="text-2xl font-bold text-center mb-6">
+        <span class="text-slate-500">{{ problem }}</span> Cure Recommended Medicines:
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
-        <div v-for="(detail, index) in problemDetails" :key="index" class="flex justify-center p-4">
-          <div class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-80">
-            <nuxt-link :to="`/self_assissment/problem/${encodeURIComponent(problem)}/detail/${encodeURIComponent(detail.title)}`" class="relative block">
+
+      <!-- Grid for cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+        <!-- Card component -->
+        <div v-for="(detail, index) in problemDetails" :key="index" class="flex justify-center w-full">
+          <div class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-full">
+            <nuxt-link
+              :to="`/self_assissment/problem/${encodeURIComponent(problem)}/detail/${encodeURIComponent(detail.title)}`"
+              class="relative block">
               <!-- Sale badge -->
-              <span v-if="detail.isOnSale" class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+              <span v-if="detail.isOnSale"
+                class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                 Sale {{ detail.salePercentage }}%
               </span>
 
-              <img :src="detail.image || 'https://placehold.co/250x250'" class="w-full h-48 object-cover rounded-t-lg" alt="Problem detail image" />
+              <!-- Product Image -->
+              <img :src="detail.image || 'https://placehold.co/250x250'" class="w-full h-48 object-cover rounded-t-lg"
+                alt="Problem detail image" />
             </nuxt-link>
 
             <div class="space-y-4 mt-4">
-              <nuxt-link :to="`/self_assissment/problem/${encodeURIComponent(problem)}/detail/${encodeURIComponent(detail.title)}`" class="block">
-                <h3 class="text-black font-serif text-xl lg:text-lg font-semibold capitalize truncate">
+              <nuxt-link
+                :to="`/self_assissment/problem/${encodeURIComponent(problem)}/detail/${encodeURIComponent(detail.title)}`"
+                class="block">
+                <h3 class="text-black font-serif text-lg md:text-xl font-semibold capitalize truncate">
                   {{ detail.title }}
                 </h3>
               </nuxt-link>
 
-              <div class="flex justify-between text-xl">
+              <div class="flex justify-between text-lg">
                 <div>
                   <p class="text-[#28574E] font-bold">
                     {{ detail.currency }} {{ detail.price }}
@@ -50,7 +62,9 @@
             </div>
 
             <div class="flex gap-2 mt-4">
-              <nuxt-link :to="`/shop/product/${detail.handle}`" class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer">
+              <!-- <ShopAddingToCartBtn :product-id="detail.handle" /> -->
+              <nuxt-link :to="`/shop/product/${detail.handle}`"
+                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer">
                 BUY NOW
               </nuxt-link>
             </div>
@@ -279,6 +293,335 @@ export default {
             },
           ],
         },
+        "Oily Skin":{
+          "Uneven Skin Tone": [
+            {
+              title: "Cleanser",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Serum",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Olesoft-Lite",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+          ],
+          "Pigmentation": [
+            {
+              title: "Melarid Face Wash",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Aziclear Serum",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Skin Inspired Mattifunng Gel Moisturizer",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Rivela Lite/Bronze Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+          ],
+          "Acne": [
+            {
+              title: "Saslic Face Wash",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Sebuna AC Gel",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Acne-OC Moisturizer",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Acne-UV Gel Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+          ],
+          "Enlarged Pores": [
+            {
+              title: "Ahaglow-S  Face Wash",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Sebonia Serum",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Skin Inspired Mattifunng Gel Moisturizer",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "LA-Shield Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+          ],
+        },
+        "Normal Skin":{
+          "Uneven Skin Tone": [
+            {
+              title: "Biluma Advance Brightening Facewash",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Cetaphil Bright & Healthy Radiance Serum",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Biluma Advance Day Cream",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Seekaus Hudra Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+          ],
+          "Pigmentation": [
+            {
+              title: "Cetaphil Bright & Healthy Radiance Facewash",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Aziclear Serum",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Fixderma Shadow Tinted Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            
+          ],
+          "Acne": [
+            {
+              title: "Aziclear Face Wash",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Sebalex Creamy Gel",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Excela Antiacne Moisturizer",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Seekaus Hudra Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+          ],
+          "Enlarged Pores": [
+            {
+              title: "Saslic Face Wash",
+              currency: "INR",
+              price: "15",
+              discountPrice: "20",
+              image: "https://placehold.co/250x250",
+              handle: "foaming-cleanser",
+              isOnSale: true,
+              salePercentage: 5,
+            },
+            
+            {
+              title: "Sebonia Serum",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "Skin Inspired Mattifunng Gel Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+            {
+              title: "LA-Shield Sunscreen",
+              currency: "INR",
+              price: "18",
+              discountPrice: 250,
+              image: "https://placehold.co/250x250",
+              handle: "cream-cleanser",
+              isOnSale: false,
+              salePercentage: 0,
+            },
+          ],
+        },
       },
       // Other categories...
     };
@@ -316,4 +659,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+
+<style scoped>
+/* Custom styles for cards, heading, and centering */
+.grid {
+  display: grid;
+  justify-content: center;
+}
+p {
+  font-style: italic;
+}
+</style>
