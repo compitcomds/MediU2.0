@@ -63,7 +63,7 @@ export default defineEventHandler(async (event) => {
       data: { request: payloadMain },
     });
 
-    return apiResponse;
+    return apiResponse.data;
 
     await createOrderDocument({
       userId,
