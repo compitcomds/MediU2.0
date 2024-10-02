@@ -102,7 +102,16 @@
           </div>
           <div class="flex justify-between mb-4">
             <span class="text-[#28574E]">Shipping</span>
-            <span class="text-[#28574E] font-semibold">INR 50</span>
+            <span class="text-[#28574E] font-semibold"
+              >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
+            >
+          </div>
+          <div class="flex justify-between mb-4">
+            <span class="text-[#28574E]">Tax Amount</span>
+            <span class="text-[#28574E] font-semibold"
+              >{{ cart.totalTaxAmount.currencyCode }}
+              {{ cart.totalTaxAmount.amount }}</span
+            >
           </div>
           <div class="flex justify-between border-t pt-4 mt-4">
             <span class="text-[#28574E] font-bold text-xl">Total</span>
@@ -173,14 +182,23 @@ const requiresPrescription = ref(false);
 
 const cart = ref<{
   items: any[];
-  subtotalAmount: { currencyCode: string; amount: number | string };
-  totalAmount: { currencyCode: string; amount: number | string };
-  totalDutyAmount: { currencyCode: string; amount: number | string };
+  subtotalAmount: { currencyCode: string; amount: string };
+  totalAmount: { currencyCode: string; amount: string };
+  totalTaxAmount: { currencyCode: string; amount: string };
 }>({
   items: [],
   subtotalAmount: { currencyCode: "", amount: "" },
   totalAmount: { currencyCode: "", amount: "" },
-  totalDutyAmount: { currencyCode: "", amount: "" },
+  totalTaxAmount: { currencyCode: "", amount: "" },
+});
+
+const shippingAmount = computed(() => {
+  const cartValue = cart.value;
+  return Math.round(
+    parseFloat(cartValue.totalAmount.amount) -
+      parseFloat(cartValue.subtotalAmount.amount) -
+      parseFloat(cartValue.totalTaxAmount.amount)
+  );
 });
 
 const changeQuantity = async (lineId: string, quantity: number) => {
