@@ -10,11 +10,14 @@ const PHONEPAY_API_KEY = process.env.PHONEPAY_API_KEY;
 const MERCHANT_ID = process.env.PHONEPAY_MERCHANT_ID;
 const PHONEPAY_API_KEY_INDEX = process.env.PHONEPAY_API_KEY_INDEX;
 const PHONEPAY_PAYMENT_CALLBACK_URL = process.env.PHONEPAY_PAYMENT_CALLBACK_URL;
+const PHONEPAY_REDIRECT_URL = process.env.PHONEPAY_REDIRECT_URL;
+const PHONEPAY_REDIRECT_METHOD = process.env.PHONEPAY_REDIRECT_METHOD;
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const cartId = body.cart;
   const userId = body.userId;
+
   try {
     if (!PHONEPAY_API_KEY || !PHONEPAY_API_URL) {
       return { error: "Missing environment variables" };
@@ -33,9 +36,9 @@ export default defineEventHandler(async (event) => {
       merchantUserId: userId,
       name: `${cartData.buyerIdentity.deliveryAddressPreferences[0].firstName} ${cartData.buyerIdentity.deliveryAddressPreferences[0].lastName}`,
       amount: cartData.totalAmount.amount * 100,
-      callbackUrl: "http://localhost:3000/api/checkout/confirm",
-      redirectUrl: "http://localhost:3000/api/checkout/confirm",
-      redirectMode: "POST",
+      callbackUrl: PHONEPAY_PAYMENT_CALLBACK_URL,
+      redirectUrl: PHONEPAY_REDIRECT_URL,
+      redirectMode: PHONEPAY_REDIRECT_METHOD,
       mobileNumber: cartData.buyerIdentity.deliveryAddressPreferences[0].phone,
       paymentInstrument: { type: "PAY_PAGE" },
     };
