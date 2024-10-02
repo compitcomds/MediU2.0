@@ -281,23 +281,28 @@
         </h2>
         <div class="space-y-4">
           <div
-            v-for="product in products"
-            :key="product.id"
+            v-for="product in cart.items"
+            :key="product.lineId"
             class="flex items-center space-x-4 text-[#28574e]"
           >
             <img
-              :src="product.image"
-              alt="Product Image"
+              :src="product.image?.url || 'https://placehold.co/400x400/png'"
+              :alt="product.image?.altText || product.title"
               class="w-16 h-16 rounded-lg"
             />
             <div>
-              <h3 class="font-semibold">{{ product.name }}</h3>
-              <p class="text-[#28574e]">₹{{ product.price }}</p>
+              <h3 class="font-semibold">{{ product.title }}</h3>
+              <p class="text-[#28574e]">
+                {{ product.cost.currencyCode }} {{ product.cost.amount }}
+              </p>
             </div>
           </div>
           <div class="flex justify-between items-center text-lg text-[#28574e]">
             <span>Subtotal</span>
-            <span>₹{{ subtotal }}</span>
+            <span
+              >{{ cart.subtotalAmount.currencyCode }}
+              {{ cart.subtotalAmount.amount }}</span
+            >
           </div>
           <div
             class="flex justify-between w-full items-center text-lg text-[#28574e]"
@@ -307,13 +312,25 @@
           </div>
           <div class="flex justify-between items-center text-lg text-[#28574e]">
             <span>Shipping Cost</span>
-            <span>₹{{ shippingCost }}</span>
+            <span
+              >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
+            >
+          </div>
+          <div class="flex justify-between items-center text-lg text-[#28574e]">
+            <span>Tax Amount</span>
+            <span
+              >{{ cart.totalTaxAmount.currencyCode }}
+              {{ cart.totalTaxAmount.amount }}</span
+            >
           </div>
           <div
             class="flex justify-between items-center font-semibold text-xl text-[#28574e]"
           >
             <span>Total</span>
-            <span>₹{{ total }}</span>
+            <span
+              >{{ cart.totalAmount.currencyCode }}
+              {{ cart.totalAmount.amount }}</span
+            >
           </div>
         </div>
       </div>
@@ -326,8 +343,31 @@ import axios from "axios";
 import { getUser } from "~/appwrite/auth";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 import getUserInfoForCheckout from "~/shopify/user/user-checkout";
+import getCartData from "~/shopify/cart/get-cart-data";
+
+const cart = ref<{
+  items: any[];
+  subtotalAmount: { currencyCode: string; amount: string };
+  totalAmount: { currencyCode: string; amount: string };
+  totalTaxAmount: { currencyCode: string; amount: string };
+}>({
+  items: [],
+  subtotalAmount: { currencyCode: "", amount: "" },
+  totalAmount: { currencyCode: "", amount: "" },
+  totalTaxAmount: { currencyCode: "", amount: "" },
+});
+
+const shippingAmount = computed(() => {
+  const cartValue = cart.value;
+  return Math.round(
+    parseFloat(cartValue.totalAmount.amount) -
+      parseFloat(cartValue.subtotalAmount.amount) -
+      parseFloat(cartValue.totalTaxAmount.amount)
+  );
+});
 
 const userData = await getUserInfoForCheckout();
+const userStore = useUserStore();
 
 const contact = ref("");
 const email = ref(userData?.email || "");
@@ -379,24 +419,6 @@ const total = computed(() => {
   return subtotal.value + shippingCost.value;
 });
 
-watch(billingAddressOption, (newVal) => {
-  if (newVal === "same") {
-    billing.value = { ...billing.value, ...shipping.value };
-  } else {
-    billing.value = {
-      firstName: "",
-      lastName: "",
-      address: "",
-      apartment: "",
-      city: "",
-      state: "",
-      pinCode: "",
-    };
-  }
-});
-
-const userStore = useUserStore();
-
 const addUserIdentityToCart = async () => {
   const cartId = await userStore.getShopifyCartId();
   const userEmail = email.value;
@@ -441,6 +463,29 @@ const submitOrder = async () => {
     console.error(error);
   }
 };
+
+onMounted(async () => {
+  const data = await getCartData();
+  if (data) {
+    cart.value = data;
+  }
+});
+
+watch(billingAddressOption, (newVal) => {
+  if (newVal === "same") {
+    billing.value = { ...billing.value, ...shipping.value };
+  } else {
+    billing.value = {
+      firstName: "",
+      lastName: "",
+      address: "",
+      apartment: "",
+      city: "",
+      state: "",
+      pinCode: "",
+    };
+  }
+});
 </script>
 
 <style scoped>
