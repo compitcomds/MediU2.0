@@ -64,10 +64,10 @@
 </template>
 
 <script>
-import Service from "/components/Service.vue";
-import BasicDetails from "/components/BasicDetails.vue";
-import Summary from "/components/Summary.vue";
-import Confirmation from "/components/Confirmation.vue";
+import Service from "@/components/Service.vue";
+import BasicDetails from "@/components/BasicDetails.vue";
+import Summary from "@/components/Summary.vue";
+import Confirmation from "@/components/Confirmation.vue";
 
 export default {
   components: {
