@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { getUserOrder } from "~/shopify/user/orders";
 
 const route = useRoute();
