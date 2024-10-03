@@ -5,6 +5,8 @@ import createShopifyCart from "~/shopify/cart/create-cart";
 
 export const useUserStore = defineStore("userStore", {
   state: (): {
+    userNmae:null | string;
+    userEmail: null | string;
     shopifyCartId: null | string;
     wishlist: string[];
     isAuthenticated: boolean;
@@ -12,6 +14,8 @@ export const useUserStore = defineStore("userStore", {
     shopifyCartId: "",
     wishlist: [],
     isAuthenticated: false,
+    userNmae: null,
+    userEmail: null,
   }),
 
   actions: {
