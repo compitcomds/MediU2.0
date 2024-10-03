@@ -41,7 +41,7 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <nuxt-link to="/shop" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-11 ">
+          <nuxt-link to="/consultancy" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-11 ">
             Consult now
           </nuxt-link>
         </div>

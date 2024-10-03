@@ -40,7 +40,7 @@ query getCartData($cartId: ID!) {
         amount
         currencyCode
       }
-      totalDutyAmount {
+      totalTaxAmount {
         amount
         currencyCode
       }
@@ -92,9 +92,9 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
       items: CartItemType[];
       checkoutUrl: string;
       note: string;
-      subtotalAmount: { amount: number; currencyCode: string };
-      totalDutyAmount: { amount: number; currencyCode: string };
-      totalAmount: { amount: number; currencyCode: string };
+      subtotalAmount: { amount: string; currencyCode: string };
+      totalTaxAmount: { amount: string; currencyCode: string };
+      totalAmount: { amount: string; currencyCode: string };
       buyerIdentity: {
         email: string;
         customer: {
@@ -132,7 +132,7 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
       items,
       checkoutUrl: data.cart.checkoutUrl,
       subtotalAmount: data.cart.cost.subtotalAmount,
-      totalDutyAmount: data.cart.cost.totalDutyAmount,
+      totalTaxAmount: data.cart.cost.totalTaxAmount,
       totalAmount: data.cart.cost.totalAmount,
       buyerIdentity: data.cart.buyerIdentity,
       note: data.cart.note || "",
