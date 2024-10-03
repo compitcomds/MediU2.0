@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { fetchProducts } from "~/shopify/products";
 // import { getFilters } from "~/shopify/productFilters";
 
@@ -25,11 +25,26 @@ const data = useState("data", () => ({
 
 watch(
   () => route.query,
-  async (newQuery) => {
-    const queryString = convertQueryParamsToQueryString(newQuery);
+  async (newQuery: any) => {
+    const queryString = convertQueryParamsToQueryString({
+      selectedSkinConcern: newQuery.selectedSkinConcern,
+      selectedHairConcern: newQuery.selectedHairConcern,
+      selectedNutrionAndDiet: newQuery.selectedNutrionAndDiet,
+      selectedPediatric: newQuery.selectedPediatric,
+      selectedIngredent: newQuery.selectedIngredent,
+    });
     const newData = await fetchProducts({ query: queryString });
-    console.log(queryString, newData);
-    data.value = newData;
+
+    data.value = {
+      ...newData,
+      products: newData.products.filter((product: any) => {
+        const prodPrice = parseFloat(product.price);
+        if (!!newQuery.min && parseInt(newQuery.min) > prodPrice) return false;
+        else if (!!newQuery.max && parseInt(newQuery.max) < prodPrice)
+          return false;
+        return true;
+      }),
+    };
   },
   { immediate: true }
 );
