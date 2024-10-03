@@ -64,6 +64,11 @@
 </template>
 
 <script>
+import Service from "/components/Service.vue";
+import BasicDetails from "/components/BasicDetails.vue";
+import Summary from "/components/Summary.vue";
+import Confirmation from "/components/Confirmation.vue";
+
 export default {
   components: {
     Service,
@@ -135,7 +140,5 @@ export default {
 <style scoped>
 .cursor-not-allowed {
   pointer-events: none;
-  pointer-events: none;
 }
 </style>
-

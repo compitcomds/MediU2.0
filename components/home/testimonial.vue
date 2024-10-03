@@ -2,7 +2,7 @@
   <div class="lg:px-4 xl:px-12 mb-10 p-6 bg-[#f9f9f9]">
     <h1 class="text-center text-gray-600 text-2xl font-serif">Testimonials</h1>
     <h2 class="text-center text-[#28574E] text-4xl font-bold font-serif mb-10">
-      What our customers say
+      What our Patients say
     </h2>
 
     <!-- Testimonials Container -->
@@ -42,7 +42,7 @@
         <img
           :src="testimonial.photo"
           class="rounded-xl w-24 h-24 object-cover border-4 border-gray-200"
-          alt="Customer photo"
+          alt="patient photo"
         />
       </div>
 
@@ -54,7 +54,7 @@
             {{ testimonial.name }}
           </h3>
           <p>|</p>
-          <p class="text-sm text-gray-500">Customer</p>
+          <p class="text-sm text-gray-500">patient</p>
         </div>
 
         <!-- Star Rating -->
