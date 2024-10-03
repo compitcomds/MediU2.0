@@ -53,14 +53,6 @@
             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
           />
         </svg>
-
-        <!-- Badge Count -->
-        <span
-          v-if="badgeCount > 0"
-          class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-green-400 text-white px-2 py-1 text-xs"
-        >
-          {{ badgeCount }}
-        </span>
       </nuxt-link>
     </div>
     <!-- <div class="">

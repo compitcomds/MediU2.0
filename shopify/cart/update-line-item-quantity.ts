@@ -14,7 +14,7 @@ mutation updateLineItemQuantity($cartId: ID!, $lineId: ID!, $quantity: Int) {
             amount
             currencyCode
         }
-        totalDutyAmount {
+        totalTaxAmount {
             amount
             currencyCode
         }
@@ -65,7 +65,7 @@ export default async function updateLineItemQuantity({
   if (cart?.id) {
     return {
       subtotalAmount: cart.cost.subtotalAmount,
-      totalDutyAmount: cart.cost.totalDutyAmount,
+      totalTaxAmount: cart.cost.totalTaxAmount,
       totalAmount: cart.cost.totalAmount,
     };
   }

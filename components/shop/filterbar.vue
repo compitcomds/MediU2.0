@@ -110,6 +110,18 @@
         </div>
       </div>
     </div>
+
+    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+      <div class="text-xl font-medium text-[#22423c]">Price</div>
+      <div class="p-3">
+        <ShopPriceSlider
+          :min="min"
+          :max="max"
+          v-model:max-value="priceFilter.maxValue"
+          v-model:min-value="priceFilter.minValue"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -126,11 +138,12 @@ const props = defineProps({
   },
 });
 
-// const TypeOfProducts = [
-//   { name: "Hair", value: "hair" },
-//   { name: "Skin", value: "skin" },
-//   { name: "Baby Care", value: "baby-care" },
-// ];
+const min = 0;
+const max = 10000;
+const priceFilter = ref({
+  minValue: min,
+  maxValue: max,
+});
 
 const SkinConcern = [
   { name: "Acne & Acne Scar", value: "acne-and-ance-scar" },
@@ -190,6 +203,25 @@ const selectedPediatric = ref(
 );
 const selectedIngredent = ref(
   ifStringMakeArray(route?.query?.selectedIngredent)
+);
+
+const changeMinMaxPrice = useDebounceFn((newMinMax) => {
+  router.push({
+    path: route.path,
+    query: {
+      ...route.query,
+      min: newMinMax.minValue,
+      max: newMinMax.maxValue,
+    },
+  });
+}, 1000);
+
+watch(
+  () => priceFilter.value,
+  (newFilter) => {
+    changeMinMaxPrice(newFilter);
+  },
+  { deep: true, immediate: true }
 );
 
 const updateQueryParams = () => {
