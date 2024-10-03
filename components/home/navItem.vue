@@ -91,7 +91,7 @@
                   <li>
                     <nuxt-link
                       to="/shop"
-                      class="text-gray-800 hover:text-blue-600 hover:underline"
+                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Minoxidil</nuxt-link
                     >
                   </li>

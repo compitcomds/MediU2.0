@@ -41,10 +41,11 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <nuxt-link to="/shop" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-11 ">
+          <nuxt-link to="/consultancy" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-11 hover:ease-in-out">
             Consult now
           </nuxt-link>
         </div>
+        
       </div>
 
       <!-- Card 2 -->
@@ -90,7 +91,7 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <nuxt-link to="/self_assissment" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
+          <nuxt-link to="/self_assissment" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
             Diagnose
           </nuxt-link>
         </div>
@@ -118,7 +119,7 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <nuxt-link to="/shop" class="px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
+          <nuxt-link to="/shop" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
             Buy Now
           </nuxt-link>
         </div>
@@ -126,3 +127,13 @@
     </div>
   </div>
 </template>
+<style scoped>
+.zoom-button {
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.zoom-button:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+</style>
