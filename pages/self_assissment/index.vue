@@ -4,7 +4,7 @@
       <!-- Form Section -->
       <div class="w-full lg:w-1/2 p-6">
         <h2 class="text-2xl lg:text-4xl font-semibold text-center text-[#28574e] mb-6">
-          Consultation Form
+          Diagnose Form
         </h2>
 
         <form @submit.prevent="handleNextPage">
@@ -97,7 +97,7 @@
 
       <!-- Illustration Section -->
       <div class="hidden lg:flex items-center justify-center w-1/2">
-        <img src="https://placehold.co/600x400" alt="Form Illustration" class="w-full h-[500px]" />
+        <img src="https://ccdstest.b-cdn.net/Medi%20u/diagnose.webp" alt="Form Illustration" class="w-full h-[500px]" />
       </div>
     </div>
   </div>
