@@ -388,9 +388,9 @@ const cart = ref<{
   totalTaxAmount: { currencyCode: "", amount: "" },
 });
 
-const uploadedFilePreview = ref(null);
+const uploadedFilePreview = ref<any>(null);
 const requiresPrescription = ref(false);
-const uploadedFile = ref(null);
+const uploadedFile = ref<null | File>(null);
 
 const shippingAmount = computed(() => {
   const cartValue = cart.value;
@@ -440,7 +440,7 @@ const uploadPrescription = (event: Event) => {
     uploadedFile.value = file;
     const reader = new FileReader();
     reader.onload = (e) => {
-      uploadedFilePreview.value = e.target.result;
+      uploadedFilePreview.value = e.target?.result || null;
     };
     reader.readAsDataURL(file);
   }
