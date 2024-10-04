@@ -16,7 +16,11 @@
               class="lg:mb-6 flex space-x-4 items-center"
               :style="tabStyle('service')"
             >
-              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
                 <path d="M0 0h24v24H0V0z" fill="none"></path>
                 <path
                   d="M19 13H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM19 3H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
@@ -53,7 +57,11 @@
               class="lg:mb-6 flex space-x-4 items-center"
               :style="tabStyle('summary')"
             >
-              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
                 <path d="M0 0h24v24H0V0z" fill="none"></path>
                 <path
                   d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9.29 16.29L6.7 13.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l5.88-5.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-6.59 6.59c-.38.39-1.02.39-1.41 0z"
@@ -113,19 +121,9 @@
 </template>
 
 <script>
-import Service from "@/components/Service.vue";
-import BasicDetails from "@/components/BasicDetails.vue";
-import Summary from "@/components/Summary.vue";
-import Confirmation from "@/components/Confirmation.vue";
-import {consultancyDocument,getUserId} from "~/appwrite/consultancy"
+import { consultancyDocument, getUserId } from "~/appwrite/consultancy";
 
 export default {
-  components: {
-    Service,
-    BasicDetails,
-    Summary,
-    Confirmation,
-  },
   data() {
     return {
       currentTab: "service",
@@ -144,9 +142,10 @@ export default {
   methods: {
     tabClasses(tab) {
       return {
-        'text-blue-600 font-semibold': this.currentTab === tab,
-        'text-gray-400 cursor-not-allowed': this.progress < this.getProgress(tab),
-        'text-blue-400': this.progress >= this.getProgress(tab),
+        "text-blue-600 font-semibold": this.currentTab === tab,
+        "text-gray-400 cursor-not-allowed":
+          this.progress < this.getProgress(tab),
+        "text-blue-400": this.progress >= this.getProgress(tab),
       };
     },
     getProgress(tab) {
@@ -159,7 +158,12 @@ export default {
     handleNextTab() {
       if (this.progress < 3) {
         this.progress += 1;
-        this.currentTab = ["service", "basicDetails", "summary", "confirmation"][this.progress];
+        this.currentTab = [
+          "service",
+          "basicDetails",
+          "summary",
+          "confirmation",
+        ][this.progress];
       }
     },
     handleServiceSelected(service) {
@@ -177,25 +181,24 @@ export default {
     },
 
     async bookConsultancy() {
-      try{
+      try {
         const userId = await getUserId();
-      await consultancyDocument(
-          userId,                // User ID
-          this.service,           // Title of the service
+        await consultancyDocument(
+          userId, // User ID
+          this.service, // Title of the service
           "Consultation booking", // Description (can be customized)
-          [],                     // Image IDs (empty for now, add if needed)
-          this.appointmentDateTime,  // Booking time
-          false,                  // Consultancy status (default is false)
-          false,                  // Payment status (default is false)
-          this.totalPrice,        // Payment fee (total price)
-          this.gender             // Gender (can be dynamically set)
+          [], // Image IDs (empty for now, add if needed)
+          this.appointmentDateTime, // Booking time
+          false, // Consultancy status (default is false)
+          false, // Payment status (default is false)
+          this.totalPrice, // Payment fee (total price)
+          this.gender // Gender (can be dynamically set)
         );
         alert("Consultancy booked successfully!");
-      }catch (error){
+      } catch (error) {
         console.error("Error booking consultancy:", error);
         alert("Failed to book consultancy!");
       }
-
     },
     tabStyle(tab) {
       return {
