@@ -1,10 +1,9 @@
 import { database, account } from "./config";
 import { ID } from "appwrite";
 
-const config = useRuntimeConfig();
-
 // This is Create Consultancy Function
 export async function consultancyDocument(
+  config: any,
   userId: string,
   title: string,
   description: string,
@@ -32,7 +31,7 @@ export async function consultancyDocument(
         gender,
       }
     );
-    console.log("Document Created SuccesFully: ", uploadData);
+    console.log("Document Created Successfully: ", uploadData);
   } catch (error: any) {
     console.error(
       "Error in consultancyDocument Function:",
@@ -44,7 +43,7 @@ export async function consultancyDocument(
 
 // This is upload Image Function
 
-export async function uploadImage(imageUri: string) {
+export async function uploadImage(config: any, imageUri: string) {
   if (!imageUri) {
     throw new Error("Please Select an Image to Upload.");
   }
@@ -86,10 +85,11 @@ const checkUserSession = async () => {
     throw new Error("User is not authenticated");
   }
 };
+
 // This is Get User ID Function
 export const getUserId = async (): Promise<string> => {
   try {
-    const session = await account.getSession("current");
+    const session = await account.getSession("current");  
     return session.userId;
   } catch (error) {
     console.error("Failed to get user ID:", error);
