@@ -1,6 +1,5 @@
 <template>
   <HomeNavbar />
-  <div class="my-32"></div>
   <template v-if="!isLoading">
     <template v-if="!preventAccess">
       <slot />
