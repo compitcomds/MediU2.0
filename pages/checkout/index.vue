@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-100 py-8 px-4 md:px-16 mb-20 lg:mb-0">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
-      <!-- Scrollable Form Section -->
       <form
         @submit.prevent="submitOrder"
         class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg h-full overflow-y-auto"
@@ -58,8 +57,6 @@
               class="p-3 border border-gray-300 rounded-lg w-full bg-white"
               required
             />
-            <!-- <input type="text" v-model="shipping.apartment" placeholder="Apartment, suite, etc. (optional)"
-                              class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
             <div class="grid md:grid-cols-3 gap-4">
               <input
                 type="text"
@@ -236,9 +233,6 @@
                 placeholder="Address"
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
               />
-              <!-- <input type="text" v-model="billing.apartment"
-                                  placeholder="Apartment, suite, etc. (optional)"
-                                  class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
               <div class="grid md:grid-cols-3 gap-4">
                 <input
                   type="text"
@@ -272,7 +266,6 @@
         </button>
       </form>
 
-      <!-- Order Summary Section -->
       <div
         class="bg-white p-6 rounded-lg shadow-lg lg:sticky lg:top-8 lg:h-fit"
       >
@@ -389,7 +382,6 @@ const billing = ref({
   firstName: "",
   lastName: "",
   address: "",
-  apartment: "",
   city: "",
   state: "",
   pinCode: "",
@@ -409,14 +401,6 @@ const shippingCost = ref(50); // Example shipping cost
 
 const shippingDetails = computed(() => {
   return `${shipping.value.address}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
-});
-
-const subtotal = computed(() => {
-  return products.value.reduce((total, product) => total + product.price, 0);
-});
-
-const total = computed(() => {
-  return subtotal.value + shippingCost.value;
 });
 
 const addUserIdentityToCart = async () => {
@@ -479,7 +463,6 @@ watch(billingAddressOption, (newVal) => {
       firstName: "",
       lastName: "",
       address: "",
-      apartment: "",
       city: "",
       state: "",
       pinCode: "",

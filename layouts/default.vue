@@ -1,11 +1,11 @@
 <template>
   <HomeNavbar />
-
+  <div class="my-32"></div>
   <template v-if="!isLoading">
     <template v-if="!preventAccess">
       <slot />
     </template>
-    <div class="my-20" v-else>
+    <div v-else class="my-20">
       <h2>Not authenticated.</h2>
       <p>
         Please <nuxt-link to="/auth/login">Login</nuxt-link> /
@@ -39,7 +39,7 @@ const blockUnauthenticatedUser = async (pathname: string) => {
   for (const loginRequiredRoute of LOGIN_REQUIRED_ROUTES) {
     if (pathname.includes(loginRequiredRoute)) {
       try {
-        await getUser();
+        const user = await getUser();
       } catch (error) {
         preventAccess.value = true;
       }

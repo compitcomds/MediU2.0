@@ -37,28 +37,22 @@ export const registerUser = async (data: {
 
 export const loginUser = async (data: { email: string; password: string }) => {
   await createLoggedSession(data);
+  await getShopifyAccessTokenUsingAppwrite();
+};
 
-  const userAccount = await getUser();
-  const userDocument = await getUserDocument(userAccount.$id);
+export const getUser = async () => account.get();
 
-  const { accessToken, expiresAt } = await loginShopifyUserAccount({
-    email: data.email,
+export const getShopifyAccessTokenUsingAppwrite = async () => {
+  const user = await getUser();
+  const userDocument = await getUserDocument(user.$id);
+  const { accessToken } = await loginShopifyUserAccount({
+    email: user.email,
     password: userDocument.shopifyPassword,
   });
 
   localStorage.setItem("accessToken", accessToken);
-  // const accessTokenCookie = useCookie("accessToken", {
-  //   sameSite: true,
-  //   secure: true,
-  //   httpOnly: true,
-  //   expires: new Date(expiresAt),
-  // });
-  // accessTokenCookie.value = accessToken;
-
-  // console.log(accessToken);
+  return accessToken;
 };
-
-export const getUser = async () => account.get();
 
 async function createLoggedSession(data: { email: string; password: string }) {
   try {
