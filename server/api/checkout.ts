@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const cartId = body.cart;
   const userId = body.userId;
+  const prescriptionUrl = body.prescriptionUrl;
 
   try {
     if (!PHONEPAY_API_KEY || !PHONEPAY_API_URL) {
@@ -47,7 +48,7 @@ export default defineEventHandler(async (event) => {
 
     const payload = JSON.stringify(data);
     const payloadMain = Buffer.from(payload).toString("base64");
-    const keyIndex = parseInt(PHONEPAY_API_KEY_INDEX || "1");
+    const keyIndex = PHONEPAY_API_KEY_INDEX || "1";
     const string = payloadMain + "/pg/v1/pay" + PHONEPAY_API_KEY;
     const sha256 = crypto.createHash("sha256").update(string).digest("hex");
     const checksum = sha256 + "###" + keyIndex;
@@ -67,6 +68,7 @@ export default defineEventHandler(async (event) => {
       userId,
       transactionId,
       shopifyCartId: cartId,
+      prescriptionUrl,
     });
 
     const instrumentResponse = await apiResponse.data.data.instrumentResponse;
