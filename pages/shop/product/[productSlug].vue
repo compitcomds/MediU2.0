@@ -225,6 +225,11 @@
           </div>
         </div>
       </div>
+
+      <div class="mt-5">
+        <h3 class="text-2xl font-semibold mb-4 text-black">Related Products</h3>
+        <ShopRelatedProducts :product-id="data.productId" />
+      </div>
     </div>
 
     <div v-else>Loading product details...</div>

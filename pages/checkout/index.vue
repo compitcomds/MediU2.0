@@ -1,10 +1,9 @@
 <template>
   <div class="min-h-screen bg-gray-100 py-8 px-4 md:px-16 mb-20 lg:mb-0">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
-      <!-- Scrollable Form Section -->
       <form
         @submit.prevent="submitOrder"
-        class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg h-full overflow-y-auto"
+        class="lg:col-span-2 bg-white text-zinc-500 p-6 rounded-lg shadow-lg h-full overflow-y-auto"
       >
         <!-- Contact Section -->
         <div class="mb-6">
@@ -58,8 +57,6 @@
               class="p-3 border border-gray-300 rounded-lg w-full bg-white"
               required
             />
-            <!-- <input type="text" v-model="shipping.apartment" placeholder="Apartment, suite, etc. (optional)"
-                              class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
             <div class="grid md:grid-cols-3 gap-4">
               <input
                 type="text"
@@ -236,9 +233,6 @@
                 placeholder="Address"
                 class="p-3 border border-gray-300 rounded-lg w-full bg-white"
               />
-              <!-- <input type="text" v-model="billing.apartment"
-                                  placeholder="Apartment, suite, etc. (optional)"
-                                  class="p-3 border border-gray-300 rounded-lg w-full bg-white" /> -->
               <div class="grid md:grid-cols-3 gap-4">
                 <input
                   type="text"
@@ -266,13 +260,14 @@
         <!-- Pay Now Button -->
         <button
           type="submit"
-          class="w-full bg-[#28574e] text-white py-3 rounded-lg font-semibold hover:bg-[#70ccbb] transition duration-200"
+          :disabled="isSubmitting"
+          class="w-full bg-[#28574e] text-white py-3 rounded-lg font-semibold hover:bg-[#70ccbb] transition duration-200 disabled:animate-pulse disabled:cursor-not-allowed"
         >
-          Pay now
+          {{ isSubmitting ? "Submitting the details..." : "Pay now" }}
         </button>
       </form>
 
-      <!-- Order Summary Section -->
+      <!-- Order Summary -->
       <div
         class="bg-white p-6 rounded-lg shadow-lg lg:sticky lg:top-8 lg:h-fit"
       >
@@ -333,6 +328,39 @@
             >
           </div>
         </div>
+        <!-- Upload Prescription Button -->
+        <div v-if="requiresPrescription" class="mt-6">
+          <label
+            for="prescription-upload"
+            class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
+          >
+            <input
+              type="file"
+              id="prescription-upload"
+              @change="uploadPrescription"
+              class="hidden"
+              accept="image/*"
+            />
+            Upload Prescription
+          </label>
+          <p v-if="!uploadedFilePreview" class="text-red-500 text-sm mt-2">
+            Please upload your prescription before checkout.
+          </p>
+          <!-- Preview Box -->
+          <div v-else class="mt-4 relative">
+            <img
+              :src="uploadedFilePreview"
+              alt="Image Preview"
+              class="mt-2 w-full h-auto rounded-md"
+            />
+            <button
+              class="absolute top-5 right-5 bg-red-800 w-8 h-8 rounded-full text-white"
+              @click="removeUploadedPrescription"
+            >
+              X
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -341,9 +369,12 @@
 <script setup lang="ts">
 import axios from "axios";
 import { getUser } from "~/appwrite/auth";
+import { uploadFileInAppwrite } from "~/appwrite/prescription-upload";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 import getUserInfoForCheckout from "~/shopify/user/user-checkout";
 import getCartData from "~/shopify/cart/get-cart-data";
+
+const isSubmitting = ref(false);
 
 const cart = ref<{
   items: any[];
@@ -357,6 +388,10 @@ const cart = ref<{
   totalTaxAmount: { currencyCode: "", amount: "" },
 });
 
+const uploadedFilePreview = ref<any>(null);
+const requiresPrescription = ref(false);
+const uploadedFile = ref<null | File>(null);
+
 const shippingAmount = computed(() => {
   const cartValue = cart.value;
   return Math.round(
@@ -369,7 +404,6 @@ const shippingAmount = computed(() => {
 const userData = await getUserInfoForCheckout();
 const userStore = useUserStore();
 
-const contact = ref("");
 const email = ref(userData?.email || "");
 
 const shipping = ref({
@@ -389,21 +423,10 @@ const billing = ref({
   firstName: "",
   lastName: "",
   address: "",
-  apartment: "",
   city: "",
   state: "",
   pinCode: "",
 });
-
-const products = ref([
-  {
-    id: 1,
-    name: "Bontess Pro",
-    price: 1225,
-    image:
-      "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
-  },
-]);
 
 const shippingCost = ref(50); // Example shipping cost
 
@@ -411,13 +434,22 @@ const shippingDetails = computed(() => {
   return `${shipping.value.address}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
 });
 
-const subtotal = computed(() => {
-  return products.value.reduce((total, product) => total + product.price, 0);
-});
+const uploadPrescription = (event: Event) => {
+  const file = (event.target as HTMLInputElement).files?.[0];
+  if (file) {
+    uploadedFile.value = file;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      uploadedFilePreview.value = e.target?.result || null;
+    };
+    reader.readAsDataURL(file);
+  }
+};
 
-const total = computed(() => {
-  return subtotal.value + shippingCost.value;
-});
+const removeUploadedPrescription = () => {
+  uploadedFile.value = null;
+  uploadedFilePreview.value = null;
+};
 
 const addUserIdentityToCart = async () => {
   const cartId = await userStore.getShopifyCartId();
@@ -436,16 +468,27 @@ const addUserIdentityToCart = async () => {
   });
 };
 
-// Submit order function
 const submitOrder = async () => {
+  if (!!requiresPrescription.value && !uploadedFile.value) {
+    alert(
+      "Some items in your cart requires prescription. Please add that first."
+    );
+    return;
+  }
+  isSubmitting.value = true;
   try {
     const userCartId = await userStore.getShopifyCartId();
     const appwriteUser = await getUser();
+
     await addUserIdentityToCart();
+    const prescriptionUrl = !!uploadedFile.value
+      ? await uploadFileInAppwrite(uploadedFile.value)
+      : null;
 
     const { data } = await axios.post("/api/checkout", {
       cart: userCartId,
       userId: appwriteUser.$id,
+      prescriptionUrl,
     });
     if (data?.url) {
       window.location.href = data.url;
@@ -462,6 +505,7 @@ const submitOrder = async () => {
     alert(error.message);
     console.error(error);
   }
+  isSubmitting.value = false;
 };
 
 onMounted(async () => {
@@ -471,6 +515,15 @@ onMounted(async () => {
   }
 });
 
+watch(
+  () => cart.value.items,
+  (newItems) => {
+    requiresPrescription.value =
+      newItems?.some((item) => item.requiresPrescription) || false;
+  },
+  { deep: true, immediate: true }
+);
+
 watch(billingAddressOption, (newVal) => {
   if (newVal === "same") {
     billing.value = { ...billing.value, ...shipping.value };
@@ -479,7 +532,6 @@ watch(billingAddressOption, (newVal) => {
       firstName: "",
       lastName: "",
       address: "",
-      apartment: "",
       city: "",
       state: "",
       pinCode: "",

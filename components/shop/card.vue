@@ -12,7 +12,10 @@
         <div
           class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-80"
         >
-          <a :href="`/shop/product/${product.handle}`" class="relative block">
+          <nuxt-link
+            :to="`/shop/product/${product.handle}`"
+            class="relative block"
+          >
             <!-- Sale badge -->
             <span
               v-if="true"
@@ -35,7 +38,7 @@
               class="w-full h-48 object-cover rounded-t-lg"
               alt=""
             />
-          </a>
+          </nuxt-link>
 
           <div class="space-y-4 mt-4">
             <!-- Product title -->
