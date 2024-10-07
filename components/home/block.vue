@@ -15,7 +15,7 @@ export default {};
 
 <style scoped></style> -->
 <template>
-  <div class="flex items-center justify-between mt-0 lg:mt-72 object-cover w-full">
+  <div class="flex items-center justify-between mt-0 lg:mt-72 object-cover bg-white w-full">
     <swiper
       :slidesPerView="1"
       :spaceBetween="60"
@@ -27,7 +27,7 @@ export default {};
       class="mySwiper w-full"
     >
       <swiper-slide v-for="item in slides" :key="item.id">
-        <img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center lg:-mb-10" />
+        <img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center lg:-pb-10 bg-white" />
       </swiper-slide>
     </swiper>
   </div>

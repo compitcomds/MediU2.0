@@ -1,5 +1,5 @@
 <template>
-  <div class="font-serif mt-6 lg:mt-20">
+  <div class="font-serif pt-6 lg:pt-20">
     <div class="flex flex-col lg:space-y-6 text-center">
       <!-- Responsive Heading -->
       <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Top Picks</h1>

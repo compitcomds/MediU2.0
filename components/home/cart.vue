@@ -33,7 +33,11 @@
       </span>
     </div> -->
     <div class="">
-      <nuxt-link to="/addToCart" class="relative inline-block">
+      <nuxt-link
+        to="/addToCart"
+        class="relative border-2 border-transparent text-gray-800 rounded-full hover:text-gray-400 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out"
+        aria-label="Cart"
+      >
         <!-- Shopping Cart SVG Icon -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -53,8 +57,15 @@
             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
           />
         </svg>
+        <!-- Badge for Cart Item Count -->
+        <span class="absolute top-2 -right-10">
+          <div class="inline-flex items-center px-1.5 py-0.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white">
+            2
+          </div>
+        </span>
       </nuxt-link>
     </div>
+    
     <!-- <div class="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
