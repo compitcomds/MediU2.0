@@ -218,6 +218,155 @@ export default {
           isOnSale: true,
           url: "/shop/product/acne-uv-spf-50-sunscreen-50-gm",
         },
+        // oily scalp
+        {
+          id: 5,
+          name: "venusia max cream",
+          salePrice: "1180",
+          originalPrice: "2360",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09987.jpg?v=1725709318",
+          category: "Oily Scalp",
+          isOnSale: true,
+          url: "/shop/product/venusia-max-cream",
+        },
+        {
+          id: 1,
+          name: "dermatica ray protect barelyon",
+          salePrice: "1080",
+          originalPrice: "2160",
+          rating: 3,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
+          category: "Oily Scalp",
+          isOnSale: true,
+          url: "/shop/product/dermatica-ray-protect-barelyon",
+        },
+        {
+          id: 2,
+          name: "Racine pro conditioning sha...",
+          salePrice: "635.0",
+          originalPrice: "1270",
+          rating: 5,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00155.jpg?v=1725639738",
+          category: "Oily Scalp",
+          isOnSale: true,
+          url: "/shop/product/racine-pro-conditioning-shampoo",
+        },
+        {
+          id: 4,
+          name: "Bontess Pro",
+          salePrice: "1225",
+          originalPrice: "2500",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+          category: "Oily Scalp",
+          isOnSale: true,
+          url: "/shop/product/bontess-pro",
+        },
+        {
+          id: 6,
+          name: "acne oc moisturiser",
+          salePrice: "567",
+          originalPrice: "1120",
+          rating: 5,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
+          category: "Oily Scalp",
+          isOnSale: true,
+          url: "/shop/product/acne-oc-moisturiser",
+        },
+        
+        {
+          id: 3,
+          name: "acne uv spf 50 sunscreen 50gm",
+          salePrice: "915.0",
+          originalPrice: "1830",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4359.jpg?v=1725638248",
+          category: "Oily Scalp",
+          isOnSale: true,
+          url: "/shop/product/acne-uv-spf-50-sunscreen-50-gm",
+        },
+        // Bald Patches
+        {
+          id: 3,
+          name: "acne uv spf 50 sunscreen 50gm",
+          salePrice: "915.0",
+          originalPrice: "1830",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4359.jpg?v=1725638248",
+          category: "Bald Patches",
+          isOnSale: true,
+          url: "/shop/product/acne-uv-spf-50-sunscreen-50-gm",
+        }, 
+        {
+          id: 5,
+          name: "venusia max cream",
+          salePrice: "1180",
+          originalPrice: "2360",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09987.jpg?v=1725709318",
+          category: "Bald Patches",
+          isOnSale: true,
+          url: "/shop/product/venusia-max-cream",
+        },
+        {
+          id: 1,
+          name: "dermatica ray protect barelyon",
+          salePrice: "1080",
+          originalPrice: "2160",
+          rating: 3,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
+          category: "Bald Patches",
+          isOnSale: true,
+          url: "/shop/product/dermatica-ray-protect-barelyon",
+        },
+        {
+          id: 2,
+          name: "Racine pro conditioning sha...",
+          salePrice: "635.0",
+          originalPrice: "1270",
+          rating: 5,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00155.jpg?v=1725639738",
+          category: "Bald Patches",
+          isOnSale: true,
+          url: "/shop/product/racine-pro-conditioning-shampoo",
+        },
+        {
+          id: 4,
+          name: "Bontess Pro",
+          salePrice: "1225",
+          originalPrice: "2500",
+          rating: 4,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+          category: "Bald Patches",
+          isOnSale: true,
+          url: "/shop/product/bontess-pro",
+        },
+        {
+          id: 6,
+          name: "acne oc moisturiser",
+          salePrice: "567",
+          originalPrice: "1120",
+          rating: 5,
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
+          category: "Bald Patches",
+          isOnSale: true,
+          url: "/shop/product/acne-oc-moisturiser",
+        },
+        
+        
       ],
     };
   },
