@@ -18,7 +18,7 @@
                 class="h-28 w-auto" />
         </div>
     </div>
-    <div class="lg:mx-20 mt-10 w-full  rounded-3xl flex items-center justify-center">
+    <div class="lg:mx-20 mt-5 mx-4 rounded-3xl flex items-center justify-center">
         <img src="https://ccdstest.b-cdn.net/Medi%20u/consultBanner.jpg" alt="" class=" rounded-[200px]">
     </div>
 </template>
