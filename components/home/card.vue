@@ -345,7 +345,7 @@ export default {
           image:
             "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01.jpg?v=1725546603",
           discountedPrice: 1000,
-          originalPrice: 2000,
+          originalPrice: 1500,
           rating: 5,
           feedbackCount: 524,
           isOnSale: true,
@@ -409,7 +409,82 @@ export default {
           isOnSale: true,
           category: "Skin", // Added category
         },
+        {
+          id: 9,
+          link: "/shop/product/bontess-pro",
+          name: "bontess pro",
+          description: "A description of the card.",
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+          discountedPrice: 1225,
+          originalPrice: 2500,
+          rating: 5,
+          feedbackCount: 524,
+          isOnSale: true,
+          isBestSeller: true,
+          category: "Hair", // Added category
+          timer: {
+            end: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000), // Example 2 days from now
+          },
+        },
+        {
+          id: 6,
+          link: "/shop/product/acne-oc-moisturiser",
+          name: "acne oc moisturiser",
+          description: "A description of the card.",
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
+          discountedPrice: 567,
+          originalPrice: 1120,
+          rating: 4,
+          feedbackCount: 200,
+          category: "Hair", // Added category
+        },
+        {
+          id: 8,
+          link: "/shop/product/venusia-max-cream",
+          name: "venusia max cream",
+          description: "A description of the card.",
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09989.jpg?v=1725709318",
+          discountedPrice: 1180,
+          originalPrice: 2360,
+          rating: 4,
+          feedbackCount: 200,
+          isOnSale: true,
+          category: "Hair", // Added category
+          
+        },
+        {
+          id: 7,
+          link: "/shop/product/dermatica-ray-protect-barelyon",
+          name: "dermatica ray protect barelyon",
+          description: "A description of the card.",
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
+          discountedPrice: 1080,
+          originalPrice: 2160,
+          rating: 4,
+          feedbackCount: 200,
+          category: "Hair", // Added category
+        },
+        
+        {
+          id: 10,
+          link: "/shop/product/aspirin",
+          name: "Blowshine",
+          description: "A description of the card.",
+          image:
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01.jpg?v=1725546603",
+          discountedPrice: 1000,
+          originalPrice: 1500,
+          rating: 4,
+          feedbackCount: 200,
+          isOnSale: true,
+          category: "Hair", // Added category
+        },
       ],
+      
     };
   },
   computed: {

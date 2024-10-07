@@ -8,10 +8,10 @@
     </div>
 
     <!-- Responsive Grid Layout -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto">
       <!-- Card 1 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative md:h-[400px] flex flex-col justify-between items-center">
+        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative space-y-4 flex flex-col justify-between items-center">
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 90 90" fill="#fff"
             class="bg-white">
@@ -41,7 +41,7 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <nuxt-link to="/consultancy" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-11 hover:ease-in-out">
+          <nuxt-link to="/consultancy" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full hover:ease-in-out">
             Consult now
           </nuxt-link>
         </div>
@@ -50,7 +50,7 @@
 
       <!-- Card 2 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative md:h-[400px] flex flex-col justify-between items-center">
+        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative space-y-4 flex flex-col justify-between items-center">
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 86 85" fill="none">
             <mask id="path-1-inside-1_1_601" fill="white">
@@ -91,7 +91,7 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <nuxt-link to="/self_assissment" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
+          <nuxt-link to="/self_assissment" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full ">
             Diagnose
           </nuxt-link>
         </div>
@@ -99,7 +99,7 @@
 
       <!-- Card 3 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative md:h-[400px] flex flex-col justify-between items-center">
+        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative space-y-4 flex flex-col justify-between items-center">
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 90 90" fill="none">
             <g clip-path="url(#clip0_1_618)">
@@ -119,7 +119,7 @@
           </p>
         </div>
         <div class="w-full flex justify-center">
-          <nuxt-link to="/shop" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full mt-4 lg:mt-14">
+          <nuxt-link to="/shop" class="zoom-button px-6 text-2xl py-3 bg-[#28574E] text-white rounded-full ">
             Buy Now
           </nuxt-link>
         </div>
