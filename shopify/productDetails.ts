@@ -42,6 +42,9 @@ query productWithVariantsQuery($handle: String!) {
     otherInfo: metafield(key: "other_info", namespace: "custom") {
       value
     }
+      reviews: metafield(key: "reviews", namespace: "custom") {
+      value
+    }
     variants(first: 10) {
       edges {
         node {
@@ -109,6 +112,19 @@ query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInp
 }
 `;
 
+const addReviewMutation = `
+ query UpdateMetafield($input: MetafieldsSetInput!) {
+    metafieldsSet(input: $input) {
+      metafields {
+        id
+        namespace
+        key
+        value
+      }
+    }
+  }
+`;
+
 export async function getInitalProductData(handle: string) {
   try {
     const { data } = await shopifyClient.request(intialProductQuery, {
@@ -135,6 +151,9 @@ export async function getInitalProductData(handle: string) {
       otherInfo: {
         value: string;
       };
+      reviews: {
+        value: string;
+      };
       featuredImage: {
         url: string;
         altText: string;
@@ -155,9 +174,10 @@ export async function getInitalProductData(handle: string) {
         currencyCode: string;
       };
     };
-    
+
     const returnData = {
       ...product,
+      reviews: product.reviews?.value,
       images: product.images.nodes,
       currentlyNotInStock: false,
       productId: product.id,
@@ -235,3 +255,4 @@ export async function getProductData(
     throw error;
   }
 }
+
