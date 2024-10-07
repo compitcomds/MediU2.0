@@ -1,5 +1,5 @@
 <template>
-  <div class="text-[#28574e] p-4 max-w-md mx-auto">
+  <div class="text-[#28574e] pb-20 px-4 lg:pb-10 lg:px-0 lg:py-10 mt-4 max-w-md mx-auto">
     <h2 class="text-3xl font-bold mb-6 text-center">Enter Your Details</h2>
 
     <form @submit.prevent="submitForm" class="space-y-6">
@@ -87,15 +87,8 @@
 
       <!-- Buttons -->
       <div class="text-end">
-        <!-- <button
-          @click="$emit('nextTab', 'service')"
-          class="bg-gray-300 text-black px-4 py-2 rounded-md w-full md:w-auto mb-2 md:mb-0"
-        >
-          Back
-        </button> -->
-
         <button
-          @click="submitForm"
+          type="submit"
           class="bg-[#28574e] text-white px-6 py-2 rounded-md w-full md:w-auto"
           :disabled="!isFormFilled"
         >
@@ -106,64 +99,71 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      note: "",
+<script setup>
+import { ref, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-      // Error tracking for each field
-      firstNameError: false,
-      lastNameError: false,
-      emailError: false,
-      phoneError: false,
-    };
-  },
-  computed: {
-    isFormFilled() {
-      // Validate if all fields are correctly filled
-      return !this.firstNameError && !this.lastNameError && !this.emailError && !this.phoneError;
-    },
-  },
-  methods: {
-    validateFirstName() {
-      this.firstNameError = !this.firstName;
-    },
-    validateLastName() {
-      this.lastNameError = !this.lastName;
-    },
-    validateEmail() {
-      // Simple email validation pattern
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      this.emailError = !emailPattern.test(this.email);
-    },
-    validatePhone() {
-      // Check if the phone is exactly 10 digits
-      const phonePattern = /^\d{10}$/;
-      this.phoneError = !phonePattern.test(this.phone);
-    },
-    submitForm() {
-      this.validateFirstName();
-      this.validateLastName();
-      this.validateEmail();
-      this.validatePhone();
+// Reactive variables
+const route = useRoute();
+const router = useRouter();
 
-      if (this.isFormFilled) {
-        this.$emit("basicDetailsFilled", {
-          firstName: this.firstName,
-          lastName: this.lastName,
-          email: this.email,
-          phone: "+91" + this.phone, // Append +91 to phone number
-          note: this.note,
-        });
-      }
-    },
-  },
+const firstName = ref("");
+const lastName = ref("");
+const email = ref("");
+const phone = ref("");
+const note = ref("");
+
+// Error tracking
+const firstNameError = ref(false);
+const lastNameError = ref(false);
+const emailError = ref(false);
+const phoneError = ref(false);
+
+// Computed property to check if the form is filled correctly
+const isFormFilled = computed(() => {
+  return firstName.value && lastName.value && email.value && phone.value &&
+         !firstNameError.value && !lastNameError.value && !emailError.value && !phoneError.value;
+});
+
+// Methods to validate each input field
+const validateFirstName = () => {
+  firstNameError.value = !firstName.value;
 };
+
+const validateLastName = () => {
+  lastNameError.value = !lastName.value;
+};
+
+const validateEmail = () => {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  emailError.value = !emailPattern.test(email.value);
+};
+
+const validatePhone = () => {
+  const phonePattern = /^\d{10}$/;
+  phoneError.value = !phonePattern.test(phone.value);
+};
+
+// Submit form method
+const submitForm = () => {
+  const formData = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: email.value,
+    phone: "+91" + phone.value,
+    note: note.value,
+  };
+
+  // Navigate to the summary page and pass service and formData
+  router.push({
+    name: 'summary',
+    params: { 
+      service: route.params.service, // Pass the selected service
+      formData: formData              // Pass the user data (formData)
+    }
+  });
+};
+
 </script>
 
 <style scoped>

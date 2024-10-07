@@ -37,7 +37,7 @@
 
           <h3 class="text-black text-3xl font-bold">Expert Consultations</h3>
           <p class="text-gray-600 text-xl">
-            Expert consultations in healthcare provide specialized advice, improving diagnosis, treatment, and patient care quality.
+            Get personalized advice from trusted healthcare experts. We ensure accurate diagnoses and customized care plans tailored to your needs.
           </p>
         </div>
         <div class="w-full flex justify-center">
@@ -87,7 +87,7 @@
           </svg>
           <h3 class="text-black text-3xl font-bold">Self Assessment</h3>
           <p class="text-gray-600 text-xl">
-            Self-assessment in healthcare helps professionals improve skills and patients monitor symptoms for better outcomes.
+            Track your health by monitoring symptoms and progress. Self-assessment helps you take charge of your well-being and supports your healthcare team in providing effective care.
           </p>
         </div>
         <div class="w-full flex justify-center">
@@ -115,7 +115,7 @@
           </svg>
           <h3 class="text-black text-3xl font-bold">Pharmacy</h3>
           <p class="text-gray-600 text-xl">
-            Pharmacy services ensure safe medication management, patient education, and support for better health outcomes.
+            Our pharmacy services offer safe medication management, patient education, and support to achieve better health outcomes.
           </p>
         </div>
         <div class="w-full flex justify-center">
