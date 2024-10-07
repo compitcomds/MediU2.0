@@ -1,5 +1,5 @@
 <template>
-  <div class="font-serif mt-4">
+  <div class="font-serif mt-6 lg:mt-20">
     <div class="flex flex-col lg:space-y-6 text-center">
       <!-- Responsive Heading -->
       <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Top Picks</h1>
@@ -253,7 +253,7 @@
             <img
               :src="card.image"
               :alt="card.name"
-              class="w-full h-76 object-cover rounded-md capitalize"
+              class="w-full h-[180px] md:h-[220px] object-cover rounded-md capitalize lg:hover:scale-110"
             />
           </nuxt-link>
 
@@ -326,7 +326,7 @@
     <div
       class="text-end font-sans px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold"
     >
-      <nuxt-link to="#">View All 240 Products -> </nuxt-link>
+      <nuxt-link to="/shop">View All 240 Products -> </nuxt-link>
     </div>
   </div>
 </template>
@@ -361,7 +361,7 @@ export default {
           name: "venusia max cream",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09989.jpg?v=1725709318",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09987.jpg?v=1725709318",
           discountedPrice: 1180,
           originalPrice: 2360,
           rating: 4,
@@ -446,7 +446,7 @@ export default {
           name: "venusia max cream",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09989.jpg?v=1725709318",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09987.jpg?v=1725709318",
           discountedPrice: 1180,
           originalPrice: 2360,
           rating: 4,

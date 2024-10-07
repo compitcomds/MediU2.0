@@ -171,7 +171,7 @@ export default {
           originalPrice: "2360",
           rating: 4,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09989.jpg?v=1725709318",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09987.jpg?v=1725709318",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/shop/product/venusia-max-cream",
@@ -195,7 +195,7 @@ export default {
           originalPrice: "1270",
           rating: 5,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00156.jpg?v=1725639738",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00155.jpg?v=1725639738",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/shop/product/racine-pro-conditioning-shampoo",
@@ -207,7 +207,7 @@ export default {
           originalPrice: "1830",
           rating: 4,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4357.jpg?v=1725638245",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4359.jpg?v=1725638248",
           category: "Hyperpigmentation",
           isOnSale: true,
           url: "/shop/product/acne-uv-spf-50-sunscreen-50-gm",
