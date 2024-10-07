@@ -388,6 +388,8 @@ const cart = ref<{
   totalTaxAmount: { currencyCode: "", amount: "" },
 });
 
+const router = useRouter()
+
 const uploadedFilePreview = ref<any>(null);
 const requiresPrescription = ref(false);
 const uploadedFile = ref<null | File>(null);
@@ -401,7 +403,16 @@ const shippingAmount = computed(() => {
   );
 });
 
-const userData = await getUserInfoForCheckout();
+const userData = null
+try {
+  userData = await getUserInfoForCheckout();
+} catch (error) {
+}
+
+if(!userData){
+  router.replace("/auth/login")
+}
+
 const userStore = useUserStore();
 
 const email = ref(userData?.email || "");

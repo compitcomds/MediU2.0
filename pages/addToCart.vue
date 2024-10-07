@@ -155,10 +155,12 @@
           </div>
 
           <!-- Checkout Button -->
-          <div class="mt-8">
+          <div class="mt-4">
             <nuxt-link
-              class="block text-center w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg disabled:cursor-not-allowed disabled:opacity-50"
               to="/checkout"
+              class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg disabled:cursor-not-allowed disabled:opacity-50"
+              :disabled="!prescriptionUploaded && !requiresPrescription"
+              @click.prevent="checkPrescription"
             >
               Check Out
             </nuxt-link>
@@ -173,9 +175,10 @@
 import getCartData from "~/shopify/cart/get-cart-data";
 import updateLineItemQuantity from "~/shopify/cart/update-line-item-quantity";
 
-const router = useRouter();
 const userStore = useUserStore();
 const isUpdatingLineItemQuantity = ref(false);
+const prescriptionUploaded = ref(false); // Track if prescription is uploaded
+const requiresPrescription = ref(false);
 
 const cart = ref<{
   items: any[];
@@ -212,7 +215,7 @@ const changeQuantity = async (lineId: string, quantity: number) => {
     const itemIndex = cart.value.items.findIndex(
       (item) => item.lineId === lineId
     );
-    if (itemIndex !== 1) {
+    if (itemIndex !== -1) {
       if (quantity > 0) cart.value.items[itemIndex].quantity = quantity;
       else cart.value.items.splice(itemIndex, 1);
     }
@@ -224,6 +227,31 @@ const changeQuantity = async (lineId: string, quantity: number) => {
     isUpdatingLineItemQuantity.value = false;
   }
 };
+
+const uploadPrescription = (event: Event) => {
+  const file = (event.target as HTMLInputElement).files?.[0];
+  if (file) {
+    prescriptionUploaded.value = true;
+    alert("Prescription uploaded successfully");
+  }
+};
+
+const checkPrescription = () => {
+  if (!prescriptionUploaded.value && !!requiresPrescription.value) {
+    alert("Please upload your prescription before checkout.");
+  } else {
+    // Proceed to checkout
+  }
+};
+
+watch(
+  () => cart.value.items,
+  (newItems) => {
+    requiresPrescription.value =
+      newItems?.some((item) => item.requiresPrescription) || false;
+  },
+  { deep: true, immediate: true }
+);
 
 onMounted(async () => {
   const data = await getCartData();
