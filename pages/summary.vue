@@ -5,7 +5,7 @@
 
     <!-- Customer Details -->
     <div v-if="formData" class="text-center mb-8">
-      <h3 class="font-bold text-lg">Customer</h3>
+      <h3 class="font-bold text-lg">Patient</h3>
       <p class="text-lg">{{ formData.firstName }} {{ formData.lastName }}</p>
     </div>
 

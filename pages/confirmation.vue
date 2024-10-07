@@ -20,13 +20,13 @@
       </div>
       
       <div>
-        <h4 class="text-sm font-semibold text-gray-500 mb-2">Customer Name</h4>
+        <h4 class="text-sm font-semibold text-gray-500 mb-2">Patient Name</h4>
         <p class="text-lg text-[#28574e]">{{ customerName }}</p>
       </div>
 
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Date & Time</h4>
-        <p class="text-lg text-[#28574e]">{{ appointmentDateTime }}</p>
+        <p class="text-lg text-[#28574e]">To be Confirmed</p>
       </div>
 
       <div>
