@@ -72,7 +72,7 @@
                 class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 py-1 rounded"
                 >Sale 50%</span
               >
-              <img :src="product.image" class="w-full" alt="" />
+              <img :src="product.image" class="w-full  lg:hover:scale-110" alt="" />
             </div>
             <div class="mt-4 space-y-2">
               <h3 class="text-black text-base md:text-2xl capitalize">

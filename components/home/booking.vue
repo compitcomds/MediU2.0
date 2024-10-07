@@ -13,7 +13,7 @@
         </h2>
         <div class="flex justify-center md:justify-start">
           <a href="https://wa.me/917728026044"
-            class="bg-white font-semibold text-lg sm:text-xl md:text-2xl w-auto text-center text-black py-3 px-8 rounded-full shadow-md">
+            class="bg-white font-semibold text-lg sm:text-xl md:text-2xl hover:scale-110 w-auto text-center text-black py-3 px-8 rounded-full shadow-md">
             Book a Call
           </a>
         </div>
@@ -29,7 +29,7 @@
           " />
         <div class="absolute flex items-center justify-center md:justify-start md:mr-48 lg:-mr-10 z-30">
           <a href="https://wa.me/917728026044" class="rounded-full p-3 sm:p-4 shadow-lg backdrop-blur-lg hidden lg:block">
-            <img src="https://ccdstest.b-cdn.net/Medi%20u/Frame.png" class="w-8 md:w-24" alt="" />
+            <img src="https://ccdstest.b-cdn.net/Medi%20u/Frame.png" class="w-8 md:w-24 hover:scale-110" alt="" />
           </a>
         </div>
       </div>

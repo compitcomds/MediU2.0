@@ -35,7 +35,7 @@
             <!-- Product image -->
             <img
               :src="product.image"
-              class="w-full h-48 object-cover rounded-t-lg"
+              class="w-full h-[200px] object-cover rounded-t-lg lg:hover:scale-105"
               alt=""
             />
           </nuxt-link>
