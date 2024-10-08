@@ -62,10 +62,10 @@
         <!-- Grid for Products -->
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 h-auto font-sans">
           <!-- Products -->
-          <a
+          <div
             v-for="product in filteredProducts"
             :key="product.id"
-            :href="product.url"
+            
             class="shadow-md p-4 rounded-2xl block no-underline"
           >
             <div class="relative">
@@ -74,10 +74,12 @@
                 class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 py-1 rounded"
                 >Sale 50%</span
               >
-              <img :src="product.image" class="w-full lg:hover:scale-110" alt="" />
+              <a :href="product.url">
+              <img :src="product.image" class="w-full lg:hover:scale-110" alt="" /></a>
             </div>
             <div class="mt-4 space-y-2">
-              <h3 class="text-black text-base md:text-2xl capitalize">{{ product.name }}</h3>
+              <a :href="product.url">
+              <h3 class="text-black text-base md:text-2xl capitalize">{{ product.name }}</h3></a>
               <div class="flex justify-between items-center text-sm sm:text-lg md:text-xl">
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
@@ -124,7 +126,7 @@
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </div>
         <div class="mt-4 text-right md:text-end">
           <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl">Explore More →</a>

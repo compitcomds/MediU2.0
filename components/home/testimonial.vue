@@ -2,7 +2,7 @@
   <div class="lg:px-4 xl:px-12 mb-10 p-6 bg-[#f9f9f9]">
     <h1 class="text-center text-gray-600 text-2xl font-serif">Testimonials</h1>
     <h2 class="text-center text-[#28574E] text-4xl font-bold font-serif mb-10">
-      What our Patients say
+      Patient Perspectives on Our Care
     </h2>
 
     <!-- Testimonials Container -->

@@ -22,7 +22,6 @@
         </div>
       </div>
 
-
       <!-- Burger Menu Icon (Visible on small screens) -->
       <div class="w-1/6 text-end">
         <button @click="toggleMenu" class="focus:outline-none">
@@ -50,17 +49,21 @@
           <div v-if="isDropdownOpen(index)" class="text-[#28574e] pl-4">
             <div v-for="(subItem, subIndex) in item.subItems" :key="subIndex"
               class="py-2 hover:bg-gray-100 cursor-pointer">
-              <!-- Remove the link for the main sub-item -->
-              <span>{{ subItem.name }}</span>
+              <!-- Use normal <a> tag instead of <router-link> -->
+              <a v-if="subItem.link" :href="subItem.link" class="text-[#89ccc0] hover:underline">
+                {{ subItem.name }}
+              </a>
+              <span v-else>{{ subItem.name }}</span> <!-- Fallback if no link -->
 
               <!-- Render nested sub-items -->
               <div v-if="typeof subItem === 'object' && subItem.subItems" class="pl-4">
                 <div v-for="(nestedSubItem, nestedSubIndex) in subItem.subItems" :key="nestedSubIndex"
                   class="py-1 hover:bg-gray-200 cursor-pointer">
-                  <router-link v-if="nestedSubItem.link" :to="nestedSubItem.link"
+                  <!-- Use <a> tag for nested sub-items -->
+                  <a v-if="nestedSubItem.link" :href="nestedSubItem.link"
                     class="text-[#89ccc0] hover:underline">
                     {{ nestedSubItem.name }}
-                  </router-link>
+                  </a>
                   <span v-else>{{ nestedSubItem.name }}</span> <!-- Fallback if no link -->
                 </div>
               </div>
@@ -72,6 +75,7 @@
     </div>
   </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
@@ -105,10 +109,10 @@ const isDropdownOpen = (index) => {
 
 // Menu items with sub-items and links
 const menuItems = [
-  {
-    name: 'Home',
-    subItems: [] // No sub-items for Home
-  },
+  // {
+  //   name: 'Home',
+  //   subItems: [] // No sub-items for Home
+  // },
   {
     name: 'Hair',
     subItems: [
@@ -204,17 +208,10 @@ const menuItems = [
     name: 'Baby Care',
     subItems: [
       {
-        name: 'Diapers',
-        link: '/shop' // Link for Diapers
+        name: 'Coming Soon',
+        link: '/comingSoon' // Link for Diapers
       },
-      {
-        name: 'Baby Lotion',
-        link: '/shop' // Link for Baby Lotion
-      },
-      {
-        name: 'Baby Shampoo',
-        link: '/shop' // Link for Baby Shampoo
-      }
+    
     ]
   },
   {
@@ -222,34 +219,24 @@ const menuItems = [
     subItems: [
       {
         name: 'First Aid',
-        link: '/shop' // Link for First Aid
+        link: '/comingSoon' // Link for First Aid
       },
       {
         name: 'OTC Medicines',
-        link: '/shop' // Link for OTC Medicines
+        link: '/comingSoon' // Link for OTC Medicines
       }
     ]
   },
-  // {
-  //   name: 'Brands',
-  //   subItems: [
-  //     {
-  //       name: 'Brand 1',
-  //       link: '/shop'
-  //     },
-  //     {
-  //       name: 'Brand 2',
-  //       link: '/shop'
-  //     },
-  //     {
-  //       name: 'Brand 3',
-  //       link: '/shop'
-  //     }
-  //   ]
-  // },
+  
   {
     name: 'Supplements',
-    subItems: [] // No sub-items for Supplements
+    subItems: [
+      {
+        name: 'Coming Soon',
+        link: '/comingSoon' // Link for Diapers
+      },
+    
+    ]
   }
 ];
 
