@@ -69,9 +69,6 @@ const route = useRoute();
 
 const productDetails = ref([]);
 
-const shopStore = useShopStore();
-const { shopifyProductsQuery } = storeToRefs(shopStore);
-
 const fetchProductsUsingSearchQuery = async (newQuery) => {
   const products = await shopifySearchProducts(newQuery?.search || "");
   productDetails.value = products;
