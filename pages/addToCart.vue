@@ -175,8 +175,6 @@ import updateLineItemQuantity from "~/shopify/cart/update-line-item-quantity";
 
 const userStore = useUserStore();
 const isUpdatingLineItemQuantity = ref(false);
-const prescriptionUploaded = ref(false); // Track if prescription is uploaded
-const requiresPrescription = ref(false);
 
 const cart = ref<{
   items: any[];
@@ -225,15 +223,6 @@ const changeQuantity = async (lineId: string, quantity: number) => {
     isUpdatingLineItemQuantity.value = false;
   }
 };
-
-watch(
-  () => cart.value.items,
-  (newItems) => {
-    requiresPrescription.value =
-      newItems?.some((item) => item.requiresPrescription) || false;
-  },
-  { deep: true, immediate: true }
-);
 
 onMounted(async () => {
   const data = await getCartData();
