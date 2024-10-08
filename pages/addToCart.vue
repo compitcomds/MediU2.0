@@ -131,7 +131,7 @@
           </div>
 
           <!-- Upload Prescription Button -->
-          <div v-if="requiresPrescription" class="mt-6">
+          <!-- <div v-if="requiresPrescription" class="mt-6">
             <label
               for="prescription-upload"
               class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
@@ -152,7 +152,7 @@
             <p v-if="!prescriptionUploaded" class="text-red-500 text-sm mt-2">
               Please upload your prescription before checkout.
             </p>
-          </div>
+          </div> -->
 
           <!-- Checkout Button -->
           <div class="mt-8">
