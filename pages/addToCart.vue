@@ -158,9 +158,7 @@
           <div class="mt-4">
             <nuxt-link
               to="/checkout"
-              class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg disabled:cursor-not-allowed disabled:opacity-50"
-              :disabled="!prescriptionUploaded && !requiresPrescription"
-              @click.prevent="checkPrescription"
+              class="block text-center w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg disabled:cursor-not-allowed disabled:opacity-50"
             >
               Check Out
             </nuxt-link>
@@ -225,22 +223,6 @@ const changeQuantity = async (lineId: string, quantity: number) => {
     alert(error.message || "Unable to update the item's quantity");
   } finally {
     isUpdatingLineItemQuantity.value = false;
-  }
-};
-
-const uploadPrescription = (event: Event) => {
-  const file = (event.target as HTMLInputElement).files?.[0];
-  if (file) {
-    prescriptionUploaded.value = true;
-    alert("Prescription uploaded successfully");
-  }
-};
-
-const checkPrescription = () => {
-  if (!prescriptionUploaded.value && !!requiresPrescription.value) {
-    alert("Please upload your prescription before checkout.");
-  } else {
-    // Proceed to checkout
   }
 };
 

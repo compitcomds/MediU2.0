@@ -388,7 +388,7 @@ const cart = ref<{
   totalTaxAmount: { currencyCode: "", amount: "" },
 });
 
-const router = useRouter()
+const router = useRouter();
 
 const uploadedFilePreview = ref<any>(null);
 const requiresPrescription = ref(false);
@@ -403,14 +403,11 @@ const shippingAmount = computed(() => {
   );
 });
 
-const userData = null
+let userData = null;
 try {
   userData = await getUserInfoForCheckout();
 } catch (error) {
-}
-
-if(!userData){
-  router.replace("/auth/login")
+  router.replace("/auth/login");
 }
 
 const userStore = useUserStore();
@@ -418,13 +415,13 @@ const userStore = useUserStore();
 const email = ref(userData?.email || "");
 
 const shipping = ref({
-  firstName: userData?.defaultAddress?.firstName || userData.firstName,
-  lastName: userData?.defaultAddress?.lastName || userData.lastName,
+  firstName: userData?.defaultAddress?.firstName || userData?.firstName || "",
+  lastName: userData?.defaultAddress?.lastName || userData?.lastName || "",
   address: userData?.defaultAddress?.address1 || "",
   city: userData?.defaultAddress?.city || "",
   state: userData?.defaultAddress?.province || "",
   pinCode: userData?.defaultAddress?.zip || "",
-  phone: userData?.defaultAddress?.phone || userData.phone || "",
+  phone: userData?.defaultAddress?.phone || userData?.phone || "",
   country: userData?.defaultAddress?.country || "",
 });
 
