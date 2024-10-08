@@ -33,7 +33,21 @@ const removeCartLineItemMutation = `
 mutation removeCartLineMutation($cartId: ID!, $lineId: ID!) {
   updatedCart: cartLinesRemove(cartId: $cartId, lineIds: [$lineId]) {
     cart {
-      checkoutUrl
+      id
+      cost {
+        subtotalAmount {
+            amount
+            currencyCode
+        }
+        totalAmount {
+            amount
+            currencyCode
+        }
+        totalTaxAmount {
+            amount
+            currencyCode
+        }
+      }
     }
     userErrors {
       code
@@ -62,11 +76,16 @@ export default async function updateLineItemQuantity({
 
   const cart = data?.updatedCart?.cart;
 
+  console.log(cart)
   if (cart?.id) {
+    if(quantity === 0){
+      const shopStore = useShopStore()
+      shopStore.updateTotalItemsInShop(shopStore.totalItems - 1)
+    }
     return {
-      subtotalAmount: cart.cost.subtotalAmount,
-      totalTaxAmount: cart.cost.totalTaxAmount,
-      totalAmount: cart.cost.totalAmount,
+      subtotalAmount: cart.cost.subtotalAmount || {amount: 0, currencyCode: "XXX"},
+      totalTaxAmount: cart.cost.totalTaxAmount || {amount: 0, currencyCode: "XXX"},
+      totalAmount: cart.cost.totalAmount || {amount: 0, currencyCode: "XXX"},
     };
   }
 

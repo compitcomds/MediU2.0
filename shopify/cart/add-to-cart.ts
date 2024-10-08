@@ -47,6 +47,8 @@ export default async function addToCart({
       (node: any) =>
         node.merchandise.id === merchandiseId && node.quantity === 0
     );
+    const shopStore = useShopStore()
+    shopStore.updateTotalItemsInShop(!!nodeWithZeroQuantity ? nodes.length - 1 : nodes.length)
     if (nodeWithZeroQuantity) {
       await updateLineItemQuantity({
         lineId: nodeWithZeroQuantity.id,

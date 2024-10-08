@@ -30,7 +30,7 @@
           <div
             class="inline-flex items-center px-1.5 py-0.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white"
           >
-            2
+            {{ totalItems }}
           </div>
         </span>
       </nuxt-link>
@@ -80,6 +80,9 @@
 </template>
 <script setup>
 const isOpen = ref(false);
+
+const shopStore = useShopStore();
+const { totalItems } = storeToRefs(shopStore);
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
