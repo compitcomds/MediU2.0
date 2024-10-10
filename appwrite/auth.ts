@@ -1,8 +1,60 @@
 import registerUserIntoShopify from "~/shopify/user/register";
 import { createUserDocument, getUserDocument } from "./user-document";
-import { ID } from "appwrite";
+import { ID, OAuthProvider } from "appwrite";
 import { account } from "./config";
 import loginShopifyUserAccount from "~/shopify/user/login";
+
+const OAUTH_LOGIN_SUCCESS_REDIRECT = import.meta.env
+  .VITE_APPWRITE_OAUTH_LOGIN_SUCCESS_REDIRECT;
+const OAUTH_LOGIN_ERROR_REDIRECT = import.meta.env
+  .VITE_APPWRITE_OAUTH_LOGIN_ERROR_REDIRECT;
+
+export const loginWithGoogle = async () => {
+  try {
+    account.createOAuth2Session(
+      OAuthProvider.Google,
+      OAUTH_LOGIN_SUCCESS_REDIRECT,
+      OAUTH_LOGIN_ERROR_REDIRECT
+    );
+  } catch (error) {}
+};
+
+const createNewShopifyUser = async (
+  userId: string,
+  data: {
+    email: string;
+    firstName: string;
+    lastName: string;
+  }
+) => {
+  const shopifyPassword = ID.unique();
+  const { id: shopifyCustomerId } = await registerUserIntoShopify({
+    ...data,
+    password: shopifyPassword,
+  });
+
+  await createUserDocument(userId, {
+    shopifyCustomerId,
+    shopifyPassword,
+    wishlist: [],
+  });
+};
+
+export const checkIfNewOauthUser = async () => {
+  const user = await getUser();
+  try {
+    const userDocument = await getUserDocument(user.$id);
+    await getShopifyAccessTokenUsingAppwrite();
+    return true;
+  } catch (error) {
+    await createNewShopifyUser(user.$id, {
+      email: user.email,
+      firstName: user.name.split(" ", 2)[0] || "",
+      lastName: user.name.split(" ", 2)[1] || "",
+    });
+    await getShopifyAccessTokenUsingAppwrite();
+  }
+};
 
 export const registerUser = async (data: {
   email: string;
@@ -19,19 +71,7 @@ export const registerUser = async (data: {
   );
 
   await createLoggedSession(data);
-
-  const shopifyPassword = ID.unique();
-  const { id: shopifyCustomerId } = await registerUserIntoShopify({
-    ...data,
-    password: shopifyPassword,
-  });
-
-  await createUserDocument(userId, {
-    shopifyCustomerId,
-    shopifyPassword,
-    wishlist: [],
-  });
-
+  await createNewShopifyUser(userId, data);
   return await loginUser(data);
 };
 

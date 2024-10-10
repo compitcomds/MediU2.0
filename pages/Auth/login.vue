@@ -17,6 +17,7 @@
 
           <div class="grid-container">
             <button
+              @click="loginWithGoogle"
               class="grid-item bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-lg shadow hover:shadow-lg gap-3"
             >
               <svg
@@ -204,7 +205,7 @@
 </template>
 
 <script setup>
-import { getUser, loginUser } from "~/appwrite/auth";
+import { loginUser, loginWithGoogle } from "~/appwrite/auth";
 
 const router = useRouter();
 const formData = ref({
