@@ -112,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-// import { consultancyDocument, getUserId } from "~/appwrite/consultancy";
+import { consultancyDocument, getUserId } from "~/appwrite/consultancy";
 import { getUser } from "~/appwrite/auth";
 import type { Models } from "appwrite";
 
