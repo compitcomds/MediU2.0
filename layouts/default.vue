@@ -6,7 +6,7 @@
       <HomeNavbar />
     </header>
 
-    <main class="flex-grow container mx-auto px-4 lg:px-0">
+    <main class="flex-grow  px-4 lg:px-0">
       <div v-if="!isLoading">
         <div v-if="!preventAccess">
           <slot />
