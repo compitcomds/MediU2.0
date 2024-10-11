@@ -27,7 +27,7 @@ export default {};
       class="mySwiper w-full"
     >
       <swiper-slide v-for="item in slides" :key="item.id">
-        <img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center  bg-white" />
+        <nuxt-link to="/shop"><img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center  bg-white" /></nuxt-link>
       </swiper-slide>
     </swiper>
   </div>
