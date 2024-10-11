@@ -132,7 +132,7 @@
             </div>
           </div>
           <swiper :slidesPerView="1" :spaceBetween="60" :loop="true"
-            :autoplay="{ delay: 3000, disableOnInteraction: false }" :modules="modules"
+            :autoplay="{ delay: 6000, disableOnInteraction: false }" :modules="modules"
             class="mySwiper my-4 w-full h-32" style="height: 100px;">
             <swiper-slide v-for="(item, index) in slides" :key="index">
               <img :src="item" alt="Ad Banner"
