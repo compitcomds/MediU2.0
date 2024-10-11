@@ -3,7 +3,7 @@ import { ID } from "appwrite";
 
 // This is Create Consultancy Function
 export async function consultancyDocument(
-  config: any,
+  client:any,
   userId: string,
   title: string,
   description: string,
@@ -16,8 +16,8 @@ export async function consultancyDocument(
 ) {
   try {
     const uploadData = await database.createDocument(
-      config.public.appwriteDatabaseId,
-      config.public.appwriteConsultancyCollectionId,
+      client.appwriteDatabaseId,
+      client.appwriteConsultancyCollectionId,
       ID.unique(),
       {
         userId,
@@ -96,3 +96,5 @@ export const getUserId = async (): Promise<string> => {
     throw new Error("User is not authenticated");
   }
 };
+
+
