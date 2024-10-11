@@ -12,7 +12,7 @@
               autoplay="true" @slideChange="onSlideChange">
               <swiper-slide v-for="(item, index) in data.images" :key="item.url">
                 <img :src="item.url" alt="Product Image"
-                  class="object-cover w-full h-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105" />
+                  class="object-cover w-full h-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-150 overflow-hidden" />
               </swiper-slide>
             </swiper-container>
 
