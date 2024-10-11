@@ -25,7 +25,9 @@
       </div>
       <!-- Products Section -->
       <div class="w-full lg:w-8/12 lg:ml-4">
-        <div class="flex justify-center lg:justify-between px-4 mb-4 text-xl gap-2">
+        <div
+          class="flex justify-center lg:justify-between px-4 mb-4 text-xl gap-2"
+        >
           <button
             @click="filterProducts('Hyperpigmentation')"
             :class="{
@@ -34,7 +36,7 @@
               'bg-slate-300 text-black':
                 selectedCategory !== 'Hyperpigmentation',
             }"
-            class="py-2 px-4 rounded-full w-full  text-sm lg:text-lg"
+            class="py-2 px-4 rounded-full w-full text-sm lg:text-lg"
           >
             Hyperpigmentation
           </button>
@@ -44,7 +46,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Eczema',
               'bg-slate-300 text-black': selectedCategory !== 'Eczema',
             }"
-            class="py-2 px-4 rounded-full w-full  text-sm lg:text-lg"
+            class="py-2 px-4 rounded-full w-full text-sm lg:text-lg"
           >
             Eczema
           </button>
@@ -54,7 +56,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Acne',
               'bg-slate-300 text-black': selectedCategory !== 'Acne',
             }"
-            class="py-2 px-4 rounded-full w-full  text-sm lg:text-lg"
+            class="py-2 px-4 rounded-full w-full text-sm lg:text-lg"
           >
             Acne
           </button>
@@ -65,7 +67,6 @@
           <div
             v-for="product in filteredProducts"
             :key="product.id"
-            
             class="shadow-md p-4 rounded-2xl block no-underline"
           >
             <div class="relative">
@@ -75,12 +76,21 @@
                 >Sale 50%</span
               >
               <a :href="product.url">
-              <img :src="product.image" class="w-full lg:hover:scale-110" alt="" /></a>
+                <img
+                  :src="product.image"
+                  class="w-full lg:hover:scale-110"
+                  alt=""
+              /></a>
             </div>
             <div class="mt-4 space-y-2">
               <a :href="product.url">
-              <h3 class="text-black text-base md:text-2xl capitalize">{{ product.name }}</h3></a>
-              <div class="flex justify-between items-center text-sm sm:text-lg md:text-xl">
+                <h3 class="text-black text-base md:text-2xl capitalize">
+                  {{ product.name }}
+                </h3></a
+              >
+              <div
+                class="flex justify-between items-center text-sm sm:text-lg md:text-xl"
+              >
                 <div class="flex">
                   <p class="text-[#28574E] font-bold">
                     ₹{{ product.salePrice }}
@@ -118,18 +128,33 @@
                 </div>
                 <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
                   <a :href="product.url"
-                    ><img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
-                      class="w-6 sm:w-8 p-1"
-                      alt=""
-                  /></a>
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-square-arrow-out-up-right w-6 h-6 lg:w-8 lg:h-8 p-1"
+                    >
+                      <path
+                        d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                      />
+                      <path d="m21 3-9 9" />
+                      <path d="M15 3h6v6" /></svg
+                  ></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="mt-4 text-right md:text-end">
-          <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl">Explore More →</a>
+          <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl"
+            >Explore More →</a
+          >
         </div>
       </div>
     </div>
@@ -348,7 +373,7 @@ export default {
           isOnSale: true,
           url: "/shop/product/racine-pro-conditioning-shampoo",
         },
-        
+
         {
           id: 3,
           name: "venusia max cream",
@@ -385,25 +410,29 @@ export default {
   height: auto; /* Default height for small screens */
 }
 
-@media (min-width: 640px) { /* sm */
+@media (min-width: 640px) {
+  /* sm */
   .responsive-div {
     height: auto; /* Height for small devices */
   }
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
+  /* md */
   .responsive-div {
     height: auto; /* Height for medium devices */
   }
 }
 
-@media (min-width: 1120px) { /* lg */
+@media (min-width: 1120px) {
+  /* lg */
   .responsive-div {
     height: 800px; /* Height for large devices */
   }
 }
 
-@media (min-width: 1280px) { /* xl */
+@media (min-width: 1280px) {
+  /* xl */
   .responsive-div {
     height: 850px; /* Height for extra large devices */
   }

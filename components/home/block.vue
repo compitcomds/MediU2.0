@@ -27,7 +27,7 @@ export default {};
       class="mySwiper w-full"
     >
       <swiper-slide v-for="item in slides" :key="item.id">
-        <img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center lg:-pb-10 bg-white" />
+        <img :src="item" alt="" class="rounded object-cover w-full flex justify-between items-center  bg-white" />
       </swiper-slide>
     </swiper>
   </div>
@@ -35,7 +35,7 @@ export default {};
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import {  Navigation, Autoplay } from 'swiper/modules';
 
 export default {
   components: {
@@ -44,7 +44,7 @@ export default {
   },
   setup() {
     return {
-      modules: [Pagination, Navigation, Autoplay],
+      modules: [ Navigation, Autoplay],
     };
   },
   data() {

@@ -9,16 +9,14 @@
     </div>
 
     <!-- Responsive Category Buttons -->
-    <div
-      class="flex flex-wrap justify-center my-4 md:my-12 text-lg sm:text-xl md:text-2xl"
-    >
+    <div class="flex justify-center my-4 md:my-12 text-lg md:text-2xl">
       <button
         @click="filtercards('Hair')"
         :class="{
           'bg-[#28574E] text-white': selectedCategory === 'Hair',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
+        class="px-3 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
       >
         Hair
       </button>
@@ -28,7 +26,7 @@
           'bg-[#28574E] text-white': selectedCategory === 'Skin',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
+        class="px-3 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
       >
         Skin
       </button>
@@ -39,7 +37,7 @@
           'bg-[#28574E] text-white': selectedCategory === 'Baby Care',
           'bg-gray-300 text-[#28574E]': selectedCategory !== 'Baby Care',
         }"
-        class="px-6 sm:px-16 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
+        class="px-3 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2"
       >
         Baby Care
       </button>
@@ -61,7 +59,7 @@
               <span
                 v-if="card.isOnSale"
                 class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-                >Sale 50%</span
+                >Sale 8%</span
               >
               <span
                 v-if="card.isBestSeller"
@@ -243,7 +241,7 @@
             <span
               v-if="card.isOnSale"
               class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded"
-              >Sale 50%</span
+              >Sale 5%</span
             >
             <span
               v-if="card.isBestSeller"
@@ -253,7 +251,7 @@
             <img
               :src="card.image"
               :alt="card.name"
-              class="w-full h-[180px] md:h-[220px] object-cover rounded-md capitalize lg:hover:scale-110"
+              class="w-full lg:hover:scale-110"
             />
           </nuxt-link>
 
@@ -297,12 +295,25 @@
               <div
                 class="bg-slate-300 rounded-full p-1 md:px-1 md:py-1 opacity-80"
               >
-                <a :href="card.url"
-                  ><img
-                    src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
-                    class="w-5 lg:w-8"
-                    alt="bag icon"
-                /></a>
+                <a :key="card.link" :href="card.link" class=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-square-arrow-out-up-right w-6 h-6 lg:w-8 lg:h-8 p-1"
+                  >
+                    <path
+                      d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                    />
+                    <path d="m21 3-9 9" />
+                    <path d="M15 3h6v6" /></svg
+                ></a>
               </div>
             </div>
 
@@ -453,7 +464,6 @@ export default {
           feedbackCount: 200,
           isOnSale: true,
           category: "Hair", // Added category
-          
         },
         {
           id: 7,
@@ -468,7 +478,7 @@ export default {
           feedbackCount: 200,
           category: "Hair", // Added category
         },
-        
+
         {
           id: 10,
           link: "/shop/product/aspirin",
@@ -484,7 +494,6 @@ export default {
           category: "Hair", // Added category
         },
       ],
-      
     };
   },
   computed: {

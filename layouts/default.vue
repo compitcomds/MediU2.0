@@ -87,9 +87,9 @@
       </div>
     </main>
 
-    <footer>
+    <!-- <footer>
       <SiteFooter class="hidden lg:block bg-gray-800 text-white py-6" />
-    </footer>
+    </footer> -->
 
     <div class="lg:hidden fixed bottom-0 w-full z-10">
       <MobileBottomNav />
