@@ -111,7 +111,8 @@
 import { ref, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { consultancyDocument, getUserId } from '~/appwrite/consultancy'; 
-import { useConfig } from 'appwrite';
+// import { useConfig } from 'appwrite';
+import { account } from '~/appwrite/config';
 
 const route = useRoute();
 const router = useRouter();
