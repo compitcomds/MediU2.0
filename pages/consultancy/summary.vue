@@ -36,16 +36,25 @@
     <!-- Action Buttons -->
     <div class="text-end">
       <button
-        @click="goToConfirmation"
-        class="bg-[#28574e] text-white px-6 py-2 rounded hover:bg-[#5c998e]"
+        @click="proceedToPayment"
+        :disabled="isSubmitting"
+        class="bg-[#28574e] text-white px-6 py-2 rounded hover:bg-[#5c998e] disabled:cursor-not-allowed disabled:animate-pulse"
       >
-        Confirm Booking
+        {{ isSubmitting ? "Proceeding to payment..." : "Confirm Booking" }}
       </button>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import createShopifyCart from "~/shopify/cart/create-cart";
+import addToCart from "~/shopify/cart/add-to-cart";
+import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
+import updateCartNote from "~/shopify/cart/update-cart-note";
+import consultancyImageUpload from "~/appwrite/consultancy-upload";
+import axios from "axios";
+import { getUser } from "~/appwrite/auth";
+
 const router = useRouter();
 
 const consultancyStore = useConsultancyStore();
@@ -56,15 +65,71 @@ if (!consultancyStore.step2.email) router.replace("/consultancy/basic-details");
 
 const formData = ref(consultancyStore.step2 || {});
 const service = consultancyStore.step1;
+const isSubmitting = ref(false);
 
-const goToConfirmation = () => {
-  router.push({
-    path: "/consultancy/confirmation",
-    params: {
-      service: service,
-      formData: formData.value,
-    },
+const addUserIdentityToCart = async (cartId: string) => {
+  const { email, firstName, lastName, phone } = consultancyStore.step2;
+  await updateCartBuyerDetails(cartId, email, {
+    firstName,
+    lastName,
+    address1: "",
+    city: "",
+    province: "",
+    country: "India",
+    phone,
+    zip: "",
   });
+};
+
+const proceedToPayment = async () => {
+  isSubmitting.value = true;
+  const { id } = consultancyStore.step1;
+  const { email, firstName, lastName, note, phone, image } =
+    consultancyStore.step2;
+  if (!id || !email || !firstName || !lastName || !phone) {
+    alert("Please provide all the details to proceed with consultation.");
+    router.replace("/consultancy");
+    return;
+  }
+
+  try {
+    const appwriteUser = await getUser();
+    const newCart = await createShopifyCart();
+    await addToCart({
+      cartId: newCart.id,
+      merchandiseId: id,
+      dontAddToNavbarCart: true,
+    });
+    await addUserIdentityToCart(newCart.id);
+    if (note) await updateCartNote(newCart.id, note);
+
+    const consultancyUrl = !!image ? await consultancyImageUpload(image) : null;
+
+    const { data } = await axios.post("/api/checkout", {
+      cart: newCart.id,
+      userId: appwriteUser.$id,
+      prescriptionUrl: consultancyUrl,
+      type: "consultancy",
+    });
+    if (data?.url) {
+      window.location.href = data.url;
+      return;
+    }
+
+    console.log(data);
+
+    throw new Error(
+      data.error ||
+        "Some error occured while processing the details. Please try again later."
+    );
+  } catch (error: any) {
+    alert(
+      error.message ||
+        "An error occurred while proceeding to payment. Please try again later."
+    );
+    console.error(error);
+  }
+  isSubmitting.value = false;
 };
 </script>
 

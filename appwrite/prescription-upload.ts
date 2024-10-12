@@ -10,8 +10,5 @@ export async function uploadFileInAppwrite(file: File) {
     ID.unique(),
     file
   );
-  return await storage.getFileView(
-    APPWRITE_PRESCRIPTION_BUCKED_ID,
-    uploadedFile.$id
-  );
+  return storage.getFileView(APPWRITE_PRESCRIPTION_BUCKED_ID, uploadedFile.$id);
 }

@@ -16,6 +16,7 @@ type Step2DataType = {
   email: string;
   phone: string;
   note: string;
+  image?: File | null;
 };
 
 export const useConsultancyStore = defineStore("consultancy-store", {
