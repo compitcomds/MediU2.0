@@ -16,7 +16,7 @@
     >
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Service</h4>
-        <p class="text-lg">{{ service.name }}</p>
+        <p class="text-lg">{{ service.title }}</p>
       </div>
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Date & Time</h4>
@@ -30,7 +30,7 @@
       class="flex justify-between items-center text-lg font-bold border-b border-gray-300 pb-4 mb-6"
     >
       <span class="text-[#28574e]">Total Amount Payable</span>
-      <span class="text-red-500">₹{{ service.price }}</span>
+      <span class="text-red-500">₹{{ service.price.amount }}</span>
     </div>
 
     <!-- Action Buttons -->
@@ -50,13 +50,12 @@ const router = useRouter();
 
 const consultancyStore = useConsultancyStore();
 
-if (!consultancyStore.step1.category) router.replace("/consultancy/services");
+if (!consultancyStore.step1.category || !consultancyStore.step1.id)
+  router.replace("/consultancy/services");
 if (!consultancyStore.step2.email) router.replace("/consultancy/basic-details");
 
 const formData = ref(consultancyStore.step2 || {});
-const service = consultancyStore.service;
-
-console.log(service);
+const service = consultancyStore.step1;
 
 const goToConfirmation = () => {
   router.push({

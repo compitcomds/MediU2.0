@@ -129,7 +129,8 @@ try {
 
 const consultancyStore = useConsultancyStore();
 
-if (!consultancyStore.step1.category) router.replace("/consultancy/services");
+if (!consultancyStore.step1.category || !consultancyStore.step1.id)
+  router.replace("/consultancy/services");
 
 const firstName = ref(user?.name.split(" ", 2)[0] || "");
 const lastName = ref(user?.name.split(" ", 2)[1] || "");

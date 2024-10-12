@@ -22,7 +22,7 @@
     <div class="grid grid-cols-2 gap-6 mb-8">
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Service</h4>
-        <p class="text-lg text-[#28574e]">{{ service.name }}</p>
+        <p class="text-lg text-[#28574e]">{{ service.title }}</p>
       </div>
 
       <div>
@@ -41,7 +41,7 @@
         <h4 class="text-sm font-semibold text-gray-500 mb-2">
           Total Amount Payable
         </h4>
-        <p class="text-lg text-[#28574e]">₹{{ service.price }}</p>
+        <p class="text-lg text-[#28574e]">₹{{ service.price.amount }}</p>
       </div>
 
       <div>
@@ -67,7 +67,7 @@ const route = useRoute();
 const router = useRouter();
 
 const consultancyStore = useConsultancyStore();
-const service = consultancyStore.service;
+const service = consultancyStore.step1;
 const formData = consultancyStore.step2;
 
 // Reactive bookingID
