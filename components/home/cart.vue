@@ -36,7 +36,7 @@
       </nuxt-link>
     </div>
 
-    <div class="relative inline-block">
+    <div v-if="!user" class="relative inline-block">
       <button
         @click="toggleDropdown"
         class="flex items-center justify-center focus:outline-none"
@@ -53,13 +53,13 @@
       <div
         v-if="isOpen"
         class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 transition duration-300 ease-in-out opacity-100 transform scale-100"
-        @click.outside="closeDropdown"
       >
         <ul class="py-1">
           <li>
             <nuxt-link
               to="/auth/login"
               class="block px-4 py-2 text-black hover:bg-gray-100"
+              @click="toggleDropdown"
               >Log In</nuxt-link
             >
           </li>
@@ -70,19 +70,45 @@
             <nuxt-link
               to="/auth/register"
               class="block px-4 py-2 text-black hover:bg-gray-100"
+              @click="toggleDropdown"
               >Register</nuxt-link
             >
           </li>
         </ul>
       </div>
     </div>
+
+    <div v-else class="relative inline-block">
+      <nuxt-link
+        to="/dashboard"
+        class="flex items-center justify-center focus:outline-none"
+      >
+        <div
+          class="bg-cover bg-no-repeat rounded-full h-12 w-12"
+          :style="{
+            backgroundImage:
+              'url(https://ccdstest.b-cdn.net/Medi%20u/profile.svg)',
+          }"
+        ></div>
+      </nuxt-link>
+    </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
+import { getUser } from "~/appwrite/auth";
+
 const isOpen = ref(false);
 
 const shopStore = useShopStore();
 const { totalItems } = storeToRefs(shopStore);
+
+let user: any;
+
+try {
+  user = await getUser();
+} catch (error) {
+  user = null;
+}
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
