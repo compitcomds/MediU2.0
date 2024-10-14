@@ -11,6 +11,7 @@ export async function createOrderDocument(data: {
   orderId?: string;
   shopifyCartId: string;
   prescriptionUrl?: string | null;
+  typeOfProduct?: string | null;
 }) {
   return await database.createDocument(
     APPWRITE_DATABASE_ID,

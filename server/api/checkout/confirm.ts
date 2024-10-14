@@ -25,6 +25,8 @@ export default defineEventHandler(async (event) => {
 
     await processOrder(documents[0].shopifyCartId, {
       prescriptionUrl: documents[0].prescriptionUrl || "",
+      typeOfProduct: documents[0].typeOfProduct || "normal",
+      appwriteOrderId: documents[0].$id || "N/A",
     });
 
     return sendRedirect(event, PHONEPAY_REDIRECT_SUCCESS_URL);
@@ -36,7 +38,11 @@ export default defineEventHandler(async (event) => {
 
 async function processOrder(
   cartId: string,
-  props: { prescriptionUrl: string }
+  props: {
+    prescriptionUrl: string;
+    appwriteOrderId: string;
+    typeOfProduct: string;
+  }
 ) {
   if (!cartId) return new Response("404", { status: 404 });
 
@@ -56,16 +62,33 @@ async function processOrder(
   delete billing_and_shipping_address.firstName;
   delete billing_and_shipping_address.lastName;
 
-  const metafields = !!props.prescriptionUrl
-    ? [
-        {
-          key: "prescriptionUrl",
-          value: props.prescriptionUrl,
-          type: "url",
-          namespace: "custom",
-        },
-      ]
-    : [];
+  const metafields = [];
+
+  if (!!props.prescriptionUrl)
+    metafields.push({
+      key: "prescriptionUrl",
+      value: props.prescriptionUrl,
+      type: "url",
+      namespace: "custom",
+    });
+
+  if (!!props.appwriteOrderId)
+    metafields.push({
+      key: "appwriteOrderId",
+      value: props.appwriteOrderId,
+      type: "single_line_text",
+      namespace: "custom",
+    });
+
+  if (!!props.typeOfProduct)
+    metafields.push({
+      key: "typeOfProduct",
+      value: props.typeOfProduct,
+      type: "single_line_text",
+      namespace: "custom",
+    });
+
+  console.log(metafields);
 
   const order: Record<string, any> = {
     line_items: items.map((item: any) => ({
@@ -125,6 +148,9 @@ async function processOrder(
       order: order,
     }),
   });
+
+  const orderBody = await orderResponse.json();
+  console.log(orderBody);
 
   await resetCart(
     cartId,

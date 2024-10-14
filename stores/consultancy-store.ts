@@ -2,6 +2,12 @@ import { defineStore } from "pinia";
 
 type Step1DataType = {
   category: string;
+  id: string;
+  title: string;
+  descriptionHtml: string;
+  price: { amount: string; currencyCode: string };
+  productId: string;
+  tags: string[];
 };
 
 type Step2DataType = {
@@ -10,11 +16,20 @@ type Step2DataType = {
   email: string;
   phone: string;
   note: string;
+  image?: File | null;
 };
 
 export const useConsultancyStore = defineStore("consultancy-store", {
   state: (): { step1: Step1DataType; step2: Step2DataType } => ({
-    step1: { category: "" },
+    step1: {
+      category: "",
+      id: "",
+      title: "",
+      descriptionHtml: "",
+      price: { amount: "", currencyCode: "" },
+      productId: "",
+      tags: [],
+    },
     step2: {
       email: "",
       firstName: "",
@@ -31,8 +46,8 @@ export const useConsultancyStore = defineStore("consultancy-store", {
     },
   },
   actions: {
-    setCategory(category: string) {
-      this.step1.category = category;
+    setSelectedConsultancyProduct(product: Step1DataType) {
+      this.step1 = product;
     },
     setBasicDetails(details: Step2DataType) {
       this.step2 = details;

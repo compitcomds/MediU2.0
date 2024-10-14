@@ -57,7 +57,7 @@ export const fetchProducts = async ({
   query?: string;
 }) => {
   const { data } = await shopifyClient.request(fetchProductsQuery, {
-    variables: { after: after || null, query: query || null },
+    variables: { after: after || null, query: `(-product_type:Consultancy) AND ${query}` },
   });
   const pageInfo = data?.products?.pageInfo;
   const nodes = data?.products?.nodes;

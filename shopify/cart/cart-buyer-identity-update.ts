@@ -10,6 +10,19 @@ mutation cartUpdateBuyerDetails($cartId: ID!, $email: String!, $deliveryAddress:
     cart {
       checkoutUrl
       id
+      buyerIdentity {
+        deliveryAddressPreferences {
+          ... on MailingAddress {
+            firstName
+            lastName
+            phone
+            province
+            city
+          }
+        }
+        email
+        phone
+      }
     }
   }
 }
