@@ -97,6 +97,12 @@
         ></textarea>
       </div>
 
+      <!-- Image Uploader -->
+      <div class="mb-4">
+        <label class="block text-sm font-semibold mb-2">Image</label>
+        <ConsultancyImageUploader v-model:model-value="uploadedImage" />
+      </div>
+
       <!-- Buttons -->
       <div class="text-end">
         <button
@@ -112,7 +118,6 @@
 </template>
 
 <script setup lang="ts">
-import { consultancyDocument, getUserId } from "~/appwrite/consultancy";
 import { getUser } from "~/appwrite/auth";
 import type { Models } from "appwrite";
 
@@ -129,13 +134,15 @@ try {
 
 const consultancyStore = useConsultancyStore();
 
-if (!consultancyStore.step1.category) router.replace("/consultancy/services");
+if (!consultancyStore.step1.category || !consultancyStore.step1.id)
+  router.replace("/consultancy/services");
 
 const firstName = ref(user?.name.split(" ", 2)[0] || "");
 const lastName = ref(user?.name.split(" ", 2)[1] || "");
 const email = ref(user?.email || "");
 const phone = ref(user?.phone || "");
 const note = ref("");
+const uploadedImage = ref();
 
 const firstNameError = ref(false);
 const lastNameError = ref(false);
@@ -184,6 +191,7 @@ const submitForm = async () => {
     email: email.value,
     phone: "+91" + phone.value,
     note: note.value,
+    image: uploadedImage.value,
   };
 
   try {

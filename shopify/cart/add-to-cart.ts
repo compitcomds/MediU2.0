@@ -1,5 +1,4 @@
 import shopifyClient from "../shopify-client";
-import createShopifyCart from "./create-cart";
 import updateLineItemQuantity from "./update-line-item-quantity";
 
 const addToCartMutation = `
@@ -32,10 +31,12 @@ export default async function addToCart({
   merchandiseId,
   cartId,
   quantity,
+  dontAddToNavbarCart,
 }: {
   merchandiseId: string;
   cartId: string;
   quantity?: number;
+  dontAddToNavbarCart?: boolean;
 }) {
   const { data, errors } = await shopifyClient.request(addToCartMutation, {
     variables: { cartId, lines: [{ merchandiseId, quantity: quantity || 1 }] },
@@ -47,8 +48,12 @@ export default async function addToCart({
       (node: any) =>
         node.merchandise.id === merchandiseId && node.quantity === 0
     );
-    const shopStore = useShopStore()
-    shopStore.updateTotalItemsInShop(!!nodeWithZeroQuantity ? nodes.length - 1 : nodes.length)
+    if (!dontAddToNavbarCart) {
+      const shopStore = useShopStore();
+      shopStore.updateTotalItemsInShop(
+        !!nodeWithZeroQuantity ? nodes.length - 1 : nodes.length
+      );
+    }
     if (nodeWithZeroQuantity) {
       await updateLineItemQuantity({
         lineId: nodeWithZeroQuantity.id,

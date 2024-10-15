@@ -12,7 +12,7 @@
           'bg-blue-100 text-[#28574e]': activeFilter !== 'all',
         }"
         class="px-4 py-2 rounded flex items-center w-full sm:w-auto"
-        @click="filterServices('all')"
+        @click="filterProducts('all')"
       >
         <span>All</span>
       </button>
@@ -25,7 +25,7 @@
           'bg-blue-100 text-[#28574e]': activeFilter !== category,
         }"
         class="border px-4 py-2 rounded flex items-center w-full sm:w-auto"
-        @click="filterServices(category)"
+        @click="filterProducts(category)"
       >
         <span>{{ category }}</span>
       </button>
@@ -34,12 +34,14 @@
     <!-- Display Services -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div
-        v-for="service in filteredServices"
-        :key="service.id"
-        @click="selectService(service)"
+        v-for="product in filteredProducts"
+        :key="product.id"
+        @click="selectConsultancyProduct(product)"
         :class="[
           'p-4 border rounded cursor-pointer bg-white hover:shadow-md text-[#28574e]',
-          selectedService === service ? 'border-[#28574e]' : 'border-gray-300',
+          product.id === selectedProduct?.id
+            ? 'border-[#28574e]'
+            : 'border-gray-300',
         ]"
       >
         <div class="flex space-x-4 items-center">
@@ -54,9 +56,8 @@
             </svg>
           </div>
           <div class="flex flex-col">
-            <h3 class="font-semibold">{{ service.name }}</h3>
-            <p>Duration: {{ service.duration }} mins</p>
-            <p>Price: ₹{{ service.price }} ({{ service.category }} care)</p>
+            <h3 class="font-semibold">{{ product.title }}</h3>
+            <p v-html="product.descriptionHtml"></p>
           </div>
         </div>
       </div>
@@ -65,7 +66,7 @@
     <!-- Next Button -->
     <button
       @click="confirmService"
-      :disabled="!selectedService"
+      :disabled="!selectedProduct"
       class="mt-6 bg-[#28574e] text-white px-4 py-2 rounded w-full sm:w-auto"
     >
       Next: Basic Details
@@ -73,40 +74,47 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { CONSULTANCY_SERVICES } from "~/stores/consultancy-store";
-const services = ref(CONSULTANCY_SERVICES);
+import fetchConsultancyProducts from "~/shopify/consultancy/consultancy-products";
 
-const activeFilter = ref("all");
-const selectedService = ref(null);
-const filteredServices = ref([]);
+const consultancyProducts = await fetchConsultancyProducts();
+
 const router = useRouter();
+const activeFilter = ref("all");
+const selectedProduct = ref(null);
+const filteredProducts = ref([]);
 
 const consultancyStore = useConsultancyStore();
 
 // Initialize filtered services on component mount
 onMounted(() => {
-  filterServices(activeFilter.value);
+  filterProducts(activeFilter.value);
 });
 
 // Filter services based on selected category
-const filterServices = (category) => {
+const filterProducts = (category: string) => {
   activeFilter.value = category;
-  filteredServices.value =
+  filteredProducts.value =
     category === "all"
-      ? [...services.value]
-      : services.value.filter((service) => service.category === category);
-  filteredServices.value.sort((a, b) => a.name.localeCompare(b.name));
+      ? [...consultancyProducts]
+      : consultancyProducts.filter((product) =>
+          product.tags.includes(category.toLowerCase())
+        );
+  filteredProducts.value.sort((a, b) => a.title.localeCompare(b.title));
 };
 
 // Select a service
-const selectService = (service) => {
-  selectedService.value = service;
+const selectConsultancyProduct = (product) => {
+  selectedProduct.value = product;
 };
 
 const confirmService = () => {
-  if (selectedService.value) {
-    consultancyStore.setCategory(selectedService.value.value);
+  if (selectedProduct.value) {
+    consultancyStore.setSelectedConsultancyProduct({
+      ...selectedProduct.value,
+      category: activeFilter.value,
+    });
     router.push({
       path: "/consultancy/basic-details",
     });

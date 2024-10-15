@@ -145,7 +145,8 @@
             <span v-if="card.isBestSeller"
               class="absolute top-0 right-0 bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Best
               Sale</span>
-            <img :src="card.image" :alt="card.name" class="w-full lg:hover:scale-110" />
+              <div class="overflow-hidden">
+            <img :src="card.image" :alt="card.name" class="w-full lg:hover:scale-150 transform transition-transform duration-300" /></div>
           </nuxt-link>
 
           <div class="mt-4 text-left">

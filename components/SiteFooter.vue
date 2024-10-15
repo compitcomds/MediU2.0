@@ -145,7 +145,7 @@
         <div class="h-0.5 w-4/6 bg-white mb-4 text-center"></div>
 
         <ul class="space-y-2 lg:text-base xl:text-lg">
-          <!-- <li class="list-disc"><a href="/" class="hover:underline">About Us</a></li> -->
+          <li class="list-disc"><a href="/faq" class="hover:underline">FAQs</a></li>
           <li class="list-disc">
             <nuxt-link to="/legal/termsAndCondition" class="hover:underline"
               >Terms & Conditions</nuxt-link

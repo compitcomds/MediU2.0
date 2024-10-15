@@ -18,6 +18,7 @@ export default defineEventHandler(async (event) => {
   const cartId = body.cart;
   const userId = body.userId;
   const prescriptionUrl = body.prescriptionUrl;
+  const typeOfProduct = body.type;
 
   try {
     if (!PHONEPAY_API_KEY || !PHONEPAY_API_URL) {
@@ -69,6 +70,7 @@ export default defineEventHandler(async (event) => {
       transactionId,
       shopifyCartId: cartId,
       prescriptionUrl,
+      typeOfProduct,
     });
 
     const instrumentResponse = await apiResponse.data.data.instrumentResponse;
