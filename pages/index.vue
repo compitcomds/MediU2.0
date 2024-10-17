@@ -2,9 +2,10 @@
   <!--  -->
   <!-- <HomeNavbar /> -->
   <HomeMain />
-  <HomeBlock class="" />
+  
   <div class="bg-white">
     <div class="lg:space-y-20 md:space-y-10 space-y-10">
+      <HomeBlock class="" />
       <HomeCard class="px-4 xl:px-[163px]" />
       <HomeContainers class="px-4 xl:px-[163px]" />
       <HomeFeatures class="px-4 xl:px-[163px]" />
