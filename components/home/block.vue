@@ -36,8 +36,8 @@ export default {
     return {
       slides: [
         "https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(11)%20(1).png",
-        "https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(11)%20(1).png",
-        "https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(11)%20(1).png"
+        "https://ccdstest.b-cdn.net/Medi%20u/Banner-mediu/3.webp",
+        "https://ccdstest.b-cdn.net/Medi%20u/Banner-mediu/2.webp"
       ]
     };
   }

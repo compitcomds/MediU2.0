@@ -338,9 +338,9 @@ const productHandle = route.params.productSlug;
 const data = ref({});
 const quantity = ref(1);
 const slides = ref([
-  "https://placehold.co/300x100",
-  "https://placehold.co/300x100",
-  "https://placehold.co/300x100",
+  "https://placehold.co/800x100",
+  "https://placehold.co/800x100",
+  "https://placehold.co/800x100",
 ]);
 
 const accordionKeys = [
