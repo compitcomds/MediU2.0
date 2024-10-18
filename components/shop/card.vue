@@ -9,13 +9,8 @@
         :key="index"
         class="flex justify-center p-4"
       >
-        <div
-          class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-80"
-        >
-          <nuxt-link
-            :to="`/shop/product/${product.handle}`"
-            class="relative block"
-          >
+        <div class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-80">
+          <nuxt-link :to="`shop/product/${product.handle}`" class="relative block">
             <!-- Sale badge -->
             <span
               v-if="true"
@@ -24,9 +19,7 @@
               Sale
               {{
                 Math.floor(
-                  ((parseInt(product.compareAtPrice) -
-                    parseInt(product.price)) *
-                    100) /
+                  ((parseInt(product.compareAtPrice) - parseInt(product.price)) * 100) /
                     parseInt(product.compareAtPrice)
                 )
               }}%
@@ -56,17 +49,12 @@
                 <p class="text-[#28574E] font-bold">
                   {{ product.currency }} {{ product.price }}
                 </p>
-                <p
-                  class="text-gray-500 text-sm font-bold line-through mt-1"
-                  v-if="true"
-                >
+                <p class="text-gray-500 text-sm font-bold line-through mt-1" v-if="true">
                   {{ product.currency }} {{ product.compareAtPrice }}
                 </p>
               </div>
               <div>
-                <ShopSharebtn
-                  :product-link="`shop/product/${product.handle}`"
-                />
+                <ShopSharebtn :product-link="`shop/product/${product.handle}`" />
               </div>
 
               <!-- Optional section for additional actions -->
