@@ -6,10 +6,7 @@
           <div class="col-span-5 lg:col-span-2">
             <!-- Main Swiper -->
             <swiper-container
-              style="
-                --swiper-navigation-color: #000;
-                --swiper-pagination-color: #000;
-              "
+              style="--swiper-navigation-color: #000; --swiper-pagination-color: #000"
               class="mySwiper"
               thumbs-swiper=".mySwiper2"
               space-between="15"
@@ -18,10 +15,7 @@
               autoplay="true"
               @slideChange="onSlideChange"
             >
-              <swiper-slide
-                v-for="(item, index) in data.images"
-                :key="item.url"
-              >
+              <swiper-slide v-for="(item, index) in data.images" :key="item.url">
                 <img
                   :src="item.url"
                   alt="Product Image"
@@ -60,9 +54,7 @@
           <div class="text-3xl font-semibold text-gray-900 capitalize mb-1">
             {{ data.title }}
           </div>
-          <div class="text-md mb-4 text-cyan-500">
-            Treats Active Acne | Unclogs Pores
-          </div>
+          <div class="text-md mb-4 text-cyan-500">Treats Active Acne | Unclogs Pores</div>
           <div class="flex items-center space-x-3 mb-4">
             <div class="flex items-center gap-1 text-yellow-500">
               <svg
@@ -110,11 +102,7 @@
             <div class="text-sm text-gray-500">Inclusive of all Taxes</div>
             <hr class="my-4 border-dashed border-gray-300" />
 
-            <div
-              v-for="(item, itemIndex) in data.options"
-              :key="itemIndex"
-              class="mb-4"
-            >
+            <div v-for="(item, itemIndex) in data.options" :key="itemIndex" class="mb-4">
               <div v-if="item.name !== 'Title'">
                 <div class="font-semibold text-gray-700 mb-2">
                   {{ item.name }}
@@ -150,10 +138,7 @@
                 </div>
               </div>
             </div>
-            <hr
-              class="my-4 border-dashed border-gray-300"
-              v-if="data.options.title"
-            />
+            <hr class="my-4 border-dashed border-gray-300" v-if="data.options.title" />
 
             <div
               class="bg-green-50 border border-green-400 rounded-lg flex items-center p-4"
@@ -167,9 +152,7 @@
                 stroke="currentColor"
                 class="w-6 h-6 text-green-600"
               >
-                <path
-                  d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
-                />
+                <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
                 <path d="M15 18H9" />
                 <path
                   d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
@@ -177,9 +160,7 @@
                 <circle cx="17" cy="18" r="2" />
                 <circle cx="7" cy="18" r="2" />
               </svg>
-              <div class="ml-3 text-gray-700">
-                Check your estimated delivery date
-              </div>
+              <div class="ml-3 text-gray-700">Check your estimated delivery date</div>
             </div>
             <div class="text-sm text-gray-600 mt-2">
               Free delivery on orders of ₹1,000 and above
@@ -191,25 +172,16 @@
               <div
                 class="border rounded-lg py-2 px-4 flex items-center justify-between w-1/4"
               >
-                <button
-                  @click="decreaseQuantity"
-                  class="text-2xl text-gray-800"
-                >
+                <button @click="decreaseQuantity" class="text-2xl text-gray-800">
                   -
                 </button>
                 <p class="text-lg text-gray-800">{{ quantity }}</p>
-                <button
-                  @click="increaseQuantity"
-                  class="text-2xl text-gray-800"
-                >
+                <button @click="increaseQuantity" class="text-2xl text-gray-800">
                   +
                 </button>
               </div>
               <div>
-                <ShopAddingToCartBtn
-                  :product-id="data.id"
-                  :quantity="quantity"
-                />
+                <ShopAddingToCartBtn :product-id="data.id" :quantity="quantity" />
               </div>
             </div>
           </div>
@@ -309,9 +281,7 @@
                 points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
               />
             </svg>
-            <span class="ml-1 text-gray-700 font-medium"
-              >{{ review.rating }} / 5</span
-            >
+            <span class="ml-1 text-gray-700 font-medium">{{ review.rating }} / 5</span>
           </div>
         </div>
         <div class="text-gray-600 leading-relaxed">{{ review.text }}</div>
@@ -364,6 +334,7 @@ const thumbClick = (index) => {
 
 try {
   const product = await getProductData(productHandle);
+  console.log("Fetched product data:", product); // Add this line
   data.value = product;
 } catch (error) {
   console.error("Error fetching product data:", error);
@@ -371,8 +342,7 @@ try {
 
 onMounted(() => {
   const script = document.createElement("script");
-  script.src =
-    "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js";
+  script.src = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js";
   script.defer = true;
   document.head.appendChild(script);
 });
