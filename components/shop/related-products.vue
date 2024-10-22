@@ -56,7 +56,9 @@
 
             <!-- Product image -->
             <img
-              :src="product.featuredImage.url"
+              :src="
+                product.featuredImage?.url || 'https://placehold.co/500x500/png'
+              "
               class="w-full h-48 object-cover rounded-t-lg"
               alt=""
             />
