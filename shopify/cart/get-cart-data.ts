@@ -126,11 +126,19 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
   });
 
   if (data?.cart) {
+    if (
+      data?.cart?.lines.nodes.length === 0 &&
+      !data.cart.cost.totalTaxAmount
+    ) {
+      const userStore = useUserStore();
+      const cartId = await userStore.createNewCart();
+      return await getCartDataThroughCartId(cartId);
+    }
     const items: Array<CartItemType> = [];
     items.push(...convertCartLinesToCartItemType(data.cart.lines.nodes));
 
-    const shopStore = useShopStore()
-    shopStore.updateTotalItemsInShop(items.length)
+    const shopStore = useShopStore();
+    shopStore.updateTotalItemsInShop(items.length);
 
     return {
       items,

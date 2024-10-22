@@ -5,7 +5,7 @@ import createShopifyCart from "~/shopify/cart/create-cart";
 
 export const useUserStore = defineStore("userStore", {
   state: (): {
-    userNmae:null | string;
+    userNmae: null | string;
     userEmail: null | string;
     shopifyCartId: null | string;
     wishlist: string[];
@@ -24,11 +24,8 @@ export const useUserStore = defineStore("userStore", {
     },
 
     async getShopifyCartId() {
-      if (!this.shopifyCartId) {
-        const newCart = await createShopifyCart();
-        this.shopifyCartId = newCart.id;
-        return newCart.id;
-      }
+      if (!this.shopifyCartId) return await this.createNewCart();
+
       return this.shopifyCartId;
     },
 
@@ -47,6 +44,12 @@ export const useUserStore = defineStore("userStore", {
 
     async initialiseUserStore() {
       await this.checkAuthenticated();
+    },
+
+    async createNewCart() {
+      const newCart = await createShopifyCart();
+      this.shopifyCartId = newCart.id;
+      return newCart.id;
     },
   },
   persist: {
