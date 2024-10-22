@@ -76,7 +76,7 @@ async function processOrder(
     metafields.push({
       key: "appwriteOrderId",
       value: props.appwriteOrderId,
-      type: "single_line_text",
+      type: "single_line_text_field",
       namespace: "custom",
     });
 
@@ -84,11 +84,9 @@ async function processOrder(
     metafields.push({
       key: "typeOfProduct",
       value: props.typeOfProduct,
-      type: "single_line_text",
+      type: "single_line_text_field",
       namespace: "custom",
     });
-
-  console.log(metafields);
 
   const order: Record<string, any> = {
     line_items: items.map((item: any) => ({
