@@ -36,7 +36,7 @@
       </nuxt-link>
     </div>
 
-    <div v-if="!user" class="relative inline-block">
+    <div class="relative inline-block">
       <button
         @click="toggleDropdown"
         class="flex items-center justify-center focus:outline-none"
@@ -55,7 +55,7 @@
         class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 transition duration-300 ease-in-out opacity-100 transform scale-100"
       >
         <ul class="py-1">
-          <li>
+          <li v-if="!user">
             <nuxt-link
               to="/auth/login"
               class="block px-4 py-2 text-black hover:bg-gray-100"
@@ -66,7 +66,7 @@
           <!-- <li>
             <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100">Settings</a>
           </li> -->
-          <li>
+          <li v-if="!user">
             <nuxt-link
               to="/auth/register"
               class="block px-4 py-2 text-black hover:bg-gray-100"
@@ -74,23 +74,23 @@
               >Register</nuxt-link
             >
           </li>
+
+          <li v-if="!!user">
+            <nuxt-link
+              to="/dashboard"
+              class="block px-4 py-2 text-black hover:bg-gray-100"
+              @click="toggleDropdown"
+              >Dashboard</nuxt-link
+            >
+          </li>
+
+          <li v-if="!!user">
+            <button class="block px-4 py-2 text-black hover:bg-gray-100">
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
-    </div>
-
-    <div v-else class="relative inline-block">
-      <nuxt-link
-        to="/dashboard"
-        class="flex items-center justify-center focus:outline-none"
-      >
-        <div
-          class="bg-cover bg-no-repeat rounded-full h-12 w-12"
-          :style="{
-            backgroundImage:
-              'url(https://ccdstest.b-cdn.net/Medi%20u/profile.svg)',
-          }"
-        ></div>
-      </nuxt-link>
     </div>
   </div>
 </template>
