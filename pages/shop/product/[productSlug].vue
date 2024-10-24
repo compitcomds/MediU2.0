@@ -29,30 +29,30 @@
           <div
             class="flex flex-col md:flex-row border rounded-lg divide-y md:divide-y-0 md:divide-x divide-gray-200 p-2">
             <div class="flex-1 flex items-center justify-center ">
-              <div class="flex flex-col items-center space-x-2">
-                <div class="text-purple-500">
-                  <img src="https://ccdstest.b-cdn.net/Medi%20u/Icon%2047x47/3.png" alt="icon">
+              <div class="flex flex-col items-center">
+                <div class="text-purple-500 w-20">
+                  <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/3.png" alt="icon">
                   <!-- Replace with appropriate icon -->
                 </div>
-                <span class="font-semibold mt-2">101% Original</span>
+                <span class="font-semibold">101% Original</span>
               </div>
             </div>
             <div class="flex-1 flex items-center justify-center ">
-              <div class="flex flex-col items-center space-x-2">
-                <div class="text-red-500">
-                  <img src="https://ccdstest.b-cdn.net/Medi%20u/Icon%2047x47/2.png" alt="icon">
+              <div class="flex flex-col items-center ">
+                <div class="text-red-500 w-20">
+                  <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/2.png" alt="icon">
                   <!-- Replace with appropriate icon -->
                 </div>
-                <span class="font-semibold mt-2">Lowest Price</span>
+                <span class="font-semibold ">Lowest Price</span>
               </div>
             </div>
             <div class="flex-1 flex items-center justify-center ">
-              <div class="flex flex-col items-center space-x-2">
-                <div class="text-blue-500">
-                  <img src="https://ccdstest.b-cdn.net/Medi%20u/Icon%2047x47/1.png" alt="icon">
+              <div class="flex flex-col items-center">
+                <div class="text-blue-500 w-20">
+                  <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/1.png" alt="icon">
                   <!-- Replace with appropriate icon -->
                 </div>
-                <span class="font-semibold mt-2">Fast Delivery</span>
+                <span class="font-semibold">Fast Delivery</span>
               </div>
             </div>
           </div></div>
