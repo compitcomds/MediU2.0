@@ -1,5 +1,5 @@
 <template>
-  <div class="block z-50 lg:hidden">
+  <div class="block z-50 lg:hidden bg-[#28574E]">
     <div class="btm-nav bg-[#28574E] flex justify-center items-center z-50 p-4 ">
       <nuxt-link to="/">
         <svg
@@ -43,6 +43,9 @@
             d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"
           />
         </svg>
+      </nuxt-link>
+      <nuxt-link to="/addToCart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
       </nuxt-link>
       <!-- <ShopUserSidebar /> -->
       <!-- <a href ="/testing"
