@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between mt-0 lg:mt-72 object-cover bg-white w-full">
+  <div class="flex items-center justify-between mt-10 lg:mt-72 object-cover bg-white w-full">
     <swiper
       :slidesPerView="1"
       :spaceBetween="60"

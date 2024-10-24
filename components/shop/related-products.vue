@@ -11,6 +11,7 @@
       }"
       :loop="true"
       :breakpoints="{
+        
         640: {
           slidesPerView: 1,
           spaceBetween: 20,
@@ -20,8 +21,12 @@
           spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 40,
+        },
+        1180: {
+          slidesPerView: 4,
+          spaceBetween: 50,
         },
       }"
       class="testimonial-grid"
