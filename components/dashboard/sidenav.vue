@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-1/4 bg-white rounded-lg shadow-lg h-full">
+  <aside class="w-1/4 bg-white rounded-lg shadow-lg h-full hidden md:block">
     <!-- Profile Section -->
     <div class="flex items-center mb-6 p-6">
       <img

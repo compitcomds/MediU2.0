@@ -7,36 +7,37 @@ query fetchCustomerDetails($accessToken: String!) {
     lastName
     email
     phone
-    addresses {
-      address1
-      city
-      country
-    }
-    orders(first: 5) {
-      edges {
-        node {
-          name
-          orderNumber
-          processedAt
-          totalPrice
-        }
+    displayName
+    numberOfOrders
+    addresses(first: 100) {
+      nodes {
+        address1
+        address2
+        city
+        country
+        name
+        phone
       }
     }
   }
 }
 `;
 
-
-async function fetchCustomerDetails(accessToken: string) {
-    const { data } = await shopifyClient.request(fetchCustomerDetailsQuery, {
+export default async function fetchCustomerDetails() {
+  const accessToken = localStorage.getItem("accessToken");
+  const { data, errors } = await shopifyClient.request(
+    fetchCustomerDetailsQuery,
+    {
       variables: {
         accessToken,
       },
-    });
-  
-    if (!data.customer) {
-      throw Error("Error fetching customer details.");
     }
-  
-    return data.customer;
+  );
+
+  console.log(data, errors);
+  if (!data?.customer) {
+    throw Error("Error fetching customer details.");
   }
+
+  return data.customer;
+}
