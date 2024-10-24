@@ -85,8 +85,12 @@
           </li>
 
           <li v-if="!!user">
-            <button class="block px-4 py-2 text-black hover:bg-gray-100">
-              Logout
+            <button
+              :disabled="isLoggingOut"
+              @click="logout"
+              class="block w-full text-start px-4 py-2 text-black hover:bg-gray-100 disabled:animate-pulse disabled:cursor-not-allowed"
+            >
+              {{ isLoggingOut ? "Logging out..." : "Logout" }}
             </button>
           </li>
         </ul>
@@ -95,9 +99,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { getUser } from "~/appwrite/auth";
+import { getUser, logoutUser } from "~/appwrite/auth";
 
 const isOpen = ref(false);
+const isLoggingOut = ref(false);
 
 const shopStore = useShopStore();
 const { totalItems } = storeToRefs(shopStore);
@@ -112,6 +117,18 @@ try {
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
+};
+
+const logout = async () => {
+  isLoggingOut.value = true;
+  try {
+    await logoutUser();
+    reloadNuxtApp();
+  } catch (error: any) {
+    alert(error.message);
+  } finally {
+    isLoggingOut.value = false;
+  }
 };
 </script>
 <style scoped></style>

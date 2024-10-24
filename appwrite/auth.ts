@@ -19,6 +19,13 @@ export const loginWithGoogle = async () => {
   } catch (error) {}
 };
 
+export const logoutUser = async () => {
+  try {
+    await account.deleteSession("current");
+    localStorage.removeItem("accessToken");
+  } catch (error) {}
+};
+
 const createNewShopifyUser = async (
   userId: string,
   data: {
