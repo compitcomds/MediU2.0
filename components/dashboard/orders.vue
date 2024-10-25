@@ -1,9 +1,9 @@
 <template>
   <main class="w-3/4 pl-8">
-    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
-      <table class="min-w-full table-auto text-left border-collapse">
+    <div class="mb-6 rounded-lg bg-white p-6 shadow-lg">
+      <table class="min-w-full table-auto border-collapse text-left">
         <thead>
-          <tr class="text-sm font-semibold text-gray-700 border-b-2">
+          <tr class="border-b-2 text-sm font-semibold text-gray-700">
             <th class="pb-3">ORDER #</th>
             <th class="pb-3">DATE PURCHASED</th>
             <th class="pb-3">STATUS</th>
@@ -12,13 +12,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="order in orders" :key="order.id" class="text-sm border-b">
+          <tr v-for="order in orders" :key="order.id" class="border-b text-sm">
             <td class="py-4">{{ order.orderNumber }}</td>
             <td>{{ new Date(order.processedAt).toLocaleDateString() }}</td>
             <td>
               <span
                 :class="[
-                  'px-2 py-1 text-xs font-semibold rounded-full',
+                  'rounded-full px-2 py-1 text-xs font-semibold',
                   order.status === 'IN PROGRESS'
                     ? 'bg-blue-100 text-blue-600'
                     : '',
@@ -44,34 +44,34 @@
             </td>
             <td>
               <nuxt-link
-                :to="`/dashboard/orders/${order.orderNumber}`"
+                :to="`/dashboard/orders/${getOrderId(order.id)}`"
                 class="text-green-600 hover:underline"
-                >View</nuxt-link
-              >
+                >View
+              </nuxt-link>
             </td>
           </tr>
         </tbody>
       </table>
 
       <!-- Pagination -->
-      <div class="flex justify-between mt-6">
-        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+      <div class="mt-6 flex justify-between">
+        <button class="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300">
           Prev
         </button>
         <div>
-          <button class="px-4 py-2 bg-green-600 text-white rounded">1</button>
+          <button class="rounded bg-green-600 px-4 py-2 text-white">1</button>
           <button
-            class="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-100"
+            class="rounded border border-gray-300 bg-white px-4 py-2 hover:bg-gray-100"
           >
             2
           </button>
           <button
-            class="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-100"
+            class="rounded border border-gray-300 bg-white px-4 py-2 hover:bg-gray-100"
           >
             3
           </button>
         </div>
-        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+        <button class="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300">
           Next
         </button>
       </div>
@@ -81,6 +81,10 @@
 
 <script setup>
 const { orders } = defineProps(["orders"]);
+
+const getOrderId = (id) => {
+  return id.replace("gid://shopify/Order/", "").split("?")[0];
+};
 </script>
 
 <style scoped>
