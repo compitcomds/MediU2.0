@@ -176,9 +176,10 @@
             <div class="mt-6">
               <button
                 type="submit"
-                class="w-full bg-[#285742] text-white text-xl font-semibold rounded-lg py-2 shadow-lg hover:bg-[#377d5d] focus:outline-none focus:ring-2 focus:ring-blue-600"
+                :disabled="isSubmitting"
+                class="w-full bg-[#285742] text-white text-xl font-semibold rounded-lg py-2 shadow-lg hover:bg-[#377d5d] focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:animate-pulse disabled:cursor-not-allowed"
               >
-                Sign In
+                {{ isSubmitting ? "Signing in..." : "Sign In" }}
               </button>
             </div>
           </form>
@@ -208,6 +209,7 @@
 import { loginUser, loginWithGoogle } from "~/appwrite/auth";
 
 const router = useRouter();
+const isSubmitting = ref(false);
 const formData = ref({
   email: "",
   password: "",
@@ -220,10 +222,13 @@ const togglePasswordVisibility = () => {
 };
 
 const submitForm = async () => {
+  isSubmitting.value = true;
   try {
     await loginUser(formData.value);
+    isSubmitting.value = false;
     router.replace("/dashboard");
   } catch (error) {
+    isSubmitting.value = false;
     alert(`Error: ${error.message}`);
   }
 };

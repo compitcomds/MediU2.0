@@ -19,6 +19,8 @@
     "@vueuse/nuxt": "^11.1.0",
     "daisyui": "^4.12.10",
     "nuxt": "^3.12.4",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "sass-embedded": "^1.78.0",
     "vue3-carousel-nuxt": "^1.1.2"
   },
@@ -28,6 +30,7 @@
     "@types/uuid": "^10.0.0",
     "appwrite": "^16.0.2",
     "js-image-zoom": "^0.7.0",
+    "lucide-vue-next": "^0.453.0",
     "node-appwrite": "^11.1.1",
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.2.2",

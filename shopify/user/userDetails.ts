@@ -17,6 +17,7 @@ query fetchCustomerDetails($accessToken: String!) {
         country
         name
         phone
+        province
       }
     }
   }
@@ -31,7 +32,7 @@ export default async function fetchCustomerDetails() {
       variables: {
         accessToken,
       },
-    }
+    },
   );
 
   console.log(data, errors);

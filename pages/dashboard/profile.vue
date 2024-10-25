@@ -1,41 +1,48 @@
 <template>
-    <div class="min-h-screen p-6 bg-[#edf8f3] flex" v-if="UserData">
-      <!-- Sidebar -->
-            <DashboardSidenav :UserData="UserData || ''"/>
+  <div class="flex min-h-screen bg-[#edf8f3] px-1 py-6 md:px-6" v-if="UserData">
+    <DashboardSidenav :UserData="UserData || ''" />
 
-  
-      <!-- Main Content (Profile Update Form) -->
-      <DashboardProfile />
-    </div>
-  </template>
-  
+    <main class="mb-16 min-h-screen w-full md:w-3/4 md:p-6">
+      <div class="bg-white px-3 py-6 md:px-6">
+        <DashboardProfileEditForm :user="user" />
+      </div>
+    </main>
+  </div>
+</template>
 
-  <script setup>
-  import { ref } from 'vue';
-  import { useRouter } from 'vue-router'; // Import useRouter
-  import { getUser } from '~/appwrite/auth';
-  
-  const UserData = ref(null); // Use ref for reactivity
-  const router = useRouter(); // Initialize the router
-  
-  async function fetchUserData() {
-    try {
-      const result = await getUser();
-      console.log("User Data:", result);
-      UserData.value = result; // Update the value of UserData
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      UserData.value = null; // Update the value of UserData
-      router.push('/auth/login'); // Redirect to /auth/login
-    }
-  
-    console.log(UserData.value); // Log here to see the final value
+<script setup lang="ts">
+import { getUser } from "~/appwrite/auth";
+
+const UserData = ref<any>(null);
+const router = useRouter();
+
+import { logoutUser } from "~/appwrite/auth";
+import fetchCustomerDetails from "~/shopify/user/userDetails";
+
+let user: any = null;
+
+try {
+  user = await fetchCustomerDetails();
+} catch (error) {}
+
+if (!user) {
+  await logoutUser();
+  reloadNuxtApp();
+}
+
+async function fetchUserData() {
+  try {
+    const result = await getUser();
+    UserData.value = result;
+  } catch (error) {
+    UserData.value = null;
+    router.push("/auth/login");
   }
-  
-  fetchUserData();
-  </script>
-  
-  <style scoped>
-  /* Add any specific styles here if needed */
-  </style>
-  
+}
+
+fetchUserData();
+</script>
+
+<style scoped>
+/* Add any specific styles here if needed */
+</style>
