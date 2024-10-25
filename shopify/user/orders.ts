@@ -3,7 +3,7 @@ import shopifyClient from "../shopify-client";
 const getAllUserOrdersQuery = `
 query getAllUserOrders($accessToken: String!) {
   customer(customerAccessToken: $accessToken) {
-    orders(first: 100) {
+    orders(first: 100, reverse: true, sortKey: PROCESSED_AT) {
       nodes {
         id
         fulfillmentStatus
