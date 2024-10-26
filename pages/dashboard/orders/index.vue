@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#edf8f3] p-6 flex" v-if="userData">
+  <div class="flex min-h-screen bg-[#edf8f3] p-6" v-if="userData">
     <!-- Sidebar -->
     <DashboardSidenav :UserData="userData || ''" />
     <!-- Orders Table -->
@@ -9,7 +9,7 @@
 
 <script setup>
 import { getUser } from "~/appwrite/auth";
-import { getAllUserOrders } from "~/shopify/user/orders";
+import getAllUserOrders from "~/shopify/user/orders/all-orders";
 
 const userData = ref(null);
 const router = useRouter();
