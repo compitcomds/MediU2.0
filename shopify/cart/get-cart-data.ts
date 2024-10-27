@@ -7,6 +7,10 @@ query getCartData($cartId: ID!) {
     checkoutUrl
     id
     note
+    discountCodes {
+      applicable
+      code
+    }
     buyerIdentity {
       email
       customer {
@@ -94,6 +98,10 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
       note: string;
       subtotalAmount: { amount: string; currencyCode: string };
       totalTaxAmount: { amount: string; currencyCode: string };
+      discountCodes: Array<{
+        applicable: boolean;
+        code: string;
+      }>;
       totalAmount: { amount: string; currencyCode: string };
       buyerIdentity: {
         email: string;
@@ -125,15 +133,9 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
     variables: { cartId },
   });
 
+  console.log(data, errors);
+
   if (data?.cart) {
-    if (
-      data?.cart?.lines.nodes.length === 0 &&
-      !data.cart.cost.totalTaxAmount
-    ) {
-      const userStore = useUserStore();
-      const cartId = await userStore.createNewCart();
-      return await getCartDataThroughCartId(cartId);
-    }
     const items: Array<CartItemType> = [];
     items.push(...convertCartLinesToCartItemType(data.cart.lines.nodes));
 
@@ -148,15 +150,17 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
       totalAmount: data.cart.cost.totalAmount,
       buyerIdentity: data.cart.buyerIdentity,
       note: data.cart.note || "",
+      discountCodes: data.cart.discountCodes,
     };
   }
 
   throw new Error(
-    "Unable to fetch the cart. Try logging in the error from shopifyClient.request to see what might have happened."
+    "Unable to fetch the cart. Try logging in the error from shopifyClient.request to see what might have happened.",
   );
 }
 
 export default async function getCartData() {
   const cartId = await useUserStore().getShopifyCartId();
+  console.log(cartId);
   return await getCartDataThroughCartId(cartId);
 }
