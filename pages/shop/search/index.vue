@@ -1,62 +1,14 @@
 <template>
   <div class="grid grid-cols-12">
-    <div class="hidden sm:block lg:col-span-3 md:col-span-4 xl:col-span-2 ms-7">
+    <div class="ms-7 hidden sm:block md:col-span-4 lg:col-span-3 xl:col-span-2">
       <ShopFilterbar />
     </div>
 
     <div
-      class="lg:co l-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
+      class="lg:co l-span-9 col-span-12 mt-3 md:col-span-8 md:me-7 xl:col-span-10"
     >
       <ShopBanner />
-      <!-- <ShopCard :productDetails="productDetails" /> -->
-      <div class="my-2">
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4"
-        >
-          <div
-            v-for="(product, index) in productDetails"
-            :key="index"
-            class="flex justify-center"
-          >
-            <div
-              class="border px-4 py-2 rounded-lg block no-underline border-gray-300 shadow-md"
-            >
-              <div class="relative">
-                <span
-                  v-if="true"
-                  class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded"
-                  >Sale 5%</span
-                >
-                <img :src="product.image" class="min-h-48 max-h-52" alt="" />
-              </div>
-              <div class="space-y-4 flex flex-col justify-between">
-                <NuxtLink :to="`/shop/product/${product.handle}`">
-                  <h3
-                    class="text-black capitalize font-serif text-xl min-h-10 max-h-12 lg:text-lg mt-2"
-                  >
-                    {{ product.title }}
-                  </h3>
-                </NuxtLink>
-                <div class="flex justify-between text-xl">
-                  <div>
-                    <p class="text-[#28574E] font-bold">
-                      {{ product.currency }} {{ product.price }}
-                    </p>
-                    <p
-                      class="text-gray-500 text-sm font-bold line-through"
-                      v-if="true"
-                    >
-                      {{ product.currency }} 1000
-                    </p>
-                  </div>
-                  <ShopAddingToCartBtn />
-                </div>
-                <ShopAddToCart />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ShopCard :productDetails="productDetails" name="Add To Cart" />
     </div>
   </div>
 </template>

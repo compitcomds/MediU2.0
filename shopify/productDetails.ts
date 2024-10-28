@@ -56,8 +56,8 @@ query productWithVariantsQuery($handle: String!) {
             currencyCode
           }
           compareAtPrice {
-          amount
-          currencyCode
+            amount
+            currencyCode
           }
           quantityAvailable
           selectedOptions {
@@ -192,7 +192,7 @@ export async function getInitalProductData(handle: string) {
 
 export async function getProductData(
   handle: string,
-  options?: Record<string, string | string[]>
+  options?: Record<string, string | string[]>,
 ) {
   try {
     const initalProductData = await getInitalProductData(handle);
@@ -255,4 +255,3 @@ export async function getProductData(
     throw error;
   }
 }
-

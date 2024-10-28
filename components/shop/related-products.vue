@@ -11,7 +11,6 @@
       }"
       :loop="true"
       :breakpoints="{
-        
         640: {
           slidesPerView: 1,
           spaceBetween: 20,
@@ -36,25 +35,30 @@
         v-for="(product, index) in products"
         :key="index"
       >
-        <div class="border px-4 py-2 rounded-lg border-gray-300 bg-white w-80">
+        <div class="w-80 rounded-lg border border-gray-300 bg-white px-4 py-2">
           <nuxt-link
             :to="`/shop/product/${product.handle}`"
             class="relative block"
           >
             <!-- Sale badge -->
             <span
-              v-if="true"
-              class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full"
+              v-if="
+                parseInt(product.compareAtPriceRange.minVariantPrice.amount) >
+                parseInt(product.priceRange.minVariantPrice.amount)
+              "
+              class="absolute right-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs text-white"
             >
-              Sale
+              Save
               {{
                 Math.floor(
                   ((parseInt(
-                    product.compareAtPriceRange.minVariantPrice.amount
+                    product.compareAtPriceRange.minVariantPrice.amount,
                   ) -
                     parseInt(product.priceRange.minVariantPrice.amount)) *
                     100) /
-                    parseInt(product.compareAtPriceRange.minVariantPrice.amount)
+                    parseInt(
+                      product.compareAtPriceRange.minVariantPrice.amount,
+                    ),
                 )
               }}%
             </span>
@@ -64,16 +68,16 @@
               :src="
                 product.featuredImage?.url || 'https://placehold.co/500x500/png'
               "
-              class="w-full h-48 object-cover rounded-t-lg"
+              class="h-48 w-full rounded-t-lg object-cover"
               alt=""
             />
           </nuxt-link>
 
-          <div class="space-y-4 mt-4">
+          <div class="mt-4 space-y-4">
             <!-- Product title -->
             <a :href="`/shop/product/${product.handle}`" class="block">
               <h3
-                class="text-black font-serif text-xl lg:text-lg font-semibold capitalize truncate"
+                class="truncate font-serif text-xl font-semibold capitalize text-black lg:text-lg"
               >
                 {{ product.title }}
               </h3>
@@ -82,12 +86,12 @@
             <!-- Price and discount -->
             <div class="flex justify-between text-xl">
               <div>
-                <p class="text-[#28574E] font-bold">
+                <p class="font-bold text-[#28574E]">
                   {{ product.priceRange.minVariantPrice.currencyCode }}
                   {{ product.priceRange.minVariantPrice.amount }}
                 </p>
                 <p
-                  class="text-gray-500 text-sm font-bold line-through mt-1"
+                  class="mt-1 text-sm font-bold text-gray-500 line-through"
                   v-if="true"
                 >
                   {{ product.compareAtPriceRange.minVariantPrice.currencyCode }}
@@ -102,10 +106,10 @@
             </div>
 
             <!-- Action buttons -->
-            <div class="flex gap-2 mt-4">
+            <div class="mt-4 flex gap-2">
               <nuxt-link
                 :to="`/shop/product/${product.handle}`"
-                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer"
+                class="text-md flex-1 cursor-pointer rounded-full bg-[#28574E] p-2 text-center font-semibold text-white shadow"
               >
                 BUY NOW
               </nuxt-link>

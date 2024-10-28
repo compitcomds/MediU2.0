@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
+    <!-- <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Nutrition and Diet</div>
       <div class="p-3">
         <div v-for="(item, index) in NutrionAndDiet" :key="index">
@@ -73,9 +73,9 @@
           </label>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
+    <!-- <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Pediatric</div>
       <div class="p-3">
         <div v-for="(item, index) in Pediatric" :key="index">
@@ -91,7 +91,7 @@
           </label>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium text-[#22423c]">Ingredient</div>
@@ -181,9 +181,11 @@ const Pediatric = [
 ];
 
 const Ingredent = [
-  { name: "Ingredient 1", value: "ingredient-1" },
-  { name: "Ingredient 2", value: "ingredient-2" },
-  { name: "Ingredient 3", value: "ingredient-3" },
+  { name: "Minoxidil", value: "minoxidil" },
+  { name: "Redensyl", value: "redensyl" },
+  { name: "Capixyl", value: "capixyl" },
+  { name: "Peptide", value: "peptide" },
+  { name: "Carnitine", value: "carnitine" },
 ];
 
 const selectedTypeOfProducts = ref(

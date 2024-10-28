@@ -1,7 +1,7 @@
 <template>
   <div class="my-2">
     <div
-      class="2xl:grid-cols-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
     >
       <div
         v-for="(product, index) in productDetails"
@@ -9,10 +9,10 @@
         class="flex justify-center p-4"
       >
         <div
-          class="w-80 rounded-lg border border-gray-300 bg-white px-4 py-2 shadow-md"
+          class="flex w-full flex-col rounded-lg border border-gray-300 bg-white px-4 pb-4 pt-2 shadow-md"
         >
           <nuxt-link
-            :to="`shop/product/${product.handle}`"
+            :to="`/shop/product/${product.handle}`"
             class="relative block"
           >
             <!-- Sale badge -->
@@ -41,11 +41,14 @@
             />
           </nuxt-link>
 
-          <div class="mt-4 space-y-4">
+          <div class="mt-4 flex flex-1 flex-col gap-y-4">
             <!-- Product title -->
-            <a :href="`/shop/product/${product.handle}`" class="block">
+            <a
+              :href="`/shop/product/${product.handle}`"
+              class="block max-w-full overflow-clip"
+            >
               <h3
-                class="truncate font-serif text-xl font-semibold capitalize text-black lg:text-lg"
+                class="font-serif text-xl font-semibold capitalize text-black lg:text-lg"
               >
                 {{ product.title }}
               </h3>
@@ -57,10 +60,7 @@
                 <p class="font-bold text-[#28574E]">
                   {{ product.currency }} {{ product.price }}
                 </p>
-                <p
-                  class="mt-1 text-sm font-bold text-gray-500 line-through"
-                  v-if="true"
-                >
+                <p class="mt-1 text-sm font-bold text-gray-500 line-through">
                   {{ product.currency }} {{ product.compareAtPrice }}
                 </p>
               </div>
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Action buttons -->
-            <div class="mt-4 flex gap-2">
+            <div class="mt-auto flex gap-2">
               <nuxt-link
                 :to="`/shop/product/${product.handle}`"
                 class="text-md flex-1 cursor-pointer rounded-full bg-[#28574E] p-2 text-center font-semibold text-white shadow"

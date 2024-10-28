@@ -2,17 +2,19 @@ import shopifyClient from "../shopify-client";
 
 const searchQuery = `
 query searchQuery($query: String = "") {
-  search(query: $query, first: 10) {
+  search(query: $query, first: 100) {
     nodes {
       ... on Product {
         handle
-        tags
-        images(first: 10) {
-          nodes {
-            altText
-            url
-            width
-            height
+        id
+        title
+        descriptionHtml
+        images(first: 1) {
+          edges {
+            node {
+              url
+              altText
+            }
           }
         }
         priceRange {
@@ -21,10 +23,21 @@ query searchQuery($query: String = "") {
             currencyCode
           }
         }
-        title
-        options {
-          values
-          name
+        variants(first: 1) {
+          nodes {
+            id
+          }
+        }
+        collections(first: 100) {
+          nodes {
+            handle
+          }
+        }
+        compareAtPriceRange {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
         }
       }
     }
@@ -32,31 +45,27 @@ query searchQuery($query: String = "") {
 }
 `;
 
-type ShopifyProductFromMutlitpleProductsType = {
-  handle: string;
-  tags: string;
-  images: {
-    nodes: Array<{
-      url: string;
-      altText: string;
-      width: number;
-      height: number;
-    }>;
-  };
-  priceRange: {
-    minVariantPrice: { amount: string; currencyCode: string };
-  };
-  title: string;
-  options: Array<{ name: string; values: string[] }>;
-};
-
 export default async function shopifySearchProducts(query: string) {
   const { data } = await shopifyClient.request(searchQuery, {
     variables: { query },
   });
 
   if (data?.search?.nodes)
-    return data.search.nodes as ShopifyProductFromMutlitpleProductsType[];
+    return data.search.nodes.map((node: any) => ({
+      handle: node.handle,
+      productId: node.id,
+      id: node.variants.nodes[0].id,
+      title: node.title,
+      description: node.descriptionHtml,
+      image: node.images.edges[0]?.node.url || "", // Image URL
+      altText: node.images.edges[0]?.node.altText || "Product Image",
+      price: node.priceRange.minVariantPrice.amount,
+      compareAtPrice: node.compareAtPriceRange.minVariantPrice.amount,
+      currency: node.priceRange.minVariantPrice.currencyCode,
+      collections: node.collections.nodes.map(
+        (collectionNode: any) => collectionNode.handle,
+      ),
+    }));
 
   throw new Error("Unable to fetch products. Please try again later.");
 }
