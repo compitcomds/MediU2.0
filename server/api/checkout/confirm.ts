@@ -6,10 +6,10 @@ import resetCart from "~/shopify/cart/reset-cart";
 const SHOPIFY_URL = `https://dev-mediu.myshopify.com/admin/api/2024-04`;
 const SHOPIFY_ADMIN_ACCESS_TOKEN = "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";
 const PHONEPAY_REDIRECT_SUCCESS_URL = String(
-  process.env.PHONEPAY_REDIRECT_SUCCESS_URL
+  process.env.PHONEPAY_REDIRECT_SUCCESS_URL,
 );
 const PHONEPAY_REDIRECT_ERROR_URL = String(
-  process.env.PHONEPAY_REDIRECT_ERROR_URL
+  process.env.PHONEPAY_REDIRECT_ERROR_URL,
 );
 export default defineEventHandler(async (event) => {
   try {
@@ -18,9 +18,8 @@ export default defineEventHandler(async (event) => {
     const transactionId = body.transactionId;
 
     if (!transactionId) throw new Error("Invalid confirmation.");
-    const { documents, total } = await getOrderDocumentThroughTransactionId(
-      transactionId
-    );
+    const { documents, total } =
+      await getOrderDocumentThroughTransactionId(transactionId);
     if (total === 0) throw new Error("Invalid order.");
 
     await processOrder(documents[0].shopifyCartId, {
@@ -42,16 +41,22 @@ async function processOrder(
     prescriptionUrl: string;
     appwriteOrderId: string;
     typeOfProduct: string;
-  }
+  },
 ) {
   if (!cartId) return new Response("404", { status: 404 });
 
-  const cartData: any = await getCartDataForCheckout(cartId);
+  const cartData = await getCartDataForCheckout(cartId);
 
   if (!cartData) return new Response("Invalid cart value.", { status: 400 });
 
-  const { buyerIdentity, items, totalAmount, subtotalAmount, discountCodes } =
-    cartData;
+  const {
+    buyerIdentity,
+    items,
+    totalAmount,
+    subtotalAmount,
+    totalTaxAmount,
+    discountCodes,
+  } = cartData;
 
   const billing_and_shipping_address: any = {
     ...buyerIdentity.deliveryAddressPreferences[0],
@@ -95,11 +100,11 @@ async function processOrder(
     })),
     tax_lines: [
       {
-        price: `${totalAmount.amount - subtotalAmount.amount}`,
+        price: totalTaxAmount.amount,
         title: "Total Tax",
       },
     ],
-    total_tax: `${totalAmount.amount - subtotalAmount.amount}`,
+    total_tax: totalTaxAmount.amount,
     customer: {
       first_name:
         buyerIdentity?.customer?.firstName ||
@@ -152,6 +157,6 @@ async function processOrder(
 
   await resetCart(
     cartId,
-    items.map((item: any) => item.lineId)
+    items.map((item: any) => item.lineId),
   );
 }

@@ -57,7 +57,10 @@ export const fetchProducts = async ({
   query?: string;
 }) => {
   const { data } = await shopifyClient.request(fetchProductsQuery, {
-    variables: { after: after || null, query: `(-product_type:Consultancy) AND ${query}` },
+    variables: {
+      after: after || null,
+      query: `(-product_type:Consultancy) AND ${query}`,
+    },
   });
   const pageInfo = data?.products?.pageInfo;
   const nodes = data?.products?.nodes;
@@ -74,7 +77,7 @@ export const fetchProducts = async ({
       compareAtPrice: node.compareAtPriceRange.minVariantPrice.amount,
       currency: node.priceRange.minVariantPrice.currencyCode,
       collections: node.collections.nodes.map(
-        (collectionNode: any) => collectionNode.handle
+        (collectionNode: any) => collectionNode.handle,
       ),
     }));
     return {

@@ -1,11 +1,11 @@
 <template>
-  <div class="grid grid-cols-12 lg:pt-10 pt-2">
-    <div class="hidden sm:block lg:col-span-3 md:col-span-4 xl:col-span-2 ms-7">
+  <div class="grid grid-cols-12 pt-2 lg:pt-10">
+    <div class="ms-7 hidden sm:block md:col-span-4 lg:col-span-3 xl:col-span-2">
       <ShopFilterbar :hideProductType="true" />
     </div>
 
     <div
-      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
+      class="col-span-12 mt-3 md:col-span-8 md:me-7 lg:col-span-9 xl:col-span-10"
     >
       <ShopBanner />
       <ShopCard :productDetails="data.products" name="Add To Cart" />
@@ -15,7 +15,6 @@
 
 <script setup lang="ts">
 import { fetchProducts } from "~/shopify/products";
-// import { getFilters } from "~/shopify/productFilters";
 
 const route = useRoute();
 
@@ -46,6 +45,6 @@ watch(
       }),
     };
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>

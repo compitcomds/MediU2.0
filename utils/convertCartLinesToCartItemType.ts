@@ -1,7 +1,7 @@
 import { type CartItemType } from "~/shopify/_types/cart";
 
 export default function convertCartLinesToCartItemType(
-  nodes: Array<any>
+  nodes: Array<any>,
 ): Array<CartItemType> {
   const items = nodes.map((node) => ({
     title: node.merchandise.product.title,
@@ -17,6 +17,7 @@ export default function convertCartLinesToCartItemType(
     requiresPrescription:
       !!node.merchandise.product.requiresPrescription &&
       node.merchandise.product.requiresPrescription.value === "true",
+    gstApplied: parseFloat(node.merchandise.product.gstApplied?.value || "0"),
   }));
   return items;
 }

@@ -1,19 +1,19 @@
 <template>
-  <div class="min-h-screen bg-gray-100 py-8 px-4 md:px-16 mb-20 lg:mb-0">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+  <div class="mb-20 min-h-screen bg-gray-100 px-4 py-8 md:px-16 lg:mb-0">
+    <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
       <form
         @submit.prevent="submitOrder"
-        class="lg:col-span-2 bg-white text-zinc-500 p-6 rounded-lg shadow-lg h-full overflow-y-auto"
+        class="h-full overflow-y-auto rounded-lg p-6 text-zinc-500 lg:col-span-2"
       >
         <!-- Contact Section -->
         <div class="mb-6">
-          <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">Contact</h2>
+          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">Contact</h2>
           <div class="flex flex-col space-y-2">
             <input
               type="text"
               v-model="email"
               placeholder="Email"
-              class="w-full p-3 border border-gray-300 rounded-lg bg-white"
+              class="w-full rounded-lg border border-gray-300 bg-white p-3"
               required
             />
             <label class="flex items-center space-x-2 text-sm">
@@ -25,21 +25,21 @@
 
         <!-- Delivery Section -->
         <div class="mb-6">
-          <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">Delivery</h2>
+          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">Delivery</h2>
           <div class="space-y-4">
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid gap-4 md:grid-cols-2">
               <input
                 type="text"
                 v-model="shipping.firstName"
                 placeholder="First name (optional)"
-                class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 required
               />
               <input
                 type="text"
                 v-model="shipping.lastName"
                 placeholder="Last name"
-                class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 required
               />
             </div>
@@ -47,36 +47,36 @@
               type="text"
               v-model="shipping.address"
               placeholder="Address"
-              class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+              class="w-full rounded-lg border border-gray-300 bg-white p-3"
               required
             />
             <input
               type="text"
               v-model="shipping.phone"
               placeholder="Phone"
-              class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+              class="w-full rounded-lg border border-gray-300 bg-white p-3"
               required
             />
-            <div class="grid md:grid-cols-3 gap-4">
+            <div class="grid gap-4 md:grid-cols-3">
               <input
                 type="text"
                 v-model="shipping.city"
                 placeholder="City"
-                class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 required
               />
               <input
                 type="text"
                 v-model="shipping.state"
                 placeholder="State"
-                class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 required
               />
               <input
                 type="text"
                 v-model="shipping.pinCode"
                 placeholder="PIN code"
-                class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 required
               />
             </div>
@@ -84,7 +84,7 @@
               type="text"
               v-model="shipping.country"
               placeholder="Country"
-              class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+              class="w-full rounded-lg border border-gray-300 bg-white p-3"
               required
             />
             <label class="flex items-center space-x-2 text-sm">
@@ -96,27 +96,27 @@
 
         <!-- Shipping Method Section -->
         <div class="mb-6">
-          <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">
+          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">
             Shipping method
           </h2>
           <input
             type="text"
             placeholder="Enter your shipping address to view available shipping methods."
-            class="w-full p-3 border border-gray-300 rounded-lg bg-white"
+            class="w-full rounded-lg border border-gray-300 bg-white p-3"
           />
         </div>
 
         <!-- Payment Section -->
         <div class="mb-6">
-          <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">Payment</h2>
-          <div class="border border-[#28574e] rounded-lg">
+          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">Payment</h2>
+          <div class="rounded-lg border border-[#28574e]">
             <div
-              class="flex justify-between items-center bg-[#f5f5f5] p-4 rounded-t-lg"
+              class="flex items-center justify-between rounded-t-lg bg-[#f5f5f5] p-4"
             >
               <div class="text-lg font-semibold text-[#28574e]">
                 PhonePe Payment Gateway (UPI, Cards & NetBanking)
               </div>
-              <div class="xl:flex items-center grid grid-cols-2 space-x-2">
+              <div class="grid grid-cols-2 items-center space-x-2 xl:flex">
                 <img
                   src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/c1.en/assets/upi.CmgCfll8.svg"
                   alt="UPI Logo"
@@ -141,7 +141,7 @@
               </div>
             </div>
             <div
-              class="p-6 text-center bg-[#f9f9f9] border-t border-[#28574e] space-y-4"
+              class="space-y-4 border-t border-[#28574e] bg-[#f9f9f9] p-6 text-center"
             >
               <div class="flex justify-center">
                 <svg
@@ -187,7 +187,7 @@
 
         <!-- Billing Address Section -->
         <div class="mb-6">
-          <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">
+          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">
             Billing address
           </h2>
           <div class="flex flex-col space-y-4 text-[#28574e]">
@@ -213,44 +213,44 @@
             </label>
             <!-- Conditionally Render Billing Address Fields -->
             <div v-if="billingAddressOption === 'different'" class="space-y-4">
-              <div class="grid md:grid-cols-2 gap-4">
+              <div class="grid gap-4 md:grid-cols-2">
                 <input
                   type="text"
                   v-model="billing.firstName"
                   placeholder="First name (optional)"
-                  class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 />
                 <input
                   type="text"
                   v-model="billing.lastName"
                   placeholder="Last name"
-                  class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 />
               </div>
               <input
                 type="text"
                 v-model="billing.address"
                 placeholder="Address"
-                class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                class="w-full rounded-lg border border-gray-300 bg-white p-3"
               />
-              <div class="grid md:grid-cols-3 gap-4">
+              <div class="grid gap-4 md:grid-cols-3">
                 <input
                   type="text"
                   v-model="billing.city"
                   placeholder="City"
-                  class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 />
                 <input
                   type="text"
                   v-model="billing.state"
                   placeholder="State"
-                  class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 />
                 <input
                   type="text"
                   v-model="billing.pinCode"
                   placeholder="PIN code"
-                  class="p-3 border border-gray-300 rounded-lg w-full bg-white"
+                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 />
               </div>
             </div>
@@ -261,17 +261,15 @@
         <button
           type="submit"
           :disabled="isSubmitting"
-          class="w-full bg-[#28574e] text-white py-3 rounded-lg font-semibold hover:bg-[#70ccbb] transition duration-200 disabled:animate-pulse disabled:cursor-not-allowed"
+          class="w-full rounded-lg bg-[#28574e] py-3 font-semibold text-white transition duration-200 hover:bg-[#70ccbb] disabled:animate-pulse disabled:cursor-not-allowed"
         >
           {{ isSubmitting ? "Submitting the details..." : "Pay now" }}
         </button>
       </form>
 
       <!-- Order Summary -->
-      <div
-        class="bg-white p-6 rounded-lg shadow-lg lg:sticky lg:top-8 lg:h-fit"
-      >
-        <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">
+      <div class="mt-4 rounded-lg bg-white p-6 lg:sticky lg:top-10 lg:h-fit">
+        <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">
           Order Summary
         </h2>
         <div class="space-y-4">
@@ -283,43 +281,51 @@
             <img
               :src="product.image?.url || 'https://placehold.co/400x400/png'"
               :alt="product.image?.altText || product.title"
-              class="w-16 h-16 rounded-lg"
+              class="h-16 w-16 rounded-lg"
             />
-            <div>
+            <div class="flex-1">
               <h3 class="font-semibold">{{ product.title }}</h3>
               <p class="text-[#28574e]">
                 {{ product.cost.currencyCode }} {{ product.cost.amount }}
               </p>
             </div>
+            <div class="mb-auto ml-auto">
+              <p class="rounded-badge bg-gray-300 px-2 py-1 text-xs">
+                {{ product.gstApplied }}% GST
+              </p>
+            </div>
           </div>
-          <div class="flex justify-between items-center text-lg text-[#28574e]">
+          <div class="flex items-center justify-between text-lg text-[#28574e]">
             <span>Subtotal</span>
-            <span
+            <span class="text-base"
               >{{ cart.subtotalAmount.currencyCode }}
               {{ cart.subtotalAmount.amount }}</span
             >
           </div>
           <div
-            class="flex justify-between w-full items-center text-lg text-[#28574e]"
+            class="flex w-full items-center justify-between text-lg text-[#28574e]"
           >
             <span class="w-1/2">Shipping Address</span>
-            <span class="w-1/2">{{ shippingDetails }}</span>
+            <span class="w-1/2 text-base">{{ shippingDetails }}</span>
           </div>
-          <div class="flex justify-between items-center text-lg text-[#28574e]">
+          <div class="flex items-center justify-between text-lg text-[#28574e]">
             <span>Shipping Cost</span>
-            <span
+            <span v-if="shippingAmount >= 0" class="text-base"
               >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
             >
+            <span v-else class="text-base"
+              >{{ cart.subtotalAmount.currencyCode }} 0.0</span
+            >
           </div>
-          <div class="flex justify-between items-center text-lg text-[#28574e]">
+          <div class="flex items-center justify-between text-lg text-[#28574e]">
             <span>Tax Amount</span>
-            <span
+            <span class="text-base"
               >{{ cart.totalTaxAmount.currencyCode }}
               {{ cart.totalTaxAmount.amount }}</span
             >
           </div>
           <div
-            class="flex justify-between items-center font-semibold text-xl text-[#28574e]"
+            class="flex items-center justify-between text-xl font-semibold text-[#28574e]"
           >
             <span>Total</span>
             <span
@@ -332,7 +338,7 @@
         <div v-if="requiresPrescription" class="mt-6">
           <label
             for="prescription-upload"
-            class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
+            class="flex w-full cursor-pointer items-center justify-center rounded-full bg-[#28574E] px-10 py-3 text-lg font-semibold text-white"
           >
             <input
               type="file"
@@ -343,18 +349,18 @@
             />
             Upload Prescription
           </label>
-          <p v-if="!uploadedFilePreview" class="text-red-500 text-sm mt-2">
+          <p v-if="!uploadedFilePreview" class="mt-2 text-sm text-red-500">
             Please upload your prescription before checkout.
           </p>
           <!-- Preview Box -->
-          <div v-else class="mt-4 relative">
+          <div v-else class="relative mt-4">
             <img
               :src="uploadedFilePreview"
               alt="Image Preview"
-              class="mt-2 w-full h-auto rounded-md"
+              class="mt-2 h-auto w-full rounded-md"
             />
             <button
-              class="absolute top-5 right-5 bg-red-800 w-8 h-8 rounded-full text-white"
+              class="absolute right-5 top-5 h-8 w-8 rounded-full bg-red-800 text-white"
               @click="removeUploadedPrescription"
             >
               X
@@ -373,11 +379,12 @@ import { uploadFileInAppwrite } from "~/appwrite/prescription-upload";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 import getUserInfoForCheckout from "~/shopify/user/user-checkout";
 import getCartData from "~/shopify/cart/get-cart-data";
+import { type CartItemType } from "~/shopify/_types/cart";
 
 const isSubmitting = ref(false);
 
 const cart = ref<{
-  items: any[];
+  items: CartItemType[];
   subtotalAmount: { currencyCode: string; amount: string };
   totalAmount: { currencyCode: string; amount: string };
   totalTaxAmount: { currencyCode: string; amount: string };
@@ -399,7 +406,7 @@ const shippingAmount = computed(() => {
   return Math.round(
     parseFloat(cartValue.totalAmount.amount) -
       parseFloat(cartValue.subtotalAmount.amount) -
-      parseFloat(cartValue.totalTaxAmount.amount)
+      parseFloat(cartValue.totalTaxAmount.amount),
   );
 });
 
@@ -435,8 +442,6 @@ const billing = ref({
   state: "",
   pinCode: "",
 });
-
-const shippingCost = ref(50); // Example shipping cost
 
 const shippingDetails = computed(() => {
   return `${shipping.value.address}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
@@ -479,7 +484,7 @@ const addUserIdentityToCart = async () => {
 const submitOrder = async () => {
   if (!!requiresPrescription.value && !uploadedFile.value) {
     alert(
-      "Some items in your cart requires prescription. Please add that first."
+      "Some items in your cart requires prescription. Please add that first.",
     );
     return;
   }
@@ -507,7 +512,7 @@ const submitOrder = async () => {
 
     throw new Error(
       data.error ||
-        "Some error occured while processing the details. Please try again later."
+        "Some error occured while processing the details. Please try again later.",
     );
   } catch (error: any) {
     alert(error.message);
@@ -529,7 +534,7 @@ watch(
     requiresPrescription.value =
       newItems?.some((item) => item.requiresPrescription) || false;
   },
-  { deep: true, immediate: true }
+  { deep: true, immediate: true },
 );
 
 watch(billingAddressOption, (newVal) => {

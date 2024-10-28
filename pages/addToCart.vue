@@ -102,8 +102,13 @@
           </div>
           <div class="mb-4 flex justify-between">
             <span class="text-[#28574E]">Shipping</span>
-            <span class="font-semibold text-[#28574E]"
+            <span
+              v-if="shippingAmount >= 0"
+              class="font-semibold text-[#28574E]"
               >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
+            >
+            <span v-else class="font-semibold text-[#28574E]"
+              >{{ cart.subtotalAmount.currencyCode }} 0</span
             >
           </div>
           <div class="mb-4 flex justify-between">
@@ -265,11 +270,11 @@ const applyDiscount = async () => {
   applyingDiscount.value = true;
   try {
     await applyDiscountCode(discountCode.value);
-    const data = await getCartData();
-    if (data) cart.value = data;
   } catch (error: any) {
     alert(error.message);
   } finally {
+    const data = await getCartData();
+    if (data) cart.value = data;
     discountCode.value = "";
     applyingDiscount.value = false;
   }

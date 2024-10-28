@@ -1,26 +1,34 @@
 <template>
-  <!-- {{ productDetails }} -->
   <div class="my-2">
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 lg:gap-4"
+      class="2xl:grid-cols-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4"
     >
       <div
         v-for="(product, index) in productDetails"
         :key="index"
         class="flex justify-center p-4"
       >
-        <div class="border px-4 py-2 rounded-lg border-gray-300 shadow-md bg-white w-80">
-          <nuxt-link :to="`shop/product/${product.handle}`" class="relative block">
+        <div
+          class="w-80 rounded-lg border border-gray-300 bg-white px-4 py-2 shadow-md"
+        >
+          <nuxt-link
+            :to="`shop/product/${product.handle}`"
+            class="relative block"
+          >
             <!-- Sale badge -->
             <span
-              v-if="true"
-              class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full"
+              v-if="
+                parseFloat(product.compareAtPrice) > parseFloat(product.price)
+              "
+              class="absolute right-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs text-white"
             >
-              Sale
+              Save
               {{
                 Math.floor(
-                  ((parseInt(product.compareAtPrice) - parseInt(product.price)) * 100) /
-                    parseInt(product.compareAtPrice)
+                  ((parseInt(product.compareAtPrice) -
+                    parseInt(product.price)) *
+                    100) /
+                    parseInt(product.compareAtPrice),
                 )
               }}%
             </span>
@@ -28,16 +36,16 @@
             <!-- Product image -->
             <img
               :src="product.image"
-              class="w-full h-[200px] object-cover rounded-t-lg lg:hover:scale-105"
+              class="h-[200px] w-full rounded-t-lg object-cover lg:hover:scale-105"
               alt=""
             />
           </nuxt-link>
 
-          <div class="space-y-4 mt-4">
+          <div class="mt-4 space-y-4">
             <!-- Product title -->
             <a :href="`/shop/product/${product.handle}`" class="block">
               <h3
-                class="text-black font-serif text-xl lg:text-lg font-semibold capitalize truncate"
+                class="truncate font-serif text-xl font-semibold capitalize text-black lg:text-lg"
               >
                 {{ product.title }}
               </h3>
@@ -46,15 +54,20 @@
             <!-- Price and discount -->
             <div class="flex justify-between text-xl">
               <div>
-                <p class="text-[#28574E] font-bold">
+                <p class="font-bold text-[#28574E]">
                   {{ product.currency }} {{ product.price }}
                 </p>
-                <p class="text-gray-500 text-sm font-bold line-through mt-1" v-if="true">
+                <p
+                  class="mt-1 text-sm font-bold text-gray-500 line-through"
+                  v-if="true"
+                >
                   {{ product.currency }} {{ product.compareAtPrice }}
                 </p>
               </div>
               <div>
-                <ShopSharebtn :product-link="`shop/product/${product.handle}`" />
+                <ShopSharebtn
+                  :product-link="`shop/product/${product.handle}`"
+                />
               </div>
 
               <!-- Optional section for additional actions -->
@@ -71,10 +84,10 @@
             </div>
 
             <!-- Action buttons -->
-            <div class="flex gap-2 mt-4">
+            <div class="mt-4 flex gap-2">
               <nuxt-link
                 :to="`/shop/product/${product.handle}`"
-                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer"
+                class="text-md flex-1 cursor-pointer rounded-full bg-[#28574E] p-2 text-center font-semibold text-white shadow"
               >
                 BUY NOW
               </nuxt-link>
@@ -100,6 +113,6 @@ watch(
   () => props.productDetails,
   (newVal) => {
     productDetails.value = newVal;
-  }
+  },
 );
 </script>

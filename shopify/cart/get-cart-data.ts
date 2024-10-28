@@ -68,6 +68,12 @@ query getCartData($cartId: ID!) {
               ) {
                 value
               }
+              gstApplied: metafield(
+                key: "gst_applied"
+                namespace: "custom"
+              ) {
+                value
+              }
             }
             image {
               url

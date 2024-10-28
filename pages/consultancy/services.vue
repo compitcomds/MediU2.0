@@ -1,17 +1,17 @@
 <template>
   <div
-    class="bg-white pb-20 px-4 lg:pb-10 lg:px-0 lg:py-10 mt-4 rounded-lg text-center max-w-3xl mx-auto"
+    class="mx-auto mt-4 max-w-3xl rounded-lg bg-white px-4 pb-20 text-center lg:px-0 lg:py-10 lg:pb-10"
   >
-    <h2 class="text-2xl text-[#28574e] font-bold mb-6">Select Category</h2>
+    <h2 class="mb-6 text-2xl font-bold text-[#28574e]">Select Category</h2>
 
     <!-- Category Buttons -->
-    <div class="flex flex-wrap mb-4 md:space-x-2 space-y-2 md:space-y-0">
+    <div class="mb-4 flex flex-wrap space-y-2 md:space-x-2 md:space-y-0">
       <button
         :class="{
           'bg-[#28574e] text-white': activeFilter === 'all',
           'bg-blue-100 text-[#28574e]': activeFilter !== 'all',
         }"
-        class="px-4 py-2 rounded flex items-center w-full sm:w-auto"
+        class="flex w-full items-center rounded px-4 py-2 sm:w-auto"
         @click="filterProducts('all')"
       >
         <span>All</span>
@@ -24,7 +24,7 @@
           'bg-[#28574e] text-white': activeFilter === category,
           'bg-blue-100 text-[#28574e]': activeFilter !== category,
         }"
-        class="border px-4 py-2 rounded flex items-center w-full sm:w-auto"
+        class="flex w-full items-center rounded border px-4 py-2 sm:w-auto"
         @click="filterProducts(category)"
       >
         <span>{{ category }}</span>
@@ -32,21 +32,21 @@
     </div>
 
     <!-- Display Services -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
       <div
         v-for="product in filteredProducts"
         :key="product.id"
         @click="selectConsultancyProduct(product)"
         :class="[
-          'p-4 border rounded cursor-pointer bg-white hover:shadow-md text-[#28574e]',
+          'cursor-pointer rounded border bg-white p-4 text-[#28574e] hover:shadow-md',
           product.id === selectedProduct?.id
             ? 'border-[#28574e]'
             : 'border-gray-300',
         ]"
       >
-        <div class="flex space-x-4 items-center">
+        <div class="flex items-center space-x-4">
           <div
-            class="w-14 border rounded-full p-1 text-[#28574e] border-[#28574e]"
+            class="w-14 rounded-full border border-[#28574e] p-1 text-[#28574e]"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -67,7 +67,7 @@
     <button
       @click="confirmService"
       :disabled="!selectedProduct"
-      class="mt-6 bg-[#28574e] text-white px-4 py-2 rounded w-full sm:w-auto"
+      class="mt-6 w-full rounded bg-[#28574e] px-4 py-2 text-white sm:w-auto"
     >
       Next: Basic Details
     </button>
@@ -82,8 +82,8 @@ const consultancyProducts = await fetchConsultancyProducts();
 
 const router = useRouter();
 const activeFilter = ref("all");
-const selectedProduct = ref(null);
-const filteredProducts = ref([]);
+const selectedProduct = ref<any>(null);
+const filteredProducts = ref<any[]>([]);
 
 const consultancyStore = useConsultancyStore();
 
@@ -99,13 +99,13 @@ const filterProducts = (category: string) => {
     category === "all"
       ? [...consultancyProducts]
       : consultancyProducts.filter((product) =>
-          product.tags.includes(category.toLowerCase())
+          product.tags.includes(category.toLowerCase()),
         );
   filteredProducts.value.sort((a, b) => a.title.localeCompare(b.title));
 };
 
 // Select a service
-const selectConsultancyProduct = (product) => {
+const selectConsultancyProduct = (product: any) => {
   selectedProduct.value = product;
 };
 

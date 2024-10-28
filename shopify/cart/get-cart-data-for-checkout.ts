@@ -51,6 +51,10 @@ query getCartData($cartId: ID!) {
         amount
         currencyCode
       }
+      totalTaxAmount {
+        amount
+        currencyCode
+      }
     }
     lines(first: 100) {
       nodes {
@@ -95,6 +99,7 @@ export default async function getCartDataForCheckout(cartId: string): Promise<
       note: string;
       subtotalAmount: { amount: number; currencyCode: string };
       totalAmount: { amount: number; currencyCode: string };
+      totalTaxAmount: { amount: number; currencyCode: string };
       discountCodes: Array<{ applicable: boolean; code: string }>;
       discountAllocations: Array<{
         discountedAmount: {
@@ -143,6 +148,7 @@ export default async function getCartDataForCheckout(cartId: string): Promise<
       note: data.cart.note || "",
       discountCodes: data.cart.discountCodes,
       discountAllocations: data.cart.discountAllocations,
+      totalTaxAmount: data.cart.cost.totalTaxAmount,
     };
   }
 }

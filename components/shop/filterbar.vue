@@ -21,11 +21,11 @@
       </div>
     </div> -->
 
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Skin Concern</div>
       <div class="p-3">
         <div v-for="(item, index) in SkinConcern" :key="index">
-          <label class="flex justify-start items-center mt-2">
+          <label class="mt-2 flex items-center justify-start">
             <input
               type="checkbox"
               :value="item.value"
@@ -33,17 +33,17 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
           </label>
         </div>
       </div>
     </div>
 
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Hair Concern</div>
       <div class="p-3">
         <div v-for="(item, index) in HairConcern" :key="index">
-          <label class="flex justify-start items-center mt-2">
+          <label class="mt-2 flex items-center justify-start">
             <input
               type="checkbox"
               :value="item.value"
@@ -51,17 +51,17 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
           </label>
         </div>
       </div>
     </div>
 
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Nutrition and Diet</div>
       <div class="p-3">
         <div v-for="(item, index) in NutrionAndDiet" :key="index">
-          <label class="flex justify-start items-center mt-2">
+          <label class="mt-2 flex items-center justify-start">
             <input
               type="checkbox"
               :value="item.value"
@@ -69,17 +69,17 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
           </label>
         </div>
       </div>
     </div>
 
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Pediatric</div>
       <div class="p-3">
         <div v-for="(item, index) in Pediatric" :key="index">
-          <label class="flex justify-start items-center mt-2">
+          <label class="mt-2 flex items-center justify-start">
             <input
               type="checkbox"
               :value="item.value"
@@ -87,17 +87,17 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
           </label>
         </div>
       </div>
     </div>
 
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium text-[#22423c]">Ingredient</div>
       <div class="p-3">
         <div v-for="(item, index) in Ingredent" :key="index">
-          <label class="flex justify-start items-center mt-2">
+          <label class="mt-2 flex items-center justify-start">
             <input
               type="checkbox"
               :value="item.value"
@@ -105,13 +105,13 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
           </label>
         </div>
       </div>
     </div>
 
-    <div class="me-2 mb-4 py-2 px-2 m-2 rounded-md border">
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium text-[#22423c]">Price</div>
       <div class="p-3">
         <ShopPriceSlider
@@ -139,7 +139,7 @@ const props = defineProps({
 });
 
 const min = 0;
-const max = 10000;
+const max = 100000;
 const priceFilter = ref({
   minValue: min,
   maxValue: max,
@@ -187,22 +187,22 @@ const Ingredent = [
 ];
 
 const selectedTypeOfProducts = ref(
-  ifStringMakeArray(route?.query?.selectedTypeOfProducts)
+  ifStringMakeArray(route?.query?.selectedTypeOfProducts),
 );
 const selectedSkinConcern = ref(
-  ifStringMakeArray(route?.query?.selectedSkinConcern)
+  ifStringMakeArray(route?.query?.selectedSkinConcern),
 );
 const selectedHairConcern = ref(
-  ifStringMakeArray(route?.query?.selectedHairConcern)
+  ifStringMakeArray(route?.query?.selectedHairConcern),
 );
 const selectedNutrionAndDiet = ref(
-  ifStringMakeArray(route?.query?.selectedNutrionAndDiet)
+  ifStringMakeArray(route?.query?.selectedNutrionAndDiet),
 );
 const selectedPediatric = ref(
-  ifStringMakeArray(route?.query?.selectedPediatric)
+  ifStringMakeArray(route?.query?.selectedPediatric),
 );
 const selectedIngredent = ref(
-  ifStringMakeArray(route?.query?.selectedIngredent)
+  ifStringMakeArray(route?.query?.selectedIngredent),
 );
 
 const changeMinMaxPrice = useDebounceFn((newMinMax) => {
@@ -221,7 +221,7 @@ watch(
   (newFilter) => {
     changeMinMaxPrice(newFilter);
   },
-  { deep: true, immediate: true }
+  { deep: true, immediate: true },
 );
 
 const updateQueryParams = () => {

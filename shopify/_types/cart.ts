@@ -17,6 +17,7 @@ export type CartItemType = {
   quantityAvailable: number;
   currentlyNotInStock: boolean;
   requiresPrescription: boolean;
+  gstApplied: number;
 };
 
 export type MailingAddressInput = {
