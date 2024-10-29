@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "vue3-carousel-nuxt",
+    "@nuxtjs/sitemap",
     "nuxt-swiper",
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
