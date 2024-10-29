@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
     "@vueuse/nuxt",
+    "@nuxtjs/robots"
   ],
   compatibilityDate: "2024-09-08",
   runtimeConfig: {
