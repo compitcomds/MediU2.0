@@ -33,3 +33,18 @@
   <!--  -->
   <!-- <ShopUserSidebar /> -->
 </template>
+<script setup>
+useSeoMeta({
+  title: "Mediu | Buy Medicines & Book Medical Consultations Online"
+",
+  description: "Shop a wide range of medicines, book expert medical consultations, and access comprehensive healthcare services at Mediu.in. Your trusted online pharmacy and healthcare partner.",
+  ogTitle: "Mediu | Buy Medicines & Book Medical Consultations Online",
+  ogDescription: "Shop a wide range of medicines, book expert medical consultations, and access comprehensive healthcare services at Mediu.in. Your trusted online pharmacy and healthcare partner.",
+});
+defineOgImageComponent("NuxtSeo", {
+  siteName: "mediu",
+  description: "Read more...",
+  siteLogo: "https://ccdstest.b-cdn.net/Medi%20u/logo%202.png",
+  colorMode: "dark",
+});
+</script>

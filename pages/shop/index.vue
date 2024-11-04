@@ -48,4 +48,17 @@ watch(
   },
   { immediate: true }
 );
+useSeoMeta({
+  title: "Shop Medicines & Healthcare Products Online | Mediu",
+  description: "Explore a wide range of medicines, health supplements, and wellness products at Mediu.in. Convenient online shopping with quality assurance, competitive prices, and doorstep delivery. Your one-stop healthcare destination.",
+  ogTitle: "Shop Medicines & Healthcare Products Online | Mediu",
+  ogDescription: "Explore a wide range of medicines, health supplements, and wellness products at Mediu.in. Convenient online shopping with quality assurance, competitive prices, and doorstep delivery. Your one-stop healthcare destination.",
+});
+defineOgImageComponent("NuxtSeo", {
+  siteName: "mediu",
+  description: "Read more...",
+  siteLogo: "https://ccdstest.b-cdn.net/Medi%20u/logo%202.png",
+  colorMode: "dark",
+});
+
 </script>
