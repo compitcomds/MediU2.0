@@ -7,6 +7,12 @@
           <h2 class="mb-6 text-center text-3xl font-bold text-[#28574e]">
             Order Details
           </h2>
+          <button
+            @click="downloadInvoice"
+            class="mb-2 mt-2 block text-[#28574e] underline hover:no-underline"
+          >
+            Download Invoice
+          </button>
 
           <div class="mb-6 border-b border-gray-200 pb-4">
             <p class="text-lg">
@@ -38,8 +44,11 @@
               class="flex items-center rounded-md bg-gray-100 p-4"
             >
               <img
-                :src="item.variant.image.url"
-                :alt="item.variant.image.altText"
+                :src="
+                  item.variant?.image?.url ||
+                  `https://placehold.co/400x400/png?text=${item.title}`
+                "
+                :alt="item.variant?.image?.altText"
                 class="mr-4 h-20 w-20 rounded"
               />
               <div class="flex-1">
@@ -92,12 +101,64 @@
 </template>
 
 <script setup>
+import createOrderInvoice from "~/utils/createOrderInvoice";
 import getUserOrder from "~/shopify/user/orders/particular-order";
 
 const route = useRoute();
 const orderNumber = route.params.orderNumber;
 
 const orderData = await getUserOrder(orderNumber);
+
+const downloadInvoice = async () => {
+  const payload = {
+    company: {
+      name: "Mediu",
+      address1: "1711 W. El Segundo Blvd,",
+      address2: "Hawthorne, Canada - 90250",
+      phone: "Tel: (+11) 245 543 903",
+      email: "Mail: mediu@gmail.com",
+      website: "Web: https://www.mediu.in",
+      taxId: "Tax ID: 1234567890", // Optional
+    },
+    customer: {
+      name: `${orderData.shippingAddress.firstName} ${orderData.shippingAddress.lastName}`,
+      address1: `${orderData.shippingAddress.address1}`,
+      address2: `${orderData.shippingAddress.city}, ${orderData.shippingAddress.province}, ${orderData.shippingAddress.country}`,
+      phone: "Tel: (555) 555-5555", // Placeholder or replace with actual customer phone
+      email: "Mail: joe@example.com", // Placeholder or replace with actual customer email
+      taxId: "Tax ID: 1234567890", // Optional
+    },
+    invoice: {
+      number: orderNumber,
+      date: orderData.processedAt.split("T")[0], // Extract date from processedAt
+      dueDate: orderData.processedAt.split("T")[0], // Extract date from processedAt
+      status: "PAID",
+      currency: orderData.totalPrice.currencyCode,
+      total: 1200,
+    },
+    items: orderData.lineItems.map((item) => ({
+      name: item.title,
+      quantity: item.quantity,
+      price: parseFloat(item.originalTotalPrice.amount), // Use original total price for individual item price
+      tax:
+        item.discountedTotalPrice.amount < item.originalTotalPrice.amount
+          ? 10
+          : 0, // Example tax calculation
+    })),
+    note: {
+      text: "Thank you for orderring from us.",
+    },
+  };
+  const url = await createOrderInvoice(payload);
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.download = `Invoice-${orderNumber}.pdf`; // Specify the download filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url); // Clean up the URL object
+};
 </script>
 
 <style lang="scss" scoped></style>
