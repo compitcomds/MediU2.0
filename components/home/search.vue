@@ -1,9 +1,9 @@
 <template>
   <div
     :class="[showNotification ? 'top-0 xl:top-0' : 'top-0']"
-    class="flex sticky z-50 bg-white inset-x-0 justify-between items-center border-b border-gray-300 h-20 px-1 lg:px-6 transition-all duration-300"
+    class="sticky inset-x-0 z-50 flex h-20 items-center justify-between border-b border-gray-300 bg-white px-1 transition-all duration-300 lg:px-6"
   >
-    <nuxt-link to="/" class="flex items-center w-3/12">
+    <nuxt-link to="/" class="flex w-3/12 items-center">
       <img
         src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png"
         class="w-auto"
@@ -12,23 +12,23 @@
     </nuxt-link>
     <form
       @submit.prevent="submitForm"
-      class="group relative rounded-md w-6/12 h-[40px] xl:h-[50px] flex justify-center"
+      class="group relative flex h-[40px] w-6/12 justify-center rounded-md xl:h-[50px]"
     >
       <input
         type="text"
         name="q"
         id="query"
         placeholder="What are you looking for?.."
-        class="w-full p-3 rounded-full border-2 border-r-white rounded-r-none text-black border-gray-300 bg-white placeholder-gray-500"
+        class="w-full rounded-full rounded-r-none border-2 border-gray-300 border-r-white bg-white p-3 text-black placeholder-gray-500"
         v-model="searchQuery"
       />
       <button
         type="submit"
-        class="inline-flex items-center gap-2 bg-orange-500 text-white text-lg py-3 px-6 rounded-r-full"
+        class="inline-flex items-center gap-2 rounded-r-full bg-orange-500 px-6 py-3 text-lg text-white"
       >
         <span class="">
           <svg
-            class="text-gray-200 h-5 w-5 p-0 fill-current"
+            class="h-5 w-5 fill-current p-0 text-gray-200"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 56.966 56.966"
@@ -44,23 +44,28 @@
       </button>
 
       <div
-        class="bg-white w-full shadow rounded-lg absolute top-full translate-y-2 left-0 py-2 hidden group-focus-within:block"
+        class="absolute left-0 top-full hidden w-full translate-y-2 rounded-lg bg-white py-2 shadow group-focus-within:block"
         v-if="searchQuery.length > 0"
       >
         <ul>
           <li v-for="product in productSuggestions">
             <nuxt-link
               :to="`/shop/product/${product.handle}`"
-              class="uppercase block w-full hover:bg-gray-100 h-full py-2 px-4"
+              class="block h-full w-full px-4 py-2 uppercase hover:bg-gray-100"
+              @click="clearSearchBox"
             >
               {{ product.title }}
             </nuxt-link>
           </li>
         </ul>
-        <p v-if="isSearching" class="py-2 px-4">Searching...</p>
+        <p v-if="isSearching" class="px-4 py-2">Searching...</p>
         <p
-          v-if="!isSearching && productSuggestions.length === 0"
-          class="py-2 px-4"
+          v-if="
+            !isSearching &&
+            searchQuery.length >= 3 &&
+            productSuggestions.length === 0
+          "
+          class="px-4 py-2"
         >
           No products found
         </p>
@@ -102,12 +107,16 @@ const submitForm = async (e) => {
   }
 
   const search = searchQuery.value;
-  searchQuery.value = "";
+  clearSearchBox();
 
   await router.push({
     path: "/shop/search",
     query: { search },
   });
+};
+
+const clearSearchBox = () => {
+  searchQuery.value = "";
 };
 
 const closeNotification = () => {
