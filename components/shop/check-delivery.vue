@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="checkPincode" class="flex items-center gap-10">
+  <form @submit.prevent="checkPincode" class="mb-4 flex items-center gap-10">
     <label for="check-pincode">Delivery</label>
     <div class="relative">
       <input
@@ -18,10 +18,28 @@
       </button>
     </div>
   </form>
+
+  <div v-if="!!checkedData && (checkedData.minEtd || checkedData.maxEtd)">
+    <p>
+      <span class="text-sm">Estimated Delivery Date: </span>
+      <span class="text-[#28574e]">{{ checkedData.minEtd }}</span> -
+      <span class="text-[#28574e]"> {{ checkedData.maxEtd }}</span>
+    </p>
+  </div>
+  <div
+    v-if="
+      !!checkedData &&
+      checkedData.message &&
+      !(checkedData.minEtd || checkedData.maxEtd)
+    "
+    class="text-xs text-red-500"
+  >
+    {{ checkedData.message }}
+  </div>
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
+import { appwriteCheckPincode } from "~/appwrite/shiprocket-functions";
 
 const { weight } = defineProps({
   weight: {
@@ -32,25 +50,19 @@ const { weight } = defineProps({
 
 const isSubmitting = ref(false);
 const pincode = ref("");
-
+const checkedData = ref<any>(null);
 const checkPincode = async () => {
   if (!pincode.value) {
     alert("Please enter valid pincode.");
     return;
   }
   isSubmitting.value = true;
+  checkedData.value = null;
   try {
-    const backendApi = import.meta.env.VITE_BACKEND_API_ROUTE;
-    const { data } = await axios.post(
-      `${backendApi}/api/shiprocket/check-pincode`,
-      {
-        pincode: pincode.value,
-        weight: weight || undefined,
-      },
-      { headers: { "Content-Type": "application/json" } },
-    );
-
+    const data = await appwriteCheckPincode(pincode.value, weight);
     console.log(data);
+
+    checkedData.value = data;
   } catch (error) {
   } finally {
     isSubmitting.value = false;
