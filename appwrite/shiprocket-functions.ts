@@ -18,3 +18,14 @@ export async function appwriteCheckPincode(pincode: string, weight?: number) {
 
   return await JSON.parse(response.responseBody);
 }
+
+export async function appwriteTrackOrder(orderId: string) {
+  const response = await functions.createExecution(
+    SHIPROCKET_FUNCTION_ID,
+    JSON.stringify({ orderId }),
+    false,
+    "/track-order",
+    ExecutionMethod.POST,
+  );
+  return await JSON.parse(response.responseBody);
+}
