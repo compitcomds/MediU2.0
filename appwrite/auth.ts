@@ -14,7 +14,7 @@ export const loginWithGoogle = async () => {
     account.createOAuth2Session(
       OAuthProvider.Google,
       OAUTH_LOGIN_SUCCESS_REDIRECT,
-      OAUTH_LOGIN_ERROR_REDIRECT
+      OAUTH_LOGIN_ERROR_REDIRECT,
     );
   } catch (error) {}
 };
@@ -32,7 +32,7 @@ const createNewShopifyUser = async (
     email: string;
     firstName: string;
     lastName: string;
-  }
+  },
 ) => {
   const shopifyPassword = ID.unique();
   const { id: shopifyCustomerId } = await registerUserIntoShopify({
@@ -50,7 +50,7 @@ const createNewShopifyUser = async (
 export const checkIfNewOauthUser = async () => {
   const user = await getUser();
   try {
-    const userDocument = await getUserDocument(user.$id);
+    await getUserDocument(user.$id);
     await getShopifyAccessTokenUsingAppwrite();
     return true;
   } catch (error) {
@@ -74,7 +74,7 @@ export const registerUser = async (data: {
     userId,
     data.email,
     data.password,
-    `${data.firstName} ${data.lastName}`
+    `${data.firstName} ${data.lastName}`,
   );
 
   await createLoggedSession(data);

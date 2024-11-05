@@ -230,6 +230,9 @@
                 </div>
               </div>
             </div>
+
+            <ShopCheckDelivery />
+
             <hr
               class="my-4 border-dashed border-gray-300"
               v-if="data.options.title"
