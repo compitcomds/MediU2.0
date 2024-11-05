@@ -26,8 +26,8 @@ const { orderNumber } = defineProps({
 });
 
 const shiprocketOrder = await appwriteTrackOrder(orderNumber);
-const orderStatus = shiprocketOrder.shipment_track[0].current_status;
-const estimatedDelivery = new Date(
-  shiprocketOrder.shipment_track[0].edd,
-).toLocaleDateString();
+const orderStatus = shiprocketOrder?.shipment_track[0].current_status || "";
+const estimatedDelivery = !!shiprocketOrder?.shipment_track[0].edd
+  ? new Date(shiprocketOrder.shipment_track[0].edd).toLocaleDateString()
+  : "";
 </script>
