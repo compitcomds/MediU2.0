@@ -143,26 +143,32 @@
             <div class="text-lg font-bold text-cyan-500">Special Price</div>
             <div class="flex items-center gap-2">
               <div class="text-2xl font-bold text-gray-900">
-                <span class="text-sm text-gray-500 line-through"
-                  >MRP {{ data.compareAtPrice.amount }}</span
+                <span
+                  class="text-sm text-gray-500 line-through"
+                  v-if="data.compareAtPrice && data.compareAtPrice.amount"
                 >
+                  MRP {{ data.compareAtPrice.amount }}
+                </span>
+
                 {{ data.price.currencyCode }} {{ data.price.amount }}
                 <span
                   v-if="
-                    parseFloat(data.compareAtPrice.amount) >
-                    parseFloat(data.price.amount)
+                    parseFloat(data.compareAtPrice?.amount) &&
+                    parseFloat(data.compareAtPrice?.amount) >
+                      parseFloat(data.price?.amount)
                   "
                   class="rounded-xl text-base font-normal text-[#28574e]"
-                  >Save
+                >
+                  Save
                   {{
                     Math.floor(
-                      ((parseInt(data.compareAtPrice.amount) -
-                        parseInt(data.price.amount)) *
+                      ((parseFloat(data.compareAtPrice?.amount) -
+                        parseFloat(data.price?.amount)) *
                         100) /
-                        parseInt(data.compareAtPrice.amount),
+                        parseFloat(data.compareAtPrice?.amount),
                     )
-                  }}%</span
-                >
+                  }}%
+                </span>
               </div>
             </div>
 
