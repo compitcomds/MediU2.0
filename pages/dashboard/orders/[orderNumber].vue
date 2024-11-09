@@ -9,35 +9,22 @@
           <div>
             <h3>Items Ordered:</h3>
             <ul class="space-y-6">
-              <li
-                v-for="item in orderData.lineItems"
-                :key="item.title"
-                class="flex items-center"
-              >
-                <img
-                  :src="item.variant?.image?.url || `https://placehold.co/400x400/png?text=${item.title}`"
-                  :alt="item.variant?.image?.altText"
-                  class="rounded"
-                />
+              <li v-for="item in orderData.lineItems" :key="item.title" class="flex items-center">
+                <img :src="item.variant?.image?.url || `https://placehold.co/400x400/png?text=${item.title}`"
+                  :alt="item.variant?.image?.altText" class="rounded" />
                 <div class="flex-1">
                   <p class="text-bold">{{ item.title }}</p>
                   <p class="text-muted">Quantity: {{ item.quantity }}</p>
                 </div>
                 <div class="flex flex-col items-end">
-                  <p
-                    v-if="item.discountedTotalPrice.amount < item.originalTotalPrice.amount"
-                    class="text-muted line-through"
-                  >
+                  <p v-if="item.discountedTotalPrice.amount < item.originalTotalPrice.amount"
+                    class="text-muted line-through">
                     Original: {{ item.originalTotalPrice.amount }} {{ item.originalTotalPrice.currencyCode }}
                   </p>
                   <p class="price">
                     Price: {{
-                      item.discountedTotalPrice.amount < item.originalTotalPrice.amount
-                        ? item.discountedTotalPrice.amount
-                        : item.originalTotalPrice.amount
-                    }}
-                    {{ item.discountedTotalPrice.currencyCode }}
-                  </p>
+                      item.discountedTotalPrice.amount < item.originalTotalPrice.amount ? item.discountedTotalPrice.amount
+                        : item.originalTotalPrice.amount }} {{ item.discountedTotalPrice.currencyCode }} </p>
                 </div>
               </li>
             </ul>
@@ -48,23 +35,36 @@
               <p>{{ orderData.shippingAddress.firstName }} {{ orderData.shippingAddress.lastName }}</p>
               <p>{{ orderData.shippingAddress.address1 }}</p>
               <p v-if="orderData.shippingAddress.address2">{{ orderData.shippingAddress.address2 }}</p>
-              <p>{{ orderData.shippingAddress.city }}, {{ orderData.shippingAddress.province }}, {{ orderData.shippingAddress.country }}</p>
+              <p>{{ orderData.shippingAddress.city }}, {{ orderData.shippingAddress.province }}, {{
+                orderData.shippingAddress.country }}</p>
             </div>
           </div>
 
           <!-- Order Summary Section -->
           <div class="order-summary">
-            <button @click="downloadInvoice">Download Invoice</button>
-            <div class="mt-4">
-              <p><strong>Order Number:</strong> {{ orderData.orderNumber }}</p>
-              <p><strong>Processed At:</strong> {{ new Date(orderData.processedAt).toLocaleString() }}</p>
-              <p v-if="orderData.fulfillmentStatus === 'UNFULFILLED'"><strong>Status:</strong> Pending (confirmed within 12 hours)</p>
-              <div v-else class="mb-2">
-                <DashboardOrderStatus :orderNumber="orderNumber" />
-              </div>
-              <p><strong>Total Price:</strong> {{ orderData.totalPrice.amount }} {{ orderData.totalPrice.currencyCode }}</p>
+            <button @click="downloadInvoice" class="invoice-button">Download Invoice</button>
+            <div class="order-details mt-4">
+              <p class="order-detail">
+                <strong><i class="icon-order-number"></i> Order Number:</strong> {{ orderData.orderNumber }}
+              </p>
+              <p class="order-detail">
+                <strong><i class="icon-processed-at"></i> Processed At:</strong> {{ new
+                  Date(orderData.processedAt).toLocaleString() }}
+              </p>
+              <p class="order-detail">
+                <strong><i class="icon-status"></i> Status:</strong>
+                <span v-if="orderData.fulfillmentStatus === 'UNFULFILLED'">Pending (confirmed within 12 hours)</span>
+                <span v-else>
+                  <DashboardOrderStatus :orderNumber="orderNumber" />
+                </span>
+              </p>
+              <p class="order-detail">
+                <strong><i class="icon-price"></i> Total Price:</strong> {{ orderData.totalPrice.amount }} {{
+                  orderData.totalPrice.currencyCode }}
+              </p>
             </div>
           </div>
+
         </div>
       </main>
     </div>
@@ -136,8 +136,8 @@ const downloadInvoice = async () => {
 <style lang="scss" scoped>
 .min-h-screen {
   background: linear-gradient(135deg, #edf8f3 0%, #d7f0e9 100%);
-  
-  
+
+
   align-items: flex-start;
   font-family: 'Roboto', sans-serif;
 }
@@ -205,7 +205,7 @@ button {
 
 button:hover {
   background-color: #e0f5e9;
-  color: #1c4532;
+  // color: #1c4532;
   text-decoration: none;
 }
 
@@ -247,6 +247,67 @@ button:hover {
   color: #28574e;
   font-weight: 700;
 }
+.order-summary {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  max-width: 400px;
+}
+
+.order-summary:hover {
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.order-details {
+  font-size: 1.1rem;
+}
+
+.order-detail {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+strong {
+  color: #28574e;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon-order-number,
+.icon-processed-at,
+.icon-status,
+.icon-price {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  color: #28574e;
+}
+
+.invoice-button {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #28574e;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-button:hover {
+  background-color: #1e4b41;
+  transform: translateY(-2px);
+}
+
+.invoice-button:active {
+  background-color: #163d34;
+  transform: translateY(0);
+}
 </style>
-
-

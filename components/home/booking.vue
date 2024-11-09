@@ -1,5 +1,5 @@
 <template>
-  <section class="lg:px-4 xl:px-12 font-serif">
+  <section class="lg:px-8 xl:px-12 font-serif">
     <div
       class="bg-gray-800 text-white xl:h-[300px] h-auto lg:rounded-[30px] flex flex-col md:flex-row items-center justify-between p-4 lg:p-8 relative">
       <div class="absolute inset-0 bg-cover bg-center opacity-30 md:opacity-20 block lg:hidden" style="
@@ -25,7 +25,7 @@
             position: absolute;
             top: 80%;
             right: auto;
-            transform: translate(50%, -65%);
+            transform: translate(50%, -66%);
           " />
         <div class="absolute flex items-center justify-center md:justify-start md:mr-48 lg:-mr-10 z-30">
           <a href="https://wa.me/917728026044" class="rounded-full p-3 sm:p-4 shadow-lg backdrop-blur-lg hidden lg:block">

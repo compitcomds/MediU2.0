@@ -1,17 +1,17 @@
 <template>
   <footer class="bg-[#28574e] text-white py-8">
     <div
-      class="container mx-auto px-20 flex flex-wrap justify-between items-start"
+      class="container mx-auto xl:px-20 flex flex-wrap justify-between items-start"
     >
       <div class="w-full md:w-1/3 mb-2 md:mb-0">
         <nuxt-link to="/" class="flex items-center w-5/12">
           <img
-            src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png"
+            src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo_white.png"
             class="w-full"
             alt="Logo"
           />
         </nuxt-link>
-        <p>Radiance Aesthetic and Cosmetic Studio</p>
+        <p class="mt-5">Radiance Aesthetic and Cosmetic Studio</p>
 
         <ul class="space-y-4">
           <li
@@ -19,7 +19,7 @@
           >
             Contact Us
           </li>
-          <li class="flex items-center space-x-2">
+          <!-- <li class="flex items-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -43,7 +43,7 @@
             >
               F-97, MSS COLONY, SHASTRI NAGAR, Jaipur, Rajasthan, 302016
             </a>
-          </li>
+          </li> -->
           <li class="flex items-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@
             >
           </li>
         </ul>
-        <div class="mt-4">
+        <!-- <div class="mt-4">
           <h2 class="font-semibold lg:text-lg xl:text-xl my-4">Download App</h2>
           <nuxt-link to="#" class="mr-4">
             <img
@@ -122,7 +122,7 @@
               class="w-32 inline-block"
             />
           </nuxt-link>
-        </div>
+        </div> -->
       </div>
       <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
           <h2 class="font-bold lg:text-lg xl:text-xl mb-4">Most Popular Categories
