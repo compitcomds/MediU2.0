@@ -5,8 +5,8 @@
   >
     <nuxt-link to="/" class="flex w-3/12 items-center">
       <img
-        src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png"
-        class="w-auto"
+        src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%202.jpg"
+        class="w-[30%] xxl:w-[20%]"
         alt="Logo"
       />
     </nuxt-link>

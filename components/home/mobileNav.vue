@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 py-5 flex justify-center items-center w-full">
       <!-- Logo -->
       <div class="text-lg font-semibold w-2/6">
-        <img src="https://ccdstest.b-cdn.net/Medi%20u/logo%202.png" alt="Logo" class="h-8 w-auto" />
+        <img src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%202.jpg" alt="Logo" class="h-10 w-auto" />
       </div>
 
       <!-- Search Bar -->
