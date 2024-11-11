@@ -4,7 +4,7 @@
       <h1 class="text-xl lg:text-4xl text-center text-gray-500">
         Nourishing Treatments
       </h1>
-      <h2 class="text-3xl lg:text-6xl font-bold text-center text-[#28574E]">
+      <h2 class="text-2xl lg:text-6xl font-bold text-center text-[#28574E]">
         Hair Care Must-Haves
       </h2>
     </div>
@@ -19,7 +19,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Hairfall',
               'bg-slate-300 text-black': selectedCategory !== 'Hairfall',
             }"
-            class="py-2 px-2 lg:px-4 rounded-full w-full text-base md:text-lg lg:text-xl"
+            class="py-2 px-2 lg:px-4 rounded-full w-full text-xs md:text-lg lg:text-xl"
           >
             Hairfall
           </button>
@@ -29,7 +29,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Oily Scalp',
               'bg-slate-300 text-black': selectedCategory !== 'Oily Scalp',
             }"
-            class="py-2 px-2 lg:px-4 rounded-full ml-2 w-full text-base md:text-lg lg:text-xl"
+            class="py-2 px-2 lg:px-4 rounded-full ml-2 w-full text-xs md:text-lg lg:text-xl"
           >
             Oily Scalp
           </button>
@@ -39,7 +39,7 @@
               'bg-[#28574E] text-white': selectedCategory === 'Bald Patches',
               'bg-slate-300 text-black': selectedCategory !== 'Bald Patches',
             }"
-            class="py-2 px-4 rounded-full ml-2 w-full text-base md:text-lg lg:text-xl"
+            class="py-2 px-4 rounded-full ml-2 w-full text-xs md:text-lg lg:text-xl"
           >
             Bald Patches
           </button>
@@ -68,7 +68,7 @@
             </div>
             <div class="mt-4 space-y-2">
               <a :href="product.url">
-                <h3 class="text-black capitalize md:text-xl">
+                <h3 class="text-sm md:text-xl text-black capitalize">
                   {{ product.name }}
                 </h3>
               </a>
@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="mt-4 text-right lg:text-left">
-          <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl"
+          <a href="/shop" class="text-blue-500 text-sm md:text-2xl"
             >Explore More →</a
           >
         </div>

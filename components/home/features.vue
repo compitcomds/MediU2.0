@@ -2,7 +2,7 @@
   <div class="space-y-6">
     <div class="flex flex-col lg:space-y-6">
       <h1 class="text-2xl lg:text-4xl text-center text-gray-500">We Offer</h1>
-      <h2 class="text-4xl lg:text-6xl font-bold text-center text-[#28574E]">
+      <h2 class="text-2xl md:text-6xl font-bold text-center text-[#28574E]">
         Complete Care
       </h2>
     </div>
@@ -56,8 +56,8 @@
             />
           </svg>
 
-          <h3 class="text-black text-3xl font-bold">Expert Consultations</h3>
-          <p class="text-gray-600 text-xl">
+          <h3 class="text-black text-xl lg:text-3xl font-bold">Expert Consultations</h3>
+          <p class="text-gray-600 text-sm lg:text-xl">
             Get personalized advice from trusted healthcare experts. We ensure
             accurate diagnoses and customized care plans tailored to your needs.
           </p>
@@ -145,8 +145,8 @@
               stroke-width="0.262069"
             />
           </svg>
-          <h3 class="text-black text-3xl font-bold">Self Assessment</h3>
-          <p class="text-gray-600 text-xl">
+          <h3 class="text-black text-xl lg:text-3xl font-bold">Self Assessment</h3>
+          <p class="text-gray-600 text-sm lg:text-xl">
             Track your health by monitoring symptoms and progress.
             Self-assessment helps you take charge of your well-being and
             supports your healthcare team in providing effective care.
@@ -191,8 +191,8 @@
               </clipPath>
             </defs>
           </svg>
-          <h3 class="text-black text-3xl font-bold">Pharmacy</h3>
-          <p class="text-gray-600 text-xl">
+          <h3 class="text-black text-xl lg:text-3xl font-bold">Pharmacy</h3>
+          <p class="text-gray-600 text-sm lg:text-xl">
             Our pharmacy services offer safe medication management, patient
             education, and support to achieve better health outcomes.
           </p>

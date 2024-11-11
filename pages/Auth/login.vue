@@ -7,7 +7,7 @@
       <div
         class="lg:w-1/2 w-full lg:p-8 flex lg:flex-col flex-row justify-center"
       >
-        <div class="w-8/12 space-y-10 p-3">
+        <div class="lg:w-8/12 space-y-10 p-3">
           <h2 class="text-4xl font-serif font-semibold text-[#285742]">
             Sign In
           </h2>
@@ -157,20 +157,16 @@
 
             <div class="flex items-center justify-between">
               <div class="flex items-center">
-                <input
-                  id="remember_me"
-                  type="checkbox"
-                  class="form-checkbox bg-white h-4 w-4 text-blue-600 transition duration-150 ease-in-out"
-                />
-                <label
+                
+                <a href="/auth/register"
                   for="remember_me"
-                  class="ml-2 block text-sm text-gray-900"
-                  >Remember for 30 days</label
+                  class="ml-2 block text-sm text-blue-600 hover:text-blue-800"
+                  >Don't have an account / Sign Up</a
                 >
               </div>
-              <a href="#" class="text-sm text-blue-600 hover:text-blue-800"
+              <!-- <a href="#" class="text-sm text-blue-600 hover:text-blue-800"
                 >Forgot Password?</a
-              >
+              > -->
             </div>
 
             <div class="mt-6">

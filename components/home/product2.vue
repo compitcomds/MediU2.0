@@ -5,7 +5,7 @@
       <h1 class="text-xl lg:text-4xl text-center text-gray-500">
         Glow Getters
       </h1>
-      <h2 class="text-3xl lg:text-6xl font-bold text-center text-[#28574E]">
+      <h2 class="text-2xl lg:text-6xl font-bold text-center text-[#28574E]">
         Radiant Skin Secrets
       </h2>
     </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="mt-4 space-y-2">
               <a :href="product.url">
-                <h3 class="text-black text-base md:text-2xl capitalize">
+                <h3 class="text-sm md:text-xl text-black capitalize">
                   {{ product.name }}
                 </h3></a
               >
@@ -152,7 +152,7 @@
           </div>
         </div>
         <div class="mt-4 text-right md:text-end">
-          <a href="/shop" class="text-blue-500 text-lg sm:text-xl md:text-2xl"
+          <a href="/shop" class="text-blue-500 text-sm md:text-2xl"
             >Explore More →</a
           >
         </div>

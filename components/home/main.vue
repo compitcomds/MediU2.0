@@ -1,6 +1,6 @@
 <template>
-  <section class="relative text-white lg:py-12 h-[350px] xl:h-[650px] lg:h-[550px] lg:pt-16 w-full bg-cover bg-center"
-    style="background-image: url('https://ccdstest.b-cdn.net/Medi%20u/home%20bg/bg2.jpg');">
+  <section class="relative text-white lg:py-12 h-[290px] xl:h-[650px] lg:h-[550px] lg:pt-16 w-full bg-cover bg-center"
+    style="background-image: url('https://ccdstest.b-cdn.net/Medi%20u/home%20bg/home%20bg/mediu%20background.jpg');">
     <!-- Overlay for readability -->
     <!-- <div class="absolute inset-0 bg-black/50"></div> -->
 
@@ -17,7 +17,7 @@
         class="relative inline-block w-full lg:max-w-[790px] xl:max-w-[990px] h-[400px] lg:h-[500px] xl:h-[700px]"
       >
         <div
-          class="relative p-4 lg:p-4 flex justify-center items-center w-full h-[350px] lg:w-[790px] xl:w-[990px] lg:h-[500px] xl:h-[650px] backdrop-blur-lg lg:shadow-xl rounded-xl"
+          class="relative p-4 lg:p-4 flex justify-center items-center w-full  lg:w-[790px] xl:w-[990px] lg:h-[500px] xl:h-[650px] backdrop-blur-lg lg:shadow-xl rounded-xl"
         >
           <!-- Doctor Image Section with responsive width and height -->
           <transition name="fade" mode="out-in">

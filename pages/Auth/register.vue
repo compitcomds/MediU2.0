@@ -4,8 +4,8 @@
       class="flex flex-col md:flex-row w-full bg-white overflow-hidden justify-center"
     >
       <!-- Left Section (Form) -->
-      <div class="w-full md:w-1/2 p-8 flex justify-center">
-        <div class="sm:w-8/12 space-y-10 p-3">
+      <div class="w-full lg:w-1/2 lg:p-8 flex justify-center mb-16 lg:mb-0">
+        <div class="lg:w-8/12 w-full space-y-10 p-3">
           <h2 class="text-4xl font-serif font-semibold text-[#285742]">
             Sign Up
           </h2>
