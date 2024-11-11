@@ -151,7 +151,7 @@
 
           <div class="mt-4 text-left">
             <!-- card name and price -->
-            <h2 class="text-lg md:text-xl text-black capitalize">
+            <h2 class="text-lg md:text-xl lg:text-2xl text-black capitalize">
               {{ card.name }}
             </h2>
             <div class="mt-2 space-x-2">
