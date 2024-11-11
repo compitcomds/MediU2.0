@@ -1,6 +1,6 @@
 <template>
   <section class="relative text-white lg:py-12 h-[290px] xl:h-[650px] lg:h-[550px] lg:pt-16 w-full bg-cover bg-center"
-    style="background-image: url('https://ccdstest.b-cdn.net/Medi%20u/home%20bg/home%20bg/mediu%20background.jpg');">
+    style="background-image: url('https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20background%403x.jpg');">
     <!-- Overlay for readability -->
     <!-- <div class="absolute inset-0 bg-black/50"></div> -->
 

@@ -20,11 +20,15 @@
           spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 40,
         },
         1180: {
-          slidesPerView: 4,
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1440: {
+          slidesPerView: 5,
           spaceBetween: 50,
         },
       }"
@@ -144,7 +148,7 @@ onMounted(async () => {
 .product-slider-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  
 }
 
 .product-card {
