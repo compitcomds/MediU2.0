@@ -26,12 +26,12 @@
 
         <!-- Menu Items with Icons -->
         <li v-for="item in menuItems" :key="item.text"
-          class="flex items-center justify-between p-3 text-gray-700 hover:bg-gray-100 rounded-md">
+          class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
           <div class="flex items-center gap-2">
             <img :src="item.icon" alt="icon" class="w-6 h-6"
-              :class="{ 'text-blue-500': $route.path === item.link }" />
+              :class="{ 'text-blue-500': $route.path === item.link, 'text-black': $route.path !== item.link }" />
             <nuxt-link :to="item.link" class="flex-1"
-              :class="{ 'text-blue-500 font-semibold': $route.path === item.link }">{{ item.text }}</nuxt-link>
+              :class="{ 'text-blue-500 font-semibold': $route.path === item.link, 'text-black': $route.path !== item.link }">{{ item.text }}</nuxt-link>
           </div>
           <span>&#8250;</span>
         </li>
@@ -77,11 +77,15 @@ h2 {
 }
 
 nav ul li {
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   font-weight: 500;
 }
 
 .text-blue-500 {
-  color: #5f8aff;
+  color: #5885ff;
+}
+
+.text-black {
+  color: #000;
 }
 </style>
