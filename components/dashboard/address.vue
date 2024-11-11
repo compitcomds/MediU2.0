@@ -1,11 +1,11 @@
 <template>
-  <main class="w-3/4 p-10">
+  <main class="w-full lg:w-3/4 lg:p-10 pb-20 lg:pb-0">
     <h2 class="text-gray-600 mb-6">
       The following addresses will be used on the checkout page by default.
     </h2>
 
     <!-- Addresses Section -->
-    <div class="grid grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Loop through addresses -->
       <div v-for="(address, index) in addresses" :key="index" class="border p-6 rounded-lg shadow-lg bg-white">
         <!-- Header with Address Type -->

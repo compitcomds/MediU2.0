@@ -1,5 +1,5 @@
 <template>
-  <section class="w-3/4 rounded-lg p-6 ml-6 border space-y-6">
+  <section class="w-full lg:w-3/4 rounded-lg lg:p-6 lg:ml-6 p-2 my-10 lg:my-0 pb-20 lg:pb-0  border space-y-6">
     <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">Payment Methods</h2>
     <div class="space-y-10">
       <!-- Shipping Method Options -->

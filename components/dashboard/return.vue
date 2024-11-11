@@ -1,11 +1,11 @@
 <template>
-    <div class="w-3/4 pl-8">
+    <div class="w-full lg:w-3/4 lg:pl-8 py-5 pb-20 lg:pb-0">
         <h1 class="text-2xl font-bold mb-4 text-[#28574E]">
             Request for Product Return ({{ returnRequests.length }})
         </h1>
-        <div class="grid grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             <div v-for="(item, index) in returnRequests" :key="index" :to="`/return/${item.requestNumber}`"
-                class="p-4 bg-white rounded-lg shadow-md block hover:bg-green-50">
+                class="p-4 bg-white rounded-lg overflow-hidden shadow-md block hover:bg-green-50">
                 <div class="flex justify-between items-center">
                     <p>
                         <strong class="text-[#28574E]">Request No: #{{ item.requestNumber }}</strong>

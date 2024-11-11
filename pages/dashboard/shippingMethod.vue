@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen p-6 bg-[#edf8f3] flex" v-if="UserData">
         <!-- Sidebar -->
-              <DashboardSidenav :UserData="UserData || ''"/>
+              <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''"/>
 
   
         <!-- Main Content -->

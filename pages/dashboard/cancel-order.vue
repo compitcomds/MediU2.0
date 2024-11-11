@@ -1,13 +1,13 @@
 <template>
-  <div class="min-h-screen bg-[#edf8f3] p-6 flex" v-if="UserData">
+  <div class="min-h-screen bg-[#edf8f3] lg:p-6 flex" v-if="UserData">
     <!-- Main Layout -->
 
     <!-- Sidebar -->
-          <DashboardSidenav :UserData="UserData || ''"/>
+          <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''"/>
 
 
     <!-- Content Section -->
-    <div class="w-3/4 px-8">
+    <div class="w-full lg:w-3/4 lg:px-8 my-10 lg:my-0">
       <!-- Order Info -->
       <div
         class="border border-gray-200 p-6 bg-white rounded-lg shadow-md space-y-8"

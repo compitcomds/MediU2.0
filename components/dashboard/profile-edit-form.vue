@@ -1,11 +1,11 @@
 <template>
-  <div class="space-y-4">
+  <div class="space-y-4 w-full">
     <div class="flex items-center justify-between">
       <h2 class="text-xl font-semibold">Customer Details</h2>
     </div>
 
     <!-- Name Section -->
-    <form class="rounded-md border p-4" @submit.prevent="submitName">
+    <form class="rounded-md w-full border p-4" @submit.prevent="submitName">
       <h3 class="text-lg font-semibold">Name</h3>
       <div class="form-group">
         <label for="firstName" class="block text-sm font-medium text-gray-700"

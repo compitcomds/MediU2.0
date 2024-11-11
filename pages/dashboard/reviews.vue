@@ -1,10 +1,10 @@
 <template>
-    <div class="min-h-screen p-6 bg-[#edf8f3] flex" v-if="UserData">
+    <div class="min-h-screen lg:p-6 bg-[#edf8f3] flex" v-if="UserData">
         
-            <DashboardSidenav :UserData="UserData || ''"/>
+            <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''"/>
 
   
-      <div class="flex-1 px-8 bg-gray-100">
+      <div class="w-full lg:px-8 my-10 lg:my-0 pb-20 lg:pb-0 bg-gray-100">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-[#28574e]">
           <DashboardReviewCard
             name="Michel Poe"

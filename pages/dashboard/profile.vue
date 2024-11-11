@@ -1,9 +1,9 @@
 <template>
   <div class="flex min-h-screen bg-[#edf8f3] px-1 py-6 md:px-6" v-if="UserData">
-    <DashboardSidenav :UserData="UserData || ''" />
+    <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''" />
 
-    <main class="mb-16 min-h-screen w-full md:w-3/4 md:p-6">
-      <div class="bg-white px-3 py-6 md:px-6">
+    <main class="mb-16 min-h-screen w-full lg:w-3/4 md:p-6">
+      <div class="bg-white w-full px-3 py-6 md:px-6">
         <DashboardProfileEditForm :user="user" />
       </div>
     </main>

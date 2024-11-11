@@ -8,7 +8,7 @@
             <!-- Thumbnail Swiper in Column on the Left -->
             <div class="w-full hidden lg:block lg:w-2/6 mb-4 lg:mb-0 lg:mr-4">
               <swiper-container class="mySwiper2" direction="vertical" space-between="10" slides-per-view="5"
-                free-mode="true" watch-slides-progress="true" style="height: 130%; max-height: 500px;">
+                free-mode="true" watch-slides-progress="true" style="height: 130%; max-height: 500px; width: 50%;">
                 <swiper-slide v-for="(item, index) in data.images" :key="item.url" :class="{
                   'border-4 border-blue-500': currentThumbnail === index,
                 }" @click="thumbClick(index)">

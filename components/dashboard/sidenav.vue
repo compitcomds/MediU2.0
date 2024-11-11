@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-full md:w-1/4 bg-white rounded-lg shadow-lg p-6">
+  <aside class="w-full lg:w-1/4 bg-white rounded-lg pb-20 p-6">
     <!-- Header Title -->
     <h2 class="text-lg font-semibold text-gray-800 mb-6">Your Account</h2>
 
@@ -8,11 +8,6 @@
       <div class="relative">
         <img src="https://via.placeholder.com/80" alt="Profile"
           class="h-20 w-20 rounded-full border-2 border-gray-200 object-cover" />
-        <!-- Profile Completion Circle -->
-        <!-- <div
-          class="absolute bottom-0 right-0 h-8 w-8 flex items-center justify-center bg-red-600 text-white text-xs rounded-full">
-          35%
-        </div> -->
       </div>
       <div class="mt-4 text-center">
         <h2 class="text-lg font-semibold text-gray-800">{{ props.UserData.name }}</h2>
@@ -24,7 +19,6 @@
     <!-- Sidebar Menu -->
     <nav>
       <ul class="space-y-4">
-        <!-- Account Information Section Title with Icon -->
         <li class="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2">
           <img src="https://placehold.co/24x24?text=AI" alt="Account Information Icon" class="w-6 h-6" />
           <a href="/dashboard/">Account Information</a>
@@ -34,8 +28,10 @@
         <li v-for="item in menuItems" :key="item.text"
           class="flex items-center justify-between p-3 text-gray-700 hover:bg-gray-100 rounded-md">
           <div class="flex items-center gap-2">
-            <img :src="item.icon" alt="icon" class="w-6 h-6" />
-            <nuxt-link :to="item.link" class="flex-1">{{ item.text }}</nuxt-link>
+            <img :src="item.icon" alt="icon" class="w-6 h-6"
+              :class="{ 'text-blue-500': $route.path === item.link }" />
+            <nuxt-link :to="item.link" class="flex-1"
+              :class="{ 'text-blue-500 font-semibold': $route.path === item.link }">{{ item.text }}</nuxt-link>
           </div>
           <span>&#8250;</span>
         </li>
@@ -83,5 +79,9 @@ h2 {
 nav ul li {
   font-size: 0.875rem;
   font-weight: 500;
+}
+
+.text-blue-500 {
+  color: #5f8aff;
 }
 </style>
