@@ -39,7 +39,7 @@
         v-for="(product, index) in products"
         :key="index"
       >
-        <div class="w-80 rounded-lg border border-gray-300 bg-white px-4 py-2">
+        <div class="w-[370px] md:w-80 rounded-lg border border-gray-300 bg-white px-8 lg:px-4 py-2">
           <nuxt-link
             :to="`/shop/product/${product.handle}`"
             class="relative block"
@@ -127,7 +127,7 @@
 
 <script setup>
 import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+// import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import getProductRecommendations from "~/shopify/shop/product-recommendations";
 
 const props = defineProps(["productId"]);
