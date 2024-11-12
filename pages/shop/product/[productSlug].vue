@@ -1,5 +1,5 @@
 <template>
-  <div class=" my-3 pb-20 lg:pb-0  sm:my-6 lg:my-10 bg-white rounded-lg p-1 lg:p-6">
+  <div class=" my-3 pb-10 md:pb-10 lg:pb-0  sm:my-6 lg:my-10 bg-white rounded-lg p-1 lg:p-6">
     <div v-if="data">
       <div class="grid grid-cols-5 gap-6  md:grid-cols-5">
         <!-- Left Section: Thumbnails and Main Image Swiper -->
@@ -152,7 +152,7 @@
         </div>
 
       </div>
-      <div class="my-10 lg:my-20  max-w-6xl ">
+      <div class="my-10 lg:my-20  max-w-6xl xl:max-w-full ">
   <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-300">
     <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1"
       :class="activeTab === index + 1 ? 'w-full bg-green-800 text-white' : 'w-full text-green-800 border-b-2 border-transparent hover:border-green-800'"
@@ -162,8 +162,9 @@
   </div>
   <div class="p-5 bg-white rounded-md shadow-sm border border-gray-200">
     <div v-for="(item, index) in accordionKeys" :key="index">
-      <div v-if="activeTab === index + 1 && data[item.value]" v-html="data[item.value].value"
-        class="leading-relaxed text-gray-700"></div>
+      <ul class="px-4">
+      <li v-if="activeTab === index + 1 && data[item.value]" v-html="data[item.value].value"
+        class="list-disc leading-relaxed text-gray-700"></li></ul>
     </div>
   </div>
 </div>
