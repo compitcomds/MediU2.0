@@ -180,26 +180,7 @@
     </div>
 
     <!-- Customer Reviews -->
-    <div class="mt-10 bg-gray-50 rounded-lg p-6 shadow-md">
-      <h2 class="text-2xl font-semibold text-gray-900">Customer Reviews</h2>
-      <div v-if="data.reviews && data.reviews.length" class="space-y-4 mt-4">
-        <div v-for="(review, index) in JSON.parse(data.reviews)" :key="index" class="bg-white p-4 rounded-lg shadow-sm">
-          <div class="flex justify-between items-center">
-            <div class="text-lg font-semibold text-gray-800">{{ review.name }}</div>
-            <div class="flex items-center text-yellow-500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                class="h-5 w-5">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <span class="ml-1 font-medium">{{ review.rating }} / 5</span>
-            </div>
-          </div>
-          <p class="mt-2 text-gray-600">{{ review.text }}</p>
-        </div>
-      </div>
-      <div v-else class="text-center italic text-gray-500 mt-6">No reviews yet. Be the first to leave a review!</div>
-    </div>
+    <ShopReviews />
   </div>
 </template>
 
