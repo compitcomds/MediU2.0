@@ -152,7 +152,7 @@
         </div>
 
       </div>
-      <div class="my-10 lg:my-20  max-w-6xl xl:max-w-full ">
+      <div class="my-10 lg:my-20 max-w-full ">
   <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-300">
     <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1"
       :class="activeTab === index + 1 ? 'w-full bg-green-800 text-white' : 'w-full text-green-800 border-b-2 border-transparent hover:border-green-800'"
