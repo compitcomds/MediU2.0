@@ -6,7 +6,7 @@
       <div class="w-full md:w-1/3 mb-2 md:mb-0">
         <nuxt-link to="/" class="flex items-center w-5/12">
           <img
-            src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo_white.png"
+            src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%201.png"
             class="w-full"
             alt="Logo"
           />

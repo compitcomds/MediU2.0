@@ -1,14 +1,14 @@
 <template>
   <div class=" my-3 pb-20 lg:pb-0  sm:my-6 lg:my-10 bg-white rounded-lg p-1 lg:p-6">
     <div v-if="data">
-      <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
+      <div class="grid grid-cols-5 gap-6  md:grid-cols-5">
         <!-- Left Section: Thumbnails and Main Image Swiper -->
-        <div class="col-span-5 lg:col-span-2">
+        <div class="col-span-5 lg:col-span-2 space-y-6">
           <div class="flex lg:flex-row flex-col">
             <!-- Thumbnail Swiper in Column on the Left -->
-            <div class="w-full hidden lg:block lg:w-2/6 mb-4 lg:mb-0 lg:mr-4">
+            <div class="w-full hidden lg:block lg:w-1/6 mb-4 lg:mb-0 lg:mr-4">
               <swiper-container class="mySwiper2" direction="vertical" space-between="10" slides-per-view="5"
-                free-mode="true" watch-slides-progress="true" style="height: 130%; max-height: 500px; width: 50%;">
+                free-mode="true" watch-slides-progress="true" style="height: 130%; max-height: 500px; width: 100%;">
                 <swiper-slide v-for="(item, index) in data.images" :key="item.url" :class="{
                   'border-4 border-blue-500': currentThumbnail === index,
                 }" @click="thumbClick(index)">
@@ -19,7 +19,7 @@
             </div>
 
             <!-- Main Swiper on the Right -->
-            <div class="w-full lg:w-4/6">
+            <div class="w-full lg:w-5/6">
               <swiper-container style="
                   --swiper-navigation-color: #4a5568;
                   --swiper-pagination-color: #4a5568;
@@ -71,7 +71,7 @@
           </div>
 
           <!-- Pricing Information -->
-          <div>
+          <div class="space-y-4">
             <div class="text-lg font-bold text-[#28574e]">Special Price</div>
             <div class="flex items-center gap-2 my-2">
               <div class="text-3xl font-bold text-gray-900">
@@ -136,7 +136,7 @@
                 class="mySwiper my-4 h-32 w-full" style="height: 100px">
                 <swiper-slide v-for="(item, index) in slides" :key="index">
                   <img :src="item" alt="Ad Banner"
-                    class="flex h-32 w-full items-center justify-between rounded-lg object-fill lg:object-cover" />
+                    class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover" />
                 </swiper-slide>
               </swiper>
             </div>
@@ -152,21 +152,24 @@
         </div>
 
       </div>
-      <div class="mt-6">
-        <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-200">
-          <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1"
-            :class="activeTab === index + 1 ? 'w-full bg-[#28574e] text-white' : 'text-gray-600 w-full'"
-            class="py-3 px-5 font-semibold text-base rounded-t-lg transition-colors duration-300">
-            {{ item.name }}
-          </button>
-        </div>
-        <div class="p-6 bg-white rounded-b-lg shadow">
-          <div v-for="(item, index) in accordionKeys" :key="index">
-            <div v-if="activeTab === index + 1 && data[item.value]" v-html="data[item.value].value"
-              class="leading-relaxed text-gray-800"></div>
-          </div>
-        </div>
-      </div>
+      <div class="my-10 lg:my-20  max-w-6xl ">
+  <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-300">
+    <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1"
+      :class="activeTab === index + 1 ? 'w-full bg-green-800 text-white' : 'w-full text-green-800 border-b-2 border-transparent hover:border-green-800'"
+      class="py-3 px-4 font-medium text-sm rounded-md transition-colors duration-300">
+      {{ item.name }}
+    </button>
+  </div>
+  <div class="p-5 bg-white rounded-md shadow-sm border border-gray-200">
+    <div v-for="(item, index) in accordionKeys" :key="index">
+      <div v-if="activeTab === index + 1 && data[item.value]" v-html="data[item.value].value"
+        class="leading-relaxed text-gray-700"></div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
       <!-- Related Products -->

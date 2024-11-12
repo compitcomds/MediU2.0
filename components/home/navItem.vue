@@ -20,7 +20,7 @@
             class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5 -right-[500px] md:-right-[600px]"
           >
             <div
-              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
+              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
             >
               <!-- Concerns Related to Hair -->
               <div>
@@ -178,7 +178,7 @@
             class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5 lg:-left-72 md:right-32"
           >
             <div
-              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
+              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
             >
               <!-- Concerns Related to Hair -->
               <div>
