@@ -101,7 +101,9 @@
           <div class="text-3xl font-semibold text-gray-900">
             {{ data.title }}
           </div>
-          <div class="text-md text-gray-500">{{ data.description }}</div>
+          <div class="text-md text-cyan-500">
+            {{ data?.productSubtitle?.value || "" }}
+          </div>
 
           <!-- Ratings and Reviews -->
           <div class="flex items-center space-x-3 text-gray-700">
@@ -225,6 +227,10 @@
             </div>
 
             <ShopCheckDelivery />
+
+            <div class="text-md">
+              {{ data.description }}
+            </div>
 
             <hr
               class="my-4 border-dashed border-gray-300"
