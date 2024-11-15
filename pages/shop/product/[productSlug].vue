@@ -289,7 +289,7 @@
             <ul class="px-4">
               <li
                 v-if="activeTab === index + 1 && data[item.value]"
-                v-html="data[item.value].value"
+                v-html="data[item.value].value.split('\n').join('<br />')"
                 class="list-disc leading-relaxed text-gray-700"
               ></li>
             </ul>
