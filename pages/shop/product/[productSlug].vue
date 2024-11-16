@@ -289,9 +289,12 @@
             <ul class="px-4">
               <li
                 v-if="activeTab === index + 1 && data[item.value]"
-                v-html="data[item.value].value.split('\n').join('<br />')"
-                class="list-disc leading-relaxed text-gray-700"
-              ></li>
+                class="text-gray-700"
+              >
+                <div
+                  v-html="data[item.value].value.split('\n').join('<br />')"
+                ></div>
+              </li>
             </ul>
           </div>
         </div>
