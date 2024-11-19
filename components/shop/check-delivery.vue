@@ -12,7 +12,7 @@
       <button
         type="submit"
         :disabled="isSubmitting"
-        class="absolute right-0 top-1/2 block -translate-y-1/2 text-[#28574e] disabled:animate-pulse disabled:cursor-not-allowed"
+        class="absolute right-0 top-1/2 block -translate-y-1/2 text-sm text-[#28574e] disabled:animate-pulse disabled:cursor-not-allowed"
       >
         {{ isSubmitting ? "Checking..." : "Check" }}
       </button>

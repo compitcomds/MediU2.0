@@ -42,7 +42,10 @@ query productWithVariantsQuery($handle: String!) {
     otherInfo: metafield(key: "other_info", namespace: "custom") {
       value
     }
-      reviews: metafield(key: "reviews", namespace: "custom") {
+    reviews: metafield(key: "reviews", namespace: "custom") {
+      value
+    }
+    productSubtitle: metafield(key: "productSubtitle", namespace: "custom"){
       value
     }
     variants(first: 10) {
@@ -152,6 +155,9 @@ export async function getInitalProductData(handle: string) {
         value: string;
       };
       reviews: {
+        value: string;
+      };
+      productSubtitle: {
         value: string;
       };
       featuredImage: {
