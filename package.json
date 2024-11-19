@@ -30,6 +30,7 @@
     "@nuxtjs/sitemap": "^6.1.2",
     "@shopify/storefront-api-client": "^1.0.2",
     "@types/uuid": "^10.0.0",
+    "@websitebeaver/vue-magnifier": "^1.1.0",
     "appwrite": "^16.0.2",
     "js-image-zoom": "^0.7.0",
     "lucide-vue-next": "^0.453.0",

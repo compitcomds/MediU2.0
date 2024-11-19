@@ -7,7 +7,7 @@
           <div class="flex lg:flex-row flex-col">
             <!-- Thumbnail Swiper in Column on the Left -->
             <div class="w-full hidden lg:block lg:w-1/6 mb-4 lg:mb-0 lg:mr-4">
-              <swiper-container class="mySwiper2" direction="vertical" space-between="10" slides-per-view="5"
+              <swiper-container class="mySwiper2" direction="vertical" space-between="10" slides-per-view="5" autoplay-delay="5000" speed="1000"
                 free-mode="true" watch-slides-progress="true" style="height: 130%; max-height: 500px; width: 100%;">
                 <swiper-slide v-for="(item, index) in data.images" :key="item.url" :class="{
                   'border-4 border-blue-500': currentThumbnail === index,
@@ -21,16 +21,18 @@
             <!-- Main Swiper on the Right -->
             <div class="w-full lg:w-5/6">
               <swiper-container style="
-                  --swiper-navigation-color: #4a5568;
-                  --swiper-pagination-color: #4a5568;
-                " class="mySwiper" thumbs-swiper=".mySwiper2" space-between="15" navigation="true" pagination="true"
-                autoplay="true" @slideChange="onSlideChange">
+      --swiper-navigation-color: #4a5568;
+      --swiper-pagination-color: #4a5568;
+    " class="mySwiper" thumbs-swiper=".mySwiper2" space-between="15" navigation="true" pagination="true"
+                autoplay="true" autoplay-delay="5000" speed="1000" @slideChange="onSlideChange">
+
                 <swiper-slide v-for="(item, index) in data.images" :key="item.url">
-                  <img :src="item.url" alt="Product Image"
-                    class="h-full w-full rounded-lg object-cover shadow-lg transition-transform duration-300 hover:scale-150" />
+                  <VueMagnifier mgShape="square" :src="item.url" alt="Product Image"
+                    class="h-full w-full rounded-lg object-cover transition-transform duration-300" />
                 </swiper-slide>
               </swiper-container>
             </div>
+
           </div>
 
           <!-- Product Highlights -->
@@ -169,11 +171,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
       <!-- Related Products -->
       <div class="mt-8">
         <h3 class="text-2xl font-semibold text-gray-800">Related Products</h3>
@@ -192,6 +189,8 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { getProductData } from "~/shopify/productDetails";
+import VueMagnifier from '@websitebeaver/vue-magnifier'
+import '@websitebeaver/vue-magnifier/styles.css'
 
 const modules = [Pagination, Navigation, Autoplay];
 const activeTab = ref(1);

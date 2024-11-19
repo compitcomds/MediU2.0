@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[showNotification ? 'mt- xl:mt-[0px]' : 'mt- xl:mt-[0px]']"
+    :class="[showNotification ? 'xl:mt-[0px]' : 'xl:mt-[0px]']"
     class="w-full z-10 bg-[#537971] text-black"
   >
     <div class="relative bg-white">
@@ -14,10 +14,10 @@
 
         <!-- Hair Concerns Menu -->
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl">Hair</div>
+          <div class="font-semibold hover:opacity-70 text-xl flex items-center gap-1 text-white">Hair <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5 -right-[500px] md:-right-[600px]"
+            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 -right-[500px] md:-right-[650px]"
           >
             <div
               class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
@@ -31,49 +31,49 @@
                 <ul class="space-y-2 text-left">
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedHairConcern=dandruff"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Dandruff</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedHairConcern=hairfall"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Hairfall</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedHairConcern=hair-thinning"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Hair Thinning</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedHairConcern=damaged-and-fizzy-hair"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Damaged & Fizzy Hair</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedHairConcern=bald-patches"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Bald Patches</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedHairConcern=dull-hair"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Dull Hair</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedHairConcern=oily-scalp"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Oily Scalp</nuxt-link
                     >
@@ -90,35 +90,35 @@
                 <ul class="space-y-2 text-left">
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedIngredent=minoxidil"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Minoxidil</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedIngredent=redensyl"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Redensyl</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedIngredent=capixyl"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Capixyl</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedIngredent=peptide"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Peptide</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
+                      to="/shop?min=0&max=100000&selectedIngredent=carnitine"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Carnitine</nuxt-link
                     >
@@ -172,10 +172,10 @@
 
         <!-- SKIN  -->
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl">Skin</div>
+          <div class="font-semibold hover:opacity-70 text-xl flex items-center gap-1">Skin<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5 lg:-left-72 md:right-32"
+            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 lg:-left-56 md:right-32"
           >
             <div
               class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
@@ -189,70 +189,70 @@
                 <ul class="space-y-2 text-left">
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=acne-and-ance-scar"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Acne & Acne Scar</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=aging"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Aging</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=dehydration"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Dehydration</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=damaged-and-sensitive-skin"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Damaged & Sensitive Skin</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=under-eye-darkness"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Under Eye Darkness</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=under-arm-darkness"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Under Arm Darkness</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=stretch-marks"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Stretch Marks</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=pigmentation"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Pigmentation</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=oiliness"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Oiliness</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
+                      href="/shop?min=0&max=100000&selectedSkinConcern=lip-cracked-or-darkness"
                       class="text-gray-800 hover:text-green-600 hover:font-semibold"
                       >Lip (Cracked/Darkness)</a
                     >
@@ -383,7 +383,7 @@
         </li>
 
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl w-28">Mediu Kit</div>
+          <div class="font-semibold hover:opacity-70 text-xl w-28 flex items-center gap-1">Mediu Kit <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
 
           <div
             class="invisible absolute p-4 lg:-left-[500px] text-black top-full z-50 w-[90vw] max-w-3xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
@@ -449,7 +449,7 @@
         </li>
 
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl">Brands</div>
+          <div class="font-semibold hover:opacity-70 text-xl flex items-center gap-1">Brands<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
 
           <div
             class="invisible absolute p- top-full -right-[100px] z-50 w-96 bg-white shadow-lg overflow-y-auto max-h-[400px] custom-scrollbar opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"

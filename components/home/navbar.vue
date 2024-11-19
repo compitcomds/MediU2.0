@@ -18,7 +18,7 @@
     <div
       :class="[
         'transition-all duration-300 fixed w-full left-0 z-50 bg-white shadow hidden lg:block',
-        showNotification ? 'top-[0px] lg:top-[40px]' : 'top-0',
+        showNotification ? 'top-[0px] lg:top-[30px]' : 'top-0',
         { 'navbar-hidden': !isNavbarVisible },
       ]"
     >
@@ -32,7 +32,7 @@
       <div
         :class="[
           'fixed w-full left-0  shadow bg-[#28574e] hidden lg:block',
-          showNotification ? 'top-[80px] lg:top-[120px]' : 'top-[80px]',
+          showNotification ? 'top-[80px] lg:top-[100px]' : 'top-[80px]',
           { 'navbar-hidden': !isNavbarVisible },
         ]"
         class="nav-items transition-top"
