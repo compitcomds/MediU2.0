@@ -156,7 +156,8 @@
             <div class="hidden lg:block">
               <swiper :slidesPerView="1" :spaceBetween="60" :loop="true"
                 :autoplay="{ delay: 6000, disableOnInteraction: false }" :modules="modules"
-                class="mySwiper my-4 h-32 w-full" style="height: 100px">
+                class="mySwiper my-4 w-full responsive-height">
+
                 <swiper-slide v-for="(item, index) in slides" :key="index">
                   <img :src="item" alt="Ad Banner"
                     class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover" />
@@ -176,8 +177,8 @@
       <div class="my-10 max-w-full lg:my-20">
         <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-300">
           <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1" :class="activeTab === index + 1
-              ? 'w-full bg-green-800 text-white'
-              : 'w-full border-b-2 border-transparent text-green-800 hover:border-green-800'
+            ? 'w-full bg-green-800 text-white'
+            : 'w-full border-b-2 border-transparent text-green-800 hover:border-green-800'
             " class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300">
             {{ item.name }}
           </button>
@@ -313,5 +314,28 @@ const decreaseQuantity = () => {
 
 .shadow-lg {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Default height for smaller screens */
+.responsive-height {
+  height: 100px;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .responsive-height {
+    height: 100px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .responsive-height {
+    height: 100px;
+  }
+}
+@media (min-width: 1440px) {
+  .responsive-height {
+    height: 150px;
+  }
 }
 </style>
