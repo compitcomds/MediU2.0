@@ -28,7 +28,7 @@ query productRecommendationsQuery($productId:ID!) {
 `;
 
 export default async function getProductRecommendations(
-  productId: string
+  productId: string,
 ): Promise<
   Array<{
     featuredImage: {
@@ -57,7 +57,7 @@ export default async function getProductRecommendations(
     productRecommendationsQuery,
     {
       variables: { productId },
-    }
+    },
   );
   console.log(errors);
   return data?.productRecommendations || [];

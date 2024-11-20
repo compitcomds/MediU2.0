@@ -48,6 +48,9 @@ query productWithVariantsQuery($handle: String!) {
     productSubtitle: metafield(key: "productSubtitle", namespace: "custom"){
       value
     }
+    requiresPrescription: metafield(key: "requiresPrescription", namespace: "custom"){
+      value
+    }
     variants(first: 10) {
       edges {
         node {
@@ -82,7 +85,7 @@ query productWithVariantsQuery($handle: String!) {
 `;
 
 const productVariantQuery = `
-query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInput!] = {name: "", value: ""}) {
+query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInput!]!) {
   product(handle: $handle) {
     variantBySelectedOptions(
       selectedOptions: $selectedOptions
@@ -113,19 +116,6 @@ query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInp
     }
   }
 }
-`;
-
-const addReviewMutation = `
- query UpdateMetafield($input: MetafieldsSetInput!) {
-    metafieldsSet(input: $input) {
-      metafields {
-        id
-        namespace
-        key
-        value
-      }
-    }
-  }
 `;
 
 export async function getInitalProductData(handle: string) {
@@ -160,6 +150,7 @@ export async function getInitalProductData(handle: string) {
       productSubtitle: {
         value: string;
       };
+      requiresPrescription: { value: string };
       featuredImage: {
         url: string;
         altText: string;
@@ -187,6 +178,8 @@ export async function getInitalProductData(handle: string) {
       images: product.images.nodes,
       currentlyNotInStock: false,
       productId: product.id,
+      requiresPrescription:
+        product.requiresPrescription.value === "true" ? true : false,
     };
 
     return returnData;
