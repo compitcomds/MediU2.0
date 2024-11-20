@@ -5,14 +5,14 @@
       <input
         type="number"
         id="check-pincode"
-        class="border-b-2 border-[#28574e] bg-transparent px-3 py-1 transition-colors duration-300 [appearance:textfield] focus:outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+        class="border-b-2 border-[#238878] bg-transparent px-3 py-1 transition-colors duration-300 [appearance:textfield] focus:outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         placeholder="Enter Pincode"
         v-model="pincode"
       />
       <button
         type="submit"
         :disabled="isSubmitting"
-        class="absolute right-0 top-1/2 block -translate-y-1/2 text-sm text-[#28574e] disabled:animate-pulse disabled:cursor-not-allowed"
+        class="absolute right-0 top-1/2 block -translate-y-1/2 text-sm text-[#238878] disabled:animate-pulse disabled:cursor-not-allowed"
       >
         {{ isSubmitting ? "Checking..." : "Check" }}
       </button>
@@ -22,8 +22,8 @@
   <div v-if="!!checkedData && (checkedData.minEtd || checkedData.maxEtd)">
     <p>
       <span class="text-sm">Estimated Delivery Date: </span>
-      <span class="text-[#28574e]">{{ checkedData.minEtd }}</span> -
-      <span class="text-[#28574e]"> {{ checkedData.maxEtd }}</span>
+      <span class="text-[#238878]">{{ checkedData.minEtd }}</span> -
+      <span class="text-[#238878]"> {{ checkedData.maxEtd }}</span>
     </p>
   </div>
   <div

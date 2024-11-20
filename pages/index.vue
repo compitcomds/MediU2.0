@@ -1,12 +1,13 @@
 <template>
   <!--  -->
+    <div class="bg-white">
   <!-- <HomeNavbar /> -->
   <HomeMain />
   
   <div class="bg-white">
     <div class="lg:space-y-20 md:space-y-10 space-y-10">
-      <HomeBlock class="" />
-      <HomeCard class="px-4 lg:px-16 xl:px-[163px]" />
+      
+      <HomeCard class="px-4 lg:px-16 xl:px-[163px]" /><HomeBlock class="" />
       <HomeContainers class="px-4 lg:px-16 xl:px-[163px]" />
       <HomeFeatures class="px-4 lg:px-16 xl:px-[163px]" />
       <!-- skin -->
@@ -29,7 +30,7 @@
       <HomeConsultation />
     </div>
     <!-- <Footer /> -->
-  </div>
+  </div></div>
   <!--  -->
   <!-- <ShopUserSidebar /> -->
 </template>

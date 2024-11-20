@@ -1,5 +1,5 @@
 <template>
-    <div class="p-4 text-[#28574e]">
+    <div class="p-4 text-[#238878]">
       <h3 class="text-lg font-semibold mb-2">Receiver Information</h3>
       <p>Thank you! Your order has been received.</p>
       <p>Order Number: <strong>#17493</strong></p>

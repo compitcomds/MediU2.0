@@ -4,7 +4,7 @@
       <div class="bg-gray-200 p-2"><UserIcon /></div>
       <div>
         <p class="flex items-center gap-1">
-          <Star :size="16" fill="#28574e" v-for="i in 5" />
+          <Star :size="16" fill="#238878" v-for="i in 5" />
         </p>
         <p>{{ name }}</p>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-start relative">
     <label
-      class="flex flex-col items-center border-2 border-[#28574e] hover:bg-[#28574e] text-[#28574e] font-bold py-2 px-4 rounded cursor-pointer hover:text-white transition-colors"
+      class="flex flex-col items-center border-2 border-[#238878] hover:bg-[#238878] text-[#238878] font-bold py-2 px-4 rounded cursor-pointer hover:text-white transition-colors"
     >
       <span>Upload an Image</span>
       <input

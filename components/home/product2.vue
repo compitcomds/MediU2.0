@@ -5,7 +5,7 @@
       <h1 class="text-xl lg:text-4xl text-center text-gray-500">
         Glow Getters
       </h1>
-      <h2 class="text-2xl lg:text-6xl font-bold text-center text-[#28574E]">
+      <h2 class="text-2xl lg:text-6xl font-bold text-center text-[#238878]">
         Radiant Skin Secrets
       </h2>
     </div>
@@ -20,7 +20,7 @@
           <div class="diff-item-2">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/3.png" />
           </div>
-          <div class="diff-resizer bg-[#28574E]">Drag</div>
+          <div class="diff-resizer bg-[#238878]">Drag</div>
         </div>
       </div>
       <!-- Products Section -->
@@ -28,10 +28,20 @@
         <div
           class="flex justify-center lg:justify-between px-4 mb-4 text-xl gap-2"
         >
+        <button
+            @click="filterProducts('Acne')"
+            :class="{
+              'bg-[#238878] text-white': selectedCategory === 'Acne',
+              'bg-slate-300 text-black': selectedCategory !== 'Acne',
+            }"
+            class="py-2 px-4 rounded-full w-full text-sm lg:text-lg"
+          >
+            Acne
+          </button>
           <button
             @click="filterProducts('Hyperpigmentation')"
             :class="{
-              'bg-[#28574E] text-white':
+              'bg-[#238878] text-white':
                 selectedCategory === 'Hyperpigmentation',
               'bg-slate-300 text-black':
                 selectedCategory !== 'Hyperpigmentation',
@@ -43,23 +53,14 @@
           <button
             @click="filterProducts('Eczema')"
             :class="{
-              'bg-[#28574E] text-white': selectedCategory === 'Eczema',
+              'bg-[#238878] text-white': selectedCategory === 'Eczema',
               'bg-slate-300 text-black': selectedCategory !== 'Eczema',
             }"
             class="py-2 px-4 rounded-full w-full text-sm lg:text-lg"
           >
             Eczema
           </button>
-          <button
-            @click="filterProducts('Acne')"
-            :class="{
-              'bg-[#28574E] text-white': selectedCategory === 'Acne',
-              'bg-slate-300 text-black': selectedCategory !== 'Acne',
-            }"
-            class="py-2 px-4 rounded-full w-full text-sm lg:text-lg"
-          >
-            Acne
-          </button>
+          
         </div>
         <!-- Grid for Products -->
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 h-auto font-sans">
@@ -72,7 +73,7 @@
             <div class="relative">
               <span
                 v-if="product.isOnSale"
-                class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 py-1 rounded"
+                class="absolute top-0 right-0 bg-orange-500 text-white text-xs px-2 py-1 rounded"
                 >Sale 50%</span
               >
               <a :href="product.url">
@@ -92,7 +93,7 @@
                 class="flex justify-between items-center text-sm sm:text-lg md:text-xl"
               >
                 <div class="flex">
-                  <p class="text-[#28574E] font-bold">
+                  <p class="text-[#4ca9ee] font-bold">
                     ₹{{ product.salePrice }}
                   </p>
                   <p
@@ -152,7 +153,7 @@
           </div>
         </div>
         <div class="mt-4 text-right md:text-end">
-          <a href="/shop" class="text-blue-500 text-sm md:text-2xl"
+          <a href="/shop" class="text-[#4ca9ee] text-sm md:text-2xl"
             >Explore More →</a
           >
         </div>
@@ -165,31 +166,31 @@
 export default {
   data() {
     return {
-      selectedCategory: "Hyperpigmentation",
+      selectedCategory: "Acne",
       products: [
         {
           id: 1,
-          name: "Bontess Pro",
-          salePrice: "1225",
-          originalPrice: "2500",
+          name: "CLINDAC A 1% MIST SPRAY",
+          salePrice: "380.0 ",
+          originalPrice: "499.0",
           rating: 4,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/62558501618636fbf197ac2877a62b33.jpg?v=1731475950",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/shop/product/bontess-pro",
+          url: "/shop/product/clindac-a-1-mist-spray",
         },
         {
           id: 2,
-          name: "acne oc moisturiser",
-          salePrice: "567",
-          originalPrice: "1120",
+          name: "FIXDERMA B PROX 10 WASH 100ML",
+          salePrice: "1100.0",
+          originalPrice: "1225.0",
           rating: 5,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/de84cfb5bc0c77f11eb8990511d81a20.jpg?v=1731648100",
           category: "Hyperpigmentation",
           isOnSale: true,
-          url: "/shop/product/acne-oc-moisturiser",
+          url: "/shop/product/fixderma-b-prox-10-wash100ml",
         },
         {
           id: 3,
@@ -315,76 +316,76 @@ export default {
         // Acne
         {
           id: 6,
-          name: "acne uv spf 50 sunscreen 50gm",
-          salePrice: "915.0",
-          originalPrice: "1830",
+          name: "CLINDAC A 1% MIST SPRAY",
+          salePrice: "380.0 ",
+          originalPrice: "499.0",
           rating: 4,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4359.jpg?v=1725638248",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/62558501618636fbf197ac2877a62b33.jpg?v=1731475950",
           category: "Acne",
           isOnSale: true,
-          url: "/shop/product/acne-uv-spf-50-sunscreen-50-gm",
+          url: "/shop/product/clindac-a-1-mist-spray",
         },
         {
           id: 1,
-          name: "Bontess Pro",
-          salePrice: "1225",
-          originalPrice: "2500",
-          rating: 4,
+          name: "FIXDERMA B PROX 10 WASH 100ML",
+          salePrice: "1100.0",
+          originalPrice: "1225.0",
+          rating: 5,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/de84cfb5bc0c77f11eb8990511d81a20.jpg?v=1731648100",
           category: "Acne",
           isOnSale: true,
-          url: "/shop/product/bontess-pro",
+          url: "/shop/product/fixderma-b-prox-10-wash100ml",
         },
         {
           id: 2,
-          name: "acne oc moisturiser",
-          salePrice: "567",
-          originalPrice: "1120",
+          name: "NAVGLO S FACEWASH",
+          salePrice: "250.0",
+          originalPrice: "299.0",
           rating: 5,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/95a83f3c4a3a008c28190671197c1a1c.jpg?v=1731653161",
           category: "Acne",
           isOnSale: true,
-          url: "/shop/product/acne-oc-moisturiser",
+          url: "/shop/product/navglo-s-facewash",
         },
         {
           id: 4,
-          name: "dermatica ray protect barelyon",
-          salePrice: "1080",
-          originalPrice: "2160",
+          name: "TORRENT ACNEMOIST CREAM",
+          salePrice: "350.0",
+          originalPrice: "409.0",
           rating: 3,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/a1e390c73c2eeb3dafa7fb136971e87c.jpg?v=1731653927",
           category: "Acne",
           isOnSale: true,
-          url: "/shop/product/dermatica-ray-protect-barelyon",
+          url: "/shop/product/torrent-acnemoist-cream",
         },
         {
           id: 5,
-          name: "Racine pro conditioning sha...",
-          salePrice: "635.0",
-          originalPrice: "1270",
+          name: "DERMATICA AZE PROACTIVE LOTION 30 ML",
+          salePrice: "1000.0",
+          originalPrice: "1080.0",
           rating: 5,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00155.jpg?v=1725639738",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/e5d3e1bedd5e2c742c1fe2a34933939e.jpg?v=1731655272",
           category: "Acne",
           isOnSale: true,
-          url: "/shop/product/racine-pro-conditioning-shampoo",
+          url: "/shop/product/dermatica-aze-proactive-lotion-30-ml",
         },
 
         {
           id: 3,
-          name: "venusia max cream",
-          salePrice: "1180",
-          originalPrice: "2360",
+          name: "SCAREND SILICON GEL 15GM",
+          salePrice: "550.0",
+          originalPrice: "690.0",
           rating: 4,
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09987.jpg?v=1725709318",
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/715640abcb27f03443e68d6f52773981.jpg?v=1731820770",
           category: "Acne",
           isOnSale: true,
-          url: "/shop/product/venusia-max-cream",
+          url: "/shop/product/scarend-silicon-gel-15gm",
         },
       ],
     };

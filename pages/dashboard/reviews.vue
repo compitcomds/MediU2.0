@@ -5,7 +5,7 @@
 
   
       <div class="w-full lg:px-8 my-10 lg:my-0 pb-20 lg:pb-0 bg-gray-100">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-[#28574e]">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-[#238878]">
           <DashboardReviewCard
             name="Michel Poe"
             img="https://via.placeholder.com/50"

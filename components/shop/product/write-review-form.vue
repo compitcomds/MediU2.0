@@ -16,7 +16,7 @@
               <Star
                 :fill="
                   star <= hoverRating || star <= form.rating
-                    ? '#28574e'
+                    ? '#238878'
                     : '#e5e7eb'
                 "
               />
@@ -31,7 +31,7 @@
             DESCRIPTION
           </label>
           <textarea
-            class="block w-full rounded-none border border-[#28574e] bg-white p-3 focus:outline-none"
+            class="block w-full rounded-none border border-[#238878] bg-white p-3 focus:outline-none"
             rows="4"
             v-model="form.description"
           />
@@ -39,7 +39,7 @@
         <div class="flex items-center justify-center">
           <button
             type="submit"
-            class="bg-[#28574e] px-8 py-2 font-medium text-white"
+            class="bg-[#238878] px-8 py-2 font-medium text-white"
           >
             Submit
           </button>
@@ -51,7 +51,7 @@
   <div v-else>
     <p class="my-10 text-center">
       Please
-      <nuxt-link to="/login" class="text-[#28574e] underline">log in</nuxt-link>
+      <nuxt-link to="/login" class="text-[#238878] underline">log in</nuxt-link>
       to write the review.
     </p>
   </div>

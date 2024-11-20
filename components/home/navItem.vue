@@ -1,11 +1,11 @@
 <template>
   <div
     :class="[showNotification ? 'xl:mt-[0px]' : 'xl:mt-[0px]']"
-    class="w-full z-10 bg-[#537971] text-black"
+    class="w-full z-10 bg-[#238878] text-black"
   >
     <div class="relative bg-white">
       <!-- Main Menu -->
-      <ul class="flex justify-center space-x-20 bg-[#537971] text-white py-2">
+      <ul class="flex justify-center space-x-20 bg-[#238878] text-white py-2">
         <li class="group relative cursor-pointer py-2">
           <nuxt-link to="/" class="font-semibold hover:opacity-70 text-xl"
             >Home</nuxt-link
@@ -392,10 +392,10 @@
               <div class="8/12 grid grid-cols-3 gap-6">
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg"
+                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#28574E] hover:underline"
+                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
                   >
                     Hair Growth Kits
                   </h2>
@@ -403,10 +403,10 @@
 
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg"
+                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#28574E] hover:underline"
+                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
                   >
                     Dandruff Kits
                   </h2>
@@ -414,30 +414,30 @@
 
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg"
+                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#28574E] hover:underline"
+                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
                   >
                     Itchy Scalp Kits
                   </h2>
                 </nuxt-link>
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg"
+                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#28574E] hover:underline"
+                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
                   >
                     Basic Kits
                   </h2>
                 </nuxt-link>
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#28574E] p-6 rounded-2xl hover:shadow-lg"
+                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#28574E] hover:underline"
+                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
                   >
                     Advanced Kits
                   </h2>
@@ -458,7 +458,7 @@
 
               <div class="sticky top-0 bg-white z-10">
                 <div
-                  class="text-[#28574E] mb-2 text-xl font-serif font-semibold"
+                  class="text-[#238878] mb-2 text-xl font-serif font-semibold"
                 >
                   Brands -
                 </div>

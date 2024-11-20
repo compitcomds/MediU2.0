@@ -38,6 +38,40 @@
         </div>
       </div>
     </div>
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
+      <div class="text-xl font-medium text-[#22423c]">Skin Ingredient</div>
+      <div class="p-3">
+        <div v-for="(item, index) in SkinIngredent" :key="index">
+          <label class="mt-2 flex items-center justify-start">
+            <input
+              type="checkbox"
+              :value="item.value"
+              v-model="selectedSkinIngredent"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
+      <div class="text-xl font-medium text-[#22423c]">Skin Care</div>
+      <div class="p-3">
+        <div v-for="(item, index) in SkinCare" :key="index">
+          <label class="mt-2 flex items-center justify-start">
+            <input
+              type="checkbox"
+              :value="item.value"
+              v-model="selectedSkinCare"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+          </label>
+        </div>
+      </div>
+    </div>
 
     <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Hair Concern</div>
@@ -94,7 +128,7 @@
     </div> -->
 
     <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
-      <div class="text-xl font-medium text-[#22423c]">Ingredient</div>
+      <div class="text-xl font-medium text-[#22423c]">Hair Ingredient</div>
       <div class="p-3">
         <div v-for="(item, index) in Ingredent" :key="index">
           <label class="mt-2 flex items-center justify-start">
@@ -110,7 +144,24 @@
         </div>
       </div>
     </div>
-
+    <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
+      <div class="text-xl font-medium text-[#22423c]">Hair Care</div>
+      <div class="p-3">
+        <div v-for="(item, index) in HairCare" :key="index">
+          <label class="mt-2 flex items-center justify-start">
+            <input
+              type="checkbox"
+              :value="item.value"
+              v-model="selectedHairCare"
+              @change="updateQueryParams"
+              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
+            />
+            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+          </label>
+        </div>
+      </div>
+    </div>
+    
     <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium text-[#22423c]">Price</div>
       <div class="p-3">
@@ -168,17 +219,17 @@ const HairConcern = [
   { name: "Oily Scalp", value: "oily-scalp" },
 ];
 
-const NutrionAndDiet = [
-  { name: "Diet 1", value: "diet-1" },
-  { name: "Diet 2", value: "diet-2" },
-  { name: "Diet 3", value: "diet-3" },
-];
+// const NutrionAndDiet = [
+//   { name: "Diet 1", value: "diet-1" },
+//   { name: "Diet 2", value: "diet-2" },
+//   { name: "Diet 3", value: "diet-3" },
+// ];
 
-const Pediatric = [
-  { name: "Pediatric 1", value: "pediatric-1" },
-  { name: "Pediatric 2", value: "pediatric-2" },
-  { name: "Pediatric 3", value: "pediatric-3" },
-];
+// const Pediatric = [
+//   { name: "Pediatric 1", value: "pediatric-1" },
+//   { name: "Pediatric 2", value: "pediatric-2" },
+//   { name: "Pediatric 3", value: "pediatric-3" },
+// ];
 
 const Ingredent = [
   { name: "Minoxidil", value: "minoxidil" },
@@ -187,10 +238,34 @@ const Ingredent = [
   { name: "Peptide", value: "peptide" },
   { name: "Carnitine", value: "carnitine" },
 ];
+const SkinIngredent = [
+  { name: "Vitamic C", value: "vitamin-c" },
+  { name: "BHA / Salicylic Acid", value: "bha-salicylic-acid" },
+  { name: "Retinoid", value: "retinoid" },
+  { name: "Niacinamide", value: "niacinamide" },
+  { name: "UV Filters", value: "uv-filters" },
+  { name: "Ceramide", value: "ceramide" },
+  { name: "Hyaluronic Acid", value: "hyaluronic-acid" },
 
-const selectedTypeOfProducts = ref(
-  ifStringMakeArray(route?.query?.selectedTypeOfProducts),
-);
+];
+const SkinCare = [
+  { name: "Cleanser", value: "cleanser" },
+  { name: "Toner", value: "toner" },
+  { name: "Moisturize", value: "moisturize" },
+  { name: "SPF", value: "spf" },
+  { name: "Under Eye", value: "under-eye" },
+  { name: "Roll On", value: "roll-on" },
+
+];
+const HairCare = [
+  { name: "Shampoo", value: "shampoo" },
+  { name: "Conditioner", value: "conditioner" },
+  { name: "Mask", value: "mask" },
+  { name: "Serum", value: "serum" },
+];
+// const selectedTypeOfProducts = ref(
+//   ifStringMakeArray(route?.query?.selectedTypeOfProducts),
+// );
 const selectedSkinConcern = ref(
   ifStringMakeArray(route?.query?.selectedSkinConcern),
 );
@@ -206,7 +281,15 @@ const selectedPediatric = ref(
 const selectedIngredent = ref(
   ifStringMakeArray(route?.query?.selectedIngredent),
 );
-
+const selectedSkinIngredent = ref(
+  ifStringMakeArray(route?.query?.selectedSkinIngredent),
+);
+const selectedSkinCare = ref(
+  ifStringMakeArray(route?.query?.selectedSkinCare),
+);
+const selectedHairCare = ref(
+  ifStringMakeArray(route?.query?.selectedHairCare),
+);
 const changeMinMaxPrice = useDebounceFn((newMinMax) => {
   router.push({
     path: route.path,
@@ -233,6 +316,10 @@ const updateQueryParams = () => {
     selectedNutrionAndDiet: selectedNutrionAndDiet.value,
     selectedPediatric: selectedPediatric.value,
     selectedIngredent: selectedIngredent.value,
+    selectedSkinIngredent: selectedSkinIngredent.value,
+    selectedSkinCare: selectedSkinCare.value,
+    selectedHairCare: selectedHairCare.value,
+
   };
 
   router.push({ path: route.path, query: { ...route.query, ...query } });

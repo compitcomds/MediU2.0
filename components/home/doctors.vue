@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#28564D] text-white py-6 lg:py-16 lg:mb-10">
+  <div class="bg-[#238878] text-white py-6 lg:py-16 lg:mb-10">
     <h2
       class="text-4xl md:text-6xl lg:text-[70px] text-center lg:pb-14 font-serif font-bold"
     >

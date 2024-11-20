@@ -8,10 +8,10 @@
       />
     </div>
 
-    <h2 class="text-xl font-semibold text-[#28574e] mb-2">
+    <h2 class="text-xl font-semibold text-[#238878] mb-2">
       Booking ID: {{ bookingID }}
     </h2>
-    <p class="text-xl font-semibold text-[#28574e] mb-4">
+    <p class="text-xl font-semibold text-[#238878] mb-4">
       Your Appointment has been booked successfully!
     </p>
     <p class="text-gray-600 mb-6">
@@ -22,31 +22,31 @@
     <div class="grid grid-cols-2 gap-6 mb-8">
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Service</h4>
-        <p class="text-lg text-[#28574e]">{{ service.title }}</p>
+        <p class="text-lg text-[#238878]">{{ service.title }}</p>
       </div>
 
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Patient Name</h4>
-        <p class="text-lg text-[#28574e]">
+        <p class="text-lg text-[#238878]">
           {{ formData.firstName }} {{ formData.lastName }}
         </p>
       </div>
 
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Date & Time</h4>
-        <p class="text-lg text-[#28574e]">To be Confirmed</p>
+        <p class="text-lg text-[#238878]">To be Confirmed</p>
       </div>
 
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">
           Total Amount Payable
         </h4>
-        <p class="text-lg text-[#28574e]">₹{{ service.price.amount }}</p>
+        <p class="text-lg text-[#238878]">₹{{ service.price.amount }}</p>
       </div>
 
       <div>
         <h4 class="text-sm font-semibold text-gray-500 mb-2">Notes</h4>
-        <p class="text-lg text-[#28574e]">{{ formData.note }}</p>
+        <p class="text-lg text-[#238878]">{{ formData.note }}</p>
       </div>
     </div>
 
@@ -54,7 +54,7 @@
     <div class="text-center mt-4">
       <button
         @click="goToHome"
-        class="bg-[#28574e] text-white px-6 py-2 rounded hover:bg-[#5c998e]"
+        class="bg-[#238878] text-white px-6 py-2 rounded hover:bg-[#5c998e]"
       >
         Go to Home
       </button>

@@ -2,7 +2,7 @@
   <!-- Main Content -->
   <div class="w-3/4 pl-8 space-y-6">
     <!-- Request Information Section -->
-    <h1 class="text-2xl font-bold mb-4 text-[#28574E]">
+    <h1 class="text-2xl font-bold mb-4 text-[#238878]">
       Request for Product Return ({{ returnRequests.length }})
     </h1>
     <div class="grid grid-cols-2 gap-8">
@@ -14,7 +14,7 @@
       >
         <div class="flex justify-between items-center">
           <p>
-            <strong class="text-[#28574E]"
+            <strong class="text-[#238878]"
               >Request No: #{{ item.requestNumber }}</strong
             >
           </p>
@@ -32,12 +32,12 @@
         <!-- Dashed Separator Line -->
         <!-- <div class="my-2 border-t border-dashed border-gray-300"></div> -->
         <nuxt-link to="/dashboard/returnDetails">
-          <div class="border-dashed border border-[#28574E] p-3 m-2">
+          <div class="border-dashed border border-[#238878] p-3 m-2">
             <p class="text-sm text-gray-500">{{ item.date }}</p>
             <div class="flex items-center my-2">
               <img :src="item.image" alt="Product" class="w-24 h-24 mr-4" />
               <div>
-                <p class="font-semibold text-[#28574E]">{{ item.name }}</p>
+                <p class="font-semibold text-[#238878]">{{ item.name }}</p>
                 <p class="text-slate-400">Quantity: {{ item.quantity }}</p>
                 <p class="text-gray-500">INR {{ item.price }}</p>
               </div>
@@ -50,7 +50,7 @@
     <!-- Return Option -->
     <div>
       <div class="mb-8">
-        <p class="text-lg font-semibold mb-2 text-[#28574e]">What do you want to return?</p>
+        <p class="text-lg font-semibold mb-2 text-[#238878]">What do you want to return?</p>
 
         <!-- Refund Option -->
         <div class="flex items-center mb-2">
@@ -73,12 +73,12 @@
 
       <!-- Refund Method -->
       <div class="mb-8">
-        <p class="text-lg text-[#28574e] font-semibold mb-2">How do you want your refund?</p>
+        <p class="text-lg text-[#238878] font-semibold mb-2">How do you want your refund?</p>
         <div class="grid grid-cols-2 gap-4">
           <!-- Direct Bank Transfer Option -->
           <div
             :class="{
-              'border-[#28574e] bg-[#8afac870]': selectedMethod === 'bank',
+              'border-[#238878] bg-[#8afac870]': selectedMethod === 'bank',
               'border-gray-300': selectedMethod !== 'bank',
             }"
             class="border p-4 rounded-lg flex items-center justify-between"
@@ -95,14 +95,14 @@
             />
             <span
               :class="{
-                'border-[#28574e] bg-white': selectedMethod === 'bank',
+                'border-[#238878] bg-white': selectedMethod === 'bank',
                 'border-gray-300 bg-transparent': selectedMethod !== 'bank',
               }"
               class="h-4 w-4 border rounded-full flex items-center justify-center"
             >
               <span
                 v-if="selectedMethod === 'bank'"
-                class="h-2 w-2 bg-[#28574e] rounded-full"
+                class="h-2 w-2 bg-[#238878] rounded-full"
               ></span>
             </span>
           </div>
@@ -110,7 +110,7 @@
           <!-- Gift Card Wallet Option -->
           <div
             :class="{
-              'border-[#28574e] bg-[#8afac870]': selectedMethod === 'wallet',
+              'border-[#238878] bg-[#8afac870]': selectedMethod === 'wallet',
               'border-gray-300': selectedMethod !== 'wallet',
             }"
             class="border p-4 rounded-lg flex items-center justify-between"
@@ -127,14 +127,14 @@
             />
             <span
               :class="{
-                'border-[#28574e] bg-white': selectedMethod === 'wallet',
+                'border-[#238878] bg-white': selectedMethod === 'wallet',
                 'border-gray-300 bg-transparent': selectedMethod !== 'wallet',
               }"
               class="h-4 w-4 border rounded-full flex items-center justify-center"
             >
               <span
                 v-if="selectedMethod === 'wallet'"
-                class="h-2 w-2 bg-[#28574e] rounded-full"
+                class="h-2 w-2 bg-[#238878] rounded-full"
               ></span>
             </span>
           </div>
@@ -144,7 +144,7 @@
       <!-- Submit Button -->
       <div class="flex justify-start">
         <button
-          class="bg-[#28574e] text-white py-2 px-4 rounded-lg hover:bg-[#43756c]"
+          class="bg-[#238878] text-white py-2 px-4 rounded-lg hover:bg-[#43756c]"
         >
           Submit Request
         </button>
@@ -214,7 +214,7 @@ input[type="radio"] {
   
   /* Selected state (when the radio is checked) */
   input[type="radio"]:checked + label .custom-radio {
-    border-color: #28574e;
+    border-color: #238878;
     background-color: white; /* This creates the white background */
   }
   
@@ -226,7 +226,7 @@ input[type="radio"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #28574e;
+    background-color: #238878;
     border-radius: 50%;
   }
 </style>

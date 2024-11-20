@@ -3,7 +3,7 @@
     <!-- Cart Container -->
     <div class="p-2 bg-white shadow-lg w-96 flex flex-col">
       <!-- Free Shipping Banner -->
-      <div class="bg-[#b8d5c2] text-[#28574E] text-center py-2 px-4 rounded-md">
+      <div class="bg-[#b8d5c2] text-[#238878] text-center py-2 px-4 rounded-md">
         🎉 CONGRATS! You get <span class="font-semibold">FREE SHIPPING</span>
       </div>
 
@@ -69,7 +69,7 @@
 
         <div class="mt-auto">
           <button
-            class="w-full bg-[#28574E] text-white py-3 rounded-lg font-semibold"
+            class="w-full bg-[#238878] text-white py-3 rounded-lg font-semibold"
           >
             🔒 SECURE CHECKOUT
           </button>

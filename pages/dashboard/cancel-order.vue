@@ -16,9 +16,9 @@
           <div v-for="(order, index) in orders" :key="index">
             <h3 class="font-semibold text-gray-600">
               Request No:
-              <span class="text-[#28574e]">#{{ order.requestNumber }}</span>
+              <span class="text-[#238878]">#{{ order.requestNumber }}</span>
             </h3>
-            <div class="p-2 border border-dashed border-[#28574e]">
+            <div class="p-2 border border-dashed border-[#238878]">
               <div class="flex space-x-6">
                 <img :src="order.image" alt="Product Image" />
                 <div class="flex flex-col">
@@ -53,7 +53,7 @@
                   />
                   <!-- Custom radio button -->
                   <span
-                    class="custom-radio w-5 h-5 inline-block border border-[#28574e] rounded-full flex-shrink-0 flex items-center justify-center cursor-pointer"
+                    class="custom-radio w-5 h-5 inline-block border border-[#238878] rounded-full flex-shrink-0 flex items-center justify-center cursor-pointer"
                   >
                     <span
                       v-if="selectedReason === reason"
@@ -61,7 +61,7 @@
                     ></span>
                   </span>
                   <!-- Label Text -->
-                  <span class="ml-2 text-[#28574e]">{{ reason }}</span>
+                  <span class="ml-2 text-[#238878]">{{ reason }}</span>
                 </label>
               </li>
             </ul>
@@ -75,7 +75,7 @@
             <div>
               <nuxt-link
                 to="/dashboard/submit"
-                class="bg-[#28574e] text-white py-2 px-4 text-right"
+                class="bg-[#238878] text-white py-2 px-4 text-right"
               >
                 Submit Request
               </nuxt-link>
@@ -121,11 +121,11 @@ const order= []
 }
 
 .custom-radio:hover {
-  border-color: #28574e;
+  border-color: #238878;
 }
 
 input[type="radio"]:checked + .custom-radio {
-  background-color: #28574e;
+  background-color: #238878;
 }
 
 .custom-radio > span {

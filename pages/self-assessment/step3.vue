@@ -21,7 +21,7 @@
       <div
         v-for="(problem, index) in selectedProblems"
         :key="index"
-        class="flex-shrink-0 relative overflow-hidden bg-[#28574e] rounded-lg max-w-xs shadow-lg group"
+        class="flex-shrink-0 relative overflow-hidden bg-[#238878] rounded-lg max-w-xs shadow-lg group"
       >
         <svg
           class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"

@@ -143,16 +143,16 @@ const downloadInvoice = async () => {
 }
 
 h2 {
-  color: #28574e;
+  color: #238878;
   font-weight: 700;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 3px solid #28574e;
+  border-bottom: 3px solid #238878;
   padding-bottom: 0.5rem;
 }
 
 h3 {
-  color: #28574e;
+  color: #238878;
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 1rem;
@@ -193,7 +193,7 @@ img:hover {
 }
 
 button {
-  color: #28574e;
+  color: #238878;
   font-weight: 600;
   background-color: #f3faf6;
   padding: 0.5rem 1rem;
@@ -214,7 +214,7 @@ button:hover {
 }
 
 .text-bold {
-  color: #28574e;
+  color: #238878;
   font-weight: bold;
 }
 
@@ -239,12 +239,12 @@ button:hover {
 
 .order-summary strong {
   font-weight: 700;
-  color: #28574e;
+  color: #238878;
 }
 
 .price {
   font-size: 1.25rem;
-  color: #28574e;
+  color: #238878;
   font-weight: 700;
 }
 .order-summary {
@@ -273,7 +273,7 @@ button:hover {
 }
 
 strong {
-  color: #28574e;
+  color: #238878;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -285,14 +285,14 @@ strong {
 .icon-price {
   margin-right: 0.5rem;
   font-size: 1.2rem;
-  color: #28574e;
+  color: #238878;
 }
 
 .invoice-button {
   display: inline-block;
   margin-bottom: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #28574e;
+  background-color: #238878;
   color: #ffffff;
   font-weight: 600;
   border-radius: 0.5rem;

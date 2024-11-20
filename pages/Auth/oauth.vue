@@ -1,7 +1,7 @@
 <template>
   <div class="flex min-h-screen items-center justify-center bg-gray-50">
     <div class="flex flex-col items-center justify-center gap-5">
-      <div class="animate-spin text-[#28574e]">
+      <div class="animate-spin text-[#238878]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"

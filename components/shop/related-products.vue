@@ -90,7 +90,7 @@
             <!-- Price and discount -->
             <div class="flex justify-between text-xl">
               <div>
-                <p class="font-bold text-[#28574E]">
+                <p class="font-bold text-[#238878]">
                   {{ product.priceRange.minVariantPrice.currencyCode }}
                   {{ product.priceRange.minVariantPrice.amount }}
                 </p>
@@ -113,7 +113,7 @@
             <div class="mt-4 flex gap-2">
               <nuxt-link
                 :to="`/shop/product/${product.handle}`"
-                class="text-md flex-1 cursor-pointer rounded-full bg-[#28574E] p-2 text-center font-semibold text-white shadow"
+                class="text-md flex-1 cursor-pointer rounded-full bg-[#238878] p-2 text-center font-semibold text-white shadow"
               >
                 BUY NOW
               </nuxt-link>

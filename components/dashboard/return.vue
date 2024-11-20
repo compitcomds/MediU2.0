@@ -1,6 +1,6 @@
 <template>
     <div class="w-full lg:w-3/4 lg:pl-8 py-5 pb-20 lg:pb-0">
-        <h1 class="text-2xl font-bold mb-4 text-[#28574E]">
+        <h1 class="text-2xl font-bold mb-4 text-[#238878]">
             Request for Product Return ({{ returnRequests.length }})
         </h1>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -8,7 +8,7 @@
                 class="p-4 bg-white rounded-lg overflow-hidden shadow-md block hover:bg-green-50">
                 <div class="flex justify-between items-center">
                     <p>
-                        <strong class="text-[#28574E]">Request No: #{{ item.requestNumber }}</strong>
+                        <strong class="text-[#238878]">Request No: #{{ item.requestNumber }}</strong>
                     </p>
                     <div :class="item.status === 'submitted' ? 'text-green-600' : 'text-gray-500'
                         ">
@@ -21,12 +21,12 @@
                 <!-- Dashed Separator Line -->
                 <!-- <div class="my-2 border-t border-dashed border-gray-300"></div> -->
                 <nuxt-link to="/dashboard/returnDetails">
-                    <div class="border-dashed border border-[#28574E] p-3 m-2">
+                    <div class="border-dashed border border-[#238878] p-3 m-2">
                         <p class="text-sm text-gray-500">{{ item.date }}</p>
                         <div class="flex items-center my-2">
                             <img :src="item.image" alt="Product" class="w-24 h-24 mr-4" />
                             <div>
-                                <p class="font-semibold text-[#28574E]">{{ item.name }}</p>
+                                <p class="font-semibold text-[#238878]">{{ item.name }}</p>
                                 <p class="text-slate-400">Quantity: {{ item.quantity }}</p>
                                 <p class="text-gray-500">INR {{ item.price }}</p>
                             </div>

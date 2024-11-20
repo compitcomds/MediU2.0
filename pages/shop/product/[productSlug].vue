@@ -79,10 +79,10 @@
 
           <!-- Pricing Information -->
           <div class="space-y-4">
-            <div class="text-lg font-bold text-[#28574e]">Special Price</div>
+            <div class="text-lg font-bold text-[#238878]">Special Price</div>
             <div class="my-2 flex items-center gap-2">
               <div class="text-3xl font-bold text-gray-900">
-                <span class="text-[#383e42]">{{ data.price.currencyCode }} {{ data.price.amount }}</span>
+                <span class="text-[#4ca9ee]">{{ data.price.currencyCode }} {{ data.price.amount }}</span>
                 <span v-if="data.compareAtPrice && data.compareAtPrice.amount"
                   class="text-sm text-gray-500 line-through">
                   MRP {{ data.compareAtPrice.amount }}
@@ -91,7 +91,7 @@
                   parseFloat(data.compareAtPrice?.amount) &&
                   parseFloat(data.compareAtPrice?.amount) >
                   parseFloat(data.price?.amount)
-                " class="ml-2 rounded-lg bg-[#28574e] px-2 py-1 text-base font-medium text-white">
+                " class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white">
                   Save
                   {{
                     Math.floor(
@@ -177,8 +177,8 @@
       <div class="my-10 max-w-full lg:my-20">
         <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-300">
           <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1" :class="activeTab === index + 1
-            ? 'w-full bg-green-800 text-white'
-            : 'w-full border-b-2 border-transparent text-green-800 hover:border-green-800'
+            ? 'w-full bg-[#238878] text-white'
+            : 'w-full border-b-2 border-transparent text-[#238878] hover:border-[#238878]'
             " class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300">
             {{ item.name }}
           </button>

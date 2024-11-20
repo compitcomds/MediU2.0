@@ -1,7 +1,7 @@
 <template>
   <div class="lg:px-4 xl:px-12 mb-10 p-6 bg-[#f9f9f9]">
     <h1 class="text-center text-gray-600 text-2xl font-serif">Testimonials</h1>
-    <h2 class="text-center text-[#28574E] text-2xl font-bold font-serif mb-10">
+    <h2 class="text-center text-[#238878] text-2xl font-bold font-serif mb-10">
       Patient Perspectives on Our Care
     </h2>
 
@@ -50,7 +50,7 @@
       <div class="w-2/3 pl-6 flex flex-col">
         <!-- Name and Designation -->
         <div class="mb-4 flex items-center space-x-4">
-          <h3 class="text-lg text-black font-semibold">
+          <h3 class="text-lg text-[#4ca9ee] font-semibold">
             {{ testimonial.name }}
           </h3>
           <p>|</p>

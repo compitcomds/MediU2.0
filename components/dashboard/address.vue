@@ -9,12 +9,12 @@
       <!-- Loop through addresses -->
       <div v-for="(address, index) in addresses" :key="index" class="border p-6 rounded-lg shadow-lg bg-white">
         <!-- Header with Address Type -->
-        <h3 class="font-semibold mb-4 text-[#28574e] text-xl">
+        <h3 class="font-semibold mb-4 text-[#238878] text-xl">
           {{ address.type }} Address
         </h3>
 
         <!-- Address Details -->
-        <div class="text-[#28574e] space-y-2">
+        <div class="text-[#238878] space-y-2">
           <p><span class="font-medium">Name:</span> {{ address.name }}</p>
           <p><span class="font-medium">City:</span> {{ address.city }}</p>
           <p><span class="font-medium">Phone:</span> {{ address.phone }}</p>

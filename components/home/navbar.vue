@@ -2,7 +2,7 @@
   <div>
     <!-- Notification Bar (removable) -->
     <HomeMobileNav />
-    <div
+    <!-- <div
       v-if="showNotification"
       class="notification-bar transition-all duration-300 fixed top-0 left-0 w-full z-50 hidden lg:block"
     >
@@ -12,13 +12,13 @@
       >
         <HomeNotification />
       </button>
-    </div>
+    </div> -->
 
     <!-- Wrapper for Search Bar and Navbar Items -->
     <div
       :class="[
         'transition-all duration-300 fixed w-full left-0 z-50 bg-white shadow hidden lg:block',
-        showNotification ? 'top-[0px] lg:top-[30px]' : 'top-0',
+        showNotification ? 'top-[0px] lg:top-[0px]' : 'top-0',
         { 'navbar-hidden': !isNavbarVisible },
       ]"
     >
@@ -31,8 +31,8 @@
       <!-- Navbar Items -->
       <div
         :class="[
-          'fixed w-full left-0  shadow bg-[#28574e] hidden lg:block',
-          showNotification ? 'top-[80px] lg:top-[100px]' : 'top-[80px]',
+          'fixed w-full left-0  shadow bg-[#238878] hidden lg:block',
+          showNotification ? 'top-[80px]' : 'top-[80px]',
           { 'navbar-hidden': !isNavbarVisible },
         ]"
         class="nav-items transition-top"

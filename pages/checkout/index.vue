@@ -7,7 +7,7 @@
       >
         <!-- Contact Section -->
         <div class="mb-6">
-          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">Contact</h2>
+          <h2 class="mb-4 text-2xl font-semibold text-[#238878]">Contact</h2>
           <div class="flex flex-col space-y-2">
             <input
               type="text"
@@ -25,7 +25,7 @@
 
         <!-- Delivery Section -->
         <div class="mb-6">
-          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">Delivery</h2>
+          <h2 class="mb-4 text-2xl font-semibold text-[#238878]">Delivery</h2>
           <div class="space-y-4">
             <div class="grid gap-4 md:grid-cols-2">
               <input
@@ -96,7 +96,7 @@
 
         <!-- Shipping Method Section -->
         <div class="mb-6">
-          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">
+          <h2 class="mb-4 text-2xl font-semibold text-[#238878]">
             Shipping method
           </h2>
           <input
@@ -108,12 +108,12 @@
 
         <!-- Payment Section -->
         <div class="mb-6">
-          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">Payment</h2>
-          <div class="rounded-lg border border-[#28574e]">
+          <h2 class="mb-4 text-2xl font-semibold text-[#238878]">Payment</h2>
+          <div class="rounded-lg border border-[#238878]">
             <div
               class="flex items-center justify-between rounded-t-lg bg-[#f5f5f5] p-4"
             >
-              <div class="text-lg font-semibold text-[#28574e]">
+              <div class="text-lg font-semibold text-[#238878]">
                 PhonePe Payment Gateway (UPI, Cards & NetBanking)
               </div>
               <div class="grid grid-cols-2 items-center space-x-2 xl:flex">
@@ -137,11 +137,11 @@
                   alt="RuPay Logo"
                   class="h-8"
                 />
-                <!-- <span class="text-lg font-semibold text-[#28574e]">+3</span> -->
+                <!-- <span class="text-lg font-semibold text-[#238878]">+3</span> -->
               </div>
             </div>
             <div
-              class="space-y-4 border-t border-[#28574e] bg-[#f9f9f9] p-6 text-center"
+              class="space-y-4 border-t border-[#238878] bg-[#f9f9f9] p-6 text-center"
             >
               <div class="flex justify-center">
                 <svg
@@ -187,10 +187,10 @@
 
         <!-- Billing Address Section -->
         <div class="mb-6">
-          <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">
+          <h2 class="mb-4 text-2xl font-semibold text-[#238878]">
             Billing address
           </h2>
-          <div class="flex flex-col space-y-4 text-[#28574e]">
+          <div class="flex flex-col space-y-4 text-[#238878]">
             <label class="flex items-center space-x-2">
               <input
                 type="radio"
@@ -261,7 +261,7 @@
         <button
           type="submit"
           :disabled="isSubmitting"
-          class="w-full rounded-lg bg-[#28574e] py-3 font-semibold text-white transition duration-200 hover:bg-[#70ccbb] disabled:animate-pulse disabled:cursor-not-allowed"
+          class="w-full rounded-lg bg-[#238878] py-3 font-semibold text-white transition duration-200 hover:bg-[#70ccbb] disabled:animate-pulse disabled:cursor-not-allowed"
         >
           {{ isSubmitting ? "Submitting the details..." : "Pay now" }}
         </button>
@@ -269,14 +269,14 @@
 
       <!-- Order Summary -->
       <div class="mt-4 rounded-lg bg-white p-6 lg:sticky lg:top-10 lg:h-fit">
-        <h2 class="mb-4 text-2xl font-semibold text-[#28574e]">
+        <h2 class="mb-4 text-2xl font-semibold text-[#238878]">
           Order Summary
         </h2>
         <div class="space-y-4">
           <div
             v-for="product in cart.items"
             :key="product.lineId"
-            class="flex items-center space-x-4 text-[#28574e]"
+            class="flex items-center space-x-4 text-[#238878]"
           >
             <img
               :src="product.image?.url || 'https://placehold.co/400x400/png'"
@@ -285,7 +285,7 @@
             />
             <div class="flex-1">
               <h3 class="font-semibold">{{ product.title }}</h3>
-              <p class="text-[#28574e]">
+              <p class="text-[#238878]">
                 {{ product.cost.currencyCode }} {{ product.cost.amount }}
               </p>
             </div>
@@ -295,7 +295,7 @@
               </p>
             </div>
           </div>
-          <div class="flex items-center justify-between text-lg text-[#28574e]">
+          <div class="flex items-center justify-between text-lg text-[#238878]">
             <span>Subtotal</span>
             <span class="text-base"
               >{{ cart.subtotalAmount.currencyCode }}
@@ -303,12 +303,12 @@
             >
           </div>
           <div
-            class="flex w-full items-center justify-between text-lg text-[#28574e]"
+            class="flex w-full items-center justify-between text-lg text-[#238878]"
           >
             <span class="w-1/2">Shipping Address</span>
             <span class="w-1/2 text-base">{{ shippingDetails }}</span>
           </div>
-          <div class="flex items-center justify-between text-lg text-[#28574e]">
+          <div class="flex items-center justify-between text-lg text-[#238878]">
             <span>Shipping Cost</span>
             <span v-if="shippingAmount >= 0" class="text-base"
               >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
@@ -317,7 +317,7 @@
               >{{ cart.subtotalAmount.currencyCode }} 0.0</span
             >
           </div>
-          <div class="flex items-center justify-between text-lg text-[#28574e]">
+          <div class="flex items-center justify-between text-lg text-[#238878]">
             <span>Tax Amount</span>
             <span class="text-base"
               >{{ cart.totalTaxAmount.currencyCode }}
@@ -325,7 +325,7 @@
             >
           </div>
           <div
-            class="flex items-center justify-between text-xl font-semibold text-[#28574e]"
+            class="flex items-center justify-between text-xl font-semibold text-[#238878]"
           >
             <span>Total</span>
             <span
@@ -338,7 +338,7 @@
         <div v-if="requiresPrescription" class="mt-6">
           <label
             for="prescription-upload"
-            class="flex w-full cursor-pointer items-center justify-center rounded-full bg-[#28574E] px-10 py-3 text-lg font-semibold text-white"
+            class="flex w-full cursor-pointer items-center justify-center rounded-full bg-[#238878] px-10 py-3 text-lg font-semibold text-white"
           >
             <input
               type="file"
@@ -569,9 +569,9 @@ watch(billingAddressOption, (newVal) => {
 }
 
 .custom-checkbox:checked {
-  background-color: #28574e;
+  background-color: #238878;
   /* Custom green color */
-  border-color: #28574e;
+  border-color: #238878;
 }
 
 .custom-checkbox:checked::after {

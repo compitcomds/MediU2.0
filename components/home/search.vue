@@ -24,7 +24,7 @@
       />
       <button
         type="submit"
-        class="inline-flex items-center gap-2 rounded-r-full bg-orange-500 px-6 py-3 text-lg text-white"
+        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-6 py-3 text-lg text-white"
       >
         <span class="">
           <svg

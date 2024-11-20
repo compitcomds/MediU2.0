@@ -73,7 +73,7 @@ aside {
 
 h2 {
   font-size: 1.125rem;
-  color: #28574e;
+  color: #238878;
 }
 
 nav ul li {

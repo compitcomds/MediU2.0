@@ -10,7 +10,7 @@
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#28574E"
+          stroke="#238878"
           stroke-width="2.5"
           stroke-linecap="round"
           stroke-linejoin="round"

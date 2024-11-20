@@ -37,9 +37,9 @@
           :class="[
             'px-4 py-2 rounded-full border transition duration-300 ease-in-out',
             selectedCategory === category.value
-              ? 'bg-[#28574E] text-white border-[#28574E]' // Active button (Primary background, white text)
-              : 'bg-gray-200 text-[#28574E] border-gray-200', // Inactive button (Light gray background, primary text)
-            'hover:bg-[#1f4d42] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#28574E]',
+              ? 'bg-[#238878] text-white border-[#238878]' // Active button (Primary background, white text)
+              : 'bg-gray-200 text-[#238878] border-gray-200', // Inactive button (Light gray background, primary text)
+            'hover:bg-[#1f4d42] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#238878]',
           ]"
           @click="selectCategory(category.value)"
         >
@@ -90,7 +90,7 @@
 
               <div class="flex justify-between text-lg">
                 <div>
-                  <span class="text-[#28574E] font-bold">
+                  <span class="text-[#238878] font-bold">
                     {{ detail.currency }} {{ detail.price }}
                   </span>
                   <p
@@ -109,7 +109,7 @@
             <div class="flex gap-2 mt-4">
               <!-- <ShopAddingToCartBtn :product-id="detail.handle" /> -->
               <nuxt-link
-                class="flex-1 p-2 bg-[#28574E] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer"
+                class="flex-1 p-2 bg-[#238878] text-md rounded-full shadow text-white font-semibold text-center cursor-pointer"
               >
                 BUY NOW
               </nuxt-link>

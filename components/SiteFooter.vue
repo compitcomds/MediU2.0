@@ -1,12 +1,12 @@
 <template>
-  <footer class="bg-[#28574e] text-white py-8">
+  <footer class="bg-[#238878] text-white py-8">
     <div
-      class="container mx-auto xl:px-20 flex flex-wrap justify-between items-start"
+      class="container mx-auto xl:px-20 flex flex-wrap justify-between items-start "
     >
       <div class="w-full md:w-1/3 mb-2 md:mb-0">
         <nuxt-link to="/" class="flex items-center w-5/12">
           <img
-            src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%201.png"
+            src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo_white.png"
             class="w-full"
             alt="Logo"
           />
@@ -188,7 +188,5 @@ export default {};
 </script>
 
 <style scoped>
-footer {
-  background-color: #26504e;
-}
+
 </style>

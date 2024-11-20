@@ -25,7 +25,7 @@
       <!-- Burger Menu Icon (Visible on small screens) -->
       <div class="w-1/6 text-end">
         <button @click="toggleMenu" class="focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="#28574e" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-6 h-6" fill="none" stroke="#238878" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div v-if="isMenuOpen" class="bg-white shadow-md absolute w-full left-0 top-16 z-40 text-[#28574e]">
+    <div v-if="isMenuOpen" class="bg-white shadow-md absolute w-full left-0 top-16 z-40 text-[#238878]">
       <div class="px-4 py-2">
         <div v-for="(item, index) in menuItems" :key="index" class="border-t py-3">
           <div @click="item.subItems.length ? toggleDropdown(index) : null"
@@ -46,7 +46,7 @@
             </svg>
           </div>
 
-          <div v-if="isDropdownOpen(index)" class="text-[#28574e] pl-4">
+          <div v-if="isDropdownOpen(index)" class="text-[#238878] pl-4">
             <div v-for="(subItem, subIndex) in item.subItems" :key="subIndex"
               class="py-2 hover:bg-gray-100 cursor-pointer">
               <!-- Use normal <a> tag instead of <router-link> -->

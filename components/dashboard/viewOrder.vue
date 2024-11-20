@@ -5,13 +5,13 @@
                 <div class="flex items-center">
                     <img :src="order.productImage" alt="Product Image" class="w-28 h-28 rounded" />
                     <div class="ml-4">
-                        <h2 class="text-xl font-semibold text-[#28574e]">Order #{{ order.orderNumber }}</h2>
+                        <h2 class="text-xl font-semibold text-[#238878]">Order #{{ order.orderNumber }}</h2>
                         <span :class="order.statusClass">{{ order.status }}</span>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-[#28574e] border-dashed my-4"></div>
-            <div class="text-[#28574e] grid grid-cols-2 gap-y-5">
+            <div class="border-t border-[#238878] border-dashed my-4"></div>
+            <div class="text-[#238878] grid grid-cols-2 gap-y-5">
                 <span class="flex flex-col justify-between"><strong>Item:</strong>
                     <p>{{ order.itemName }}</p>
                 </span>
