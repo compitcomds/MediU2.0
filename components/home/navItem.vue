@@ -1,30 +1,50 @@
 <template>
   <div
     :class="[showNotification ? 'xl:mt-[0px]' : 'xl:mt-[0px]']"
-    class="w-full z-10 bg-[#238878] text-black"
+    class="z-10 w-full bg-[#238878] text-black"
   >
     <div class="relative bg-white">
       <!-- Main Menu -->
-      <ul class="flex justify-center space-x-20 bg-[#238878] text-white py-2">
+      <ul class="flex justify-center space-x-20 bg-[#238878] py-2 text-white">
         <li class="group relative cursor-pointer py-2">
-          <nuxt-link to="/" class="font-semibold hover:opacity-70 text-xl"
+          <nuxt-link to="/" class="text-xl font-semibold hover:opacity-70"
             >Home</nuxt-link
           >
         </li>
 
         <!-- Hair Concerns Menu -->
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl flex items-center gap-1 text-white">Hair <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
+          <div
+            class="flex items-center gap-1 text-xl font-semibold text-white hover:opacity-70"
+          >
+            Hair
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down mt-1 h-4 w-4"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </p>
+          </div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 -right-[500px] md:-right-[650px]"
+            class="bg-gary-200 invisible absolute -right-[500px] z-50 transform p-4 text-black opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:-right-[650px]"
           >
             <div
-              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
+              class="grid grid-cols-1 gap-6 bg-slate-50 p-6 sm:grid-cols-2 md:w-[30vw] md:grid-cols-3 lg:w-[70vw] lg:grid-cols-4 xl:w-[50vw] xl:grid-cols-4"
             >
               <!-- Concerns Related to Hair -->
               <div>
-                <h2 class="font-bold text-lg mb-4 w-fit text-left">
+                <h2 class="mb-4 w-fit text-left text-lg font-bold">
                   Hair Concerns
                   <!-- <hr /> -->
                 </h2>
@@ -32,49 +52,49 @@
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedHairConcern=dandruff"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Dandruff</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedHairConcern=hairfall"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Hairfall</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedHairConcern=hair-thinning"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Hair Thinning</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedHairConcern=damaged-and-fizzy-hair"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Damaged & Fizzy Hair</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedHairConcern=bald-patches"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Bald Patches</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedHairConcern=dull-hair"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Dull Hair</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedHairConcern=oily-scalp"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Oily Scalp</nuxt-link
                     >
                   </li>
@@ -83,7 +103,7 @@
 
               <!-- Concerns Related to Ingredients -->
               <div>
-                <h2 class="font-bold text-lg mb-4 w-fit text-left">
+                <h2 class="mb-4 w-fit text-left text-lg font-bold">
                   Select By Ingredients
                   <!-- <hr /> -->
                 </h2>
@@ -91,35 +111,35 @@
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedIngredent=minoxidil"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Minoxidil</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedIngredent=redensyl"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Redensyl</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedIngredent=capixyl"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Capixyl</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedIngredent=peptide"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Peptide</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       to="/shop?min=0&max=100000&selectedIngredent=carnitine"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Carnitine</nuxt-link
                     >
                   </li>
@@ -128,35 +148,35 @@
 
               <!-- Concerns Related to Hair Care -->
               <div>
-                <h2 class="font-bold text-lg mb-4 w-fit text-left">
+                <h2 class="mb-4 w-fit text-left text-lg font-bold">
                   Hair Care
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
                     <nuxt-link
-                      to="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      to="/shop?selectedHairCare=shampoo"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Shampoo</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      to="/shop?selectedHairCare=conditioner"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Conditioner</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      to="/shop?selectedHairCare=mask"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Mask</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
-                      to="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      to="/shop?selectedHairCare=serum"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Serum</nuxt-link
                     >
                   </li>
@@ -172,17 +192,37 @@
 
         <!-- SKIN  -->
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl flex items-center gap-1">Skin<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
+          <div
+            class="flex items-center gap-1 text-xl font-semibold hover:opacity-70"
+          >
+            Skin
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down mt-1 h-4 w-4"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </p>
+          </div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
-            class="invisible absolute p-4 text-black z-50 bg-gary-200 opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 lg:-left-56 md:right-32"
+            class="bg-gary-200 invisible absolute z-50 transform p-4 text-black opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:right-32 lg:-left-56"
           >
             <div
-              class="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 lg:w-[70vw] md:w-[30vw] xl:w-[50vw] bg-slate-50"
+              class="grid grid-cols-1 gap-6 bg-slate-50 p-6 sm:grid-cols-2 md:w-[30vw] md:grid-cols-3 lg:w-[70vw] lg:grid-cols-4 xl:w-[50vw] xl:grid-cols-4"
             >
               <!-- Concerns Related to Hair -->
               <div>
-                <h2 class="font-bold text-lg mb-4 text-left">
+                <h2 class="mb-4 text-left text-lg font-bold">
                   Shop By Concern
                   <!-- <hr /> -->
                 </h2>
@@ -190,70 +230,70 @@
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=acne-and-ance-scar"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Acne & Acne Scar</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=aging"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Aging</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=dehydration"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Dehydration</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=damaged-and-sensitive-skin"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Damaged & Sensitive Skin</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=under-eye-darkness"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Under Eye Darkness</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=under-arm-darkness"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Under Arm Darkness</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=stretch-marks"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Stretch Marks</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=pigmentation"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Pigmentation</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=oiliness"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Oiliness</a
                     >
                   </li>
                   <li>
                     <a
                       href="/shop?min=0&max=100000&selectedSkinConcern=lip-cracked-or-darkness"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      class="text-nowrap text-gray-800 hover:font-semibold hover:text-green-600"
                       >Lip (Cracked/Darkness)</a
                     >
                   </li>
@@ -262,56 +302,56 @@
 
               <!-- Concerns Related to Ingredients -->
               <div>
-                <h2 class="font-bold text-lg mb-4 text-left">
+                <h2 class="mb-4 text-left text-lg font-bold">
                   Select By Ingredients
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinIngredent=vitamin-c"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Vitamin C</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinIngredent=bha-salicylic-acid"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >BHA / Salicylic Acid</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinIngredent=retinoid"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Retinoid / Retinol</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinIngredent=niacinamide"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Niacinamide</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinIngredent=uv-filters"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >UV Filters</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinIngredent=ceramide"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Ceramide</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinIngredent=hyaluronic-acid"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Hyaluronic Acid</a
                     >
                   </li>
@@ -320,50 +360,50 @@
 
               <!-- Concerns Related to Hair Care -->
               <div>
-                <h2 class="font-bold text-lg mb-4 text-left">
+                <h2 class="mb-4 text-left text-lg font-bold">
                   Skin Care
                   <hr />
                 </h2>
                 <ul class="space-y-2 text-left">
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinCare=cleanser"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Cleanser</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinCare=toner"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Toner</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinCare=roll-on"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Roll On</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinCare=moisturize"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Moisturize</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinCare=spf"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >SPF</a
                     >
                   </li>
                   <li>
                     <a
-                      href="/shop"
-                      class="text-gray-800 hover:text-green-600 hover:font-semibold"
+                      href="/shop?selectedSkinCare=under-eye"
+                      class="text-gray-800 hover:font-semibold hover:text-green-600"
                       >Under Eye</a
                     >
                   </li>
@@ -375,27 +415,47 @@
             </div>
           </div>
         </li>
-        
-        <li class="group relative cursor-pointer py-2 ">
-          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl "
+
+        <li class="group relative cursor-pointer py-2">
+          <a href="/comingSoon" class="text-xl font-semibold hover:opacity-70"
             >Baby Care</a
           >
         </li>
 
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl w-28 flex items-center gap-1">Mediu Kit <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
+          <div
+            class="flex w-28 items-center gap-1 text-xl font-semibold hover:opacity-70"
+          >
+            Mediu Kit
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down mt-1 h-4 w-4"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </p>
+          </div>
 
           <div
-            class="invisible absolute p-4 lg:-left-[500px] text-black top-full z-50 w-[90vw] max-w-3xl bg-white opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+            class="invisible absolute top-full z-50 w-[90vw] max-w-3xl transform bg-white p-4 text-black opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 lg:-left-[500px]"
           >
-            <div class="p-6 flex justify-between w-full">
+            <div class="flex w-full justify-between p-6">
               <div class="8/12 grid grid-cols-3 gap-6">
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
+                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
+                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
                   >
                     Hair Growth Kits
                   </h2>
@@ -403,10 +463,10 @@
 
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
+                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
+                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
                   >
                     Dandruff Kits
                   </h2>
@@ -414,1943 +474,75 @@
 
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
+                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
+                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
                   >
                     Itchy Scalp Kits
                   </h2>
                 </nuxt-link>
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
+                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
+                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
                   >
                     Basic Kits
                   </h2>
                 </nuxt-link>
                 <nuxt-link
                   to="/comingSoon"
-                  class="border flex items-center justify-center border-[#238878] p-6 rounded-2xl hover:shadow-lg"
+                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
-                    class="font-semibold text-lg hover:text-[#238878] hover:underline"
+                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
                   >
                     Advanced Kits
                   </h2>
                 </nuxt-link>
               </div>
-
             </div>
           </div>
         </li>
 
         <li class="group relative cursor-pointer py-2">
-          <div class="font-semibold hover:opacity-70 text-xl flex items-center gap-1">Brands<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mt-1"><path d="m6 9 6 6 6-6"/></svg></p></div>
-
           <div
-            class="invisible absolute p- top-full -right-[100px] z-50 w-96 bg-white shadow-lg overflow-y-auto max-h-[400px] custom-scrollbar opacity-0 transform transition-all duration-500 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-5"
+            class="flex items-center gap-1 text-xl font-semibold hover:opacity-70"
           >
-            <div class="px-6 py-2">
-
-              <div class="sticky top-0 bg-white z-10">
-                <div
-                  class="text-[#238878] mb-2 text-xl font-serif font-semibold"
-                >
-                  Brands -
-                </div>
-
-                <input
-                  type="text"
-                  placeholder="Search by brand..."
-                  class="w-full p-2 border border-black bg-white text-black rounded mb-4"
-                />
-              </div>
-
-
-              <div class="space-y-2">
-
-                <div>
-                  <h2 class="font-bold text-lg">A</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >A-Derma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >A. Menarini India</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Abbott</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Aclaris Therapeutics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Acne Squad</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Adonis</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Adroit Biomed</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Aethicz Biolife</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ajanta Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Akosma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Akumentis</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Alkem Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Alembic</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >AMA Herbal Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Apex Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Apple Therapeutics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Arista Life Sciences</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Aurel Derma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Aveeno</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Aveil</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Avene</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Awear Beauty</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Azelia Healthcare</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h2 class="font-bold text-lg">B</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >BABE Laboratorios</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Barulab</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Beauty Garage</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Beauty of Joseon</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >BeautyWise</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Belif</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Bellacos Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Beta Drugs Ltd</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Biocon Biologics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Bioderma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Biokent Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Biopharmacieaa</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Blistex</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Brillare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Brinton</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Burt's Bees</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">C</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Cadila Pharmaceuticals Limited</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Cantabria Labs</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Canixa Life Sciences Pvt. Ltd.</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Capeli</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Carbamide Forte</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Catalysis S.L.</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >CeraVe</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Cetaphil</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ceuticoz</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Cipla</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Clinikally</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Coola LLC</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Cosderma Cosmoceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Cosmofix Technovation</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Cosmogen India</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >COSRX</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Craza Lifescience</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Crystal Tomato</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Curatio</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">D</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dabur India</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >De Fabulous</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Der-Joint Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermaceutic</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermaelite Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermajoint India</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermalogica</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >DERMATICA</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermawiz Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermedic</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermetics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermis Oracle</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermosys</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dermx</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Dr. Reddy's</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ducray</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >D'Vacos Cosmetics & Neutraceuticals</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">E</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >East West Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Elcon</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Elder Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Emcure Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Embryolisse</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Enavant Research</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Encore Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Entod Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Epique</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Eris Oaknet</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Eterno Distributors</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ethiall Remedies</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ethicare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ethinext Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Eve Lom</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">F</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Faher</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Fillmed Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Fixderma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Fluence Pharma</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">G</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Galderma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >General Medicine Therapeutics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Genosys</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Geosmatic Cosmeceuticals & Cosmocare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >GlaxoSmithKline Pharmaceuticals Ltd</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Glenmark Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Glint Cosmetics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Glo Blanc</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Glowderma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Gracederma Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Gufic Aesthaderm</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Gunam</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">H</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Haruharu</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >HBC Dermiza Health Care</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Health Etc</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Hegde & Hegde Pharmaceutical LLP</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >HK Vitals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Hydrafar</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">I</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Iberia</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Iceberg Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Indiabulls Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Indolands Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Intas Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >IPCA</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >iS Clinical</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >ISIS Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >ISDIN</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >IUNIK</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ivatherm</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">J</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Janssen</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Justhuman</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">K</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >KAHI</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >KAINE</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Kativa</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Kemiq Lifesciences</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Kerastem</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Klairs</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >KLM Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Kosher Organics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Kshipra Health Solutions</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-     
-                <div>
-                  <h2 class="font-bold text-lg">L</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >La Med India</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >La Pristine</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >La Roche-Posay</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Leafon Enterprises</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Leeford Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Leo Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Linux Laboratories</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >LISEN</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Lupin</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-
-                <div>
-                  <h2 class="font-bold text-lg">M</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Maddox Biosciences</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Mankind Pharma Ltd.</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Meconus Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Mederma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Medever Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Mediste Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Meyer Organics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Micro Labs</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Minimalist</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Mohrish Pharmaceuticals Pvt. Ltd</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >MRHM Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Mustela</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Mylan</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-
-                <div>
-                  <h2 class="font-bold text-lg">N</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Neutrogena</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Nimvas Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Noreva</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Nourrir Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Novology</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Nutracos Lifesciences</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Nutrova</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h2 class="font-bold text-lg">O</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Oaknet Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Olaplex</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >One Thing</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >OZiva</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >O3+</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-
-                <div>
-                  <h2 class="font-bold text-lg">P</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Palsons Derma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Percos</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >PHILIP B</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Physiogel</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Pilgrim</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >PRESCRIBEDsolutions</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Protein Kera</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Puerile Dermaceuticals</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-
-                <div>
-                  <h2 class="font-bold text-lg">Q</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >QOD Professional</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Quintessence Skin Science</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-  
-                <div>
-                  <h2 class="font-bold text-lg">R</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ralycos LLC</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Regaliz</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Regium Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Renewcell Cosmedica</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Rene Furterer</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Revitalash</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Rexcin Pharmaceuticals Pvt. Ltd.</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Rockmed Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Re'equil</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h2 class="font-bold text-lg">S</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Sanosan</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Saion International</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Salve Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Sebamed</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Sedge Bioceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Senechio Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Sesderma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Shangpree</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Simple</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Skinmedis</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Skinska Pharmaceutica</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Skinnovation Next</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Skyntox</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Solar D</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Sol Derma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Some By Mi</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Soteri Skin</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Steer Peau Dermo Cosmetique</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Sun Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Swiss Perfection</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Swisse</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Syscutis Healthcare</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h2 class="font-bold text-lg">T</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Talent India</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >The Face Shop</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >The FormulaRx</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Tricos Dermatologics</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Tricept</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Trikona Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Trilogy</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Torrent Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Torque Pharmaceuticals</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-
-                <div>
-                  <h2 class="font-bold text-lg">U</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >UAS Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ultrasun</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Ultra V</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Unimarck Pharma</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Universal Nutriscience</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Uriage</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >USV</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h2 class="font-bold text-lg">V</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Velsorg Healthcare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Verso</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h2 class="font-bold text-lg">W</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Wellbeing Nutrition</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Win-Medicare Pvt Ltd</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Winston</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >WishCare</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >WishNew Wellness</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Wockhardt</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-
-                <div>
-                  <h2 class="font-bold text-lg">Y</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Yuderma</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-
-                <div>
-                  <h2 class="font-bold text-lg">Z</h2>
-                  <ul class="pl-4">
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Zofra Pharmaceuticals</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="/shop"
-                        class="text-gray-800 hover:text-green-600 hover:font-semibold"
-                        >Zydus Healthcare</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
+            Brands
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down mt-1 h-4 w-4"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </p>
           </div>
+
+          <HomeNavItemBrands />
         </li>
 
-
         <li class="group relative cursor-pointer py-2">
-          <a href="/comingSoon" class="font-semibold hover:opacity-70 text-xl"
+          <a href="/comingSoon" class="text-xl font-semibold hover:opacity-70"
             >Supplements</a
           >
-        </li> 
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
-<!-- <script>
-export default {
-  data() {
-    return {
-      days: "00",
-      hours: "00",
-      minutes: "00",
-      seconds: "00",
-      interval: null,
-    };
-  },
-  methods: {
-    startCountdown(targetDate) {
-      const endDate = new Date(targetDate).getTime();
-
-      const updateCountdown = () => {
-        const now = new Date().getTime();
-        const distance = endDate - now;
-
-        if (distance < 0) {
-          clearInterval(this.interval);
-          this.days = "00";
-          this.hours = "00";
-          this.minutes = "00";
-          this.seconds = "00";
-          return;
-        }
-
-        this.days = Math.floor(distance / (1000 * 60 * 60 * 24))
-          .toString()
-          .padStart(2, "0");
-        this.hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        )
-          .toString()
-          .padStart(2, "0");
-        this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-          .toString()
-          .padStart(2, "0");
-        this.seconds = Math.floor((distance % (1000 * 60)) / 1000)
-          .toString()
-          .padStart(2, "0");
-      };
-
-      updateCountdown(); // Initial call
-      this.interval = setInterval(updateCountdown, 1000);
-    },
-  },
-  mounted() {
-    // Set your target date here
-    const targetDate = "2024-10-01T00:00:00Z"; // Adjust to your target date and time
-    this.startCountdown(targetDate);
-  },
-  beforeDestroy() {
-    // Clear the interval when the component is destroyed
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-  },
-};
-</script> -->
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
