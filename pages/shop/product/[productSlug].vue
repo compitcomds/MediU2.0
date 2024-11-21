@@ -1,5 +1,7 @@
 <template>
-  <div class="my-3 rounded-lg bg-white p-1 pb-10 sm:my-6 md:pb-10 lg:my-10 lg:p-6 lg:pb-0">
+  <div
+    class="my-3 rounded-lg bg-white p-1 pb-10 sm:my-6 md:pb-10 lg:my-10 lg:p-6 lg:pb-0"
+  >
     <div v-if="data">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
         <!-- Left Section: Thumbnails and Main Image Swiper -->
@@ -7,47 +9,92 @@
           <div class="flex flex-col lg:flex-row">
             <!-- Thumbnail Swiper in Column on the Left -->
             <div class="mb-4 hidden w-full lg:mb-0 lg:mr-4 lg:block lg:w-1/6">
-              <swiper-container class="mySwiper2" direction="vertical" space-between="10" slides-per-view="5"
-                autoplay-delay="5000" speed="1000" free-mode="true" watch-slides-progress="true"
-                style="height: 130%; max-height: 500px; width: 100%;">
-                <swiper-slide v-for="(item, index) in data.images" :key="item.url" :class="{
-                  'border-4 border-blue-500': currentThumbnail === index,
-                }" @click="thumbClick(index)">
-                  <img :src="item.url" alt="Thumbnail Image"
-                    class="h-full w-full rounded-lg border py-2 border-gray-200 object-cover" />
+              <swiper-container
+                class="mySwiper2"
+                direction="vertical"
+                space-between="10"
+                slides-per-view="5"
+                autoplay-delay="5000"
+                speed="1000"
+                free-mode="true"
+                watch-slides-progress="true"
+                style="height: 130%; max-height: 500px; width: 100%"
+              >
+                <swiper-slide
+                  v-for="(item, index) in data.images"
+                  :key="item.url"
+                  :class="{
+                    'border-4 border-blue-500': currentThumbnail === index,
+                  }"
+                  @click="thumbClick(index)"
+                >
+                  <img
+                    :src="item.url"
+                    alt="Thumbnail Image"
+                    class="h-full w-full rounded-lg border border-gray-200 object-cover py-2"
+                  />
                 </swiper-slide>
               </swiper-container>
             </div>
 
             <!-- Main Swiper on the Right -->
             <div class="w-full lg:w-5/6">
-              <swiper-container style="
-      --swiper-navigation-color: #4a5568;
-      --swiper-pagination-color: #4a5568;
-    " class="mySwiper" thumbs-swiper=".mySwiper2" space-between="15" navigation="true" pagination="true"
-                autoplay="true" autoplay-delay="5000" speed="1000" @slideChange="onSlideChange">
-
-                <swiper-slide v-for="(item, index) in data.images" :key="item.url">
-                  <VueMagnifier mgShape="square" :src="item.url" alt="Product Image"
-                    class="h-full w-full rounded-lg object-cover transition-transform duration-300" />
+              <swiper-container
+                style="
+                  --swiper-navigation-color: #4a5568;
+                  --swiper-pagination-color: #4a5568;
+                "
+                class="mySwiper"
+                thumbs-swiper=".mySwiper2"
+                space-between="15"
+                navigation="true"
+                pagination="true"
+                autoplay="true"
+                autoplay-delay="5000"
+                speed="1000"
+                @slideChange="onSlideChange"
+              >
+                <swiper-slide
+                  v-for="(item, index) in data.images"
+                  :key="item.url"
+                >
+                  <VueMagnifier
+                    mgShape="square"
+                    :src="item.url"
+                    alt="Product Image"
+                    class="h-full w-full rounded-lg object-cover transition-transform duration-300"
+                  />
                 </swiper-slide>
               </swiper-container>
             </div>
-
           </div>
 
           <!-- Product Highlights -->
-          <div class="mt-4 hidden items-center justify-between rounded-lg border bg-gray-50 p-4 shadow-sm lg:flex">
+          <div
+            class="mt-4 hidden items-center justify-between rounded-lg border bg-gray-50 p-4 shadow-sm lg:flex"
+          >
             <div class="flex flex-col items-center text-center">
-              <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/3.png" alt="100% Original" class="w-12" />
+              <img
+                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/3.png"
+                alt="100% Original"
+                class="w-12"
+              />
               <span class="font-semibold text-gray-700">100% Original</span>
             </div>
             <div class="flex flex-col items-center text-center">
-              <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/2.png" alt="Lowest Price" class="w-12" />
+              <img
+                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/2.png"
+                alt="Lowest Price"
+                class="w-12"
+              />
               <span class="font-semibold text-gray-700">Lowest Price</span>
             </div>
             <div class="flex flex-col items-center text-center">
-              <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/1.png" alt="Fast Delivery" class="w-12" />
+              <img
+                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/1.png"
+                alt="Fast Delivery"
+                class="w-12"
+              />
               <span class="font-semibold text-gray-700">Fast Delivery</span>
             </div>
           </div>
@@ -66,10 +113,17 @@
           <!-- Ratings and Reviews -->
           <div class="flex items-center space-x-3 text-gray-700">
             <div class="flex items-center gap-1 text-yellow-500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                class="h-5 w-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
                 <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
               </svg>
               <div class="font-medium">4.7</div>
             </div>
@@ -82,56 +136,94 @@
             <div class="text-lg font-bold text-[#238878]">Special Price</div>
             <div class="my-2 flex items-center gap-2">
               <div class="text-3xl font-bold text-gray-900">
-                <span class="text-[#4ca9ee]">{{ data.price.currencyCode }} {{ data.price.amount }}</span>
-                <span v-if="data.compareAtPrice && data.compareAtPrice.amount"
-                  class="text-sm text-gray-500 line-through">
+                <span class="text-[#4ca9ee]">
+                  {{ data.price?.currencyCode }}
+                  {{ data.price?.amount }}</span
+                >
+                <span
+                  v-if="
+                    calculatePercentage(data.compareAtPrice, data.price) > 0
+                  "
+                  class="text-sm text-gray-500 line-through"
+                >
                   MRP {{ data.compareAtPrice.amount }}
                 </span>
-                <span v-if="
-                  parseFloat(data.compareAtPrice?.amount) &&
-                  parseFloat(data.compareAtPrice?.amount) >
-                  parseFloat(data.price?.amount)
-                " class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white">
+                <span
+                  v-if="
+                    calculatePercentage(data.compareAtPrice, data.price) > 0
+                  "
+                  class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white"
+                >
                   Save
-                  {{
-                    Math.floor(
-                      ((parseFloat(data.compareAtPrice?.amount) -
-                        parseFloat(data.price?.amount)) *
-                        100) /
-                      parseFloat(data.compareAtPrice?.amount),
-                    )
-                  }}%
+                  {{ calculatePercentage(data.compareAtPrice, data.price) }}%
                 </span>
               </div>
             </div>
 
-            <div class="mb-4 text-sm text-gray-500">Inclusive of all Taxes</div>
+            <div class="mb-4 text-sm text-gray-500">
+              <p>Inclusive of all Taxes</p>
+              <p v-if="data.requiresPrescription">
+                Doctor's Prescription Required
+              </p>
+            </div>
             <div class="mb-4 flex items-center gap-4">
-              <div class="flex w-1/4 items-center justify-between rounded-lg border px-4 py-2">
-                <button @click="decreaseQuantity" class="text-2xl text-gray-800 hover:text-[#383e42]">
+              <div
+                class="flex w-1/4 items-center justify-between rounded-lg border px-4 py-2"
+              >
+                <button
+                  @click="decreaseQuantity"
+                  class="text-2xl text-gray-800 hover:text-[#383e42]"
+                >
                   -
                 </button>
                 <p class="text-lg text-gray-800">{{ quantity }}</p>
-                <button @click="increaseQuantity" class="text-2xl text-gray-800 hover:text-[#383e42]">
+                <button
+                  @click="increaseQuantity"
+                  class="text-2xl text-gray-800 hover:text-[#383e42]"
+                >
                   +
                 </button>
               </div>
               <div>
-                <ShopAddingToCartBtn :product-id="data.id" :quantity="quantity" />
+                <ShopAddingToCartBtn
+                  :product-id="data.id"
+                  :quantity="quantity"
+                />
               </div>
             </div>
             <hr class="my-4 border-dashed border-gray-300" />
 
-            <div v-for="(item, itemIndex) in data.options" :key="itemIndex" class="mb-4">
+            <div
+              v-for="(item, itemIndex) in data.options"
+              :key="itemIndex"
+              class="mb-4"
+            >
               <div v-if="item.name !== 'Title'">
-                <div class="mb-2 text-lg font-semibold text-gray-700">
-                  {{ item.name }}
-                </div>
+                <div class="mb-2 text-lg font-semibold text-gray-700"></div>
                 <div class="flex flex-wrap gap-4 overflow-x-auto">
-                  <div v-for="(variant, variantIndex) in data.variants" :key="variantIndex" class="flex w-fit gap-6">
-                    <div v-for="(variantValue, variantValueIndex) in variant" :key="variantValueIndex" class="min-w-48">
+                  <div
+                    v-for="(variant, variantIndex) in data.variants"
+                    :key="variantIndex"
+                    class="flex w-fit gap-6"
+                  >
+                    <nuxt-link
+                      v-for="(variantValue, variantValueIndex) in variant"
+                      :key="variantValueIndex"
+                      class="min-w-48"
+                      :to="{
+                        query: createQueryFromSelectedOptions(
+                          variantValue.node.selectedOptions,
+                        ),
+                      }"
+                    >
                       <div class="rounded-lg border shadow-lg">
-                        <div class="rounded-t-md bg-[#383e42] p-2 font-semibold text-white">
+                        <div
+                          class="rounded-t-md p-2 font-semibold text-white"
+                          :class="{
+                            'bg-[#383e42]': variantValue.node.id !== data.id,
+                            'bg-[#238878]': variantValue.node.id === data.id,
+                          }"
+                        >
                           {{ item.name }} : {{ variantValue.node.title }}
                         </div>
                         <div class="mt-1 ps-2 text-gray-700">
@@ -139,7 +231,7 @@
                           {{ variantValue.node.price.amount }}
                         </div>
                       </div>
-                    </div>
+                    </nuxt-link>
                   </div>
                 </div>
               </div>
@@ -151,16 +243,26 @@
               {{ data.description }}
             </div>
 
-            <hr class="my-4 border-dashed border-gray-300" v-if="data.options.title" />
+            <hr
+              class="my-4 border-dashed border-gray-300"
+              v-if="data.options?.title"
+            />
 
             <div class="hidden lg:block">
-              <swiper :slidesPerView="1" :spaceBetween="60" :loop="true"
-                :autoplay="{ delay: 6000, disableOnInteraction: false }" :modules="modules"
-                class="mySwiper my-4 w-full responsive-height">
-
+              <swiper
+                :slidesPerView="1"
+                :spaceBetween="60"
+                :loop="true"
+                :autoplay="{ delay: 6000, disableOnInteraction: false }"
+                :modules="modules"
+                class="mySwiper responsive-height my-4 w-full"
+              >
                 <swiper-slide v-for="(item, index) in slides" :key="index">
-                  <img :src="item" alt="Ad Banner"
-                    class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover" />
+                  <img
+                    :src="item"
+                    alt="Ad Banner"
+                    class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover"
+                  />
                 </swiper-slide>
               </swiper>
             </div>
@@ -174,20 +276,35 @@
           <!-- Tabs for Additional Information -->
         </div>
       </div>
+
       <div class="my-10 max-w-full lg:my-20">
-        <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-300">
-          <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1" :class="activeTab === index + 1
-            ? 'w-full bg-[#238878] text-white'
-            : 'w-full border-b-2 border-transparent text-[#238878] hover:border-[#238878]'
-            " class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300">
+        <div
+          class="flex items-center justify-around space-x-2 border-b-2 border-gray-300"
+        >
+          <button
+            v-for="(item, index) in accordionKeys"
+            :key="index"
+            @click="activeTab = index + 1"
+            :class="
+              activeTab === index + 1
+                ? 'w-full bg-[#238878] text-white'
+                : 'w-full border-b-2 border-transparent text-[#238878] hover:border-[#238878]'
+            "
+            class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300"
+          >
             {{ item.name }}
           </button>
         </div>
         <div class="rounded-md border border-gray-200 bg-white p-5 shadow-sm">
           <div v-for="(item, index) in accordionKeys" :key="index">
             <ul class="px-4">
-              <li v-if="activeTab === index + 1 && data[item.value]" class="text-gray-700">
-                <div v-html="data[item.value].value.split('\n').join('<br />')"></div>
+              <li
+                v-if="activeTab === index + 1 && data[item.value]"
+                class="text-gray-700"
+              >
+                <div
+                  v-html="data[item.value].value.split('\n').join('<br />')"
+                ></div>
               </li>
             </ul>
           </div>
@@ -196,7 +313,10 @@
       <!-- Related Products -->
       <div class="mt-8">
         <h3 class="text-2xl font-semibold text-gray-800">Related Products</h3>
-        <ShopRelatedProducts :product-id="data.productId" />
+        <ShopRelatedProducts
+          v-if="data.productId"
+          :product-id="data.productId"
+        />
       </div>
     </div>
 
@@ -211,8 +331,8 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { getProductData } from "~/shopify/productDetails";
-import VueMagnifier from '@websitebeaver/vue-magnifier'
-import '@websitebeaver/vue-magnifier/styles.css'
+import VueMagnifier from "@websitebeaver/vue-magnifier";
+import "@websitebeaver/vue-magnifier/styles.css";
 
 const modules = [Pagination, Navigation, Autoplay];
 const activeTab = ref(1);
@@ -246,13 +366,18 @@ const thumbClick = (index) => {
   currentThumbnail.value = index;
 };
 
-try {
-  const product = await getProductData(productHandle);
-  console.log("Fetched product data:", product); // Add this line
-  data.value = product;
-} catch (error) {
-  console.error("Error fetching product data:", error);
-}
+watch(
+  () => route.query,
+  async (newQuery) => {
+    try {
+      const product = await getProductData(productHandle, newQuery);
+      data.value = product;
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
+  },
+  { deep: true, immediate: true },
+);
 
 onMounted(() => {
   const script = document.createElement("script");
@@ -272,6 +397,21 @@ const decreaseQuantity = () => {
   if (quantity.value > 1) {
     quantity.value--;
   }
+};
+
+const createQueryFromSelectedOptions = (options) => {
+  const query = {};
+  for (const option of options) {
+    query[option.name] = option.value;
+  }
+  return query;
+};
+
+const calculatePercentage = (compareAtPrice, price) => {
+  return Math.floor(
+    ((parseFloat(compareAtPrice?.amount) - parseFloat(price?.amount)) * 100) /
+      parseFloat(compareAtPrice?.amount),
+  );
 };
 </script>
 
