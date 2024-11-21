@@ -1,16 +1,16 @@
 <template>
-  <section class="relative text-white bg-[#28574E] -mt-5 lg:py-12 h-[290px] xl:h-[650px] lg:h-[550px] lg:pt-16 w-full bg-cover bg-center"
+  <section class="relative text-black bg-white -mt-5 lg:py-12 h-[290px] xl:h-[650px] lg:h-[550px] lg:pt-16 w-full bg-cover bg-center"
     >
     <!-- Overlay for readability -->
     <!-- <div class="absolute inset-0 bg-black/50"></div> -->
 
     <div class="relative w-full text-center px-4 z-10">
       <!-- Hide heading on sm and md screens -->
-      <h1 class="hidden text-white lg:block text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 font-serif">
+      <h1 class="hidden text-black lg:block text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 font-serif">
         From You to Your Little One, We’ve Got <br />
         You Covered
       </h1>
-      <p class="text-base text-white sm:text-lg xl:text-xl mb-8 hidden lg:block">
+      <p class="text-base text-black sm:text-lg xl:text-xl mb-8 hidden lg:block">
         Explore Our Range of Skin, Hair, and Child Care Essentials
       </p>
       <div
