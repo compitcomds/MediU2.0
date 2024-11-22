@@ -81,7 +81,7 @@
 
           <div class="flex flex-col items-center mt-4">
             <!-- Responsive card name and price -->
-            <h2 class="text-xl sm:text-2xl md:text-3xl text-[#238878] my-4 font-semibold capitalize">
+            <h2 class="text-lg md:text-2xl text-[#238878] my-4 font-semibold capitalize">
               {{ card.name }}
             </h2>
             <div class="lg:my-4 text-center space-x-2">
@@ -151,7 +151,7 @@
 
           <div class="mt-4 text-left">
             <!-- card name and price -->
-            <h2 class="text-lg md:text-xl lg:text-2xl text-black capitalize">
+            <h2 class="text-sm lg:text-lg text-black capitalize">
               {{ card.name }}
             </h2>
             <div class="mt-2 space-x-2">
@@ -170,7 +170,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="bg-slate-300 rounded-full p-1 md:px-1 md:py-1 opacity-80">
+              <div class="bg-slate-300 rounded-full p-1 md:px-1 md:py-1 opacity-80 hidden md:block">
                 <a :key="card.link" :href="card.link" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round"
@@ -196,7 +196,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="text-end font-sans px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#4ca9ee] font-semibold">
+    <div class="text-end font-sans px-2 py-4 text-base md:text-2xl text-[#4ca9ee] font-semibold">
       <nuxt-link to="/shop">View All 240 Products -> </nuxt-link>
     </div>
   </div>

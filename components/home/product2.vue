@@ -79,20 +79,20 @@
               <a :href="product.url">
                 <img
                   :src="product.image"
-                  class="w-full lg:hover:scale-110"
+                  class="w-full h-32 md:h-auto lg:hover:scale-110"
                   alt=""
               /></a>
             </div>
             <div class="mt-4 space-y-2">
               <a :href="product.url">
-                <h3 class="text-sm md:text-xl text-black capitalize">
+                <h3 class="text-xs md:text-xl text-black capitalize">
                   {{ product.name }}
                 </h3></a
               >
               <div
                 class="flex justify-between items-center text-sm sm:text-lg md:text-xl"
               >
-                <div class="flex">
+                <div class="flex gap-1 items-center">
                   <p class="text-[#4ca9ee] font-bold">
                     ₹{{ product.salePrice }}
                   </p>
@@ -106,7 +106,7 @@
               </div>
               <div class="flex items-center justify-between mt-2">
                 <div class="flex justify-start">
-                  <div class="rating flex gap-1">
+                  <div class="rating flex md:gap-1">
                     <svg
                       v-for="i in 5"
                       :key="i"
@@ -127,7 +127,7 @@
                     </svg>
                   </div>
                 </div>
-                <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
+                <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80 hidden md:block">
                   <a :href="product.url"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"

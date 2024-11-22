@@ -74,7 +74,7 @@
               <a :href="product.url">
                 <img
                   :src="product.image"
-                  class="w-full lg:hover:scale-110 h-full max-h-36 xl:max-h-56 object-cover"
+                  class="w-full lg:hover:scale-110 h-full object-cover"
                   alt=""
               /></a>
             </div>
