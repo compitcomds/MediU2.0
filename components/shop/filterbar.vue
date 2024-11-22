@@ -1,26 +1,5 @@
 <template>
   <div class="mt-3">
-    <!-- <div
-      v-if="!!props.hideProductType"
-      class="me-2 mb-4 py-2 px-2 m-2 rounded-md border"
-    >
-      <div class="text-xl font-medium">Type of Products</div>
-      <div class="p-3">
-        <div v-for="(item, index) in TypeOfProducts" :key="index">
-          <label class="flex justify-start items-center mt-2">
-            <input
-              type="checkbox"
-              :value="item.value"
-              v-model="selectedTypeOfProducts"
-              @change="updateQueryParams"
-              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-            />
-            <p class="text-sm font-semiboldbold">{{ item.name }}</p>
-          </label>
-        </div>
-      </div>
-    </div> -->
-
     <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium">Skin Concern</div>
       <div class="p-3">
@@ -91,42 +70,6 @@
       </div>
     </div>
 
-    <!-- <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
-      <div class="text-xl font-medium">Nutrition and Diet</div>
-      <div class="p-3">
-        <div v-for="(item, index) in NutrionAndDiet" :key="index">
-          <label class="mt-2 flex items-center justify-start">
-            <input
-              type="checkbox"
-              :value="item.value"
-              v-model="selectedNutrionAndDiet"
-              @change="updateQueryParams"
-              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-            />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
-          </label>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
-      <div class="text-xl font-medium">Pediatric</div>
-      <div class="p-3">
-        <div v-for="(item, index) in Pediatric" :key="index">
-          <label class="mt-2 flex items-center justify-start">
-            <input
-              type="checkbox"
-              :value="item.value"
-              v-model="selectedPediatric"
-              @change="updateQueryParams"
-              class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
-            />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
-          </label>
-        </div>
-      </div>
-    </div> -->
-
     <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium text-[#22423c]">Hair Ingredient</div>
       <div class="p-3">
@@ -161,7 +104,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="m-2 mb-4 me-2 rounded-md border px-2 py-2">
       <div class="text-xl font-medium text-[#22423c]">Price</div>
       <div class="p-3">
@@ -246,7 +189,6 @@ const SkinIngredent = [
   { name: "UV Filters", value: "uv-filters" },
   { name: "Ceramide", value: "ceramide" },
   { name: "Hyaluronic Acid", value: "hyaluronic-acid" },
-
 ];
 const SkinCare = [
   { name: "Cleanser", value: "cleanser" },
@@ -255,7 +197,6 @@ const SkinCare = [
   { name: "SPF", value: "spf" },
   { name: "Under Eye", value: "under-eye" },
   { name: "Roll On", value: "roll-on" },
-
 ];
 const HairCare = [
   { name: "Shampoo", value: "shampoo" },
@@ -284,12 +225,8 @@ const selectedIngredent = ref(
 const selectedSkinIngredent = ref(
   ifStringMakeArray(route?.query?.selectedSkinIngredent),
 );
-const selectedSkinCare = ref(
-  ifStringMakeArray(route?.query?.selectedSkinCare),
-);
-const selectedHairCare = ref(
-  ifStringMakeArray(route?.query?.selectedHairCare),
-);
+const selectedSkinCare = ref(ifStringMakeArray(route?.query?.selectedSkinCare));
+const selectedHairCare = ref(ifStringMakeArray(route?.query?.selectedHairCare));
 const changeMinMaxPrice = useDebounceFn((newMinMax) => {
   router.push({
     path: route.path,
@@ -319,7 +256,6 @@ const updateQueryParams = () => {
     selectedSkinIngredent: selectedSkinIngredent.value,
     selectedSkinCare: selectedSkinCare.value,
     selectedHairCare: selectedHairCare.value,
-
   };
 
   router.push({ path: route.path, query: { ...route.query, ...query } });

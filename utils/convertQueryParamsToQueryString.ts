@@ -1,13 +1,5 @@
 export default function convertQueryParamsToQueryString(query: any) {
-  const availableTypeOfTags = [
-    "selectedTypeOfProducts",
-    "selectedSkinConcern",
-    "selectedHairConcern",
-    "selectedNutrionAndDiet",
-    "selectedPediatric",
-    "selectedIngredents",
-  ];
-
+  const availableTypeOfTags = Object.keys(query);
   let shopifyQuery = "";
   let index = 0;
   for (const tag of availableTypeOfTags) {

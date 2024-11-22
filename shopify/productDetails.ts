@@ -65,16 +65,9 @@ query productWithVariantsQuery($handle: String!) {
             amount
             currencyCode
           }
-          quantityAvailable
           selectedOptions {
             name
             value
-          }
-          image {
-            url
-            altText
-            height
-            width
           }
         }
       }
@@ -93,6 +86,7 @@ query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInp
       caseInsensitiveMatch: true
     ) {
       quantityAvailable
+      availableForSale
       id
       currentlyNotInStock
       image {
@@ -179,7 +173,7 @@ export async function getInitalProductData(handle: string) {
       currentlyNotInStock: false,
       productId: product.id,
       requiresPrescription:
-        product.requiresPrescription.value === "true" ? true : false,
+        product.requiresPrescription?.value === "true" ? true : false,
     };
 
     return returnData;
@@ -219,6 +213,7 @@ export async function getProductData(
       quantityAvailable: number;
       id: string;
       currentlyNotInStock: boolean;
+      availableForSale: boolean;
       image: {
         url: string;
         altText: string;
@@ -248,6 +243,7 @@ export async function getProductData(
       variantImages: [variant.image],
       price: variant.price,
       selectedOptions: variant.selectedOptions,
+      availableForSale: variant.availableForSale,
     };
   } catch (error) {
     console.error("Error fetching product variant data:", error);

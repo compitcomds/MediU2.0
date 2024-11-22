@@ -186,8 +186,14 @@
               </div>
               <div>
                 <ShopAddingToCartBtn
+                  v-if="data.availableForSale"
                   :product-id="data.id"
                   :quantity="quantity"
+                />
+                <ShopProductCreateAnAlert
+                  v-else
+                  :product-id="data.productId"
+                  :variant-id="data.id"
                 />
               </div>
             </div>
@@ -320,7 +326,6 @@
       </div>
     </div>
 
-    <!-- Customer Reviews -->
     <ShopReviews />
   </div>
 </template>
@@ -328,8 +333,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
 import { getProductData } from "~/shopify/productDetails";
 import VueMagnifier from "@websitebeaver/vue-magnifier";
 import "@websitebeaver/vue-magnifier/styles.css";
