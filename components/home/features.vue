@@ -11,7 +11,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto">
       <!-- Card 1 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative space-y-4 flex flex-col justify-between items-center"
+        class="bg-white p-2 md:p-6 rounded-3xl md:shadow-xl border md:border-none text-center relative space-y-4 flex flex-col justify-between items-center"
       >
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg
@@ -74,7 +74,7 @@
 
       <!-- Card 2 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative space-y-4 flex flex-col justify-between items-center"
+        class="bg-white p-2 md:p-6 rounded-3xl md:shadow-xl border md:border-none text-center relative space-y-4 flex flex-col justify-between items-center"
       >
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg
@@ -164,7 +164,7 @@
 
       <!-- Card 3 -->
       <div
-        class="bg-white p-6 rounded-3xl shadow-xl border text-center relative space-y-4 flex flex-col justify-between items-center"
+        class="bg-white p-2 md:p-6 rounded-3xl md:shadow-xl border md:border-none text-center relative space-y-4 flex flex-col justify-between items-center"
       >
         <div class="space-y-4 flex flex-col justify-between items-center">
           <svg

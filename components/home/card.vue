@@ -36,7 +36,7 @@
       <!-- First card -->
       <div class="w-full lg:w-5/12">
         <div v-for="card in filteredcards.slice(0, 1)" :key="card.link" :to="card.link"
-          class="border p-4 rounded-3xl shadow-lg block no-underline h-full font-sans">
+          class="border p-4 rounded-lg md:rounded-3xl md:border-none md:shadow-lg block no-underline h-full font-sans">
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
             <div class="space-x-4">
@@ -136,7 +136,7 @@
       <!-- Remaining Cards -->
       <div class="w-full lg:w-7/12 grid grid-cols-2 md:grid-cols-2 gap-2 lg:gap-6 capitalize font-sans">
         <div v-for="card in filteredcards.slice(1)" :key="card.link" :to="card.link"
-          class="border p-4 rounded-3xl shadow-lg block no-underline h-full">
+          class="border p-4 rounded-lg md:rounded-3xl md:border-none md:shadow-lg block no-underline h-full">
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
             <span v-if="card.isOnSale"

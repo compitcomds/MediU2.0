@@ -13,7 +13,7 @@
     <div class="responsive-div flex flex-col lg:flex-row mb-8 overflow-hidden">
       <!-- Image Section - Hidden for sm and md views -->
       <div class="w-full md:w-4/12 hidden lg:block">
-        <div class="diff lg:aspect-[9/16] xl:aspect-[9/18] xxl:aspect-[9/17]">
+        <div class="diff lg:aspect-[9/18] xl:aspect-[9/18] xxl:aspect-[9/17]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/4.png" />
           </div>
@@ -63,17 +63,17 @@
           
         </div>
         <!-- Grid for Products -->
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 h-auto font-sans">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6 h-auto font-sans">
           <!-- Products -->
           <div
             v-for="product in filteredProducts"
             :key="product.id"
-            class="shadow-md p-4 rounded-2xl block no-underline"
+            class="border md:border-none md:shadow-md rounded-lg md:rounded-2xl block no-underline overflow-hidden"
           >
             <div class="relative">
               <span
                 v-if="product.isOnSale"
-                class="absolute top-0 right-0 bg-orange-500 text-white text-xs px-2 py-1 rounded"
+                class="absolute top-1 right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded"
                 >Sale 50%</span
               >
               <a :href="product.url">
@@ -83,7 +83,7 @@
                   alt=""
               /></a>
             </div>
-            <div class="mt-4 space-y-2">
+            <div class="mt-4 space-y-2 p-4">
               <a :href="product.url">
                 <h3 class="text-xs md:text-xl text-black capitalize">
                   {{ product.name }}
@@ -432,10 +432,10 @@ export default {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   /* xl */
   .responsive-div {
-    height: 850px; /* Height for extra large devices */
+    height: 900px; /* Height for extra large devices */
   }
 }
 </style>
