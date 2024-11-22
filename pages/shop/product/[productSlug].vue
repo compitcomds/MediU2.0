@@ -136,34 +136,39 @@
             <div class="text-lg font-bold text-[#238878]">Special Price</div>
             <div class="my-2 flex items-center gap-2">
               <div class="text-3xl font-bold text-gray-900">
-                <span class="text-[#4ca9ee]">
-                  {{ data.price?.currencyCode }}
-                  {{ data.price?.amount }}</span
-                >
-                <span
-                  v-if="
-                    calculatePercentage(data.compareAtPrice, data.price) > 0
-                  "
-                  class="text-sm text-gray-500 line-through"
-                >
-                  MRP {{ data.compareAtPrice.amount }}
-                </span>
-                <span
-                  v-if="
-                    calculatePercentage(data.compareAtPrice, data.price) > 0
-                  "
-                  class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white"
-                >
-                  Save
-                  {{ calculatePercentage(data.compareAtPrice, data.price) }}%
-                </span>
+                <p>
+                  <span class="text-[#4ca9ee]">
+                    {{ data.price?.currencyCode }}
+                    {{ data.price?.amount }}</span
+                  >
+                  <span
+                    v-if="
+                      calculatePercentage(data.compareAtPrice, data.price) > 0
+                    "
+                    class="text-sm text-gray-500 line-through"
+                  >
+                    MRP {{ data.compareAtPrice.amount }}
+                  </span>
+                  <span
+                    v-if="
+                      calculatePercentage(data.compareAtPrice, data.price) > 0
+                    "
+                    class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white"
+                  >
+                    Save
+                    {{ calculatePercentage(data.compareAtPrice, data.price) }}%
+                  </span>
+                </p>
+                <p class="text-sm font-normal">Inclusive of all Taxes</p>
               </div>
             </div>
 
-            <div class="mb-4 text-sm text-gray-500">
-              <p>Inclusive of all Taxes</p>
-              <p v-if="data.requiresPrescription">
-                Doctor's Prescription Required
+            <div class="mb-4 text-gray-500">
+              <p
+                v-if="data.requiresPrescription"
+                class="my-2 flex items-center gap-2 text-sm font-bold text-[#238878]"
+              >
+                <ClipboardPlus /> <span>Doctor's Prescription Required</span>
               </p>
             </div>
             <div class="mb-4 flex items-center gap-4">
@@ -335,6 +340,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { getProductData } from "~/shopify/productDetails";
 import VueMagnifier from "@websitebeaver/vue-magnifier";
+import { ClipboardPlus } from "lucide-vue-next";
 import "@websitebeaver/vue-magnifier/styles.css";
 
 const modules = [Pagination, Navigation, Autoplay];
