@@ -38,16 +38,42 @@
       </div>
 
       <!-- Email Input Form -->
-      <form v-else @submit.prevent="submitEmail">
-        <label for="create-an-alert-email" class="mb-2 block">Email</label>
-        <input
-          id="create-an-alert-email"
-          type="email"
-          v-model="email"
-          placeholder="Enter your email"
-          class="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#238878]"
-          required
-        />
+      <form v-else @submit.prevent="submitEmail" class="flex flex-col gap-2">
+        <div>
+          <label for="create-an-alert-name" class="mb-2 block">Name</label>
+          <input
+            id="create-an-alert-name"
+            type="text"
+            v-model="form.name"
+            placeholder="Enter your name"
+            class="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#238878]"
+            required
+          />
+        </div>
+        <div>
+          <label for="create-an-alert-email" class="mb-2 block">Email</label>
+          <input
+            id="create-an-alert-email"
+            type="email"
+            v-model="form.email"
+            placeholder="Enter your email"
+            class="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#238878]"
+            required
+          />
+        </div>
+        <div>
+          <label for="create-an-alert-phone" class="mb-2 block"
+            >Mobile Number</label
+          >
+          <input
+            id="create-an-alert-phone"
+            type="text"
+            v-model="form.phone"
+            placeholder="Enter your mobile number"
+            class="mb-4 w-full rounded-lg border border-gray-300 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#238878]"
+            required
+          />
+        </div>
         <button
           type="submit"
           :disabled="isSubmitting"
@@ -91,7 +117,11 @@ import createProductAlertForUser from "~/appwrite/utils/create-an-alert";
 const props = defineProps<{ productId: string; variantId: string }>();
 
 const isDialogOpen = ref(false);
-const email = ref("");
+const form = ref({
+  name: "",
+  email: "",
+  phone: "",
+});
 const isSubmitted = ref(false);
 const isSubmitting = ref(false);
 
@@ -104,7 +134,7 @@ const submitEmail = async () => {
         "gid://shopify/ProductVariant/",
         "",
       ),
-      emailToNotify: email.value,
+      ...form.value,
     });
     isSubmitted.value = true;
   } catch (error: any) {

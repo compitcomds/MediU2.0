@@ -8,7 +8,9 @@ const APPWRITE_CREATE_AN_ALERT_COLLECTION_ID = import.meta.env
 export default async function createProductAlertForUser(data: {
   productId: string;
   productVariantId?: string;
-  emailToNotify: string;
+  name: string;
+  email: string;
+  phone: string;
 }) {
   await database.createDocument(
     APPWRITE_DATABASE_ID,
