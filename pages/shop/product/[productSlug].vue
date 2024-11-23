@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="my-3 rounded-lg bg-white p-1 pb-10 sm:my-6 md:pb-10 lg:my-10 lg:p-6 lg:pb-0"
-  >
+  <div class="mb-3 rounded-lg bg-white p-1 pb-10 sm:mb-6 md:pb-10 lg:mb-10 lg:p-6 lg:pb-0">
     <div v-if="data">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
         <!-- Left Section: Thumbnails and Main Image Swiper -->
@@ -9,92 +7,45 @@
           <div class="flex flex-col lg:flex-row">
             <!-- Thumbnail Swiper in Column on the Left -->
             <div class="mb-4 hidden w-full lg:mb-0 lg:mr-4 lg:block lg:w-1/6">
-              <swiper-container
-                class="mySwiper2"
-                direction="vertical"
-                space-between="10"
-                slides-per-view="5"
-                autoplay-delay="5000"
-                speed="1000"
-                free-mode="true"
-                watch-slides-progress="true"
-                style="height: 130%; max-height: 500px; width: 100%"
-              >
-                <swiper-slide
-                  v-for="(item, index) in data.images"
-                  :key="item.url"
-                  :class="{
-                    'border-4 border-blue-500': currentThumbnail === index,
-                  }"
-                  @click="thumbClick(index)"
-                >
-                  <img
-                    :src="item.url"
-                    alt="Thumbnail Image"
-                    class="h-full w-full rounded-lg border border-gray-200 object-cover py-2"
-                  />
+              <swiper-container class="mySwiper2" direction="vertical" space-between="10" slides-per-view="5"
+                autoplay-delay="5000" speed="1000" free-mode="true" watch-slides-progress="true"
+                style="height: 130%; max-height: 500px; width: 100%">
+                <swiper-slide v-for="(item, index) in data.images" :key="item.url" :class="{
+                  'border-4 border-blue-500': currentThumbnail === index,
+                }" @click="thumbClick(index)">
+                  <img :src="item.url" alt="Thumbnail Image"
+                    class="h-full w-full rounded-lg border border-gray-200 object-cover py-2" />
                 </swiper-slide>
               </swiper-container>
             </div>
 
             <!-- Main Swiper on the Right -->
             <div class="w-full lg:w-5/6">
-              <swiper-container
-                style="
+              <swiper-container style="
                   --swiper-navigation-color: #4a5568;
                   --swiper-pagination-color: #4a5568;
-                "
-                class="mySwiper"
-                thumbs-swiper=".mySwiper2"
-                space-between="15"
-                navigation="true"
-                pagination="true"
-                autoplay="true"
-                autoplay-delay="5000"
-                speed="1000"
-                @slideChange="onSlideChange"
-              >
-                <swiper-slide
-                  v-for="(item, index) in data.images"
-                  :key="item.url"
-                >
-                  <VueMagnifier
-                    mgShape="square"
-                    :src="item.url"
-                    alt="Product Image"
-                    class="h-full w-full rounded-lg object-cover transition-transform duration-300"
-                  />
+                " class="mySwiper" thumbs-swiper=".mySwiper2" space-between="15" navigation="true" pagination="true"
+                autoplay="true" autoplay-delay="5000" speed="1000" @slideChange="onSlideChange">
+                <swiper-slide v-for="(item, index) in data.images" :key="item.url">
+                  <VueMagnifier mgShape="square" :src="item.url" alt="Product Image"
+                    class="h-full w-full rounded-lg object-cover transition-transform duration-300" />
                 </swiper-slide>
               </swiper-container>
             </div>
           </div>
 
           <!-- Product Highlights -->
-          <div
-            class="mt-4 hidden items-center justify-between rounded-lg border bg-gray-50 p-4 shadow-sm lg:flex"
-          >
+          <div class="mt-4 hidden items-center justify-between rounded-lg border bg-gray-50 p-4 shadow-sm lg:flex">
             <div class="flex flex-col items-center text-center">
-              <img
-                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/3.png"
-                alt="100% Original"
-                class="w-12"
-              />
+              <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/3.png" alt="100% Original" class="w-12" />
               <span class="font-semibold text-gray-700">100% Original</span>
             </div>
             <div class="flex flex-col items-center text-center">
-              <img
-                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/2.png"
-                alt="Lowest Price"
-                class="w-12"
-              />
+              <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/2.png" alt="Lowest Price" class="w-12" />
               <span class="font-semibold text-gray-700">Lowest Price</span>
             </div>
             <div class="flex flex-col items-center text-center">
-              <img
-                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/1.png"
-                alt="Fast Delivery"
-                class="w-12"
-              />
+              <img src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/1.png" alt="Fast Delivery" class="w-12" />
               <span class="font-semibold text-gray-700">Fast Delivery</span>
             </div>
           </div>
@@ -113,22 +64,13 @@
           <!-- Ratings and Reviews -->
           <div class="flex items-center space-x-3 text-gray-700">
             <div class="flex items-center gap-1 text-yellow-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="h-5 w-5"
-              >
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                />
-              </svg>
-              <div class="font-medium">4.7</div>
+              <p class="flex items-center gap-1 text-[#eab308]">
+                <Star :size="16" fill="#eab308" v-for="i in 5" />
+              </p>
+              <div class="font-medium">4.9</div>
             </div>
             <div>|</div>
-            <div class="text-gray-500">752 Verified Ratings</div>
+            <div class="text-gray-500">50 Verified Ratings</div>
           </div>
 
           <!-- Pricing Information -->
@@ -139,22 +81,15 @@
                 <p>
                   <span class="text-[#4ca9ee]">
                     {{ data.price?.currencyCode }}
-                    {{ data.price?.amount }}</span
-                  >
-                  <span
-                    v-if="
-                      calculatePercentage(data.compareAtPrice, data.price) > 0
-                    "
-                    class="text-sm text-gray-500 line-through"
-                  >
+                    {{ data.price?.amount }}</span>
+                  <span v-if="
+                    calculatePercentage(data.compareAtPrice, data.price) > 0
+                  " class="text-sm text-gray-500 line-through">
                     MRP {{ data.compareAtPrice.amount }}
                   </span>
-                  <span
-                    v-if="
-                      calculatePercentage(data.compareAtPrice, data.price) > 0
-                    "
-                    class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white"
-                  >
+                  <span v-if="
+                    calculatePercentage(data.compareAtPrice, data.price) > 0
+                  " class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white">
                     Save
                     {{ calculatePercentage(data.compareAtPrice, data.price) }}%
                   </span>
@@ -164,77 +99,43 @@
             </div>
 
             <div class="mb-4 text-gray-500">
-              <p
-                v-if="data.requiresPrescription"
-                class="my-2 flex items-center gap-2 text-sm font-bold text-[#238878]"
-              >
+              <p v-if="data.requiresPrescription" class="my-2 flex items-center gap-2 text-sm font-bold text-[#238878]">
                 <ClipboardPlus /> <span>Doctor's Prescription Required</span>
               </p>
             </div>
             <div class="mb-4 flex items-center gap-4">
-              <div
-                class="flex w-1/4 items-center justify-between rounded-lg border px-4 py-2"
-              >
-                <button
-                  @click="decreaseQuantity"
-                  class="text-2xl text-gray-800 hover:text-[#383e42]"
-                >
+              <div class="flex w-1/4 items-center justify-between rounded-lg border px-4 py-2">
+                <button @click="decreaseQuantity" class="text-2xl text-gray-800 hover:text-[#383e42]">
                   -
                 </button>
                 <p class="text-lg text-gray-800">{{ quantity }}</p>
-                <button
-                  @click="increaseQuantity"
-                  class="text-2xl text-gray-800 hover:text-[#383e42]"
-                >
+                <button @click="increaseQuantity" class="text-2xl text-gray-800 hover:text-[#383e42]">
                   +
                 </button>
               </div>
               <div>
-                <ShopAddingToCartBtn
-                  v-if="data.availableForSale"
-                  :product-id="data.id"
-                  :quantity="quantity"
-                />
-                <ShopProductCreateAnAlert
-                  v-else
-                  :product-id="data.productId"
-                  :variant-id="data.id"
-                />
+                <ShopAddingToCartBtn v-if="data.availableForSale" :product-id="data.id" :quantity="quantity" />
+                <ShopProductCreateAnAlert v-else :product-id="data.productId" :variant-id="data.id" />
               </div>
             </div>
             <hr class="my-4 border-dashed border-gray-300" />
 
-            <div
-              v-for="(item, itemIndex) in data.options"
-              :key="itemIndex"
-              class="mb-4"
-            >
+            <div v-for="(item, itemIndex) in data.options" :key="itemIndex" class="mb-4">
               <div v-if="item.name !== 'Title'">
                 <div class="mb-2 text-lg font-semibold text-gray-700"></div>
                 <div class="flex flex-wrap gap-4 overflow-x-auto">
-                  <div
-                    v-for="(variant, variantIndex) in data.variants"
-                    :key="variantIndex"
-                    class="flex w-fit gap-6"
-                  >
-                    <nuxt-link
-                      v-for="(variantValue, variantValueIndex) in variant"
-                      :key="variantValueIndex"
-                      class="min-w-48"
-                      :to="{
+                  <div v-for="(variant, variantIndex) in data.variants" :key="variantIndex" class="flex w-fit gap-6">
+                    <nuxt-link v-for="(variantValue, variantValueIndex) in variant" :key="variantValueIndex"
+                      class="min-w-48" :to="{
                         query: createQueryFromSelectedOptions(
                           variantValue.node.selectedOptions,
                         ),
-                      }"
-                    >
+                      }">
                       <div class="rounded-lg border shadow-lg">
-                        <div
-                          class="rounded-t-md p-2 font-semibold text-white"
-                          :class="{
-                            'bg-[#383e42]': variantValue.node.id !== data.id,
-                            'bg-[#238878]': variantValue.node.id === data.id,
-                          }"
-                        >
+                        <div class="rounded-t-md p-2 font-semibold text-white" :class="{
+                          'bg-[#383e42]': variantValue.node.id !== data.id,
+                          'bg-[#238878]': variantValue.node.id === data.id,
+                        }">
                           {{ item.name }} : {{ variantValue.node.title }}
                         </div>
                         <div class="mt-1 ps-2 text-gray-700">
@@ -250,30 +151,39 @@
 
             <ShopCheckDelivery />
 
-            <div class="text-md">
-              {{ data.description }}
+            <div class="border p-6 bg-white rounded-xl transition-all duration-300">
+              <!-- Display loading state while data is being fetched -->
+              <div v-if="data.value === null" class="flex justify-center items-center text-gray-500">
+                <p class="text-lg">Loading product details...</p>
+              </div>
+
+              <!-- Product description display with truncation and show more functionality -->
+              <div v-else class="text-md text-gray-700">
+                <!-- Ensure description is shown after data is fetched -->
+                <span v-if="!isExpanded && data.description" class="block mb-4">
+                  {{ truncatedDescription }}
+                </span>
+                <span v-else class="block mb-4">
+                  {{ data.description }}
+                </span>
+              </div>
+
+              <!-- Button to toggle full description -->
+              <button v-if="data.description && data.description.split(' ').length > 20" @click="toggleDescription"
+                class="inline-block mt-3 text-blue-600 hover:text-blue-800 focus:outline-none transition duration-300">
+                <span class="text-sm font-medium">{{ isExpanded ? 'Show Less' : 'Show More' }}</span>
+              </button>
             </div>
 
-            <hr
-              class="my-4 border-dashed border-gray-300"
-              v-if="data.options?.title"
-            />
+            <hr class="my-4 border-dashed border-gray-300" v-if="data.options?.title" />
 
             <div class="hidden lg:block">
-              <swiper
-                :slidesPerView="1"
-                :spaceBetween="60"
-                :loop="true"
-                :autoplay="{ delay: 6000, disableOnInteraction: false }"
-                :modules="modules"
-                class="mySwiper responsive-height my-4 w-full"
-              >
+              <swiper :slidesPerView="1" :spaceBetween="60" :loop="true"
+                :autoplay="{ delay: 6000, disableOnInteraction: false }" :modules="modules"
+                class="mySwiper responsive-height my-4 w-full">
                 <swiper-slide v-for="(item, index) in slides" :key="index">
-                  <img
-                    :src="item"
-                    alt="Ad Banner"
-                    class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover"
-                  />
+                  <img :src="item" alt="Ad Banner"
+                    class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover" />
                 </swiper-slide>
               </swiper>
             </div>
@@ -289,33 +199,19 @@
       </div>
 
       <div class="my-10 max-w-full lg:my-20">
-        <div
-          class="flex items-center justify-around space-x-2 border-b-2 border-gray-300"
-        >
-          <button
-            v-for="(item, index) in accordionKeys"
-            :key="index"
-            @click="activeTab = index + 1"
-            :class="
-              activeTab === index + 1
-                ? 'w-full bg-[#238878] text-white'
-                : 'w-full border-b-2 border-transparent text-[#238878] hover:border-[#238878]'
-            "
-            class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300"
-          >
+        <div class="flex items-center justify-around space-x-2 border-b-2 border-gray-300">
+          <button v-for="(item, index) in accordionKeys" :key="index" @click="activeTab = index + 1" :class="activeTab === index + 1
+            ? 'w-full bg-[#238878] text-white'
+            : 'w-full border-b-2 border-transparent text-[#238878] hover:border-[#238878]'
+            " class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300">
             {{ item.name }}
           </button>
         </div>
         <div class="rounded-md border border-gray-200 bg-white p-5 shadow-sm">
           <div v-for="(item, index) in accordionKeys" :key="index">
             <ul class="px-4">
-              <li
-                v-if="activeTab === index + 1 && data[item.value]"
-                class="text-gray-700"
-              >
-                <div
-                  v-html="data[item.value].value.split('\n').join('<br />')"
-                ></div>
+              <li v-if="activeTab === index + 1 && data[item.value]" class="text-gray-700">
+                <div v-html="data[item.value].value.split('\n').join('<br />')"></div>
               </li>
             </ul>
           </div>
@@ -324,10 +220,7 @@
       <!-- Related Products -->
       <div class="mt-8">
         <h3 class="text-2xl font-semibold text-gray-800">Related Products</h3>
-        <ShopRelatedProducts
-          v-if="data.productId"
-          :product-id="data.productId"
-        />
+        <ShopRelatedProducts v-if="data.productId" :product-id="data.productId" />
       </div>
     </div>
 
@@ -337,6 +230,7 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { Star } from "lucide-vue-next";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { getProductData } from "~/shopify/productDetails";
 import VueMagnifier from "@websitebeaver/vue-magnifier";
@@ -370,6 +264,21 @@ const accordionKeys = [
     value: "keyBenefits",
   },
 ];
+
+// For description truncation
+const isExpanded = ref(false); // Track whether description is expanded or not
+
+// Truncate description to the first 20 words
+const truncatedDescription = computed(() => {
+  if (data.value?.description) {
+    const words = data.value.description.split(' ');
+    if (words.length > 20) {
+      return words.slice(0, 20).join(' ') + '...';
+    }
+    return data.value.description;
+  }
+  return ''; // Return empty string if data or description is undefined
+});
 
 const thumbClick = (index) => {
   currentThumbnail.value = index;
@@ -419,8 +328,13 @@ const createQueryFromSelectedOptions = (options) => {
 const calculatePercentage = (compareAtPrice, price) => {
   return Math.floor(
     ((parseFloat(compareAtPrice?.amount) - parseFloat(price?.amount)) * 100) /
-      parseFloat(compareAtPrice?.amount),
+    parseFloat(compareAtPrice?.amount),
   );
+};
+
+// Toggle the expanded description state
+const toggleDescription = () => {
+  isExpanded.value = !isExpanded.value;
 };
 </script>
 
@@ -464,6 +378,7 @@ const calculatePercentage = (compareAtPrice, price) => {
 .shadow-lg {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 /* Default height for smaller screens */
 .responsive-height {
   height: 100px;
@@ -482,6 +397,7 @@ const calculatePercentage = (compareAtPrice, price) => {
     height: 100px;
   }
 }
+
 @media (min-width: 1440px) {
   .responsive-height {
     height: 150px;
