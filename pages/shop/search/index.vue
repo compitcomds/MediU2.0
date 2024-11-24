@@ -15,7 +15,6 @@
 
 <script setup>
 import shopifySearchProducts from "~/shopify/search/search";
-// import { getFilters } from "~/shopify/productFilters";
 
 const route = useRoute();
 
@@ -31,10 +30,4 @@ watch(() => route.query, fetchProductsUsingSearchQuery, { deep: true });
 onMounted(() => {
   fetchProductsUsingSearchQuery(route.query);
 });
-
-// const { filters } = await getFilters();
-// console.log(filters);
-const isDrawerOpen = ref(false);
-let currentPage = 1;
-const perPage = 30;
 </script>

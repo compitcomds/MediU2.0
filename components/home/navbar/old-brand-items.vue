@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p- custom-scrollbar invisible absolute -right-[100px] top-full z-50 max-h-[400px] w-96 transform overflow-y-auto bg-white opacity-0 shadow-lg transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:opacity-100"
+    class="custom-scrollbar invisible absolute -right-[100px] top-full z-50 max-h-[400px] w-96 transform overflow-y-auto bg-white opacity-0 shadow-lg transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:opacity-100"
   >
     <div class="px-6 py-2">
       <div class="sticky top-0 z-10 bg-white">

@@ -530,7 +530,8 @@
             </p>
           </div>
 
-          <HomeNavItemBrands />
+          <!-- <HomeNavbarOldBrandItems /> -->
+          <HomeNavbarBrandItems />
         </li>
 
         <li class="group relative cursor-pointer py-2">
