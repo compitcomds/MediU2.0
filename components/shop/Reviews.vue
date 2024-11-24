@@ -1,9 +1,14 @@
 <template>
-  <div class="mt-10 px-5 md:px-10 border py-5 md:py-10 rounded-xl overflow-hidden" id="customer-review-section">
+  <div
+    class="mt-10 overflow-hidden rounded-xl border px-5 py-5 md:px-10 md:py-10"
+    id="customer-review-section"
+  >
     <h2 class="mb-8 text-center text-xl font-bold text-[#238878] lg:text-2xl">
       Customer Reviews
     </h2>
-    <div class="mx-auto mb-8 flex max-w-full flex-wrap items-center justify-between gap-5">
+    <div
+      class="mx-auto mb-8 flex max-w-full flex-wrap items-center justify-between gap-5"
+    >
       <div class="md:w-1/5">
         <div class="mb-1 flex items-center gap-2">
           <p class="flex items-center gap-2">
@@ -33,7 +38,10 @@
               </span>
             </div>
             <div class="relative h-5 w-48 bg-gray-200">
-              <div class="absolute left-0 top-0 h-full bg-[#238878]" :style="{ width: `${100 / i}%` }"></div>
+              <div
+                class="absolute left-0 top-0 h-full bg-[#238878]"
+                :style="{ width: `${100 / i}%` }"
+              ></div>
             </div>
             <p>39</p>
           </div>
@@ -42,7 +50,10 @@
 
       <div class="flex items-center justify-center md:w-1/5">
         <div>
-          <button @click="toggleWriteReview" class="bg-[#238878] px-8 py-2 font-medium text-white">
+          <button
+            @click="toggleWriteReview"
+            class="bg-[#238878] px-8 py-2 font-medium text-white"
+          >
             Write A Review
           </button>
         </div>
@@ -50,7 +61,7 @@
     </div>
 
     <div v-if="writeReview" class="mb-8">
-      <ShopProductWriteReviewForm />
+      <ShopProductWriteReviewForm :product-id="props.productId" />
     </div>
 
     <!-- Show only 5 reviews initially -->
@@ -65,8 +76,14 @@
     </div>
 
     <!-- Load More button -->
-    <div v-if="reviews.length > displayedReviews.length" class="text-center mt-6">
-      <button @click="loadMoreReviews" class="bg-[#238878] px-8 py-2 font-medium text-white">
+    <div
+      v-if="reviews.length > displayedReviews.length"
+      class="mt-6 text-center"
+    >
+      <button
+        @click="loadMoreReviews"
+        class="bg-[#238878] px-8 py-2 font-medium text-white"
+      >
         Load More
       </button>
     </div>
@@ -74,21 +91,61 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
 import { Star } from "lucide-vue-next";
+
+const props = defineProps<{
+  productId: string;
+}>();
 
 // Sample review data
 const reviews = ref([
-  { name: 'Harseerat Arora', stars: 5, description: "This cica serum has a magic inside. It makes my skin glowy and fair." },
-  { name: 'John Doe', stars: 4, description: "Good serum but took time to see results." },
-  { name: 'Jane Smith', stars: 5, description: "Absolutely love this product! My skin feels amazing." },
-  { name: 'Sara Lee', stars: 4, description: "Pretty good, but a bit sticky for my taste." },
-  { name: 'Chris Johnson', stars: 5, description: "Perfect for my sensitive skin, will buy again." },
-  { name: 'Nina Patel', stars: 3, description: "It works but not as fast as I expected." },
-  { name: 'Tom Hardy', stars: 4, description: "Decent product, I liked it." },
-  { name: 'Lucy Brown', stars: 5, description: "Great serum, my skin is glowing after 2 weeks." },
-  { name: 'Emily Clark', stars: 5, description: "Amazing product, works as advertised!" },
-  { name: 'Mark Wilson', stars: 4, description: "Good but could be better for the price." },
+  {
+    name: "Harseerat Arora",
+    stars: 5,
+    description:
+      "This cica serum has a magic inside. It makes my skin glowy and fair.",
+  },
+  {
+    name: "John Doe",
+    stars: 4,
+    description: "Good serum but took time to see results.",
+  },
+  {
+    name: "Jane Smith",
+    stars: 5,
+    description: "Absolutely love this product! My skin feels amazing.",
+  },
+  {
+    name: "Sara Lee",
+    stars: 4,
+    description: "Pretty good, but a bit sticky for my taste.",
+  },
+  {
+    name: "Chris Johnson",
+    stars: 5,
+    description: "Perfect for my sensitive skin, will buy again.",
+  },
+  {
+    name: "Nina Patel",
+    stars: 3,
+    description: "It works but not as fast as I expected.",
+  },
+  { name: "Tom Hardy", stars: 4, description: "Decent product, I liked it." },
+  {
+    name: "Lucy Brown",
+    stars: 5,
+    description: "Great serum, my skin is glowing after 2 weeks.",
+  },
+  {
+    name: "Emily Clark",
+    stars: 5,
+    description: "Amazing product, works as advertised!",
+  },
+  {
+    name: "Mark Wilson",
+    stars: 4,
+    description: "Good but could be better for the price.",
+  },
 ]);
 
 // Track the number of reviews to display
