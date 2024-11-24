@@ -37,8 +37,6 @@ watch(
     });
     const newData = await fetchProducts({ query: queryString });
 
-    console.log(newData);
-
     data.value = {
       ...newData,
       products: newData.products.filter((product: any) => {

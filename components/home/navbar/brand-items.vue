@@ -10,19 +10,20 @@
 
         <input
           type="text"
+          v-model="searchQuery"
           placeholder="Search by brand..."
           class="mb-4 w-full rounded border border-black bg-white p-2 text-black"
         />
       </div>
 
       <div class="space-y-2">
-        <div v-for="(values, key) in sortedBrandCollections">
+        <div v-for="(values, key) in filteredBrandCollections">
           <h2 class="text-lg font-bold uppercase">{{ key }}</h2>
           <ul class="pl-4">
             <li v-for="value in values">
               <nuxt-link
                 class="text-gray-800 hover:font-semibold hover:text-green-600"
-                :to="`#`"
+                :to="`/shop/${value.handle}`"
               >
                 {{ value.title }}
               </nuxt-link>
@@ -38,11 +39,31 @@
 import getAllBrandCollections from "~/shopify/shop/get-brand-collections";
 
 const brandCollections = await getAllBrandCollections();
+const groupedBrandCollections = groupByAlphabet(brandCollections);
+const searchQuery = ref("");
 
-const sortedBrandCollections = groupAndSortByTitle(brandCollections);
-console.log(sortedBrandCollections);
+const filteredBrandCollections = computed(() => {
+  if (!searchQuery.value) {
+    return groupedBrandCollections;
+  }
+  const searchLowerCase = searchQuery.value.toLowerCase();
+  const filteredGrouped: Record<string, { handle: string; title: string }[]> =
+    {};
 
-function groupAndSortByTitle(
+  for (const letter of Object.keys(groupedBrandCollections)) {
+    if (letter.toLowerCase() !== searchLowerCase[0]) continue;
+    const filteredItems = groupedBrandCollections[letter].filter((item) =>
+      item.title.toLowerCase().includes(searchLowerCase),
+    );
+    if (filteredItems.length > 0) {
+      filteredGrouped[letter] = filteredItems;
+    }
+  }
+
+  return filteredGrouped;
+});
+
+function groupByAlphabet(
   arr: {
     handle: string;
     title: string;
@@ -69,10 +90,6 @@ function groupAndSortByTitle(
     }
     grouped[firstLetter].push(item);
   });
-
-  for (const letter in grouped) {
-    grouped[letter].sort((a, b) => a.title.localeCompare(b.title));
-  }
 
   return grouped;
 }

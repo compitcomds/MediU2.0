@@ -2,7 +2,7 @@ import shopifyClient from "../shopify-client";
 
 const getAllCollectionsQuery = `
 query getAllCollectionsQuery {
-  collections(first: 150) {
+  collections(first: 150, sortKey: TITLE) {
     nodes {
       handle
       title
