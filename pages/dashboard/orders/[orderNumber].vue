@@ -105,7 +105,6 @@
 </template>
 
 <script setup>
-import createOrderInvoice from "~/utils/createOrderInvoice";
 import getUserOrder from "~/shopify/user/orders/particular-order";
 
 const route = useRoute();
@@ -142,27 +141,13 @@ const payload = {
   items: orderData.lineItems.map((item) => ({
     name: item.title,
     quantity: item.quantity,
-    price: parseFloat(item.originalTotalPrice.amount), // Use original total price for individual item price
-    tax:
-      item.discountedTotalPrice.amount < item.originalTotalPrice.amount
-        ? 10
-        : 0, // Example tax calculation
+    sku: item.variant?.sku || "",
+    price: parseFloat(item.originalTotalPrice.amount),
+    tax: parseFloat(item.variant?.product?.gstApplied?.value || "0"),
   })),
   note: {
     text: "Thank you for orderring from us.",
   },
-};
-
-const downloadInvoice = async () => {
-  const url = await createOrderInvoice(payload);
-  const link = document.createElement("a");
-  link.href = url;
-  link.target = "_blank";
-  link.download = `Invoice-${orderNumber}.pdf`; // Specify the download filename
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  window.URL.revokeObjectURL(url); // Clean up the URL object
 };
 </script>
 <style lang="scss" scoped>

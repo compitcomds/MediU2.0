@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden">
+  <div class="">
     <div
       id="invoice"
       class="invoice-container max-w-[90%] bg-white p-5 text-black"
@@ -52,7 +52,10 @@
             :key="index"
             class="hover:bg-gray-50"
           >
-            <td class="border-b px-4 py-2">{{ item.name }}</td>
+            <td class="border-b px-4 py-2">
+              {{ item.name }} <br />
+              {{ item.sku }}
+            </td>
             <td class="border-b px-4 py-2 text-center">{{ item.quantity }}</td>
             <td class="border-b px-4 py-2 text-right">
               {{ formatCurrency(item.price) }}
@@ -72,7 +75,10 @@
 
       <!-- Footer Section -->
       <div class="mt-4 flex justify-between">
-        <p class="italic text-gray-600">{{ payload.note.text }}</p>
+        <div>
+          <p class="italic text-gray-600">{{ payload.note.text }}</p>
+          <p>This is computer generated bill.</p>
+        </div>
         <div class="text-right">
           <p class="font-semibold">
             Total: {{ formatCurrency(payload.invoice.total) }}

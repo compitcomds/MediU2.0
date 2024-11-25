@@ -4,7 +4,7 @@ import { getOrderDocumentThroughTransactionId } from "~/appwrite/orders";
 import resetCart from "~/shopify/cart/reset-cart";
 
 const SHOPIFY_URL = `https://dev-mediu.myshopify.com/admin/api/2024-04`;
-const SHOPIFY_ADMIN_ACCESS_TOKEN = "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";
+const SHOPIFY_ADMIN_ACCESS_TOKEN = "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";
 const PHONEPAY_REDIRECT_SUCCESS_URL = String(
   process.env.PHONEPAY_REDIRECT_SUCCESS_URL,
 );

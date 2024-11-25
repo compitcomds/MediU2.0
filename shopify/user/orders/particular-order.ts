@@ -26,11 +26,17 @@ query getParticularUserOrders($accessToken: String!, $query: String) {
               currencyCode
             }
             variant {
+              sku
               image {
                 altText
                 height
                 width
                 url
+              }
+              product {
+                gstApplied: metafield(key: "gst_applied", namespace: "custom") {
+                  value
+                }
               }
             }
           }
