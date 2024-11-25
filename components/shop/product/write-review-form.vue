@@ -68,12 +68,14 @@
 <script setup lang="ts">
 import { Star } from "lucide-vue-next";
 import { getUser } from "~/appwrite/auth";
-import addProductReviewInAppwrite from "~/appwrite/utils/add-review";
+import addProductReviewInAppwrite from "~/appwrite/reviews/add-review";
 let user: any;
 
 const props = defineProps<{
   productId: string;
 }>();
+
+const reviewsModel = defineModel<any>("reviews");
 
 try {
   user = await getUser();
@@ -99,7 +101,6 @@ const setRating = (star: number) => {
 };
 
 const submitReview = async () => {
-  isSubmitting.value = true;
   if (!user.email) {
     alert("Log in to post a review.");
     return;
@@ -115,12 +116,16 @@ const submitReview = async () => {
     return;
   }
 
+  isSubmitting.value = true;
   try {
-    await addProductReviewInAppwrite({
+    const review = await addProductReviewInAppwrite({
       ...form.value,
       user: user.email,
       productId: props.productId.replace("gid://shopify/Product/", ""),
+      name: user.name,
     });
+
+    reviewsModel.value = [review, ...reviewsModel.value];
     alert("Successfully added the review.");
     form.value = {
       description: "",

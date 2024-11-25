@@ -4,7 +4,6 @@
   >
     <div v-if="data">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
-        <!-- Left Section: Thumbnails and Main Image Swiper -->
         <div class="col-span-5 space-y-6 lg:col-span-2">
           <div class="flex flex-col lg:flex-row">
             <!-- Thumbnail Swiper in Column on the Left -->
@@ -100,9 +99,7 @@
           </div>
         </div>
 
-        <!-- Right Section: Product Details and Actions -->
         <div class="col-span-5 space-y-4 lg:col-span-3">
-          <!-- Product Title and Description -->
           <div class="text-3xl font-semibold text-gray-900">
             {{ data.title }}
           </div>
@@ -110,7 +107,6 @@
             {{ data?.productSubtitle?.value || "" }}
           </div>
 
-          <!-- Ratings and Reviews -->
           <div class="flex items-center space-x-3 text-gray-700">
             <div class="flex items-center gap-1 text-yellow-500">
               <p class="flex items-center gap-1 text-[#eab308]">
@@ -122,7 +118,6 @@
             <div class="text-gray-500">50 Verified Ratings</div>
           </div>
 
-          <!-- Pricing Information -->
           <div class="space-y-4">
             <div class="text-lg font-bold text-[#238878]">Special Price</div>
             <div class="my-2 flex items-center gap-2">
@@ -244,7 +239,6 @@
             <div
               class="rounded-xl border bg-white p-6 transition-all duration-300"
             >
-              <!-- Display loading state while data is being fetched -->
               <div
                 v-if="data.value === null"
                 class="flex items-center justify-center text-gray-500"
@@ -252,9 +246,7 @@
                 <p class="text-lg">Loading product details...</p>
               </div>
 
-              <!-- Product description display with truncation and show more functionality -->
               <div v-else class="text-md text-gray-700">
-                <!-- Ensure description is shown after data is fetched -->
                 <span v-if="!isExpanded && data.description" class="mb-4 block">
                   {{ truncatedDescription }}
                 </span>
@@ -263,7 +255,6 @@
                 </span>
               </div>
 
-              <!-- Button to toggle full description -->
               <button
                 v-if="
                   data.description && data.description.split(' ').length > 20
@@ -306,8 +297,6 @@
 
             <hr class="my-4 border-dashed border-gray-300" />
           </div>
-
-          <!-- Tabs for Additional Information -->
         </div>
       </div>
 
@@ -344,7 +333,7 @@
           </div>
         </div>
       </div>
-      <!-- Related Products -->
+
       <div class="mt-8">
         <h3 class="text-2xl font-semibold text-gray-800">Related Products</h3>
         <ShopRelatedProducts
@@ -353,7 +342,7 @@
         />
       </div>
     </div>
-    <ShopReviews :product-id="data.productId" />
+    <ShopProductReviews :product-id="data.productId" />
   </div>
 </template>
 
@@ -394,10 +383,8 @@ const accordionKeys = [
   },
 ];
 
-// For description truncation
-const isExpanded = ref(false); // Track whether description is expanded or not
+const isExpanded = ref(false);
 
-// Truncate description to the first 20 words
 const truncatedDescription = computed(() => {
   if (data.value?.description) {
     const words = data.value.description.split(" ");
@@ -406,7 +393,7 @@ const truncatedDescription = computed(() => {
     }
     return data.value.description;
   }
-  return ""; // Return empty string if data or description is undefined
+  return "";
 });
 
 const thumbClick = (index) => {

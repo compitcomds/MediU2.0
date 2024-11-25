@@ -4,7 +4,8 @@
       <div class="bg-gray-200 p-2"><UserIcon /></div>
       <div>
         <p class="flex items-center gap-1 text-[#eab308]">
-          <Star :size="16" fill="#eab308" v-for="i in 5" />
+          <Star :size="16" fill="#eab308" v-for="_ in stars" />
+          <Star :size="16" fill="#e5e7eb" v-for="_ in (5 - stars) % 5" />
         </p>
         <p>{{ name }}</p>
       </div>
@@ -18,7 +19,7 @@
 <script setup lang="ts">
 import { UserIcon, Star } from "lucide-vue-next";
 
-const review = defineProps<{
+const { stars, name, description } = defineProps<{
   stars: number;
   name: string;
   description: string;

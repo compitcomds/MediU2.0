@@ -1,16 +1,16 @@
 <template>
   <div class="font-serif">
-    <div class="flex flex-col lg:space-y-6 mb-5 lg:mb-10">
-      <h1 class="text-xl lg:text-4xl text-center text-gray-500">
+    <div class="mb-5 flex flex-col lg:mb-10 lg:space-y-6">
+      <h1 class="text-center text-xl text-gray-500 lg:text-4xl">
         Nourishing Treatments
       </h1>
-      <h2 class="text-2xl lg:text-6xl font-bold text-center text-[#238878]">
+      <h2 class="text-center text-2xl font-bold text-[#238878] lg:text-6xl">
         Hair Care Must-Haves
       </h2>
     </div>
-    <div class="responsive-div flex flex-col lg:flex-row mb-8 overflow-hidden">
+    <div class="responsive-div mb-8 flex flex-col overflow-hidden lg:flex-row">
       <!-- Image Section - Displayed on large screens only -->
-      <div class="w-full md:w-4/12 hidden lg:block">
+      <div class="hidden w-full md:w-4/12 lg:block">
         <div class="diff lg:aspect-[9/18] xl:aspect-[9/18] xxl:aspect-[9/17]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/6.png" />
@@ -22,78 +22,135 @@
         </div>
       </div>
       <!-- Products Section -->
-      <div class="w-full lg:w-8/12 lg:ml-4">
-        <div class="flex justify-center lg:justify-between px-4 mb-4 text-xl gap-2">
-          <button @click="filterProducts('Hairfall')" :class="{
-            'bg-[#238878] text-white': selectedCategory === 'Hairfall',
-            'bg-slate-300 text-black': selectedCategory !== 'Hairfall',
-          }" class="py-2 px-2 lg:px-4 rounded-full w-full text-xs lg:text-lg">
+      <div class="w-full lg:ml-4 lg:w-8/12">
+        <div
+          class="mb-4 flex justify-center gap-2 px-4 text-xl lg:justify-between"
+        >
+          <button
+            @click="filterProducts('Hairfall')"
+            :class="{
+              'bg-[#238878] text-white': selectedCategory === 'Hairfall',
+              'bg-slate-300 text-black': selectedCategory !== 'Hairfall',
+            }"
+            class="w-full rounded-full px-2 py-2 text-xs lg:px-4 lg:text-lg"
+          >
             Hairfall
           </button>
-          <button @click="filterProducts('Oily Scalp')" :class="{
-            'bg-[#238878] text-white': selectedCategory === 'Oily Scalp',
-            'bg-slate-300 text-black': selectedCategory !== 'Oily Scalp',
-          }" class="py-2 px-2 rounded-full w-full text-xs lg:text-lg">
+          <button
+            @click="filterProducts('Oily Scalp')"
+            :class="{
+              'bg-[#238878] text-white': selectedCategory === 'Oily Scalp',
+              'bg-slate-300 text-black': selectedCategory !== 'Oily Scalp',
+            }"
+            class="w-full rounded-full px-2 py-2 text-xs lg:text-lg"
+          >
             Oily Scalp
           </button>
-          <button @click="filterProducts('Bald Patches')" :class="{
-            'bg-[#238878] text-white': selectedCategory === 'Bald Patches',
-            'bg-slate-300 text-black': selectedCategory !== 'Bald Patches',
-          }" class="py-2 px-2 lg:px-4 rounded-full w-full text-xs lg:text-lg">
+          <button
+            @click="filterProducts('Bald Patches')"
+            :class="{
+              'bg-[#238878] text-white': selectedCategory === 'Bald Patches',
+              'bg-slate-300 text-black': selectedCategory !== 'Bald Patches',
+            }"
+            class="w-full rounded-full px-2 py-2 text-xs lg:px-4 lg:text-lg"
+          >
             Bald Patches
           </button>
         </div>
         <!-- Grid for Products -->
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6 h-auto font-sans">
+        <div
+          class="grid h-auto grid-cols-2 gap-2 font-sans md:gap-6 lg:grid-cols-3"
+        >
           <!-- Products -->
-          <div v-for="product in filteredProducts" :key="product.id"
-            class="border md:border-none md:shadow-md rounded-lg md:rounded-2xl block no-underline overflow-hidden">
+          <div
+            v-for="product in filteredProducts"
+            :key="product.id"
+            class="block overflow-hidden rounded-lg border no-underline md:rounded-2xl md:border-none md:shadow-md"
+          >
             <div class="relative">
-              <span v-if="product.isOnSale"
-                class="absolute top-1 right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded">Sale 5%</span>
+              <span
+                v-if="product.isOnSale"
+                class="absolute right-2 top-1 rounded bg-orange-500 px-2 py-1 text-xs text-white"
+                >Sale 5%</span
+              >
               <a :href="product.url">
-                <img :src="product.image" class="w-full lg:hover:scale-110 h-32 md:h-auto object-cover" alt="" /></a>
+                <img
+                  :src="product.image"
+                  class="h-32 w-full object-cover md:h-auto lg:hover:scale-110"
+                  alt=""
+              /></a>
             </div>
             <div class="mt-4 space-y-2 p-4">
               <a :href="product.url">
-                <h3 class="text-xs md:text-lg text-black capitalize">
+                <h3 class="text-xs capitalize text-black md:text-lg">
                   {{ product.name }}
                 </h3>
               </a>
-              <div class="flex gap-1 items-center text-sm sm:text-lg md:text-xl">                
-                  <p class="text-[#4ca9ee] font-bold">
-                    ₹{{ product.salePrice }}
-                  </p>
-                  <p class="text-gray-500 text-sm sm:text-md line-through" v-if="product.isOnSale">
-                    ₹{{ product.originalPrice }}
-                  </p>                
+              <div
+                class="flex items-center gap-1 text-sm sm:text-lg md:text-xl"
+              >
+                <p class="font-bold text-[#4ca9ee]">₹{{ product.salePrice }}</p>
+                <p
+                  class="sm:text-md text-sm text-gray-500 line-through"
+                  v-if="product.isOnSale"
+                >
+                  ₹{{ product.originalPrice }}
+                </p>
               </div>
-              <div class="flex items-center justify-between mt-2">
+              <div class="mt-2 flex items-center justify-between">
                 <div class="flex justify-start">
                   <div class="rating flex gap-1">
-                    <svg v-for="i in 5" :key="i" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                      viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"
-                      stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star text-[#FFD700]">
+                    <svg
+                      v-for="i in 5"
+                      :key="i"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star text-[#FFD700]"
+                    >
                       <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
                     </svg>
                   </div>
                 </div>
-                <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80 hidden md:block">
-                  <a :href="product.url"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right w-6 h-6 lg:w-8 lg:h-8 p-1">
-                      <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                <div
+                  class="hidden rounded-full bg-slate-300 px-1 py-1 opacity-80 md:block"
+                >
+                  <a :href="product.url"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-square-arrow-out-up-right h-6 w-6 p-1 lg:h-8 lg:w-8"
+                    >
+                      <path
+                        d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                      />
                       <path d="m21 3-9 9" />
-                      <path d="M15 3h6v6" />
-                    </svg></a>
+                      <path d="M15 3h6v6" /></svg
+                  ></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="mt-4 text-right md:text-end">
-          <nuxt-link to="/shop" class="text-[#4ca9ee] text-sm md:text-2xl">Explore More →</nuxt-link>
+          <nuxt-link to="/shop" class="text-sm text-[#4ca9ee] md:text-2xl"
+            >Explore More →</nuxt-link
+          >
         </div>
       </div>
     </div>
@@ -331,7 +388,7 @@ export default {
   computed: {
     filteredProducts() {
       return this.products.filter(
-        (product) => product.category === this.selectedCategory
+        (product) => product.category === this.selectedCategory,
       );
     },
   },
@@ -351,7 +408,6 @@ export default {
 }
 
 @media (min-width: 640px) {
-
   /* sm */
   .responsive-div {
     height: auto;
@@ -360,7 +416,6 @@ export default {
 }
 
 @media (min-width: 768px) {
-
   /* md */
   .responsive-div {
     height: auto;
@@ -369,7 +424,6 @@ export default {
 }
 
 @media (min-width: 1120px) {
-
   /* lg */
   .responsive-div {
     height: 800px;
@@ -378,7 +432,6 @@ export default {
 }
 
 @media (min-width: 1280px) {
-
   /* xl */
   .responsive-div {
     height: 900px;

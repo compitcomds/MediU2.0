@@ -10,8 +10,9 @@ export default async function addProductReviewInAppwrite(data: {
   user: string;
   rating: number;
   description: string;
+  name: string;
 }) {
-  await database.createDocument(
+  return await database.createDocument(
     APPWRITE_DATABASE_ID,
     APPWRITE_REVIEW_COLLECTION_ID,
     ID.unique(),
