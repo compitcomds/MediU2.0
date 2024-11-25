@@ -12,6 +12,7 @@ export const createUserDocument = async (
     shopifyCustomerId: string;
     wishlist: string[];
     shopifyCartId?: string;
+    wallet:number;
   }
 ) => {
   const document = await database.createDocument(
@@ -34,3 +35,4 @@ export const getUserDocument = async (userId: string) => {
     throw error;
   }
 };
+

@@ -44,6 +44,7 @@ const createNewShopifyUser = async (
     shopifyCustomerId,
     shopifyPassword,
     wishlist: [],
+    wallet:0
   });
 };
 
