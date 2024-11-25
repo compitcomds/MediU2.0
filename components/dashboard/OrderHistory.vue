@@ -1,6 +1,6 @@
 <template>
   <div class="p-4 mt-4">
-    <h1 class="text-4xl text-center font-semibold mb-6 text-[#28574e]">Package status</h1>
+    <h1 class="text-4xl text-center font-semibold mb-6 text-[#238878]">Package status</h1>
     <div class="container">
       <div class="flex flex-col md:grid grid-cols-12 text-gray-50">
         <div v-for="(status, index) in packageStatuses" :key="index" class="flex md:contents">

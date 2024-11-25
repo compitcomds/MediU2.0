@@ -1,6 +1,6 @@
 <template>
-  <section class="w-3/4 rounded-lg p-6 ml-6 border space-y-6">
-    <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">Payment Methods</h2>
+  <section class="w-full lg:w-3/4 rounded-lg lg:p-6 lg:ml-6 p-2 my-10 lg:my-0 pb-20 lg:pb-0  border space-y-6">
+    <h2 class="text-2xl font-semibold mb-4 text-[#238878]">Payment Methods</h2>
     <div class="space-y-10">
       <!-- Shipping Method Options -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -15,7 +15,7 @@
               class="w-12"
             />
             <div>
-              <h3 class="font-semibold text-[#28574e]">Paypal</h3>
+              <h3 class="font-semibold text-[#238878]">Paypal</h3>
               <!-- <p class="text-black">Delivery, Tomorrow</p> -->
             </div>
           </div>
@@ -41,7 +41,7 @@
               class="w-12"
             />
             <div>
-              <h3 class="font-semibold text-[#28574e]">Credit or Debit Card</h3>
+              <h3 class="font-semibold text-[#238878]">Credit or Debit Card</h3>
               <!-- <p class="text-black">Delivery, Today</p> -->
             </div>
           </div>
@@ -65,7 +65,7 @@
               class="w-12"
             />
             <div>
-              <h3 class="font-semibold text-[#28574e]">Direct bank Transfer</h3>
+              <h3 class="font-semibold text-[#238878]">Direct bank Transfer</h3>
               <!-- <p class="text-black">Delivery, Today</p> -->
             </div>
           </div>
@@ -89,7 +89,7 @@
               class="w-12"
             />
             <div>
-              <h3 class="font-semibold text-[#28574e]">Cash on Delivery</h3>
+              <h3 class="font-semibold text-[#238878]">Cash on Delivery</h3>
               <!-- <p class="text-black">Delivery, Today</p> -->
             </div>
           </div>
@@ -179,7 +179,7 @@
     <div class="mt-4">
       <nuxt-link
         to="/dashboard/orderComplete"
-        class="w-full bg-[#28574e] text-white mt-4 text-lg font-semibold p-3 rounded-lg hover:bg-[#437e73]"
+        class="w-full bg-[#238878] text-white mt-4 text-lg font-semibold p-3 rounded-lg hover:bg-[#437e73]"
       >
         Confirm Order
       </nuxt-link>
@@ -204,7 +204,7 @@ export default {};
 }
 
 .custom-radio:checked {
-  border-color: #28574e; /* Custom green border when checked */
+  border-color: #238878; /* Custom green border when checked */
 }
 
 .custom-radio:checked::before {
@@ -214,7 +214,7 @@ export default {};
   left: 50%;
   width: 10px;
   height: 10px;
-  background-color: #28574e;
+  background-color: #238878;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }

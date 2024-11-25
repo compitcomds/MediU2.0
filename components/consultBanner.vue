@@ -7,7 +7,7 @@
         </div>
 
         <!-- Main Heading -->
-        <h2 class="text-xl md:text-3xl text-center font-bold text-[#28574e] leading-tight">
+        <h2 class="text-xl md:text-3xl text-center font-bold text-[#238878] leading-tight">
             Schedule Your Next Appointment at Mediu for Expert Healthcare
         </h2>
 

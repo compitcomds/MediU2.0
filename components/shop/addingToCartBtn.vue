@@ -2,7 +2,7 @@
   <div>
     <button
       @click="addProductToCart"
-      class="p-2 bg-[#28574E] text-xl rounded-full shadow text-white font-semibold px-3 py-3 disabled:cursor-not-allowed disabled:animate-pulse"
+      class="p-2 bg-[#238878] text-xl rounded-full shadow text-white font-semibold px-3 py-3 disabled:cursor-not-allowed disabled:animate-pulse"
       :disabled="isAddingProductToCart"
     >
       <div class="flex items-center px-2 justify-between gap-5">

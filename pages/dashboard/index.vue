@@ -1,10 +1,10 @@
 <template>
-  <div class="min-h-screen bg-[#edf8f3] lg:mt-12 p-6" v-if="UserData">
-    <div class="flex gap-6">
+  <div class="min-h-screen bg-[#edf8f3] lg:mt-12 lg:p-6" v-if="UserData">
+    <div class="lg:flex lg:gap-6">
       <!-- Sidebar -->
       <DashboardSidenav :UserData="UserData || ''" />
       <!-- Main Dashboard -->
-      <DashboardMain />
+      <DashboardMain class="hidden lg:block" />
     </div>
   </div>
 </template>

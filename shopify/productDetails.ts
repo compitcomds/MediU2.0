@@ -42,7 +42,13 @@ query productWithVariantsQuery($handle: String!) {
     otherInfo: metafield(key: "other_info", namespace: "custom") {
       value
     }
-      reviews: metafield(key: "reviews", namespace: "custom") {
+    reviews: metafield(key: "reviews", namespace: "custom") {
+      value
+    }
+    productSubtitle: metafield(key: "productSubtitle", namespace: "custom"){
+      value
+    }
+    requiresPrescription: metafield(key: "requiresPrescription", namespace: "custom"){
       value
     }
     variants(first: 10) {
@@ -59,16 +65,9 @@ query productWithVariantsQuery($handle: String!) {
             amount
             currencyCode
           }
-          quantityAvailable
           selectedOptions {
             name
             value
-          }
-          image {
-            url
-            altText
-            height
-            width
           }
         }
       }
@@ -79,7 +78,7 @@ query productWithVariantsQuery($handle: String!) {
 `;
 
 const productVariantQuery = `
-query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInput!] = {name: "", value: ""}) {
+query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInput!]!) {
   product(handle: $handle) {
     variantBySelectedOptions(
       selectedOptions: $selectedOptions
@@ -87,6 +86,7 @@ query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInp
       caseInsensitiveMatch: true
     ) {
       quantityAvailable
+      availableForSale
       id
       currentlyNotInStock
       image {
@@ -110,19 +110,6 @@ query ProductVariantQuery($handle: String!, $selectedOptions: [SelectedOptionInp
     }
   }
 }
-`;
-
-const addReviewMutation = `
- query UpdateMetafield($input: MetafieldsSetInput!) {
-    metafieldsSet(input: $input) {
-      metafields {
-        id
-        namespace
-        key
-        value
-      }
-    }
-  }
 `;
 
 export async function getInitalProductData(handle: string) {
@@ -154,6 +141,10 @@ export async function getInitalProductData(handle: string) {
       reviews: {
         value: string;
       };
+      productSubtitle: {
+        value: string;
+      };
+      requiresPrescription: { value: string };
       featuredImage: {
         url: string;
         altText: string;
@@ -181,6 +172,8 @@ export async function getInitalProductData(handle: string) {
       images: product.images.nodes,
       currentlyNotInStock: false,
       productId: product.id,
+      requiresPrescription:
+        product.requiresPrescription?.value === "true" ? true : false,
     };
 
     return returnData;
@@ -220,6 +213,7 @@ export async function getProductData(
       quantityAvailable: number;
       id: string;
       currentlyNotInStock: boolean;
+      availableForSale: boolean;
       image: {
         url: string;
         altText: string;
@@ -249,6 +243,7 @@ export async function getProductData(
       variantImages: [variant.image],
       price: variant.price,
       selectedOptions: variant.selectedOptions,
+      availableForSale: variant.availableForSale,
     };
   } catch (error) {
     console.error("Error fetching product variant data:", error);

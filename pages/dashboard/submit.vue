@@ -1,14 +1,14 @@
 <template>
-    <div class="min-h-screen bg-[#edf8f3] p-6 flex" v-if="UserData">
+    <div class="min-h-screen bg-[#edf8f3] lg:p-6 flex" v-if="UserData">
       <!-- Sidebar -->
-            <DashboardSidenav :UserData="UserData || ''"/>
+            <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''"/>
 
   
       <!-- Main Layout -->
-      <div class="w-3/4 px-8 flex flex-col items-center justify-center">
+      <div class="w-full lg:w-3/4 lg:px-8 flex flex-col items-center justify-center">
         <!-- Cancellation Confirmation Box -->
         <div
-          class="border border-gray-200 w-[600px] p-8 bg-white rounded-lg shadow-md flex flex-col items-center"
+          class="border border-gray-200 lg:w-[600px] p-8 bg-white rounded-lg shadow-md flex flex-col items-center"
         >
           <!-- Checkmark Icon -->
           <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center mb-6">

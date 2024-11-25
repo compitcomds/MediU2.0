@@ -1,6 +1,7 @@
 <template>
-  <div class="w-3/4 p-8">
-    <h1 class="text-4xl text-[#28574e] font-semibold mb-8">Downloads</h1>
+  <div class="w-full lg:w-3/4 lg:p-8 py-10 lg:py-5">
+    <h1 class="text-4xl text-[#238878] font-semibold mb-8">Downloads</h1>
+    <div class="w-full max-w-[500px] md:max-w-full overflow-auto">
     <table class="w-full bg-white shadow-lg rounded-lg">
       <thead class="bg-gray-100">
         <tr class="text-left text-gray-600 font-semibold">
@@ -12,7 +13,7 @@
       </thead>
       <tbody>
         <tr v-for="(product, index) in products" :key="index" class="border-b">
-          <td class="py-4 px-6 text-[#28574e]">{{ index + 1 }}</td>
+          <td class="py-4 px-6 text-[#238878]">{{ index + 1 }}</td>
           <td class="py-4 px-6">
             <img
               :src="product.image"
@@ -20,7 +21,7 @@
               class="object-cover rounded-lg"
             />
           </td>
-          <td class="py-4 px-6 text-xl text-[#28574E] font-semibold">
+          <td class="py-4 px-6 lg:text-xl text-[#238878] font-semibold">
             {{ product.name }}
           </td>
           <td class="py-4 px-6 text-right">
@@ -32,7 +33,7 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </template>
 

@@ -5,7 +5,7 @@
   >
     <nuxt-link to="/" class="flex w-3/12 items-center">
       <img
-        src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%202.jpg"
+        src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%201.png"
         class="w-[30%] xxl:w-[20%]"
         alt="Logo"
       />
@@ -24,7 +24,7 @@
       />
       <button
         type="submit"
-        class="inline-flex items-center gap-2 rounded-r-full bg-orange-500 px-6 py-3 text-lg text-white"
+        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-6 py-3 text-lg text-white"
       >
         <span class="">
           <svg

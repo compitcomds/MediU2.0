@@ -1,6 +1,6 @@
 <template>
-  <main class="w-3/4 pl-8">
-    <div class="mb-6 rounded-lg bg-white p-6 shadow-lg">
+  <main class="w-full lg:w-3/4 lg:pl-8 pb-20 pt-5">
+    <div class="mb-6 rounded-lg bg-white p-2 shadow-lg overflow-scroll max-w-[500px] md:max-w-full w-full">
       <table class="min-w-full table-auto border-collapse text-left">
         <thead>
           <tr class="border-b-2 text-sm font-semibold text-gray-700">
@@ -58,7 +58,7 @@
         <button class="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300">
           Prev
         </button>
-        <div>
+        <div class="space-x-2">
           <button class="rounded bg-green-600 px-4 py-2 text-white">1</button>
           <button
             class="rounded border border-gray-300 bg-white px-4 py-2 hover:bg-gray-100"

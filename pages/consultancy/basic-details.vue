@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-[#28574e] pb-20 px-4 lg:pb-10 lg:px-0 lg:py-10 mt-4 max-w-md mx-auto"
+    class="text-[#238878] pb-20 px-4 lg:pb-10 lg:px-0 lg:py-10 mt-4 max-w-md mx-auto"
   >
     <h2 class="text-3xl font-bold mb-6 text-center">Enter Your Details</h2>
 
@@ -107,7 +107,7 @@
       <div class="text-end">
         <button
           type="submit"
-          class="bg-[#28574e] text-white px-6 py-2 rounded-md w-full md:w-auto"
+          class="bg-[#238878] text-white px-6 py-2 rounded-md w-full md:w-auto"
           :disabled="!isFormFilled"
         >
           Next: Summary

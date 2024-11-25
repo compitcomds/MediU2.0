@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white p-8 rounded-lg text-[#28574e]">
+  <div class="bg-white p-8 rounded-lg text-[#238878]">
     <h2 class="text-2xl font-bold mb-6 text-center">Summary</h2>
     <p class="text-center mb-6">Your appointment booking summary</p>
 
@@ -29,7 +29,7 @@
       v-if="service"
       class="flex justify-between items-center text-lg font-bold border-b border-gray-300 pb-4 mb-6"
     >
-      <span class="text-[#28574e]">Total Amount Payable</span>
+      <span class="text-[#238878]">Total Amount Payable</span>
       <span class="text-red-500">₹{{ service.price.amount }}</span>
     </div>
 
@@ -38,7 +38,7 @@
       <button
         @click="proceedToPayment"
         :disabled="isSubmitting"
-        class="bg-[#28574e] text-white px-6 py-2 rounded hover:bg-[#5c998e] disabled:cursor-not-allowed disabled:animate-pulse"
+        class="bg-[#238878] text-white px-6 py-2 rounded hover:bg-[#5c998e] disabled:cursor-not-allowed disabled:animate-pulse"
       >
         {{ isSubmitting ? "Proceeding to payment..." : "Confirm Booking" }}
       </button>

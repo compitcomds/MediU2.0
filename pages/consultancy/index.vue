@@ -10,7 +10,7 @@
         class="flex items-center cursor-pointer w-full lg:w-1/4 text-black"
       >
         <span
-          class="text-[#28574e] border-2 border-[#28574e] rounded-full hover:text-white text-xl font-semibold p-4 gap-4 w-full hover:bg-[#28574e] flex items-center justify-center"
+          class="text-[#238878] border-2 border-[#238878] rounded-full hover:text-white text-xl font-semibold p-4 gap-4 w-full hover:bg-[#238878] flex items-center justify-center"
           >Continue
           <svg
             xmlns="http://www.w3.org/2000/svg"

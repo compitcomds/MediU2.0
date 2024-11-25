@@ -31,6 +31,9 @@ watch(
       selectedNutrionAndDiet: newQuery.selectedNutrionAndDiet,
       selectedPediatric: newQuery.selectedPediatric,
       selectedIngredent: newQuery.selectedIngredent,
+      selectedSkinIngredent: newQuery.selectedSkinIngredent,
+      selectedSkinCare: newQuery.selectedSkinCare,
+      selectedHairCare: newQuery.selectedHairCare,
     });
     const newData = await fetchProducts({ query: queryString });
 

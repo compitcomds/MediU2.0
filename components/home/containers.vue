@@ -28,7 +28,7 @@
             </div>
             <div class="mt-14">
               <nuxt-link to="/shop"
-                class="flex items-center justify-center px-4 py-2 sm:py-3 bg-transparent border border-white rounded-lg text-sm sm:text-base">
+                class="flex items-center justify-center px-4 py-2  bg-transparent border border-white rounded-lg text-sm md:text-base">
                 SHOP NOW
               </nuxt-link>
             </div>

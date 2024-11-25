@@ -1,9 +1,9 @@
 <template>
     <main class="w-3/4 px-10">
-      <h1 class="text-2xl font-bold mb-4 text-[#28574E]">
+      <h1 class="text-2xl font-bold mb-4 text-[#238878]">
         Profile
       </h1>
-      <div class=" p-8 rounded-lg border-dashed border border-[#28574e]">
+      <div class=" p-8 rounded-lg border-dashed border border-[#238878]">
         <div class="relative flex items-center mb-6">
           <!-- Profile Image -->
           <img
@@ -17,7 +17,7 @@
           </div>
   
           <div>
-            <h1 class="text-2xl font-semibold" style="color: #28574e;">John Doe</h1>
+            <h1 class="text-2xl font-semibold" style="color: #238878;">John Doe</h1>
             <p class="text-gray-500">johndoe@example.com</p>
           </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="grid grid-cols-2 gap-6">
           <!-- First Name -->
           <div>
-            <label for="first-name" class="block text-sm font-medium text-[#28574E]">First Name</label>
+            <label for="first-name" class="block text-sm font-medium text-[#238878]">First Name</label>
             <input
               type="text"
               id="first-name"
@@ -36,7 +36,7 @@
   
           <!-- Last Name -->
           <div>
-            <label for="last-name" class="block text-sm font-medium text-[#28574E]">Last Name</label>
+            <label for="last-name" class="block text-sm font-medium text-[#238878]">Last Name</label>
             <input
               type="text"
               id="last-name"
@@ -46,7 +46,7 @@
   
           <!-- Email Address -->
           <div>
-            <label for="email" class="block text-sm font-medium text-[#28574E]">Email address</label>
+            <label for="email" class="block text-sm font-medium text-[#238878]">Email address</label>
             <input
               type="email"
               id="email"
@@ -56,7 +56,7 @@
   
           <!-- Phone -->
           <div>
-            <label for="phone" class="block text-sm font-medium text-[#28574E]">Phone</label>
+            <label for="phone" class="block text-sm font-medium text-[#238878]">Phone</label>
             <input
               type="tel"
               id="phone"
@@ -66,7 +66,7 @@
   
           <!-- New Password -->
           <div>
-            <label for="new-password" class="block text-sm font-medium text-[#28574E]">New password (leave blank to leave unchanged)</label>
+            <label for="new-password" class="block text-sm font-medium text-[#238878]">New password (leave blank to leave unchanged)</label>
             <input
               type="password"
               id="new-password"
@@ -76,7 +76,7 @@
   
           <!-- Confirm New Password -->
           <div>
-            <label for="confirm-password" class="block text-sm font-medium text-[#28574E]">Confirm new password</label>
+            <label for="confirm-password" class="block text-sm font-medium text-[#238878]">Confirm new password</label>
             <input
               type="password"
               id="confirm-password"
@@ -87,7 +87,7 @@
   
         <!-- Update Button -->
         <div class="mt-8">
-          <button class="bg-[#28574e] text-white py-2 px-4 rounded-lg hover:bg-[#44756c]">
+          <button class="bg-[#238878] text-white py-2 px-4 rounded-lg hover:bg-[#44756c]">
             Update Profile
           </button>
         </div>

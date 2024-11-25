@@ -66,7 +66,7 @@
 
       <div v-else class="min-h-[50vh] flex items-center justify-center">
         <div class="flex flex-col justify-center items-center gap-5">
-          <div class="animate-spin text-[#28574e]">
+          <div class="animate-spin text-[#238878]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="48"
@@ -96,7 +96,7 @@
     </div>
   </div>
 
-  <SiteFooter class="hidden lg:block" />
+  <SiteFooter class="hidden lg:block " />
 
   <MobileBottomNav />
 </template>

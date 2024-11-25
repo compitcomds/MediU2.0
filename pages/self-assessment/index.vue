@@ -6,7 +6,7 @@
       <!-- Form Section -->
       <div class="w-full lg:w-1/2 p-6">
         <h2
-          class="text-2xl lg:text-4xl font-semibold text-center text-[#28574e] mb-6"
+          class="text-2xl lg:text-4xl font-semibold text-center text-[#238878] mb-6"
         >
           Diagnose Form
         </h2>
@@ -21,7 +21,7 @@
               id="concern"
               v-model="formData.concern"
               required
-              class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
+              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
             >
               <option value="">Select</option>
               <option value="skin">Skin</option>
@@ -40,7 +40,7 @@
               id="name"
               v-model="formData.name"
               required
-              class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
+              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
             />
           </div>
 
@@ -53,7 +53,7 @@
               id="sex"
               v-model="formData.sex"
               required
-              class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
+              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
             >
               <option value="">Select</option>
               <option value="male">Male</option>
@@ -71,7 +71,7 @@
               id="age"
               v-model="formData.age"
               required
-              class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
+              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
             />
           </div>
 
@@ -86,7 +86,7 @@
               id="pregnancyStatus"
               v-model="formData.pregnancyStatus"
               required
-              class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
+              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
             >
               <option value="">Select</option>
               <option value="yes">Yes</option>
@@ -105,7 +105,7 @@
               id="breastfeeding"
               v-model="formData.breastfeeding"
               required
-              class="mt-1 p-3 w-full text-[#28574e] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#28574e] focus:border-transparent transition duration-300"
+              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
             >
               <option value="">Select</option>
               <option value="yes">Yes</option>
@@ -117,10 +117,10 @@
           <button
             @click.prevent="handleNextPage"
             :disabled="!isFormValid"
-            class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#28574e] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
+            class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#238878] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
           >
             <span
-              class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#28574e] group-hover:h-full"
+              class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#238878] group-hover:h-full"
             ></span>
             <span
               class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"

@@ -2,14 +2,14 @@
   <div
     class="mx-auto mt-4 max-w-3xl rounded-lg bg-white px-4 pb-20 text-center lg:px-0 lg:py-10 lg:pb-10"
   >
-    <h2 class="mb-6 text-2xl font-bold text-[#28574e]">Select Category</h2>
+    <h2 class="mb-6 text-2xl font-bold text-[#238878]">Select Category</h2>
 
     <!-- Category Buttons -->
     <div class="mb-4 flex flex-wrap space-y-2 md:space-x-2 md:space-y-0">
       <button
         :class="{
-          'bg-[#28574e] text-white': activeFilter === 'all',
-          'bg-blue-100 text-[#28574e]': activeFilter !== 'all',
+          'bg-[#238878] text-white': activeFilter === 'all',
+          'bg-blue-100 text-[#238878]': activeFilter !== 'all',
         }"
         class="flex w-full items-center rounded px-4 py-2 sm:w-auto"
         @click="filterProducts('all')"
@@ -21,8 +21,8 @@
         v-for="category in ['Hair', 'Skin', 'Baby']"
         :key="category"
         :class="{
-          'bg-[#28574e] text-white': activeFilter === category,
-          'bg-blue-100 text-[#28574e]': activeFilter !== category,
+          'bg-[#238878] text-white': activeFilter === category,
+          'bg-blue-100 text-[#238878]': activeFilter !== category,
         }"
         class="flex w-full items-center rounded border px-4 py-2 sm:w-auto"
         @click="filterProducts(category)"
@@ -38,15 +38,15 @@
         :key="product.id"
         @click="selectConsultancyProduct(product)"
         :class="[
-          'cursor-pointer rounded border bg-white p-4 text-[#28574e] hover:shadow-md',
+          'cursor-pointer rounded border bg-white p-4 text-[#238878] hover:shadow-md',
           product.id === selectedProduct?.id
-            ? 'border-[#28574e]'
+            ? 'border-[#238878]'
             : 'border-gray-300',
         ]"
       >
         <div class="flex items-center space-x-4">
           <div
-            class="w-14 rounded-full border border-[#28574e] p-1 text-[#28574e]"
+            class="w-14 rounded-full border border-[#238878] p-1 text-[#238878]"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -67,7 +67,7 @@
     <button
       @click="confirmService"
       :disabled="!selectedProduct"
-      class="mt-6 w-full rounded bg-[#28574e] px-4 py-2 text-white sm:w-auto"
+      class="mt-6 w-full rounded bg-[#238878] px-4 py-2 text-white sm:w-auto"
     >
       Next: Basic Details
     </button>

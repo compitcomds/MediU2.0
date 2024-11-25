@@ -22,7 +22,7 @@
       <div
         v-for="(condition, index) in selectedConditions"
         :key="index"
-        class="flex-shrink-0 m-4 relative overflow-hidden bg-[#28574e] rounded-lg w-full md:w-96 shadow-lg group"
+        class="flex-shrink-0 m-4 relative overflow-hidden bg-[#238878] rounded-lg w-full md:w-96 shadow-lg group"
       >
         <svg
           class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"

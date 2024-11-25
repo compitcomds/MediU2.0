@@ -1,31 +1,29 @@
 <template>
-  <section
-    class="bg-[#28574E] text-white lg:py-12 h-[350px] xl:h-[650px] lg:h-[550px] lg:pt-16 w-full"
-  >
-    <div class="w-full text-center px-4">
+  <section class="relative text-black bg-white -mt-5 lg:py-12 h-[290px] xl:h-[650px] lg:h-[550px] lg:pt-16 w-full bg-cover bg-center"
+    >
+    <!-- Overlay for readability -->
+    <!-- <div class="absolute inset-0 bg-black/50"></div> -->
+
+    <div class="relative w-full text-center px-4 z-10">
       <!-- Hide heading on sm and md screens -->
-      <h1
-        class="hidden sm:hidden md:hidden lg:block text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 font-serif"
-      >
+      <h1 class="hidden text-black lg:block text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 font-serif">
         From You to Your Little One, We’ve Got <br />
         You Covered
       </h1>
-      <p
-        class="text-base sm:text-lg xl:text-xl mb-8 hidden sm:hidden md:hidden lg:block"
-      >
+      <p class="text-base text-black sm:text-lg xl:text-xl mb-8 hidden lg:block">
         Explore Our Range of Skin, Hair, and Child Care Essentials
       </p>
       <div
         class="relative inline-block w-full lg:max-w-[790px] xl:max-w-[990px] h-[400px] lg:h-[500px] xl:h-[700px]"
       >
         <div
-          class="relative p-4 lg:p-4 flex justify-center items-center w-full h-[350px] lg:w-[790px] xl:w-[990px] lg:h-[500px] xl:h-[650px] backdrop-blur-lg lg:shadow-xl rounded-xl"
+          class="relative p-4 lg:p-4 flex justify-center items-center w-full  lg:w-[790px] xl:w-[990px] lg:h-[500px] xl:h-[650px] backdrop-blur-lg lg:shadow-xl rounded-xl"
         >
           <!-- Doctor Image Section with responsive width and height -->
           <transition name="fade" mode="out-in">
             <img
               :key="slides[currentSlide].doctorImage"
-              class="rounded-xl w-full md:w-[600px] lg:w-[690px] xl:w-[890px] h-[250px] md:h-[300px] lg:h-[500px] xl:h-[550px] mx-auto object-cover"
+              class="rounded-xl w-full md:w-[600px] pb-2 lg:w-[690px] xl:w-[890px] h-[250px] md:h-[300px] lg:h-[500px] xl:h-[550px] mx-auto object-cover"
               :src="slides[currentSlide].doctorImage"
               alt="Doctor"
             />
@@ -114,20 +112,6 @@ export default {
           doctorText: "Expert Pediatricians",
           clientText: "2000 plus happy <br> clients",
         },
-        {
-          doctorImage: "https://ccdstest.b-cdn.net/Medi%20u/Mask%20Group.png",
-          clientImage: "https://ccdstest.b-cdn.net/Medi%20u/Image.png",
-          doctorText: "World’s Leading <br> Doctors",
-          clientText: "1000 plus happy <br> clients",
-        },
-        {
-          doctorImage:
-            "https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(13).png",
-          clientImage:
-            "https://ccdstest.b-cdn.net/Medi%20u/Untitled%20design%20(12).png",
-          doctorText: "Expert Pediatricians",
-          clientText: "2000 plus happy <br> clients",
-        },
         // Add more slides as needed
       ],
     };
@@ -150,8 +134,17 @@ export default {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, 
-.fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
 }
 </style>

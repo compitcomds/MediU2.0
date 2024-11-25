@@ -1,200 +1,190 @@
 <template>
-  <div class="mx-2 my-3 sm:mx-2 sm:my-3 lg:mx-20 lg:my-20">
+  <div
+    class="mb-3 rounded-lg bg-white p-1 pb-10 sm:mb-6 md:pb-10 lg:mb-10 lg:p-6 lg:pb-0"
+  >
     <div v-if="data">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
-        <div class="col-span-5 lg:col-span-2">
-          <div class="col-span-5 lg:col-span-2">
-            <!-- Main Swiper -->
-            <swiper-container
-              style="
-                --swiper-navigation-color: #000;
-                --swiper-pagination-color: #000;
-              "
-              class="mySwiper"
-              thumbs-swiper=".mySwiper2"
-              space-between="15"
-              navigation="true"
-              pagination="true"
-              autoplay="true"
-              @slideChange="onSlideChange"
-            >
-              <swiper-slide
-                v-for="(item, index) in data.images"
-                :key="item.url"
+        <div class="col-span-5 space-y-6 lg:col-span-2">
+          <div class="flex flex-col lg:flex-row">
+            <!-- Thumbnail Swiper in Column on the Left -->
+            <div class="mb-4 hidden w-full lg:mb-0 lg:mr-4 lg:block lg:w-1/6">
+              <swiper-container
+                class="mySwiper2"
+                direction="vertical"
+                space-between="10"
+                slides-per-view="5"
+                autoplay-delay="5000"
+                speed="1000"
+                free-mode="true"
+                watch-slides-progress="true"
+                style="height: 130%; max-height: 500px; width: 100%"
               >
-                <img
-                  :src="item.url"
-                  alt="Product Image"
-                  class="h-full w-full overflow-hidden rounded-lg object-cover shadow-lg transition-transform duration-300 hover:scale-150"
-                />
-              </swiper-slide>
-            </swiper-container>
+                <swiper-slide
+                  v-for="(item, index) in data.images"
+                  :key="item.url"
+                  :class="{
+                    'border-4 border-blue-500': currentThumbnail === index,
+                  }"
+                  @click="thumbClick(index)"
+                >
+                  <img
+                    :src="item.url"
+                    alt="Thumbnail Image"
+                    class="h-full w-full rounded-lg border border-gray-200 object-cover py-2"
+                  />
+                </swiper-slide>
+              </swiper-container>
+            </div>
 
-            <!-- Thumbnail Swiper -->
-            <swiper-container
-              class="mySwiper2 mt-4"
-              space-between="10"
-              slides-per-view="6"
-              free-mode="true"
-              watch-slides-progress="true"
-            >
-              <swiper-slide
-                v-for="(item, index) in data.images"
-                :key="item.url"
-                :class="{
-                  'border-4 border-blue-500': currentThumbnail === index,
-                }"
-                @click="thumbClick(index)"
+            <!-- Main Swiper on the Right -->
+            <div class="w-full lg:w-5/6">
+              <swiper-container
+                style="
+                  --swiper-navigation-color: #4a5568;
+                  --swiper-pagination-color: #4a5568;
+                "
+                class="mySwiper"
+                thumbs-swiper=".mySwiper2"
+                space-between="15"
+                navigation="true"
+                pagination="true"
+                autoplay="true"
+                autoplay-delay="5000"
+                speed="1000"
+                @slideChange="onSlideChange"
               >
-                <img
-                  :src="item.url"
-                  alt="Thumbnail Image"
-                  class="h-full w-full rounded-lg border-2 border-gray-300 object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </swiper-slide>
-            </swiper-container>
+                <swiper-slide
+                  v-for="(item, index) in data.images"
+                  :key="item.url"
+                >
+                  <VueMagnifier
+                    mgShape="square"
+                    :src="item.url"
+                    alt="Product Image"
+                    class="h-full w-full rounded-lg object-cover transition-transform duration-300"
+                  />
+                </swiper-slide>
+              </swiper-container>
+            </div>
           </div>
-          <div class="hidden lg:block">
-            <div
-              class="flex flex-col divide-y divide-gray-200 rounded-lg border p-2 md:flex-row md:divide-x md:divide-y-0"
-            >
-              <div class="flex flex-1 items-center justify-center">
-                <div class="flex flex-col items-center">
-                  <div class="w-20 text-purple-500">
-                    <img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/3.png"
-                      alt="icon"
-                    />
-                    <!-- Replace with appropriate icon -->
-                  </div>
-                  <span class="font-semibold">101% Original</span>
-                </div>
-              </div>
-              <div class="flex flex-1 items-center justify-center">
-                <div class="flex flex-col items-center">
-                  <div class="w-20 text-red-500">
-                    <img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/2.png"
-                      alt="icon"
-                    />
-                    <!-- Replace with appropriate icon -->
-                  </div>
-                  <span class="font-semibold">Lowest Price</span>
-                </div>
-              </div>
-              <div class="flex flex-1 items-center justify-center">
-                <div class="flex flex-col items-center">
-                  <div class="w-20 text-blue-500">
-                    <img
-                      src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/1.png"
-                      alt="icon"
-                    />
-                    <!-- Replace with appropriate icon -->
-                  </div>
-                  <span class="font-semibold">Fast Delivery</span>
-                </div>
-              </div>
+
+          <!-- Product Highlights -->
+          <div
+            class="mt-4 hidden items-center justify-between rounded-lg border bg-gray-50 p-4 shadow-sm lg:flex"
+          >
+            <div class="flex flex-col items-center text-center">
+              <img
+                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/3.png"
+                alt="100% Original"
+                class="w-12"
+              />
+              <span class="font-semibold text-gray-700">100% Original</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <img
+                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/2.png"
+                alt="Lowest Price"
+                class="w-12"
+              />
+              <span class="font-semibold text-gray-700">Lowest Price</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <img
+                src="https://ccdstest.b-cdn.net/Medi%20u/icons%20mediu/1.png"
+                alt="Fast Delivery"
+                class="w-12"
+              />
+              <span class="font-semibold text-gray-700">Fast Delivery</span>
             </div>
           </div>
         </div>
 
-        <div class="col-span-5 md:col-span-3">
-          <div class="mb-1 text-3xl font-semibold capitalize text-gray-900">
+        <div class="col-span-5 space-y-4 lg:col-span-3">
+          <div class="text-3xl font-semibold text-gray-900">
             {{ data.title }}
           </div>
-          <div class="text-md mb-4 text-cyan-500">
-            Treats Active Acne | Unclogs Pores
+          <div class="text-md text-cyan-500">
+            {{ data?.productSubtitle?.value || "" }}
           </div>
-          <div class="mb-4 flex items-center space-x-3">
-            <div class="flex items-center gap-1 text-yellow-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="h-5 w-5"
-              >
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                />
-              </svg>
-              <div class="font-medium text-gray-900">4.7</div>
-            </div>
-            <div class="text-gray-400">|</div>
-            <div class="flex items-center text-gray-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="h-5 w-5 stroke-white text-cyan-500"
-              >
-                <path
-                  d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
-                />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-              <div class="ml-1">752 Verified Ratings</div>
-            </div>
-          </div>
-          <div>
-            <div class="text-lg font-bold text-cyan-500">Special Price</div>
-            <div class="flex items-center gap-2">
-              <div class="text-2xl font-bold text-gray-900">
-                <span
-                  class="text-sm text-gray-500 line-through"
-                  v-if="data.compareAtPrice && data.compareAtPrice.amount"
-                >
-                  MRP {{ data.compareAtPrice.amount }}
-                </span>
 
-                {{ data.price.currencyCode }} {{ data.price.amount }}
-                <span
-                  v-if="
-                    parseFloat(data.compareAtPrice?.amount) &&
-                    parseFloat(data.compareAtPrice?.amount) >
-                      parseFloat(data.price?.amount)
-                  "
-                  class="rounded-xl text-base font-normal text-[#28574e]"
-                >
-                  Save
-                  {{
-                    Math.floor(
-                      ((parseFloat(data.compareAtPrice?.amount) -
-                        parseFloat(data.price?.amount)) *
-                        100) /
-                        parseFloat(data.compareAtPrice?.amount),
-                    )
-                  }}%
-                </span>
+          <div class="flex items-center space-x-3 text-gray-700">
+            <div class="flex items-center gap-1 text-yellow-500">
+              <p class="flex items-center gap-1 text-[#eab308]">
+                <Star :size="16" fill="#eab308" v-for="i in 5" />
+              </p>
+              <div class="font-medium">4.9</div>
+            </div>
+            <div>|</div>
+            <div class="text-gray-500">50 Verified Ratings</div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="text-lg font-bold text-[#238878]">Special Price</div>
+            <div class="my-2 flex items-center gap-2">
+              <div class="text-3xl font-bold text-gray-900">
+                <p>
+                  <span class="text-[#4ca9ee]">
+                    {{ data.price?.currencyCode }}
+                    {{ data.price?.amount }}</span
+                  >
+                  <span
+                    v-if="
+                      calculatePercentage(data.compareAtPrice, data.price) > 0
+                    "
+                    class="text-sm text-gray-500 line-through"
+                  >
+                    MRP {{ data.compareAtPrice.amount }}
+                  </span>
+                  <span
+                    v-if="
+                      calculatePercentage(data.compareAtPrice, data.price) > 0
+                    "
+                    class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white"
+                  >
+                    Save
+                    {{ calculatePercentage(data.compareAtPrice, data.price) }}%
+                  </span>
+                </p>
+                <p class="text-sm font-normal">Inclusive of all Taxes</p>
               </div>
             </div>
 
-            <div class="text-sm text-gray-500">Inclusive of all Taxes</div>
-            <div class="flex items-center gap-4">
+            <div class="mb-4 text-gray-500">
+              <p
+                v-if="data.requiresPrescription"
+                class="my-2 flex items-center gap-2 text-sm font-bold text-[#238878]"
+              >
+                <ClipboardPlus /> <span>Doctor's Prescription Required</span>
+              </p>
+            </div>
+            <div class="mb-4 flex items-center gap-4">
               <div
                 class="flex w-1/4 items-center justify-between rounded-lg border px-4 py-2"
               >
                 <button
                   @click="decreaseQuantity"
-                  class="text-2xl text-gray-800"
+                  class="text-2xl text-gray-800 hover:text-[#383e42]"
                 >
                   -
                 </button>
                 <p class="text-lg text-gray-800">{{ quantity }}</p>
                 <button
                   @click="increaseQuantity"
-                  class="text-2xl text-gray-800"
+                  class="text-2xl text-gray-800 hover:text-[#383e42]"
                 >
                   +
                 </button>
               </div>
               <div>
                 <ShopAddingToCartBtn
+                  v-if="data.availableForSale"
                   :product-id="data.id"
                   :quantity="quantity"
+                />
+                <ShopProductCreateAnAlert
+                  v-else
+                  :product-id="data.productId"
+                  :variant-id="data.id"
                 />
               </div>
             </div>
@@ -206,23 +196,30 @@
               class="mb-4"
             >
               <div v-if="item.name !== 'Title'">
-                <div class="mb-2 font-semibold text-gray-700">
-                  {{ item.name }}
-                </div>
-                <div class="flex flex-wrap gap-4 overflow-x-scroll">
+                <div class="mb-2 text-lg font-semibold text-gray-700"></div>
+                <div class="flex flex-wrap gap-4 overflow-x-auto">
                   <div
                     v-for="(variant, variantIndex) in data.variants"
                     :key="variantIndex"
                     class="flex w-fit gap-6"
                   >
-                    <div
+                    <nuxt-link
                       v-for="(variantValue, variantValueIndex) in variant"
                       :key="variantValueIndex"
                       class="min-w-48"
+                      :to="{
+                        query: createQueryFromSelectedOptions(
+                          variantValue.node.selectedOptions,
+                        ),
+                      }"
                     >
-                      <div class="rounded-lg border shadow-md">
+                      <div class="rounded-lg border shadow-lg">
                         <div
-                          class="rounded-t-md bg-green-900 p-2 font-semibold text-white"
+                          class="rounded-t-md p-2 font-semibold text-white"
+                          :class="{
+                            'bg-[#383e42]': variantValue.node.id !== data.id,
+                            'bg-[#238878]': variantValue.node.id === data.id,
+                          }"
                         >
                           {{ item.name }} : {{ variantValue.node.title }}
                         </div>
@@ -231,7 +228,7 @@
                           {{ variantValue.node.price.amount }}
                         </div>
                       </div>
-                    </div>
+                    </nuxt-link>
                   </div>
                 </div>
               </div>
@@ -239,9 +236,41 @@
 
             <ShopCheckDelivery />
 
+            <div
+              class="rounded-xl border bg-white p-6 transition-all duration-300"
+            >
+              <div
+                v-if="data.value === null"
+                class="flex items-center justify-center text-gray-500"
+              >
+                <p class="text-lg">Loading product details...</p>
+              </div>
+
+              <div v-else class="text-md text-gray-700">
+                <span v-if="!isExpanded && data.description" class="mb-4 block">
+                  {{ truncatedDescription }}
+                </span>
+                <span v-else class="mb-4 block">
+                  {{ data.description }}
+                </span>
+              </div>
+
+              <button
+                v-if="
+                  data.description && data.description.split(' ').length > 20
+                "
+                @click="toggleDescription"
+                class="mt-3 inline-block text-blue-600 transition duration-300 hover:text-blue-800 focus:outline-none"
+              >
+                <span class="text-sm font-medium">{{
+                  isExpanded ? "Show Less" : "Show More"
+                }}</span>
+              </button>
+            </div>
+
             <hr
               class="my-4 border-dashed border-gray-300"
-              v-if="data.options.title"
+              v-if="data.options?.title"
             />
 
             <div class="hidden lg:block">
@@ -251,14 +280,13 @@
                 :loop="true"
                 :autoplay="{ delay: 6000, disableOnInteraction: false }"
                 :modules="modules"
-                class="mySwiper my-4 h-32 w-full"
-                style="height: 100px"
+                class="mySwiper responsive-height my-4 w-full"
               >
                 <swiper-slide v-for="(item, index) in slides" :key="index">
                   <img
                     :src="item"
                     alt="Ad Banner"
-                    class="flex h-32 w-full items-center justify-between rounded-lg object-fill lg:object-cover"
+                    class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover"
                   />
                 </swiper-slide>
               </swiper>
@@ -269,105 +297,63 @@
 
             <hr class="my-4 border-dashed border-gray-300" />
           </div>
-
-          <!-- <div class="my-4 w-full">
-            <img src="https://placehold.co/300x100" alt="Ad Banner" class="w-full object-cover h-32 rounded-lg" />
-          </div> -->
         </div>
       </div>
 
-      <div class="mt-10 w-full rounded-lg p-6">
-        <div class="flex flex-col items-center">
-          <nav class="mb-4 flex w-full justify-center space-x-4 border-b">
-            <div v-for="(item, index) in accordionKeys" :key="index">
-              <button
-                v-if="data[item.value]"
-                @click="activeTab = index + 1"
-                class="text-lg"
-                :class="{
-                  'border-b-2 border-[#28574e]': activeTab === index + 1,
-                }"
-              >
-                {{ item.name }}
-              </button>
-            </div>
-          </nav>
-
-          <div class="border-1 w-full rounded-lg border bg-white shadow-md">
-            <div v-for="(item, index) in accordionKeys" :key="index">
-              <div
-                v-if="
-                  activeTab === index + 1 &&
-                  data[item.value] &&
-                  data[item.value].value !== 'N/A'
-                "
-                class="p-4"
+      <div class="my-10 max-w-full lg:my-20">
+        <div
+          class="flex items-center justify-around space-x-2 border-b-2 border-gray-300"
+        >
+          <button
+            v-for="(item, index) in accordionKeys"
+            :key="index"
+            @click="activeTab = index + 1"
+            :class="
+              activeTab === index + 1
+                ? 'w-full bg-[#238878] text-white'
+                : 'w-full border-b-2 border-transparent text-[#238878] hover:border-[#238878]'
+            "
+            class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300"
+          >
+            {{ item.name }}
+          </button>
+        </div>
+        <div class="rounded-md border border-gray-200 bg-white p-5 shadow-sm">
+          <div v-for="(item, index) in accordionKeys" :key="index">
+            <ul class="px-4">
+              <li
+                v-if="activeTab === index + 1 && data[item.value]"
+                class="text-gray-700"
               >
                 <div
                   v-html="data[item.value].value.split('\n').join('<br />')"
-                  class="normal-case leading-relaxed text-gray-700"
                 ></div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <div class="mt-5">
-        <h3 class="mb-4 text-2xl font-semibold text-black">Related Products</h3>
-        <ShopRelatedProducts :product-id="data.productId" />
+      <div class="mt-8">
+        <h3 class="text-2xl font-semibold text-gray-800">Related Products</h3>
+        <ShopRelatedProducts
+          v-if="data.productId"
+          :product-id="data.productId"
+        />
       </div>
     </div>
-
-    <div v-else>Loading product details...</div>
-  </div>
-  <div
-    class="mx-2 my-3 rounded-lg bg-gray-50 p-6 shadow-lg sm:mx-2 sm:my-3 lg:mx-20 lg:my-20"
-  >
-    <h2 class="mb-4 text-2xl font-semibold text-gray-900">Customer Reviews</h2>
-    <div v-if="data.reviews && data.reviews.length" class="space-y-6">
-      <div
-        v-for="(review, index) in JSON.parse(data.reviews)"
-        :key="index"
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
-      >
-        <div class="mb-3 flex items-center justify-between">
-          <div class="text-lg font-semibold text-gray-800">
-            {{ review.name }}
-          </div>
-          <div class="flex items-center text-yellow-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="h-5 w-5"
-            >
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-              />
-            </svg>
-            <span class="ml-1 font-medium text-gray-700"
-              >{{ review.rating }} / 5</span
-            >
-          </div>
-        </div>
-        <div class="leading-relaxed text-gray-600">{{ review.text }}</div>
-      </div>
-    </div>
-    <div v-else class="py-10 text-center italic text-gray-500">
-      No reviews yet. Be the first to leave a review!
-    </div>
+    <ShopProductReviews :product-id="data.productId" />
   </div>
 </template>
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { Star } from "lucide-vue-next";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
 import { getProductData } from "~/shopify/productDetails";
+import VueMagnifier from "@websitebeaver/vue-magnifier";
+import { ClipboardPlus } from "lucide-vue-next";
+import "@websitebeaver/vue-magnifier/styles.css";
 
 const modules = [Pagination, Navigation, Autoplay];
 const activeTab = ref(1);
@@ -397,17 +383,35 @@ const accordionKeys = [
   },
 ];
 
+const isExpanded = ref(false);
+
+const truncatedDescription = computed(() => {
+  if (data.value?.description) {
+    const words = data.value.description.split(" ");
+    if (words.length > 20) {
+      return words.slice(0, 20).join(" ") + "...";
+    }
+    return data.value.description;
+  }
+  return "";
+});
+
 const thumbClick = (index) => {
   currentThumbnail.value = index;
 };
 
-try {
-  const product = await getProductData(productHandle);
-  console.log("Fetched product data:", product); // Add this line
-  data.value = product;
-} catch (error) {
-  console.error("Error fetching product data:", error);
-}
+watch(
+  () => route.query,
+  async (newQuery) => {
+    try {
+      const product = await getProductData(productHandle, newQuery);
+      data.value = product;
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
+  },
+  { deep: true, immediate: true },
+);
 
 onMounted(() => {
   const script = document.createElement("script");
@@ -428,55 +432,39 @@ const decreaseQuantity = () => {
     quantity.value--;
   }
 };
+
+const createQueryFromSelectedOptions = (options) => {
+  const query = {};
+  for (const option of options) {
+    query[option.name] = option.value;
+  }
+  return query;
+};
+
+const calculatePercentage = (compareAtPrice, price) => {
+  return Math.floor(
+    ((parseFloat(compareAtPrice?.amount) - parseFloat(price?.amount)) * 100) /
+      parseFloat(compareAtPrice?.amount),
+  );
+};
+
+// Toggle the expanded description state
+const toggleDescription = () => {
+  isExpanded.value = !isExpanded.value;
+};
 </script>
 
 <style scoped>
-/* General Swiper Container Styles */
-.swiper-container {
-  width: 100%;
-  height: 300px;
-  /* Adjust height as needed */
-  margin: 0 auto;
-  /* Center the container horizontally */
-}
-
-/* General Swiper Slide Styles */
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Image Styles within Slides */
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Swiper Specific Styles */
+/* Enhanced Swiper Styles */
 .mySwiper {
   height: 400px;
-  /* Adjust height as needed */
 }
 
 .mySwiper2 {
   height: 80px;
-  /* Adjust height as needed */
-  box-sizing: border-box;
-  padding: 10px 0;
 }
 
-/* Thumbnail Slide Styles */
 .mySwiper2 .swiper-slide {
-  width: 25%;
-  height: 100%;
   opacity: 0.4;
 }
 
@@ -484,42 +472,51 @@ const decreaseQuantity = () => {
   opacity: 1;
 }
 
-/* Navigation Button Styles */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000;
-  /* Customize navigation arrow color */
-  width: 12px !important;
-  /* Adjust the width */
-  height: fit-content;
-  /* Adjust the height */
+  color: #4a5568;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 18px;
-  /* Adjust the font size for the arrows */
+/* Thumbnail Hover & Swiper Customization */
+.mySwiper2 .swiper-slide img {
+  transition: transform 0.3s ease;
 }
 
-/* Additional Custom Styles */
-.collapse .collapse-title {
-  cursor: pointer;
+.mySwiper2 .swiper-slide:hover img {
+  transform: scale(1.05);
 }
 
-.collapse .collapse-title:hover {
-  color: #6b46c1;
-  /* Hover effect for accordion title */
+/* Card Styling */
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Optional: Ensure Swiper containers do not exceed available width */
-.mySwiper,
-.mySwiper2 {
-  max-width: 100%;
+.shadow-lg {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Body Styling */
-body {
-  background: #000;
-  color: #000;
+/* Default height for smaller screens */
+.responsive-height {
+  height: 100px;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .responsive-height {
+    height: 100px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .responsive-height {
+    height: 100px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .responsive-height {
+    height: 150px;
+  }
 }
 </style>

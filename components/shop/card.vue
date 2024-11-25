@@ -20,7 +20,7 @@
               v-if="
                 parseFloat(product.compareAtPrice) > parseFloat(product.price)
               "
-              class="absolute right-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs text-white"
+              class="absolute right-2 top-2 rounded-full bg-orange-500 px-2 py-1 text-xs text-white"
             >
               Save
               {{
@@ -48,7 +48,7 @@
               class="block max-w-full overflow-clip"
             >
               <h3
-                class="font-serif text-xl font-semibold capitalize text-black lg:text-lg"
+                class="font-serif text-sm font-semibold capitalize text-black lg:text-sm"
               >
                 {{ product.title }}
               </h3>
@@ -57,7 +57,7 @@
             <!-- Price and discount -->
             <div class="flex justify-between text-xl">
               <div>
-                <p class="font-bold text-[#28574E]">
+                <p class="font-bold text-[#4ca9ee]">
                   {{ product.currency }} {{ product.price }}
                 </p>
                 <p class="mt-1 text-sm font-bold text-gray-500 line-through">
@@ -87,7 +87,7 @@
             <div class="mt-auto flex gap-2">
               <nuxt-link
                 :to="`/shop/product/${product.handle}`"
-                class="text-md flex-1 cursor-pointer rounded-full bg-[#28574E] p-2 text-center font-semibold text-white shadow"
+                class="text-md flex-1 cursor-pointer rounded-full bg-[#238878] p-2 text-center font-semibold text-white shadow"
               >
                 BUY NOW
               </nuxt-link>

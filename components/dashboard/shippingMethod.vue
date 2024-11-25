@@ -1,6 +1,6 @@
 <template>
-    <section class="w-3/4 rounded-lg p-6 ml-6 border">
-      <h2 class="text-2xl font-semibold mb-4 text-[#28574e]">Shipping Methods</h2>
+    <section class="w-full lg:w-3/4 rounded-lg lg:p-6 lg:ml-6 border">
+      <h2 class="text-2xl font-semibold mb-4 text-[#238878]">Shipping Methods</h2>
   
       <!-- Shipping Method Options -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -9,7 +9,7 @@
           <div class="flex items-center space-x-4">
             <img src="https://glower.indiankoder.com/xhtml/images/shop/payment/fedex.svg" alt="FedEx" class="w-24" />
             <div>
-              <h3 class="font-semibold text-[#28574e]">FedEx</h3>
+              <h3 class="font-semibold text-[#238878]">FedEx</h3>
               <p class="text-black">Delivery, Tomorrow</p>
             </div>
           </div>
@@ -24,7 +24,7 @@
           <div class="flex items-center space-x-4">
             <img src="https://glower.indiankoder.com/xhtml/images/shop/payment/american.svg" alt="American" class="w-24" />
             <div>
-              <h3 class="font-semibold text-[#28574e]">American</h3>
+              <h3 class="font-semibold text-[#238878]">American</h3>
               <p class="text-black">Delivery, Today</p>
             </div>
           </div>
@@ -37,7 +37,7 @@
             <div class="flex items-center space-x-4">
               <img src="https://glower.indiankoder.com/xhtml/images/shop/payment/dhl.svg" alt="DHL Express" class="w-24" />
               <div>
-                <h3 class="font-semibold text-[#28574e]">DHL Express</h3>
+                <h3 class="font-semibold text-[#238878]">DHL Express</h3>
                 <p class="text-black">Delivery, Today</p>
               </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="flex items-center space-x-4">
               <img src="https://glower.indiankoder.com/xhtml/images/shop/payment/retrieve.svg" alt="DHL Express" class="w-12" />
               <div>
-                <h3 class="font-semibold text-[#28574e]">DHL Express</h3>
+                <h3 class="font-semibold text-[#238878]">DHL Express</h3>
                 <p class="text-black">Delivery, Today</p>
               </div>
             </div>
@@ -78,7 +78,7 @@
       </div>
   
       <!-- Continue to Payment Button -->
-      <button onclick="/dashboard/paymentMethod" class="w-full bg-[#28574e] text-white text-lg font-semibold py-3 rounded-lg mt-4 hover:bg-[#437e73]">
+      <button onclick="/dashboard/paymentMethod" class="w-full bg-[#238878] text-white text-lg font-semibold py-3 rounded-lg mt-4 hover:bg-[#437e73]">
         Continue To Payment
       </button>
     </section>
@@ -101,7 +101,7 @@
   }
   
   .custom-radio:checked {
-    border-color: #28574e; /* Custom green border when checked */
+    border-color: #238878; /* Custom green border when checked */
   }
   
   .custom-radio:checked::before {
@@ -111,7 +111,7 @@
     left: 50%;
     width: 10px;
     height: 10px;
-    background-color: #28574e;
+    background-color: #238878;
     border-radius: 50%;
     transform: translate(-50%, -50%);
   }

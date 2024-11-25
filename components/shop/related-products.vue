@@ -20,11 +20,15 @@
           spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 40,
         },
         1180: {
-          slidesPerView: 4,
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1440: {
+          slidesPerView: 5,
           spaceBetween: 50,
         },
       }"
@@ -35,7 +39,7 @@
         v-for="(product, index) in products"
         :key="index"
       >
-        <div class="w-80 rounded-lg border border-gray-300 bg-white px-4 py-2">
+        <div class="w-[370px] md:w-80 rounded-lg border border-gray-300 bg-white px-8 lg:px-4 py-2">
           <nuxt-link
             :to="`/shop/product/${product.handle}`"
             class="relative block"
@@ -86,7 +90,7 @@
             <!-- Price and discount -->
             <div class="flex justify-between text-xl">
               <div>
-                <p class="font-bold text-[#28574E]">
+                <p class="font-bold text-[#238878]">
                   {{ product.priceRange.minVariantPrice.currencyCode }}
                   {{ product.priceRange.minVariantPrice.amount }}
                 </p>
@@ -109,7 +113,7 @@
             <div class="mt-4 flex gap-2">
               <nuxt-link
                 :to="`/shop/product/${product.handle}`"
-                class="text-md flex-1 cursor-pointer rounded-full bg-[#28574E] p-2 text-center font-semibold text-white shadow"
+                class="text-md flex-1 cursor-pointer rounded-full bg-[#238878] p-2 text-center font-semibold text-white shadow"
               >
                 BUY NOW
               </nuxt-link>
@@ -123,7 +127,7 @@
 
 <script setup>
 import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+// import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import getProductRecommendations from "~/shopify/shop/product-recommendations";
 
 const props = defineProps(["productId"]);
@@ -144,7 +148,7 @@ onMounted(async () => {
 .product-slider-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  
 }
 
 .product-card {

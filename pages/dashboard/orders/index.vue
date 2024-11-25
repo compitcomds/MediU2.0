@@ -1,7 +1,7 @@
 <template>
-  <div class="flex min-h-screen bg-[#edf8f3] p-6" v-if="userData">
+  <div class="flex min-h-screen bg-[#edf8f3] p-2 lg:p-6" v-if="userData">
     <!-- Sidebar -->
-    <DashboardSidenav :UserData="userData || ''" />
+    <DashboardSidenav class="hidden lg:block" :UserData="userData || ''" />
     <!-- Orders Table -->
     <DashboardOrders :orders="orders" />
   </div>

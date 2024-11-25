@@ -1,11 +1,11 @@
 <template>
-  <div class="space-y-4">
+  <div class="space-y-4 w-full">
     <div class="flex items-center justify-between">
       <h2 class="text-xl font-semibold">Customer Details</h2>
     </div>
 
     <!-- Name Section -->
-    <form class="rounded-md border p-4" @submit.prevent="submitName">
+    <form class="rounded-md w-full border p-4" @submit.prevent="submitName">
       <h3 class="text-lg font-semibold">Name</h3>
       <div class="form-group">
         <label for="firstName" class="block text-sm font-medium text-gray-700"
@@ -38,7 +38,7 @@
           v-if="!editMode.name"
           type="button"
           @click="toggleEditMode('name')"
-          class="rounded bg-[#28574E] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
+          class="rounded bg-[#238878] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
         >
           Edit
         </button>
@@ -46,7 +46,7 @@
           v-else
           type="submit"
           :disabled="isSubmitting.name"
-          class="rounded bg-[#28574E] px-4 py-2 text-white transition hover:bg-[#2a7c5e] disabled:animate-pulse disabled:cursor-not-allowed"
+          class="rounded bg-[#238878] px-4 py-2 text-white transition hover:bg-[#2a7c5e] disabled:animate-pulse disabled:cursor-not-allowed"
         >
           {{ isSubmitting.name ? "Submitting..." : "Submit" }}
         </button>
@@ -97,7 +97,7 @@
           v-if="!editMode.phone"
           type="button"
           @click="toggleEditMode('phone')"
-          class="rounded bg-[#28574E] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
+          class="rounded bg-[#238878] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
         >
           Edit
         </button>
@@ -105,7 +105,7 @@
           v-else
           type="submit"
           :disabled="isSubmitting.phone"
-          class="rounded bg-[#28574E] px-4 py-2 text-white transition hover:bg-[#2a7c5e] disabled:animate-pulse disabled:cursor-not-allowed"
+          class="rounded bg-[#238878] px-4 py-2 text-white transition hover:bg-[#2a7c5e] disabled:animate-pulse disabled:cursor-not-allowed"
         >
           {{ isSubmitting.phone ? "Submitting..." : "Submit" }}
         </button>
@@ -164,7 +164,7 @@
           v-if="!editMode.password"
           type="button"
           @click="toggleEditMode('password')"
-          class="rounded bg-[#28574E] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
+          class="rounded bg-[#238878] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
         >
           Edit
         </button>
@@ -172,7 +172,7 @@
           v-else
           type="submit"
           :disabled="isSubmitting.password"
-          class="rounded bg-[#28574E] px-4 py-2 text-white transition hover:bg-[#2a7c5e] disabled:animate-pulse disabled:cursor-not-allowed"
+          class="rounded bg-[#238878] px-4 py-2 text-white transition hover:bg-[#2a7c5e] disabled:animate-pulse disabled:cursor-not-allowed"
         >
           {{ isSubmitting.password ? "Submitting..." : "Submit" }}
         </button>

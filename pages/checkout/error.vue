@@ -18,20 +18,20 @@
         Email:
         <a
           href="mailto:mediu2420@gmail.com"
-          class="text-[#28574E] hover:underline"
+          class="text-[#238878] hover:underline"
           >mediu2420@gmail.com</a
         >
       </p>
       <p class="text-gray-600">
         Phone:
-        <a href="tel:+917728026044" class="text-[#28574E] hover:underline"
+        <a href="tel:+917728026044" class="text-[#238878] hover:underline"
           >+91 7728026044</a
         >
       </p>
     </div>
     <nuxt-link
       to="/dashboard"
-      class="mt-4 inline-block rounded bg-[#28574E] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
+      class="mt-4 inline-block rounded bg-[#238878] px-4 py-2 text-white transition hover:bg-[#2a7c5e]"
     >
       Go Back to Dashboard
     </nuxt-link>

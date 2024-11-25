@@ -16,6 +16,8 @@ export async function appwriteCheckPincode(pincode: string, weight?: number) {
     ExecutionMethod.POST,
   );
 
+  console.log(response.responseBody);
+
   return await JSON.parse(response.responseBody);
 }
 

@@ -8,7 +8,7 @@
         class="custom-scrollbar col-span-12 max-h-[75vh] overflow-y-auto pr-4 lg:col-span-8"
       >
         <h2
-          class="title font-manrope mb-8 text-center text-4xl font-bold leading-10 text-[#28574E]"
+          class="title font-manrope mb-8 text-center text-4xl font-bold leading-10 text-[#238878]"
         >
           Shopping Cart
         </h2>
@@ -20,7 +20,7 @@
           >
             <img src="assets/images/empty-cart.webp" class="w-full" />
             <h2
-              class="text-center text-xl font-bold text-[#28574E] underline group-hover:no-underline"
+              class="text-center text-xl font-bold text-[#238878] underline group-hover:no-underline"
             >
               Continue shopping >
             </h2>
@@ -46,7 +46,7 @@
           <div class="col-span-12 lg:col-span-10">
             <div class="mb-4 flex items-center justify-between">
               <h5
-                class="font-manrope text-2xl font-bold capitalize text-[#28574E]"
+                class="font-manrope text-2xl font-bold capitalize text-[#238878]"
               >
                 {{ item.title }}
               </h5>
@@ -63,23 +63,23 @@
               <div class="flex items-center">
                 <button
                   @click="changeQuantity(item.lineId, item.quantity - 1)"
-                  class="btn-minus rounded-lg text-[#28574E] disabled:animate-pulse disabled:cursor-not-allowed"
+                  class="btn-minus rounded-lg text-[#238878] disabled:animate-pulse disabled:cursor-not-allowed"
                   :disabled="isUpdatingLineItemQuantity"
                 >
                   −
                 </button>
-                <p class="quantity-input rounded-lg bg-white text-[#28574E]">
+                <p class="quantity-input rounded-lg bg-white text-[#238878]">
                   {{ item.quantity }}
                 </p>
                 <button
                   @click="changeQuantity(item.lineId, item.quantity + 1)"
-                  class="btn-plus rounded-lg text-[#28574E] disabled:animate-pulse disabled:cursor-not-allowed"
+                  class="btn-plus rounded-lg text-[#238878] disabled:animate-pulse disabled:cursor-not-allowed"
                   :disabled="isUpdatingLineItemQuantity"
                 >
                   +
                 </button>
               </div>
-              <span class="text-2xl font-bold text-[#28574E]"
+              <span class="text-2xl font-bold text-[#238878]"
                 >{{ item.cost.currencyCode }} {{ item.cost.amount }}</span
               >
             </div>
@@ -90,37 +90,37 @@
       <!-- Right Side Summary Section -->
       <div class="col-span-12 lg:sticky lg:top-0 lg:col-span-4">
         <div class="rounded-lg bg-[#edf8f3] p-6">
-          <h5 class="font-manrope mb-4 text-2xl font-semibold text-[#28574E]">
+          <h5 class="font-manrope mb-4 text-2xl font-semibold text-[#238878]">
             Summary
           </h5>
           <div class="mb-2 flex justify-between">
-            <span class="text-[#28574E]">Subtotal</span>
-            <span class="font-semibold text-[#28574E]"
+            <span class="text-[#238878]">Subtotal</span>
+            <span class="font-semibold text-[#238878]"
               >{{ cart.subtotalAmount.currencyCode }}
               {{ cart.subtotalAmount.amount }}</span
             >
           </div>
           <div class="mb-4 flex justify-between">
-            <span class="text-[#28574E]">Shipping</span>
+            <span class="text-[#238878]">Shipping</span>
             <span
               v-if="shippingAmount >= 0"
-              class="font-semibold text-[#28574E]"
+              class="font-semibold text-[#238878]"
               >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
             >
-            <span v-else class="font-semibold text-[#28574E]"
+            <span v-else class="font-semibold text-[#238878]"
               >{{ cart.subtotalAmount.currencyCode }} 0</span
             >
           </div>
           <div class="mb-4 flex justify-between">
-            <span class="text-[#28574E]">Tax Amount</span>
-            <span class="font-semibold text-[#28574E]"
+            <span class="text-[#238878]">Tax Amount</span>
+            <span class="font-semibold text-[#238878]"
               >{{ cart.totalTaxAmount?.currencyCode || "" }}
               {{ cart.totalTaxAmount?.amount || "" }}</span
             >
           </div>
           <div class="mt-4 flex justify-between border-t pt-4">
-            <span class="text-xl font-bold text-[#28574E]">Total</span>
-            <span class="text-xl font-bold text-[#28574E]"
+            <span class="text-xl font-bold text-[#238878]">Total</span>
+            <span class="text-xl font-bold text-[#238878]"
               >{{ cart.totalAmount.currencyCode }}
               {{ cart.totalAmount.amount }}</span
             >
@@ -141,14 +141,14 @@
             <button
               type="submit"
               :disabled="applyingDiscount"
-              class="rounded-lg border border-[#28574E] px-3 py-2 text-black hover:bg-[#28574E] hover:text-white disabled:animate-pulse disabled:cursor-not-allowed"
+              class="rounded-lg border border-[#238878] px-3 py-2 text-black hover:bg-[#238878] hover:text-white disabled:animate-pulse disabled:cursor-not-allowed"
             >
               {{ applyingDiscount ? "Applying" : "Apply" }}
             </button>
           </form>
           <div
             v-else
-            class="mt-4 flex items-center justify-between gap-2 rounded-badge bg-[#28574E] px-5 py-2 text-white"
+            class="mt-4 flex items-center justify-between gap-2 rounded-badge bg-[#238878] px-5 py-2 text-white"
           >
             <p class="text-white">
               Applied
@@ -161,7 +161,7 @@
           <!-- <div v-if="requiresPrescription" class="mt-6">
             <label
               for="prescription-upload"
-              class="w-full py-3 bg-[#28574E] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
+              class="w-full py-3 bg-[#238878] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
             >
               <input
                 type="file"
@@ -185,7 +185,7 @@
           <div class="mt-4">
             <nuxt-link
               to="/checkout"
-              class="block w-full rounded-full bg-[#28574E] px-10 py-3 text-center text-lg font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+              class="block w-full rounded-full bg-[#238878] px-10 py-3 text-center text-lg font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
             >
               Check Out
             </nuxt-link>

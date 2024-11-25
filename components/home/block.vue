@@ -2,7 +2,7 @@
   <div class="flex items-center justify-between mt-10 lg:mt-72 object-cover bg-white w-full">
     <swiper
       :slidesPerView="1"
-      :spaceBetween="60"
+      :spaceBetween="10"
       :loop="true"
       :pagination="{ clickable: true }"
       :navigation="true"
@@ -35,9 +35,9 @@ export default {
   data() {
     return {
       slides: [
-        "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/1.webp",
-        "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/2.webp",
-        "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/3.webp"
+        "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/mediu%20banner2%20(1).jpg",
+        "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/mediu%20banner3.jpg",
+        "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/mediu%20banner1%402x%20(1).jpg"
       ]
     };
   }

@@ -1,9 +1,9 @@
 <template>
-  <div class="font-serif">
+  <div class="font-serif mt-5 md:mt-20 lg:mt-96 bg-white">
     <div class="flex flex-col lg:space-y-6 text-center">
       <!-- Responsive Heading -->
       <h1 class="text-2xl sm:text-3xl md:text-4xl text-gray-500">Top Picks</h1>
-      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#28574E]">
+      <h2 class="text-2xl md:text-6xl font-bold text-[#238878]">
         Featured Products
       </h2>
     </div>
@@ -11,21 +11,21 @@
     <!-- Responsive Category Buttons -->
     <div class="flex justify-center my-4 md:my-12 text-lg md:text-2xl">
       <button @click="filtercards('Hair')" :class="{
-        'bg-[#28574E] text-white': selectedCategory === 'Hair',
-        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Hair',
+        'bg-[#238878] text-white': selectedCategory === 'Hair',
+        'bg-gray-300 text-[#238878]': selectedCategory !== 'Hair',
       }" class="px-3 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2">
         Hair
       </button>
       <button @click="filtercards('Skin')" :class="{
-        'bg-[#28574E] text-white': selectedCategory === 'Skin',
-        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Skin',
+        'bg-[#238878] text-white': selectedCategory === 'Skin',
+        'bg-gray-300 text-[#238878]': selectedCategory !== 'Skin',
       }" class="px-3 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2">
         Skin
       </button>
 
       <button @click="filtercards('Baby Care')" :class="{
-        'bg-[#28574E] text-white': selectedCategory === 'Baby Care',
-        'bg-gray-300 text-[#28574E]': selectedCategory !== 'Baby Care',
+        'bg-[#238878] text-white': selectedCategory === 'Baby Care',
+        'bg-gray-300 text-[#238878]': selectedCategory !== 'Baby Care',
       }" class="px-3 md:px-20 py-2 font-semibold rounded-full mx-2 mb-2">
         Baby Care
       </button>
@@ -36,12 +36,12 @@
       <!-- First card -->
       <div class="w-full lg:w-5/12">
         <div v-for="card in filteredcards.slice(0, 1)" :key="card.link" :to="card.link"
-          class="border p-4 rounded-3xl shadow-lg block no-underline h-full font-sans">
+          class="border p-4 rounded-lg md:rounded-3xl md:border-none md:shadow-lg block no-underline h-full font-sans">
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
             <div class="space-x-4">
               <span v-if="card.isOnSale"
-                class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Sale
+                class="absolute top-0 left-0 bg-orange-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Sale
                 8%</span>
               <span v-if="card.isBestSeller"
                 class="absolute top-0 left-[80px] bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Best
@@ -59,7 +59,7 @@
               </svg></nuxt-link>
 
             <nuxt-link :key="card.link" :to="card.link"
-              class="flex mt-4 justify-center bg-[#28574E] w-full text-white text-base md:text-lg px-4 py-2 rounded-full gap-4">
+              class="flex mt-4 justify-center bg-[#4ca9ee] w-full text-white text-base md:text-lg px-4 py-2 rounded-full gap-4">
               <button>Shop Now</button>
               <!-- Shop Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 25 25" fill="none">
@@ -81,11 +81,11 @@
 
           <div class="flex flex-col items-center mt-4">
             <!-- Responsive card name and price -->
-            <h2 class="text-xl sm:text-2xl md:text-3xl text-[#28574E] my-4 font-semibold capitalize">
+            <h2 class="text-lg md:text-2xl text-[#238878] my-4 font-semibold capitalize">
               {{ card.name }}
             </h2>
             <div class="lg:my-4 text-center space-x-2">
-              <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-black">₹{{ card.discountedPrice }}</span>
+              <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#4ca9ee]">₹{{ card.discountedPrice }}</span>
               <span class="line-through text-slate-500 text-lg sm:text-xl md:text-2xl">₹{{ card.originalPrice }}</span>
             </div>
             <!-- Rating -->
@@ -136,11 +136,11 @@
       <!-- Remaining Cards -->
       <div class="w-full lg:w-7/12 grid grid-cols-2 md:grid-cols-2 gap-2 lg:gap-6 capitalize font-sans">
         <div v-for="card in filteredcards.slice(1)" :key="card.link" :to="card.link"
-          class="border p-4 rounded-3xl shadow-lg block no-underline h-full">
+          class="border p-4 rounded-lg md:rounded-3xl md:border-none md:shadow-lg block no-underline h-full">
           <nuxt-link class="relative" :key="card.link" :to="card.link">
             <!-- Sale and Best Seller Tags -->
             <span v-if="card.isOnSale"
-              class="absolute top-0 left-0 bg-red-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Sale
+              class="absolute top-0 left-0 bg-orange-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Sale
               5%</span>
             <span v-if="card.isBestSeller"
               class="absolute top-0 right-0 bg-blue-500 text-white text-xs sm:text-sm md:text-base font-semibold px-2 py-1 rounded">Best
@@ -151,11 +151,11 @@
 
           <div class="mt-4 text-left">
             <!-- card name and price -->
-            <h2 class="text-lg md:text-xl text-black capitalize">
+            <h2 class="text-sm lg:text-lg text-black capitalize">
               {{ card.name }}
             </h2>
             <div class="mt-2 space-x-2">
-              <span class="text-xl sm:text-2xl md:text-2xl font-bold text-black">₹{{ card.discountedPrice }}</span>
+              <span class="text-xl sm:text-2xl md:text-2xl font-bold text-[#4ca9ee]">₹{{ card.discountedPrice }}</span>
               <span class="line-through text-slate-600 text-sm sm:text-lg md:text-xl">₹{{ card.originalPrice }}</span>
             </div>
             <div class="flex items-center justify-between mt-2">
@@ -170,7 +170,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="bg-slate-300 rounded-full p-1 md:px-1 md:py-1 opacity-80">
+              <div class="bg-slate-300 rounded-full p-1 md:px-1 md:py-1 opacity-80 hidden md:block">
                 <a :key="card.link" :href="card.link" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round"
@@ -196,7 +196,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="text-end font-sans px-2 py-4 text-lg sm:text-xl md:text-2xl text-[#28574E] font-semibold">
+    <div class="text-end font-sans px-2 py-4 text-base md:text-2xl text-[#4ca9ee] font-semibold">
       <nuxt-link to="/shop">View All 240 Products -> </nuxt-link>
     </div>
   </div>
@@ -210,13 +210,13 @@ export default {
       allcards: [
         {
           id: 1,
-          link: "/shop/product/aspirin",
-          name: "Blowshine",
+          link: "/shop/product/adonis-adrito-faceserum-50-ml",
+          name: "ADONIS ADRITO FACESERUM 50 ML",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01.jpg?v=1725546603",
-          discountedPrice: 1000,
-          originalPrice: 1500,
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/46971bc309a23350a47a055f7605b63d.jpg?v=1731566733",
+          discountedPrice: 1350.0,
+          originalPrice: 1597.0,
           rating: 5,
           feedbackCount: 524,
           isOnSale: true,
@@ -228,13 +228,13 @@ export default {
         },
         {
           id: 2,
-          link: "/shop/product/venusia-max-cream",
-          name: "venusia max cream",
+          link: "/shop/product/pimcure-body-spray",
+          name: "PIMCURE BODY SPRAY",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC09987.jpg?v=1725709318",
-          discountedPrice: 1180,
-          originalPrice: 2360,
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/175e0400b56f84371006a69927845e70.jpg?v=1731482098",
+          discountedPrice: 250.0,
+          originalPrice: 310.0,
           rating: 4,
           feedbackCount: 200,
           isOnSale: true,
@@ -242,39 +242,39 @@ export default {
         },
         {
           id: 3,
-          link: "/shop/product/dermatica-ray-protect-barelyon",
-          name: "dermatica ray protect barelyon",
+          link: "/shop/product/dermatica-hapure-30ml",
+          name: "DERMATICA HAPURE 30ML",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC00304.jpg?v=1725636340",
-          discountedPrice: 1080,
-          originalPrice: 2160,
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/300c4f66707debe4adc2facc1470efab.jpg?v=1731478335",
+          discountedPrice: 1100.0,
+          originalPrice: 1190.0,
           rating: 4,
           feedbackCount: 200,
           category: "Skin", // Added category
         },
         {
           id: 4,
-          link: "/shop/product/acne-oc-moisturiser",
-          name: "acne oc moisturiser",
+          link: "/shop/product/ralycos-eyecos-undereye-cramy-gel-15gm",
+          name: "RALYCOS EYECOS UNDEREYE CRAMY GEL 15GM",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/DSC_4371.jpg?v=1725637153",
-          discountedPrice: 567,
-          originalPrice: 1120,
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/bac57bfbc77c3ba2fbb8f7d15ab757c7.jpg?v=1731735347",
+          discountedPrice: 1300.0,
+          originalPrice: 1400.0,
           rating: 4,
           feedbackCount: 200,
           category: "Skin", // Added category
         },
         {
           id: 5,
-          link: "/shop/product/bontess-pro",
-          name: "bontess pro",
+          link: "/shop/product/dermatica-complxion-edt-cream",
+          name: "DERMATICA COMPLXION EDT CREAM",
           description: "A description of the card.",
           image:
-            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/01_1.jpg?v=1725548277",
-          discountedPrice: 1225,
-          originalPrice: 2500,
+            "https://cdn.shopify.com/s/files/1/0624/7265/0825/files/20334c69757ed82d4f5e21e13373647b.jpg?v=1731476382",
+          discountedPrice: 1200.0,
+          originalPrice: 1290.0,
           rating: 4,
           feedbackCount: 200,
           isOnSale: true,

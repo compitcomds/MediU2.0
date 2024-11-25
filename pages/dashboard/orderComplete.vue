@@ -1,13 +1,13 @@
 <template>
-    <div class="min-h-screen p-6 bg-[#edf8f3] flex" v-if="UserData">
+    <div class="min-h-screen lg:p-6 bg-[#edf8f3] flex" v-if="UserData">
       <!-- Main layout -->
       
         <!-- Sidebar -->
-              <DashboardSidenav :UserData="UserData || ''"/>
+              <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''"/>
 
   
         <!-- Order Confirmation -->
-        <div class="w-3/4 rounded-lg p-6 ml-6 border space-y-6">
+        <div class="w-full lg:w-3/4 rounded-lg lg:p-6 lg:ml-6 my-10 lg:my-0 border space-y-6">
           <div class="flex flex-col items-center">
             <img
               src="https://glower.indiankoder.com/xhtml/images/confirmation.png"
@@ -23,12 +23,12 @@
             <!-- Action Buttons -->
             <div class="mt-8 space-x-4">
               <a href="/dashboard/view-order"
-                class="bg-[#28574E] text-white px-4 py-2 rounded-lg hover:bg-[#809e99]"
+                class="bg-[#238878] text-white px-4 py-2 rounded-lg hover:bg-[#809e99]"
               >
                 View Order
               </a>
               <a href="/dashboard/"
-                class="border border-gray-300 text-gray-700 hover:text-white px-4 py-2 rounded-lg hover:bg-[#28574E]"
+                class="border border-gray-300 text-gray-700 hover:text-white px-4 py-2 rounded-lg hover:bg-[#238878]"
               >
                 Back To Home
               </a>

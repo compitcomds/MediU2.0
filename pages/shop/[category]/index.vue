@@ -1,11 +1,11 @@
 <template>
-  <div class="grid grid-cols-12 pt-10">
-    <div class="hidden sm:block lg:col-span-3 md:col-span-4 xl:col-span-2 ms-7">
-      <ShopFilterbar />
+  <div class="grid grid-cols-12 pt-2 lg:pt-10">
+    <div class="ms-7 hidden sm:block md:col-span-4 lg:col-span-3 xl:col-span-2">
+      <!-- <ShopFilterbar :hideProductType="true" /> -->
     </div>
 
     <div
-      class="lg:col-span-9 md:col-span-8 col-span-12 xl:col-span-10 md:me-7 mt-3"
+      class="col-span-12 mt-3 md:col-span-8 md:me-7 lg:col-span-9 xl:col-span-10"
     >
       <ShopBanner />
       <ShopCard :productDetails="data.products" name="Add To Cart" />
@@ -13,31 +13,40 @@
   </div>
 </template>
 
-<script setup>
-import { fetchProducts } from "~/shopify/products";
+<script setup lang="ts">
+import getProductsInCollection from "~/shopify/shop/get-products-by-collection";
 
 const route = useRoute();
-const category = route.params.category;
+const handle = Array.isArray(route.params.category)
+  ? route.params.category[0]
+  : route.params.category;
+
+const fetchedData = useState("data", () => ({
+  products: [],
+}));
 
 const data = useState("data", () => ({
   products: [],
 }));
 
+onMounted(async () => {
+  const newData = await getProductsInCollection(handle);
+  if (!newData) return;
+  data.value = { ...newData };
+  fetchedData.value = { ...newData };
+});
+
 watch(
   () => route.query,
-  async (newQuery) => {
-    const queryString = convertQueryParamsToQueryString(newQuery);
-    const newData = await fetchProducts({
-      query: queryString,
+  async (newQuery: any) => {
+    data.value.products = fetchedData.value.products.filter((product: any) => {
+      const prodPrice = parseFloat(product.price);
+      if (!!newQuery.min && parseInt(newQuery.min) > prodPrice) return false;
+      else if (!!newQuery.max && parseInt(newQuery.max) < prodPrice)
+        return false;
+      return true;
     });
-    data.value = {
-      ...newData,
-      products: newData.products.filter((product) =>
-        product.collections.includes(category.toLowerCase())
-      ),
-    };
   },
-  { immediate: true }
+  { immediate: true },
 );
-console.log(category);
 </script>

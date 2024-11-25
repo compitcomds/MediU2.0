@@ -2,7 +2,7 @@
   <div>
     <button
       @click="addProductToCart"
-      class="text-red rounded-full hover:before:bg-redborder-[#28574E] relative h-[40px] w-full overflow-hidden border border-[#28574E] bg-white px-3 text-[#28574E] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#28574E] before:transition-all before:duration-500 hover:text-white hover:before:left-0 hover:before:w-full"
+      class="text-red rounded-full hover:before:bg-redborder-[#238878] relative h-[40px] w-full overflow-hidden border border-[#238878] bg-white px-3 text-[#238878] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#238878] before:transition-all before:duration-500 hover:text-white hover:before:left-0 hover:before:w-full"
       :disabled="isAddingProductToCart"
     >
       <span class="relative z-10">

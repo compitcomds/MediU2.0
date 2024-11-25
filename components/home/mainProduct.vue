@@ -213,7 +213,7 @@
                 <h3 class="text-black">Fresh Day Cream</h3>
                 <div class="flex justify-between items-center">
                   <div class="flex">
-                    <p class="text-[#28574E] font-bold">$20.58</p>
+                    <p class="text-[#238878] font-bold">$20.58</p>
                     <p class="text-gray-500 text-sm line-through">$15.35</p>
                   </div>
                   <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
@@ -277,7 +277,7 @@
                 <h3 class="text-black">{{ product.name }}</h3>
                 <div class="flex justify-between items-center">
                   <div class="flex">
-                    <p class="text-[#28574E] font-bold">
+                    <p class="text-[#238878] font-bold">
                       {{ product.salePrice }}
                     </p>
                     <p class="text-gray-500 text-sm line-through">
@@ -387,7 +387,7 @@
                 <h3 class="text-black">Fresh Day Cream</h3>
                 <div class="flex justify-between items-center">
                   <div class="flex">
-                    <p class="text-[#28574E] font-bold">$20.58</p>
+                    <p class="text-[#238878] font-bold">$20.58</p>
                     <p class="text-gray-500 text-sm line-through">$15.35</p>
                   </div>
                   <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
