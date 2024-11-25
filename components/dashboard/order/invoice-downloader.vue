@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="hidden">
     <div
       id="invoice"
       class="invoice-container max-w-[90%] bg-white p-5 text-black"
@@ -54,20 +54,20 @@
           >
             <td class="border-b px-4 py-2">
               {{ item.name }} <br />
-              {{ item.sku }}
+              <span class="text-xs">SKU: {{ item.sku }}</span>
             </td>
             <td class="border-b px-4 py-2 text-center">{{ item.quantity }}</td>
             <td class="border-b px-4 py-2 text-right">
               {{ formatCurrency(item.price) }}
             </td>
             <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.tax / 2) }}
+              {{ formatCurrency(item.tax / 2) }}%
             </td>
             <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.tax / 2) }}
+              {{ formatCurrency(item.tax / 2) }}%
             </td>
             <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.price + item.tax) }}
+              {{ formatCurrency(item.total) }}
             </td>
           </tr>
         </tbody>
@@ -132,6 +132,6 @@ const downloadInvoice = async () => {
 };
 
 const formatCurrency = (amount) => {
-  return `${payload.invoice.currency} ${amount.toFixed(2)}`;
+  return `${payload.invoice.currency} ${amount}`;
 };
 </script>

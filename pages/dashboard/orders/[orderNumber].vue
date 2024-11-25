@@ -12,7 +12,7 @@
               <li
                 v-for="item in orderData.lineItems"
                 :key="item.title"
-                class="flex items-center"
+                class="flex items-start gap-5"
               >
                 <img
                   :src="
@@ -126,9 +126,9 @@ const payload = {
     name: `${orderData.shippingAddress.firstName} ${orderData.shippingAddress.lastName}`,
     address1: `${orderData.shippingAddress.address1}`,
     address2: `${orderData.shippingAddress.city}, ${orderData.shippingAddress.province}, ${orderData.shippingAddress.country}`,
-    phone: "Tel: (555) 555-5555", // Placeholder or replace with actual customer phone
-    email: "Mail: joe@example.com", // Placeholder or replace with actual customer email
-    taxId: "Tax ID: 1234567890", // Optional
+    phone: "Tel: (555) 555-5555",
+    email: "Mail: joe@example.com",
+    taxId: "Tax ID: 1234567890",
   },
   invoice: {
     number: orderNumber,
@@ -136,13 +136,14 @@ const payload = {
     dueDate: orderData.processedAt.split("T")[0], // Extract date from processedAt
     status: "PAID",
     currency: orderData.totalPrice.currencyCode,
-    total: 1200,
+    total: orderData.totalPrice.amount,
   },
   items: orderData.lineItems.map((item) => ({
     name: item.title,
     quantity: item.quantity,
     sku: item.variant?.sku || "",
-    price: parseFloat(item.originalTotalPrice.amount),
+    price: item.variant.price.amount,
+    total: item.originalTotalPrice.amount,
     tax: parseFloat(item.variant?.product?.gstApplied?.value || "0"),
   })),
   note: {

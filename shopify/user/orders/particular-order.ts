@@ -38,6 +38,10 @@ query getParticularUserOrders($accessToken: String!, $query: String) {
                   value
                 }
               }
+              price {
+                amount
+                currencyCode
+              }
             }
           }
         }
@@ -72,7 +76,8 @@ export default async function getUserOrder(orderNumber: string) {
     throw new Error("Unable to find the order.");
   const foundOrder = data.customer.orders.nodes[0];
   if (foundOrder)
-    return { ...foundOrder, lineItems: foundOrder.lineItems.nodes };
+    console.log({ ...foundOrder, lineItems: foundOrder.lineItems.nodes });
+  return { ...foundOrder, lineItems: foundOrder.lineItems.nodes };
 
   throw new Error("Unable to find the order with the given order number.");
 }
