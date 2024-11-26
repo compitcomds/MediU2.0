@@ -92,10 +92,10 @@ const tabs = [
     href: "/dashboard/reviews",
   },
   {
-    name: "Help",
+    name: "Help And Support",
     image: HandHelping,
     alt: "",
-    href: "/dashboard/help",
+    href: "/dashboard/help-and-support",
   },
   {
     name: "Consultancy",
