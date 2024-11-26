@@ -12,7 +12,7 @@
                 <!-- Pagination Dots -->
                 <div class="hidden lg:block">
                     <div class="absolute -bottom-10 xl:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                        <span v-for="(slide, index) in slides" :key="index" @click="currentSlide = index" :class="[
+                        <span v-for="(slide, index) in slides" :key="index" @click="currentSlide = index" :class="[ 
                             'rounded-full cursor-pointer',
                             currentSlide === index
                                 ? 'bg-teal-800 h-3 w-6'
@@ -43,37 +43,38 @@ export default {
                 },
                 // Add more slides as needed
             ],
-            isBrowser: typeof window !== 'undefined', // Check if window is available (client-side)
+            screenWidth: null, // Initially set to null
         };
     },
     computed: {
         // Dynamically set image source based on screen size
         currentSlideImage() {
-            if (!this.isBrowser) return ''; // If we're not in the browser, return empty string
-            const current = this.slides[this.currentSlide];
-            const width = window.innerWidth;
-
-            if (width >= 1024) { // lg or xl screen size
-                return current.lgImage;
-            } else if (width >= 768) { // md screen size
-                return current.mdImage;
-            } else if (width >= 300) { // sm screen size
-                return current.smImage;
+            // Ensure window is available before accessing innerWidth
+            if (this.screenWidth === null) {
+                return ''; // Return empty if the screenWidth is not set yet
             }
-            else {
+            const current = this.slides[this.currentSlide];
+
+            if (this.screenWidth >= 1024) { // lg or xl screen size
+                return current.lgImage;
+            } else if (this.screenWidth >= 768) { // md screen size
+                return current.mdImage;
+            } else { // sm screen size
                 return current.smImage;
             }
         }
     },
     mounted() {
-        if (this.isBrowser) {
+        // Only access window.innerWidth on the client-side
+        if (typeof window !== 'undefined') {
+            this.screenWidth = window.innerWidth; // Set initial screen width
             this.startSlideShow();
-            window.addEventListener("resize", this.handleResize);
+            window.addEventListener('resize', this.handleResize);
         }
     },
     beforeDestroy() {
-        if (this.isBrowser) {
-            window.removeEventListener("resize", this.handleResize);
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('resize', this.handleResize);
         }
     },
     methods: {
@@ -83,11 +84,11 @@ export default {
             }, 5000); // Change slide every 5 seconds
         },
         handleResize() {
-            if (this.isBrowser) {
-                this.$forceUpdate(); // Force re-evaluation of computed properties on window resize
+            if (typeof window !== 'undefined') {
+                this.screenWidth = window.innerWidth; // Update screen width on resize
             }
         }
-    },
+    }
 };
 </script>
 
