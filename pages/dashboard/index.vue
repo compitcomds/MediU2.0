@@ -1,9 +1,7 @@
 <template>
-  <div class="min-h-screen bg-[#edf8f3] lg:mt-12 lg:p-6" v-if="UserData">
+  <div class="min-h-screen bg-[#edf8f3] lg:mt-12 lg:p-6" v-if="user">
     <div class="lg:flex lg:gap-6">
-      <!-- Sidebar -->
-      <DashboardSidenav :UserData="UserData || ''" />
-      <!-- Main Dashboard -->
+      <DashboardSidenav />
       <DashboardMain class="hidden lg:block" />
     </div>
   </div>
@@ -12,21 +10,15 @@
 <script setup lang="ts">
 import { getUser } from "~/appwrite/auth";
 
-const UserData = ref<any>(null);
 const router = useRouter();
+const user = ref<any>(null);
 
-async function fetchUserData() {
-  try {
-    const result = await getUser();
-    console.log("User Data:", result);
-    UserData.value = result;
-  } catch (error) {
-    UserData.value = null;
-    router.push("/auth/login");
-  }
+try {
+  const result = await getUser();
+  user.value = result;
+} catch (error) {
+  router.push("/auth/login");
 }
-
-fetchUserData();
 </script>
 
 <style scoped>

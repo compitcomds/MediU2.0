@@ -1,7 +1,7 @@
 import registerUserIntoShopify from "~/shopify/user/register";
 import { createUserDocument, getUserDocument } from "./user-document";
 import { ID, OAuthProvider } from "appwrite";
-import { account } from "./config";
+import { account, avatars } from "./config";
 import loginShopifyUserAccount from "~/shopify/user/login";
 
 const OAUTH_LOGIN_SUCCESS_REDIRECT = import.meta.env
@@ -44,7 +44,7 @@ const createNewShopifyUser = async (
     shopifyCustomerId,
     shopifyPassword,
     wishlist: [],
-    wallet:0
+    wallet: 0,
   });
 };
 
@@ -89,6 +89,10 @@ export const loginUser = async (data: { email: string; password: string }) => {
 };
 
 export const getUser = async () => account.get();
+
+export const getUserImage = (name: string) => {
+  return avatars.getInitials(name);
+};
 
 export const getShopifyAccessTokenUsingAppwrite = async () => {
   const user = await getUser();

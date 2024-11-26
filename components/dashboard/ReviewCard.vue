@@ -1,29 +1,24 @@
 <template>
-    <div class="bg-white p-6 shadow-lg rounded-lg">
-      <div class="flex items-center mb-4">
-        <img
-          :src="img"
-          alt="Profile"
-          class="rounded-full w-20 h-20 mr-4"
-        />
-        <div>
-          <h3 class="font-semibold text-lg">{{ name }}</h3>
-          <div class="flex items-center">
-            <span class="text-yellow-500">★★★★★</span>
-          </div>
+  <div class="rounded-lg bg-white p-6 shadow-lg">
+    <div class="mb-4 flex items-center">
+      <img :src="img" alt="Profile" class="mr-4 h-20 w-20 rounded-full" />
+      <div>
+        <h3 class="text-lg font-semibold">{{ name }}</h3>
+        <div class="flex items-center">
+          <span class="text-yellow-500" v-for="_ in stars">★</span>
+          <span class="text-gray-500" v-for="_ in (5 - stars) % 5">★</span>
         </div>
       </div>
-      <p class="text-gray-600">{{ text }}</p>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      name: String,
-      img: String,
-      text: String,
-    },
-  }
-  </script>
-  
+    <p class="text-gray-600">{{ text }}</p>
+  </div>
+</template>
+
+<script setup lang="ts">
+const { name, text, img, stars } = defineProps<{
+  name: string;
+  img: string;
+  text: string;
+  stars: number;
+}>();
+</script>

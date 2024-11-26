@@ -104,7 +104,6 @@ const filterProducts = (category: string) => {
   filteredProducts.value.sort((a, b) => a.title.localeCompare(b.title));
 };
 
-// Select a service
 const selectConsultancyProduct = (product: any) => {
   selectedProduct.value = product;
 };

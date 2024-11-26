@@ -1,59 +1,27 @@
 <template>
-    <div class="min-h-screen lg:p-6 bg-[#edf8f3] flex" v-if="UserData">
-        
-            <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''"/>
+  <div class="flex min-h-screen bg-[#edf8f3] lg:p-6">
+    <DashboardSidenav class="hidden lg:block" />
 
-  
-      <div class="w-full lg:px-8 my-10 lg:my-0 pb-20 lg:pb-0 bg-gray-100">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-[#238878]">
-          <DashboardReviewCard
-            name="Michel Poe"
-            img="https://via.placeholder.com/50"
-            text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
-          <DashboardReviewCard
-            name="Celesto Anderson"
-            img="https://via.placeholder.com/50"
-            text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
-          <DashboardReviewCard
-            name="Monsur Rahman Lito"
-            img="https://via.placeholder.com/50"
-            text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
-          <DashboardReviewCard
-            name="Johan Doe"
-            img="https://via.placeholder.com/50"
-            text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
-          <!-- Add more cards as needed -->
-        </div>
+    <div class="my-10 w-full bg-gray-100 pb-20 lg:my-0 lg:px-8 lg:pb-0">
+      <div
+        class="grid grid-cols-1 gap-6 text-[#238878] md:grid-cols-2 lg:grid-cols-3"
+      >
+        <DashboardReviewCard
+          v-for="review in userReviews"
+          :name="review.name"
+          :text="review.description"
+          :stars="review.rating"
+          :img="getUserImage(review.name)"
+          img="https://via.placeholder.com/50"
+        />
       </div>
     </div>
-  </template>
-  
+  </div>
+</template>
 
-  <script setup>
-  import { ref } from 'vue';
-  import { useRouter } from 'vue-router'; // Import useRouter
-  import { getUser } from '~/appwrite/auth';
-  
-  const UserData = ref(null); // Use ref for reactivity
-  const router = useRouter(); // Initialize the router
-  
-  async function fetchUserData() {
-    try {
-      const result = await getUser();
-      console.log("User Data:", result);
-      UserData.value = result; // Update the value of UserData
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      UserData.value = null; // Update the value of UserData
-      router.push('/auth/login'); // Redirect to /auth/login
-    }
-  
-    console.log(UserData.value); // Log here to see the final value
-  }
-  
-  fetchUserData();
-  </script>
+<script setup>
+import getUserReviews from "~/appwrite/reviews/get-user-reviews";
+import { getUserImage } from "~/appwrite/auth";
+
+const { total, documents: userReviews } = await getUserReviews();
+</script>
