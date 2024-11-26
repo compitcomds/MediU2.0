@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+
 const userStore = useUserStore();
 
 await userStore.initialiseUserStore();
