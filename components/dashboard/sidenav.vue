@@ -19,22 +19,114 @@
     <!-- Sidebar Menu -->
     <nav>
       <ul class="space-y-4">
-        <li class="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2">
-          <img src="https://placehold.co/24x24?text=AI" alt="Account Information Icon" class="w-6 h-6" />
-          <a href="/dashboard/">Account Information</a>
-        </li>
-
-        <!-- Menu Items with Icons -->
-        <li v-for="item in menuItems" :key="item.text"
-          class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+        <!-- Account Information -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
           <div class="flex items-center gap-2">
-            <img :src="item.icon" alt="icon" class="w-6 h-6"
-              :class="{ 'text-blue-500': $route.path === item.link, 'text-black': $route.path !== item.link }" />
-            <nuxt-link :to="item.link" class="flex-1"
-              :class="{ 'text-blue-500 font-semibold': $route.path === item.link, 'text-black': $route.path !== item.link }">{{ item.text }}</nuxt-link>
+            <img src="../../assets/images/user.svg" alt="Account Information Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/profile" class="flex-1 text-black hover:text-blue-500">Account Information</nuxt-link>
           </div>
           <span>&#8250;</span>
         </li>
+
+        <!-- Orders -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\check-out (1).svg" alt="Orders Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/orders" class="flex-1 text-black hover:text-blue-500">Orders</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- My Wallet -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\wallet.svg" alt="Wallet Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/" class="flex-1 text-black hover:text-blue-500">My Wallet</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- My WishList -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\shopping-cart.svg" alt="Wishlist Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/" class="flex-1 text-black hover:text-blue-500">My WishList</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Downloads -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\file.svg" alt="Downloads Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/downloads" class="flex-1 text-black hover:text-blue-500">Downloads</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Delivery Addresses -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\home-address.svg" alt="Delivery Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/address" class="flex-1 text-black hover:text-blue-500">Delivery Addresses</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Return Request -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\return-box.svg" alt="Return Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/return" class="flex-1 text-black hover:text-blue-500">Return Request</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Shipping Methods -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\shipped.svg" alt="Shipping Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/shippingMethod" class="flex-1 text-black hover:text-blue-500">Shipping Methods</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Payment Methods -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\pay.svg" alt="Payment Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/paymentMethod" class="flex-1 text-black hover:text-blue-500">Payment Methods</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Review -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="../../assets/images/review.svg" alt="Review Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/reviews" class="flex-1 text-black hover:text-blue-500">Review</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Help -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\question.svg" alt="Help Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/" class="flex-1 text-black hover:text-blue-500">Help?</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+
+        <!-- Consultancy -->
+        <li class="flex items-center justify-between p-3 hover:bg-gray-100 rounded-md">
+          <div class="flex items-center gap-2">
+            <img src="assets\images\discussion.svg" alt="Consultancy Icon" class="w-6 h-6" />
+            <nuxt-link to="/dashboard/" class="flex-1 text-black hover:text-blue-500">Consultancy</nuxt-link>
+          </div>
+          <span>&#8250;</span>
+        </li>
+        
       </ul>
     </nav>
   </aside>
@@ -47,22 +139,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-// Sidebar menu items with icons
-const menuItems = [
-  { text: "My Profile", link: "/dashboard/profile", icon: "https://placehold.co/24x24?text=MP" },
-  { text: "Orders", link: "/dashboard/orders", icon: "https://placehold.co/24x24?text=O" },
-  { text: "My Wallet", link: "/dashboard/", icon: "https://placehold.co/24x24?text=W" },
-  { text: "My WishList", link: "/dashboard/", icon: "https://placehold.co/24x24?text=WL" },
-  { text: "Downloads", link: "/dashboard/downloads", icon: "https://placehold.co/24x24?text=D" },
-  { text: "Delivery Addresses", link: "/dashboard/address", icon: "https://placehold.co/24x24?text=DA" },
-  { text: "Return request", link: "/dashboard/return", icon: "https://placehold.co/24x24?text=RR" },
-  { text: "Shipping methods", link: "/dashboard/shippingMethod", icon: "https://placehold.co/24x24?text=SM" },
-  { text: "Payment Methods", link: "/dashboard/paymentMethod", icon: "https://placehold.co/24x24?text=PM" },
-  { text: "Review", link: "/dashboard/reviews", icon: "https://placehold.co/24x24?text=RW" },
-  { text: "Help?", link: "/dashboard/", icon: "https://placehold.co/24x24?text=H" },
-  { text: "Consultancy", link: "/dashboard/", icon: "https://placehold.co/24x24?text=C" },
-];
 </script>
 
 <style scoped>
