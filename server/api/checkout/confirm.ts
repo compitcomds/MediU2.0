@@ -50,14 +50,8 @@ async function processOrder(
 
   if (!cartData) return new Response("Invalid cart value.", { status: 400 });
 
-  const {
-    buyerIdentity,
-    items,
-    totalAmount,
-    subtotalAmount,
-    totalTaxAmount,
-    discountCodes,
-  } = cartData;
+  const { buyerIdentity, items, totalAmount, totalTaxAmount, discountCodes } =
+    cartData;
 
   const billing_and_shipping_address: any = {
     ...buyerIdentity.deliveryAddressPreferences[0],

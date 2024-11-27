@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto mt-4 max-w-3xl rounded-lg bg-white px-4 pb-20 text-center lg:px-0 lg:py-10 lg:pb-10"
+    class="mx-auto mt-4 max-w-3xl rounded-lg px-4 pb-20 text-center lg:px-0 lg:py-10 lg:pb-10"
   >
     <h2 class="mb-6 text-2xl font-bold text-[#238878]">Select Category</h2>
 
@@ -12,7 +12,7 @@
           'bg-blue-100 text-[#238878]': activeFilter !== 'all',
         }"
         class="flex w-full items-center rounded px-4 py-2 sm:w-auto"
-        @click="filterServices('all')"
+        @click="filterProducts('all')"
       >
         <span>All</span>
       </button>
@@ -25,7 +25,7 @@
           'bg-blue-100 text-[#238878]': activeFilter !== category,
         }"
         class="flex w-full items-center rounded border px-4 py-2 sm:w-auto"
-        @click="filterServices(category)"
+        @click="filterProducts(category)"
       >
         <span>{{ category }}</span>
       </button>
@@ -34,12 +34,14 @@
     <!-- Display Services -->
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
       <div
-        v-for="service in filteredServices"
-        :key="service.id"
-        @click="selectService(service)"
+        v-for="product in filteredProducts"
+        :key="product.id"
+        @click="selectConsultancyProduct(product)"
         :class="[
-          'cursor-pointer rounded border bg-white p-4 text-[#238878] hover:shadow-md',
-          selectedService === service ? 'border-[#238878]' : 'border-gray-300',
+          'cursor-pointer rounded bg-white p-4 text-[#238878] hover:shadow-md',
+          product.$id === selectedProduct?.$id
+            ? 'border-2 border-[#238878]'
+            : 'border border-gray-300',
         ]"
       >
         <div class="flex items-center space-x-4">
@@ -54,9 +56,8 @@
             </svg>
           </div>
           <div class="flex flex-col">
-            <h3 class="font-semibold">{{ service.name }}</h3>
-            <p>Duration: {{ service.duration }} mins</p>
-            <p>Price: ₹{{ service.price }} ({{ service.category }} care)</p>
+            <h3 class="font-semibold">{{ product.title }}</h3>
+            <p v-html="product.descriptionHtml"></p>
           </div>
         </div>
       </div>
@@ -65,7 +66,7 @@
     <!-- Next Button -->
     <button
       @click="confirmService"
-      :disabled="!selectedService"
+      :disabled="!selectedProduct"
       class="mt-6 w-full rounded bg-[#238878] px-4 py-2 text-white sm:w-auto"
     >
       Next: Basic Details
@@ -73,104 +74,43 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
+<script setup lang="ts">
+import getAllConsultancyServices from "~/appwrite/consultancy/get-consultancy-services";
 
-// Service data (could be fetched from an API)
-const services = ref([
-  { id: 1, name: "Dandruff", duration: 60, price: 1000, category: "Hair" },
-  { id: 2, name: "Hairfall", duration: 60, price: 1000, category: "Hair" },
-  { id: 3, name: "Hair Thinning", duration: 60, price: 1000, category: "Hair" },
-  {
-    id: 4,
-    name: "Damaged & Fizzy Hair",
-    duration: 60,
-    price: 1000,
-    category: "Hair",
-  },
-  { id: 5, name: "Bald Patches", duration: 60, price: 1000, category: "Hair" },
-  { id: 6, name: "Dull Hair", duration: 60, price: 1000, category: "Hair" },
-  { id: 7, name: "Oily Scalp", duration: 60, price: 1000, category: "Hair" },
-  {
-    id: 8,
-    name: "Acne & Acne Scar",
-    duration: 30,
-    price: 500,
-    category: "Skin",
-  },
-  { id: 9, name: "Aging", duration: 30, price: 500, category: "Skin" },
-  { id: 10, name: "Dehydration", duration: 30, price: 500, category: "Skin" },
-  {
-    id: 11,
-    name: "Damaged & Sensitive Skin",
-    duration: 30,
-    price: 500,
-    category: "Skin",
-  },
-  {
-    id: 12,
-    name: "Under Eye Darkness",
-    duration: 30,
-    price: 500,
-    category: "Skin",
-  },
-  {
-    id: 13,
-    name: "Under Arm Darkness",
-    duration: 30,
-    price: 500,
-    category: "Skin",
-  },
-  { id: 14, name: "Stretch Marks", duration: 30, price: 500, category: "Skin" },
-  { id: 15, name: "Pigmentation", duration: 30, price: 500, category: "Skin" },
-  { id: 16, name: "Oiliness", duration: 30, price: 500, category: "Skin" },
-  {
-    id: 17,
-    name: "Lip(Cracked/Darkness)",
-    duration: 30,
-    price: 500,
-    category: "Skin",
-  },
-]);
-
-const activeFilter = ref("all");
-const selectedService = ref(null);
-const filteredServices = ref([]);
+const { documents: consultancyProducts } = await getAllConsultancyServices();
 const router = useRouter();
+const activeFilter = ref("all");
+const filteredProducts = ref<any[]>([]);
 
-// Initialize filtered services on component mount
+const consultancyStore = useConsultancyStore();
+const { step1: selectedProduct } = storeToRefs(consultancyStore);
+
 onMounted(() => {
-  filterServices(activeFilter.value);
+  filterProducts(activeFilter.value);
 });
 
-// Filter services based on selected category
-const filterServices = (category) => {
+const filterProducts = (category: string) => {
   activeFilter.value = category;
-  filteredServices.value =
+  filteredProducts.value =
     category === "all"
-      ? [...services.value]
-      : services.value.filter((service) => service.category === category);
-  filteredServices.value.sort((a, b) => a.name.localeCompare(b.name));
+      ? [...consultancyProducts]
+      : consultancyProducts.filter((product: any) =>
+          product.tags.includes(category.toLowerCase()),
+        );
+  filteredProducts.value.sort((a, b) => a.title.localeCompare(b.title));
 };
 
-// Select a service
-const selectService = (service) => {
-  selectedService.value = service;
+const selectConsultancyProduct = (product: any) => {
+  selectedProduct.value = product;
 };
 
-// Confirm selected service and navigate to the basic details page
 const confirmService = () => {
-  if (selectedService.value) {
-    // Navigate to the basic details page with the selected service
+  if (selectedProduct.value.$id) {
     router.push({
-      name: "basicDetails",
-      params: { service: selectedService.value },
+      path: "/consultancy/basic-details",
     });
   }
 };
 </script>
 
-<style scoped>
-/* Additional styles can go here */
-</style>
+<style scoped></style>

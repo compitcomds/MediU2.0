@@ -1,107 +1,104 @@
 <template>
-  <div class="min-h-screen md:p-10">
-    <div class="flex gap-6">
-      <DashboardSidenav :UserData="UserData || ''" />
-      <main class="mb-32 min-h-screen p-2 md:w-3/4 md:p-8 lg:mb-16 lg:p-10">
-        <h2>Order Details</h2>
-        <div class="flex flex-col-reverse gap-8 lg:flex-row lg:justify-between">
-          <!-- Order Items List -->
-          <div>
-            <h3>Items Ordered:</h3>
-            <ul class="space-y-6">
-              <li
-                v-for="item in orderData.lineItems"
-                :key="item.title"
-                class="flex items-start gap-5"
-              >
-                <img
-                  :src="
-                    item.variant?.image?.url ||
-                    `https://placehold.co/400x400/png?text=${item.title}`
+  <DashboardAttachSidenav>
+    <main class="mb-32 min-h-screen p-2 md:w-3/4 md:p-8 lg:mb-16 lg:p-10">
+      <h2>Order Details</h2>
+      <div class="flex flex-col-reverse gap-8 lg:flex-row lg:justify-between">
+        <!-- Order Items List -->
+        <div>
+          <h3>Items Ordered:</h3>
+          <ul class="space-y-6">
+            <li
+              v-for="item in orderData.lineItems"
+              :key="item.title"
+              class="flex items-start gap-5"
+            >
+              <img
+                :src="
+                  item.variant?.image?.url ||
+                  `https://placehold.co/400x400/png?text=${item.title}`
+                "
+                :alt="item.variant?.image?.altText"
+                class="rounded"
+              />
+              <div class="flex-1">
+                <p class="text-bold">{{ item.title }}</p>
+                <p class="text-muted">Quantity: {{ item.quantity }}</p>
+              </div>
+              <div class="flex flex-col items-end">
+                <p
+                  v-if="
+                    item.discountedTotalPrice.amount <
+                    item.originalTotalPrice.amount
                   "
-                  :alt="item.variant?.image?.altText"
-                  class="rounded"
-                />
-                <div class="flex-1">
-                  <p class="text-bold">{{ item.title }}</p>
-                  <p class="text-muted">Quantity: {{ item.quantity }}</p>
-                </div>
-                <div class="flex flex-col items-end">
-                  <p
-                    v-if="
-                      item.discountedTotalPrice.amount <
-                      item.originalTotalPrice.amount
-                    "
-                    class="text-muted line-through"
-                  >
-                    Original: {{ item.originalTotalPrice.amount }}
-                    {{ item.originalTotalPrice.currencyCode }}
-                  </p>
-                  <p class="price">
-                    Price:
-                    {{
-                      item.discountedTotalPrice.amount <
-                      item.originalTotalPrice.amount
-                        ? item.discountedTotalPrice.amount
-                        : item.originalTotalPrice.amount
-                    }}
-                    {{ item.discountedTotalPrice.currencyCode }}
-                  </p>
-                </div>
-              </li>
-            </ul>
-
-            <!-- Shipping Address -->
-            <h3 class="mt-8">Shipping Address</h3>
-            <div class="text-muted">
-              <p>
-                {{ orderData.shippingAddress.firstName }}
-                {{ orderData.shippingAddress.lastName }}
-              </p>
-              <p>{{ orderData.shippingAddress.address1 }}</p>
-              <p v-if="orderData.shippingAddress.address2">
-                {{ orderData.shippingAddress.address2 }}
-              </p>
-              <p>
-                {{ orderData.shippingAddress.city }},
-                {{ orderData.shippingAddress.province }},
-                {{ orderData.shippingAddress.country }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Order Summary Section -->
-          <div class="order-summary">
-            <DashboardOrderInvoiceDownloader :payload="payload" />
-            <div class="order-details mt-4">
-              <p class="order-detail">
-                <strong><i class="icon-order-number"></i> Order Number:</strong>
-                {{ orderData.orderNumber }}
-              </p>
-              <p class="order-detail">
-                <strong><i class="icon-processed-at"></i> Processed At:</strong>
-                {{ new Date(orderData.processedAt).toLocaleString() }}
-              </p>
-              <p class="order-detail">
-                <strong><i class="icon-status"></i> Status:</strong>
-                <span v-if="orderData.fulfillmentStatus === 'UNFULFILLED'"
-                  >Pending (confirmed within 12 hours)</span
+                  class="text-muted line-through"
                 >
-                <span v-else>
-                  <DashboardOrderStatus :orderNumber="orderNumber" />
-                </span>
-              </p>
-              <p class="order-detail">
-                <strong><i class="icon-price"></i> Total Price:</strong>
-                {{ orderData.totalPrice.amount }}
-                {{ orderData.totalPrice.currencyCode }}
-              </p>
-            </div>
+                  Original: {{ item.originalTotalPrice.amount }}
+                  {{ item.originalTotalPrice.currencyCode }}
+                </p>
+                <p class="price">
+                  Price:
+                  {{
+                    item.discountedTotalPrice.amount <
+                    item.originalTotalPrice.amount
+                      ? item.discountedTotalPrice.amount
+                      : item.originalTotalPrice.amount
+                  }}
+                  {{ item.discountedTotalPrice.currencyCode }}
+                </p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Shipping Address -->
+          <h3 class="mt-8">Shipping Address</h3>
+          <div class="text-muted">
+            <p>
+              {{ orderData.shippingAddress.firstName }}
+              {{ orderData.shippingAddress.lastName }}
+            </p>
+            <p>{{ orderData.shippingAddress.address1 }}</p>
+            <p v-if="orderData.shippingAddress.address2">
+              {{ orderData.shippingAddress.address2 }}
+            </p>
+            <p>
+              {{ orderData.shippingAddress.city }},
+              {{ orderData.shippingAddress.province }},
+              {{ orderData.shippingAddress.country }}
+            </p>
           </div>
         </div>
-      </main>
-    </div>
-  </div>
+
+        <!-- Order Summary Section -->
+        <div class="order-summary">
+          <DashboardOrderInvoiceDownloader :payload="payload" />
+          <div class="order-details mt-4">
+            <p class="order-detail">
+              <strong><i class="icon-order-number"></i> Order Number:</strong>
+              {{ orderData.orderNumber }}
+            </p>
+            <p class="order-detail">
+              <strong><i class="icon-processed-at"></i> Processed At:</strong>
+              {{ new Date(orderData.processedAt).toLocaleString() }}
+            </p>
+            <p class="order-detail">
+              <strong><i class="icon-status"></i> Status:</strong>
+              <span v-if="orderData.fulfillmentStatus === 'UNFULFILLED'"
+                >Pending (confirmed within 12 hours)</span
+              >
+              <span v-else>
+                <DashboardOrderStatus :orderNumber="orderNumber" />
+              </span>
+            </p>
+            <p class="order-detail">
+              <strong><i class="icon-price"></i> Total Price:</strong>
+              {{ orderData.totalPrice.amount }}
+              {{ orderData.totalPrice.currencyCode }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </DashboardAttachSidenav>
 </template>
 
 <script setup>

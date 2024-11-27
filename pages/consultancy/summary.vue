@@ -1,25 +1,25 @@
 <template>
-  <div class="bg-white p-8 rounded-lg text-[#238878]">
-    <h2 class="text-2xl font-bold mb-6 text-center">Summary</h2>
-    <p class="text-center mb-6">Your appointment booking summary</p>
+  <div class="rounded-lg bg-white p-8 text-[#238878]">
+    <h2 class="mb-6 text-center text-2xl font-bold">Summary</h2>
+    <p class="mb-6 text-center">Your appointment booking summary</p>
 
     <!-- Customer Details -->
-    <div v-if="formData" class="text-center mb-8">
-      <h3 class="font-bold text-lg">Patient</h3>
+    <div v-if="formData" class="mb-8 text-center">
+      <h3 class="text-lg font-bold">Patient</h3>
       <p class="text-lg">{{ formData.firstName }} {{ formData.lastName }}</p>
     </div>
 
     <!-- Service Section -->
     <div
       v-if="service"
-      class="grid grid-cols-2 text-center border-b border-gray-300 pb-6 mb-6"
+      class="mb-6 grid grid-cols-2 border-b border-gray-300 pb-6 text-center"
     >
       <div>
-        <h4 class="text-sm font-semibold text-gray-500 mb-2">Service</h4>
+        <h4 class="mb-2 text-sm font-semibold text-gray-500">Service</h4>
         <p class="text-lg">{{ service.title }}</p>
       </div>
       <div>
-        <h4 class="text-sm font-semibold text-gray-500 mb-2">Date & Time</h4>
+        <h4 class="mb-2 text-sm font-semibold text-gray-500">Date & Time</h4>
         <p class="text-lg">To be confirmed</p>
       </div>
     </div>
@@ -27,10 +27,10 @@
     <!-- Total Amount Payable Section -->
     <div
       v-if="service"
-      class="flex justify-between items-center text-lg font-bold border-b border-gray-300 pb-4 mb-6"
+      class="mb-6 flex items-center justify-between border-b border-gray-300 pb-4 text-lg font-bold"
     >
       <span class="text-[#238878]">Total Amount Payable</span>
-      <span class="text-red-500">₹{{ service.price.amount }}</span>
+      <span class="text-red-500">₹{{ service.price }}</span>
     </div>
 
     <!-- Action Buttons -->
@@ -38,7 +38,7 @@
       <button
         @click="proceedToPayment"
         :disabled="isSubmitting"
-        class="bg-[#238878] text-white px-6 py-2 rounded hover:bg-[#5c998e] disabled:cursor-not-allowed disabled:animate-pulse"
+        class="rounded bg-[#238878] px-6 py-2 text-white hover:bg-[#5c998e] disabled:animate-pulse disabled:cursor-not-allowed"
       >
         {{ isSubmitting ? "Proceeding to payment..." : "Confirm Booking" }}
       </button>
@@ -47,11 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import createShopifyCart from "~/shopify/cart/create-cart";
-import addToCart from "~/shopify/cart/add-to-cart";
-import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
-import updateCartNote from "~/shopify/cart/update-cart-note";
-import consultancyImageUpload from "~/appwrite/consultancy-upload";
+import consultancyImageUpload from "~/appwrite/consultancy/consultancy-upload";
 import axios from "axios";
 import { getUser } from "~/appwrite/auth";
 
@@ -59,34 +55,19 @@ const router = useRouter();
 
 const consultancyStore = useConsultancyStore();
 
-if (!consultancyStore.step1.category || !consultancyStore.step1.id)
-  router.replace("/consultancy/services");
+if (!consultancyStore.step1.$id) router.replace("/consultancy/services");
 if (!consultancyStore.step2.email) router.replace("/consultancy/basic-details");
 
 const formData = ref(consultancyStore.step2 || {});
 const service = consultancyStore.step1;
 const isSubmitting = ref(false);
 
-const addUserIdentityToCart = async (cartId: string) => {
-  const { email, firstName, lastName, phone } = consultancyStore.step2;
-  await updateCartBuyerDetails(cartId, email, {
-    firstName,
-    lastName,
-    address1: "",
-    city: "",
-    province: "",
-    country: "India",
-    phone,
-    zip: "",
-  });
-};
-
 const proceedToPayment = async () => {
   isSubmitting.value = true;
-  const { id } = consultancyStore.step1;
+  const { $id } = consultancyStore.step1;
   const { email, firstName, lastName, note, phone, image } =
     consultancyStore.step2;
-  if (!id || !email || !firstName || !lastName || !phone) {
+  if (!$id || !email || !firstName || !lastName || !phone) {
     alert("Please provide all the details to proceed with consultation.");
     router.replace("/consultancy");
     return;
@@ -94,38 +75,31 @@ const proceedToPayment = async () => {
 
   try {
     const appwriteUser = await getUser();
-    const newCart = await createShopifyCart();
-    await addToCart({
-      cartId: newCart.id,
-      merchandiseId: id,
-      dontAddToNavbarCart: true,
-    });
-    await addUserIdentityToCart(newCart.id);
-    if (note) await updateCartNote(newCart.id, note);
-
     const consultancyUrl = !!image ? await consultancyImageUpload(image) : null;
-
-    const { data } = await axios.post("/api/checkout", {
-      cart: newCart.id,
+    const { data } = await axios.post("/api/consultancy/checkout", {
+      email,
+      firstName,
+      lastName,
+      note,
+      phone,
+      consultancy: $id,
+      image: consultancyUrl,
       userId: appwriteUser.$id,
-      prescriptionUrl: consultancyUrl,
-      type: "consultancy",
     });
+
     if (data?.url) {
       window.location.href = data.url;
       return;
     }
 
-    console.log(data);
-
     throw new Error(
       data.error ||
-        "Some error occured while processing the details. Please try again later."
+        "Some error occured while processing the details. Please try again later.",
     );
   } catch (error: any) {
     alert(
       error.message ||
-        "An error occurred while proceeding to payment. Please try again later."
+        "An error occurred while proceeding to payment. Please try again later.",
     );
     console.error(error);
   }

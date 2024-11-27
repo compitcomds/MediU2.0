@@ -1,25 +1,10 @@
 <template>
-  <div class="min-h-screen bg-[#edf8f3] lg:mt-12 lg:p-6" v-if="user">
-    <div class="lg:flex lg:gap-6">
-      <DashboardSidenav />
-      <DashboardMain class="hidden lg:block" />
-    </div>
-  </div>
+  <DashboardAttachSidenav>
+    <DashboardMain class="hidden lg:block" />
+  </DashboardAttachSidenav>
 </template>
 
-<script setup lang="ts">
-import { getUser } from "~/appwrite/auth";
-
-const router = useRouter();
-const user = ref<any>(null);
-
-try {
-  const result = await getUser();
-  user.value = result;
-} catch (error) {
-  router.push("/auth/login");
-}
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 /* Layout for dashboard */
