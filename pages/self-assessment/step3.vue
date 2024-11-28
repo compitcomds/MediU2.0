@@ -166,7 +166,7 @@ const imageLinks = {
   "uneven-skin-tone": "https://ccdstest.b-cdn.net/Medi%20u/skin250250/2.png",
   pigmentation: "https://ccdstest.b-cdn.net/Medi%20u/skin250250/3.png",
   acne: "https://ccdstest.b-cdn.net/Medi%20u/skin250250/4.png",
-  "Enlarged Pores": "https://ccdstest.b-cdn.net/Medi%20u/skin250250/5.png",
+  "enlarged-pores": "https://ccdstest.b-cdn.net/Medi%20u/skin250250/5.png",
   frizz: "https://placehold.co/250x250",
   "Split Ends": "https://placehold.co/250x250",
   lifelessness: "https://placehold.co/250x250",
