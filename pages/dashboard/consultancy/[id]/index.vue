@@ -39,7 +39,7 @@
         <div>
           <h4 class="mb-2 text-sm font-semibold text-gray-500">Date & Time</h4>
           <p class="text-lg text-[#238878]">
-            {{ booking?.bookingTime || "To be Confirmed" }}
+            {{ formatDateTime(booking?.bookingTime) || "To be Confirmed" }}
           </p>
         </div>
 

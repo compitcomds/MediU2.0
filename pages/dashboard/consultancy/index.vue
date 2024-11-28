@@ -28,7 +28,7 @@
                   {{
                     !booking.bookingTime
                       ? "To be confirmed"
-                      : new Date(booking.bookingTime).toString()
+                      : formatDateTime(booking.bookingTime)
                   }}
                 </span>
               </td>

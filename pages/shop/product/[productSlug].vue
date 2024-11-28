@@ -149,12 +149,19 @@
               </div>
             </div>
 
-            <div class="mb-4 text-gray-500">
+            <div v-if="data.requiresPrescription" class="mb-4 text-gray-500">
               <p
-                v-if="data.requiresPrescription"
                 class="my-2 flex items-center gap-2 text-sm font-bold text-[#238878]"
               >
-                <ClipboardPlus /> <span>Doctor's Prescription Required</span>
+                <ClipboardPlus />
+                <span
+                  >Doctor's Prescription Required.
+                  <nuxt-link
+                    to="/consultancy"
+                    class="font-bold text-[#238878] underline"
+                    >Consult Now</nuxt-link
+                  ></span
+                >
               </p>
             </div>
             <div class="mb-4 flex items-center gap-4">
