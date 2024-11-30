@@ -1,4 +1,5 @@
 import shopifyClient from "../shopify-client";
+import createShopifyCart from "./create-cart";
 import updateLineItemQuantity from "./update-line-item-quantity";
 
 const addToCartMutation = `
@@ -46,12 +47,12 @@ export default async function addToCart({
     const nodes = data.cartLinesAdd.cart.lines.nodes as any[];
     const nodeWithZeroQuantity = nodes.find(
       (node: any) =>
-        node.merchandise.id === merchandiseId && node.quantity === 0
+        node.merchandise.id === merchandiseId && node.quantity === 0,
     );
     if (!dontAddToNavbarCart) {
       const shopStore = useShopStore();
       shopStore.updateTotalItemsInShop(
-        !!nodeWithZeroQuantity ? nodes.length - 1 : nodes.length
+        !!nodeWithZeroQuantity ? nodes.length - 1 : nodes.length,
       );
     }
     if (nodeWithZeroQuantity) {
@@ -64,15 +65,14 @@ export default async function addToCart({
   }
 
   if (data.cartLinesAdd?.userErrors?.length > 0) {
-    throw new Error(
-      data.cartLinesAdd.userErrors.map((error: any) => error.message).join(", ")
-    );
+    const cart = await createShopifyCart();
+    const store = useUserStore();
+    store.shopifyCartId = cart.id;
+    return await addToCart({ merchandiseId, cartId: cart.id, quantity });
   }
 
   if (errors) {
     console.log(errors);
-    throw new Error(
-      "Error while addToCart. (Probably some error in implementation, see for yourself)."
-    );
+    throw new Error("Error while addToCart.");
   }
 }

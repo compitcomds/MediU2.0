@@ -16,7 +16,7 @@ export default async function getPhonepayCheckout(info: {
   transactionId?: string;
 }) {
   const transactionId = info.transactionId || createTransactionId();
-  const data = {
+  const d = {
     merchantId: MERCHANT_ID,
     merchantTransactionId: transactionId,
     merchantUserId: info.userId,
@@ -28,9 +28,10 @@ export default async function getPhonepayCheckout(info: {
     mobileNumber: info.phone,
     paymentInstrument: { type: "PAY_PAGE" },
   };
-  if (data.amount <= 0) throw new Error("Amount can't be zero.");
-  const { checksum, payloadMain } = createPhonepayPayload(data);
-  const apiResponse = await axios.post(
+  if (d.amount <= 0) throw new Error("Amount can't be zero.");
+  const { checksum, payloadMain } = createPhonepayPayload(d);
+
+  const { data } = await axios.post(
     PHONEPAY_API_URL,
     { request: payloadMain },
     {
@@ -44,6 +45,6 @@ export default async function getPhonepayCheckout(info: {
 
   return {
     transactionId,
-    instrumentResponse: apiResponse.data.data.instrumentResponse,
+    instrumentResponse: data.data.instrumentResponse,
   };
 }

@@ -167,6 +167,5 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
 
 export default async function getCartData() {
   const cartId = await useUserStore().getShopifyCartId();
-  console.log(cartId);
   return await getCartDataThroughCartId(cartId);
 }
