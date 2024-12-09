@@ -5,8 +5,7 @@
     <HomeMain2 />
 
     <div class="bg-white">
-      <div class="lg:space-y-20 md:space-y-10 space-y-10">
-
+      <div class="space-y-10 md:space-y-10 lg:space-y-20">
         <HomeCard class="px-4 lg:px-16 xl:px-[163px]" />
         <HomeBlock class="" />
         <HomeContainers class="px-4 lg:px-16 xl:px-[163px]" />
@@ -15,7 +14,7 @@
         <HomeProduct2 class="px-4 lg:px-16 xl:px-[163px]" />
       </div>
 
-      <div class="lg:space-y-20 md:space-y-10 space-y-10">
+      <div class="space-y-10 md:space-y-10 lg:space-y-20">
         <HomeTestimonial />
         <HomeBooking />
         <!-- hair -->
@@ -25,8 +24,8 @@
         <HomeDoctors class="px-4 lg:px-16 xl:px-[163px]" />
       </div>
       <!-- baby care -->
-      <HomeProduct3 class="px-4 lg:px-16 xl:px-[163px]" />
-      <div class="lg:space-y-20 md:space-y-10 space-y-10 -mt-20">
+      <!-- <HomeProduct3 class="px-4 lg:px-16 xl:px-[163px]" /> -->
+      <div class="-mt-20 space-y-10 md:space-y-10 lg:space-y-20">
         <HomeText />
         <HomeConsultation />
       </div>
