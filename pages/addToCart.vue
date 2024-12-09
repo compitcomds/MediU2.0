@@ -3,7 +3,6 @@
     <div
       class="mx-auto grid w-full max-w-7xl grid-cols-12 gap-8 px-4 md:px-5 lg:px-6"
     >
-      <!-- Left Cart Section -->
       <div
         class="custom-scrollbar col-span-12 max-h-[75vh] overflow-y-auto pr-4 lg:col-span-8"
       >
@@ -55,28 +54,29 @@
                 :disabled="isUpdatingLineItemQuantity"
                 class="rounded-md border border-red-500 px-1 py-0 text-red-500 disabled:cursor-not-allowed"
               >
-                ✕
+                <X />
               </button>
             </div>
             <p class="text-gray-500">{{ item.description }}</p>
             <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center">
+              <div
+                class="relative flex h-10 w-36 items-center justify-between gap-2 overflow-clip rounded-md border border-gray-600 bg-white text-black md:w-48"
+              >
                 <button
                   @click="changeQuantity(item.lineId, item.quantity - 1)"
-                  class="btn-minus rounded-lg text-[#238878] disabled:animate-pulse disabled:cursor-not-allowed"
+                  class="block h-full px-2 disabled:animate-pulse"
                   :disabled="isUpdatingLineItemQuantity"
                 >
-                  −
+                  <Minus />
                 </button>
-                <p class="quantity-input rounded-lg bg-white text-[#238878]">
-                  {{ item.quantity }}
-                </p>
+
+                <p>{{ item.quantity }}</p>
                 <button
+                  class="block h-full px-2 disabled:animate-pulse"
                   @click="changeQuantity(item.lineId, item.quantity + 1)"
-                  class="btn-plus rounded-lg text-[#238878] disabled:animate-pulse disabled:cursor-not-allowed"
                   :disabled="isUpdatingLineItemQuantity"
                 >
-                  +
+                  <Plus />
                 </button>
               </div>
               <span class="text-2xl font-bold text-[#238878]"
@@ -95,9 +95,10 @@
           </h5>
           <div class="mb-2 flex justify-between">
             <span class="text-[#238878]">Subtotal</span>
-            <span class="font-semibold text-[#238878]"
-              >{{ cart.subtotalAmount.currencyCode }}
-              {{ cart.subtotalAmount.amount }}</span
+            <span class="font-semibold text-[#238878]">
+              {{
+                formatAmountToINR(parseFloat(cart.subtotalAmount.amount) || 0)
+              }}</span
             >
           </div>
           <div class="mb-4 flex justify-between">
@@ -105,18 +106,29 @@
             <span
               v-if="shippingAmount >= 0"
               class="font-semibold text-[#238878]"
-              >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
-            >
+              >{{
+                formatAmountToINR(
+                  parseFloat(cart.subtotalAmount.currencyCode) || 0,
+                )
+              }}
+            </span>
             <span v-else class="font-semibold text-[#238878]"
-              >{{ cart.subtotalAmount.currencyCode }} 0</span
-            >
+              >{{ formatAmountToINR(0) }}
+            </span>
           </div>
           <div class="mb-4 flex justify-between">
             <span class="text-[#238878]">Tax Amount</span>
-            <span class="font-semibold text-[#238878]"
-              >{{ cart.totalTaxAmount?.currencyCode || "" }}
-              {{ cart.totalTaxAmount?.amount || "" }}</span
+            <span class="font-semibold text-[#238878]">
+              {{
+                formatAmountToINR(parseFloat(cart.totalTaxAmount?.amount) || 0)
+              }}</span
             >
+          </div>
+          <div v-if="walletAmount > 0" class="mb-4 flex justify-between">
+            <span class="text-[#238878]">Wallet</span>
+            <span class="font-semibold text-[#238878]">{{
+              formatAmountToINR(walletAmount)
+            }}</span>
           </div>
           <div class="mt-4 flex justify-between border-t pt-4">
             <span class="text-xl font-bold text-[#238878]">Total</span>
@@ -157,31 +169,6 @@
             <button type="button" @click="allowEditDiscountMode"><X /></button>
           </div>
 
-          <!-- Upload Prescription Button -->
-          <!-- <div v-if="requiresPrescription" class="mt-6">
-            <label
-              for="prescription-upload"
-              class="w-full py-3 bg-[#238878] px-10 text-white rounded-full font-semibold text-lg cursor-pointer flex items-center justify-center"
-            >
-              <input
-                type="file"
-                id="prescription-upload"
-                @change="uploadPrescription"
-                class="hidden"
-                accept="image/*"
-              />
-              <span>{{
-                prescriptionUploaded
-                  ? "Prescription Uploaded"
-                  : "Upload Prescription"
-              }}</span>
-            </label>
-            <p v-if="!prescriptionUploaded" class="text-red-500 text-sm mt-2">
-              Please upload your prescription before checkout.
-            </p>
-          </div> -->
-
-          <!-- Checkout Button -->
           <div class="mt-4">
             <nuxt-link
               to="/checkout"
@@ -200,10 +187,13 @@
 import getCartData from "~/shopify/cart/get-cart-data";
 import updateLineItemQuantity from "~/shopify/cart/update-line-item-quantity";
 import applyDiscountCode from "~/shopify/cart/apply-discount";
-import { X } from "lucide-vue-next";
+import { X, Plus, Minus } from "lucide-vue-next";
+import getUserWallet from "~/appwrite/utils/get-wallet";
 
 const userStore = useUserStore();
 const isUpdatingLineItemQuantity = ref(false);
+
+const walletAmount = ref(0);
 
 const cart = ref<{
   items: any[];
@@ -282,10 +272,10 @@ const applyDiscount = async () => {
 
 onMounted(async () => {
   const data = await getCartData();
-  console.log(data);
-  if (data) {
-    cart.value = data;
-  }
+  if (data) cart.value = data;
+
+  const wallet = await getUserWallet();
+  walletAmount.value = wallet.amount;
 });
 </script>
 

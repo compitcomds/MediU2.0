@@ -25,10 +25,5 @@ import { Wallet } from "lucide-vue-next";
 import getUserWallet from "~/appwrite/utils/get-wallet";
 const wallet = await getUserWallet();
 
-const formattedAmount = computed(() =>
-  new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-  }).format(wallet.amount),
-);
+const formattedAmount = computed(() => formatAmountToINR(wallet.amount));
 </script>
