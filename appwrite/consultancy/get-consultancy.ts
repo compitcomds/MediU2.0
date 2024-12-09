@@ -21,6 +21,6 @@ export async function getUserConsultancies() {
   return await database.listDocuments(
     APPWRITE_DATABASE_ID,
     APPWRITE_CONSULTANCY_PRODUCTS_COLLECTION_ID,
-    [Query.limit(100)],
+    [Query.limit(100), Query.orderDesc("$createdAt")],
   );
 }
