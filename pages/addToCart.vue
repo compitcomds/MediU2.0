@@ -34,11 +34,13 @@
         >
           <!-- Image -->
           <div class="col-span-12 lg:col-span-2">
-            <img
-              :src="item.image?.url || 'https://placehold.co/400x400/png'"
-              :alt="item.image?.altText || item.title"
-              class="max-lg:w-full rounded-lg object-cover lg:w-[250px]"
-            />
+            <nuxt-link :to="`/shop/product/${item.handle}`">
+              <img
+                :src="item.image?.url || 'https://placehold.co/400x400/png'"
+                :alt="item.image?.altText || item.title"
+                class="max-lg:w-full rounded-lg object-cover lg:w-[250px]"
+              />
+            </nuxt-link>
           </div>
 
           <!-- Product Details -->
@@ -47,7 +49,12 @@
               <h5
                 class="font-manrope text-2xl font-bold capitalize text-[#238878]"
               >
-                {{ item.title }}
+                <nuxt-link
+                  :to="`/shop/product/${item.handle}`"
+                  class="hover:underline"
+                >
+                  {{ item.title }}
+                </nuxt-link>
               </h5>
               <button
                 @click="changeQuantity(item.lineId, 0)"
