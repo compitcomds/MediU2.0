@@ -1,8 +1,8 @@
 <template>
   <main class="mb-16 min-h-screen space-y-4 md:w-3/4">
     <div class="mb-6 grid grid-cols-3 gap-4 rounded-lg bg-gray-100 p-4">
-      <a
-        href="/dashboard/orders"
+      <nuxt-link
+        to="/dashboard/orders"
         class="flex flex-col items-center rounded-3xl border border-white bg-white p-2"
       >
         <img
@@ -11,9 +11,9 @@
           class="mb-2 h-10 w-10"
         />
         <p class="text-sm font-semibold text-gray-700">Medicine Orders</p>
-      </a>
-      <a
-        href="/dashboard/"
+      </nuxt-link>
+      <nuxt-link
+        to="/dashboard/wallet"
         class="flex flex-col items-center rounded-3xl border border-white bg-white p-2"
       >
         <img
@@ -22,7 +22,7 @@
           class="mb-2 h-10 w-10"
         />
         <p class="text-sm font-semibold text-gray-700">My Rewards</p>
-      </a>
+      </nuxt-link>
     </div>
 
     <!-- Information Section -->

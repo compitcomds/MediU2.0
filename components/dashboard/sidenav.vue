@@ -77,7 +77,7 @@ const tabs = [
     name: "My Wallet",
     image: Wallet,
     alt: "",
-    href: "#",
+    href: "/dashboard/wallet",
   },
   {
     name: "My Wishlist",
