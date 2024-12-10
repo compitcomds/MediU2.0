@@ -1,12 +1,6 @@
 import { Client, Query, Databases } from "node-appwrite";
 import addToUserWalletServer from "~/server/_helpers/wallet/add-to-user-wallet";
-
-const APPWRITE_ENDPOINT = process.env.VITE_APPWRITE_ENDPOINT as string;
-const APPWRITE_PROJECT_ID = process.env.VITE_APPWRITE_PROJECT_ID as string;
-const APPWRITE_API_KEY = process.env.APPWRITE_API_KEY as string;
-const APPWRITE_DATABASE = process.env.VITE_APPWRITE_DATABASE_ID as string;
-const APPWRITE_CONSULTANCY_ID = process.env
-  .VITE_APPWRITE_CONSULTANCY_ID as string;
+import serverConfig from "~/server/utils/server-config";
 
 const PHONEPAY_CONSULTANCY_REDIRECT_SUCCESS_URL = String(
   process.env.PHONEPAY_CONSULTANCY_REDIRECT_SUCCESS_URL,
@@ -40,14 +34,14 @@ async function updateDocumentPaymentStatus(
 ) {
   const client = new Client();
   client
-    .setEndpoint(APPWRITE_ENDPOINT)
-    .setProject(APPWRITE_PROJECT_ID)
-    .setKey(APPWRITE_API_KEY);
+    .setEndpoint(serverConfig.APPWRITE_ENDPOINT)
+    .setProject(serverConfig.APPWRITE_PROJECT_ID)
+    .setKey(serverConfig.APPWRITE_API_KEY);
 
   const database = new Databases(client);
   const { documents } = await database.listDocuments(
-    APPWRITE_DATABASE,
-    APPWRITE_CONSULTANCY_ID,
+    serverConfig.APPWRITE_DATABASE,
+    serverConfig.APPWRITE_CONSULTANCY_ID,
     [Query.equal("transactionId", transactionId), Query.limit(1)],
   );
 
@@ -59,8 +53,8 @@ async function updateDocumentPaymentStatus(
   await addToUserWalletServer(database, (documents[0] as any).userId, amount);
 
   return await database.updateDocument(
-    APPWRITE_DATABASE,
-    APPWRITE_CONSULTANCY_ID,
+    serverConfig.APPWRITE_DATABASE,
+    serverConfig.APPWRITE_CONSULTANCY_ID,
     documents[0].$id,
     { paymentStatus: "PAID" },
   );

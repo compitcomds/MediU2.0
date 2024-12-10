@@ -295,20 +295,20 @@
               </p>
             </div>
           </div>
-          <div class="flex items-center justify-between text-lg text-[#238878]">
+          <p class="flex items-center justify-between text-lg text-[#238878]">
             <span>Subtotal</span>
             <span class="text-base"
               >{{ cart.subtotalAmount.currencyCode }}
               {{ cart.subtotalAmount.amount }}</span
             >
-          </div>
-          <div
+          </p>
+          <p
             class="flex w-full items-center justify-between text-lg text-[#238878]"
           >
             <span class="w-1/2">Shipping Address</span>
             <span class="w-1/2 text-base">{{ shippingDetails }}</span>
-          </div>
-          <div class="flex items-center justify-between text-lg text-[#238878]">
+          </p>
+          <p class="flex items-center justify-between text-lg text-[#238878]">
             <span>Shipping Cost</span>
             <span v-if="shippingAmount >= 0" class="text-base"
               >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
@@ -316,25 +316,31 @@
             <span v-else class="text-base"
               >{{ cart.subtotalAmount.currencyCode }} 0.0</span
             >
-          </div>
-          <div class="flex items-center justify-between text-lg text-[#238878]">
+          </p>
+          <p class="flex items-center justify-between text-lg text-[#238878]">
             <span>Tax Amount</span>
             <span class="text-base"
               >{{ cart.totalTaxAmount.currencyCode }}
               {{ cart.totalTaxAmount.amount }}</span
             >
-          </div>
-          <div
+          </p>
+          <p class="flex items-center justify-between text-lg text-[#238878]">
+            <span>Wallet Amount Used</span>
+            <span class="text-base"
+              >{{ cart.totalTaxAmount.currencyCode }}
+              {{ walletAmountUsed }}</span
+            >
+          </p>
+          <p
             class="flex items-center justify-between text-xl font-semibold text-[#238878]"
           >
             <span>Total</span>
             <span
               >{{ cart.totalAmount.currencyCode }}
-              {{ cart.totalAmount.amount }}</span
+              {{ totalAmount - walletAmountUsed }}</span
             >
-          </div>
+          </p>
         </div>
-        <!-- Upload Prescription Button -->
         <div v-if="requiresPrescription" class="mt-6">
           <label
             for="prescription-upload"
@@ -380,6 +386,7 @@ import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 import getUserInfoForCheckout from "~/shopify/user/user-checkout";
 import getCartData from "~/shopify/cart/get-cart-data";
 import { type CartItemType } from "~/shopify/_types/cart";
+import getUserWallet from "~/appwrite/utils/get-wallet";
 
 const isSubmitting = ref(false);
 
@@ -401,6 +408,11 @@ const uploadedFilePreview = ref<any>(null);
 const requiresPrescription = ref(false);
 const uploadedFile = ref<null | File>(null);
 
+const walletAmount = ref(0);
+const totalAmount = computed(() => parseFloat(cart.value.totalAmount.amount));
+const walletAmountUsed = computed(() =>
+  Math.min(walletAmount.value, totalAmount.value - 1),
+);
 const shippingAmount = computed(() => {
   const cartValue = cart.value;
   return Math.round(
@@ -523,9 +535,10 @@ const submitOrder = async () => {
 
 onMounted(async () => {
   const data = await getCartData();
-  if (data) {
-    cart.value = data;
-  }
+  if (data) cart.value = data;
+
+  const wallet = await getUserWallet();
+  walletAmount.value = wallet.amount;
 });
 
 watch(

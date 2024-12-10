@@ -1,24 +1,24 @@
 <template>
-  <div class="min-h-screen flex bg-gray-50">
+  <div class="flex min-h-screen bg-gray-50">
     <div
-      class="flex flex-col md:flex-row w-full bg-white overflow-hidden justify-center"
+      class="flex w-full flex-col justify-center overflow-hidden bg-white md:flex-row"
     >
       <!-- Left Section (Form) -->
       <div
-        class="lg:w-1/2 w-full lg:p-8 flex lg:flex-col flex-row justify-center"
+        class="flex w-full flex-row justify-center lg:w-1/2 lg:flex-col lg:p-8"
       >
-        <div class="lg:w-8/12 space-y-10 p-3">
-          <h2 class="text-4xl font-serif font-semibold text-[#285742]">
+        <div class="space-y-10 p-3 lg:w-8/12">
+          <h2 class="font-serif text-4xl font-semibold text-[#285742]">
             Sign In
           </h2>
-          <p class="text-black mb-6 text-xl">
+          <p class="mb-6 text-xl text-black">
             Welcome, please login to your account
           </p>
 
           <div class="grid-container">
             <button
               @click="loginWithGoogle"
-              class="grid-item bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-lg shadow hover:shadow-lg gap-3"
+              class="grid-item gap-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-600 shadow hover:shadow-lg"
             >
               <svg
                 width="22"
@@ -54,7 +54,7 @@
               <p>Log In With Google</p>
             </button>
             <button
-              class="grid-item bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-lg shadow hover:shadow-lg gap-3"
+              class="grid-item gap-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-600 shadow hover:shadow-lg"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
@@ -65,16 +65,16 @@
             </button>
           </div>
 
-          <div class="flex items-center justify-center my-4">
-            <span class="border-b border-black bg-black w-1/5 md:w-1/3"></span>
-            <p class="text-center text-black text-lg mx-4">or</p>
-            <span class="border-b border-black w-1/5 md:w-1/3"></span>
+          <div class="my-4 flex items-center justify-center">
+            <span class="w-1/5 border-b border-black bg-black md:w-1/3"></span>
+            <p class="mx-4 text-center text-lg text-black">or</p>
+            <span class="w-1/5 border-b border-black md:w-1/3"></span>
           </div>
 
           <form @submit.prevent="submitForm">
             <div class="mb-4">
               <label
-                class="block text-black text-xl font-semibold mb-2"
+                class="mb-2 block text-xl font-semibold text-black"
                 for="email"
                 >Email Address</label
               >
@@ -84,13 +84,13 @@
                 type="email"
                 placeholder="Email Address"
                 required
-                class="w-full px-3 py-2 text-black bg-white border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                class="w-full rounded-lg border border-black bg-white px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
 
-            <div class="mb-6 relative">
+            <div class="relative mb-6">
               <label
-                class="block text-black text-xl font-semibold mb-2"
+                class="mb-2 block text-xl font-semibold text-black"
                 for="password"
                 >Password</label
               >
@@ -100,12 +100,13 @@
                 type="password"
                 placeholder="Password"
                 required
-                class="w-full px-3 py-2 text-black bg-white border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                class="w-full rounded-lg border border-black bg-white px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
               <div
-                class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 mt-6"
+                class="absolute inset-y-0 right-0 mt-6 flex items-center pr-3 text-sm leading-5"
               >
                 <button
+                  type="button"
                   @click.prevent="togglePasswordVisibility"
                   class="focus:outline-none"
                 >
@@ -157,23 +158,20 @@
 
             <div class="flex items-center justify-between">
               <div class="flex items-center">
-                
-                <a href="/auth/register"
+                <a
+                  href="/auth/register"
                   for="remember_me"
                   class="ml-2 block text-sm text-blue-600 hover:text-blue-800"
                   >Don't have an account / Sign Up</a
                 >
               </div>
-              <!-- <a href="#" class="text-sm text-blue-600 hover:text-blue-800"
-                >Forgot Password?</a
-              > -->
             </div>
 
             <div class="mt-6">
               <button
                 type="submit"
                 :disabled="isSubmitting"
-                class="w-full bg-[#285742] text-white text-xl font-semibold rounded-lg py-2 shadow-lg hover:bg-[#377d5d] focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:animate-pulse disabled:cursor-not-allowed"
+                class="w-full rounded-lg bg-[#285742] py-2 text-xl font-semibold text-white shadow-lg hover:bg-[#377d5d] focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:animate-pulse disabled:cursor-not-allowed"
               >
                 {{ isSubmitting ? "Signing in..." : "Sign In" }}
               </button>
@@ -190,7 +188,7 @@
       </div>
       <!-- Right Section (Image) -->
       <div
-        class="hidden lg:block md:w-1/2 bg-cover bg-center"
+        class="hidden bg-cover bg-center md:w-1/2 lg:block"
         :style="{
           backgroundImage: 'url(https://ccdstest.b-cdn.net/Medi%20u/2.png)',
         }"
@@ -215,6 +213,10 @@ const showPassword = ref(false);
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
+  const passwordElem = document.getElementById("password");
+  if (!passwordElem) return;
+  if (passwordElem.type === "password") passwordElem.type = "text";
+  else passwordElem.type = "password";
 };
 
 const submitForm = async () => {

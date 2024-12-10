@@ -131,18 +131,29 @@
               }}</span
             >
           </div>
-          <div v-if="walletAmount > 0" class="mb-4 flex justify-between">
-            <span class="text-[#238878]">Wallet</span>
-            <span class="font-semibold text-[#238878]">{{
-              formatAmountToINR(walletAmount)
-            }}</span>
+          <div v-if="walletAmount > 0" class="mb-4">
+            <p class="mb-1 flex justify-between">
+              <span class="text-[#238878]">Wallet</span>
+              <span class="font-semibold text-[#238878]"
+                >-{{ formatAmountToINR(walletAmountUsed) }}</span
+              >
+            </p>
+            <p class="flex justify-between text-xs">
+              <span class="text-[#15574c]">Total Wallet Amount</span>
+              <span class="font-semibold text-[#15574c]">{{
+                formatAmountToINR(walletAmount)
+              }}</span>
+            </p>
           </div>
           <div class="mt-4 flex justify-between border-t pt-4">
             <span class="text-xl font-bold text-[#238878]">Total</span>
-            <span class="text-xl font-bold text-[#238878]"
-              >{{ cart.totalAmount.currencyCode }}
-              {{ cart.totalAmount.amount }}</span
-            >
+            <span class="text-xl font-bold text-[#238878]">{{
+              formatAmountToINR(
+                totalAmount - walletAmountUsed === 0
+                  ? 1
+                  : totalAmount - walletAmountUsed,
+              )
+            }}</span>
           </div>
 
           <!-- Coupon Input -->
@@ -223,10 +234,14 @@ const discountCode = ref("");
 const applyingDiscount = ref(false);
 const editDiscountCode = ref(false);
 
+const totalAmount = computed(() => parseFloat(cart.value.totalAmount.amount));
+const walletAmountUsed = computed(() =>
+  Math.min(walletAmount.value, totalAmount.value - 1),
+);
 const shippingAmount = computed(() => {
   const cartValue = cart.value;
   return Math.round(
-    parseFloat(cartValue.totalAmount.amount) -
+    totalAmount.value -
       parseFloat(cartValue.subtotalAmount.amount) -
       parseFloat(cartValue.totalTaxAmount?.amount || "0"),
   );

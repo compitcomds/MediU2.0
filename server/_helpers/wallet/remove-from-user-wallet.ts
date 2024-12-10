@@ -2,7 +2,7 @@ import { type Databases } from "node-appwrite";
 import getUserWalletServer from "./get-user-wallet";
 import serverConfig from "../../utils/server-config";
 
-export default async function addToUserWalletServer(
+export default async function removeFromUserWallet(
   databases: Databases,
   userId: string,
   amount: number,
@@ -13,7 +13,7 @@ export default async function addToUserWalletServer(
     serverConfig.APPWRITE_WALLET_ID,
     userId,
     {
-      amount: wallet.amount + amount,
+      amount: wallet.amount - amount,
     },
   );
 }

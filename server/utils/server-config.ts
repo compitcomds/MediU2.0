@@ -1,0 +1,12 @@
+const serverConfig = {
+  APPWRITE_ENDPOINT: process.env.VITE_APPWRITE_ENDPOINT as string,
+  APPWRITE_PROJECT_ID: process.env.VITE_APPWRITE_PROJECT_ID as string,
+  APPWRITE_API_KEY: process.env.APPWRITE_API_KEY as string,
+  APPWRITE_DATABASE: process.env.VITE_APPWRITE_DATABASE_ID as string,
+  APPWRITE_CONSULTANCY_ID: process.env.VITE_APPWRITE_CONSULTANCY_ID as string,
+  APPWRITE_ORDERS_COLLECTION_ID: process.env
+    .VITE_APPWRITE_ORDERS_COLLECTION_ID as string,
+  APPWRITE_WALLET_ID: String(process.env.VITE_APPWRITE_WALLET_COLLECTION_ID),
+};
+
+export default serverConfig;

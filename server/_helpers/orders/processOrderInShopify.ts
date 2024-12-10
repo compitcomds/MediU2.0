@@ -1,42 +1,11 @@
-import { defineEventHandler } from "h3";
 import getCartDataForCheckout from "~/shopify/cart/get-cart-data-for-checkout";
-import { getOrderDocumentThroughTransactionId } from "~/appwrite/orders";
 import resetCart from "~/shopify/cart/reset-cart";
 
 const SHOPIFY_URL = `https://dev-mediu.myshopify.com/admin/api/2024-04`;
 const SHOPIFY_ADMIN_ACCESS_TOKEN = process.env
   .SHOPIFY_ADMIN_ACCESS_TOKEN as string;
-const PHONEPAY_REDIRECT_SUCCESS_URL = String(
-  process.env.PHONEPAY_REDIRECT_SUCCESS_URL,
-);
-const PHONEPAY_REDIRECT_ERROR_URL = String(
-  process.env.PHONEPAY_REDIRECT_ERROR_URL,
-);
-export default defineEventHandler(async (event) => {
-  try {
-    const body = await readBody(event);
-    if (body.code !== "PAYMENT_SUCCESS") throw new Error("Payment failed...");
-    const transactionId = body.transactionId;
 
-    if (!transactionId) throw new Error("Invalid confirmation.");
-    const { documents, total } =
-      await getOrderDocumentThroughTransactionId(transactionId);
-    if (total === 0) throw new Error("Invalid order.");
-
-    await processOrder(documents[0].shopifyCartId, {
-      prescriptionUrl: documents[0].prescriptionUrl || "",
-      typeOfProduct: documents[0].typeOfProduct || "normal",
-      appwriteOrderId: documents[0].$id || "N/A",
-    });
-
-    return sendRedirect(event, PHONEPAY_REDIRECT_SUCCESS_URL);
-  } catch (error) {
-    console.log(error);
-    return sendRedirect(event, PHONEPAY_REDIRECT_ERROR_URL);
-  }
-});
-
-async function processOrder(
+export default async function processOrderInShopify(
   cartId: string,
   props: {
     prescriptionUrl: string;
@@ -148,7 +117,6 @@ async function processOrder(
   });
 
   const orderBody = await orderResponse.json();
-  console.log(orderBody);
 
   await resetCart(
     cartId,

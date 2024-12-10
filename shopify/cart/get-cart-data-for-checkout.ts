@@ -98,7 +98,7 @@ export default async function getCartDataForCheckout(cartId: string): Promise<
       checkoutUrl: string;
       note: string;
       subtotalAmount: { amount: number; currencyCode: string };
-      totalAmount: { amount: number; currencyCode: string };
+      totalAmount: { amount: string; currencyCode: string };
       totalTaxAmount: { amount: number; currencyCode: string };
       discountCodes: Array<{ applicable: boolean; code: string }>;
       discountAllocations: Array<{

@@ -1,7 +1,10 @@
 import { defineEventHandler } from "h3";
+import { Databases, Client, ID, Permission, Role } from "node-appwrite";
 import getCartDataForCheckout from "~/shopify/cart/get-cart-data-for-checkout";
-import { createOrderDocument } from "~/appwrite/orders";
-import getPhonepayCheckout from "../utils/get-phonepay-checkout";
+import getPhonepayCheckout from "../../utils/get-phonepay-checkout";
+import serverConfig from "../../utils/server-config";
+import getUserWalletServer from "../../_helpers/wallet/get-user-wallet";
+import createOrderDocument from "~/server/_helpers/orders/create-order-document";
 
 const PHONEPAY_PAYMENT_CALLBACK_URL = process.env
   .PHONEPAY_PAYMENT_CALLBACK_URL as string;
@@ -20,9 +23,22 @@ export default defineEventHandler(async (event) => {
     const cartData = await getCartDataForCheckout(cartId);
     if (!cartData) throw new Error("Invalid cart data.");
 
+    const client = new Client()
+      .setEndpoint(serverConfig.APPWRITE_ENDPOINT)
+      .setProject(serverConfig.APPWRITE_PROJECT_ID)
+      .setKey(serverConfig.APPWRITE_API_KEY);
+    const database = new Databases(client);
+
+    const { totalAmountAfterWallet, walletAmountUsed } =
+      await returnWalletReducedAmount(
+        database,
+        userId,
+        parseFloat(cartData.totalAmount.amount),
+      );
+
     const { transactionId, instrumentResponse } = await getPhonepayCheckout({
       userId: userId,
-      amount: cartData.totalAmount.amount,
+      amount: totalAmountAfterWallet,
       name: `${cartData.buyerIdentity.deliveryAddressPreferences[0].firstName} ${cartData.buyerIdentity.deliveryAddressPreferences[0].lastName}`,
       phone: cartData.buyerIdentity.deliveryAddressPreferences[0].phone || "",
       callbackUrl: PHONEPAY_PAYMENT_CALLBACK_URL,
@@ -30,12 +46,13 @@ export default defineEventHandler(async (event) => {
       redirectMode: PHONEPAY_REDIRECT_METHOD,
     });
 
-    await createOrderDocument({
+    await createOrderDocument(database, {
       userId,
       transactionId,
       shopifyCartId: cartId,
       prescriptionUrl,
       typeOfProduct,
+      walletAmountUsed,
     });
 
     return instrumentResponse.redirectInfo;
@@ -46,3 +63,16 @@ export default defineEventHandler(async (event) => {
     };
   }
 });
+
+async function returnWalletReducedAmount(
+  database: Databases,
+  userId: string,
+  totalAmount: number,
+) {
+  const wallet: any = await getUserWalletServer(database, userId);
+  const walletAmountUsed = Math.min(wallet.amount, totalAmount - 1);
+  return {
+    totalAmountAfterWallet: totalAmount - walletAmountUsed,
+    walletAmountUsed,
+  };
+}
