@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-12 pt-2 lg:pt-10">
     <div class="ms-7 hidden sm:block md:col-span-4 lg:col-span-3 xl:col-span-2">
-      <!-- <ShopFilterbar :hideProductType="true" /> -->
+      <ShopFilterbar :hideProductType="true" />
     </div>
 
     <div
