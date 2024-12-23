@@ -104,7 +104,9 @@
             <span class="text-[#238878]">Subtotal</span>
             <span class="font-semibold text-[#238878]">
               {{
-                formatAmountToINR(parseFloat(cart.subtotalAmount.amount) || 0)
+                formatAmountToINR(
+                  parseFloat(cart.subtotalAmount.amount) - taxAmount || 0,
+                )
               }}</span
             >
           </div>
@@ -126,9 +128,7 @@
           <div class="mb-4 flex justify-between">
             <span class="text-[#238878]">Tax Amount</span>
             <span class="font-semibold text-[#238878]">
-              {{
-                formatAmountToINR(parseFloat(cart.totalTaxAmount?.amount) || 0)
-              }}</span
+              {{ formatAmountToINR(taxAmount || 0) }}</span
             >
           </div>
           <div v-if="walletAmount > 0" class="mb-4">
@@ -146,14 +146,20 @@
             </p>
           </div>
           <div class="mt-4 flex justify-between border-t pt-4">
-            <span class="text-xl font-bold text-[#238878]">Total</span>
-            <span class="text-xl font-bold text-[#238878]">{{
-              formatAmountToINR(
-                totalAmount - walletAmountUsed === 0
-                  ? 1
-                  : totalAmount - walletAmountUsed,
-              )
-            }}</span>
+            <p>
+              <span class="text-xl font-bold text-[#238878]">Total</span>
+            </p>
+            <p>
+              <span class="text-xl font-bold text-[#238878]">{{
+                formatAmountToINR(totalAmount - walletAmountUsed)
+              }}</span>
+              <br />
+              <span
+                v-if="walletAmount > 0"
+                class="block w-full text-end text-xs font-bold text-[#238878] line-through"
+                >{{ totalAmount }}</span
+              >
+            </p>
           </div>
 
           <!-- Coupon Input -->
@@ -246,6 +252,10 @@ const shippingAmount = computed(() => {
       parseFloat(cartValue.totalTaxAmount?.amount || "0"),
   );
 });
+const taxAmount = computed(() => {
+  const cartValue = cart.value;
+  return calculateTaxApplied(cartValue.items);
+});
 
 const changeQuantity = async (lineId: string, quantity: number) => {
   isUpdatingLineItemQuantity.value = true;
@@ -294,6 +304,7 @@ const applyDiscount = async () => {
 
 onMounted(async () => {
   const data = await getCartData();
+  console.log(data);
   if (data) cart.value = data;
 
   const wallet = await getUserWallet();

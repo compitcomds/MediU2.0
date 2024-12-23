@@ -299,7 +299,7 @@
             <span>Subtotal</span>
             <span class="text-base"
               >{{ cart.subtotalAmount.currencyCode }}
-              {{ cart.subtotalAmount.amount }}</span
+              {{ parseFloat(cart.subtotalAmount.amount) - taxAmount }}</span
             >
           </p>
           <p
@@ -320,8 +320,7 @@
           <p class="flex items-center justify-between text-lg text-[#238878]">
             <span>Tax Amount</span>
             <span class="text-base"
-              >{{ cart.totalTaxAmount.currencyCode }}
-              {{ cart.totalTaxAmount.amount }}</span
+              >{{ cart.totalTaxAmount.currencyCode }} {{ taxAmount }}</span
             >
           </p>
           <p class="flex items-center justify-between text-lg text-[#238878]">
@@ -420,6 +419,10 @@ const shippingAmount = computed(() => {
       parseFloat(cartValue.subtotalAmount.amount) -
       parseFloat(cartValue.totalTaxAmount.amount),
   );
+});
+const taxAmount = computed(() => {
+  const cartValue = cart.value;
+  return calculateTaxApplied(cartValue.items);
 });
 
 let userData = null;
