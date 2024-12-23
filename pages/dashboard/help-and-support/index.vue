@@ -34,13 +34,13 @@
             <p class="font-medium text-gray-800">
               Email:
               <a
-                href="mailto:support@example.com"
+                href="mailto:radiancecosmeticstudio@gmail.com"
                 class="text-[#238878] underline"
-                >support@example.com</a
+                >Radiancecosmeticstudio@gmail.com</a
               >
             </p>
             <p class="font-medium text-gray-800">
-              Phone: <span class="text-[#238878]">+1 (123) 456-7890</span>
+              Phone: <span class="text-[#238878]">+91 78208 30842</span>
             </p>
           </div>
         </div>

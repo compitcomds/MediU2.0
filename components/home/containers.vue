@@ -3,39 +3,68 @@
     <!-- First row with 3 cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 h-auto">
       <!-- First card -->
+
+      <!-- <div class="relative bg-cover bg-center rounded-lg h-64 sm:h-72 md:h-80" style="
+            background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Artboard%201%402x.png');
+          ">
+        <div class="absolute inset-0 bg-opacity-50 rounded-lg"></div>
+        <div class="relative p-4 sm:p-4 text-white flex  items-center">
+          <div class="w-2/3">
+            <h2 class="text-lg sm:text-xl md:text-2xl font-semibold">
+              Serene Meadow Glow
+            </h2>
+            <p class="text-sm sm:text-base">Dress up in summer vibe</p>
+            <div class="flex items-center mt-4 gap-4 sm:gap-6">
+              <p class="font-bold text-sm sm:text-base md:text-lg">
+                UPTO 50% OFF
+              </p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-move-right">
+                <path d="M18 8L22 12L18 16" />
+                <path d="M2 12H22" />
+              </svg>
+            </div>
+          </div>
+          <div class="mt-24 w-1/3">
+            <nuxt-link to="/shop"
+              class="flex items-center justify-center px-2 py-2  bg-transparent border border-white rounded-lg text-sm md:text-base">
+              SHOP NOW
+            </nuxt-link>
+          </div>
+        </div>
+      </div> -->
+
       <div class="">
         <div class="relative bg-cover bg-center rounded-lg h-64 sm:h-72 md:h-80" style="
             background-image: url('https://ccdstest.b-cdn.net/Medi%20u/Artboard%201%402x.png');
           ">
           <div class="absolute inset-0 bg-opacity-50 rounded-lg"></div>
-          <div class="relative p-4 sm:p-6 text-white flex justify-between">
-            <div>
-              <h2 class="text-lg sm:text-xl md:text-2xl font-semibold">
-                Serene Meadow Glow
-              </h2>
-              <p class="text-sm sm:text-base">Dress up in summer vibe</p>
-              <div class="flex items-center mt-4 gap-4 sm:gap-6">
-                <p class="font-bold text-sm sm:text-base md:text-lg">
-                  UPTO 50% OFF
-                </p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-move-right">
-                  <path d="M18 8L22 12L18 16" />
-                  <path d="M2 12H22" />
-                </svg>
-              </div>
+          <div class="relative text-start p-4 sm:p-6 text-white">
+            <h2 class="text-lg sm:text-xl md:text-2xl font-semibold">
+              Serene Meadow Glow
+            </h2>
+            <p class="text-sm sm:text-base">Dress up in summer vibe</p>
+            <p class="mt-4 font-bold text-sm sm:text-base md:text-lg">
+              UPTO 50% OFF
+            </p>
+            <div class="flex ml-10 mt-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-move-down">
+                <path d="M8 18L12 22L16 18" />
+                <path d="M12 2V22" />
+              </svg>
             </div>
-            <div class="mt-14">
+            <div class="mt-6">
               <nuxt-link to="/shop"
-                class="flex items-center justify-center px-4 py-2  bg-transparent border border-white rounded-lg text-sm md:text-base">
+                class="mt-4 sm:mt-6 px-4 py-2 sm:py-3 bg-transparent border border-white rounded-lg text-sm sm:text-base">
                 SHOP NOW
               </nuxt-link>
             </div>
           </div>
         </div>
       </div>
-
       <!-- Second card -->
       <div class="">
         <div class="relative bg-cover bg-center rounded-lg h-64 sm:h-72 md:h-80" style="
@@ -59,10 +88,11 @@
               </svg>
             </div>
             <div class="mt-6">
-            <nuxt-link to="/shop"
-              class="mt-4 sm:mt-6 px-4 py-2 sm:py-3 bg-transparent border border-white rounded-lg text-sm sm:text-base">
-              SHOP NOW
-            </nuxt-link></div>
+              <nuxt-link to="/shop"
+                class="mt-4 sm:mt-6 px-4 py-2 sm:py-3 bg-transparent border border-white rounded-lg text-sm sm:text-base">
+                SHOP NOW
+              </nuxt-link>
+            </div>
           </div>
         </div>
       </div>
@@ -90,10 +120,11 @@
               </svg>
             </div>
             <div class="mt-6">
-            <nuxt-link to="/shop"
-              class="mt-4 sm:mt-6 px-4 py-2 sm:py-3 bg-transparent border border-[#3C4242] rounded-lg text-sm sm:text-base">
-              SHOP NOW
-            </nuxt-link></div>
+              <nuxt-link to="/shop"
+                class="mt-4 sm:mt-6 px-4 py-2 sm:py-3 bg-transparent border border-[#3C4242] rounded-lg text-sm sm:text-base">
+                SHOP NOW
+              </nuxt-link>
+            </div>
           </div>
         </div>
       </div>
@@ -124,10 +155,11 @@
               </svg>
             </div>
             <div class="mt-6">
-            <nuxt-link to="/shop"
-              class="mt-4 sm:mt-6 px-4 py-2 sm:py-3 bg-transparent border border-[#3C4242] rounded-lg text-sm sm:text-base">
-              SHOP NOW
-            </nuxt-link></div>
+              <nuxt-link to="/shop"
+                class="mt-4 sm:mt-6 px-4 py-2 sm:py-3 bg-transparent border border-[#3C4242] rounded-lg text-sm sm:text-base">
+                SHOP NOW
+              </nuxt-link>
+            </div>
           </div>
         </div>
       </div>
