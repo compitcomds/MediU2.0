@@ -10,7 +10,7 @@
   <a
     target="_blank"
     :href="shiprocketOrder.track_url"
-    class="underline hover:no-underline"
+    class="cursor-pointer underline hover:no-underline"
     >Track Your Order
   </a>
 </template>
@@ -26,8 +26,9 @@ const { orderNumber } = defineProps({
 });
 
 const shiprocketOrder = await appwriteTrackOrder(orderNumber);
-const orderStatus = shiprocketOrder?.shipment_track[0].current_status || "";
-const estimatedDelivery = !!shiprocketOrder?.shipment_track[0].edd
+const orderStatus =
+  shiprocketOrder?.shipment_track?.[0].current_status || "To be delivered";
+const estimatedDelivery = !!shiprocketOrder?.shipment_track?.[0].edd
   ? new Date(shiprocketOrder.shipment_track[0].edd).toLocaleDateString()
   : "";
 </script>

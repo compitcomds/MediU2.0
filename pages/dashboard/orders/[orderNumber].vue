@@ -1,16 +1,23 @@
 <template>
   <DashboardAttachSidenav>
-    <main class="mb-32 min-h-screen p-2 md:w-3/4 md:p-8 lg:mb-16 lg:p-10">
-      <h2>Order Details</h2>
+    <main
+      class="mb-32 min-h-screen bg-gradient-to-br from-[#edf8f3] to-[#d7f0e9] p-4 md:p-8 lg:mb-16 lg:p-10"
+    >
+      <h2
+        class="mb-6 border-b-4 border-[#238878] pb-2 text-xl font-bold text-[#238878] md:text-4xl"
+      >
+        Order Details #{{ orderNumber }}
+      </h2>
       <div class="flex flex-col-reverse gap-8 lg:flex-row lg:justify-between">
-        <!-- Order Items List -->
         <div>
-          <h3>Items Ordered:</h3>
+          <h3 class="mb-4 text-2xl font-semibold text-[#238878]">
+            Items Ordered:
+          </h3>
           <ul class="space-y-6">
             <li
               v-for="item in orderData.lineItems"
               :key="item.title"
-              class="flex items-start gap-5"
+              class="flex items-start gap-5 rounded-lg border border-gray-200 bg-white p-5 shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg"
             >
               <img
                 :src="
@@ -18,11 +25,15 @@
                   `https://placehold.co/400x400/png?text=${item.title}`
                 "
                 :alt="item.variant?.image?.altText"
-                class="rounded"
+                class="w-12 rounded md:h-20 md:w-20"
               />
               <div class="flex-1">
-                <p class="text-bold">{{ item.title }}</p>
-                <p class="text-muted">Quantity: {{ item.quantity }}</p>
+                <p class="text-sm font-bold text-[#238878] md:text-base">
+                  {{ item.title }}
+                </p>
+                <p class="text-xs text-gray-700 md:text-sm">
+                  Quantity: {{ item.quantity }}
+                </p>
               </div>
               <div class="flex flex-col items-end">
                 <p
@@ -30,12 +41,12 @@
                     item.discountedTotalPrice.amount <
                     item.originalTotalPrice.amount
                   "
-                  class="text-muted line-through"
+                  class="text-gray-700 line-through"
                 >
                   Original: {{ item.originalTotalPrice.amount }}
                   {{ item.originalTotalPrice.currencyCode }}
                 </p>
-                <p class="price">
+                <p class="text-xs font-bold text-[#238878] lg:text-xl">
                   Price:
                   {{
                     item.discountedTotalPrice.amount <
@@ -49,9 +60,10 @@
             </li>
           </ul>
 
-          <!-- Shipping Address -->
-          <h3 class="mt-8">Shipping Address</h3>
-          <div class="text-muted">
+          <h3 class="mt-8 text-2xl font-semibold text-[#238878]">
+            Shipping Address
+          </h3>
+          <div class="mt-2 text-gray-700">
             <p>
               {{ orderData.shippingAddress.firstName }}
               {{ orderData.shippingAddress.lastName }}
@@ -68,29 +80,38 @@
           </div>
         </div>
 
-        <!-- Order Summary Section -->
-        <div class="order-summary">
+        <div
+          class="max-w-sm rounded-lg border border-gray-200 bg-white p-8 shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg"
+        >
           <DashboardOrderInvoiceDownloader :payload="payload" />
-          <div class="order-details mt-4">
-            <p class="order-detail">
-              <strong><i class="icon-order-number"></i> Order Number:</strong>
+          <div class="mt-4 space-y-4">
+            <p class="flex items-center text-lg">
+              <strong class="mr-2 inline-flex items-center text-[#238878]">
+                <i class="icon-order-number"></i> Order Number:
+              </strong>
               {{ orderData.orderNumber }}
             </p>
-            <p class="order-detail">
-              <strong><i class="icon-processed-at"></i> Processed At:</strong>
+            <p class="flex items-center text-lg">
+              <strong class="mr-2 inline-flex items-center text-[#238878]">
+                <i class="icon-processed-at"></i> Processed At:
+              </strong>
               {{ new Date(orderData.processedAt).toLocaleString() }}
             </p>
-            <p class="order-detail">
-              <strong><i class="icon-status"></i> Status:</strong>
-              <span v-if="orderData.fulfillmentStatus === 'UNFULFILLED'"
-                >Pending (confirmed within 12 hours)</span
-              >
+            <p class="flex items-center text-lg">
+              <strong class="mr-2 inline-flex items-center text-[#238878]">
+                <i class="icon-status"></i> Status:
+              </strong>
+              <span v-if="orderData.fulfillmentStatus === 'UNFULFILLED'">
+                Pending (confirmed within 12 hours)
+              </span>
               <span v-else>
                 <DashboardOrderStatus :orderNumber="orderNumber" />
               </span>
             </p>
-            <p class="order-detail">
-              <strong><i class="icon-price"></i> Total Price:</strong>
+            <p class="flex items-center text-lg">
+              <strong class="mr-2 inline-flex items-center text-[#238878]">
+                <i class="icon-price"></i> Total Price:
+              </strong>
               {{ orderData.totalPrice.amount }}
               {{ orderData.totalPrice.currencyCode }}
             </p>
@@ -108,7 +129,7 @@ const route = useRoute();
 const orderNumber = route.params.orderNumber;
 
 const orderData = await getUserOrder(orderNumber);
-
+console.log(orderData);
 const payload = {
   company: {
     name: "Mediu",
@@ -117,20 +138,19 @@ const payload = {
     phone: "Tel: (+11) 245 543 903",
     email: "mediu@gmail.com",
     website: "https://www.mediu.in",
-    taxId: "Tax ID: 1234567890", // Optional
+    taxId: "Tax ID: 1234567890",
   },
   customer: {
     name: `${orderData.shippingAddress.firstName} ${orderData.shippingAddress.lastName}`,
     address1: `${orderData.shippingAddress.address1}`,
     address2: `${orderData.shippingAddress.city}, ${orderData.shippingAddress.province}, ${orderData.shippingAddress.country}`,
-    phone: "Tel: (555) 555-5555",
-    email: "Mail: joe@example.com",
-    taxId: "Tax ID: 1234567890",
+    phone: `Phone: ${orderData.shippingAddress.phone || ""}`,
+    email: `Mail: ${orderData.shippingAddress.email || orderData.email || ""}`,
   },
   invoice: {
     number: orderNumber,
-    date: orderData.processedAt.split("T")[0], // Extract date from processedAt
-    dueDate: orderData.processedAt.split("T")[0], // Extract date from processedAt
+    date: orderData.processedAt.split("T")[0],
+    dueDate: orderData.processedAt.split("T")[0],
     status: "PAID",
     currency: orderData.totalPrice.currencyCode,
     total: orderData.totalPrice.amount,
@@ -144,169 +164,7 @@ const payload = {
     tax: parseFloat(item.variant?.product?.gstApplied?.value || "0"),
   })),
   note: {
-    text: "Thank you for orderring from us.",
+    text: "Thank you for ordering from us.",
   },
 };
 </script>
-<style lang="scss" scoped>
-.min-h-screen {
-  background: linear-gradient(135deg, #edf8f3 0%, #d7f0e9 100%);
-
-  align-items: flex-start;
-  font-family: "Roboto", sans-serif;
-}
-
-h2 {
-  color: #238878;
-  font-weight: 700;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 3px solid #238878;
-  padding-bottom: 0.5rem;
-}
-
-h3 {
-  color: #238878;
-  font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  padding: 1.25rem;
-  background-color: #ffffff;
-  border: 1px solid #e0e7ea;
-  border-radius: 0.75rem;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-li:hover {
-  transform: translateY(-4px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-img {
-  border-radius: 0.5rem;
-  height: 5rem;
-  width: 5rem;
-  margin-right: 1rem;
-  transition: opacity 0.3s ease;
-}
-
-img:hover {
-  opacity: 0.9;
-}
-
-button {
-  color: #238878;
-  font-weight: 600;
-  background-color: #f3faf6;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  text-decoration: underline;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-button:hover {
-  background-color: #e0f5e9;
-  // color: #1c4532;
-  text-decoration: none;
-}
-
-.text-muted {
-  color: #6b7280;
-}
-
-.text-bold {
-  color: #238878;
-  font-weight: bold;
-}
-
-.order-summary {
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: #ffffff;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e2e8f0;
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-}
-
-.order-summary:hover {
-  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
-}
-
-.order-summary p {
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
-}
-
-.order-summary strong {
-  font-weight: 700;
-  color: #238878;
-}
-
-.price {
-  font-size: 1.25rem;
-  color: #238878;
-  font-weight: 700;
-}
-.order-summary {
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: #ffffff;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e2e8f0;
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-  max-width: 400px;
-}
-
-.order-summary:hover {
-  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
-}
-
-.order-details {
-  font-size: 1.1rem;
-}
-
-.order-detail {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-}
-
-strong {
-  color: #238878;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-}
-
-.icon-order-number,
-.icon-processed-at,
-.icon-status,
-.icon-price {
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
-  color: #238878;
-}
-</style>
