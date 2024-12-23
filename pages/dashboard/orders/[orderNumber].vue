@@ -1,8 +1,6 @@
 <template>
   <DashboardAttachSidenav>
-    <main
-      class="mb-32 min-h-screen bg-gradient-to-br from-[#edf8f3] to-[#d7f0e9] p-4 md:p-8 lg:mb-16 lg:p-10"
-    >
+    <main class="mb-32 min-h-screen p-4 md:p-8 lg:mb-16 lg:p-10">
       <h2
         class="mb-6 border-b-4 border-[#238878] pb-2 text-xl font-bold text-[#238878] md:text-4xl"
       >
@@ -13,52 +11,7 @@
           <h3 class="mb-4 text-2xl font-semibold text-[#238878]">
             Items Ordered:
           </h3>
-          <ul class="space-y-6">
-            <li
-              v-for="item in orderData.lineItems"
-              :key="item.title"
-              class="flex items-start gap-5 rounded-lg border border-gray-200 bg-white p-5 shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg"
-            >
-              <img
-                :src="
-                  item.variant?.image?.url ||
-                  `https://placehold.co/400x400/png?text=${item.title}`
-                "
-                :alt="item.variant?.image?.altText"
-                class="w-12 rounded md:h-20 md:w-20"
-              />
-              <div class="flex-1">
-                <p class="text-sm font-bold text-[#238878] md:text-base">
-                  {{ item.title }}
-                </p>
-                <p class="text-xs text-gray-700 md:text-sm">
-                  Quantity: {{ item.quantity }}
-                </p>
-              </div>
-              <div class="flex flex-col items-end">
-                <p
-                  v-if="
-                    item.discountedTotalPrice.amount <
-                    item.originalTotalPrice.amount
-                  "
-                  class="text-gray-700 line-through"
-                >
-                  Original: {{ item.originalTotalPrice.amount }}
-                  {{ item.originalTotalPrice.currencyCode }}
-                </p>
-                <p class="text-xs font-bold text-[#238878] lg:text-xl">
-                  Price:
-                  {{
-                    item.discountedTotalPrice.amount <
-                    item.originalTotalPrice.amount
-                      ? item.discountedTotalPrice.amount
-                      : item.originalTotalPrice.amount
-                  }}
-                  {{ item.discountedTotalPrice.currencyCode }}
-                </p>
-              </div>
-            </li>
-          </ul>
+          <DashboardOrderLineItems :lineItems="orderData.lineItems" />
 
           <h3 class="mt-8 text-2xl font-semibold text-[#238878]">
             Shipping Address
@@ -83,38 +36,31 @@
         <div
           class="max-w-sm rounded-lg border border-gray-200 bg-white p-8 shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg"
         >
-          <DashboardOrderInvoiceDownloader :payload="payload" />
           <div class="mt-4 space-y-4">
-            <p class="flex items-center text-lg">
-              <strong class="mr-2 inline-flex items-center text-[#238878]">
-                <i class="icon-order-number"></i> Order Number:
-              </strong>
-              {{ orderData.orderNumber }}
-            </p>
-            <p class="flex items-center text-lg">
+            <p class="flex items-center md:text-lg">
               <strong class="mr-2 inline-flex items-center text-[#238878]">
                 <i class="icon-processed-at"></i> Processed At:
               </strong>
               {{ new Date(orderData.processedAt).toLocaleString() }}
             </p>
-            <p class="flex items-center text-lg">
-              <strong class="mr-2 inline-flex items-center text-[#238878]">
-                <i class="icon-status"></i> Status:
-              </strong>
-              <span v-if="orderData.fulfillmentStatus === 'UNFULFILLED'">
-                Pending (confirmed within 12 hours)
-              </span>
-              <span v-else>
-                <DashboardOrderStatus :orderNumber="orderNumber" />
-              </span>
-            </p>
-            <p class="flex items-center text-lg">
+            <div>
+              <p
+                v-if="orderData.fulfillmentStatus === 'UNFULFILLED'"
+                class="flex items-center text-lg"
+              >
+                <strong class="text-[#238878]">Status: </strong>Pending
+                (confirmed within 12 hours)
+              </p>
+              <DashboardOrderStatus v-else :orderNumber="orderNumber" />
+            </div>
+            <p class="flex items-center md:text-lg">
               <strong class="mr-2 inline-flex items-center text-[#238878]">
                 <i class="icon-price"></i> Total Price:
               </strong>
               {{ orderData.totalPrice.amount }}
               {{ orderData.totalPrice.currencyCode }}
             </p>
+            <DashboardOrderInvoiceDownloader :payload="payload" />
           </div>
         </div>
       </div>

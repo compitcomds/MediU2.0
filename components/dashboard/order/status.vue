@@ -1,12 +1,12 @@
 <template>
-  <h2 class="text-lg font-bold">Order Status</h2>
-
   <div class="mb-2 flex items-center gap-3">
+    <h2 class="font-bold text-[#238878] md:text-lg">Order Status:</h2>
     <p class="mr-3">{{ orderStatus }}</p>
-    <p>Estimated Delivery:</p>
-    <p>{{ estimatedDelivery }}</p>
   </div>
-
+  <div class="mb-2 flex items-center gap-3">
+    <p class="font-bold text-[#238878] md:text-lg">Estimated Delivery:</p>
+    <p class="mr-3">{{ estimatedDelivery || "In Packaging" }}</p>
+  </div>
   <a
     target="_blank"
     :href="shiprocketOrder.track_url"
@@ -27,7 +27,7 @@ const { orderNumber } = defineProps({
 
 const shiprocketOrder = await appwriteTrackOrder(orderNumber);
 const orderStatus =
-  shiprocketOrder?.shipment_track?.[0].current_status || "To be delivered";
+  shiprocketOrder?.shipment_track?.[0].current_status || "Confirmed";
 const estimatedDelivery = !!shiprocketOrder?.shipment_track?.[0].edd
   ? new Date(shiprocketOrder.shipment_track[0].edd).toLocaleDateString()
   : "";
