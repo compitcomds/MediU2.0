@@ -79,10 +79,11 @@ const orderData = await getUserOrder(orderNumber);
 const payload = {
   company: {
     name: "Mediu",
+    subTitle: "Radiance Aesthetic and Cosmetic Studio",
     address1: "F-97, M.S.S Colony, Shastri",
     address2: "Jaipur-302016",
-    phone: "",
-    email: "mediu2420@gmail.com",
+    phone: "Phone: +91 7820830842",
+    email: "radiancecosmeticstudio@gmail.com",
     website: "https://www.mediu.in",
     taxId: "",
   },

@@ -4,13 +4,19 @@
       id="invoice"
       class="invoice-container max-w-[90%] bg-white p-5 text-black"
     >
+      <h1 class="mb-1 text-2xl font-bold">{{ payload.company.name }}</h1>
       <div class="flex justify-between border-b pb-4">
         <div>
-          <h1 class="text-2xl font-bold">{{ payload.company.name }}</h1>
+          <p class="text-sm font-bold">{{ payload.company.subTitle }}</p>
           <p>{{ payload.company.address1 }}</p>
           <p>{{ payload.company.address2 }}</p>
           <p>{{ payload.company.phone }}</p>
-          <p>Mail: {{ payload.company.email }}</p>
+          <p>
+            Mail:
+            <a :href="`mailto:${payload.company.email}`">{{
+              payload.company.email
+            }}</a>
+          </p>
           <a :href="payload.company.website"
             >Web: {{ payload.company.website }}</a
           >
