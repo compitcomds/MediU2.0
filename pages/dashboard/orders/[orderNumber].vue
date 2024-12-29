@@ -75,16 +75,16 @@ const route = useRoute();
 const orderNumber = route.params.orderNumber;
 
 const orderData = await getUserOrder(orderNumber);
-console.log(orderData);
+
 const payload = {
   company: {
     name: "Mediu",
-    address1: "1711 W. El Segundo Blvd,",
-    address2: "Hawthorne, Canada - 90250",
-    phone: "Tel: (+11) 245 543 903",
-    email: "mediu@gmail.com",
+    address1: "F-97, M.S.S Colony, Shastri",
+    address2: "Jaipur-302016",
+    phone: "",
+    email: "mediu2420@gmail.com",
     website: "https://www.mediu.in",
-    taxId: "Tax ID: 1234567890",
+    taxId: "",
   },
   customer: {
     name: `${orderData.shippingAddress.firstName} ${orderData.shippingAddress.lastName}`,
