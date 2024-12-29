@@ -73,7 +73,7 @@
               {{ formatCurrency(item.tax / 2) }}%
             </td>
             <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.total) }}
+              {{ formatCurrency(calculateGST(item.total, item.tax).basePrice) }}
             </td>
           </tr>
         </tbody>
@@ -140,4 +140,13 @@ const downloadInvoice = async () => {
 const formatCurrency = (amount) => {
   return `${payload.invoice.currency} ${amount}`;
 };
+
+function calculateGST(priceWithGST, gstRate) {
+  const basePrice = priceWithGST / (1 + gstRate / 100);
+  const gstAmount = priceWithGST - basePrice;
+  return {
+    basePrice: parseFloat(basePrice.toFixed(2)),
+    gstAmount: parseFloat(gstAmount.toFixed(2)),
+  };
+}
 </script>
