@@ -44,7 +44,7 @@
           />
         </svg>
       </nuxt-link>
-      <nuxt-link to="/addToCart">
+      <!-- <nuxt-link to="/addToCart">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -63,6 +63,39 @@
             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
           />
         </svg>
+      </nuxt-link> -->
+      <nuxt-link
+        to="/addToCart"
+        class="relative rounded-full border-2 border-transparent text-white transition duration-150 ease-in-out hover:text-gray-400 focus:text-gray-500 focus:outline-none"
+        aria-label="Cart"
+      >
+        <!-- Shopping Cart SVG Icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-shopping-cart"
+        >
+          <circle cx="8" cy="21" r="1" />
+          <circle cx="19" cy="21" r="1" />
+          <path
+            d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+          />
+        </svg>
+        <!-- Badge for Cart Item Count -->
+        <span class="absolute right-4 md:right-16 -top-5">
+          <div
+            class="inline-flex items-center rounded-full border-2 border-white bg-red-500 px-1.5 py-0.5 text-xs font-semibold leading-4 text-white"
+          >
+            {{ totalItems }}
+          </div>
+        </span>
       </nuxt-link>
       <!-- <ShopUserSidebar /> -->
       <!-- <a href ="/testing"
@@ -93,7 +126,38 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import { getUser, logoutUser } from "~/appwrite/auth";
 
+const isOpen = ref(false);
+const isLoggingOut = ref(false);
+
+const shopStore = useShopStore();
+const { totalItems } = storeToRefs(shopStore);
+let user: any;
+
+try {
+  user = await getUser();
+} catch (error) {
+  user = null;
+}
+
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const logout = async () => {
+  isLoggingOut.value = true;
+  try {
+    await logoutUser();
+    reloadNuxtApp();
+  } catch (error: any) {
+    alert(error.message);
+  } finally {
+    isLoggingOut.value = false;
+  }
+};
+</script>
 <style scoped>
 /* Tailwind styles applied directly in the template */
 .active {

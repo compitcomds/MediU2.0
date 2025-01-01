@@ -1,8 +1,8 @@
 <template>
   <div
-    class="mb-3 rounded-lg bg-white p-1 pb-10 sm:mb-6 md:pb-10 lg:mb-10 lg:p-6 lg:pb-0"
+    class="mb-3 rounded-lg bg-white  p-2 pb-10 sm:mb-6 md:pb-10 lg:mb-10 lg:p-6 lg:pb-0"
   >
-    <div v-if="data">
+    <div v-if="data" class="px-2 md:px-5 lg:px-0">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
         <div class="col-span-5 space-y-6 lg:col-span-2">
           <div class="flex flex-col lg:flex-row">

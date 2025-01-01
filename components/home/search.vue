@@ -1,9 +1,9 @@
 <template>
   <div
     :class="[showNotification ? 'top-0 xl:top-0' : 'top-0']"
-    class="sticky inset-x-0 z-50 flex h-20 items-center justify-between border-b border-gray-300 bg-white px-1 transition-all duration-300 lg:px-6"
+    class="sticky inset-x-0 z-50 flex items-center justify-between border-gray-300 bg-white px-1 transition-all duration-300 lg:px-6"
   >
-    <nuxt-link to="/" class="flex w-3/12 items-center">
+    <nuxt-link to="/" class="lg:flex hidden w-3/12 items-center">
       <img
         src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%201.png"
         class="w-[30%] xxl:w-[20%]"
@@ -12,7 +12,7 @@
     </nuxt-link>
     <form
       @submit.prevent="submitForm"
-      class="group relative flex h-[40px] w-6/12 justify-center rounded-md xl:h-[50px]"
+      class="group relative flex h-[40px] lg:w-6/12 justify-center rounded-md xl:h-[50px]"
     >
       <input
         type="text"
@@ -24,7 +24,7 @@
       />
       <button
         type="submit"
-        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-6 py-3 text-lg text-white"
+        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-6 xxl:px-16 py-3 text-lg text-white"
       >
         <span class="">
           <svg
@@ -71,6 +71,7 @@
         </p>
       </div>
     </form>
+    
     <HomeCart />
   </div>
 </template>

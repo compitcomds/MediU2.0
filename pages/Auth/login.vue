@@ -1,7 +1,7 @@
 <template>
-  <div class="flex min-h-screen bg-gray-50">
+  <div class="flex lg:min-h-screen bg-white">
     <div
-      class="flex w-full flex-col justify-center overflow-hidden bg-white md:flex-row"
+      class="flex w-full pb-20 lg:pb-0 flex-col justify-center overflow-hidden bg-white md:flex-row"
     >
       <!-- Left Section (Form) -->
       <div

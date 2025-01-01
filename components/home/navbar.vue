@@ -15,13 +15,11 @@
     </div> -->
 
     <!-- Wrapper for Search Bar and Navbar Items -->
-    <div
-      :class="[
-        'transition-all duration-300 fixed w-full left-0 z-50 bg-white shadow hidden lg:block',
-        showNotification ? 'top-[0px] lg:top-[0px]' : 'top-0',
-        { 'navbar-hidden': !isNavbarVisible },
-      ]"
-    >
+    <div :class="[
+      'transition-all duration-300 fixed w-full left-0 z-50 bg-white shadow hidden lg:block',
+      showNotification ? 'top-[0px] lg:top-[0px]' : 'top-0',
+      { 'navbar-hidden': !isNavbarVisible },
+    ]">
       <!-- Search Bar -->
       <div class="search-bar">
         <HomeSearch />
@@ -29,14 +27,11 @@
 
       <!-- Navbar Items -->
       <!-- Navbar Items -->
-      <div
-        :class="[
-          'fixed w-full left-0  shadow bg-[#238878] hidden lg:block',
-          showNotification ? 'top-[80px]' : 'top-[80px]',
-          { 'navbar-hidden': !isNavbarVisible },
-        ]"
-        class="nav-items transition-top"
-      >
+      <div :class="[
+        'fixed w-full left-0  shadow bg-[#238878] hidden lg:block',
+        showNotification ? 'top-[80px]' : 'top-[80px]',
+        { 'navbar-hidden': !isNavbarVisible },
+      ]" class="nav-items transition-top">
         <HomeNavItem />
       </div>
     </div>
@@ -132,17 +127,20 @@ onUnmounted(() => {
 <style scoped>
 /* Notification Bar */
 .notification-bar {
-  height: 40px; /* Adjust this height based on the actual height of your notification bar */
+  height: 40px;
+  /* Adjust this height based on the actual height of your notification bar */
 }
 
 /* Search Bar */
 .search-bar {
-  height: 40px; /* Adjust this height based on your actual search bar height */
+  height: 40px;
+  /* Adjust this height based on your actual search bar height */
 }
 
 /* Nav Items */
 .nav-items {
-  height: 40px; /* Adjust based on the actual height of your nav items */
+  height: 40px;
+  /* Adjust based on the actual height of your nav items */
 }
 
 /* Hide navbar on scroll */
@@ -156,8 +154,10 @@ onUnmounted(() => {
   transition: top 0.3s ease-in-out, transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 }
+
 /* Add a custom class for controlling the transition on 'top' property */
 .transition-top {
-  transition: top 0.1s ease-in-out; /* Adjust the duration here */
+  transition: top 0.1s ease-in-out;
+  /* Adjust the duration here */
 }
 </style>
