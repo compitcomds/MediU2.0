@@ -64,16 +64,16 @@
             </td>
             <td class="border-b px-4 py-2 text-center">{{ item.quantity }}</td>
             <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.price) }}
-            </td>
-            <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.tax / 2) }}%
-            </td>
-            <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.tax / 2) }}%
-            </td>
-            <td class="border-b px-4 py-2 text-right">
               {{ formatCurrency(calculateGST(item.total, item.tax).basePrice) }}
+            </td>
+            <td class="border-b px-4 py-2 text-right">
+              {{ formatCurrency(item.tax / 2) }}%
+            </td>
+            <td class="border-b px-4 py-2 text-right">
+              {{ formatCurrency(item.tax / 2) }}%
+            </td>
+            <td class="border-b px-4 py-2 text-right">
+              {{ formatCurrency(item.price) }}
             </td>
           </tr>
         </tbody>
