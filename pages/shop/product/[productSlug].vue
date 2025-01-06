@@ -1,73 +1,11 @@
 <template>
   <div
-    class="mb-3 rounded-lg bg-white  p-2 pb-10 sm:mb-6 md:pb-10 lg:mb-10 lg:p-6 lg:pb-0"
+    class="mb-3 rounded-lg bg-white p-2 pb-10 sm:mb-6 md:pb-10 lg:mb-10 lg:p-6 lg:pb-0"
   >
     <div v-if="data" class="px-2 md:px-5 lg:px-0">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
         <div class="col-span-5 space-y-6 lg:col-span-2">
-          <div class="flex flex-col lg:flex-row">
-            <!-- Thumbnail Swiper in Column on the Left -->
-            <div class="mb-4 hidden w-full lg:mb-0 lg:mr-4 lg:block lg:w-1/6">
-              <swiper-container
-                class="mySwiper2"
-                direction="vertical"
-                space-between="10"
-                slides-per-view="5"
-                autoplay-delay="5000"
-                speed="1000"
-                free-mode="true"
-                watch-slides-progress="true"
-                style="height: 130%; max-height: 500px; width: 100%"
-              >
-                <swiper-slide
-                  v-for="(item, index) in data.images"
-                  :key="item.url"
-                  :class="{
-                    'border-4 border-blue-500': currentThumbnail === index,
-                  }"
-                  @click="thumbClick(index)"
-                >
-                  <img
-                    :src="item.url"
-                    alt="Thumbnail Image"
-                    class="h-full w-full rounded-lg border border-gray-200 object-cover py-2"
-                  />
-                </swiper-slide>
-              </swiper-container>
-            </div>
-
-            <!-- Main Swiper on the Right -->
-            <div class="w-full lg:w-5/6">
-              <swiper-container
-                style="
-                  --swiper-navigation-color: #4a5568;
-                  --swiper-pagination-color: #4a5568;
-                "
-                class="mySwiper"
-                thumbs-swiper=".mySwiper2"
-                space-between="15"
-                navigation="true"
-                pagination="true"
-                autoplay="true"
-                autoplay-delay="5000"
-                speed="1000"
-                @slideChange="onSlideChange"
-              >
-                <swiper-slide
-                  v-for="(item, index) in data.images"
-                  :key="item.url"
-                >
-                  <VueMagnifier
-                    mgShape="square"
-                    :src="item.url"
-                    alt="Product Image"
-                    class="h-full w-full rounded-lg object-cover transition-transform duration-300"
-                  />
-                </swiper-slide>
-              </swiper-container>
-            </div>
-          </div>
-
+          <ShopProductImages :images="data.images" />
           <!-- Product Highlights -->
           <div
             class="mt-4 hidden items-center justify-between rounded-lg border bg-gray-50 p-4 shadow-sm lg:flex"

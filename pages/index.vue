@@ -1,8 +1,8 @@
+<script setup lang="ts"></script>
+
 <template>
-  <!--  -->
   <div class="bg-white">
-    <!-- <HomeNavbar /> -->
-    <HomeMain2 />
+    <Home2Hero />
 
     <div class="bg-white">
       <div class="space-y-10 md:space-y-10 lg:space-y-20">

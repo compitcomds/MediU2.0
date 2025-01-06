@@ -1,4 +1,10 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@websitebeaver/vue-magnifier": ["node_modules/@websitebeaver/vue-magnifier/dist/install.d.ts"]
+    }
+  }
 }

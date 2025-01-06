@@ -114,12 +114,10 @@ watch(
   () => props.productId,
   async () => {
     if (!props.productId) return;
-    console.log(props.productId);
     const fetchedReviews = await getProductReviews(
       props.productId.replace("gid://shopify/Product/", ""),
     );
     reviews.value = fetchedReviews.documents;
-    console.log(fetchedReviews);
   },
   { immediate: true },
 );

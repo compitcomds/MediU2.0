@@ -32,6 +32,8 @@
     "@types/uuid": "^10.0.0",
     "@websitebeaver/vue-magnifier": "^1.1.0",
     "appwrite": "^16.0.2",
+    "embla-carousel-autoplay": "^8.5.1",
+    "embla-carousel-vue": "^8.5.1",
     "js-image-zoom": "^0.7.0",
     "lucide-vue-next": "^0.453.0",
     "node-appwrite": "^11.1.1",
