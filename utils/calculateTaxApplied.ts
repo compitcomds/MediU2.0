@@ -6,12 +6,15 @@ export default function calculateTaxApplied(
   }>,
 ): number {
   return items.reduce((totalTax, item) => {
-    const cost =
+    const costAmount =
       typeof item.cost.amount === "string"
         ? parseFloat(item.cost.amount)
         : item.cost.amount;
-    const gst = item.gstApplied / 100;
-    const taxForItem = cost * item.quantity * gst;
-    return totalTax + taxForItem;
+
+    const taxAmountPerItem =
+      (costAmount * item.gstApplied) / (100 + item.gstApplied);
+    const taxForQuantity = taxAmountPerItem * item.quantity;
+
+    return totalTax + taxForQuantity;
   }, 0);
 }

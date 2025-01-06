@@ -157,7 +157,7 @@
               <span
                 v-if="walletAmount > 0"
                 class="block w-full text-end text-xs font-bold text-[#238878] line-through"
-                >{{ totalAmount }}</span
+                >{{ formatAmountToINR(totalAmount) }}</span
               >
             </p>
           </div>

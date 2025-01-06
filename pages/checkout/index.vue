@@ -320,7 +320,8 @@
           <p class="flex items-center justify-between text-lg text-[#238878]">
             <span>Tax Amount</span>
             <span class="text-base"
-              >{{ cart.totalTaxAmount.currencyCode }} {{ taxAmount }}</span
+              >{{ cart.totalTaxAmount.currencyCode }}
+              {{ taxAmount.toFixed(2) }}</span
             >
           </p>
           <p class="flex items-center justify-between text-lg text-[#238878]">
