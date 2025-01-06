@@ -4,9 +4,9 @@ import getProductsByHandle, {
 } from "~/shopify/shop/get-products-by-handle";
 
 const categories = [
-  { value: "minoxidil", title: "Minoxidil" },
   { value: "hairSerum", title: "Hair Serum" },
   { value: "shampooAndConditioner", title: "Shampoo and Conditioner" },
+  { value: "minoxidil", title: "Minoxidil" },
 ];
 
 const productHandles: Record<string, string[]> = {
