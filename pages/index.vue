@@ -3,22 +3,22 @@
 <template>
   <div class="bg-white">
     <Home2Hero />
+    <Home2FeaturedProducts />
 
     <div class="bg-white">
       <div class="space-y-10 md:space-y-10 lg:space-y-20">
-        <HomeCard class="px-4 lg:px-16 xl:px-[163px]" />
         <HomeBlock class="" />
         <HomeContainers class="px-4 lg:px-16 xl:px-[163px]" />
         <HomeFeatures class="px-4 lg:px-16 xl:px-[163px]" />
         <!-- skin -->
-        <HomeProduct2 class="px-4 lg:px-16 xl:px-[163px]" />
+        <Home2SkinSection />
       </div>
 
       <div class="space-y-10 md:space-y-10 lg:space-y-20">
         <HomeTestimonial />
         <HomeBooking />
         <!-- hair -->
-        <HomeProduct class="px-4 lg:px-16 xl:px-[163px]" />
+        <Home2HairCareMustHaves />
       </div>
       <div class="mt-10">
         <HomeDoctors class="px-4 lg:px-16 xl:px-[163px]" />
