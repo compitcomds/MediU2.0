@@ -92,15 +92,21 @@ onMounted(() => {
           class="block h-full rounded-lg border p-4 font-sans no-underline md:rounded-3xl md:border-none md:shadow-lg"
         >
           <nuxt-link class="relative" :to="`/shop/product/${product.handle}`">
-            <div class="space-x-4">
+            <div class="absolute left-0 top-0 flex items-center gap-x-4">
               <span
                 v-if="product.compareAtPrice.amount > product.price.amount"
-                class="absolute left-0 top-0 rounded bg-orange-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-                >Sale 8%</span
+                class="rounded bg-orange-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
+                >Sale
+                {{
+                  calculatePercentage(
+                    product.price.amount,
+                    product.compareAtPrice.amount,
+                  )
+                }}%</span
               >
               <span
                 v-if="index === 0"
-                class="absolute left-[80px] top-0 rounded bg-blue-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
+                class="rounded bg-blue-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
                 >Best Sale</span
               >
             </div>
@@ -243,17 +249,24 @@ onMounted(() => {
           class="block h-full rounded-lg border p-4 no-underline md:rounded-3xl md:border-none md:shadow-lg"
         >
           <nuxt-link class="relative" :to="`/shop/product/${product.handle}`">
-            <!-- Sale and Best Seller Tags -->
-            <span
-              v-if="product.compareAtPrice > product.price"
-              class="absolute left-0 top-0 rounded bg-orange-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-              >Sale 5%</span
-            >
-            <span
-              v-if="index === 0"
-              class="absolute right-0 top-0 rounded bg-blue-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-              >Best Sale</span
-            >
+            <div class="absolute left-0 top-0 z-10 flex items-center gap-4">
+              <span
+                v-if="product.compareAtPrice.amount > product.price.amount"
+                class="rounded bg-orange-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
+                >Sale
+                {{
+                  calculatePercentage(
+                    product.price.amount,
+                    product.compareAtPrice.amount,
+                  )
+                }}%</span
+              >
+              <span
+                v-if="index === 0"
+                class="rounded bg-blue-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
+                >Best Sale</span
+              >
+            </div>
             <div class="overflow-hidden">
               <img
                 :src="product.featuredImage.url"

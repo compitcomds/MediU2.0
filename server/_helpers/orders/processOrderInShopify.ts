@@ -1,5 +1,6 @@
 import getCartDataForCheckout from "~/shopify/cart/get-cart-data-for-checkout";
 import resetCart from "~/shopify/cart/reset-cart";
+import CreatedOrderType from "../types/created-order-type";
 
 const SHOPIFY_URL = `https://dev-mediu.myshopify.com/admin/api/2024-04`;
 const SHOPIFY_ADMIN_ACCESS_TOKEN = process.env
@@ -122,4 +123,9 @@ export default async function processOrderInShopify(
     cartId,
     items.map((item: any) => item.lineId),
   );
+
+  return {
+    ...orderBody,
+    name: `${order.customer.first_name} ${order.customer.last_name}`,
+  } as CreatedOrderType;
 }

@@ -105,7 +105,13 @@ onMounted(() => {
               <span
                 v-if="product.compareAtPrice.amount > product.price.amount"
                 class="absolute right-2 top-1 rounded bg-orange-500 px-2 py-1 text-xs text-white"
-                >Sale 50%</span
+                >Sale
+                {{
+                  calculatePercentage(
+                    product.price.amount,
+                    product.compareAtPrice.amount,
+                  )
+                }}%</span
               >
               <nuxt-link :to="`/shop/product/${product.handle}`">
                 <img
