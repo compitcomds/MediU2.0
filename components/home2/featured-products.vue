@@ -96,7 +96,7 @@ onMounted(() => {
               <span
                 v-if="product.compareAtPrice.amount > product.price.amount"
                 class="absolute left-0 top-0 rounded bg-orange-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-                >Sale 8%</span
+                >Sale 24%</span
               >
               <span
                 v-if="index === 0"
