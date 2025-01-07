@@ -105,7 +105,7 @@ onMounted(() => {
               <span
                 v-if="product.compareAtPrice.amount > product.price.amount"
                 class="absolute right-2 top-1 rounded bg-orange-500 px-2 py-1 text-xs text-white"
-                >Sale
+                >Save
                 {{
                   calculatePercentage(
                     product.price.amount,

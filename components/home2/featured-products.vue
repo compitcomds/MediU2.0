@@ -96,7 +96,7 @@ onMounted(() => {
               <span
                 v-if="product.compareAtPrice.amount > product.price.amount"
                 class="rounded bg-orange-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-                >Sale
+                >Save
                 {{
                   calculatePercentage(
                     product.price.amount,
@@ -107,7 +107,7 @@ onMounted(() => {
               <span
                 v-if="index === 0"
                 class="rounded bg-blue-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-                >Best Sale</span
+                >Best Price</span
               >
             </div>
             <img
@@ -253,7 +253,7 @@ onMounted(() => {
               <span
                 v-if="product.compareAtPrice.amount > product.price.amount"
                 class="rounded bg-orange-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-                >Sale
+                >Save
                 {{
                   calculatePercentage(
                     product.price.amount,
@@ -264,7 +264,7 @@ onMounted(() => {
               <span
                 v-if="index === 0"
                 class="rounded bg-blue-500 px-2 py-1 text-xs font-semibold text-white sm:text-sm md:text-base"
-                >Best Sale</span
+                >Best Price</span
               >
             </div>
             <div class="overflow-hidden">
