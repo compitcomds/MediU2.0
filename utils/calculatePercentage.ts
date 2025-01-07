@@ -5,5 +5,5 @@ export default function calculatePercentage(
 ) {
   if (typeof num === "string") num = parseFloat(num);
   if (typeof deno === "string") deno = parseFloat(deno);
-  return ((num * 100) / deno).toFixed(toFixed);
+  return (100 - (num * 100) / deno).toFixed(toFixed);
 }
