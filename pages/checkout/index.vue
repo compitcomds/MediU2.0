@@ -16,10 +16,6 @@
               class="w-full rounded-lg border border-gray-300 bg-white p-3"
               required
             />
-            <label class="flex items-center space-x-2 text-sm">
-              <input type="checkbox" class="custom-checkbox" />
-              <span>Email me with news and offers</span>
-            </label>
           </div>
         </div>
 
@@ -82,23 +78,7 @@
               class="w-full rounded-lg border border-gray-300 bg-white p-3"
               required
             />
-            <label class="flex items-center space-x-2 text-sm">
-              <input type="checkbox" class="custom-checkbox" />
-              <span>Save this information for next time</span>
-            </label>
           </div>
-        </div>
-
-        <!-- Shipping Method Section -->
-        <div class="mb-6">
-          <h2 class="mb-4 text-2xl font-semibold text-[#238878]">
-            Shipping method
-          </h2>
-          <input
-            type="text"
-            placeholder="Enter your shipping address to view available shipping methods."
-            class="w-full rounded-lg border border-gray-300 bg-white p-3"
-          />
         </div>
 
         <!-- Payment Section -->
@@ -180,78 +160,6 @@
           </div>
         </div>
 
-        <!-- Billing Address Section -->
-        <div class="mb-6">
-          <h2 class="mb-4 text-2xl font-semibold text-[#238878]">
-            Billing address
-          </h2>
-          <div class="flex flex-col space-y-4 text-[#238878]">
-            <label class="flex items-center space-x-2">
-              <input
-                type="radio"
-                name="billing-address"
-                value="same"
-                v-model="billingAddressOption"
-                class="custom-checkbox"
-              />
-              <span>Same as shipping address</span>
-            </label>
-            <label class="flex items-center space-x-2">
-              <input
-                type="radio"
-                name="billing-address"
-                value="different"
-                v-model="billingAddressOption"
-                class="custom-checkbox"
-              />
-              <span>Use a different billing address</span>
-            </label>
-            <!-- Conditionally Render Billing Address Fields -->
-            <div v-if="billingAddressOption === 'different'" class="space-y-4">
-              <div class="grid gap-4 md:grid-cols-2">
-                <input
-                  type="text"
-                  v-model="billing.firstName"
-                  placeholder="First name (optional)"
-                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
-                />
-                <input
-                  type="text"
-                  v-model="billing.lastName"
-                  placeholder="Last name"
-                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
-                />
-              </div>
-              <input
-                type="text"
-                v-model="billing.address"
-                placeholder="Address"
-                class="w-full rounded-lg border border-gray-300 bg-white p-3"
-              />
-              <div class="grid gap-4 md:grid-cols-3">
-                <input
-                  type="text"
-                  v-model="billing.city"
-                  placeholder="City"
-                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
-                />
-                <input
-                  type="text"
-                  v-model="billing.state"
-                  placeholder="State"
-                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
-                />
-                <input
-                  type="text"
-                  v-model="billing.pinCode"
-                  placeholder="PIN code"
-                  class="w-full rounded-lg border border-gray-300 bg-white p-3"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Pay Now Button -->
         <button
           type="submit"
@@ -303,17 +211,6 @@ const shipping = ref({
   pinCode: userData?.defaultAddress?.zip || "",
   phone: userData?.defaultAddress?.phone || userData?.phone || "",
   country: userData?.defaultAddress?.country || "",
-});
-
-const billingAddressOption = ref("same");
-
-const billing = ref({
-  firstName: "",
-  lastName: "",
-  address: "",
-  city: "",
-  state: "",
-  pinCode: "",
 });
 
 const shippingDetails = computed(() => {
@@ -387,21 +284,6 @@ const submitOrder = async () => {
   }
   isSubmitting.value = false;
 };
-
-watch(billingAddressOption, (newVal) => {
-  if (newVal === "same") {
-    billing.value = { ...billing.value, ...shipping.value };
-  } else {
-    billing.value = {
-      firstName: "",
-      lastName: "",
-      address: "",
-      city: "",
-      state: "",
-      pinCode: "",
-    };
-  }
-});
 </script>
 
 <style scoped>
