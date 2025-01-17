@@ -11,7 +11,7 @@ const slides = [
     mdImage:
       "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
     lgImage:
-      "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg4%402x%402x%20(1).jpg",
+      "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/mediu%20bg%20copy.webp",
   },
   {
     smImage:
@@ -19,7 +19,7 @@ const slides = [
     mdImage:
       "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
     lgImage:
-      "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg4%402x%402x%20(1).jpg",
+      "https://ccdstest.b-cdn.net/Medi%20u/home-page-banner/mediu%20bg%20copy.webp",
   },
 ];
 
