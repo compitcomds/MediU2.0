@@ -4,8 +4,11 @@ export default function calculateTaxApplied(
     gstApplied: number;
     quantity: number;
   }>,
+  discountApplied?: number,
 ): number {
-  return items.reduce((totalTax, item) => {
+  let totalTax = 0;
+
+  for (const item of items) {
     const costAmount =
       typeof item.cost.amount === "string"
         ? parseFloat(item.cost.amount)
@@ -13,8 +16,12 @@ export default function calculateTaxApplied(
 
     const taxAmountPerItem =
       (costAmount * item.gstApplied) / (100 + item.gstApplied);
-    const taxForQuantity = taxAmountPerItem * item.quantity;
+    totalTax += taxAmountPerItem * item.quantity;
+  }
 
-    return totalTax + taxForQuantity;
-  }, 0);
+  if (!!discountApplied) {
+    totalTax *= (100 - discountApplied) / 100;
+  }
+
+  return totalTax;
 }

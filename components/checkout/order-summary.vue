@@ -28,9 +28,7 @@
         <span>Subtotal</span>
         <span class="text-base"
           >{{ cart.subtotalAmount.currencyCode }}
-          {{
-            (parseFloat(cart.subtotalAmount.amount) - taxAmount).toFixed(2)
-          }}</span
+          {{ (totalAmount - taxAmount).toFixed(2) }}</span
         >
       </p>
       <p
@@ -55,12 +53,26 @@
           {{ taxAmount.toFixed(2) }}</span
         >
       </p>
-      <p class="flex items-center justify-between text-lg text-[#238878]">
+      <p
+        v-if="discountApplied > 0"
+        class="flex items-center justify-between text-lg text-[#238878]"
+      >
+        <span>Total Discount</span>
+        <span class="text-base">
+          {{ cart.totalAmount.currencyCode }}
+          {{ subTotalAmount - totalAmount }}</span
+        >
+      </p>
+      <p
+        v-if="walletAmount > 0"
+        class="flex items-center justify-between text-lg text-[#238878]"
+      >
         <span>Wallet Amount Used</span>
         <span class="text-base"
           >{{ cart.totalTaxAmount.currencyCode }} {{ walletAmountUsed }}</span
         >
       </p>
+
       <p
         class="flex items-center justify-between text-xl font-semibold text-[#238878]"
       >
@@ -100,7 +112,7 @@
           class="absolute right-5 top-5 h-8 w-8 rounded-full bg-red-800 text-white"
           @click="removeUploadedPrescription"
         >
-          X
+          <X />
         </button>
       </div>
     </div>
@@ -108,6 +120,7 @@
 </template>
 
 <script setup lang="ts">
+import { X } from "lucide-vue-next";
 import getUserWallet from "~/appwrite/utils/get-wallet";
 import { type CartItemType } from "~/shopify/_types/cart";
 import getCartData from "~/shopify/cart/get-cart-data";
@@ -137,6 +150,12 @@ const uploadedFile = defineModel<null | File>("uploadedFile", {
 
 const walletAmount = ref(0);
 const totalAmount = computed(() => parseFloat(cart.value.totalAmount.amount));
+const subTotalAmount = computed(() =>
+  parseFloat(cart.value.subtotalAmount.amount),
+);
+const discountApplied = computed(() =>
+  calculateDiscountApplied(subTotalAmount.value, totalAmount.value),
+);
 const walletAmountUsed = computed(() =>
   Math.min(walletAmount.value, totalAmount.value - 1),
 );
@@ -151,7 +170,7 @@ const shippingAmount = computed(() => {
 
 const taxAmount = computed(() => {
   const cartValue = cart.value;
-  return calculateTaxApplied(cartValue.items);
+  return calculateTaxApplied(cartValue.items, discountApplied.value);
 });
 
 const uploadPrescription = (event: Event) => {

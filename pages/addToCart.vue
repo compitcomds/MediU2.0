@@ -103,11 +103,7 @@
           <div class="mb-2 flex justify-between">
             <span class="text-[#238878]">Subtotal</span>
             <span class="font-semibold text-[#238878]">
-              {{
-                formatAmountToINR(
-                  parseFloat(cart.subtotalAmount.amount) - taxAmount || 0,
-                )
-              }}</span
+              {{ formatAmountToINR(totalAmount - taxAmount || 0) }}</span
             >
           </div>
           <div class="mb-4 flex justify-between">
@@ -116,9 +112,7 @@
               v-if="shippingAmount >= 0"
               class="font-semibold text-[#238878]"
               >{{
-                formatAmountToINR(
-                  parseFloat(cart.subtotalAmount.currencyCode) || 0,
-                )
+                formatAmountToINR(parseFloat(cart.subtotalAmount.amount) || 0)
               }}
             </span>
             <span v-else class="font-semibold text-[#238878]"
@@ -144,6 +138,12 @@
                 formatAmountToINR(walletAmount)
               }}</span>
             </p>
+          </div>
+          <div v-if="discountApplied > 0" class="mb-4 flex justify-between">
+            <span class="text-[#238878]">Total Discount</span>
+            <span class="font-semibold text-[#238878]">
+              {{ formatAmountToINR(subTotalAmount - totalAmount) }}</span
+            >
           </div>
           <div class="mt-4 flex justify-between border-t pt-4">
             <p>
@@ -241,6 +241,12 @@ const applyingDiscount = ref(false);
 const editDiscountCode = ref(false);
 
 const totalAmount = computed(() => parseFloat(cart.value.totalAmount.amount));
+const subTotalAmount = computed(() =>
+  parseFloat(cart.value.subtotalAmount.amount),
+);
+const discountApplied = computed(() =>
+  calculateDiscountApplied(subTotalAmount.value, totalAmount.value),
+);
 const walletAmountUsed = computed(() =>
   Math.min(walletAmount.value, totalAmount.value - 1),
 );
@@ -254,7 +260,7 @@ const shippingAmount = computed(() => {
 });
 const taxAmount = computed(() => {
   const cartValue = cart.value;
-  return calculateTaxApplied(cartValue.items);
+  return calculateTaxApplied(cartValue.items, discountApplied.value);
 });
 
 const changeQuantity = async (lineId: string, quantity: number) => {
