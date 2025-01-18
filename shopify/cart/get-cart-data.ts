@@ -36,15 +36,15 @@ query getCartData($cartId: ID!) {
       }
     }
     cost {
-      subtotalAmount {
-        amount
-        currencyCode
-      }
       totalAmount {
         amount
         currencyCode
       }
       totalTaxAmount {
+        amount
+        currencyCode
+      }
+      subtotalAmount: checkoutChargeAmount {
         amount
         currencyCode
       }

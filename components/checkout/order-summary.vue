@@ -31,15 +31,9 @@
           {{ (totalAmount - taxAmount).toFixed(2) }}</span
         >
       </p>
-      <p
-        class="flex w-full items-center justify-between text-lg text-[#238878]"
-      >
-        <span class="w-1/2">Shipping Address</span>
-        <span class="w-1/2 text-base">{{ props.shippingDetails }}</span>
-      </p>
       <p class="flex items-center justify-between text-lg text-[#238878]">
         <span>Shipping Cost</span>
-        <span v-if="shippingAmount >= 0" class="text-base"
+        <span v-if="shippingAmount > 0" class="text-base"
           >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
         >
         <span v-else class="text-base"
@@ -124,8 +118,6 @@ import { X } from "lucide-vue-next";
 import getUserWallet from "~/appwrite/utils/get-wallet";
 import { type CartItemType } from "~/shopify/_types/cart";
 import getCartData from "~/shopify/cart/get-cart-data";
-
-const props = defineProps<{ shippingDetails: string }>();
 
 const cart = ref<{
   items: CartItemType[];

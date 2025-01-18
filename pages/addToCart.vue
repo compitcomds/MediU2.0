@@ -108,9 +108,7 @@
           </div>
           <div class="mb-4 flex justify-between">
             <span class="text-[#238878]">Shipping</span>
-            <span
-              v-if="shippingAmount >= 0"
-              class="font-semibold text-[#238878]"
+            <span v-if="shippingAmount > 0" class="font-semibold text-[#238878]"
               >{{
                 formatAmountToINR(parseFloat(cart.subtotalAmount.amount) || 0)
               }}
@@ -254,7 +252,7 @@ const shippingAmount = computed(() => {
   const cartValue = cart.value;
   return Math.round(
     totalAmount.value -
-      parseFloat(cartValue.subtotalAmount.amount) -
+      subTotalAmount.value -
       parseFloat(cartValue.totalTaxAmount?.amount || "0"),
   );
 });
