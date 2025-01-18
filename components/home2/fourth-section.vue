@@ -1,6 +1,5 @@
 <template>
-  <div class="font-serif">
-    <!-- First row with 3 cards -->
+  <div class="mb-10 px-4 font-serif lg:mb-28 lg:px-16 xl:px-[163px]">
     <div class="grid h-auto grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
       <div class="">
         <div
@@ -235,13 +234,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "ProductGrid",
-};
-</script>
-
-<style scoped>
-/* You can add specific custom styles if necessary */
-</style>

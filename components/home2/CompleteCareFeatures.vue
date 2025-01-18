@@ -1,19 +1,18 @@
 <template>
-  <div class="space-y-6">
+  <div class="mb-10 space-y-6 px-4 lg:mb-28 lg:px-16 xl:px-[163px]">
     <div class="flex flex-col lg:space-y-6">
-      <h1 class="text-2xl lg:text-4xl text-center text-gray-500">We Offer</h1>
-      <h2 class="text-2xl md:text-6xl font-bold text-center text-[#238878]">
+      <h1 class="text-center text-2xl text-gray-500 lg:text-4xl">We Offer</h1>
+      <h2 class="text-center text-2xl font-bold text-[#238878] md:text-6xl">
         Complete Care
       </h2>
     </div>
 
-    <!-- Responsive Grid Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto">
+    <div class="mx-auto grid grid-cols-1 gap-4 md:grid-cols-3">
       <!-- Card 1 -->
       <div
-        class="bg-white p-2 md:p-6 rounded-3xl md:shadow-xl border md:border-none text-center relative space-y-4 flex flex-col justify-between items-center"
+        class="relative flex flex-col items-center justify-between space-y-4 rounded-3xl border bg-white p-2 text-center md:border-none md:p-6 md:shadow-xl"
       >
-        <div class="space-y-4 flex flex-col justify-between items-center">
+        <div class="flex flex-col items-center justify-between space-y-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="120"
@@ -56,16 +55,18 @@
             />
           </svg>
 
-          <h3 class="text-[#238878] text-xl lg:text-3xl font-bold">Expert Consultations</h3>
-          <p class="text-gray-600 text-sm lg:text-xl">
+          <h3 class="text-xl font-bold text-[#238878] lg:text-3xl">
+            Expert Consultations
+          </h3>
+          <p class="text-sm text-gray-600 lg:text-xl">
             Get personalized advice from trusted healthcare experts. We ensure
             accurate diagnoses and customized care plans tailored to your needs.
           </p>
         </div>
-        <div class="w-full flex justify-center">
+        <div class="flex w-full justify-center">
           <nuxt-link
             to="/consultancy"
-            class=" px-6 text-2xl py-3 zoom-button bg-[#238878] text-white rounded-full hover:ease-in-out"
+            class="zoom-button rounded-full bg-[#238878] px-6 py-3 text-2xl text-white hover:ease-in-out"
           >
             Consult now
           </nuxt-link>
@@ -74,9 +75,9 @@
 
       <!-- Card 2 -->
       <div
-        class="bg-white p-2 md:p-6 rounded-3xl md:shadow-xl border md:border-none text-center relative space-y-4 flex flex-col justify-between items-center"
+        class="relative flex flex-col items-center justify-between space-y-4 rounded-3xl border bg-white p-2 text-center md:border-none md:p-6 md:shadow-xl"
       >
-        <div class="space-y-4 flex flex-col justify-between items-center">
+        <div class="flex flex-col items-center justify-between space-y-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="110"
@@ -145,17 +146,19 @@
               stroke-width="0.262069"
             />
           </svg>
-          <h3 class="text-[#238878] text-xl lg:text-3xl font-bold">Self Assessment</h3>
-          <p class="text-gray-600 text-sm lg:text-xl">
+          <h3 class="text-xl font-bold text-[#238878] lg:text-3xl">
+            Self Assessment
+          </h3>
+          <p class="text-sm text-gray-600 lg:text-xl">
             Track your health by monitoring symptoms and progress.
             Self-assessment helps you take charge of your well-being and
             supports your healthcare team in providing effective care.
           </p>
         </div>
-        <div class="w-full flex justify-center">
+        <div class="flex w-full justify-center">
           <nuxt-link
             to="/self-assessment"
-            class="zoom-button px-6 text-2xl py-3 bg-[#238878] text-white rounded-full"
+            class="zoom-button rounded-full bg-[#238878] px-6 py-3 text-2xl text-white"
           >
             Diagnose
           </nuxt-link>
@@ -164,9 +167,9 @@
 
       <!-- Card 3 -->
       <div
-        class="bg-white p-2 md:p-6 rounded-3xl md:shadow-xl border md:border-none text-center relative space-y-4 flex flex-col justify-between items-center"
+        class="relative flex flex-col items-center justify-between space-y-4 rounded-3xl border bg-white p-2 text-center md:border-none md:p-6 md:shadow-xl"
       >
-        <div class="space-y-4 flex flex-col justify-between items-center">
+        <div class="flex flex-col items-center justify-between space-y-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="110"
@@ -191,16 +194,16 @@
               </clipPath>
             </defs>
           </svg>
-          <h3 class="text-[#238878] text-xl lg:text-3xl font-bold">Pharmacy</h3>
-          <p class="text-gray-600 text-sm lg:text-xl">
+          <h3 class="text-xl font-bold text-[#238878] lg:text-3xl">Pharmacy</h3>
+          <p class="text-sm text-gray-600 lg:text-xl">
             Our pharmacy services offer safe medication management, patient
             education, and support to achieve better health outcomes.
           </p>
         </div>
-        <div class="w-full flex justify-center">
+        <div class="flex w-full justify-center">
           <nuxt-link
             to="/shop"
-            class="zoom-button px-6 text-2xl py-3 bg-[#238878] text-white rounded-full"
+            class="zoom-button rounded-full bg-[#238878] px-6 py-3 text-2xl text-white"
           >
             Buy Now
           </nuxt-link>

@@ -4,7 +4,6 @@
   >
     <h2 class="mb-6 text-2xl font-bold text-[#238878]">Select Category</h2>
 
-    <!-- Category Buttons -->
     <div class="mb-4 flex flex-wrap space-y-2 md:space-x-2 md:space-y-0">
       <button
         :class="{

@@ -74,7 +74,7 @@ onMounted(() => {
           'bg-[#238878] text-white': selectedCategory === category.value,
           'bg-gray-300 text-[#238878]': selectedCategory !== category.value,
         }"
-        class="mx-2 mb-2 rounded-full px-3 py-2 font-semibold md:px-20"
+        class="mx-2 mb-2 rounded-full px-3 py-2 text-xs font-semibold md:px-20 md:text-base"
       >
         {{ category.title }}
       </button>

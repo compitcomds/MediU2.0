@@ -11,6 +11,12 @@ query getCartData($cartId: ID!) {
       applicable
       code
     }
+    discountAllocations {
+      discountedAmount {
+        amount
+        currencyCode
+      }
+    }
     buyerIdentity {
       email
       customer {

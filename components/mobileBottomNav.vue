@@ -1,6 +1,6 @@
 <template>
-  <div class="block z-50 lg:hidden bg-[#238878]">
-    <div class="btm-nav bg-[#238878] flex justify-center items-center z-50 p-4">
+  <div class="z-50 block bg-[#238878] lg:hidden">
+    <div class="btm-nav z-50 flex items-center justify-center bg-[#238878] p-4">
       <nuxt-link to="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@
           />
         </svg>
         <!-- Badge for Cart Item Count -->
-        <span class="absolute right-4 md:right-16 -top-5">
+        <span class="absolute -top-5 right-4 md:right-16">
           <div
             class="inline-flex items-center rounded-full border-2 border-white bg-red-500 px-1.5 py-0.5 text-xs font-semibold leading-4 text-white"
           >
@@ -97,13 +97,6 @@
           </div>
         </span>
       </nuxt-link>
-      <!-- <ShopUserSidebar /> -->
-      <!-- <a href ="/testing"
-        exact-active-class="active"
-        class="flex items-center justify-center w-12 h-12"
-      >
-        <UIcon name="i-heroicons-shopping-cart" class="w-5 h-5" />
-      </a > -->
       <nuxt-link to="/dashboard">
         <!-- <UIcon name="i-heroicons-user-circle" class="w-5 h-5" /> -->
         <svg

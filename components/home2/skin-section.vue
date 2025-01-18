@@ -58,7 +58,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="mx-auto max-w-7xl space-y-6 py-8 font-serif">
+  <div class="mx-auto mb-10 max-w-7xl space-y-6 py-8 font-serif lg:mb-28">
     <div class="mb-5 flex flex-col lg:mb-10 lg:space-y-6">
       <h1 class="text-center text-xl text-gray-500 lg:text-4xl">
         Glow Getters
@@ -93,7 +93,7 @@ onMounted(() => {
               'bg-[#238878] text-white': selectedCategory === category.value,
               'bg-slate-300 text-black': selectedCategory !== category.value,
             }"
-            class="w-full rounded-full px-4 py-2 text-sm lg:text-lg"
+            class="w-full rounded-full px-4 py-2 text-xs md:text-base"
           >
             {{ category.title }}
           </button>

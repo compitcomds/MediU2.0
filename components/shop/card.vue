@@ -69,21 +69,7 @@
                   :product-link="`shop/product/${product.handle}`"
                 />
               </div>
-
-              <!-- Optional section for additional actions -->
-              <!-- <div class="bg-slate-300 rounded-full px-1 py-1 opacity-80">
-            <a href="#">
-              <img
-                src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
-                class="w-8 p-1"
-                alt=""
-              />
-            </a>
-          </div> -->
-              <!-- <ShopAddingToCartBtn :product-id="product.id" /> -->
             </div>
-
-            <!-- Action buttons -->
             <div class="mt-auto flex gap-2">
               <nuxt-link
                 :to="`/shop/product/${product.handle}`"
