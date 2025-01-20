@@ -40,7 +40,7 @@
               >
             </p>
             <p class="font-medium text-gray-800">
-              Phone: <span class="text-[#238878]">+91 78208 30842</span>
+              Phone: <span class="text-[#238878]">+91 9828991555</span>
             </p>
           </div>
         </div>
