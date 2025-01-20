@@ -46,7 +46,7 @@
           <tr class="bg-gray-100">
             <th class="border-b px-4 py-2">Item</th>
             <th class="border-b px-4 py-2">Quantity</th>
-            <th class="border-b px-4 py-2">Price</th>
+            <th class="min-w-fit text-nowrap border-b px-4 py-2">Unit Price</th>
             <th class="border-b px-4 py-2">SGST</th>
             <th class="border-b px-4 py-2">CGST</th>
             <th class="border-b px-4 py-2">Total</th>
@@ -64,7 +64,7 @@
             </td>
             <td class="border-b px-4 py-2 text-center">{{ item.quantity }}</td>
             <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(calculateGST(item.total, item.tax).basePrice) }}
+              {{ formatCurrency(calculateGST(item.price, item.tax).basePrice) }}
             </td>
             <td class="border-b px-4 py-2 text-right">
               {{ formatCurrency(item.tax / 2) }}%
@@ -73,23 +73,24 @@
               {{ formatCurrency(item.tax / 2) }}%
             </td>
             <td class="border-b px-4 py-2 text-right">
-              {{ formatCurrency(item.price) }}
+              {{ formatCurrency(item.total) }}
             </td>
           </tr>
         </tbody>
       </table>
 
       <!-- Footer Section -->
-      <div class="mt-4 flex justify-between">
-        <div>
-          <p class="italic text-gray-600">{{ payload.note.text }}</p>
-          <p>This is computer generated bill.</p>
-        </div>
-        <div class="text-right">
-          <p class="font-semibold">
-            Total: {{ formatCurrency(payload.invoice.total) }}
-          </p>
-        </div>
+      <div class="mb-4 text-right">
+        <p v-if="payload.invoice.discount > 0">
+          Total Discount: {{ formatCurrency(payload.invoice.discount) }}
+        </p>
+        <p class="font-semibold">
+          Total: {{ formatCurrency(payload.invoice.total) }}
+        </p>
+      </div>
+      <div>
+        <p class="italic text-gray-600">{{ payload.note.text }}</p>
+        <p>This is computer generated bill.</p>
       </div>
     </div>
   </div>

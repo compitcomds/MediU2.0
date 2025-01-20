@@ -126,9 +126,9 @@
           <div v-if="walletAmount > 0" class="mb-4">
             <p class="mb-1 flex justify-between">
               <span class="text-[#238878]">Wallet</span>
-              <span class="font-semibold text-[#238878]"
-                >-{{ formatAmountToINR(walletAmountUsed) }}</span
-              >
+              <span class="font-semibold text-[#238878]">{{
+                formatAmountToINR(walletAmountUsed)
+              }}</span>
             </p>
             <p class="flex justify-between text-xs">
               <span class="text-[#15574c]">Total Wallet Amount</span>
@@ -246,7 +246,10 @@ const discountApplied = computed(() =>
   calculateDiscountApplied(subTotalAmount.value, totalAmount.value),
 );
 const walletAmountUsed = computed(() =>
-  Math.min(walletAmount.value, totalAmount.value - 1),
+  Math.min(
+    walletAmount.value,
+    cart.value.items.length > 0 ? totalAmount.value - 1 : 0,
+  ),
 );
 const shippingAmount = computed(() => {
   const cartValue = cart.value;

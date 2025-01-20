@@ -46,6 +46,17 @@ query getParticularUserOrders($accessToken: String!, $query: String) {
             }
           }
         }
+        discountApplications(first: 10) {
+          nodes {
+            value {
+              ... on MoneyV2 {
+                __typename
+                amount
+                currencyCode
+              }
+            }
+          }
+        }
         shippingAddress {
           address1
           address2
@@ -102,6 +113,15 @@ type OrderType = {
       };
     }[];
   };
+  discountApplications: {
+    nodes: Array<{
+      value: {
+        __typename: string;
+        amount: string;
+        currencyCode: string;
+      };
+    }>;
+  };
   shippingAddress: {
     address1: string;
     address2?: string;
@@ -136,6 +156,10 @@ export default async function getUserOrder(orderNumber: string) {
     ...foundOrder,
     email: customer.email,
     lineItems: foundOrder.lineItems.nodes,
+    discountApplications: foundOrder.discountApplications.nodes.map((node) => ({
+      ...node.value,
+      amount: parseFloat(node.value.amount),
+    })),
   };
 
   throw new Error("Unable to find the order with the given order number.");

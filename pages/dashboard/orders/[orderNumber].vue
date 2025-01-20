@@ -101,6 +101,10 @@ const payload = {
     status: "PAID",
     currency: orderData.totalPrice.currencyCode,
     total: orderData.totalPrice.amount,
+    discount: orderData.discountApplications.reduce(
+      (prev, next) => prev + next.amount,
+      0,
+    ),
   },
   items: orderData.lineItems.map((item) => ({
     name: item.title,

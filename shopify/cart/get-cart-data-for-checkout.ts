@@ -5,17 +5,24 @@ import convertCartLinesToCartItemType from "~/utils/convertCartLinesToCartItemTy
 const getCartDataQuery = `
 query getCartData($cartId: ID!) {
   cart(id: $cartId) {
-    checkoutUrl
     id
     note
-    discountCodes {
-      applicable
-      code
-    }
     discountAllocations {
-      discountedAmount {
-        amount
-        currencyCode
+      ... on CartCodeDiscountAllocation {
+        __typename
+        code
+        discountedAmount {
+          amount
+          currencyCode
+        }
+      }
+      ... on CartAutomaticDiscountAllocation {
+        __typename
+        title
+        discountedAmount {
+          amount
+          currencyCode
+        }
       }
     }
     buyerIdentity {
@@ -69,6 +76,18 @@ query getCartData($cartId: ID!) {
               handle
               id
               title
+              requiresPrescription: metafield(
+                key: "requiresPrescription"
+                namespace: "custom"
+              ) {
+                value
+              }
+              gstApplied: metafield(
+                key: "gst_applied"
+                namespace: "custom"
+              ) {
+                value
+              }
             }
             image {
               url
@@ -95,13 +114,16 @@ query getCartData($cartId: ID!) {
 export default async function getCartDataForCheckout(cartId: string): Promise<
   | {
       items: CartItemType[];
-      checkoutUrl: string;
       note: string;
       subtotalAmount: { amount: number; currencyCode: string };
       totalAmount: { amount: string; currencyCode: string };
       totalTaxAmount: { amount: number; currencyCode: string };
-      discountCodes: Array<{ applicable: boolean; code: string }>;
       discountAllocations: Array<{
+        __typename:
+          | "CartCodeDiscountAllocation"
+          | "CartAutomaticDiscountAllocation";
+        code?: string;
+        title?: string;
         discountedAmount: {
           amount: string;
           currencyCode: string;
@@ -141,12 +163,10 @@ export default async function getCartDataForCheckout(cartId: string): Promise<
     items.push(...convertCartLinesToCartItemType(data.cart.lines.nodes));
     return {
       items,
-      checkoutUrl: data.cart.checkoutUrl,
       subtotalAmount: data.cart.cost.subtotalAmount,
       totalAmount: data.cart.cost.totalAmount,
       buyerIdentity: data.cart.buyerIdentity,
       note: data.cart.note || "",
-      discountCodes: data.cart.discountCodes,
       discountAllocations: data.cart.discountAllocations,
       totalTaxAmount: data.cart.cost.totalTaxAmount,
     };

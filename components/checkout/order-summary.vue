@@ -54,7 +54,7 @@
         <span>Total Discount</span>
         <span class="text-base">
           {{ cart.totalAmount.currencyCode }}
-          {{ subTotalAmount - totalAmount }}</span
+          {{ (subTotalAmount - totalAmount).toFixed(2) }}</span
         >
       </p>
       <p
@@ -103,10 +103,10 @@
           class="mt-2 h-auto w-full rounded-md"
         />
         <button
-          class="absolute right-5 top-5 h-8 w-8 rounded-full bg-red-800 text-white"
+          class="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white hover:bg-red-800"
           @click="removeUploadedPrescription"
         >
-          <X />
+          <X :size="20" />
         </button>
       </div>
     </div>

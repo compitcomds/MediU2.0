@@ -1,5 +1,5 @@
 import { defineEventHandler } from "h3";
-import { Databases, Client, ID, Permission, Role } from "node-appwrite";
+import { Databases, Client } from "node-appwrite";
 import getCartDataForCheckout from "~/shopify/cart/get-cart-data-for-checkout";
 import getPhonepayCheckout from "../../utils/get-phonepay-checkout";
 import serverConfig from "../../utils/server-config";
@@ -20,7 +20,9 @@ export default defineEventHandler(async (event) => {
 
   try {
     if (!cartId) throw new Error("Invalid cartid.");
+
     const cartData = await getCartDataForCheckout(cartId);
+
     if (!cartData) throw new Error("Invalid cart data.");
 
     const client = new Client()

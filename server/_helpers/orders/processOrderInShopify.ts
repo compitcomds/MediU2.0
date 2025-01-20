@@ -20,8 +20,7 @@ export default async function processOrderInShopify(
 
   if (!cartData) return new Response("Invalid cart value.", { status: 400 });
 
-  const { buyerIdentity, items, totalAmount, totalTaxAmount, discountCodes } =
-    cartData;
+  const { buyerIdentity, items, totalAmount, discountAllocations } = cartData;
 
   const billing_and_shipping_address: any = {
     ...buyerIdentity.deliveryAddressPreferences[0],
@@ -32,31 +31,9 @@ export default async function processOrderInShopify(
   delete billing_and_shipping_address.firstName;
   delete billing_and_shipping_address.lastName;
 
-  const metafields = [];
+  const metafields = getMetafieldsArrayFromProps(props);
 
-  if (!!props.prescriptionUrl)
-    metafields.push({
-      key: "prescriptionUrl",
-      value: props.prescriptionUrl,
-      type: "url",
-      namespace: "custom",
-    });
-
-  if (!!props.appwriteOrderId)
-    metafields.push({
-      key: "appwriteOrderId",
-      value: props.appwriteOrderId,
-      type: "single_line_text_field",
-      namespace: "custom",
-    });
-
-  if (!!props.typeOfProduct)
-    metafields.push({
-      key: "typeOfProduct",
-      value: props.typeOfProduct,
-      type: "single_line_text_field",
-      namespace: "custom",
-    });
+  const taxAmount = 0;
 
   const order: Record<string, any> = {
     line_items: items.map((item: any) => ({
@@ -65,11 +42,11 @@ export default async function processOrderInShopify(
     })),
     tax_lines: [
       {
-        price: totalTaxAmount.amount,
+        price: taxAmount,
         title: "Total Tax",
       },
     ],
-    total_tax: totalTaxAmount.amount,
+    total_tax: taxAmount,
     customer: {
       first_name:
         buyerIdentity?.customer?.firstName ||
@@ -97,14 +74,12 @@ export default async function processOrderInShopify(
     metafields,
   };
 
-  if (discountCodes.length > 0 && discountCodes[0].applicable)
-    order["discount_codes"] = [
-      {
-        code: discountCodes[0].code,
-        amount: 0,
-        type: "fixed_amount",
-      },
-    ];
+  if (discountAllocations.length > 0)
+    order["discount_codes"] = discountAllocations.map((discount) => ({
+      code: discount.code || discount.title,
+      amount: discount.discountedAmount.amount,
+      type: "fixed_amount",
+    }));
 
   const orderResponse = await fetch(`${SHOPIFY_URL}/orders.json`, {
     method: "POST",
@@ -128,4 +103,34 @@ export default async function processOrderInShopify(
     ...orderBody,
     name: `${order.customer.first_name} ${order.customer.last_name}`,
   } as CreatedOrderType;
+}
+
+function getMetafieldsArrayFromProps(props: any) {
+  const metafields = [];
+
+  if (!!props.prescriptionUrl)
+    metafields.push({
+      key: "prescriptionUrl",
+      value: props.prescriptionUrl,
+      type: "url",
+      namespace: "custom",
+    });
+
+  if (!!props.appwriteOrderId)
+    metafields.push({
+      key: "appwriteOrderId",
+      value: props.appwriteOrderId,
+      type: "single_line_text_field",
+      namespace: "custom",
+    });
+
+  if (!!props.typeOfProduct)
+    metafields.push({
+      key: "typeOfProduct",
+      value: props.typeOfProduct,
+      type: "single_line_text_field",
+      namespace: "custom",
+    });
+
+  return metafields;
 }
