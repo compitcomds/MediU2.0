@@ -204,9 +204,7 @@ const HairCare = [
   { name: "Mask", value: "mask" },
   { name: "Serum", value: "serum" },
 ];
-// const selectedTypeOfProducts = ref(
-//   ifStringMakeArray(route?.query?.selectedTypeOfProducts),
-// );
+
 const selectedSkinConcern = ref(
   ifStringMakeArray(route?.query?.selectedSkinConcern),
 );

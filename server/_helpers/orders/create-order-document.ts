@@ -9,8 +9,8 @@ export default async function createOrderDocument(
     orderId?: string;
     shopifyCartId: string;
     prescriptionUrl?: string | null;
-    typeOfProduct?: string | null;
     walletAmountUsed: number;
+    paymentStatus?: "PAID" | "UNPAID";
   },
 ) {
   return await database.createDocument(

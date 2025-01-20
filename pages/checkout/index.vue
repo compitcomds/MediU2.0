@@ -1,9 +1,12 @@
 <template>
   <div class="mb-20 min-h-screen bg-gray-100 px-4 py-8 md:px-16 lg:mb-0">
-    <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
+    <div
+      @submit.prevent="submitOrder"
+      class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3"
+    >
       <form
         @submit.prevent="submitOrder"
-        class="h-full overflow-y-auto rounded-lg p-6 text-zinc-500 lg:col-span-2"
+        class="h-full overflow-y-auto rounded-lg text-zinc-500 lg:col-span-2 lg:p-6"
       >
         <!-- Contact Section -->
         <div class="mb-6">
@@ -81,101 +84,50 @@
           </div>
         </div>
 
-        <!-- Payment Section -->
+        <div class="hidden lg:block">
+          <div class="mb-6">
+            <h2 class="mb-4 text-2xl font-semibold text-[#238878]">Payment</h2>
+            <CheckoutSelectPaymentMethod
+              v-model:model-value="selectedPaymentMethod"
+            />
+          </div>
+
+          <!-- Pay Now Button -->
+          <button
+            type="submit"
+            :disabled="isSubmitting"
+            class="w-full rounded-lg bg-[#238878] py-3 font-semibold text-white transition duration-200 hover:bg-[#70ccbb] disabled:animate-pulse disabled:cursor-not-allowed"
+          >
+            {{ isSubmitting ? "Submitting the details..." : "Submit Order" }}
+          </button>
+        </div>
+      </form>
+
+      <CheckoutOrderSummary
+        :shipping-details="shippingDetails"
+        v-model:requires-prescription="requiresPrescription"
+        v-model:uploaded-file="uploadedFile"
+        class="mb-10"
+      />
+
+      <div class="lg:hidden">
         <div class="mb-6">
           <h2 class="mb-4 text-2xl font-semibold text-[#238878]">Payment</h2>
-          <div class="rounded-lg border border-[#238878]">
-            <div
-              class="flex items-center justify-between rounded-t-lg bg-[#f5f5f5] p-4"
-            >
-              <div class="text-lg font-semibold text-[#238878]">
-                PhonePe Payment Gateway (UPI, Cards & NetBanking)
-              </div>
-              <div class="grid grid-cols-2 items-center space-x-2 xl:flex">
-                <img
-                  src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/c1.en/assets/upi.CmgCfll8.svg"
-                  alt="UPI Logo"
-                  class="h-8"
-                />
-                <img
-                  src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/c1.en/assets/visa.sxIq5Dot.svg"
-                  alt="Visa Logo"
-                  class="h-8"
-                />
-                <img
-                  src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/c1.en/assets/master.CzeoQWmc.svg"
-                  alt="MasterCard Logo"
-                  class="h-8"
-                />
-                <img
-                  src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/c1.en/assets/rupay.Bl62X6PG.svg"
-                  alt="RuPay Logo"
-                  class="h-8"
-                />
-                <!-- <span class="text-lg font-semibold text-[#238878]">+3</span> -->
-              </div>
-            </div>
-            <div
-              class="space-y-4 border-t border-[#238878] bg-[#f9f9f9] p-6 text-center"
-            >
-              <div class="flex justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="-270.8 371 102 52"
-                  class="zjrzY w-36"
-                >
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-miterlimit="10"
-                    stroke-width="2"
-                    d="M-182 404v16.8c0 .7-.4 1.2-1 1.2h-75.7c-.7 0-1.2-.6-1.2-1.2v-47.6c0-.7.6-1.2 1.2-1.2h75.7c.7 0 1 .6 1 1.2V395m-78-14h78m-17 18h27m-3.9-4.6 4.5 4.6-4.5 4.6"
-                  ></path>
-                  <circle
-                    cx="-255.5"
-                    cy="376.5"
-                    r="1.5"
-                    fill="currentColor"
-                  ></circle>
-                  <circle
-                    cx="-250.5"
-                    cy="376.5"
-                    r="1.5"
-                    fill="currentColor"
-                  ></circle>
-                  <circle
-                    cx="-245.5"
-                    cy="376.5"
-                    r="1.5"
-                    fill="currentColor"
-                  ></circle>
-                </svg>
-              </div>
-              <p class="text-sm text-gray-700">
-                After clicking "Pay now," you will be redirected to PhonePe
-                Payment Gateway (UPI, Cards & NetBanking) to complete your
-                purchase securely.
-              </p>
-            </div>
-          </div>
+          <CheckoutSelectPaymentMethod
+            v-model:model-value="selectedPaymentMethod"
+          />
         </div>
 
         <!-- Pay Now Button -->
         <button
           type="submit"
+          @click="submitOrder"
           :disabled="isSubmitting"
           class="w-full rounded-lg bg-[#238878] py-3 font-semibold text-white transition duration-200 hover:bg-[#70ccbb] disabled:animate-pulse disabled:cursor-not-allowed"
         >
-          {{ isSubmitting ? "Submitting the details..." : "Pay now" }}
+          {{ isSubmitting ? "Submitting the details..." : "Submit Order" }}
         </button>
-      </form>
-
-      <!-- Order Summary -->
-      <CheckoutOrderSummary
-        :shipping-details="shippingDetails"
-        v-model:requires-prescription="requiresPrescription"
-        v-model:uploaded-file="uploadedFile"
-      />
+      </div>
     </div>
   </div>
 </template>
@@ -213,6 +165,8 @@ const shipping = ref({
   country: userData?.defaultAddress?.country || "",
 });
 
+const selectedPaymentMethod = ref<"online" | "cash">("online");
+
 const shippingDetails = computed(() => {
   return `${shipping.value.address}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
 });
@@ -247,6 +201,32 @@ const addUserIdentityToCart = async () => {
   });
 };
 
+const proceedWithOnlinePayment = async ({
+  userCartId,
+  userId,
+  prescriptionUrl,
+}: {
+  userId: string;
+  userCartId: string;
+  prescriptionUrl: string;
+}) => {
+  const { data } = await axios.post("/api/checkout", {
+    cart: userCartId,
+    userId: userId,
+    prescriptionUrl,
+  });
+
+  if (data?.url) {
+    window.location.href = data.url;
+    return;
+  }
+
+  throw new Error(
+    data.error ||
+      "Some error occured while processing the details. Please try again later.",
+  );
+};
+
 const submitOrder = async () => {
   if (!!requiresPrescription.value && !uploadedFile.value) {
     alert(
@@ -264,20 +244,14 @@ const submitOrder = async () => {
       ? await uploadFileInAppwrite(uploadedFile.value)
       : null;
 
-    const { data } = await axios.post("/api/checkout", {
-      cart: userCartId,
-      userId: appwriteUser.$id,
-      prescriptionUrl,
-    });
-    if (data?.url) {
-      window.location.href = data.url;
+    if (selectedPaymentMethod.value === "online") {
+      await proceedWithOnlinePayment({
+        userCartId,
+        prescriptionUrl: prescriptionUrl || "",
+        userId: appwriteUser.$id,
+      });
       return;
     }
-
-    throw new Error(
-      data.error ||
-        "Some error occured while processing the details. Please try again later.",
-    );
   } catch (error: any) {
     alert(error.message);
     console.error(error);

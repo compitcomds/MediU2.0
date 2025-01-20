@@ -1,22 +1,17 @@
 import { defineEventHandler } from "h3";
 import { Databases, Client } from "node-appwrite";
 import getCartDataForCheckout from "~/shopify/cart/get-cart-data-for-checkout";
-import getPhonepayCheckout from "../../utils/get-phonepay-checkout";
 import serverConfig from "../../utils/server-config";
 import getUserWalletServer from "../../_helpers/wallet/get-user-wallet";
 import createOrderDocument from "~/server/_helpers/orders/create-order-document";
-
-const PHONEPAY_PAYMENT_CALLBACK_URL = process.env
-  .PHONEPAY_PAYMENT_CALLBACK_URL as string;
-const PHONEPAY_REDIRECT_URL = process.env.PHONEPAY_REDIRECT_URL as string;
-const PHONEPAY_REDIRECT_METHOD = process.env.PHONEPAY_REDIRECT_METHOD as string;
+import processOrderInShopify from "~/server/_helpers/orders/processOrderInShopify";
+import removeFromUserWallet from "~/server/_helpers/wallet/remove-from-user-wallet";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const cartId = body.cart;
   const userId = body.userId;
   const prescriptionUrl = body.prescriptionUrl;
-
   try {
     if (!cartId) throw new Error("Invalid cartid.");
 
@@ -38,27 +33,20 @@ export default defineEventHandler(async (event) => {
         parseFloat(cartData.totalAmount.amount),
       );
 
-    const { transactionId, instrumentResponse } = await getPhonepayCheckout({
-      userId: userId,
-      amount: totalAmountAfterWallet,
-      name: `${cartData.buyerIdentity.deliveryAddressPreferences[0].firstName} ${cartData.buyerIdentity.deliveryAddressPreferences[0].lastName}`,
-      phone: cartData.buyerIdentity.deliveryAddressPreferences[0].phone || "",
-      callbackUrl: PHONEPAY_PAYMENT_CALLBACK_URL,
-      redirectUrl: PHONEPAY_REDIRECT_URL,
-      redirectMode: PHONEPAY_REDIRECT_METHOD,
-    });
-
-    await createOrderDocument(database, {
+    const document = await createOrderDocument(database, {
       userId,
-      transactionId,
+      transactionId: "",
       shopifyCartId: cartId,
       prescriptionUrl,
       walletAmountUsed,
     });
 
-    return instrumentResponse.redirectInfo;
+    await processOrderInShopify(cartId, {
+      prescriptionUrl: prescriptionUrl || "",
+      appwriteOrderId: document.$id || "N/A",
+    });
   } catch (err: any) {
-    console.error("Error occurred:", err.response.data);
+    console.error("Error occurred:", err);
     return {
       error: err.message || `An error occurred while processing your request`,
     };

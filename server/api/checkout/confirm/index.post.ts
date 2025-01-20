@@ -2,6 +2,7 @@ import { defineEventHandler } from "h3";
 import { Client, Databases } from "node-appwrite";
 import { getOrderDocumentThroughTransactionId } from "~/server/_helpers/orders/get-order-document";
 import processOrderInShopify from "~/server/_helpers/orders/processOrderInShopify";
+import { updateOrderDocument } from "~/server/_helpers/orders/update-order-document";
 import removeFromUserWallet from "~/server/_helpers/wallet/remove-from-user-wallet";
 
 const PHONEPAY_REDIRECT_SUCCESS_URL = String(
@@ -28,7 +29,13 @@ export default defineEventHandler(async (event) => {
       database,
       transactionId,
     );
+
     if (!document) throw new Error("Invalid order.");
+
+    await updateOrderDocument(database, document.$id, {
+      paymentStatus: "PAID",
+    });
+
     await removeFromUserWallet(
       database,
       document.userId,
@@ -37,7 +44,6 @@ export default defineEventHandler(async (event) => {
 
     await processOrderInShopify(document.shopifyCartId, {
       prescriptionUrl: document.prescriptionUrl || "",
-      typeOfProduct: document.typeOfProduct || "normal",
       appwriteOrderId: document.$id || "N/A",
     });
 

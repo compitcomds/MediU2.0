@@ -145,8 +145,6 @@ export async function getCartDataThroughCartId(cartId: string): Promise<
     variables: { cartId },
   });
 
-  console.log(data, errors);
-
   if (data?.cart) {
     const items: Array<CartItemType> = [];
     items.push(...convertCartLinesToCartItemType(data.cart.lines.nodes));

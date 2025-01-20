@@ -11,7 +11,6 @@ export default async function processOrderInShopify(
   props: {
     prescriptionUrl: string;
     appwriteOrderId: string;
-    typeOfProduct: string;
   },
 ) {
   if (!cartId) return new Response("404", { status: 404 });
@@ -120,14 +119,6 @@ function getMetafieldsArrayFromProps(props: any) {
     metafields.push({
       key: "appwriteOrderId",
       value: props.appwriteOrderId,
-      type: "single_line_text_field",
-      namespace: "custom",
-    });
-
-  if (!!props.typeOfProduct)
-    metafields.push({
-      key: "typeOfProduct",
-      value: props.typeOfProduct,
       type: "single_line_text_field",
       namespace: "custom",
     });

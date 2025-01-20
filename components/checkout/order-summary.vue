@@ -16,22 +16,31 @@
           <h3 class="font-semibold">{{ product.title }}</h3>
           <p class="text-[#238878]">
             {{ product.cost.currencyCode }} {{ product.cost.amount }}
+            <span
+              class="ml-2 max-w-fit rounded-badge bg-gray-300 px-2 py-1 text-xs lg:hidden"
+            >
+              {{ product.gstApplied }}% GST
+            </span>
           </p>
         </div>
-        <div class="mb-auto ml-auto">
+        <div class="mb-auto ml-auto hidden lg:block">
           <p class="rounded-badge bg-gray-300 px-2 py-1 text-xs">
             {{ product.gstApplied }}% GST
           </p>
         </div>
       </div>
-      <p class="flex items-center justify-between text-lg text-[#238878]">
+      <p
+        class="flex items-center justify-between text-sm text-[#238878] lg:text-lg"
+      >
         <span>Subtotal</span>
         <span class="text-base"
           >{{ cart.subtotalAmount.currencyCode }}
           {{ (totalAmount - taxAmount).toFixed(2) }}</span
         >
       </p>
-      <p class="flex items-center justify-between text-lg text-[#238878]">
+      <p
+        class="flex items-center justify-between text-sm text-[#238878] lg:text-lg"
+      >
         <span>Shipping Cost</span>
         <span v-if="shippingAmount > 0" class="text-base"
           >{{ cart.subtotalAmount.currencyCode }} {{ shippingAmount }}</span
@@ -40,7 +49,9 @@
           >{{ cart.subtotalAmount.currencyCode }} 0.0</span
         >
       </p>
-      <p class="flex items-center justify-between text-lg text-[#238878]">
+      <p
+        class="flex items-center justify-between text-sm text-[#238878] lg:text-lg"
+      >
         <span>Tax Amount</span>
         <span class="text-base"
           >{{ cart.totalTaxAmount.currencyCode }}
@@ -49,7 +60,7 @@
       </p>
       <p
         v-if="discountApplied > 0"
-        class="flex items-center justify-between text-lg text-[#238878]"
+        class="flex items-center justify-between text-sm text-[#238878] lg:text-lg"
       >
         <span>Total Discount</span>
         <span class="text-base">
@@ -59,7 +70,7 @@
       </p>
       <p
         v-if="walletAmount > 0"
-        class="flex items-center justify-between text-lg text-[#238878]"
+        class="flex items-center justify-between text-sm text-[#238878] lg:text-lg"
       >
         <span>Wallet Amount Used</span>
         <span class="text-base"
@@ -73,18 +84,19 @@
         <span>Total</span>
         <span
           >{{ cart.totalAmount.currencyCode }}
-          {{ totalAmount - walletAmountUsed }}</span
+          {{ (totalAmount - walletAmountUsed).toFixed(2) }}</span
         >
       </p>
     </div>
     <div v-if="requiresPrescription" class="mt-6">
       <label
         for="prescription-upload"
-        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-[#238878] px-10 py-3 text-lg font-semibold text-white"
+        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-[#238878] px-10 py-3 text-sm font-semibold text-white md:text-lg"
       >
         <input
           type="file"
           id="prescription-upload"
+          name="prescription-upload"
           @change="uploadPrescription"
           class="hidden"
           accept="image/*"
@@ -103,6 +115,7 @@
           class="mt-2 h-auto w-full rounded-md"
         />
         <button
+          type="button"
           class="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white hover:bg-red-800"
           @click="removeUploadedPrescription"
         >
