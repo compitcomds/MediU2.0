@@ -4,7 +4,9 @@ import emblaCarouselVue from "embla-carousel-vue";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronRight, ChevronLeft } from "lucide-vue-next";
 
-const props = defineProps();
+const props = defineProps({
+  images: Array,
+});
 const [emblaRef, emblaApi] = emblaCarouselVue({ loop: true }, [Autoplay()]);
 const currentSlide = ref(0);
 
@@ -53,10 +55,10 @@ onMounted(() => {
     <div class="embla relative w-full lg:w-5/6" ref="emblaRef">
       <div class="embla__container">
         <div class="embla__slide" v-for="(image, index) in props.images">
-          <img
+          <VueMagnifier
             :src="image.url"
-            alt="Product Image"
             class="h-full w-full rounded-lg object-cover transition-transform duration-300"
+            alt="Product Image"
           />
         </div>
       </div>
