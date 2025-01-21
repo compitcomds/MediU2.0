@@ -218,7 +218,7 @@
               v-if="data.options?.title"
             />
 
-            <div class="hidden lg:block">
+            <div class="hidden">
               <swiper
                 :slidesPerView="1"
                 :spaceBetween="60"
@@ -294,24 +294,24 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Star } from "lucide-vue-next";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import { getProductData } from "~/shopify/productDetails";
-import VueMagnifier from "@websitebeaver/vue-magnifier";
+// import VueMagnifier from "@websitebeaver/vue-magnifier";
 import { ClipboardPlus } from "lucide-vue-next";
 import "@websitebeaver/vue-magnifier/styles.css";
 
-const modules = [Pagination, Navigation, Autoplay];
+const modules = [Pagination, Navigation];
 const activeTab = ref(1);
 const route = useRoute();
 const productHandle = route.params.productSlug;
 
 const data = ref({});
 const quantity = ref(1);
-const slides = ref([
-  "https://ccdstest.b-cdn.net/Medi%20u/ship.webp",
-  "https://ccdstest.b-cdn.net/Medi%20u/758x100/3.webp",
-  "https://ccdstest.b-cdn.net/Medi%20u/758x100/5.webp",
-]);
+// const slides = ref([
+//   "https://ccdstest.b-cdn.net/Medi%20u/ship.webp",
+//   "https://ccdstest.b-cdn.net/Medi%20u/758x100/3.webp",
+//   "https://ccdstest.b-cdn.net/Medi%20u/758x100/5.webp",
+// ]);
 
 const accordionKeys = [
   {
