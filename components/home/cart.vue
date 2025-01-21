@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:flex w-3/12 items-center justify-end space-x-6 hidden">
+  <div class="hidden w-3/12 items-center justify-end space-x-6 lg:flex">
     <div class="">
       <nuxt-link
         to="/addToCart"

@@ -11,6 +11,7 @@ export default async function processOrderInShopify(
   props: {
     prescriptionUrl: string;
     appwriteOrderId: string;
+    walletAmountUsed?: number;
   },
 ) {
   if (!cartId) return new Response("404", { status: 404 });
@@ -73,12 +74,10 @@ export default async function processOrderInShopify(
     metafields,
   };
 
-  if (discountAllocations.length > 0)
-    order["discount_codes"] = discountAllocations.map((discount) => ({
-      code: discount.code || discount.title,
-      amount: discount.discountedAmount.amount,
-      type: "fixed_amount",
-    }));
+  const discounts = getAllDiscounts(discountAllocations);
+  if (discounts.length > 0) {
+    order["discount_codes"] = discounts;
+  }
 
   const orderResponse = await fetch(`${SHOPIFY_URL}/orders.json`, {
     method: "POST",
@@ -93,18 +92,25 @@ export default async function processOrderInShopify(
 
   const orderBody = await orderResponse.json();
 
+  if (orderBody?.errors)
+    throw new Error("Error occurred. Please contact us to resolve this.");
+
   await resetCart(
     cartId,
     items.map((item: any) => item.lineId),
   );
 
   return {
-    ...orderBody,
+    ...orderBody.order,
     name: `${order.customer.first_name} ${order.customer.last_name}`,
   } as CreatedOrderType;
 }
 
-function getMetafieldsArrayFromProps(props: any) {
+function getMetafieldsArrayFromProps(props: {
+  prescriptionUrl: string;
+  appwriteOrderId: string;
+  walletAmountUsed?: number;
+}) {
   const metafields = [];
 
   if (!!props.prescriptionUrl)
@@ -123,5 +129,47 @@ function getMetafieldsArrayFromProps(props: any) {
       namespace: "custom",
     });
 
+  if (!!props.walletAmountUsed && props.walletAmountUsed > 0) {
+    metafields.push({
+      key: "walletAmountUsed",
+      value: props.walletAmountUsed,
+      type: "number_decimal",
+      namespace: "custom",
+    });
+  }
+
   return metafields;
+}
+
+function getAllDiscounts(
+  discountAllocations: {
+    __typename:
+      | "CartCodeDiscountAllocation"
+      | "CartAutomaticDiscountAllocation";
+    code?: string;
+    title?: string;
+    discountedAmount: {
+      amount: string;
+      currencyCode: string;
+    };
+  }[],
+) {
+  const discounts: {
+    code: string;
+    amount: string | number;
+    type: "fixed_amount";
+  }[] = [];
+
+  // cart coupon discounts
+  if (discountAllocations.length > 0) {
+    discountAllocations.forEach((discount) => {
+      discounts.push({
+        code: discount.code || discount.title || "",
+        amount: discount.discountedAmount.amount,
+        type: "fixed_amount",
+      });
+    });
+  }
+
+  return discounts;
 }

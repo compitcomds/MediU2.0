@@ -208,12 +208,12 @@ const proceedWithOnlinePayment = async ({
 }: {
   userId: string;
   userCartId: string;
-  prescriptionUrl: string;
+  prescriptionUrl: string | null;
 }) => {
   const { data } = await axios.post("/api/checkout", {
     cart: userCartId,
     userId: userId,
-    prescriptionUrl,
+    prescriptionUrl: prescriptionUrl,
   });
 
   if (data?.url) {
@@ -234,6 +234,8 @@ const submitOrder = async () => {
     );
     return;
   }
+  if (isSubmitting.value) return;
+
   isSubmitting.value = true;
   try {
     const userCartId = await userStore.getShopifyCartId();
@@ -247,16 +249,21 @@ const submitOrder = async () => {
     if (selectedPaymentMethod.value === "online") {
       await proceedWithOnlinePayment({
         userCartId,
-        prescriptionUrl: prescriptionUrl || "",
+        prescriptionUrl: prescriptionUrl,
         userId: appwriteUser.$id,
       });
       return;
+    } else {
+      alert("COD WILL BE AVAILABLE SOON... ;)");
     }
   } catch (error: any) {
     alert(error.message);
     console.error(error);
+  } finally {
+    setTimeout(() => {
+      isSubmitting.value = false;
+    }, 300);
   }
-  isSubmitting.value = false;
 };
 </script>
 

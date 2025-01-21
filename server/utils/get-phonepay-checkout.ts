@@ -21,13 +21,14 @@ export default async function getPhonepayCheckout(info: {
     merchantTransactionId: transactionId,
     merchantUserId: info.userId,
     name: info.name,
-    amount: info.amount * 100,
+    amount: Math.round(info.amount * 100),
     callbackUrl: info.callbackUrl,
     redirectUrl: info.redirectUrl,
     redirectMode: info.redirectMode,
     mobileNumber: info.phone,
     paymentInstrument: { type: "PAY_PAGE" },
   };
+
   if (d.amount <= 0) throw new Error("Amount can't be zero.");
   const { checksum, payloadMain } = createPhonepayPayload(d);
 

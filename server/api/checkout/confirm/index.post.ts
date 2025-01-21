@@ -3,6 +3,7 @@ import { Client, Databases } from "node-appwrite";
 import { getOrderDocumentThroughTransactionId } from "~/server/_helpers/orders/get-order-document";
 import processOrderInShopify from "~/server/_helpers/orders/processOrderInShopify";
 import { updateOrderDocument } from "~/server/_helpers/orders/update-order-document";
+import CreatedOrderType from "~/server/_helpers/types/created-order-type";
 import removeFromUserWallet from "~/server/_helpers/wallet/remove-from-user-wallet";
 
 const PHONEPAY_REDIRECT_SUCCESS_URL = String(
@@ -32,23 +33,25 @@ export default defineEventHandler(async (event) => {
 
     if (!document) throw new Error("Invalid order.");
 
-    await updateOrderDocument(database, document.$id, {
-      paymentStatus: "PAID",
-    });
-
     await removeFromUserWallet(
       database,
       document.userId,
       document.walletAmountUsed,
     );
 
-    await processOrderInShopify(document.shopifyCartId, {
+    const orderBody = (await processOrderInShopify(document.shopifyCartId, {
       prescriptionUrl: document.prescriptionUrl || "",
       appwriteOrderId: document.$id || "N/A",
+      walletAmountUsed: document.walletAmountUsed,
+    })) as CreatedOrderType;
+
+    await updateOrderDocument(database, document.$id, {
+      paymentStatus: "PAID",
+      orderId: orderBody.id.toString() || "",
     });
 
     return sendRedirect(event, PHONEPAY_REDIRECT_SUCCESS_URL);
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     return sendRedirect(event, PHONEPAY_REDIRECT_ERROR_URL);
   }

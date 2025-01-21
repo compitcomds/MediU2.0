@@ -6,6 +6,7 @@ export async function updateOrderDocument(
   documentId: string,
   data: {
     paymentStatus?: "PAID" | "UNPAID";
+    orderId?: string;
   },
 ): Promise<any> {
   const updateDocument = await database.updateDocument(

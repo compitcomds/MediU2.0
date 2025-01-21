@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="[showNotification ? 'xl:mt-[0px]' : 'xl:mt-[0px]']"
-    class="z-10 w-full bg-[#238878] text-black"
-  >
+  <div class="z-10 w-full bg-[#238878] text-black">
     <div class="relative bg-white">
       <!-- Main Menu -->
       <ul class="flex justify-center space-x-20 bg-[#238878] py-2 text-white">
