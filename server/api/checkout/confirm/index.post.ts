@@ -24,6 +24,7 @@ export default defineEventHandler(async (event) => {
       .setEndpoint(serverConfig.APPWRITE_ENDPOINT)
       .setProject(serverConfig.APPWRITE_PROJECT_ID)
       .setKey(serverConfig.APPWRITE_API_KEY);
+
     const database = new Databases(client);
 
     const document = await getOrderDocumentThroughTransactionId(
@@ -33,17 +34,17 @@ export default defineEventHandler(async (event) => {
 
     if (!document) throw new Error("Invalid order.");
 
-    await removeFromUserWallet(
-      database,
-      document.userId,
-      document.walletAmountUsed,
-    );
-
     const orderBody = (await processOrderInShopify(document.shopifyCartId, {
       prescriptionUrl: document.prescriptionUrl || "",
       appwriteOrderId: document.$id || "N/A",
       walletAmountUsed: document.walletAmountUsed,
     })) as CreatedOrderType;
+
+    await removeFromUserWallet(
+      database,
+      document.userId,
+      document.walletAmountUsed,
+    );
 
     await updateOrderDocument(database, document.$id, {
       paymentStatus: "PAID",

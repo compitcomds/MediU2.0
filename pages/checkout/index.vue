@@ -227,6 +227,32 @@ const proceedWithOnlinePayment = async ({
   );
 };
 
+const proceedWithCashPayment = async ({
+  userCartId,
+  userId,
+  prescriptionUrl,
+}: {
+  userId: string;
+  userCartId: string;
+  prescriptionUrl: string | null;
+}) => {
+  const { data, status } = await axios.post("/api/checkout-cod", {
+    cart: userCartId,
+    userId: userId,
+    prescriptionUrl: prescriptionUrl,
+  });
+
+  if (status === 200 && !data.error) {
+    router.push("/checkout/success");
+    return;
+  }
+
+  throw new Error(
+    data.error ||
+      "Some error occured while creating the order. Please try again later.",
+  );
+};
+
 const submitOrder = async () => {
   if (!!requiresPrescription.value && !uploadedFile.value) {
     alert(
@@ -254,7 +280,12 @@ const submitOrder = async () => {
       });
       return;
     } else {
-      alert("COD WILL BE AVAILABLE SOON... ;)");
+      await proceedWithCashPayment({
+        userCartId,
+        prescriptionUrl: prescriptionUrl,
+        userId: appwriteUser.$id,
+      });
+      return;
     }
   } catch (error: any) {
     alert(error.message);

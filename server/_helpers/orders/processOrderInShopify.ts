@@ -13,6 +13,7 @@ export default async function processOrderInShopify(
     appwriteOrderId: string;
     walletAmountUsed?: number;
   },
+  paymentStatus?: "paid" | "pending",
 ) {
   if (!cartId) return new Response("404", { status: 404 });
 
@@ -60,15 +61,18 @@ export default async function processOrderInShopify(
     billing_address: billing_and_shipping_address,
     shipping_address: billing_and_shipping_address,
     email: buyerIdentity.email || buyerIdentity.customer.email,
-    transactions: [
-      {
-        kind: "sale",
-        status: "success",
-        amount: totalAmount.amount,
-        currency_code: totalAmount.currencyCode,
-      },
-    ],
-    financial_status: "paid",
+    transactions:
+      paymentStatus === "paid"
+        ? [
+            {
+              kind: "sale",
+              status: "success",
+              amount: totalAmount.amount,
+              currency_code: totalAmount.currencyCode,
+            },
+          ]
+        : [],
+    financial_status: paymentStatus || "paid",
     send_receipt: true,
     inventory_behaviour: "decrement_obeying_policy",
     metafields,
@@ -92,8 +96,10 @@ export default async function processOrderInShopify(
 
   const orderBody = await orderResponse.json();
 
-  if (orderBody?.errors)
+  if (orderBody?.errors) {
+    console.log(orderBody.errors);
     throw new Error("Error occurred. Please contact us to resolve this.");
+  }
 
   await resetCart(
     cartId,

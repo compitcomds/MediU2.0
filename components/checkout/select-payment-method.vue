@@ -51,6 +51,7 @@
         </div>
       </label>
 
+      <!-- class="relative flex cursor-pointer items-center rounded-lg border p-4 transition-colors duration-200" -->
       <label
         class="relative hidden cursor-pointer items-center rounded-lg border p-4 transition-colors duration-200"
         :class="

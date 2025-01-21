@@ -6,6 +6,8 @@ import getUserWalletServer from "../../_helpers/wallet/get-user-wallet";
 import createOrderDocument from "~/server/_helpers/orders/create-order-document";
 import processOrderInShopify from "~/server/_helpers/orders/processOrderInShopify";
 import removeFromUserWallet from "~/server/_helpers/wallet/remove-from-user-wallet";
+import { updateOrderDocument } from "~/server/_helpers/orders/update-order-document";
+import CreatedOrderType from "~/server/_helpers/types/created-order-type";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -33,7 +35,7 @@ export default defineEventHandler(async (event) => {
         parseFloat(cartData.totalAmount.amount),
       );
 
-    const document = await createOrderDocument(database, {
+    const document: any = await createOrderDocument(database, {
       userId,
       transactionId: "",
       shopifyCartId: cartId,
@@ -41,10 +43,27 @@ export default defineEventHandler(async (event) => {
       walletAmountUsed,
     });
 
-    await processOrderInShopify(cartId, {
-      prescriptionUrl: prescriptionUrl || "",
-      appwriteOrderId: document.$id || "N/A",
+    const orderBody = (await processOrderInShopify(
+      cartId,
+      {
+        prescriptionUrl: prescriptionUrl || "",
+        appwriteOrderId: document.$id || "N/A",
+        walletAmountUsed,
+      },
+      "pending",
+    )) as CreatedOrderType;
+
+    await removeFromUserWallet(
+      database,
+      document.userId,
+      document.walletAmountUsed,
+    );
+
+    await updateOrderDocument(database, document.$id, {
+      orderId: orderBody.id.toString(),
     });
+
+    return { message: "Successfully created the order." };
   } catch (err: any) {
     console.error("Error occurred:", err);
     return {
