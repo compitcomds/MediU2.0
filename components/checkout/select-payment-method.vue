@@ -52,7 +52,7 @@
       </label>
 
       <label
-        class="relative flex hidden cursor-pointer items-center rounded-lg border p-4 transition-colors duration-200"
+        class="relative flex cursor-pointer items-center rounded-lg border p-4 transition-colors duration-200"
         :class="
           selectedMethod === 'cash'
             ? 'border-[#238878] bg-[#238878]/5'
