@@ -64,6 +64,7 @@ const adjustResizerWidth = () => {
 };
 
 onMounted(() => {
+  adjustResizerWidth();
   window.addEventListener("resize", adjustResizerWidth);
 });
 
