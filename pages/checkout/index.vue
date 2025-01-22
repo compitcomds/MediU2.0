@@ -98,7 +98,7 @@
             :disabled="isSubmitting"
             class="w-full rounded-lg bg-[#238878] py-3 font-semibold text-white transition duration-200 hover:bg-[#70ccbb] disabled:animate-pulse disabled:cursor-not-allowed"
           >
-            {{ isSubmitting ? "Submitting the details..." : "Submit Order" }}
+            {{ isSubmitting ? "Confirming the details..." : "Confirm Order" }}
           </button>
         </div>
       </form>
@@ -125,7 +125,7 @@
           :disabled="isSubmitting"
           class="w-full rounded-lg bg-[#238878] py-3 font-semibold text-white transition duration-200 hover:bg-[#70ccbb] disabled:animate-pulse disabled:cursor-not-allowed"
         >
-          {{ isSubmitting ? "Submitting the details..." : "Submit Order" }}
+          {{ isSubmitting ? "Confirming the details..." : "Confirm Order" }}
         </button>
       </div>
     </div>
