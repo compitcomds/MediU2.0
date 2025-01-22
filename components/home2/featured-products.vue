@@ -47,7 +47,6 @@ const changeCategory = (newCategory: string) => {
 const fetchProductHandles = async () => {
   for (const key of Object.keys(productHandles)) {
     const products = await getProductsByHandle(productHandles[key]);
-    console.log(products);
     fetchedProducts.value[key] = products;
   }
 };

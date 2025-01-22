@@ -45,6 +45,25 @@ const fetchProductHandles = async () => {
   }
 };
 
+const diffSectionId = "hair-care-diff";
+const adjustResizerWidth = () => {
+  const section = document.getElementById(diffSectionId);
+  if (section) {
+    const resizer = section.querySelector<HTMLDivElement>(".diff-resizer");
+    if (resizer) {
+      resizer.style.width = `${section.offsetWidth / 2}px`;
+    }
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("resize", adjustResizerWidth);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", adjustResizerWidth);
+});
+
 onMounted(() => {
   fetchProductHandles();
 });
@@ -63,7 +82,7 @@ onMounted(() => {
 
     <div class="responsive-div mb-8 flex flex-col overflow-hidden lg:flex-row">
       <!-- Image Section - Hidden for sm and md views -->
-      <div class="hidden w-full md:w-4/12 lg:block">
+      <div id="hair-care-diff" class="hidden w-full md:w-4/12 lg:block">
         <div class="diff lg:aspect-[9/18] xl:aspect-[9/18] xxl:aspect-[9/17]">
           <div class="diff-item-1">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/6.png" />
@@ -71,7 +90,7 @@ onMounted(() => {
           <div class="diff-item-2">
             <img alt="daisy" src="https://ccdstest.b-cdn.net/Medi%20u/5.png" />
           </div>
-          <div class="diff-resizer">Drag</div>
+          <div class="diff-resizer w-56">Drag</div>
         </div>
       </div>
       <!-- Products Section -->

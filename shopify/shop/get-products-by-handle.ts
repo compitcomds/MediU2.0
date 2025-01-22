@@ -59,7 +59,6 @@ export async function getProductBasicDetails(handle: string) {
   });
   if (!data.product) return null;
   const product = data.product;
-  console.log(handle, product);
   return {
     ...product,
     price: {
