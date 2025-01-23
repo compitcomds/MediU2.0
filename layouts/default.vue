@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex min-h-screen flex-col justify-between bg-white text-gray-800"
+    class="flex min-h-screen flex-col justify-between bg-gray-50 text-gray-800"
   >
     <header>
       <HomeNavbar />
