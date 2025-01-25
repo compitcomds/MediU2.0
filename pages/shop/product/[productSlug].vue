@@ -296,22 +296,19 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Star } from "lucide-vue-next";
 import { Pagination, Navigation } from "swiper/modules";
 import { getProductData } from "~/shopify/productDetails";
-// import VueMagnifier from "@websitebeaver/vue-magnifier";
 import { ClipboardPlus } from "lucide-vue-next";
 import "@websitebeaver/vue-magnifier/styles.css";
+import getProductMetadata from "~/shopify/get-product-metadata";
 
 const modules = [Pagination, Navigation];
 const activeTab = ref(1);
 const route = useRoute();
 const productHandle = route.params.productSlug;
 
+const productMetadata = await getProductMetadata(productHandle);
+
 const data = ref({});
 const quantity = ref(1);
-// const slides = ref([
-//   "https://ccdstest.b-cdn.net/Medi%20u/ship.webp",
-//   "https://ccdstest.b-cdn.net/Medi%20u/758x100/3.webp",
-//   "https://ccdstest.b-cdn.net/Medi%20u/758x100/5.webp",
-// ]);
 
 const accordionKeys = [
   {
@@ -340,10 +337,6 @@ const truncatedDescription = computed(() => {
   }
   return "";
 });
-
-const thumbClick = (index) => {
-  currentThumbnail.value = index;
-};
 
 watch(
   () => route.query,
@@ -397,6 +390,22 @@ const calculatePercentage = (compareAtPrice, price) => {
 const toggleDescription = () => {
   isExpanded.value = !isExpanded.value;
 };
+
+const productMetaTags = `${productMetadata.tags?.join(", ") || ""}`;
+
+useHead({
+  title: `${productMetadata.title} - Mediu`,
+  meta: [
+    { name: "description", content: productMetadata.description },
+    { name: "og:title", content: `${productMetadata.title} - Mediu` },
+    { name: "og:description", content: productMetadata.description },
+    { name: "og:image", content: productMetadata.featuredImage.url },
+    {
+      name: "keywords",
+      content: `Mediu, Shop, health, wellness${productMetaTags.length > 0 ? "," : ""} ${productMetaTags} - ${productMetadata.title}`,
+    },
+  ],
+});
 </script>
 
 <style scoped>

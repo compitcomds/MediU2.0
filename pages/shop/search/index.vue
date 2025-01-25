@@ -30,4 +30,35 @@ watch(() => route.query, fetchProductsUsingSearchQuery, { deep: true });
 onMounted(() => {
   fetchProductsUsingSearchQuery(route.query);
 });
+
+useHead({
+  title: "Mediu | Shop | Search",
+  meta: [
+    {
+      name: "description",
+      content: "Mediu Shop Search",
+    },
+    {
+      name: "keywords",
+      content: "Mediu, Shop, Search, health, wellness",
+    },
+    {
+      name: "author",
+      content: "Mediu",
+    },
+    {
+      name: "og:title",
+      content: "Mediu | Shop | Search",
+    },
+    {
+      name: "og:description",
+      content: "Mediu Shop Search",
+    },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>

@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-col md:pb-20">
     <consult-banner />
-    <div class="flex justify-center lg:space-x-4 p-4 lg:p-16">
+    <div class="flex justify-center p-4 lg:space-x-4 lg:p-16">
       <!-- Sidebar -->
 
       <nuxt-link
         to="/consultancy/services"
         :class="tabClasses('service')"
-        class="flex items-center cursor-pointer w-full lg:w-1/4 text-black"
+        class="flex w-full cursor-pointer items-center text-black lg:w-1/4"
       >
         <span
-          class="text-[#238878] border-2 border-[#238878] rounded-full hover:text-white text-xl font-semibold p-4 gap-4 w-full hover:bg-[#238878] flex items-center justify-center"
+          class="flex w-full items-center justify-center gap-4 rounded-full border-2 border-[#238878] p-4 text-xl font-semibold text-[#238878] hover:bg-[#238878] hover:text-white"
           >Continue
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -35,6 +35,37 @@
 
 <script setup>
 const router = useRouter();
+
+useHead({
+  title: "Mediu | Consultancy",
+  meta: [
+    {
+      name: "description",
+      content: "Mediu Consultancy",
+    },
+    {
+      name: "keywords",
+      content: "Mediu, Consultancy, health, wellness",
+    },
+    {
+      name: "author",
+      content: "Mediu",
+    },
+    {
+      name: "og:title",
+      content: "Mediu | Consultancy",
+    },
+    {
+      name: "og:description",
+      content: "Mediu Consultancy",
+    },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 
 // Determine active tab based on the current route name
 const tabClasses = (tab) => {

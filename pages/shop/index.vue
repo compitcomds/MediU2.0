@@ -50,4 +50,35 @@ watch(
   },
   { immediate: true },
 );
+
+useHead({
+  title: "Mediu | Shop",
+  meta: [
+    {
+      name: "description",
+      content: "Mediu Shop",
+    },
+    {
+      name: "keywords",
+      content: "Mediu, Shop, health, wellness",
+    },
+    {
+      name: "author",
+      content: "Mediu",
+    },
+    {
+      name: "og:title",
+      content: "Mediu | Shop",
+    },
+    {
+      name: "og:description",
+      content: "Mediu Shop",
+    },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
