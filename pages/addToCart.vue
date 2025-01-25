@@ -317,6 +317,15 @@ onMounted(async () => {
   const wallet = await getUserWallet();
   walletAmount.value = wallet.amount;
 });
+
+useHead({
+  title: "Cart - Mediu",
+  meta: [
+    { name: "description", content: "Cart" },
+    { name: "og:title", content: "Cart - Mediu" },
+    { name: "og:description", content: "Cart" },
+  ],
+});
 </script>
 
 <style scoped>

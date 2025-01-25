@@ -193,6 +193,21 @@ const submitForm = async () => {
     console.error("Failed to save consultancy details:", error);
   }
 };
+
+useHead({
+  title: "Consultancy - Basic Details - Mediu",
+  meta: [
+    { name: "description", content: "Consultancy - Basic Details" },
+    { name: "og:title", content: "Consultancy - Basic Details - Mediu" },
+    { name: "og:description", content: "Consultancy - Basic Details" },
+    { name: "keywords", content: `Mediu, Consultancy, health, wellness` },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style scoped>

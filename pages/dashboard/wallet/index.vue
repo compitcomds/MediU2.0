@@ -26,4 +26,13 @@ import getUserWallet from "~/appwrite/utils/get-wallet";
 const wallet = await getUserWallet();
 
 const formattedAmount = computed(() => formatAmountToINR(wallet.amount));
+
+useHead({
+  title: "Wallet - Mediu",
+  meta: [
+    { name: "description", content: "Wallet" },
+    { name: "og:title", content: "Wallet - Mediu" },
+    { name: "og:description", content: "Wallet" },
+  ],
+});
 </script>

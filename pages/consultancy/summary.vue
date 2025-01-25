@@ -105,6 +105,21 @@ const proceedToPayment = async () => {
   }
   isSubmitting.value = false;
 };
+
+useHead({
+  title: "Consultancy - Summary - Mediu",
+  meta: [
+    { name: "description", content: "Consultancy - Summary" },
+    { name: "og:title", content: "Consultancy - Summary - Mediu" },
+    { name: "og:description", content: "Consultancy - Summary" },
+    { name: "keywords", content: `Mediu, Consultancy, health, wellness` },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style scoped>

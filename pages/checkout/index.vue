@@ -296,6 +296,21 @@ const submitOrder = async () => {
     }, 300);
   }
 };
+
+useHead({
+  title: "Checkout - Mediu",
+  meta: [
+    { name: "description", content: "Checkout" },
+    { name: "og:title", content: "Checkout - Mediu" },
+    { name: "og:description", content: "Checkout" },
+    { name: "keywords", content: `Mediu, Checkout, health, wellness` },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style scoped>

@@ -1,30 +1,30 @@
 <template>
   <div
-    class="w-full mx-auto px-4 sm:px-6 lg:px-10 flex flex-col lg:py-10 mb-16 lg:pb-10"
+    class="mx-auto mb-16 flex w-full flex-col px-4 sm:px-6 lg:px-10 lg:py-10 lg:pb-10"
   >
-    <div class="p-6 rounded-lg text-center bg-white mb-">
+    <div class="mb- rounded-lg bg-white p-6 text-center">
       <!-- Enhanced Professional Heading -->
-      <h1 class="text-3xl font-bold text-gray-800 mb-2">
+      <h1 class="mb-2 text-3xl font-bold text-gray-800">
         Choose Your
         <span class="text-green-600">{{ selfAssessmentStore.step2.name }}</span>
         Problems
       </h1>
-      <p class="text-gray-600 text-lg">
+      <p class="text-lg text-gray-600">
         We are here to assist you. Please select the issues you are experiencing
         for tailored advice.
       </p>
     </div>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full py-10 lg:py-0"
+      class="grid w-full grid-cols-1 gap-4 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:py-0"
     >
       <div
         v-for="(problem, index) in selectedProblems"
         :key="index"
-        class="flex-shrink-0 relative overflow-hidden bg-[#238878] rounded-lg max-w-xs shadow-lg group"
+        class="group relative max-w-xs flex-shrink-0 overflow-hidden rounded-lg bg-[#238878] shadow-lg"
       >
         <svg
-          class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
+          class="absolute bottom-0 left-0 mb-8 scale-150 transition-transform group-hover:scale-[1.65]"
           viewBox="0 0 375 283"
           fill="none"
           style="opacity: 0.1"
@@ -48,10 +48,10 @@
           />
         </svg>
         <div
-          class="relative pt-5 px-5 flex items-center justify-center group-hover:scale-110 transition-transform"
+          class="relative flex items-center justify-center px-5 pt-5 transition-transform group-hover:scale-110"
         >
           <div
-            class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+            class="absolute bottom-0 left-0 -mb-24 ml-3 block h-48 w-48"
             style="
               background: radial-gradient(black, transparent 60%);
               transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1);
@@ -63,15 +63,15 @@
           </button>
         </div>
         <div
-          class="relative flex justify-between items-center text-white px-6 pb-6 mt-6"
+          class="relative mt-6 flex items-center justify-between px-6 pb-6 text-white"
         >
           <div class="flex flex-col justify-between">
-            <span class="block opacity-75 -mb-1">Problem</span>
-            <span class="block font-semibold text-xl">{{ problem.name }}</span>
+            <span class="-mb-1 block opacity-75">Problem</span>
+            <span class="block text-xl font-semibold">{{ problem.name }}</span>
           </div>
           <button
             @click="submitProblem(problem)"
-            class="bg-white rounded-full text-teal-500 text-xs font-bold p-2 h-8 leading-none flex items-center"
+            class="flex h-8 items-center rounded-full bg-white p-2 text-xs font-bold leading-none text-teal-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -202,6 +202,24 @@ const submitProblem = (problem) => {
   });
   router.replace(`/self-assessment/${problem.value}`);
 };
+
+useHead({
+  title: "Self Assessment - Step 3 - Mediu",
+  meta: [
+    { name: "description", content: "Self Assessment - Step 3" },
+    { name: "og:title", content: "Self Assessment - Step 3 - Mediu" },
+    { name: "og:description", content: "Self Assessment - Step 3" },
+    {
+      name: "keywords",
+      content: `Mediu, Self Assessment, health, wellness`,
+    },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style scoped>

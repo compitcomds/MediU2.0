@@ -74,6 +74,15 @@
 <script setup lang="ts">
 import { getUserConsultancies } from "~/appwrite/consultancy/get-consultancy";
 const bookings = await getUserConsultancies();
+
+useHead({
+  title: "Consultancies - Mediu",
+  meta: [
+    { name: "description", content: "Consultancies" },
+    { name: "og:title", content: "Consultancies - Mediu" },
+    { name: "og:description", content: "Consultancies" },
+  ],
+});
 </script>
 
 <style scoped>

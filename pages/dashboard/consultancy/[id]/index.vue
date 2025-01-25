@@ -91,4 +91,13 @@ onMounted(() => {
   alert("Invalid Consultancy.");
   router.replace("/dashboard/consultancy");
 });
+
+useHead({
+  title: `Consultancy Booking #${id} - Mediu`,
+  meta: [
+    { name: "description", content: `Consultancy Booking #${id}` },
+    { name: "og:title", content: `Consultancy Booking #${id} - Mediu` },
+    { name: "og:description", content: `Consultancy Booking #${id}` },
+  ],
+});
 </script>

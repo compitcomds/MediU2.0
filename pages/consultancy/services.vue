@@ -110,6 +110,21 @@ const confirmService = () => {
     });
   }
 };
+
+useHead({
+  title: "Consultancy - Services - Mediu",
+  meta: [
+    { name: "description", content: "Consultancy - Services" },
+    { name: "og:title", content: "Consultancy - Services - Mediu" },
+    { name: "og:description", content: "Consultancy - Services" },
+    { name: "keywords", content: `Mediu, Consultancy, health, wellness` },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style scoped></style>

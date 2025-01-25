@@ -1,31 +1,31 @@
 <template>
   <div
-    class="w-full mx-auto px-4 sm:px-6 md:px-10 flex flex-col lg:py-10 mb-16 lg:mb-0"
+    class="mx-auto mb-16 flex w-full flex-col px-4 sm:px-6 md:px-10 lg:mb-0 lg:py-10"
   >
-    <div class="md:p-6 p-2 rounded-lg text-center bg-white">
+    <div class="rounded-lg bg-white p-2 text-center md:p-6">
       <!-- Professional heading -->
-      <h1 class="text-lg md:text-3xl font-semibold text-gray-800 lg:mb-4">
-        Hello <span class="text-green-600 font-bold">{{ step1.name }}</span
+      <h1 class="text-lg font-semibold text-gray-800 md:text-3xl lg:mb-4">
+        Hello <span class="font-bold text-green-600">{{ step1.name }}</span
         >, please select the
-        <span class="capitalize text-green-600 font-bold">{{
+        <span class="font-bold capitalize text-green-600">{{
           categoryId
         }}</span>
         condition that best describes you.
       </h1>
-      <p class="text-gray-600 text-base sm:text-lg hidden lg:block">
+      <p class="hidden text-base text-gray-600 sm:text-lg lg:block">
         Your health and well-being are our top priorities. Please choose an
         option below for personalized assistance.
       </p>
     </div>
 
-    <div class="flex flex-wrap items-center justify-center w-full">
+    <div class="flex w-full flex-wrap items-center justify-center">
       <div
         v-for="(condition, index) in selectedConditions"
         :key="index"
-        class="flex-shrink-0 m-4 relative overflow-hidden bg-[#238878] rounded-lg w-full md:w-96 shadow-lg group"
+        class="group relative m-4 w-full flex-shrink-0 overflow-hidden rounded-lg bg-[#238878] shadow-lg md:w-96"
       >
         <svg
-          class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
+          class="absolute bottom-0 left-0 mb-8 scale-150 transition-transform group-hover:scale-[1.65]"
           viewBox="0 0 375 283"
           fill="none"
           style="opacity: 0.1"
@@ -49,10 +49,10 @@
           />
         </svg>
         <div
-          class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform"
+          class="relative flex items-center justify-center px-10 pt-10 transition-transform group-hover:scale-110"
         >
           <div
-            class="block absolute w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 bottom-0 left-0 -mb-24 ml-3"
+            class="absolute bottom-0 left-0 -mb-24 ml-3 block h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48"
             style="
               background: radial-gradient(black, transparent 60%);
               transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1);
@@ -67,16 +67,16 @@
             />
           </button>
         </div>
-        <div class="relative flex justify-between text-white px-6 pb-6 mt-6">
+        <div class="relative mt-6 flex justify-between px-6 pb-6 text-white">
           <div class="flex flex-col justify-between">
-            <span class="block opacity-75 -mb-1">Condition</span>
-            <span class="block font-semibold text-base sm:text-lg md:text-xl">{{
+            <span class="-mb-1 block opacity-75">Condition</span>
+            <span class="block text-base font-semibold sm:text-lg md:text-xl">{{
               condition.name
             }}</span>
           </div>
           <button
             @click="submitCondition(condition)"
-            class="bg-white rounded-full text-teal-500 text-xs sm:text-sm font-bold px-4 sm:px-6 md:px-8 leading-none flex items-center"
+            class="flex items-center rounded-full bg-white px-4 text-xs font-bold leading-none text-teal-500 sm:px-6 sm:text-sm md:px-8"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +160,24 @@ const submitCondition = (condition) => {
   });
   router.push("/self-assessment/step3");
 };
+
+useHead({
+  title: "Self Assessment - Step 2 - Mediu",
+  meta: [
+    { name: "description", content: "Self Assessment - Step 2" },
+    { name: "og:title", content: "Self Assessment - Step 2 - Mediu" },
+    { name: "og:description", content: "Self Assessment - Step 2" },
+    {
+      name: "keywords",
+      content: `Mediu, Self Assessment, health, wellness`,
+    },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style>

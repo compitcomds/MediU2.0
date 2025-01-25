@@ -118,4 +118,13 @@ const payload = {
     text: "Thank you for ordering from us.",
   },
 };
+
+useHead({
+  title: `Order #${orderNumber} - Mediu`,
+  meta: [
+    { name: "description", content: `Order #${orderNumber}` },
+    { name: "og:title", content: `Order #${orderNumber} - Mediu` },
+    { name: "og:description", content: `Order #${orderNumber}` },
+  ],
+});
 </script>

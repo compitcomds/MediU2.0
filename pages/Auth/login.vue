@@ -1,7 +1,7 @@
 <template>
-  <div class="flex lg:min-h-screen bg-white">
+  <div class="flex bg-white lg:min-h-screen">
     <div
-      class="flex w-full pb-20 lg:pb-0 flex-col justify-center overflow-hidden bg-white md:flex-row"
+      class="flex w-full flex-col justify-center overflow-hidden bg-white pb-20 md:flex-row lg:pb-0"
     >
       <!-- Left Section (Form) -->
       <div
@@ -230,6 +230,21 @@ const submitForm = async () => {
     alert(`Error: ${error.message}`);
   }
 };
+
+useHead({
+  title: "Login - Mediu",
+  meta: [
+    { name: "description", content: "Login" },
+    { name: "og:title", content: "Login - Mediu" },
+    { name: "og:description", content: "Login" },
+    { name: "keywords", content: `Mediu, Login, health, wellness` },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style scoped>

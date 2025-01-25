@@ -67,6 +67,15 @@ const faqs = [
       "You can contact us via email at support@example.com or by calling +1 (123) 456-7890.",
   },
 ];
+
+useHead({
+  title: "Help & Support - Mediu",
+  meta: [
+    { name: "description", content: "Help & Support" },
+    { name: "og:title", content: "Help & Support - Mediu" },
+    { name: "og:description", content: "Help & Support" },
+  ],
+});
 </script>
 
 <style scoped>

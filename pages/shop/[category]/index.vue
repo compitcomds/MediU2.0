@@ -49,4 +49,19 @@ watch(
   },
   { immediate: true },
 );
+
+useHead({
+  title: "Shop - Collection - Mediu",
+  meta: [
+    { name: "description", content: "Shop - Collection" },
+    { name: "og:title", content: "Shop - Collection - Mediu" },
+    { name: "og:description", content: "Shop - Collection" },
+    { name: "keywords", content: `Mediu, Shop, health, wellness` },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>

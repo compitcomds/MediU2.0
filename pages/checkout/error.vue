@@ -40,6 +40,10 @@
 
 <script setup lang="ts">
 import { CircleX } from "lucide-vue-next";
+
+useHead({
+  title: "Checkout - Error - Mediu",
+});
 </script>
 
 <style scoped>

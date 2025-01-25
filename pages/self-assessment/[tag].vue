@@ -157,6 +157,27 @@ async function getProductsRelatedToCategory() {
   products.value = data.products;
   return data.products;
 }
+
+useHead({
+  title: "Self Assessment - Recommended Products - Mediu",
+  meta: [
+    { name: "description", content: "Self Assessment - Recommended Products" },
+    {
+      name: "og:title",
+      content: "Self Assessment - Recommended Products - Mediu",
+    },
+    {
+      name: "og:description",
+      content: "Self Assessment - Recommended Products",
+    },
+    { name: "keywords", content: `Mediu, Self Assessment, health, wellness` },
+    {
+      name: "og:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+  ],
+});
 </script>
 
 <style scoped>

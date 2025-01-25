@@ -34,6 +34,15 @@ try {
   console.log(error.message);
   router.replace("/auth/login");
 }
+
+useHead({
+  title: "OAuth - Mediu",
+  meta: [
+    { name: "description", content: "OAuth" },
+    { name: "og:title", content: "OAuth - Mediu" },
+    { name: "og:description", content: "OAuth" },
+  ],
+});
 </script>
 
 <style lang="scss" scoped></style>

@@ -25,6 +25,15 @@ async function fetchUserData() {
 }
 
 fetchUserData();
+
+useHead({
+  title: "Orders - Mediu",
+  meta: [
+    { name: "description", content: "Orders" },
+    { name: "og:title", content: "Orders - Mediu" },
+    { name: "og:description", content: "Orders" },
+  ],
+});
 </script>
 
 <style scoped></style>

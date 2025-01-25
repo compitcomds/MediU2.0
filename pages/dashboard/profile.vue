@@ -2,8 +2,8 @@
   <div class="flex min-h-screen bg-[#edf8f3] px-1 py-6 md:px-6" v-if="UserData">
     <DashboardSidenav class="hidden lg:block" :UserData="UserData || ''" />
 
-    <main class="mb-16 min-h-screen w-full lg:w-3/4 md:p-6">
-      <div class="bg-white w-full px-3 py-6 md:px-6">
+    <main class="mb-16 min-h-screen w-full md:p-6 lg:w-3/4">
+      <div class="w-full bg-white px-3 py-6 md:px-6">
         <DashboardProfileEditForm :user="user" />
       </div>
     </main>
@@ -41,6 +41,15 @@ async function fetchUserData() {
 }
 
 fetchUserData();
+
+useHead({
+  title: "Profile - Mediu",
+  meta: [
+    { name: "description", content: "Profile" },
+    { name: "og:title", content: "Profile - Mediu" },
+    { name: "og:description", content: "Profile" },
+  ],
+});
 </script>
 
 <style scoped>

@@ -24,4 +24,13 @@ import getUserReviews from "~/appwrite/reviews/get-user-reviews";
 import { getUserImage } from "~/appwrite/auth";
 
 const { total, documents: userReviews } = await getUserReviews();
+
+useHead({
+  title: "User Reviews - Mediu",
+  meta: [
+    { name: "description", content: "User Reviews" },
+    { name: "og:title", content: "User Reviews - Mediu" },
+    { name: "og:description", content: "User Reviews" },
+  ],
+});
 </script>

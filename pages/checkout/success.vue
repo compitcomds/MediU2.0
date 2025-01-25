@@ -19,6 +19,10 @@
 
 <script setup lang="ts">
 import { CircleCheckBig } from "lucide-vue-next";
+
+useHead({
+  title: "Checkout - Success - Mediu",
+});
 </script>
 
 <style scoped></style>
