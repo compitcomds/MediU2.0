@@ -400,9 +400,25 @@ useHead({
     { name: "og:title", content: `${productMetadata.title} - Mediu` },
     { name: "og:description", content: productMetadata.description },
     { name: "og:image", content: productMetadata.featuredImage.url },
+    { name: "og:image:secure_url", content: productMetadata.featuredImage.url },
     {
       name: "keywords",
       content: `Mediu, Shop, health, wellness${productMetaTags.length > 0 ? "," : ""} ${productMetaTags} - ${productMetadata.title}`,
+    },
+    { name: "og:type", content: "product" },
+    { name: "og:site_name", content: "Mediu" },
+    {
+      name: "og:url",
+      content: `https://mediu.in/shop/product/${productHandle}`,
+    },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: `${productMetadata.title} - Mediu` },
+    { name: "twitter:description", content: productMetadata.description },
+    { name: "twitter:image", content: productMetadata.featuredImage.url },
+    { name: "twitter:price:amount", content: productMetadata.price.amount },
+    {
+      name: "twitter:price:currency",
+      content: productMetadata.price.currencyCode,
     },
   ],
 });

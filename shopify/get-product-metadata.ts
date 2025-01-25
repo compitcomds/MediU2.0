@@ -14,6 +14,12 @@ query getProductMetadataQuery($handle: String!) {
       description
       title
     }
+    priceRange {
+      minVariantPrice {
+        amount
+        currencyCode
+      }
+    }
   }
 }
 `;
@@ -41,6 +47,10 @@ export default async function getProductMetadata(handle: string) {
       url: "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
       altText: "Mediu | Product Image Not Found",
       tags: product.tags,
+    },
+    price: {
+      amount: product.priceRange?.minVariantPrice?.amount || 0,
+      currencyCode: product.priceRange?.minVariantPrice?.currencyCode || "INR",
     },
   };
 }

@@ -62,6 +62,40 @@ useHead({
       content:
         "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
     },
+    {
+      name: "og:image:secure_url",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+    {
+      name: "og:url",
+      content: "https://mediu.in/shop/" + handle,
+    },
+    {
+      name: "og:type",
+      content: "website",
+    },
+    {
+      name: "og:site_name",
+      content: "Mediu",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Mediu | Shop - Collection",
+    },
+    {
+      name: "twitter:description",
+      content: "Mediu Shop - Collection",
+    },
+    {
+      name: "twitter:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
   ],
 });
 </script>

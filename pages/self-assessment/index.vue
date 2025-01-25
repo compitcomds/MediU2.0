@@ -227,6 +227,28 @@ useHead({
       content:
         "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
     },
+    {
+      name: "og:image:secure_url",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Mediu | Self Assessment",
+    },
+    {
+      name: "twitter:description",
+      content: "Mediu Self Assessment",
+    },
+    {
+      name: "twitter:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
   ],
 });
 </script>

@@ -35,6 +35,48 @@ useHead({
       content:
         "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
     },
+    {
+      tagPosition: "head",
+      name: "og:image:secure_url",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
+    {
+      tagPosition: "head",
+      name: "og:type",
+      content: "website",
+    },
+    {
+      tagPosition: "head",
+      name: "og:site_name",
+      content: "Mediu",
+    },
+    {
+      tagPosition: "head",
+      name: "og:url",
+      content: "https://mediu.in",
+    },
+    {
+      tagPosition: "head",
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      tagPosition: "head",
+      name: "twitter:title",
+      content: "Mediu | Home",
+    },
+    {
+      tagPosition: "head",
+      name: "twitter:description",
+      content: "Mediu Home",
+    },
+    {
+      tagPosition: "head",
+      name: "twitter:image",
+      content:
+        "https://ccdstest.b-cdn.net/Medi%20u/home%20bg/mediu%20bg3%402x.jpg",
+    },
   ],
 });
 </script>
