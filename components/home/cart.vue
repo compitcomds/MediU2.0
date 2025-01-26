@@ -25,7 +25,6 @@
             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
           />
         </svg>
-        <!-- Badge for Cart Item Count -->
         <span class="absolute -right-10 top-2">
           <div
             class="inline-flex items-center rounded-full border-2 border-white bg-red-500 px-1.5 py-0.5 text-xs font-semibold leading-4 text-white"
@@ -97,6 +96,7 @@
 </template>
 <script setup lang="ts">
 import { toast } from "vue-sonner";
+import getCountOfCartDataItems from "~/shopify/cart/get-count-items";
 import { getUser, logoutUser } from "~/appwrite/auth";
 
 const isOpen = ref(false);
@@ -104,13 +104,18 @@ const isLoggingOut = ref(false);
 
 const shopStore = useShopStore();
 const { totalItems } = storeToRefs(shopStore);
-let user: any;
 
-try {
-  user = await getUser();
-} catch (error) {
-  user = null;
-}
+const { data: user } = useAsyncData(
+  "user",
+  async () => {
+    try {
+      return await getUser();
+    } catch (error) {
+      return null;
+    }
+  },
+  { server: false },
+);
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
@@ -120,6 +125,7 @@ const logout = async () => {
   isLoggingOut.value = true;
   try {
     await logoutUser();
+    await refreshNuxtData(["user"]);
     reloadNuxtApp();
   } catch (error: any) {
     toast.error(error.message, { richColors: true });
@@ -127,5 +133,9 @@ const logout = async () => {
     isLoggingOut.value = false;
   }
 };
+
+onMounted(async () => {
+  totalItems.value = await getCountOfCartDataItems();
+});
 </script>
 <style scoped></style>

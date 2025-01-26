@@ -6,7 +6,7 @@
       <HomeNavbar />
     </header>
 
-    <main class="flex-grow">
+    <main class="flex-grow pt-16 md:pt-20 lg:pt-32 xl:pt-28">
       <slot />
     </main>
   </div>

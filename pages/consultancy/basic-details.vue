@@ -47,13 +47,7 @@
           :class="{ 'border-red-500': emailError }"
           placeholder="Enter your email"
           @blur="validateEmail"
-          list="emailSuggestions"
         />
-        <datalist id="emailSuggestions">
-          <option value="@gmail.com" />
-          <option value="@yahoo.com" />
-          <option value="@outlook.com" />
-        </datalist>
         <p v-if="emailError" class="text-sm text-red-500">
           Please enter a valid email address.
         </p>
@@ -143,9 +137,12 @@ const phoneError = ref(false);
 
 onMounted(() => {
   if (!user) return;
+  const firstName = user.name.split(" ")[0];
+  const lastName = user.name.replace(firstName, "");
   if (!form.value.email) form.value.email = user.email;
-  if (!form.value.firstName) form.value.firstName = user.name;
-  if (!form.value.phone) form.value.phone = user.phone;
+  if (!form.value.firstName) form.value.firstName = firstName;
+  if (!form.value.lastName) form.value.lastName = lastName;
+  if (!form.value.phone) form.value.phone = user.phone.replace("+91", "");
 });
 
 const isFormFilled = computed(() => {

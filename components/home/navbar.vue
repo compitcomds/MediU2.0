@@ -4,9 +4,8 @@
 
     <div
       :class="[
-        'fixed left-0 z-50 hidden w-full bg-white shadow transition-all duration-300 lg:block',
-        showNotification ? 'top-[0px] lg:top-[0px]' : 'top-0',
-        { 'navbar-hidden': !isNavbarVisible },
+        'fixed left-0 top-[0px] z-50 hidden w-full bg-white shadow transition-all duration-300 ease-in-out lg:top-[0px] lg:block',
+        { '-translate-y-full opacity-0': !isNavbarVisible },
       ]"
     >
       <div class="h-10">
@@ -15,25 +14,18 @@
 
       <div
         :class="[
-          'fixed left-0 hidden w-full bg-[#238878] shadow lg:block',
-          showNotification ? 'top-[80px]' : 'top-[80px]',
-          { 'navbar-hidden': !isNavbarVisible },
+          'fixed left-0 top-[80px] hidden w-full bg-[#238878] shadow lg:block',
+          { '-translate-y-full opacity-0': !isNavbarVisible },
         ]"
-        class="nav-items transition-top"
+        class="h-10 transition-all duration-100 ease-in-out"
       >
         <HomeNavItem />
       </div>
-    </div>
-
-    <div :style="{ paddingTop: contentPadding + 'px' }">
-      <slot></slot>
     </div>
   </div>
 </template>
 
 <script setup>
-const showNotification = ref(true); // Control notification bar visibility
-
 const isNavbarVisible = ref(true);
 let lastScrollPosition = 0;
 
@@ -42,28 +34,6 @@ const windowWidth = ref(0);
 onMounted(() => {
   if (typeof window !== "undefined") {
     windowWidth.value = window.innerWidth;
-  }
-});
-
-const contentPadding = computed(() => {
-  if (windowWidth.value > 1024) {
-    if (showNotification.value) {
-      return 150;
-    } else {
-      return 120;
-    }
-  } else if (windowWidth.value > 768) {
-    if (showNotification.value) {
-      return 160;
-    } else {
-      return 100;
-    }
-  } else {
-    if (showNotification.value) {
-      return 80;
-    } else {
-      return 80;
-    }
   }
 });
 
@@ -97,30 +67,4 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
-/* Nav Items */
-.nav-items {
-  height: 40px;
-  /* Adjust based on the actual height of your nav items */
-}
-
-/* Hide navbar on scroll */
-.navbar-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-/* Smooth transitions for position adjustments */
-.transition-all {
-  transition:
-    top 0.3s ease-in-out,
-    transform 0.3s ease-in-out,
-    opacity 0.3s ease-in-out;
-}
-
-/* Add a custom class for controlling the transition on 'top' property */
-.transition-top {
-  transition: top 0.1s ease-in-out;
-  /* Adjust the duration here */
-}
-</style>
+<style scoped></style>

@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="embla relative w-full overflow-hidden text-white lg:-mt-3"
+    class="embla relative w-full overflow-hidden pt-1 text-white lg:pt-3 xl:pt-7"
     ref="emblaRef"
   >
     <div class="embla__container flex">

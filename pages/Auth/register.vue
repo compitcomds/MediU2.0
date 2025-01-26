@@ -194,6 +194,7 @@ const submitForm = async () => {
   try {
     await registerUser(formData.value);
     isSubmitting.value = false;
+    await refreshNuxtData(["user"]);
     await router.replace("/dashboard");
   } catch (error) {
     toast.error(`Error: ${error.message}`, { richColors: true });

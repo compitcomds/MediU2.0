@@ -224,6 +224,7 @@ const submitForm = async () => {
   isSubmitting.value = true;
   try {
     await loginUser(formData.value);
+    await refreshNuxtData(["user"]);
     router.replace(route.query?.back || "/dashboard");
   } catch (error) {
     console.log(error);

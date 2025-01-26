@@ -1,7 +1,6 @@
 <template>
   <div
-    :class="[showNotification ? 'top-0 xl:top-0' : 'top-0']"
-    class="sticky inset-x-0 z-50 flex items-center justify-between border-gray-300 bg-white px-1 transition-all duration-300 lg:px-6"
+    class="sticky inset-x-0 top-0 z-50 flex items-center justify-between border-gray-300 bg-white px-1 transition-all duration-300 lg:px-6"
   >
     <nuxt-link to="/" class="hidden w-3/12 items-center lg:flex">
       <img
@@ -80,8 +79,6 @@
 import { toast } from "vue-sonner";
 import predictiveSearchProducts from "~/shopify/search/predictive-search";
 
-const showNotification = ref(true);
-
 const router = useRouter();
 
 const isSearching = useState("searching-products", () => false);
@@ -124,10 +121,6 @@ const submitForm = async (e) => {
 
 const clearSearchBox = () => {
   searchQuery.value = "";
-};
-
-const closeNotification = () => {
-  showNotification.value = false;
 };
 </script>
 

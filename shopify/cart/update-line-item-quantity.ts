@@ -71,29 +71,32 @@ export default async function updateLineItemQuantity({
     quantity > 0 ? updateLineItemQuantityMutation : removeCartLineItemMutation,
     quantity > 0
       ? { variables: { cartId, lineId, quantity } }
-      : { variables: { cartId, lineId } }
+      : { variables: { cartId, lineId } },
   );
 
   const cart = data?.updatedCart?.cart;
 
-  console.log(cart)
   if (cart?.id) {
-    if(quantity === 0){
-      const shopStore = useShopStore()
-      shopStore.updateTotalItemsInShop(shopStore.totalItems - 1)
+    if (quantity === 0) {
+      const shopStore = useShopStore();
+      shopStore.updateTotalItemsInShop(shopStore.totalItems - 1);
     }
     return {
-      subtotalAmount: cart.cost.subtotalAmount || {amount: 0, currencyCode: "XXX"},
-      totalTaxAmount: cart.cost.totalTaxAmount || {amount: 0, currencyCode: "XXX"},
-      totalAmount: cart.cost.totalAmount || {amount: 0, currencyCode: "XXX"},
+      subtotalAmount: cart.cost.subtotalAmount || {
+        amount: 0,
+        currencyCode: "XXX",
+      },
+      totalTaxAmount: cart.cost.totalTaxAmount || {
+        amount: 0,
+        currencyCode: "XXX",
+      },
+      totalAmount: cart.cost.totalAmount || { amount: 0, currencyCode: "XXX" },
     };
   }
 
-  console.log(data, errors);
-
   if (data.updatedCart?.userErrors?.length > 0) {
     throw new Error(
-      data.updatedCart.userErrors.map((error: any) => error.message).join(", ")
+      data.updatedCart.userErrors.map((error: any) => error.message).join(", "),
     );
   }
 
@@ -101,7 +104,7 @@ export default async function updateLineItemQuantity({
     console.log("updateLineItemQuantity Errors.");
     console.log(errors);
     throw new Error(
-      "Error while attachUserIdentityToCart. (Probably some error in implementation, see for yourself)."
+      "Error while attachUserIdentityToCart. (Probably some error in implementation, see for yourself).",
     );
   }
 }

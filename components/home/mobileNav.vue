@@ -149,12 +149,7 @@ const isDropdownOpen = (index) => {
   return dropdownStates.value[index];
 };
 
-// Menu items with sub-items and links
 const menuItems = [
-  // {
-  //   name: 'Home',
-  //   subItems: [] // No sub-items for Home
-  // },
   {
     name: "Hair",
     subItems: [
