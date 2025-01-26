@@ -1,5 +1,5 @@
 <template>
-  <div class="z-50 block bg-[#238878] lg:hidden">
+  <div class="fixed bottom-0 z-50 block w-full bg-[#238878] lg:hidden">
     <div class="btm-nav z-50 flex items-center justify-center bg-[#238878] p-4">
       <nuxt-link to="/">
         <svg
@@ -78,7 +78,6 @@
         </span>
       </nuxt-link>
       <nuxt-link to="/dashboard">
-        <!-- <UIcon name="i-heroicons-user-circle" class="w-5 h-5" /> -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -131,9 +130,4 @@ const logout = async () => {
   }
 };
 </script>
-<style scoped>
-/* Tailwind styles applied directly in the template */
-.active {
-  @apply text-blue-500; /* Example active color */
-}
-</style>
+<style scoped></style>

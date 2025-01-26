@@ -63,6 +63,7 @@
     </div>
     <div v-if="writeReview" class="mb-8">
       <ShopProductWriteReviewForm
+        v-if="props.productId"
         v-model:reviews="reviews"
         :product-id="props.productId"
       />
@@ -92,7 +93,7 @@ import { Star } from "lucide-vue-next";
 import getProductReviews from "~/appwrite/reviews/get-product-reviews";
 
 const props = defineProps<{
-  productId: string;
+  productId?: string;
 }>();
 
 const reviews = ref<Models.Document[]>([]);

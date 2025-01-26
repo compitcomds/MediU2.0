@@ -9,7 +9,7 @@
         { 'navbar-hidden': !isNavbarVisible },
       ]"
     >
-      <div class="search-bar">
+      <div class="h-10">
         <HomeSearch />
       </div>
 
@@ -98,18 +98,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Notification Bar */
-.notification-bar {
-  height: 40px;
-  /* Adjust this height based on the actual height of your notification bar */
-}
-
-/* Search Bar */
-.search-bar {
-  height: 40px;
-  /* Adjust this height based on your actual search bar height */
-}
-
 /* Nav Items */
 .nav-items {
   height: 40px;

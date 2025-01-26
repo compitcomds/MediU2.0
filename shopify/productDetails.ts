@@ -246,7 +246,6 @@ export async function getProductData(
       availableForSale: variant.availableForSale,
     };
   } catch (error) {
-    console.error("Error fetching product variant data:", error);
-    throw error;
+    return null;
   }
 }

@@ -15,20 +15,6 @@
         />
       </div>
 
-      <!-- Search Bar -->
-      <!-- <div class="flex-grow mx-4 w-full">
-        <div class="relative flex items-center justify-end">
-          <input type="text" placeholder="Search..."
-            class="w-full px-4 py-2 md:py-3 pl-10 border rounded-full focus:outline-none bg-white text-black transition duration-300 ease-in-out " />
-          <div class="absolute left-4 text-gray-500">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M10 19a9 9 0 100-18 9 9 0 000 18zm7-2l5 5" />
-            </svg>
-          </div>
-        </div>
-      </div> -->
       <HomeSearch />
 
       <!-- Burger Menu Icon (Visible on small screens) -->

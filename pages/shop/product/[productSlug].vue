@@ -2,11 +2,10 @@
   <div
     class="mb-3 rounded-lg bg-white p-2 pb-10 sm:mb-6 md:pb-10 lg:mb-10 lg:p-6 lg:pb-0"
   >
-    <div v-if="data" class="px-2 md:px-5 lg:px-0">
+    <div v-if="!!data" class="px-2 md:px-5 lg:px-0">
       <div class="grid grid-cols-5 gap-6 md:grid-cols-5">
         <div class="col-span-5 space-y-6 lg:col-span-2">
           <ShopProductImages :images="data.images" />
-          <!-- Product Highlights -->
           <div
             class="mt-4 hidden items-center justify-between rounded-lg border bg-gray-50 p-4 shadow-sm lg:flex"
           >
@@ -38,9 +37,9 @@
         </div>
 
         <div class="col-span-5 space-y-4 lg:col-span-3">
-          <div class="text-3xl font-semibold text-gray-900">
+          <h1 class="text-3xl font-semibold text-gray-900">
             {{ data.title }}
-          </div>
+          </h1>
           <div class="text-md text-cyan-500">
             {{ data?.productSubtitle?.value || "" }}
           </div>
@@ -128,6 +127,7 @@
                 />
                 <ShopProductCreateAnAlert
                   v-else
+                  v-if="data.productId && data.id"
                   :product-id="data.productId"
                   :variant-id="data.id"
                 />
@@ -268,7 +268,7 @@
         />
       </div>
     </div>
-    <ShopProductReviews :product-id="data.productId" />
+    <ShopProductReviews v-if="!!data" :product-id="data.productId" />
   </div>
 </template>
 
@@ -284,7 +284,12 @@ const productHandle = route.params.productSlug;
 
 const productMetadata = await getProductMetadata(productHandle);
 
-const data = ref({});
+const { data } = await useLazyAsyncData(
+  productHandle,
+  () => getProductData(productHandle, route.query),
+  { watch: [() => route.query] },
+);
+
 const quantity = ref(1);
 
 const accordionKeys = [
@@ -315,19 +320,6 @@ const truncatedDescription = computed(() => {
   return "";
 });
 
-watch(
-  () => route.query,
-  async (newQuery) => {
-    try {
-      const product = await getProductData(productHandle, newQuery);
-      data.value = product;
-    } catch (error) {
-      console.error("Error fetching product data:", error);
-    }
-  },
-  { deep: true, immediate: true },
-);
-
 const increaseQuantity = () => {
   if (quantity.value < 5) {
     quantity.value++;
@@ -355,7 +347,6 @@ const calculatePercentage = (compareAtPrice, price) => {
   );
 };
 
-// Toggle the expanded description state
 const toggleDescription = () => {
   isExpanded.value = !isExpanded.value;
 };
