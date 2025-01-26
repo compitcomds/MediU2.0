@@ -1,6 +1,9 @@
 <template>
-  <div class="bg-gray-200 px-2 py-2 flex justify-center items-center rounded-badge">
+  <div
+    class="flex items-center justify-center rounded-badge bg-gray-200 px-2 py-2"
+  >
     <button @click="shareProduct">
+      <span class="sr-only">Share {{ props.productLink }}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -20,13 +23,11 @@
         <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
       </svg>
     </button>
-    <!-- <p>Link: {{ productLink }}</p> -->
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-
+import { toast } from "vue-sonner";
 const props = defineProps({
   productLink: {
     type: String,
@@ -46,17 +47,13 @@ const shareProduct = async () => {
       console.error("Error sharing product:", error);
     }
   } else {
-    // Fallback for browsers that don't support navigator.share
     copyToClipboard(props.productLink);
-    alert("Link copied to clipboard! You can share it manually.");
   }
 };
 
-const copyToClipboard = (text) => {
-  navigator.clipboard.writeText(text).then(
-    () => console.log("Link copied to clipboard!"),
-    (err) => console.error("Failed to copy link: ", err)
-  );
+const copyToClipboard = async (text) => {
+  await navigator.clipboard.writeText(text);
+  toast.success("Link copied to clipboard! You can share it manually.");
 };
 </script>
 

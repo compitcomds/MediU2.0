@@ -2,13 +2,13 @@
   <div>
     <button
       @click="addProductToCart"
-      class="p-2 bg-[#238878] text-xl rounded-full shadow text-white font-semibold px-3 py-3 disabled:cursor-not-allowed disabled:animate-pulse"
+      class="rounded-full bg-[#238878] p-2 px-3 py-3 text-xl font-semibold text-white shadow disabled:animate-pulse disabled:cursor-not-allowed"
       :disabled="isAddingProductToCart"
     >
-      <div class="flex items-center px-2 justify-between gap-5">
+      <div class="flex items-center justify-between gap-5 px-2">
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
-          class="border rounded-full bg-white w-8 p-1"
+          class="w-8 rounded-full border bg-white p-1"
         />
         <p>Add To Cart</p>
       </div>
@@ -16,6 +16,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { toast } from "vue-sonner";
 import addToCart from "~/shopify/cart/add-to-cart";
 import { useUserStore } from "~/stores/user-store";
 
@@ -41,10 +42,12 @@ const addProductToCart = async () => {
       cartId,
       quantity: props.quantity,
     });
-    alert("Successfully added to the cart.");
+    toast.success("Successfully added to the cart.");
   } catch (error: any) {
     console.error(error);
-    alert(error?.message || "Unable to add the product to cart");
+    toast.error(error?.message || "Unable to add the product to cart", {
+      richColors: true,
+    });
   } finally {
     isAddingProductToCart.value = false;
   }

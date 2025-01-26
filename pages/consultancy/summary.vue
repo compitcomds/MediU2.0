@@ -50,6 +50,7 @@
 import consultancyImageUpload from "~/appwrite/consultancy/consultancy-upload";
 import axios from "axios";
 import { getUser } from "~/appwrite/auth";
+import { toast } from "vue-sonner";
 
 const router = useRouter();
 
@@ -68,7 +69,12 @@ const proceedToPayment = async () => {
   const { email, firstName, lastName, note, phone, image } =
     consultancyStore.step2;
   if (!$id || !email || !firstName || !lastName || !phone) {
-    alert("Please provide all the details to proceed with consultation.");
+    toast.error(
+      "Please provide all the details to proceed with consultation.",
+      {
+        richColors: true,
+      },
+    );
     router.replace("/consultancy");
     return;
   }
@@ -97,9 +103,10 @@ const proceedToPayment = async () => {
         "Some error occured while processing the details. Please try again later.",
     );
   } catch (error: any) {
-    alert(
+    toast.error(
       error.message ||
         "An error occurred while proceeding to payment. Please try again later.",
+      { richColors: true },
     );
     console.error(error);
   }

@@ -175,6 +175,7 @@
   </div>
 </template>
 <script setup>
+import { toast } from "vue-sonner";
 import { registerUser, loginWithGoogle } from "~/appwrite/auth";
 
 const router = useRouter();
@@ -195,7 +196,7 @@ const submitForm = async () => {
     isSubmitting.value = false;
     await router.replace("/dashboard");
   } catch (error) {
-    alert(`Error: ${error.message}`);
+    toast.error(`Error: ${error.message}`, { richColors: true });
     isSubmitting.value = false;
   }
 };

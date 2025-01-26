@@ -3,7 +3,7 @@
     :class="[showNotification ? 'top-0 xl:top-0' : 'top-0']"
     class="sticky inset-x-0 z-50 flex items-center justify-between border-gray-300 bg-white px-1 transition-all duration-300 lg:px-6"
   >
-    <nuxt-link to="/" class="lg:flex hidden w-3/12 items-center">
+    <nuxt-link to="/" class="hidden w-3/12 items-center lg:flex">
       <img
         src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%201.png"
         class="w-[30%] xxl:w-[20%]"
@@ -12,19 +12,19 @@
     </nuxt-link>
     <form
       @submit.prevent="submitForm"
-      class="group relative flex h-[40px] lg:w-6/12 justify-center rounded-md xl:h-[50px]"
+      class="group relative flex h-[40px] justify-center rounded-md lg:w-6/12 xl:h-[50px]"
     >
       <input
         type="text"
         name="q"
         id="query"
-        placeholder="What are you looking for?.."
+        placeholder="Search..."
         class="w-full rounded-full rounded-r-none border-2 border-gray-300 border-r-white bg-white p-3 text-black placeholder-gray-500"
         v-model="searchQuery"
       />
       <button
         type="submit"
-        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-6 xxl:px-16 py-3 text-lg text-white"
+        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-6 py-3 text-lg text-white xxl:px-16"
       >
         <span class="">
           <svg
@@ -71,12 +71,13 @@
         </p>
       </div>
     </form>
-    
+
     <HomeCart />
   </div>
 </template>
 
 <script setup>
+import { toast } from "vue-sonner";
 import predictiveSearchProducts from "~/shopify/search/predictive-search";
 
 const showNotification = ref(true);
@@ -93,7 +94,12 @@ const searchProducts = useDebounceFn(async (query) => {
     const products = await predictiveSearchProducts(query);
     productSuggestions.value = products;
   } catch (error) {
-    alert("Unable to search products at the time. Please try again later.");
+    toast.error(
+      "Unable to search products at the time. Please try again later.",
+      {
+        richColors: true,
+      },
+    );
   }
 
   isSearching.value = false;
@@ -103,7 +109,7 @@ watch(searchQuery, () => searchProducts(searchQuery.value));
 
 const submitForm = async (e) => {
   if (!searchQuery.value) {
-    alert("No search query provided");
+    toast.error("No search query provided", { richColors: true });
     return;
   }
 

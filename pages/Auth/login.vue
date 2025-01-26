@@ -180,29 +180,30 @@
 
           <p class="mt-6 text-sm text-gray-600">
             Don’t have an account?
-            <a href="/auth/register" class="text-blue-600 hover:text-blue-800"
-              >Sign up for free</a
+            <nuxt-link
+              :to="{ path: '/auth/register', query: route.query }"
+              class="text-blue-600 hover:text-blue-800"
+              >Sign up for free</nuxt-link
             >
           </p>
         </div>
       </div>
-      <!-- Right Section (Image) -->
       <div
         class="hidden bg-cover bg-center md:w-1/2 lg:block"
         :style="{
           backgroundImage: 'url(https://ccdstest.b-cdn.net/Medi%20u/2.png)',
         }"
-      >
-        <!-- Image comes from the image.png provided by the user -->
-      </div>
+      ></div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { toast } from "vue-sonner";
 import { loginUser, loginWithGoogle } from "~/appwrite/auth";
 
 const router = useRouter();
+const route = useRoute();
 const isSubmitting = ref(false);
 const formData = ref({
   email: "",
@@ -223,11 +224,12 @@ const submitForm = async () => {
   isSubmitting.value = true;
   try {
     await loginUser(formData.value);
-    isSubmitting.value = false;
-    router.replace("/dashboard");
+    router.replace(route.query?.back || "/dashboard");
   } catch (error) {
+    console.log(error);
+    toast.error(`Error: ${error.message}`, { richColors: true });
+  } finally {
     isSubmitting.value = false;
-    alert(`Error: ${error.message}`);
   }
 };
 

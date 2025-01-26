@@ -204,6 +204,7 @@
 </template>
 
 <script setup lang="ts">
+import { toast } from "vue-sonner";
 import getCartData from "~/shopify/cart/get-cart-data";
 import updateLineItemQuantity from "~/shopify/cart/update-line-item-quantity";
 import applyDiscountCode from "~/shopify/cart/apply-discount";
@@ -281,9 +282,9 @@ const changeQuantity = async (lineId: string, quantity: number) => {
       else cart.value.items.splice(itemIndex, 1);
     }
 
-    alert("Successfully updated the cart item quantity");
+    toast.success("Successfully updated the cart item quantity");
   } catch (error: any) {
-    alert(error.message || "Unable to update the item's quantity");
+    toast.error("Unable to update the item's quantity", { richColors: true });
   } finally {
     isUpdatingLineItemQuantity.value = false;
   }
@@ -298,7 +299,7 @@ const applyDiscount = async () => {
   try {
     await applyDiscountCode(discountCode.value);
   } catch (error: any) {
-    alert(error.message);
+    toast.error(error.message, { richColors: true });
   } finally {
     const data = await getCartData();
     if (data) cart.value = data;

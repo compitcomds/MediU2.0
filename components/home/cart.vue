@@ -96,6 +96,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { toast } from "vue-sonner";
 import { getUser, logoutUser } from "~/appwrite/auth";
 
 const isOpen = ref(false);
@@ -121,7 +122,7 @@ const logout = async () => {
     await logoutUser();
     reloadNuxtApp();
   } catch (error: any) {
-    alert(error.message);
+    toast.error(error.message, { richColors: true });
   } finally {
     isLoggingOut.value = false;
   }

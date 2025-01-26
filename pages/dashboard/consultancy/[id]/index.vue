@@ -76,6 +76,7 @@
 </template>
 
 <script setup lang="ts">
+import { toast } from "vue-sonner";
 import { getConsultancyById } from "~/appwrite/consultancy/get-consultancy";
 
 const router = useRouter();
@@ -88,7 +89,7 @@ const booking = await getConsultancyById(id);
 
 onMounted(() => {
   if (!!booking) return;
-  alert("Invalid Consultancy.");
+  toast.error("Invalid Consultancy.", { richColors: true });
   router.replace("/dashboard/consultancy");
 });
 

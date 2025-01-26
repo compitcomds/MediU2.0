@@ -134,6 +134,7 @@
 
 <script setup lang="ts">
 import axios from "axios";
+import { toast } from "vue-sonner";
 import { getUser } from "~/appwrite/auth";
 import { uploadFileInAppwrite } from "~/appwrite/prescription-upload";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
@@ -255,8 +256,9 @@ const proceedWithCashPayment = async ({
 
 const submitOrder = async () => {
   if (!!requiresPrescription.value && !uploadedFile.value) {
-    alert(
+    toast.error(
       "Some items in your cart requires prescription. Please add that first.",
+      { richColors: true },
     );
     return;
   }
@@ -288,7 +290,7 @@ const submitOrder = async () => {
       return;
     }
   } catch (error: any) {
-    alert(error.message);
+    toast.error(error.message, { richColors: true });
     console.error(error);
   } finally {
     setTimeout(() => {

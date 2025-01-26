@@ -69,6 +69,8 @@
 import { Star } from "lucide-vue-next";
 import { getUser } from "~/appwrite/auth";
 import addProductReviewInAppwrite from "~/appwrite/reviews/add-review";
+import { toast } from "vue-sonner";
+
 let user: any;
 
 const props = defineProps<{
@@ -102,17 +104,17 @@ const setRating = (star: number) => {
 
 const submitReview = async () => {
   if (!user.email) {
-    alert("Log in to post a review.");
+    toast.error("Log in to post a review.", { richColors: true });
     return;
   }
 
   if (form.value.rating < 1) {
-    alert("Please give rating to proceed further.");
+    toast.error("Please give rating to proceed further.", { richColors: true });
     return;
   }
 
   if (!form.value.description) {
-    alert("Description is required.");
+    toast.error("Description is required.", { richColors: true });
     return;
   }
 
@@ -126,7 +128,7 @@ const submitReview = async () => {
     });
 
     reviewsModel.value = [review, ...reviewsModel.value];
-    alert("Successfully added the review.");
+    toast.success("Successfully added the review.");
     form.value = {
       description: "",
       rating: 0,

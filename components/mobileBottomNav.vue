@@ -99,35 +99,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { getUser, logoutUser } from "~/appwrite/auth";
-
-const isOpen = ref(false);
-const isLoggingOut = ref(false);
-
 const shopStore = useShopStore();
 const { totalItems } = storeToRefs(shopStore);
-let user: any;
-
-try {
-  user = await getUser();
-} catch (error) {
-  user = null;
-}
-
-const toggleDropdown = () => {
-  isOpen.value = !isOpen.value;
-};
-
-const logout = async () => {
-  isLoggingOut.value = true;
-  try {
-    await logoutUser();
-    reloadNuxtApp();
-  } catch (error: any) {
-    alert(error.message);
-  } finally {
-    isLoggingOut.value = false;
-  }
-};
 </script>
 <style scoped></style>

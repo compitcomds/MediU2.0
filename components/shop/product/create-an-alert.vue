@@ -112,6 +112,7 @@
 </template>
 <script setup lang="ts">
 import { BellRing, MailCheck } from "lucide-vue-next";
+import { toast } from "vue-sonner";
 import createProductAlertForUser from "~/appwrite/utils/create-an-alert";
 
 const props = defineProps<{ productId: string; variantId: string }>();
@@ -138,8 +139,7 @@ const submitEmail = async () => {
     });
     isSubmitted.value = true;
   } catch (error: any) {
-    alert(error.message);
-    console.log(error);
+    toast.error(error.message, { richColors: true });
   } finally {
     isSubmitting.value = false;
   }

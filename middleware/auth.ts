@@ -19,6 +19,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   // Protect specific routes
   const isProtectedRoute = protectedRoutes.some((route) => route.test(to.path));
   if (isProtectedRoute && !authenticated) {
-    return navigateTo("/auth/login");
+    return navigateTo(`/auth/login?back=${encodeURIComponent(to.path)}`);
   }
 });

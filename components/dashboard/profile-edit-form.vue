@@ -1,11 +1,11 @@
 <template>
-  <div class="space-y-4 w-full">
+  <div class="w-full space-y-4">
     <div class="flex items-center justify-between">
       <h2 class="text-xl font-semibold">Customer Details</h2>
     </div>
 
     <!-- Name Section -->
-    <form class="rounded-md w-full border p-4" @submit.prevent="submitName">
+    <form class="w-full rounded-md border p-4" @submit.prevent="submitName">
       <h3 class="text-lg font-semibold">Name</h3>
       <div class="form-group">
         <label for="firstName" class="block text-sm font-medium text-gray-700"
@@ -207,6 +207,7 @@
 </template>
 
 <script setup lang="ts">
+import { toast } from "vue-sonner";
 import {
   updateUserName,
   updatePassword,
@@ -244,10 +245,10 @@ const submitName = async () => {
   isSubmitting.value.name = true;
   try {
     await updateUserName(form.value);
-    alert("Successfully updated the name of the user.");
+    toast.success("Successfully updated the name of the user.");
     toggleEditMode("name");
   } catch (error: any) {
-    alert(error.message);
+    toast.error(error.message, { richColors: true });
   } finally {
     isSubmitting.value.name = false;
   }
@@ -257,10 +258,10 @@ const submitPhone = async () => {
   isSubmitting.value.phone = true;
   try {
     await updateUserPhone(form.value);
-    alert("Successfully updated the phone of the user.");
+    toast.success("Successfully updated the phone of the user.");
     toggleEditMode("phone");
   } catch (error: any) {
-    alert(error.message);
+    toast.error(error.message, { richColors: true });
   } finally {
     isSubmitting.value.phone = false;
   }
@@ -270,12 +271,12 @@ const submitPassword = async () => {
   isSubmitting.value.password = true;
   try {
     await updatePassword(form.value);
-    alert("Successfully updated the password of the user.");
+    toast.success("Successfully updated the password of the user.");
     toggleEditMode("password");
     form.value.oldPassword = "";
     form.value.password = "";
   } catch (error: any) {
-    alert(error.message);
+    toast.error(error.message, { richColors: true });
   } finally {
     isSubmitting.value.password = false;
   }
