@@ -141,7 +141,7 @@ useHead({
     { name: "description", content: "Privacy Policy" },
     { name: "og:title", content: "Privacy Policy - Mediu" },
     { name: "og:description", content: "Privacy Policy" },
-    { name: "og:url", content: "https://mediu.com/legal/privacyPolicy" },
+    { name: "og:url", content: "https://mediu.com/legal/privacy-policy" },
     {
       name: "og:image",
       content:

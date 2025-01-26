@@ -135,7 +135,7 @@ useHead({
     { name: "description", content: "Shipping Policy" },
     { name: "og:title", content: "Shipping Policy - Mediu" },
     { name: "og:description", content: "Shipping Policy" },
-    { name: "og:url", content: "https://mediu.com/legal/shippingPolicy" },
+    { name: "og:url", content: "https://mediu.com/legal/shipping-policy" },
     {
       name: "og:image",
       content:

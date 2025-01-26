@@ -2,7 +2,7 @@
 import emblaCarouselVue from "embla-carousel-vue";
 import Autoplay from "embla-carousel-autoplay";
 
-const [emblaRef, emblaApi] = emblaCarouselVue({}, [Autoplay()]);
+const [emblaRef, emblaApi] = emblaCarouselVue({ loop: true }, [Autoplay()]);
 const currentSlide = ref(0);
 const slides = [
   {
@@ -32,10 +32,14 @@ onMounted(() => {
   });
 });
 </script>
+
 <template>
-  <div class="embla relative w-full text-white lg:-mt-3" ref="emblaRef">
-    <div class="embla__container">
-      <div class="embla__slide" v-for="slide in slides">
+  <div
+    class="embla relative w-full overflow-hidden text-white lg:-mt-3"
+    ref="emblaRef"
+  >
+    <div class="embla__container flex">
+      <div class="embla__slide min-w-0 flex-[0_0_100%]" v-for="slide in slides">
         <picture class="w-full">
           <source
             media="(min-width: 1024px)"
@@ -70,15 +74,4 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-}
-</style>
+<style scoped></style>

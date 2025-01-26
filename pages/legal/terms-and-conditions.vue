@@ -76,7 +76,7 @@ useHead({
     { name: "description", content: "Terms and Conditions" },
     { name: "og:title", content: "Terms and Conditions - Mediu" },
     { name: "og:description", content: "Terms and Conditions" },
-    { name: "og:url", content: "https://mediu.com/legal/termsAndConditions" },
+    { name: "og:url", content: "https://mediu.com/legal/terms-and-conditions" },
     {
       name: "og:image",
       content:

@@ -123,7 +123,7 @@
       <p class="mt-16 text-center text-lg text-gray-700">
         Still have questions?
         <span
-          class="hover-underline cursor-pointer font-semibold text-blue-600 transition-all duration-300 hover:text-blue-800 focus:text-blue-800"
+          class="cursor-pointer font-semibold text-blue-600 transition-all duration-300 hover:text-blue-800 hover:underline focus:text-blue-800"
           >Contact our support</span
         >
       </p>
@@ -225,8 +225,4 @@ useHead({
 });
 </script>
 
-<style scoped>
-.hover-underline:hover {
-  text-decoration: underline;
-}
-</style>
+<style scoped></style>

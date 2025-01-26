@@ -17,9 +17,15 @@ const slides = [
 </script>
 
 <template>
-  <div class="embla relative my-10 w-full text-white lg:my-28" ref="emblaRef">
-    <div class="embla__container">
-      <div class="embla__slide" v-for="(slide, index) in slides">
+  <div
+    class="embla relative my-10 w-full overflow-hidden text-white lg:my-28"
+    ref="emblaRef"
+  >
+    <div class="embla__container flex">
+      <div
+        class="embla__slide min-w-0 flex-[0_0_100%]"
+        v-for="(slide, index) in slides"
+      >
         <nuxt-link to="/shop"
           ><img
             :src="slide"
@@ -45,15 +51,4 @@ const slides = [
   </div>
 </template>
 
-<style scoped>
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-}
-</style>
+<style scoped></style>

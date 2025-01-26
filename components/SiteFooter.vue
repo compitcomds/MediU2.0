@@ -1,10 +1,10 @@
 <template>
-  <footer class="bg-[#238878] text-white py-8">
+  <footer class="bg-[#238878] py-8 text-white">
     <div
-      class="container mx-auto xl:px-20 flex flex-wrap justify-between items-start "
+      class="container mx-auto flex flex-wrap items-start justify-between xl:px-20"
     >
-      <div class="w-full md:w-1/3 mb-2 md:mb-0">
-        <nuxt-link to="/" class="flex items-center w-5/12">
+      <div class="mb-2 w-full md:mb-0 md:w-1/3">
+        <nuxt-link to="/" class="flex w-5/12 items-center">
           <img
             src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo_white.png"
             class="w-full"
@@ -15,7 +15,7 @@
 
         <ul class="space-y-4">
           <li
-            class="flex items-center font-bold lg:text-lg xl:text-xl mb-4 mt-10"
+            class="mb-4 mt-10 flex items-center font-bold lg:text-lg xl:text-xl"
           >
             Contact Us
           </li>
@@ -124,57 +124,74 @@
           </nuxt-link>
         </div> -->
       </div>
-      <div class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
-          <h2 class="font-bold lg:text-lg xl:text-xl mb-4">Most Popular Categories
-          </h2>
-          <div class="h-0.5 w-4/6 bg-white mb-4 text-center"></div>
-          
-          <ul class="space-y-2 lg:text-base xl:text-lg">
-            <li class="list-disc"><a href="/shop" class="hover:underline">Skin</a></li>
-            <li class="list-disc"><a href="/shop" class="hover:underline">Hair</a></li>
-            <li class="list-disc"><a href="/comingSoon" class="hover:underline">Baby Care</a></li>
-            <li class="list-disc"><a href="/comingSoon" class="hover:underline">MediU Kits</a></li>
-            <li class="list-disc"><a href="/comingSoon" class="hover:underline">Supplements</a></li>
-            
-          </ul>
-        </div>
       <div
-        class="w-full md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0"
+        class="mb-6 flex w-full flex-col items-center justify-center md:mb-0 md:w-1/3"
       >
-        <h2 class="font-bold lg:text-lg xl:text-xl mb-4">Customer Services</h2>
-        <div class="h-0.5 w-4/6 bg-white mb-4 text-center"></div>
+        <h2 class="mb-4 font-bold lg:text-lg xl:text-xl">
+          Most Popular Categories
+        </h2>
+        <div class="mb-4 h-0.5 w-4/6 bg-white text-center"></div>
 
         <ul class="space-y-2 lg:text-base xl:text-lg">
-          <li class="list-disc"><a href="/faq" class="hover:underline">FAQs</a></li>
           <li class="list-disc">
-            <nuxt-link to="/legal/termsAndCondition" class="hover:underline"
+            <a href="/shop" class="hover:underline">Skin</a>
+          </li>
+          <li class="list-disc">
+            <a href="/shop" class="hover:underline">Hair</a>
+          </li>
+          <li class="list-disc">
+            <nuxt-link to="/coming-soon" class="hover:underline"
+              >Baby Care</nuxt-link
+            >
+          </li>
+          <li class="list-disc">
+            <nuxt-link to="/coming-soon" class="hover:underline"
+              >MediU Kits</nuxt-link
+            >
+          </li>
+          <li class="list-disc">
+            <nuxt-link to="/coming-soon" class="hover:underline"
+              >Supplements</nuxt-link
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="mb-6 flex w-full flex-col items-center justify-center md:mb-0 md:w-1/3"
+      >
+        <h2 class="mb-4 font-bold lg:text-lg xl:text-xl">Customer Services</h2>
+        <div class="mb-4 h-0.5 w-4/6 bg-white text-center"></div>
+
+        <ul class="space-y-2 lg:text-base xl:text-lg">
+          <li class="list-disc">
+            <a href="/faq" class="hover:underline">FAQs</a>
+          </li>
+          <li class="list-disc">
+            <nuxt-link to="/legal/terms-and-conditions" class="hover:underline"
               >Terms & Conditions</nuxt-link
             >
           </li>
           <li class="list-disc">
-            <nuxt-link to="/legal/refundPolicy" class="hover:underline"
+            <nuxt-link to="/legal/refund-policy" class="hover:underline"
               >Refund Policy</nuxt-link
             >
           </li>
           <li class="list-disc">
-            <nuxt-link to="/legal/privacyPolicy" class="hover:underline"
+            <nuxt-link to="/legal/privacy-policy" class="hover:underline"
               >Privacy Policy</nuxt-link
             >
           </li>
           <li class="list-disc">
-            <nuxt-link to="/legal/shipingPolicy" class="hover:underline"
+            <nuxt-link to="/legal/shipping-policy" class="hover:underline"
               >Shiping Policy</nuxt-link
             >
           </li>
-          <!-- <li class="list-disc">
-              <a href="#" class="hover:underline">Cancellation & Return<br> Policy</a>
-            </li> -->
         </ul>
       </div>
     </div>
 
-    <div class="container mx-auto text-center mt-8">
-      <div class="h-0.5 w-full bg-slate-500 mb-4"></div>
+    <div class="container mx-auto mt-8 text-center">
+      <div class="mb-4 h-0.5 w-full bg-slate-500"></div>
       <nuxt-link to="#" class="text-sm"
         >© 2024 All rights reserved. DCLARIO TECHNOLOGIES INDIA PRIVATE
         LIMITED</nuxt-link
@@ -183,10 +200,6 @@
   </footer>
 </template>
 
-<script>
-export default {};
-</script>
+<script setup lang="ts"></script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

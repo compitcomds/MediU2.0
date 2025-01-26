@@ -52,9 +52,12 @@ onMounted(() => {
         </button>
       </div>
     </div>
-    <div class="embla relative w-full lg:w-5/6" ref="emblaRef">
-      <div class="embla__container">
-        <div class="embla__slide" v-for="(image, index) in props.images">
+    <div class="embla relative w-full overflow-hidden lg:w-5/6" ref="emblaRef">
+      <div class="embla__container flex">
+        <div
+          class="embla__slide min-w-0 flex-[0_0_100%]"
+          v-for="(image, index) in props.images"
+        >
           <VueMagnifier
             :src="image.url"
             class="h-full w-full rounded-lg object-cover transition-transform duration-300"
@@ -93,15 +96,4 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-}
-</style>
+<style scoped></style>

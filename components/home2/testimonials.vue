@@ -51,16 +51,16 @@ const testimonials = [
     >
       <div class="embla__container flex">
         <div
-          class="embla__slide ml-4 basis-[97%] md:basis-1/2 lg:basis-1/3"
+          class="embla__slide ml-4 min-w-0 flex-[0_0_100%] basis-[97%] md:basis-1/2 lg:basis-1/3"
           v-for="testimonial in testimonials"
         >
           <div
-            class="testimonial-card h-full transform rounded-xl border border-gray-300 bg-gradient-to-r from-white to-gray-100 p-6 shadow-lg transition-transform hover:-translate-y-4 hover:shadow-2xl"
+            class="testimonial-card flex h-full transform rounded-xl border border-gray-300 bg-white bg-gradient-to-r from-white to-gray-100 p-6 shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-4 hover:shadow-2xl"
           >
             <div class="w-1/3 flex-shrink-0">
               <img
                 :src="testimonial.photo"
-                class="h-24 w-24 rounded-xl border-4 border-gray-200 object-cover"
+                class="h-40 w-32 rounded-xl border-4 border-[#eaeaea] object-cover"
                 alt="patient photo"
               />
             </div>
@@ -78,7 +78,7 @@ const testimonials = [
                   <Star
                     v-for="i in 5"
                     :stroke-width="1"
-                    class="h-2 w-2 text-yellow-500 lg:h-20 lg:w-20"
+                    class="h-3 w-3 text-yellow-500 md:h-6 md:w-6"
                     fill="currentColor"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -97,40 +97,4 @@ const testimonials = [
   </div>
 </template>
 
-<style scoped>
-.embla__slide {
-  flex-grow: 0;
-  flex-shrink: 0;
-  min-width: 0;
-}
-
-.testimonial-card {
-  display: flex;
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-8px); /* Lift effect on hover */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
-}
-
-/* Profile photo styling */
-img {
-  width: 8rem; /* 96px */
-  height: 10rem;
-  object-fit: cover;
-  border: 3px solid #eaeaea;
-}
-
-/* Star rating size and alignment */
-.rating svg {
-  width: 1.5rem; /* 24px */
-  height: 1.5rem;
-}
-</style>
+<style scoped></style>

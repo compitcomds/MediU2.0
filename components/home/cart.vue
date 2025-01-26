@@ -2,7 +2,7 @@
   <div class="hidden w-3/12 items-center justify-end space-x-6 lg:flex">
     <div class="">
       <nuxt-link
-        to="/addToCart"
+        to="/cart"
         class="relative rounded-full border-2 border-transparent text-gray-800 transition duration-150 ease-in-out hover:text-gray-400 focus:text-gray-500 focus:outline-none"
         aria-label="Cart"
       >

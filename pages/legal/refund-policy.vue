@@ -132,7 +132,7 @@ useHead({
     { name: "description", content: "Refund Policy" },
     { name: "og:title", content: "Refund Policy - Mediu" },
     { name: "og:description", content: "Refund Policy" },
-    { name: "og:url", content: "https://mediu.com/legal/refundPolicy" },
+    { name: "og:url", content: "https://mediu.com/legal/refund-policy" },
     {
       name: "og:image",
       content:

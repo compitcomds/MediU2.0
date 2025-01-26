@@ -180,7 +180,7 @@
               </div>
 
               <div class="hidden lg:block">
-                <HomeNavSlider />
+                <HomeNavbarItemImageSlider />
               </div>
               <nuxt-link
                 to="/consultancy"
@@ -424,7 +424,7 @@
                 </ul>
               </div>
               <div class="hidden lg:block">
-                <HomeNavSlider />
+                <HomeNavbarItemImageSlider />
               </div>
               <nuxt-link
                 to="/consultancy"
@@ -450,8 +450,10 @@
         </li>
 
         <li class="group relative cursor-pointer py-2">
-          <a href="/comingSoon" class="text-xl font-semibold hover:opacity-70"
-            >Baby Care</a
+          <nuxt-link
+            to="/coming-soon"
+            class="text-xl font-semibold hover:opacity-70"
+            >Baby Care</nuxt-link
           >
         </li>
 
@@ -484,7 +486,7 @@
             <div class="flex w-full justify-between p-6">
               <div class="8/12 grid grid-cols-3 gap-6">
                 <nuxt-link
-                  to="/comingSoon"
+                  to="/coming-soon"
                   class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
@@ -495,7 +497,7 @@
                 </nuxt-link>
 
                 <nuxt-link
-                  to="/comingSoon"
+                  to="/coming-soon"
                   class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
@@ -506,7 +508,7 @@
                 </nuxt-link>
 
                 <nuxt-link
-                  to="/comingSoon"
+                  to="/coming-soon"
                   class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
@@ -516,7 +518,7 @@
                   </h2>
                 </nuxt-link>
                 <nuxt-link
-                  to="/comingSoon"
+                  to="/coming-soon"
                   class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
@@ -526,7 +528,7 @@
                   </h2>
                 </nuxt-link>
                 <nuxt-link
-                  to="/comingSoon"
+                  to="/coming-soon"
                   class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
                 >
                   <h2
@@ -562,13 +564,11 @@
               </svg>
             </p>
           </div>
-
-          <!-- <HomeNavbarOldBrandItems /> -->
           <HomeNavbarBrandItems />
         </li>
 
         <li class="group relative cursor-pointer py-2">
-          <a href="/comingSoon" class="text-xl font-semibold hover:opacity-70"
+          <a href="/coming-soon" class="text-xl font-semibold hover:opacity-70"
             >Supplements</a
           >
         </li>
@@ -577,54 +577,9 @@
   </div>
 </template>
 
-<script>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Navigation } from "swiper/modules";
+<script setup lang="ts"></script>
 
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    return {
-      modules: [Pagination, Navigation],
-    };
-  },
-  data() {
-    return {
-      slides: [
-        "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/1.png",
-        "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/4.png",
-        "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/6.png",
-      ],
-    };
-  },
-};
-</script>
 <style scoped>
-.countdown-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.countdown-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #2d3748;
-  margin-bottom: 4px;
-}
-
-.countdown-label {
-  font-size: 0.875rem;
-  color: #4a5568;
-}
-
 h2 {
   color: #2d3748;
 }
@@ -632,76 +587,5 @@ h2 {
 p {
   color: #4a5568;
   line-height: 1.5;
-}
-
-/* Swiper navigation buttons styling */
-/* Increase specificity and use direct resizing if necessary */
-.mySwiper .swiper-button-prev,
-.mySwiper .swiper-button-next {
-  color: rgb(0, 68, 0) !important;
-}
-
-/* Default font size for larger screens */
-.mySwiper .swiper-button-prev::after,
-.mySwiper .swiper-button-next::after {
-  font-size: 30px !important;
-  /* Default font size for larger screens */
-}
-
-/* Media query for tablets and smaller screens */
-@media (max-width: 768px) {
-  .mySwiper .swiper-button-prev::after,
-  .mySwiper .swiper-button-next::after {
-    font-size: 18px !important;
-    /* Adjusted font size for tablets */
-  }
-}
-
-/* Media query for mobile screens */
-@media (max-width: 480px) {
-  .mySwiper .swiper-button-prev::after,
-  .mySwiper .swiper-button-next::after {
-    font-size: 14px !important;
-    /* Further reduced font size for mobile screens */
-  }
-}
-
-/* Optional: to style the Swiper container itself */
-.mySwiper {
-  background-color: white;
-  border-radius: 8px;
-  /* Example for rounded corners */
-}
-
-.swiper-pagination-bullet {
-  background-color: rgb(0, 68, 0);
-}
-
-/* Scrollbar styling for WebKit browsers (Chrome, Safari, etc.) */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}
-
-/* Scrollbar styling for Firefox */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1;
-}
-
-.custom-scrollbar:hover {
-  scrollbar-color: #555 #f1f1f1;
 }
 </style>

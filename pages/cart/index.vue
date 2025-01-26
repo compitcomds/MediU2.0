@@ -3,9 +3,7 @@
     <div
       class="mx-auto grid w-full max-w-7xl grid-cols-12 gap-8 px-4 md:px-5 lg:px-6"
     >
-      <div
-        class="custom-scrollbar col-span-12 max-h-[75vh] overflow-y-auto pr-4 lg:col-span-8"
-      >
+      <div class="col-span-12 max-h-[75vh] overflow-y-auto pr-4 lg:col-span-8">
         <h2
           class="title font-manrope mb-8 text-center text-4xl font-bold leading-10 text-[#238878]"
         >
@@ -328,34 +326,4 @@ useHead({
 });
 </script>
 
-<style scoped>
-/* Global Styles */
-.quantity-input {
-  text-align: center;
-  width: 50px;
-  margin: 0 10px;
-  border: 1px solid #000000;
-  padding: 2px;
-}
-
-.btn-minus,
-.btn-plus {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  padding: 2px 5px 2px 5px;
-  cursor: pointer;
-}
-
-.bg-gray-100 {
-  background-color: #f7f7f7;
-}
-
-/* Hide scrollbar but keep scroll functionality */
-.custom-scrollbar {
-  scrollbar-width: none; /* Firefox */
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-</style>
+<style scoped></style>
