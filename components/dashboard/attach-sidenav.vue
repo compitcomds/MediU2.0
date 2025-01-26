@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#edf8f3] lg:p-6" v-if="user">
+  <div class="min-h-screen bg-[#edf8f3] pt-5 lg:p-6 lg:pt-10" v-if="user">
     <div class="lg:flex lg:gap-6">
       <DashboardSidenav />
       <slot />
