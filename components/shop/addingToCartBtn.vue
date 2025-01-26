@@ -1,34 +1,23 @@
-<template>
-  <div>
-    <button
-      @click="addProductToCart"
-      class="rounded-full bg-[#238878] p-2 px-3 py-3 text-xl font-semibold text-white shadow disabled:animate-pulse disabled:cursor-not-allowed"
-      :disabled="isAddingProductToCart"
-    >
-      <div class="flex items-center justify-between gap-5 px-2">
-        <img
-          src="https://ccdstest.b-cdn.net/Medi%20u/Bag.svg"
-          class="w-8 rounded-full border bg-white p-1"
-        />
-        <p>Add To Cart</p>
-      </div>
-    </button>
-  </div>
-</template>
 <script setup lang="ts">
+import { useUserStore } from "~/stores/user-store";
+import { cn } from "~/lib/utils";
 import { toast } from "vue-sonner";
 import addToCart from "~/shopify/cart/add-to-cart";
-import { useUserStore } from "~/stores/user-store";
 
-// Define the props with types
-interface Props {
-  productId: string;
-  quantity?: number;
-}
-
-const props = defineProps<Props>();
+const props = withDefaults(
+  defineProps<{
+    as?: string;
+    productId: string;
+    quantity?: number;
+    redirectToCart?: boolean;
+  }>(),
+  {
+    as: "button",
+  },
+);
 
 const userStore = useUserStore();
+const router = useRouter();
 const isAddingProductToCart = ref(false);
 
 const addProductToCart = async () => {
@@ -42,6 +31,9 @@ const addProductToCart = async () => {
       cartId,
       quantity: props.quantity,
     });
+    if (props.redirectToCart) {
+      router.push("/cart");
+    }
     toast.success("Successfully added to the cart.");
   } catch (error: any) {
     console.error(error);
@@ -54,6 +46,21 @@ const addProductToCart = async () => {
 };
 </script>
 
-<style scoped>
-/* Add styles here if needed */
-</style>
+<template>
+  <component
+    :is="props.as"
+    :class="
+      cn(
+        'flex items-center justify-between gap-5 rounded-full bg-[#238878] px-5 py-3 text-xl font-semibold text-white shadow disabled:animate-pulse disabled:cursor-not-allowed disabled:opacity-70',
+        $attrs.class as string,
+      )
+    "
+    :disabled="isAddingProductToCart"
+    @click="addProductToCart"
+  >
+    <slot
+      ><BagSVG />
+      <p>Add To Cart</p>
+    </slot>
+  </component>
+</template>

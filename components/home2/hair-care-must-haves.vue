@@ -164,7 +164,15 @@ onMounted(() => {
                 </div>
               </div>
               <div class="mt-2 flex items-center gap-2">
+                <ShopAddingToCartBtn
+                  v-if="product.variantId"
+                  :productId="product.variantId"
+                  class="text-md flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#238878] p-2 text-center font-semibold text-white shadow"
+                  redirectToCart
+                  >BUY NOW
+                </ShopAddingToCartBtn>
                 <nuxt-link
+                  v-else
                   :to="`/shop/product/${product.handle}`"
                   class="text-md flex-1 cursor-pointer rounded-full bg-[#238878] p-2 text-center font-semibold text-white shadow"
                 >

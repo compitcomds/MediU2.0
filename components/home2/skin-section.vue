@@ -172,7 +172,15 @@ onMounted(() => {
                 </div>
               </div>
               <div class="mt-2 flex items-center gap-2">
+                <ShopAddingToCartBtn
+                  v-if="product.variantId"
+                  :productId="product.variantId"
+                  class="text-md flex flex-1 cursor-pointer items-center justify-center rounded-full bg-[#238878] p-2 text-center font-semibold text-white shadow"
+                  redirectToCart
+                  >BUY NOW
+                </ShopAddingToCartBtn>
                 <nuxt-link
+                  v-else
                   :to="`/shop/product/${product.handle}`"
                   class="text-md flex-1 cursor-pointer rounded-full bg-[#238878] p-2 text-center font-semibold text-white shadow"
                 >
@@ -181,7 +189,7 @@ onMounted(() => {
                 <div
                   class="hidden rounded-full bg-slate-300 p-1 opacity-80 md:block md:px-1 md:py-1"
                 >
-                  <a :href="`/shop/product/${product.handle}`" class=""
+                  <nuxt-link :to="`/shop/product/${product.handle}`" class=""
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -199,7 +207,7 @@ onMounted(() => {
                       />
                       <path d="m21 3-9 9" />
                       <path d="M15 3h6v6" /></svg
-                  ></a>
+                  ></nuxt-link>
                 </div>
               </div>
             </div>

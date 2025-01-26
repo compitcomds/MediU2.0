@@ -104,7 +104,7 @@ export default async function updateLineItemQuantity({
     console.log("updateLineItemQuantity Errors.");
     console.log(errors);
     throw new Error(
-      "Error while attachUserIdentityToCart. (Probably some error in implementation, see for yourself).",
+      "Error while updateLineItemQuantity. (Probably some error in implementation, see for yourself).",
     );
   }
 }

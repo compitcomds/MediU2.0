@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 
 export const useShopStore = defineStore("shopStore", {
-  state: (): {totalItems: number} => ({totalItems: 0}),
+  state: (): { totalItems: number } => ({ totalItems: 0 }),
   actions: {
-    updateTotalItemsInShop(noOfItems: number){
-      this.totalItems = noOfItems
-    }
+    updateTotalItemsInShop(noOfItems: number) {
+      this.totalItems = Math.max(noOfItems, 0);
+    },
   },
 });

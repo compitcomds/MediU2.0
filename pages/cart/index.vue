@@ -1,11 +1,11 @@
 <template>
-  <section class="relative pb-16 pt-10">
+  <section class="relative pb-16 pt-10 lg:pt-14">
     <div
       class="mx-auto grid w-full max-w-7xl grid-cols-12 gap-8 px-4 md:px-5 lg:px-6"
     >
       <div class="col-span-12 max-h-[75vh] overflow-y-auto pr-4 lg:col-span-8">
         <h2
-          class="title font-manrope mb-8 text-center text-4xl font-bold leading-10 text-[#238878]"
+          class="mb-8 text-center text-4xl font-bold leading-10 text-[#238878]"
         >
           Shopping Cart
         </h2>

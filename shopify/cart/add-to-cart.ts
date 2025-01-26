@@ -61,6 +61,7 @@ export default async function addToCart({
         quantity: 0,
         cartId,
       });
+      throw new Error("Looks like the product is out of stock.");
     }
   }
 

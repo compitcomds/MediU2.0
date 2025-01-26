@@ -76,7 +76,7 @@
                     v-if="
                       calculatePercentage(data.compareAtPrice, data.price) > 0
                     "
-                    class="ml-2 rounded-lg bg-[#238878] px-2 py-1 text-base font-medium text-white"
+                    class="my-2 block max-w-fit rounded-lg bg-[#238878] px-2 py-1 text-xs font-medium text-white sm:my-0 sm:ml-2 sm:inline-block sm:text-base"
                   >
                     Save
                     {{ calculatePercentage(data.compareAtPrice, data.price) }}%

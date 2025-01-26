@@ -22,6 +22,11 @@ query productBasicDetailsQuery($handle: String!) {
         currencyCode
       }
     }
+    variants(first: 1){
+      nodes{
+        id
+      }
+    }
   }
 }
 `;
@@ -29,6 +34,7 @@ query productBasicDetailsQuery($handle: String!) {
 export type ProductBasicDetailsType = {
   handle: string;
   description: string;
+  variantId: string;
   title: string;
   featuredImage: {
     url: string;
@@ -59,8 +65,11 @@ export async function getProductBasicDetails(handle: string) {
   });
   if (!data.product) return null;
   const product = data.product;
+  const variantId =
+    product.variants.nodes.length > 0 ? product.variants.nodes[0].id : "";
   return {
     ...product,
+    variantId,
     price: {
       amount: parseFloat(product.priceRange.minVariantPrice.amount),
       currencyCode: product.priceRange.minVariantPrice.currencyCode,
