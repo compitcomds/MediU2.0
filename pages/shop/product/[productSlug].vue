@@ -217,25 +217,6 @@
               class="my-4 border-dashed border-gray-300"
               v-if="data.options?.title"
             />
-
-            <div class="hidden">
-              <swiper
-                :slidesPerView="1"
-                :spaceBetween="60"
-                :loop="true"
-                :autoplay="{ delay: 6000, disableOnInteraction: false }"
-                :modules="modules"
-                class="mySwiper responsive-height my-4 w-full"
-              >
-                <swiper-slide v-for="(item, index) in slides" :key="index">
-                  <img
-                    :src="item"
-                    alt="Ad Banner"
-                    class="flex w-full items-center justify-between rounded-lg object-fill lg:object-cover"
-                  />
-                </swiper-slide>
-              </swiper>
-            </div>
             <div class="mt-2 text-sm text-gray-600">
               Free delivery on orders of ₹1,000 and above
             </div>
@@ -292,15 +273,11 @@
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
 import { Star } from "lucide-vue-next";
-import { Pagination, Navigation } from "swiper/modules";
 import { getProductData } from "~/shopify/productDetails";
 import { ClipboardPlus } from "lucide-vue-next";
-import "@websitebeaver/vue-magnifier/styles.css";
 import getProductMetadata from "~/shopify/get-product-metadata";
 
-const modules = [Pagination, Navigation];
 const activeTab = ref(1);
 const route = useRoute();
 const productHandle = route.params.productSlug;
@@ -350,14 +327,6 @@ watch(
   },
   { deep: true, immediate: true },
 );
-
-onMounted(() => {
-  const script = document.createElement("script");
-  script.src =
-    "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js";
-  script.defer = true;
-  document.head.appendChild(script);
-});
 
 const increaseQuantity = () => {
   if (quantity.value < 5) {
@@ -424,69 +393,4 @@ useHead({
 });
 </script>
 
-<style scoped>
-/* Enhanced Swiper Styles */
-.mySwiper {
-  height: 400px;
-}
-
-.mySwiper2 {
-  height: 80px;
-}
-
-.mySwiper2 .swiper-slide {
-  opacity: 0.4;
-}
-
-.mySwiper2 .swiper-slide-thumb-active {
-  opacity: 1;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #4a5568;
-}
-
-/* Thumbnail Hover & Swiper Customization */
-.mySwiper2 .swiper-slide img {
-  transition: transform 0.3s ease;
-}
-
-.mySwiper2 .swiper-slide:hover img {
-  transform: scale(1.05);
-}
-
-/* Card Styling */
-.shadow-sm {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-lg {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Default height for smaller screens */
-.responsive-height {
-  height: 100px;
-}
-
-/* Medium screens */
-@media (min-width: 768px) {
-  .responsive-height {
-    height: 100px;
-  }
-}
-
-/* Large screens */
-@media (min-width: 1024px) {
-  .responsive-height {
-    height: 100px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .responsive-height {
-    height: 150px;
-  }
-}
-</style>
+<style scoped></style>

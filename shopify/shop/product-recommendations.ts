@@ -59,6 +59,5 @@ export default async function getProductRecommendations(
       variables: { productId },
     },
   );
-  console.log(errors);
   return data?.productRecommendations || [];
 }

@@ -1,13 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-
   modules: [
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "vue3-carousel-nuxt",
     "@nuxtjs/sitemap",
-    "nuxt-swiper",
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
     "@vueuse/nuxt",
@@ -30,16 +28,4 @@ export default defineNuxtConfig({
       baseURL: "http://localhost:3000 ",
     },
   },
-
-  // image: {
-  //   provider: 'static', // or 'imgix', 'cloudinary', etc.
-  //   presets: {
-  //     cover: {
-  //       modifiers: {
-  //         format: 'webp',
-  //         quality: 75
-  //       }
-  //     }
-  //   }
-  // }
 });
