@@ -8,7 +8,7 @@
       class="col-span-12 mt-3 md:col-span-8 md:me-7 lg:col-span-9 xl:col-span-10"
     >
       <ShopBanner />
-      <ShopCard :productDetails="data.products" name="Add To Cart" />
+      <ShopCard :productDetails="data?.products || []" name="Add To Cart" />
     </div>
   </div>
 </template>
@@ -22,33 +22,35 @@ const data = useState("data", () => ({
   products: [],
 }));
 
+const fetchProductsAccordingToQuery = async (query: any) => {
+  const queryString = convertQueryParamsToQueryString({
+    selectedSkinConcern: query.selectedSkinConcern,
+    selectedHairConcern: query.selectedHairConcern,
+    selectedNutrionAndDiet: query.selectedNutrionAndDiet,
+    selectedPediatric: query.selectedPediatric,
+    selectedIngredent: query.selectedIngredent,
+    selectedSkinIngredent: query.selectedSkinIngredent,
+    selectedSkinCare: query.selectedSkinCare,
+    selectedHairCare: query.selectedHairCare,
+  });
+  const newData = await fetchProducts({ query: queryString });
+  return {
+    ...newData,
+    products: newData.products.filter((product: any) => {
+      const prodPrice = parseFloat(product.price);
+      if (!!query.min && parseInt(query.min) > prodPrice) return false;
+      else if (!!query.max && parseInt(query.max) < prodPrice) return false;
+      return true;
+    }),
+  };
+};
+
 watch(
   () => route.query,
-  async (newQuery: any) => {
-    const queryString = convertQueryParamsToQueryString({
-      selectedSkinConcern: newQuery.selectedSkinConcern,
-      selectedHairConcern: newQuery.selectedHairConcern,
-      selectedNutrionAndDiet: newQuery.selectedNutrionAndDiet,
-      selectedPediatric: newQuery.selectedPediatric,
-      selectedIngredent: newQuery.selectedIngredent,
-      selectedSkinIngredent: newQuery.selectedSkinIngredent,
-      selectedSkinCare: newQuery.selectedSkinCare,
-      selectedHairCare: newQuery.selectedHairCare,
-    });
-    const newData = await fetchProducts({ query: queryString });
-
-    data.value = {
-      ...newData,
-      products: newData.products.filter((product: any) => {
-        const prodPrice = parseFloat(product.price);
-        if (!!newQuery.min && parseInt(newQuery.min) > prodPrice) return false;
-        else if (!!newQuery.max && parseInt(newQuery.max) < prodPrice)
-          return false;
-        return true;
-      }),
-    };
+  async (newQuery) => {
+    const newData = await fetchProductsAccordingToQuery(newQuery);
+    data.value = newData;
   },
-  { immediate: true },
 );
 
 useHead({

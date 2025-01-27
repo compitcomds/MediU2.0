@@ -1,36 +1,18 @@
 <template>
   <div class="z-10 w-full bg-[#238878] text-black">
     <div class="relative bg-white">
-      <!-- Main Menu -->
       <ul class="flex justify-center space-x-20 bg-[#238878] py-2 text-white">
         <li class="group relative cursor-pointer py-2">
           <nuxt-link to="/" class="text-xl font-semibold hover:opacity-70"
             >Home</nuxt-link
           >
         </li>
-
-        <!-- Hair Concerns Menu -->
         <li class="group relative cursor-pointer py-2">
           <div
             class="flex items-center gap-1 text-xl font-semibold text-white hover:opacity-70"
           >
             Hair
-            <p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevron-down mt-1 h-4 w-4"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </p>
+            <ChevronDown :size="16" />
           </div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
@@ -41,57 +23,17 @@
             >
               <!-- Concerns Related to Hair -->
               <div>
-                <h2 class="mb-4 w-fit text-left text-lg font-bold">
+                <h2
+                  class="mb-4 w-fit text-left text-lg font-bold text-[#2d3748]"
+                >
                   Hair Concerns
                 </h2>
                 <ul class="space-y-1 text-left">
-                  <li>
+                  <li v-for="concern in hairConcerns" :key="concern.name">
                     <nuxt-link
-                      to="/shop?min=0&max=100000&selectedHairConcern=dandruff"
+                      :to="concern.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Dandruff</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedHairConcern=hairfall"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Hairfall</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedHairConcern=hair-thinning"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Hair Thinning</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedHairConcern=damaged-and-fizzy-hair"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Damaged & Fizzy Hair</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedHairConcern=bald-patches"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Bald Patches</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedHairConcern=dull-hair"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Dull Hair</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedHairConcern=oily-scalp"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Oily Scalp</nuxt-link
+                      >{{ concern.name }}</nuxt-link
                     >
                   </li>
                 </ul>
@@ -99,44 +41,20 @@
 
               <!-- Concerns Related to Ingredients -->
               <div>
-                <h2 class="mb-4 w-fit text-left text-lg font-bold">
+                <h2
+                  class="mb-4 w-fit text-left text-lg font-bold text-[#2d3748]"
+                >
                   Select By Ingredients
-                  <!-- <hr /> -->
                 </h2>
                 <ul class="space-y-1 text-left">
-                  <li>
+                  <li
+                    v-for="ingredient in hairIngredients"
+                    :key="ingredient.name"
+                  >
                     <nuxt-link
-                      to="/shop?min=0&max=100000&selectedIngredent=minoxidil"
+                      :to="ingredient.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Minoxidil</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedIngredent=redensyl"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Redensyl</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedIngredent=capixyl"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Capixyl</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedIngredent=peptide"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Peptide</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?min=0&max=100000&selectedIngredent=carnitine"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Carnitine</nuxt-link
+                      >{{ ingredient.name }}</nuxt-link
                     >
                   </li>
                 </ul>
@@ -144,36 +62,17 @@
 
               <!-- Concerns Related to Hair Care -->
               <div>
-                <h2 class="mb-4 w-fit text-left text-lg font-bold">
+                <h2
+                  class="mb-4 w-fit text-left text-lg font-bold text-[#2d3748]"
+                >
                   Hair Care
                 </h2>
                 <ul class="space-y-1 text-left">
-                  <li>
+                  <li v-for="item in hairCareItems" :key="item.name">
                     <nuxt-link
-                      to="/shop?selectedHairCare=shampoo"
+                      :to="item.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Shampoo</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?selectedHairCare=conditioner"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Conditioner</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?selectedHairCare=mask"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Mask</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      to="/shop?selectedHairCare=serum"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Serum</nuxt-link
+                      >{{ item.name }}</nuxt-link
                     >
                   </li>
                 </ul>
@@ -211,22 +110,7 @@
             class="flex items-center gap-1 text-xl font-semibold hover:opacity-70"
           >
             Skin
-            <p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevron-down mt-1 h-4 w-4"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </p>
+            <ChevronDown :size="16" />
           </div>
           <!-- Mega Menu Dropdown for Hair -->
           <div
@@ -235,190 +119,50 @@
             <div
               class="grid grid-cols-1 gap-4 bg-slate-50 p-6 sm:grid-cols-2 md:w-[30vw] md:grid-cols-3 lg:w-[70vw] lg:grid-cols-4 xl:w-[55vw] xl:grid-cols-4"
             >
-              <!-- Concerns Related to Hair -->
               <div>
-                <h2 class="mb-4 text-left text-lg font-bold">
+                <h2 class="mb-4 text-left text-lg font-bold text-[#2d3748]">
                   Shop By Concern
                 </h2>
                 <ul class="space-y-1 text-left">
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=acne-and-ance-scar"
+                  <li v-for="concern in skinConcerns" :key="concern.name">
+                    <nuxt-link
+                      :to="concern.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Acne & Acne Scar</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=aging"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Aging</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=dehydration"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Dehydration</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=damaged-and-sensitive-skin"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Damaged & Sensitive Skin</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=under-eye-darkness"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Under Eye Darkness</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=under-arm-darkness"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Under Arm Darkness</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=stretch-marks"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Stretch Marks</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=pigmentation"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Pigmentation</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=oiliness"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Oiliness</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?min=0&max=100000&selectedSkinConcern=lip-cracked-or-darkness"
-                      class="text-nowrap text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Lip (Cracked/Darkness)</a
+                      >{{ concern.name }}</nuxt-link
                     >
                   </li>
                 </ul>
               </div>
 
-              <!-- Concerns Related to Ingredients -->
               <div>
-                <h2 class="mb-4 text-left text-lg font-bold">
+                <h2 class="mb-4 text-left text-lg font-bold text-[#2d3748]">
                   Select By Ingredients
                 </h2>
                 <ul class="space-y-1 text-left">
-                  <li>
-                    <a
-                      href="/shop?selectedSkinIngredent=vitamin-c"
+                  <li
+                    v-for="ingredient in skinIngredients"
+                    :key="ingredient.name"
+                  >
+                    <nuxt-link
+                      :to="ingredient.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Vitamin C</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinIngredent=bha-salicylic-acid"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >BHA / Salicylic Acid</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinIngredent=retinoid"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Retinoid / Retinol</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinIngredent=niacinamide"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Niacinamide</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinIngredent=uv-filters"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >UV Filters</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinIngredent=ceramide"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Ceramide</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinIngredent=hyaluronic-acid"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Hyaluronic Acid</a
+                      >{{ ingredient.name }}</nuxt-link
                     >
                   </li>
                 </ul>
               </div>
 
-              <!-- Concerns Related to Hair Care -->
               <div>
-                <h2 class="mb-4 text-left text-lg font-bold">
+                <h2 class="mb-4 text-left text-lg font-bold text-[#2d3748]">
                   Skin Care
                   <hr />
                 </h2>
                 <ul class="space-y-1 text-left">
-                  <li>
-                    <a
-                      href="/shop?selectedSkinCare=cleanser"
+                  <li v-for="item in skinCareItems" :key="item.name">
+                    <nuxt-link
+                      :to="item.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Cleanser</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinCare=toner"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Toner</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinCare=roll-on"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Roll On</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinCare=moisturize"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Moisturize</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinCare=spf"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >SPF</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/shop?selectedSkinCare=under-eye"
-                      class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >Under Eye</a
+                      >{{ item.name }}</nuxt-link
                     >
                   </li>
                 </ul>
@@ -462,22 +206,7 @@
             class="flex w-28 items-center gap-1 text-xl font-semibold hover:opacity-70"
           >
             Mediu Kit
-            <p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevron-down mt-1 h-4 w-4"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </p>
+            <ChevronDown :size="16" />
           </div>
 
           <div
@@ -486,56 +215,12 @@
             <div class="flex w-full justify-between p-6">
               <div class="8/12 grid grid-cols-3 gap-6">
                 <nuxt-link
-                  to="/coming-soon"
-                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
+                  v-for="kit in kits"
+                  :key="kit.title"
+                  :to="kit.to"
+                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 text-lg font-semibold text-[#2d3748] hover:text-[#238878] hover:underline hover:shadow-lg"
                 >
-                  <h2
-                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
-                  >
-                    Hair Growth Kits
-                  </h2>
-                </nuxt-link>
-
-                <nuxt-link
-                  to="/coming-soon"
-                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
-                >
-                  <h2
-                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
-                  >
-                    Dandruff Kits
-                  </h2>
-                </nuxt-link>
-
-                <nuxt-link
-                  to="/coming-soon"
-                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
-                >
-                  <h2
-                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
-                  >
-                    Itchy Scalp Kits
-                  </h2>
-                </nuxt-link>
-                <nuxt-link
-                  to="/coming-soon"
-                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
-                >
-                  <h2
-                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
-                  >
-                    Basic Kits
-                  </h2>
-                </nuxt-link>
-                <nuxt-link
-                  to="/coming-soon"
-                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 hover:shadow-lg"
-                >
-                  <h2
-                    class="text-lg font-semibold hover:text-[#238878] hover:underline"
-                  >
-                    Advanced Kits
-                  </h2>
+                  {{ kit.title }}
                 </nuxt-link>
               </div>
             </div>
@@ -547,29 +232,16 @@
             class="flex items-center gap-1 text-xl font-semibold hover:opacity-70"
           >
             Brands
-            <p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevron-down mt-1 h-4 w-4"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </p>
+            <ChevronDown :size="16" />
           </div>
           <HomeNavbarBrandItems />
         </li>
 
         <li class="group relative cursor-pointer py-2">
-          <a href="/coming-soon" class="text-xl font-semibold hover:opacity-70"
-            >Supplements</a
+          <nuxt-link
+            to="/coming-soon"
+            class="text-xl font-semibold hover:opacity-70"
+            >Supplements</nuxt-link
           >
         </li>
       </ul>
@@ -577,15 +249,130 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ChevronDown } from "lucide-vue-next";
+const hairConcerns = [
+  {
+    name: "Dandruff",
+    to: "/shop?min=0&max=100000&selectedHairConcern=dandruff",
+  },
+  {
+    name: "Hairfall",
+    to: "/shop?min=0&max=100000&selectedHairConcern=hairfall",
+  },
+  {
+    name: "Hair Thinning",
+    to: "/shop?min=0&max=100000&selectedHairConcern=hair-thinning",
+  },
+  {
+    name: "Damaged & Fizzy Hair",
+    to: "/shop?min=0&max=100000&selectedHairConcern=damaged-and-fizzy-hair",
+  },
+  {
+    name: "Bald Patches",
+    to: "/shop?min=0&max=100000&selectedHairConcern=bald-patches",
+  },
+  {
+    name: "Dull Hair",
+    to: "/shop?min=0&max=100000&selectedHairConcern=dull-hair",
+  },
+  {
+    name: "Oily Scalp",
+    to: "/shop?min=0&max=100000&selectedHairConcern=oily-scalp",
+  },
+];
 
-<style scoped>
-h2 {
-  color: #2d3748;
-}
+const hairIngredients = [
+  {
+    name: "Minoxidil",
+    to: "/shop?min=0&max=100000&selectedIngredent=minoxidil",
+  },
+  { name: "Redensyl", to: "/shop?min=0&max=100000&selectedIngredent=redensyl" },
+  { name: "Capixyl", to: "/shop?min=0&max=100000&selectedIngredent=capixyl" },
+  { name: "Peptide", to: "/shop?min=0&max=100000&selectedIngredent=peptide" },
+  {
+    name: "Carnitine",
+    to: "/shop?min=0&max=100000&selectedIngredent=carnitine",
+  },
+];
 
-p {
-  color: #4a5568;
-  line-height: 1.5;
-}
-</style>
+const hairCareItems = [
+  { name: "Shampoo", to: "/shop?selectedHairCare=shampoo" },
+  { name: "Conditioner", to: "/shop?selectedHairCare=conditioner" },
+  { name: "Mask", to: "/shop?selectedHairCare=mask" },
+  { name: "Serum", to: "/shop?selectedHairCare=serum" },
+];
+
+const skinConcerns = [
+  {
+    name: "Acne & Acne Scar",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=acne-and-ance-scar",
+  },
+  { name: "Aging", to: "/shop?min=0&max=100000&selectedSkinConcern=aging" },
+  {
+    name: "Dehydration",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=dehydration",
+  },
+  {
+    name: "Damaged & Sensitive Skin",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=damaged-and-sensitive-skin",
+  },
+  {
+    name: "Under Eye Darkness",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=under-eye-darkness",
+  },
+  {
+    name: "Under Arm Darkness",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=under-arm-darkness",
+  },
+  {
+    name: "Stretch Marks",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=stretch-marks",
+  },
+  {
+    name: "Pigmentation",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=pigmentation",
+  },
+  {
+    name: "Oiliness",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=oiliness",
+  },
+  {
+    name: "Lip (Cracked/Darkness)",
+    to: "/shop?min=0&max=100000&selectedSkinConcern=lip-cracked-or-darkness",
+  },
+];
+
+const skinIngredients = [
+  { name: "Vitamin C", to: "/shop?selectedSkinIngredent=vitamin-c" },
+  {
+    name: "BHA / Salicylic Acid",
+    to: "/shop?selectedSkinIngredent=bha-salicylic-acid",
+  },
+  { name: "Retinoid / Retinol", to: "/shop?selectedSkinIngredent=retinoid" },
+  { name: "Niacinamide", to: "/shop?selectedSkinIngredent=niacinamide" },
+  { name: "UV Filters", to: "/shop?selectedSkinIngredent=uv-filters" },
+  { name: "Ceramide", to: "/shop?selectedSkinIngredent=ceramide" },
+  {
+    name: "Hyaluronic Acid",
+    to: "/shop?selectedSkinIngredent=hyaluronic-acid",
+  },
+];
+
+const skinCareItems = [
+  { name: "Cleanser", to: "/shop?selectedSkinCare=cleanser" },
+  { name: "Toner", to: "/shop?selectedSkinCare=toner" },
+  { name: "Roll On", to: "/shop?selectedSkinCare=roll-on" },
+  { name: "Moisturize", to: "/shop?selectedSkinCare=moisturize" },
+  { name: "SPF", to: "/shop?selectedSkinCare=spf" },
+  { name: "Under Eye", to: "/shop?selectedSkinCare=under-eye" },
+];
+
+const kits = [
+  { title: "Hair Growth Kits", to: "/coming-soon" },
+  { title: "Dandruff Kits", to: "/coming-soon" },
+  { title: "Itchy Scalp Kits", to: "/coming-soon" },
+  { title: "Basic Kits", to: "/coming-soon" },
+  { title: "Advanced Kits", to: "/coming-soon" },
+];
+</script>

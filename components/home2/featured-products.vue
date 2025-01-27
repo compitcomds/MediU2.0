@@ -32,11 +32,14 @@ const productHandles: Record<string, string[]> = {
     "ipca-keraglo-men-bottle-of-30-tablets",
   ],
 };
-const fetchedProducts = ref<Record<string, ProductBasicDetailsType[]>>({
-  hair: [],
-  skin: [],
-  babyCare: [],
-});
+const fetchedProducts = useState<Record<string, ProductBasicDetailsType[]>>(
+  "featured-products",
+  () => ({
+    hair: [],
+    skin: [],
+    babyCare: [],
+  }),
+);
 
 const selectedCategory = ref(categories[0].value);
 
@@ -51,9 +54,7 @@ const fetchProductHandles = async () => {
   }
 };
 
-onMounted(() => {
-  fetchProductHandles();
-});
+await fetchProductHandles();
 </script>
 
 <template>
@@ -81,7 +82,7 @@ onMounted(() => {
 
     <div class="mx-auto flex max-w-7xl flex-wrap gap-6 lg:flex-nowrap">
       <!-- First card -->
-      <div class="w-full lg:w-5/12">
+      <div class="w-full md:w-5/12">
         <div
           v-for="(product, index) in fetchedProducts[selectedCategory].slice(
             0,
@@ -248,7 +249,7 @@ onMounted(() => {
       </div>
 
       <div
-        class="grid w-full grid-cols-2 gap-2 font-sans capitalize md:grid-cols-2 lg:w-7/12 lg:gap-6"
+        class="grid w-full grid-cols-2 gap-2 font-sans capitalize md:w-7/12 md:grid-cols-2 lg:gap-6"
       >
         <div
           v-for="(product, index) in fetchedProducts[selectedCategory].slice(1)"
@@ -352,22 +353,4 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-@media (max-width: 768px) {
-  .w-full {
-    width: 100%;
-  }
-
-  .lg\:w-5\/12 {
-    width: 100%;
-  }
-
-  .lg\:w-7\/12 {
-    width: 100%;
-  }
-
-  .h-60 {
-    height: auto;
-  }
-}
-</style>
+<style scoped></style>
