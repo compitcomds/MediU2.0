@@ -10,6 +10,7 @@ const props = withDefaults(
     productId: string;
     quantity?: number;
     redirectToCart?: boolean;
+    deactivate?: boolean;
   }>(),
   {
     as: "button",
@@ -51,11 +52,11 @@ const addProductToCart = async () => {
     :is="props.as"
     :class="
       cn(
-        'flex items-center justify-between gap-5 rounded-full bg-[#238878] px-5 py-3 text-xl font-semibold text-white shadow disabled:animate-pulse disabled:cursor-not-allowed disabled:opacity-70',
+        `flex items-center justify-between gap-5 rounded-full bg-[#238878] px-5 py-3 text-xl font-semibold text-white shadow disabled:cursor-not-allowed disabled:opacity-70 ${isAddingProductToCart ? 'animate-pulse' : ''}`,
         $attrs.class as string,
       )
     "
-    :disabled="isAddingProductToCart"
+    :disabled="isAddingProductToCart || props.deactivate"
     @click="addProductToCart"
   >
     <slot

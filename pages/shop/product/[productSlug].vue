@@ -124,6 +124,7 @@
                   v-if="data.availableForSale"
                   :product-id="data.id"
                   :quantity="quantity"
+                  :deactivate="invalidDeliveryPincode"
                 />
                 <ShopProductCreateAnAlert
                   v-else
@@ -179,7 +180,10 @@
               </div>
             </div>
 
-            <ShopCheckDelivery />
+            <ShopCheckDelivery
+              v-model:deactivate="invalidDeliveryPincode"
+              class=""
+            />
 
             <div
               class="rounded-xl border bg-white p-6 transition-all duration-300"
@@ -291,6 +295,8 @@ const { data } = await useLazyAsyncData(
 );
 
 const quantity = ref(1);
+
+const invalidDeliveryPincode = ref(false);
 
 const accordionKeys = [
   {

@@ -55,6 +55,7 @@
               placeholder="Phone"
               class="w-full rounded-lg border border-gray-300 bg-white p-3"
               required
+              @input="validateMobileNumber"
             />
             <div class="grid gap-4 md:grid-cols-3">
               <input
@@ -72,6 +73,7 @@
                 placeholder="PIN code"
                 class="w-full rounded-lg border border-gray-300 bg-white p-3"
                 required
+                @input="validatePincode"
               />
             </div>
             <input
@@ -139,6 +141,8 @@ import { getUser } from "~/appwrite/auth";
 import { uploadFileInAppwrite } from "~/appwrite/prescription-upload";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 import getUserInfoForCheckout from "~/shopify/user/user-checkout";
+import { isValidPhoneNumber } from "libphonenumber-js";
+import { parsePhoneNumber } from "libphonenumber-js/mobile";
 
 const isSubmitting = ref(false);
 
@@ -171,6 +175,21 @@ const selectedPaymentMethod = ref<"online" | "cash">("online");
 const shippingDetails = computed(() => {
   return `${shipping.value.address}, ${shipping.value.city}, ${shipping.value.state} - ${shipping.value.pinCode}`;
 });
+
+const validateMobileNumber = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  const value = target.value;
+
+  shipping.value.phone = value.replace(/[^+\d]/g, "").replace(/(?!^)\+/g, "");
+};
+
+const validatePincode = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  const value = target.value;
+
+  const cleanedValue = value.replace(/\D/g, "");
+  shipping.value.pinCode = cleanedValue;
+};
 
 const showErrorIfNotExists = (vars: any) => {
   for (const key of Object.keys(vars)) {
@@ -254,6 +273,12 @@ const proceedWithCashPayment = async ({
   );
 };
 
+const applyValidation = () => {
+  if (!isValidPhoneNumber(shipping.value.phone, { defaultCountry: "IN" })) {
+    throw new Error("Please enter a valid phone number.");
+  }
+};
+
 const submitOrder = async () => {
   if (!!requiresPrescription.value && !uploadedFile.value) {
     toast.error(
@@ -266,6 +291,7 @@ const submitOrder = async () => {
 
   isSubmitting.value = true;
   try {
+    applyValidation();
     const userCartId = await userStore.getShopifyCartId();
     const appwriteUser = await getUser();
 

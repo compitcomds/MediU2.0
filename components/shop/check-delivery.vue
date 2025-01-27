@@ -15,6 +15,8 @@
         class="rounded-l-lg border-b-2 border-[#238878] bg-transparent px-4 py-2 text-lg shadow-sm transition-all duration-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#238878]"
         placeholder="Enter Pincode"
         v-model="pincode"
+        min="0"
+        @keydown="blockNegativeSign"
       />
       <button
         type="submit"
@@ -89,6 +91,11 @@ const { weight } = defineProps({
   },
 });
 
+const deactivate = defineModel("deactivate", {
+  type: Boolean,
+  default: false,
+});
+
 const isSubmitting = ref(false);
 const pincode = ref("");
 const checkedData = ref<any>(null);
@@ -102,12 +109,22 @@ const checkPincode = async () => {
   checkedData.value = null;
   try {
     const data = await appwriteCheckPincode(pincode.value, weight);
-    console.log(data);
     checkedData.value = data;
+    if (data.minEtd || data.maxEtd) {
+      deactivate.value = false;
+    } else {
+      deactivate.value = true;
+    }
   } catch (error) {
     console.error("Error checking pincode:", error);
   } finally {
     isSubmitting.value = false;
+  }
+};
+
+const blockNegativeSign = (event: KeyboardEvent) => {
+  if (event.key === "-") {
+    event.preventDefault();
   }
 };
 </script>
