@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   routeRules: {
     "/dashboard/**": { appMiddleware: ["auth"] },
     "/consultancy/**": { appMiddleware: ["auth"] },
-    "/checkout/**": { appMiddleware: ["auth"] },
+    "/checkout": { appMiddleware: ["auth"] },
     "/auth/login": { appMiddleware: ["auth"] },
     "/auth/register": { appMiddleware: ["auth"] },
   },

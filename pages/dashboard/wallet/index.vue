@@ -1,6 +1,6 @@
 <template>
   <DashboardAttachSidenav>
-    <div class="mb-20 mt-10 flex w-full flex-col items-center lg:mt-0">
+    <div class="mb-20 mt-10 flex w-full flex-col items-center lg:mt-14">
       <h2
         class="mb-10 text-3xl font-semibold uppercase tracking-wide md:text-5xl"
       >

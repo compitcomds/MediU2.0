@@ -7,6 +7,9 @@ const serverConfig = {
   APPWRITE_ORDERS_COLLECTION_ID: process.env
     .VITE_APPWRITE_ORDERS_COLLECTION_ID as string,
   APPWRITE_WALLET_ID: String(process.env.VITE_APPWRITE_WALLET_COLLECTION_ID),
+  APPWRITE_WALLET_TRANSACTIONS_ID: String(
+    process.env.VITE_APPWRITE_WALLET_TRANSACTIONS_ID,
+  ),
 };
 
 export default serverConfig;

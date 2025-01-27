@@ -50,7 +50,11 @@ async function updateDocumentPaymentStatus(
       "Invaid Transaction Id. The transaction id does not exists in our database.",
     );
 
-  await addToUserWalletServer(database, (documents[0] as any).userId, amount);
+  await addToUserWalletServer(database, (documents[0] as any).userId, amount, {
+    transactionId,
+    appwriteOrderId: documents[0].$id,
+    appwriteOrderType: "CONSULTANCY",
+  });
 
   return await database.updateDocument(
     serverConfig.APPWRITE_DATABASE,

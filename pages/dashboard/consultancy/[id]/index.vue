@@ -45,7 +45,7 @@
 
         <div>
           <h4 class="mb-2 text-sm font-semibold text-gray-500">
-            Total Amount Payable
+            Total Amount Paid
           </h4>
           <p class="text-lg text-[#238878]">₹{{ booking?.price }}</p>
         </div>

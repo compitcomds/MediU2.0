@@ -57,6 +57,11 @@ export default defineEventHandler(async (event) => {
       database,
       document.userId,
       document.walletAmountUsed,
+      {
+        appwriteOrderId: document.$id,
+        appwriteOrderType: "ORDER",
+        transactionId: "",
+      },
     );
 
     await updateOrderDocument(database, document.$id, {

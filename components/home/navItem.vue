@@ -1,224 +1,272 @@
 <template>
-  <div class="z-10 w-full bg-[#238878] text-black">
+  <nav class="w-full bg-[#238878] text-black" aria-label="Main navigation">
     <div class="relative bg-white">
-      <ul class="flex justify-center space-x-20 bg-[#238878] py-2 text-white">
-        <li class="group relative cursor-pointer py-2">
-          <nuxt-link to="/" class="text-xl font-semibold hover:opacity-70"
-            >Home</nuxt-link
+      <ul
+        class="flex justify-center space-x-20 bg-[#238878] py-2 text-white"
+        role="menubar"
+      >
+        <!-- Home -->
+        <li class="group relative py-2" role="none">
+          <nuxt-link
+            to="/"
+            class="text-xl font-semibold hover:opacity-70"
+            role="menuitem"
           >
+            Home
+          </nuxt-link>
         </li>
-        <li class="group relative cursor-pointer py-2">
-          <div
+
+        <!-- Hair Section -->
+        <li class="group relative py-2" role="none">
+          <button
             class="flex items-center gap-1 text-xl font-semibold text-white hover:opacity-70"
+            aria-expanded="false"
+            aria-haspopup="true"
+            role="menuitem"
           >
             Hair
-            <ChevronDown :size="16" />
-          </div>
-          <!-- Mega Menu Dropdown for Hair -->
+            <ChevronDown class="h-4 w-4" aria-hidden="true" />
+          </button>
+
           <div
-            class="bg-gary-200 invisible absolute -right-[500px] z-50 transform p-4 text-black opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:-right-[650px]"
+            class="invisible absolute -right-[500px] z-50 transform p-4 opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:-right-[650px]"
+            role="menu"
           >
             <div
-              class="grid grid-cols-1 gap-4 bg-slate-50 p-6 sm:grid-cols-2 md:w-[30vw] md:grid-cols-3 lg:w-[70vw] lg:grid-cols-4 xl:w-[55vw] xl:grid-cols-4"
+              class="grid grid-cols-1 gap-4 bg-slate-50 p-6 sm:grid-cols-2 md:w-[30vw] md:grid-cols-3 lg:w-[70vw] lg:grid-cols-4 xl:w-[55vw]"
             >
-              <!-- Concerns Related to Hair -->
-              <div>
-                <h2
-                  class="mb-4 w-fit text-left text-lg font-bold text-[#2d3748]"
-                >
+              <section>
+                <h2 class="mb-4 text-lg font-bold text-gray-800">
                   Hair Concerns
                 </h2>
-                <ul class="space-y-1 text-left">
-                  <li v-for="concern in hairConcerns" :key="concern.name">
+                <ul class="space-y-1" role="menu">
+                  <li
+                    v-for="concern in hairConcerns"
+                    :key="concern.name"
+                    role="none"
+                  >
                     <nuxt-link
                       :to="concern.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >{{ concern.name }}</nuxt-link
+                      role="menuitem"
                     >
+                      {{ concern.name }}
+                    </nuxt-link>
                   </li>
                 </ul>
-              </div>
+              </section>
 
-              <!-- Concerns Related to Ingredients -->
-              <div>
-                <h2
-                  class="mb-4 w-fit text-left text-lg font-bold text-[#2d3748]"
-                >
+              <section>
+                <h2 class="mb-4 text-lg font-bold text-gray-800">
                   Select By Ingredients
                 </h2>
-                <ul class="space-y-1 text-left">
+                <ul class="space-y-1" role="menu">
                   <li
                     v-for="ingredient in hairIngredients"
                     :key="ingredient.name"
+                    role="none"
                   >
                     <nuxt-link
                       :to="ingredient.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >{{ ingredient.name }}</nuxt-link
+                      role="menuitem"
                     >
+                      {{ ingredient.name }}
+                    </nuxt-link>
                   </li>
                 </ul>
-              </div>
+              </section>
 
-              <!-- Concerns Related to Hair Care -->
-              <div>
-                <h2
-                  class="mb-4 w-fit text-left text-lg font-bold text-[#2d3748]"
-                >
-                  Hair Care
-                </h2>
-                <ul class="space-y-1 text-left">
-                  <li v-for="item in hairCareItems" :key="item.name">
+              <section>
+                <h2 class="mb-4 text-lg font-bold text-gray-800">Hair Care</h2>
+                <ul class="space-y-1" role="menu">
+                  <li
+                    v-for="item in hairCareItems"
+                    :key="item.name"
+                    role="none"
+                  >
                     <nuxt-link
                       :to="item.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >{{ item.name }}</nuxt-link
+                      role="menuitem"
                     >
+                      {{ item.name }}
+                    </nuxt-link>
                   </li>
                 </ul>
-              </div>
+              </section>
 
-              <div class="hidden lg:block">
+              <aside class="hidden lg:block">
                 <HomeNavbarItemImageSlider />
-              </div>
+              </aside>
+
               <nuxt-link
                 to="/consultancy"
-                class="flex w-full items-center justify-between rounded-lg bg-gray-200 p-2 text-center hover:bg-gray-300"
-                >Consult Now
+                class="flex items-center justify-between rounded-lg bg-gray-200 p-2 text-center text-black hover:bg-gray-300"
+                role="menuitem"
+              >
+                <span>Consult Now</span>
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  class="h-6 w-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-move-right"
+                  aria-hidden="true"
                 >
                   <path d="M18 8L22 12L18 16" />
-                  <path d="M2 12H22" /></svg
-              ></nuxt-link>
+                  <path d="M2 12H22" />
+                </svg>
+              </nuxt-link>
             </div>
           </div>
         </li>
 
-        <!-- SKIN  -->
-        <li class="group relative cursor-pointer py-2">
-          <div
+        <!-- Skin Section -->
+        <li class="group relative py-2" role="none">
+          <button
             class="flex items-center gap-1 text-xl font-semibold hover:opacity-70"
+            aria-expanded="false"
+            aria-haspopup="true"
+            role="menuitem"
           >
             Skin
-            <ChevronDown :size="16" />
-          </div>
-          <!-- Mega Menu Dropdown for Hair -->
+            <ChevronDown class="h-4 w-4" aria-hidden="true" />
+          </button>
+
           <div
-            class="bg-gary-200 invisible absolute z-50 transform p-4 text-black opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:right-32 lg:-left-56"
+            class="invisible absolute z-50 transform p-4 opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:right-32 lg:-left-56"
+            role="menu"
           >
             <div
-              class="grid grid-cols-1 gap-4 bg-slate-50 p-6 sm:grid-cols-2 md:w-[30vw] md:grid-cols-3 lg:w-[70vw] lg:grid-cols-4 xl:w-[55vw] xl:grid-cols-4"
+              class="grid grid-cols-1 gap-4 bg-slate-50 p-6 sm:grid-cols-2 md:w-[30vw] md:grid-cols-3 lg:w-[70vw] lg:grid-cols-4 xl:w-[55vw]"
             >
-              <div>
-                <h2 class="mb-4 text-left text-lg font-bold text-[#2d3748]">
+              <section>
+                <h2 class="mb-4 text-lg font-bold text-gray-800">
                   Shop By Concern
                 </h2>
-                <ul class="space-y-1 text-left">
-                  <li v-for="concern in skinConcerns" :key="concern.name">
+                <ul class="space-y-1" role="menu">
+                  <li
+                    v-for="concern in skinConcerns"
+                    :key="concern.name"
+                    role="none"
+                  >
                     <nuxt-link
                       :to="concern.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >{{ concern.name }}</nuxt-link
+                      role="menuitem"
                     >
+                      {{ concern.name }}
+                    </nuxt-link>
                   </li>
                 </ul>
-              </div>
+              </section>
 
-              <div>
-                <h2 class="mb-4 text-left text-lg font-bold text-[#2d3748]">
+              <section>
+                <h2 class="mb-4 text-lg font-bold text-gray-800">
                   Select By Ingredients
                 </h2>
-                <ul class="space-y-1 text-left">
+                <ul class="space-y-1" role="menu">
                   <li
                     v-for="ingredient in skinIngredients"
                     :key="ingredient.name"
+                    role="none"
                   >
                     <nuxt-link
                       :to="ingredient.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >{{ ingredient.name }}</nuxt-link
+                      role="menuitem"
                     >
+                      {{ ingredient.name }}
+                    </nuxt-link>
                   </li>
                 </ul>
-              </div>
+              </section>
 
-              <div>
-                <h2 class="mb-4 text-left text-lg font-bold text-[#2d3748]">
-                  Skin Care
-                  <hr />
-                </h2>
-                <ul class="space-y-1 text-left">
-                  <li v-for="item in skinCareItems" :key="item.name">
+              <section>
+                <h2 class="mb-4 text-lg font-bold text-gray-800">Skin Care</h2>
+                <ul class="space-y-1" role="menu">
+                  <li
+                    v-for="item in skinCareItems"
+                    :key="item.name"
+                    role="none"
+                  >
                     <nuxt-link
                       :to="item.to"
                       class="text-gray-800 hover:font-semibold hover:text-green-600"
-                      >{{ item.name }}</nuxt-link
+                      role="menuitem"
                     >
+                      {{ item.name }}
+                    </nuxt-link>
                   </li>
                 </ul>
-              </div>
-              <div class="hidden lg:block">
+              </section>
+
+              <aside class="hidden lg:block">
                 <HomeNavbarItemImageSlider />
-              </div>
+              </aside>
+
               <nuxt-link
                 to="/consultancy"
-                class="flex w-full items-center justify-between rounded-lg bg-gray-200 p-2 text-center hover:bg-gray-300"
-                >Consult Now
+                class="flex items-center justify-between rounded-lg bg-gray-200 p-2 text-center text-black hover:bg-gray-300"
+                role="menuitem"
+              >
+                <span>Consult Now</span>
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  class="h-6 w-6"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-move-right"
+                  aria-hidden="true"
                 >
                   <path d="M18 8L22 12L18 16" />
-                  <path d="M2 12H22" /></svg
-              ></nuxt-link>
+                  <path d="M2 12H22" />
+                </svg>
+              </nuxt-link>
             </div>
           </div>
         </li>
 
-        <li class="group relative cursor-pointer py-2">
+        <!-- Baby Care -->
+        <li class="group relative py-2" role="none">
           <nuxt-link
             to="/coming-soon"
             class="text-xl font-semibold hover:opacity-70"
-            >Baby Care</nuxt-link
+            role="menuitem"
           >
+            Baby Care
+          </nuxt-link>
         </li>
 
-        <li class="group relative cursor-pointer py-2">
-          <div
+        <!-- Mediu Kit -->
+        <li class="group relative py-2" role="none">
+          <button
             class="flex w-28 items-center gap-1 text-xl font-semibold hover:opacity-70"
+            aria-expanded="false"
+            aria-haspopup="true"
+            role="menuitem"
           >
             Mediu Kit
-            <ChevronDown :size="16" />
-          </div>
+            <ChevronDown class="h-4 w-4" aria-hidden="true" />
+          </button>
 
           <div
-            class="invisible absolute top-full z-50 w-[90vw] max-w-3xl transform bg-white p-4 text-black opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 lg:-left-[500px]"
+            class="invisible absolute top-full z-50 w-[90vw] max-w-3xl transform bg-white p-4 opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 lg:-left-[500px]"
+            role="menu"
           >
-            <div class="flex w-full justify-between p-6">
-              <div class="8/12 grid grid-cols-3 gap-6">
+            <div class="p-6">
+              <div class="grid grid-cols-3 gap-6">
                 <nuxt-link
                   v-for="kit in kits"
                   :key="kit.title"
                   :to="kit.to"
-                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 text-lg font-semibold text-[#2d3748] hover:text-[#238878] hover:underline hover:shadow-lg"
+                  class="flex items-center justify-center rounded-2xl border border-[#238878] p-6 text-lg font-semibold text-gray-800 hover:text-[#238878] hover:underline hover:shadow-lg"
+                  role="menuitem"
                 >
                   {{ kit.title }}
                 </nuxt-link>
@@ -227,26 +275,33 @@
           </div>
         </li>
 
-        <li class="group relative cursor-pointer py-2">
-          <div
+        <!-- Brands -->
+        <li class="group relative py-2" role="none">
+          <button
             class="flex items-center gap-1 text-xl font-semibold hover:opacity-70"
+            aria-expanded="false"
+            aria-haspopup="true"
+            role="menuitem"
           >
             Brands
-            <ChevronDown :size="16" />
-          </div>
+            <ChevronDown class="h-4 w-4" aria-hidden="true" />
+          </button>
           <HomeNavbarBrandItems />
         </li>
 
-        <li class="group relative cursor-pointer py-2">
+        <!-- Supplements -->
+        <li class="group relative py-2" role="none">
           <nuxt-link
             to="/coming-soon"
             class="text-xl font-semibold hover:opacity-70"
-            >Supplements</nuxt-link
+            role="menuitem"
           >
+            Supplements
+          </nuxt-link>
         </li>
       </ul>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script setup lang="ts">
