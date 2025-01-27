@@ -71,8 +71,7 @@
             class="w-full rounded-r-md border border-gray-300 bg-white p-3 text-black md:w-5/6"
             :class="{ 'border-red-500': phoneError }"
             placeholder="XXXXXXXXXX"
-            maxlength="10"
-            @blur="validatePhone"
+            @input="validateMobileNumber"
           />
         </div>
         <p v-if="phoneError" class="text-sm text-red-500">
@@ -112,6 +111,8 @@
 <script setup lang="ts">
 import { getUser } from "~/appwrite/auth";
 import type { Models } from "appwrite";
+import { isValidPhoneNumber } from "libphonenumber-js";
+import { toast } from "vue-sonner";
 
 const router = useRouter();
 
@@ -174,20 +175,35 @@ const validateEmail = () => {
   console.log("Email Validation:", !emailPattern.test(form.value.email)); // Check validation state
 };
 
-const validatePhone = () => {
-  const phonePattern = /^\d{10}$/;
-  phoneError.value = !phonePattern.test(form.value.phone);
-  console.log("Phone Validation:", !phonePattern.test(form.value.phone)); // Check validation state
+const validateMobileNumber = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  const value = target.value;
+
+  form.value.phone = value.replace(/\D/g, "");
+};
+
+const applyValidation = () => {
+  if (!isValidPhoneNumber(form.value.phone, { defaultCountry: "IN" })) {
+    throw new Error("Please enter a valid phone number.");
+  }
+  if (!form.value.firstName) {
+    throw new Error("Please enter your first name.");
+  }
+  if (!form.value.lastName) {
+    throw new Error("Please enter your last name.");
+  }
 };
 
 const submitForm = async () => {
   try {
+    applyValidation();
     if (uploadedImage.value) form.value.image = uploadedImage.value;
     router.push({
       path: "/consultancy/summary",
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Failed to save consultancy details:", error);
+    toast.error(error.message, { richColors: true });
   }
 };
 

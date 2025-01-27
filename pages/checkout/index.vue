@@ -142,7 +142,6 @@ import { uploadFileInAppwrite } from "~/appwrite/prescription-upload";
 import updateCartBuyerDetails from "~/shopify/cart/cart-buyer-identity-update";
 import getUserInfoForCheckout from "~/shopify/user/user-checkout";
 import { isValidPhoneNumber } from "libphonenumber-js";
-import { parsePhoneNumber } from "libphonenumber-js/mobile";
 
 const isSubmitting = ref(false);
 
