@@ -4,12 +4,11 @@ export default defineNuxtConfig({
   modules: [
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
-    "vue3-carousel-nuxt",
     "@nuxtjs/sitemap",
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
-    "@vueuse/nuxt",
     "@nuxtjs/robots",
+    "@vueuse/nuxt",
   ],
   compatibilityDate: "2024-09-08",
   runtimeConfig: {

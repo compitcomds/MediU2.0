@@ -1,6 +1,8 @@
 <template>
-  <main class="w-full lg:w-3/4 lg:pl-8 pb-20 pt-5">
-    <div class="mb-6 rounded-lg bg-white p-2 shadow-lg overflow-scroll max-w-[500px] md:max-w-full w-full">
+  <main class="w-full pb-20 pt-5 lg:w-3/4 lg:pl-8">
+    <div
+      class="mb-6 w-full max-w-[500px] overflow-auto rounded-lg bg-white p-2 shadow-lg md:max-w-full"
+    >
       <table class="min-w-full table-auto border-collapse text-left">
         <thead>
           <tr class="border-b-2 text-sm font-semibold text-gray-700">

@@ -108,7 +108,6 @@ export const getShopifyAccessTokenUsingAppwrite = async () => {
 
 async function createLoggedSession(data: { email: string; password: string }) {
   try {
-    await account.deleteSession("current");
     await account.createEmailPasswordSession(data.email, data.password);
   } catch (error: any) {
     await account.createEmailPasswordSession(data.email, data.password);
