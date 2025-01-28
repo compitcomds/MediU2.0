@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <header>
     <HomeMobileNav />
 
     <div
@@ -8,9 +8,7 @@
         { '-translate-y-full opacity-0': !isNavbarVisible },
       ]"
     >
-      <div class="h-10">
-        <HomeSearch />
-      </div>
+      <HomeSearch />
 
       <div
         :class="[
@@ -22,7 +20,7 @@
         <HomeNavItem />
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup>

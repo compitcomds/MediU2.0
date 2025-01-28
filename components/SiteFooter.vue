@@ -92,10 +92,10 @@
 
         <ul class="space-y-2 lg:text-base xl:text-lg">
           <li class="list-disc">
-            <a href="/shop" class="hover:underline">Skin</a>
+            <nuxt-link to="/shop" class="hover:underline">Skin</nuxt-link>
           </li>
           <li class="list-disc">
-            <a href="/shop" class="hover:underline">Hair</a>
+            <nuxt-link to="/shop" class="hover:underline">Hair</nuxt-link>
           </li>
           <li class="list-disc">
             <nuxt-link to="/coming-soon" class="hover:underline"
@@ -122,7 +122,7 @@
 
         <ul class="space-y-2 lg:text-base xl:text-lg">
           <li class="list-disc">
-            <a href="/faq" class="hover:underline">FAQs</a>
+            <nuxt-link to="/faq" class="hover:underline">FAQs</nuxt-link>
           </li>
           <li class="list-disc">
             <nuxt-link to="/legal/terms-and-conditions" class="hover:underline"
@@ -151,8 +151,7 @@
     <div class="container mx-auto mt-8 text-center">
       <div class="mb-4 h-0.5 w-full bg-slate-500"></div>
       <nuxt-link to="#" class="text-sm"
-        >© 2024 All rights reserved. DCLARIO TECHNOLOGIES INDIA PRIVATE
-        LIMITED</nuxt-link
+        >© 2024 All rights reserved. MediU Retail Ltd.</nuxt-link
       >
     </div>
   </footer>
