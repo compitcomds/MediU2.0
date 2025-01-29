@@ -108,10 +108,10 @@
           </li>
           <li v-if="!!user">
             <nuxt-link
-              to="/dashboard/wallet"
+              to="/dashboard/profile"
               class="block px-4 py-2 text-black hover:bg-gray-100"
               @click="toggleDropdown"
-              >Your Wallet</nuxt-link
+              >Your Profile</nuxt-link
             >
           </li>
           <li v-if="!!user">

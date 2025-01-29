@@ -1,14 +1,13 @@
 <script setup>
 import VueMagnifier from "@websitebeaver/vue-magnifier";
 import emblaCarouselVue from "embla-carousel-vue";
-import Autoplay from "embla-carousel-autoplay";
 import { ChevronRight, ChevronLeft } from "lucide-vue-next";
 import "@websitebeaver/vue-magnifier/styles.css";
 
 const props = defineProps({
   images: Array,
 });
-const [emblaRef, emblaApi] = emblaCarouselVue({ loop: true }, [Autoplay()]);
+const [emblaRef, emblaApi] = emblaCarouselVue({ loop: true });
 const currentSlide = ref(0);
 
 const changeSlide = (index) => {
