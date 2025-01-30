@@ -12,10 +12,7 @@
       <div class="md:w-1/5">
         <div class="mb-1 flex items-center gap-2">
           <p class="flex items-center gap-2">
-            <span class="flex items-center gap-1 text-[#eab308]">
-              <Star fill="#eab308" v-for="_ in averageRating" />
-              <Star fill="#e5e7eb" v-for="_ in (5 - averageRating) % 5" />
-            </span>
+            <StarsOutOfFive :rating="averageRating" />
             5.00 out of {{ averageRating }}
           </p>
         </div>
@@ -80,7 +77,10 @@
     </div>
 
     <div class="mt-6 text-center">
-      <button @click="" class="bg-[#238878] px-8 py-2 font-medium text-white">
+      <button
+        @click=""
+        class="hidden bg-[#238878] px-8 py-2 font-medium text-white"
+      >
         Load More
       </button>
     </div>
@@ -97,12 +97,15 @@ const props = defineProps<{
 }>();
 
 const reviews = ref<Models.Document[]>([]);
+
+const emit = defineEmits(["update:rating"]);
+
 const averageRating = computed(() => {
   if (reviews.value.length === 0) return 0;
   const avg =
     reviews.value.reduce((sum, review) => sum + review.rating, 0) /
     reviews.value.length;
-  return Math.floor(avg);
+  return avg;
 });
 const groupedReviews = computed(() => groupRatings(reviews.value));
 
@@ -121,6 +124,17 @@ watch(
     reviews.value = fetchedReviews.documents;
   },
   { immediate: true },
+);
+
+watch(
+  averageRating,
+  () => {
+    emit("update:rating", {
+      averageRating: averageRating.value,
+      reviews: reviews.value.length,
+    });
+  },
+  { immediate: true, deep: true },
 );
 
 function groupRatings(reviews: Models.Document[]) {

@@ -46,13 +46,16 @@
 
           <div class="flex items-center space-x-3 text-gray-700">
             <div class="flex items-center gap-1 text-yellow-500">
-              <p class="flex items-center gap-1 text-[#eab308]">
-                <Star :size="16" fill="#eab308" v-for="i in 5" />
-              </p>
-              <div class="font-medium">4.9</div>
+              <StarsOutOfFive
+                :rating="rating.averageRating"
+                :class="'w-28 text-xs'"
+              />
+              <p class="font-medium">{{ rating.averageRating }}</p>
             </div>
             <div>|</div>
-            <div class="text-gray-500">50 Verified Ratings</div>
+            <div class="text-gray-500">
+              {{ rating.reviews }} Verified Ratings
+            </div>
           </div>
 
           <div class="space-y-4">
@@ -180,10 +183,7 @@
               </div>
             </div>
 
-            <ShopCheckDelivery
-              v-model:deactivate="invalidDeliveryPincode"
-              class=""
-            />
+            <ShopCheckDelivery v-model:deactivate="invalidDeliveryPincode" />
 
             <div
               class="rounded-xl border bg-white p-6 transition-all duration-300"
@@ -272,12 +272,15 @@
         />
       </div>
     </div>
-    <ShopProductReviews v-if="!!data" :product-id="data.productId" />
+    <ShopProductReviews
+      v-if="!!data"
+      :product-id="data.productId"
+      @update:rating="updateRating"
+    />
   </div>
 </template>
 
 <script setup>
-import { Star } from "lucide-vue-next";
 import { getProductData } from "~/shopify/productDetails";
 import { ClipboardPlus } from "lucide-vue-next";
 import getProductMetadata from "~/shopify/get-product-metadata";
@@ -287,6 +290,15 @@ const route = useRoute();
 const productHandle = route.params.productSlug;
 
 const productMetadata = await getProductMetadata(productHandle);
+
+const rating = ref({
+  averageRating: 5,
+  reviews: 0,
+});
+
+const updateRating = (r) => {
+  rating.value = r;
+};
 
 const { data } = await useLazyAsyncData(
   productHandle,
