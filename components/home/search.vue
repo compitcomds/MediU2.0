@@ -11,7 +11,7 @@
     </nuxt-link>
     <form
       @submit.prevent="submitForm"
-      class="group relative flex h-[40px] justify-center rounded-md lg:w-6/12 xl:h-[50px]"
+      class="group relative flex h-[30px] justify-center rounded-md md:h-[40px] lg:w-6/12 xl:h-[50px]"
     >
       <input
         type="text"
@@ -23,7 +23,7 @@
       />
       <button
         type="submit"
-        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-6 py-3 text-lg text-white xxl:px-16"
+        class="inline-flex items-center gap-2 rounded-r-full bg-[#4CA9EE] px-3 py-2 text-lg text-white md:px-6 md:py-3 xxl:px-16"
       >
         <span class="">
           <svg

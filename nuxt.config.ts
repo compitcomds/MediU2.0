@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
@@ -32,5 +34,14 @@ export default defineNuxtConfig({
     "/checkout": { appMiddleware: ["auth"] },
     "/auth/login": { appMiddleware: ["auth"] },
     "/auth/register": { appMiddleware: ["auth"] },
+  },
+
+  site: {
+    url: "https://www.mediu.in",
+    name: "Mediu",
+  },
+
+  sitemap: {
+    sources: ["/api/__sitemap__/urls"],
   },
 });

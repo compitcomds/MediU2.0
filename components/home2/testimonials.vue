@@ -18,7 +18,7 @@ const testimonials = [
   },
   {
     name: "Anant Raj",
-    photo: "https://ccdstest.b-cdn.net/Medi%20u/IMG_20240728_143911.jpg",
+    photo: "https://ccdstest.b-cdn.net/Medi%20u/Anant%20Raj.webp",
     text: "I've been a patient at this clinic for over a year, and I couldn’t be more impressed with the level of care I receive. The staff is always professional.",
   },
   {

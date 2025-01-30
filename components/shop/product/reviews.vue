@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mt-10 overflow-hidden rounded-xl border px-5 py-5 md:px-10 md:py-10"
+    class="mb-16 mt-10 overflow-hidden rounded-xl border px-5 py-5 md:px-10 md:py-10"
     id="customer-review-section"
   >
     <h2 class="mb-8 text-center text-xl font-bold text-[#238878] lg:text-2xl">
@@ -23,15 +23,12 @@
         <div class="flex flex-col gap-y-3">
           <div
             v-for="(people, index) in groupedReviews.reverse()"
-            class="flex items-center gap-8"
+            class="flex items-center gap-4 md:gap-8"
           >
             <div class="flex items-center gap-1">
-              <span class="flex items-center gap-1 text-[#eab308]">
-                <Star fill="#eab308" v-for="_ in 5 - index" />
-                <Star fill="#e5e7eb" v-for="_ in index % 5" />
-              </span>
+              <StarsOutOfFive :rating="5 - index" />
             </div>
-            <div class="relative h-5 w-48 bg-gray-200">
+            <div class="relative h-5 w-40 bg-gray-200 md:w-48">
               <div
                 class="absolute left-0 top-0 h-full bg-[#238878]"
                 :style="{

@@ -1,0 +1,32 @@
+# www.robotstxt.org/
+# Allow all robots complete access by default
+User-agent: *
+Allow: /
+
+# Disallow sensitive and utility pages
+Disallow: /api/
+Disallow: /auth/
+Disallow: /auth/login/
+Disallow: /auth/register/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /search/
+Disallow: /consultancy/
+Disallow: /self-assessment/
+Disallow: /shop/
+Disallow: /shop/product/
+Disallow: /shop/product/[productSlug]/
+Disallow: /*?*
+
+# Block common bad bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.mediu.in/sitemap.xml 

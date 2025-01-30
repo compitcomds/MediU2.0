@@ -232,7 +232,7 @@
 
       <div class="my-10 max-w-full lg:my-20">
         <div
-          class="flex items-center justify-around space-x-2 border-b-2 border-gray-300"
+          class="flex max-w-full items-center justify-around overflow-x-auto border-b-2 border-gray-300 md:gap-x-2"
         >
           <button
             v-for="(item, index) in accordionKeys"
@@ -243,7 +243,7 @@
                 ? 'w-full bg-[#238878] text-white'
                 : 'w-full border-b-2 border-transparent text-[#238878] hover:border-[#238878]'
             "
-            class="rounded-md px-4 py-3 text-sm font-medium transition-colors duration-300"
+            class="min-w-fit text-nowrap rounded-md px-2 py-3 text-xs font-medium transition-colors duration-300 md:px-4 md:text-sm"
           >
             {{ item.name }}
           </button>
