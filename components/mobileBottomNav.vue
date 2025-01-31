@@ -2,6 +2,7 @@
   <div class="fixed bottom-0 z-50 block w-full bg-[#238878] lg:hidden">
     <div class="btm-nav z-50 flex items-center justify-center bg-[#238878] p-4">
       <nuxt-link to="/">
+        <span class="sr-only">Home</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -21,6 +22,7 @@
         </svg>
       </nuxt-link>
       <nuxt-link to="/shop">
+        <span class="sr-only">Shop</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -50,6 +52,7 @@
         aria-label="Cart"
       >
         <!-- Shopping Cart SVG Icon -->
+        <span class="sr-only">User Cart</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -68,16 +71,14 @@
             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
           />
         </svg>
-        <!-- Badge for Cart Item Count -->
-        <span class="absolute -top-5 right-4 md:right-16">
-          <div
-            class="inline-flex items-center rounded-full border-2 border-white bg-red-500 px-1.5 py-0.5 text-xs font-semibold leading-4 text-white"
-          >
-            {{ totalItems }}
-          </div>
+        <span
+          class="absolute -top-5 right-4 inline-flex items-center rounded-full border-2 border-white bg-red-500 px-1.5 py-0.5 text-xs font-semibold leading-4 text-white md:right-16"
+        >
+          {{ totalItems }}
         </span>
       </nuxt-link>
       <nuxt-link to="/dashboard">
+        <span class="sr-only">User Dashboard</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -99,7 +100,13 @@
   </div>
 </template>
 <script setup lang="ts">
+import getCountOfCartDataItems from "~/shopify/cart/get-count-items";
+
 const shopStore = useShopStore();
 const { totalItems } = storeToRefs(shopStore);
+
+onMounted(async () => {
+  totalItems.value = await getCountOfCartDataItems();
+});
 </script>
 <style scoped></style>

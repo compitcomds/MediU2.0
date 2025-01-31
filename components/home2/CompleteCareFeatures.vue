@@ -1,11 +1,11 @@
 <template>
   <div class="mb-10 space-y-6 px-4 lg:mb-28 lg:px-16 xl:px-[163px]">
-    <div class="flex flex-col lg:space-y-6">
-      <h1 class="text-center text-2xl text-gray-500 lg:text-4xl">We Offer</h1>
-      <h2 class="text-center text-2xl font-bold text-[#238878] md:text-6xl">
-        Complete Care
-      </h2>
-    </div>
+    <h2 class="mb-6 text-center text-2xl text-gray-500 lg:text-4xl">
+      We Offer
+    </h2>
+    <h3 class="text-center text-2xl font-bold text-[#238878] md:text-6xl">
+      Complete Care
+    </h3>
 
     <div class="mx-auto grid grid-cols-1 gap-4 md:grid-cols-3">
       <!-- Card 1 -->
@@ -63,14 +63,12 @@
             accurate diagnoses and customized care plans tailored to your needs.
           </p>
         </div>
-        <div class="flex w-full justify-center">
-          <nuxt-link
-            to="/consultancy"
-            class="zoom-button rounded-full bg-[#238878] px-6 py-3 text-2xl text-white hover:ease-in-out"
-          >
-            Consult now
-          </nuxt-link>
-        </div>
+        <nuxt-link
+          to="/consultancy"
+          class="rounded-full bg-[#238878] px-6 py-3 text-2xl text-white transition-transform duration-300 ease-in-out hover:scale-110 hover:ease-in-out"
+        >
+          Consult now
+        </nuxt-link>
       </div>
 
       <!-- Card 2 -->
@@ -155,14 +153,12 @@
             supports your healthcare team in providing effective care.
           </p>
         </div>
-        <div class="flex w-full justify-center">
-          <nuxt-link
-            to="/self-assessment"
-            class="zoom-button rounded-full bg-[#238878] px-6 py-3 text-2xl text-white"
-          >
-            Diagnose
-          </nuxt-link>
-        </div>
+        <nuxt-link
+          to="/self-assessment"
+          class="rounded-full bg-[#238878] px-6 py-3 text-2xl text-white transition-transform duration-300 ease-in-out hover:scale-110"
+        >
+          Diagnose
+        </nuxt-link>
       </div>
 
       <!-- Card 3 -->
@@ -200,24 +196,13 @@
             education, and support to achieve better health outcomes.
           </p>
         </div>
-        <div class="flex w-full justify-center">
-          <nuxt-link
-            to="/shop"
-            class="zoom-button rounded-full bg-[#238878] px-6 py-3 text-2xl text-white"
-          >
-            Buy Now
-          </nuxt-link>
-        </div>
+        <nuxt-link
+          to="/shop"
+          class="rounded-full bg-[#238878] px-6 py-3 text-2xl text-white transition-transform duration-300 ease-in-out hover:scale-110"
+        >
+          Buy Now
+        </nuxt-link>
       </div>
     </div>
   </div>
 </template>
-<style scoped>
-.zoom-button {
-  transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.zoom-button:hover {
-  transform: scale(1.1); /* Scale up on hover */
-}
-</style>

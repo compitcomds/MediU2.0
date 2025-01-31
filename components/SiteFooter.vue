@@ -88,7 +88,7 @@
         <h2 class="mb-4 font-bold lg:text-lg xl:text-xl">
           Most Popular Categories
         </h2>
-        <div class="mb-4 h-0.5 w-4/6 bg-white text-center"></div>
+        <hr class="mb-4 h-0.5 w-4/6 bg-white text-center" />
 
         <ul class="space-y-2 lg:text-base xl:text-lg">
           <li class="list-disc">
@@ -118,7 +118,7 @@
         class="mb-6 flex w-full flex-col items-center justify-center md:mb-0 md:w-1/3"
       >
         <h2 class="mb-4 font-bold lg:text-lg xl:text-xl">Customer Services</h2>
-        <div class="mb-4 h-0.5 w-4/6 bg-white text-center"></div>
+        <hr class="mb-4 h-0.5 w-4/6 bg-white text-center" />
 
         <ul class="space-y-2 lg:text-base xl:text-lg">
           <li class="list-disc">

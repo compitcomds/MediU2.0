@@ -34,7 +34,7 @@ const testimonials = [
 
   {
     name: "Rahul Soni",
-    photo: "https://www.compitcom.com/_nuxt/rahul.DWItOIZd.jpg",
+    photo: "https://ccdstest.b-cdn.net/Medi%20u/rahul.webp",
     text: "Locating a trustworthy healthcare provider isn't always easy, but the doctors here are not only extremely competent but also deeply attentive to their patients.",
   },
 ];

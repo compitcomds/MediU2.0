@@ -41,75 +41,70 @@
     <!-- Mobile Dropdown Menu -->
     <div
       v-if="isMenuOpen"
-      class="absolute left-0 top-16 z-40 w-full bg-white text-[#238878] shadow-md"
+      class="absolute left-0 top-16 z-40 w-full bg-white px-4 py-2 text-[#238878] shadow-md"
     >
-      <div class="px-4 py-2">
+      <div
+        v-for="(item, index) in menuItems"
+        :key="index"
+        class="border-t py-3"
+      >
         <div
-          v-for="(item, index) in menuItems"
-          :key="index"
-          class="border-t py-3"
+          @click="item.subItems.length ? toggleDropdown(index) : null"
+          class="flex cursor-pointer items-center justify-between px-4 py-2 text-lg"
         >
-          <div
-            @click="item.subItems.length ? toggleDropdown(index) : null"
-            class="flex cursor-pointer items-center justify-between px-4 py-2 text-lg"
+          <span class="font-semibold">{{ item.name }}</span>
+          <svg
+            v-if="item.subItems.length"
+            :class="{ 'rotate-180 transform': isDropdownOpen(index) }"
+            class="h-4 w-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span class="font-semibold">{{ item.name }}</span>
-            <svg
-              v-if="item.subItems.length"
-              :class="{ 'rotate-180 transform': isDropdownOpen(index) }"
-              class="h-4 w-4 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </div>
 
-          <div v-if="isDropdownOpen(index)" class="pl-4 text-[#238878]">
+        <div v-if="isDropdownOpen(index)" class="pl-4 text-[#238878]">
+          <div
+            v-for="(subItem, subIndex) in item.subItems"
+            :key="subIndex"
+            class="cursor-pointer py-2 hover:bg-gray-100"
+          >
+            <a
+              v-if="subItem.link"
+              :href="subItem.link"
+              class="text-[#89ccc0] hover:underline"
+            >
+              {{ subItem.name }}
+            </a>
+            <span v-else>{{ subItem.name }}</span>
+
             <div
-              v-for="(subItem, subIndex) in item.subItems"
-              :key="subIndex"
-              class="cursor-pointer py-2 hover:bg-gray-100"
+              v-if="typeof subItem === 'object' && subItem.subItems"
+              class="pl-4"
             >
-              <!-- Use normal <a> tag instead of <router-link> -->
-              <a
-                v-if="subItem.link"
-                :href="subItem.link"
-                class="text-[#89ccc0] hover:underline"
-              >
-                {{ subItem.name }}
-              </a>
-              <span v-else>{{ subItem.name }}</span>
-              <!-- Fallback if no link -->
-
-              <!-- Render nested sub-items -->
               <div
-                v-if="typeof subItem === 'object' && subItem.subItems"
-                class="pl-4"
+                v-for="(nestedSubItem, nestedSubIndex) in subItem.subItems"
+                :key="nestedSubIndex"
+                class="cursor-pointer py-1 hover:bg-gray-200"
               >
-                <div
-                  v-for="(nestedSubItem, nestedSubIndex) in subItem.subItems"
-                  :key="nestedSubIndex"
-                  class="cursor-pointer py-1 hover:bg-gray-200"
+                <!-- Use <a> tag for nested sub-items -->
+                <a
+                  v-if="nestedSubItem.link"
+                  :href="nestedSubItem.link"
+                  class="text-[#89ccc0] hover:underline"
                 >
-                  <!-- Use <a> tag for nested sub-items -->
-                  <a
-                    v-if="nestedSubItem.link"
-                    :href="nestedSubItem.link"
-                    class="text-[#89ccc0] hover:underline"
-                  >
-                    {{ nestedSubItem.name }}
-                  </a>
-                  <span v-else>{{ nestedSubItem.name }}</span>
-                  <!-- Fallback if no link -->
-                </div>
+                  {{ nestedSubItem.name }}
+                </a>
+                <span v-else>{{ nestedSubItem.name }}</span>
+                <!-- Fallback if no link -->
               </div>
             </div>
           </div>

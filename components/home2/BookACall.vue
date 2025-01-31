@@ -49,6 +49,7 @@
             href="https://wa.me/917728026044"
             class="hidden rounded-full p-3 shadow-lg backdrop-blur-lg sm:p-4 lg:block"
           >
+            <span class="sr-only">Whatsapp: 917728026044</span>
             <img
               src="https://ccdstest.b-cdn.net/Medi%20u/Frame.png"
               class="w-8 hover:scale-110 md:w-24"
@@ -61,10 +62,4 @@
   </section>
 </template>
 
-<script>
-export default {};
-</script>
-
-<style scoped>
-/* Add any additional styles here if needed */
-</style>
+<script setup lang="ts"></script>

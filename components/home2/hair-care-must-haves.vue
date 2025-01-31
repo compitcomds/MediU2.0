@@ -26,23 +26,26 @@ const productHandles: Record<string, string[]> = {
     "glenamrk-lulican-anti-dandruff-shampoo",
   ],
 };
-const fetchedProducts = ref<Record<string, ProductBasicDetailsType[]>>({
-  hair: [],
-  skin: [],
-  babyCare: [],
-});
+
+const fetchProductHandles = async () => {
+  const data: Record<string, ProductBasicDetailsType[]> = {
+    hair: [],
+    skin: [],
+    babyCare: [],
+  };
+  for (const key of Object.keys(productHandles)) {
+    const products = await getProductsByHandle(productHandles[key]);
+    data[key] = products;
+  }
+  return data;
+};
+
+const fetchedProducts = await fetchProductHandles();
 
 const selectedCategory = ref(categories[0].value);
 
 const changeCategory = (newCategory: string) => {
   selectedCategory.value = newCategory;
-};
-
-const fetchProductHandles = async () => {
-  for (const key of Object.keys(productHandles)) {
-    const products = await getProductsByHandle(productHandles[key]);
-    fetchedProducts.value[key] = products;
-  }
 };
 
 const diffSectionId = "hair-care-diff";
@@ -63,10 +66,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", adjustResizerWidth);
-});
-
-onMounted(() => {
-  fetchProductHandles();
 });
 </script>
 
@@ -149,19 +148,17 @@ onMounted(() => {
                 </h3></nuxt-link
               >
               <div
-                class="flex items-center justify-between text-sm sm:text-lg md:text-xl"
+                class="flex items-center gap-1 text-sm sm:text-lg md:text-xl"
               >
-                <div class="flex items-center gap-1">
-                  <p class="font-bold text-[#4ca9ee]">
-                    ₹{{ product.price.amount }}
-                  </p>
-                  <p
-                    class="sm:text-md text-sm text-gray-500 line-through"
-                    v-if="product.compareAtPrice.amount > product.price.amount"
-                  >
-                    ₹{{ product.compareAtPrice.amount }}
-                  </p>
-                </div>
+                <p class="font-bold text-[#4ca9ee]">
+                  ₹{{ product.price.amount }}
+                </p>
+                <p
+                  class="sm:text-md text-sm text-gray-500 line-through"
+                  v-if="product.compareAtPrice.amount > product.price.amount"
+                >
+                  ₹{{ product.compareAtPrice.amount }}
+                </p>
               </div>
               <div class="mt-2 flex items-center gap-2">
                 <ShopAddingToCartBtn
@@ -178,29 +175,27 @@ onMounted(() => {
                 >
                   BUY NOW
                 </nuxt-link>
-                <div
+                <nuxt-link
+                  :href="`/shop/product/${product.handle}`"
                   class="hidden rounded-full bg-slate-300 p-1 opacity-80 md:block md:px-1 md:py-1"
-                >
-                  <a :href="`/shop/product/${product.handle}`" class=""
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-square-arrow-out-up-right h-6 w-6 p-1 lg:h-8 lg:w-8"
-                    >
-                      <path
-                        d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
-                      />
-                      <path d="m21 3-9 9" />
-                      <path d="M15 3h6v6" /></svg
-                  ></a>
-                </div>
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-square-arrow-out-up-right h-6 w-6 p-1 lg:h-8 lg:w-8"
+                  >
+                    <path
+                      d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                    />
+                    <path d="m21 3-9 9" />
+                    <path d="M15 3h6v6" /></svg
+                ></nuxt-link>
               </div>
             </div>
           </div>

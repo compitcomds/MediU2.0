@@ -7,6 +7,7 @@
         aria-label="Cart"
       >
         <!-- Shopping Cart SVG Icon -->
+        <span class="sr-only">User Cart</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -25,12 +26,10 @@
             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
           />
         </svg>
-        <span class="absolute -right-10 top-2">
-          <div
-            class="inline-flex items-center rounded-full border-2 border-white bg-red-500 px-1.5 py-0.5 text-xs font-semibold leading-4 text-white"
-          >
-            {{ totalItems }}
-          </div>
+        <span
+          class="absolute -right-10 top-2 inline-flex items-center rounded-full border-2 border-white bg-red-500 px-1.5 py-0.5 text-xs font-semibold leading-4 text-white"
+        >
+          {{ totalItems }}
         </span>
       </nuxt-link>
     </div>
@@ -40,6 +39,8 @@
         @click="toggleDropdown"
         class="flex h-12 w-12 items-center justify-center rounded-full focus:outline-none"
       >
+        <span class="sr-only" v-if="!!user?.name">{{ user.name }}</span>
+        <span class="sr-only" v-else>User Account</span>
         <img
           v-if="userImage"
           :src="userImage"
@@ -139,8 +140,6 @@ const isLoggingOut = ref(false);
 const shopStore = useShopStore();
 const { totalItems } = storeToRefs(shopStore);
 
-const isAuthLoading = useState("isAuthLoading", () => true);
-
 const dialogRef = ref(null);
 
 onClickOutside(dialogRef, () => {
@@ -171,7 +170,6 @@ const logout = async () => {
   isLoggingOut.value = true;
   try {
     await logoutUser();
-    isAuthLoading.value = true;
     await refreshNuxtData(["user"]);
     reloadNuxtApp();
   } catch (error: any) {

@@ -58,7 +58,7 @@ await fetchProductHandles();
 </script>
 
 <template>
-  <div class="mt-5 px-4 font-serif md:mt-20">
+  <section class="mt-5 px-4 font-serif md:mt-20">
     <h1 class="mb-6 text-center text-2xl text-gray-500 sm:text-3xl md:text-4xl">
       Top Deals
     </h1>
@@ -81,7 +81,6 @@ await fetchProductHandles();
     </div>
 
     <div class="mx-auto flex max-w-7xl flex-wrap gap-6 lg:flex-nowrap">
-      <!-- First card -->
       <div class="w-full md:w-5/12">
         <div
           v-for="(product, index) in fetchedProducts[selectedCategory].slice(
@@ -140,8 +139,7 @@ await fetchProductHandles();
               :to="`/shop/product/${product.handle}`"
               class="mt-4 flex w-full justify-center gap-4 rounded-full bg-[#4ca9ee] px-4 py-2 text-base text-white md:text-lg"
             >
-              <button>Shop Now</button>
-              <!-- Shop Icon -->
+              Shop Now
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -195,7 +193,7 @@ await fetchProductHandles();
             >
               {{ product.title }}
             </h2>
-            <div class="space-x-2 text-center lg:my-4">
+            <p class="space-x-2 text-center lg:my-4">
               <span
                 class="text-2xl font-bold text-[#4ca9ee] sm:text-3xl md:text-4xl"
                 >₹{{ product.price.amount }}</span
@@ -204,7 +202,7 @@ await fetchProductHandles();
                 class="text-lg text-slate-500 line-through sm:text-xl md:text-2xl"
                 >₹{{ product.compareAtPrice.amount }}</span
               >
-            </div>
+            </p>
             <div class="mt-2 flex w-full items-center gap-2">
               <ShopAddingToCartBtn
                 v-if="product.variantId"
@@ -220,29 +218,27 @@ await fetchProductHandles();
               >
                 BUY NOW
               </nuxt-link>
-              <div
+              <nuxt-link
+                :to="`/shop/product/${product.handle}`"
                 class="hidden rounded-full bg-slate-300 p-1 opacity-80 md:block md:px-1 md:py-1"
-              >
-                <nuxt-link :to="`/shop/product/${product.handle}`" class=""
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-square-arrow-out-up-right h-6 w-6 p-1 lg:h-8 lg:w-8"
-                  >
-                    <path
-                      d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
-                    />
-                    <path d="m21 3-9 9" />
-                    <path d="M15 3h6v6" /></svg
-                ></nuxt-link>
-              </div>
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-square-arrow-out-up-right h-6 w-6 p-1 lg:h-8 lg:w-8"
+                >
+                  <path
+                    d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                  />
+                  <path d="m21 3-9 9" />
+                  <path d="M15 3h6v6" /></svg
+              ></nuxt-link>
             </div>
           </div>
         </div>
@@ -291,7 +287,7 @@ await fetchProductHandles();
             <h2 class="text-sm capitalize text-black lg:text-lg">
               {{ product.title }}
             </h2>
-            <div class="mt-2 space-x-2">
+            <p class="mt-2 space-x-2">
               <span
                 class="text-xl font-bold text-[#4ca9ee] sm:text-2xl md:text-2xl"
                 >₹{{ product.price.amount }}</span
@@ -300,7 +296,7 @@ await fetchProductHandles();
                 class="text-sm text-slate-600 line-through sm:text-lg md:text-xl"
                 >₹{{ product.compareAtPrice.amount }}</span
               >
-            </div>
+            </p>
             <div class="mt-2 flex items-center gap-2">
               <ShopAddingToCartBtn
                 v-if="product.variantId"
@@ -316,29 +312,27 @@ await fetchProductHandles();
               >
                 BUY NOW
               </nuxt-link>
-              <div
+              <a
+                :href="`/shop/product/${product.handle}`"
                 class="hidden rounded-full bg-slate-300 p-1 opacity-80 md:block md:px-1 md:py-1"
-              >
-                <a :href="`/shop/product/${product.handle}`" class=""
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-square-arrow-out-up-right h-6 w-6 p-1 lg:h-8 lg:w-8"
-                  >
-                    <path
-                      d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
-                    />
-                    <path d="m21 3-9 9" />
-                    <path d="M15 3h6v6" /></svg
-                ></a>
-              </div>
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-square-arrow-out-up-right h-6 w-6 p-1 lg:h-8 lg:w-8"
+                >
+                  <path
+                    d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                  />
+                  <path d="m21 3-9 9" />
+                  <path d="M15 3h6v6" /></svg
+              ></a>
             </div>
           </div>
         </div>
@@ -350,7 +344,7 @@ await fetchProductHandles();
     >
       <nuxt-link to="/shop">View All →</nuxt-link>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped></style>
