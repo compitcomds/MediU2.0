@@ -139,6 +139,8 @@ const isLoggingOut = ref(false);
 const shopStore = useShopStore();
 const { totalItems } = storeToRefs(shopStore);
 
+const isAuthLoading = useState("isAuthLoading", () => true);
+
 const dialogRef = ref(null);
 
 onClickOutside(dialogRef, () => {
@@ -169,6 +171,7 @@ const logout = async () => {
   isLoggingOut.value = true;
   try {
     await logoutUser();
+    isAuthLoading.value = true;
     await refreshNuxtData(["user"]);
     reloadNuxtApp();
   } catch (error: any) {
