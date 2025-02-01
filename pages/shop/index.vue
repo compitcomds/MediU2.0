@@ -23,15 +23,16 @@ const data = useState("data", () => ({
 }));
 
 const fetchProductsAccordingToQuery = async (query: any) => {
+  console.log(query);
   const queryString = convertQueryParamsToQueryString({
-    selectedSkinConcern: query.selectedSkinConcern,
-    selectedHairConcern: query.selectedHairConcern,
-    selectedNutrionAndDiet: query.selectedNutrionAndDiet,
-    selectedPediatric: query.selectedPediatric,
-    selectedIngredent: query.selectedIngredent,
-    selectedSkinIngredent: query.selectedSkinIngredent,
-    selectedSkinCare: query.selectedSkinCare,
-    selectedHairCare: query.selectedHairCare,
+    selectedSkinConcern: query["skin-concern"],
+    selectedHairConcern: query["hair-concern"],
+    selectedNutrionAndDiet: query["nutrition-and-diet"],
+    selectedPediatric: query.pediatric,
+    selectedIngredent: query.ingredent,
+    selectedSkinIngredent: query["skin-ingredent"],
+    selectedSkinCare: query["skin-care"],
+    selectedHairCare: query["hair-care"],
   });
   const newData = await fetchProducts({ query: queryString });
   return {

@@ -28,7 +28,7 @@
         <div
           v-for="(item, index) in cart.items"
           :key="index"
-          class="mb-8 grid grid-cols-12 gap-y-4 space-x-6 rounded-3xl border-2 border-gray-200 p-4 lg:p-8"
+          class="relative mb-8 grid grid-cols-12 gap-y-4 space-x-6 rounded-3xl border-2 border-gray-200 p-4 lg:p-8"
         >
           <!-- Image -->
           <div class="col-span-12 lg:col-span-2">
@@ -57,9 +57,11 @@
               <button
                 @click="changeQuantity(item.lineId, 0)"
                 :disabled="isUpdatingLineItemQuantity"
-                class="rounded-md border border-red-500 px-1 py-0 text-red-500 disabled:cursor-not-allowed"
+                class="absolute right-4 top-4 rounded-md border border-red-500 px-1 py-0 text-red-500 disabled:cursor-not-allowed lg:static"
+                title="Remove product from cart"
               >
                 <X />
+                <span class="sr-only">Remove product from cart</span>
               </button>
             </div>
             <p class="text-gray-500">{{ item.description }}</p>
@@ -100,44 +102,46 @@
           </h5>
           <div class="mb-2 flex justify-between">
             <span class="text-[#238878]">Subtotal</span>
-            <span class="font-semibold text-[#238878]">
+            <span class="min-w-fit font-semibold text-[#238878]">
               {{ formatAmountToINR(totalAmount - taxAmount || 0) }}</span
             >
           </div>
           <div class="mb-4 flex justify-between">
             <span class="text-[#238878]">Shipping</span>
-            <span v-if="shippingAmount > 0" class="font-semibold text-[#238878]"
+            <span
+              v-if="shippingAmount > 0"
+              class="min-w-fit font-semibold text-[#238878]"
               >{{
                 formatAmountToINR(parseFloat(cart.subtotalAmount.amount) || 0)
               }}
             </span>
-            <span v-else class="font-semibold text-[#238878]"
+            <span v-else class="min-w-fit font-semibold text-[#238878]"
               >{{ formatAmountToINR(0) }}
             </span>
           </div>
           <div class="mb-4 flex justify-between">
             <span class="text-[#238878]">Tax Amount</span>
-            <span class="font-semibold text-[#238878]">
+            <span class="min-w-fit font-semibold text-[#238878]">
               {{ formatAmountToINR(taxAmount || 0) }}</span
             >
           </div>
           <div v-if="walletAmount > 0" class="mb-4">
             <p class="mb-1 flex justify-between">
               <span class="text-[#238878]">Wallet</span>
-              <span class="font-semibold text-[#238878]">{{
+              <span class="min-w-fit font-semibold text-[#238878]">{{
                 formatAmountToINR(walletAmountUsed)
               }}</span>
             </p>
             <p class="flex justify-between text-xs">
               <span class="text-[#15574c]">Total Wallet Amount</span>
-              <span class="font-semibold text-[#15574c]">{{
+              <span class="min-w-fit font-semibold text-[#15574c]">{{
                 formatAmountToINR(walletAmount)
               }}</span>
             </p>
           </div>
           <div v-if="discountApplied > 0" class="mb-4 flex justify-between">
             <span class="text-[#238878]">Total Discount</span>
-            <span class="font-semibold text-[#238878]">
+            <span class="min-w-fit font-semibold text-[#238878]">
               {{ formatAmountToINR(subTotalAmount - totalAmount) }}</span
             >
           </div>
@@ -146,13 +150,13 @@
               <span class="text-xl font-bold text-[#238878]">Total</span>
             </p>
             <p>
-              <span class="text-xl font-bold text-[#238878]">{{
+              <span class="min-w-fit text-xl font-bold text-[#238878]">{{
                 formatAmountToINR(totalAmount - walletAmountUsed)
               }}</span>
               <br />
               <span
                 v-if="walletAmount > 0"
-                class="block w-full text-end text-xs font-bold text-[#238878] line-through"
+                class="block w-full min-w-fit text-end text-xs font-bold text-[#238878] line-through"
                 >{{ formatAmountToINR(totalAmount) }}</span
               >
             </p>
@@ -310,7 +314,6 @@ const applyDiscount = async () => {
 
 onMounted(async () => {
   const data = await getCartData();
-  console.log(data);
   if (data) cart.value = data;
 
   const wallet = await getUserWallet();
@@ -326,5 +329,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped></style>

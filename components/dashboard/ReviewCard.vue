@@ -1,16 +1,22 @@
 <template>
-  <div class="rounded-lg bg-white p-6 shadow-lg">
-    <div class="mb-4 flex items-center">
-      <img :src="img" alt="Profile" class="mr-4 h-20 w-20 rounded-full" />
-      <div>
-        <h3 class="text-lg font-semibold">{{ name }}</h3>
-        <div class="flex items-center">
-          <span class="text-yellow-500" v-for="_ in stars">★</span>
-          <span class="text-gray-500" v-for="_ in (5 - stars) % 5">★</span>
-        </div>
-      </div>
+  <div class="flex max-w-sm flex-col rounded-lg bg-white p-6 shadow-md">
+    <!-- User Image and Name -->
+    <div class="mb-4 flex items-center space-x-4">
+      <img
+        :src="img"
+        :alt="`${name}'s profile picture`"
+        class="h-12 w-12 rounded-full object-cover"
+      />
+      <h3 class="font-semibold text-gray-800">{{ name }}</h3>
     </div>
-    <p class="text-gray-600">{{ text }}</p>
+
+    <!-- Star Rating -->
+    <div class="mb-3 flex space-x-1">
+      <StarsOutOfFive :rating="stars" />
+    </div>
+
+    <!-- Review Text -->
+    <p class="leading-relaxed text-gray-600">{{ text }}</p>
   </div>
 </template>
 

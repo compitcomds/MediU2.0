@@ -1,5 +1,5 @@
 <template>
-  <DashboardAttachSidenav>
+  <DashboardAttachSidenav :is-dashboard="true">
     <DashboardMain class="hidden lg:block" />
   </DashboardAttachSidenav>
 </template>

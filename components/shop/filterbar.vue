@@ -206,25 +206,22 @@ const HairCare = [
 ];
 
 const selectedSkinConcern = ref(
-  ifStringMakeArray(route?.query?.selectedSkinConcern),
+  ifStringMakeArray(route?.query?.["skin-concern"]),
 );
 const selectedHairConcern = ref(
-  ifStringMakeArray(route?.query?.selectedHairConcern),
+  ifStringMakeArray(route?.query?.["hair-concern"]),
 );
 const selectedNutrionAndDiet = ref(
-  ifStringMakeArray(route?.query?.selectedNutrionAndDiet),
+  ifStringMakeArray(route?.query?.["nutrition-and-diet"]),
 );
-const selectedPediatric = ref(
-  ifStringMakeArray(route?.query?.selectedPediatric),
-);
-const selectedIngredent = ref(
-  ifStringMakeArray(route?.query?.selectedIngredent),
-);
+const selectedPediatric = ref(ifStringMakeArray(route?.query?.["pediatric"]));
+const selectedIngredent = ref(ifStringMakeArray(route?.query?.["ingredent"]));
 const selectedSkinIngredent = ref(
-  ifStringMakeArray(route?.query?.selectedSkinIngredent),
+  ifStringMakeArray(route?.query?.["skin-ingredent"]),
 );
-const selectedSkinCare = ref(ifStringMakeArray(route?.query?.selectedSkinCare));
-const selectedHairCare = ref(ifStringMakeArray(route?.query?.selectedHairCare));
+const selectedSkinCare = ref(ifStringMakeArray(route?.query?.["skin-care"]));
+const selectedHairCare = ref(ifStringMakeArray(route?.query?.["hair-care"]));
+
 const changeMinMaxPrice = useDebounceFn((newMinMax) => {
   router.push({
     path: route.path,
@@ -246,14 +243,14 @@ watch(
 
 const updateQueryParams = () => {
   const query = {
-    selectedSkinConcern: selectedSkinConcern.value,
-    selectedHairConcern: selectedHairConcern.value,
-    selectedNutrionAndDiet: selectedNutrionAndDiet.value,
-    selectedPediatric: selectedPediatric.value,
-    selectedIngredent: selectedIngredent.value,
-    selectedSkinIngredent: selectedSkinIngredent.value,
-    selectedSkinCare: selectedSkinCare.value,
-    selectedHairCare: selectedHairCare.value,
+    "skin-concern": selectedSkinConcern.value,
+    "hair-concern": selectedHairConcern.value,
+    "nutrition-and-diet": selectedNutrionAndDiet.value,
+    pediatric: selectedPediatric.value,
+    ingredent: selectedIngredent.value,
+    "skin-ingredent": selectedSkinIngredent.value,
+    "skin-care": selectedSkinCare.value,
+    "hair-care": selectedHairCare.value,
   };
 
   router.push({ path: route.path, query: { ...route.query, ...query } });

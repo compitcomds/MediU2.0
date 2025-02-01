@@ -6,7 +6,6 @@
         class="relative rounded-full border-2 border-transparent text-gray-800 transition duration-150 ease-in-out hover:text-gray-400 focus:text-gray-500 focus:outline-none"
         aria-label="Cart"
       >
-        <!-- Shopping Cart SVG Icon -->
         <span class="sr-only">User Cart</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"

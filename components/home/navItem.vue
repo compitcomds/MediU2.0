@@ -303,118 +303,118 @@ import { ChevronDown } from "lucide-vue-next";
 const hairConcerns = [
   {
     name: "Dandruff",
-    to: "/shop?min=0&max=100000&selectedHairConcern=dandruff",
+    to: "/shop?hair-concern=dandruff",
   },
   {
     name: "Hairfall",
-    to: "/shop?min=0&max=100000&selectedHairConcern=hairfall",
+    to: "/shop?hair-concern=hairfall",
   },
   {
     name: "Hair Thinning",
-    to: "/shop?min=0&max=100000&selectedHairConcern=hair-thinning",
+    to: "/shop?hair-concern=hair-thinning",
   },
   {
     name: "Damaged & Fizzy Hair",
-    to: "/shop?min=0&max=100000&selectedHairConcern=damaged-and-fizzy-hair",
+    to: "/shop?hair-concern=damaged-and-fizzy-hair",
   },
   {
     name: "Bald Patches",
-    to: "/shop?min=0&max=100000&selectedHairConcern=bald-patches",
+    to: "/shop?hair-concern=bald-patches",
   },
   {
     name: "Dull Hair",
-    to: "/shop?min=0&max=100000&selectedHairConcern=dull-hair",
+    to: "/shop?hair-concern=dull-hair",
   },
   {
     name: "Oily Scalp",
-    to: "/shop?min=0&max=100000&selectedHairConcern=oily-scalp",
+    to: "/shop?hair-concern=oily-scalp",
   },
 ];
 
 const hairIngredients = [
   {
     name: "Minoxidil",
-    to: "/shop?min=0&max=100000&selectedIngredent=minoxidil",
+    to: "/shop?ingredent=minoxidil",
   },
-  { name: "Redensyl", to: "/shop?min=0&max=100000&selectedIngredent=redensyl" },
-  { name: "Capixyl", to: "/shop?min=0&max=100000&selectedIngredent=capixyl" },
-  { name: "Peptide", to: "/shop?min=0&max=100000&selectedIngredent=peptide" },
+  { name: "Redensyl", to: "/shop?ingredent=redensyl" },
+  { name: "Capixyl", to: "/shop?ingredent=capixyl" },
+  { name: "Peptide", to: "/shop?ingredent=peptide" },
   {
     name: "Carnitine",
-    to: "/shop?min=0&max=100000&selectedIngredent=carnitine",
+    to: "/shop?ingredent=carnitine",
   },
 ];
 
 const hairCareItems = [
-  { name: "Shampoo", to: "/shop?selectedHairCare=shampoo" },
-  { name: "Conditioner", to: "/shop?selectedHairCare=conditioner" },
-  { name: "Mask", to: "/shop?selectedHairCare=mask" },
-  { name: "Serum", to: "/shop?selectedHairCare=serum" },
+  { name: "Shampoo", to: "/shop?hair-care=shampoo" },
+  { name: "Conditioner", to: "/shop?hair-care=conditioner" },
+  { name: "Mask", to: "/shop?hair-care=mask" },
+  { name: "Serum", to: "/shop?hair-care=serum" },
 ];
 
 const skinConcerns = [
   {
     name: "Acne & Acne Scar",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=acne-and-ance-scar",
+    to: "/shop?skin-concern=acne-and-ance-scar",
   },
-  { name: "Aging", to: "/shop?min=0&max=100000&selectedSkinConcern=aging" },
+  { name: "Aging", to: "/shop?skin-concern=aging" },
   {
     name: "Dehydration",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=dehydration",
+    to: "/shop?skin-concern=dehydration",
   },
   {
     name: "Damaged & Sensitive Skin",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=damaged-and-sensitive-skin",
+    to: "/shop?skin-concern=damaged-and-sensitive-skin",
   },
   {
     name: "Under Eye Darkness",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=under-eye-darkness",
+    to: "/shop?skin-concern=under-eye-darkness",
   },
   {
     name: "Under Arm Darkness",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=under-arm-darkness",
+    to: "/shop?skin-concern=under-arm-darkness",
   },
   {
     name: "Stretch Marks",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=stretch-marks",
+    to: "/shop?skin-concern=stretch-marks",
   },
   {
     name: "Pigmentation",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=pigmentation",
+    to: "/shop?skin-concern=pigmentation",
   },
   {
     name: "Oiliness",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=oiliness",
+    to: "/shop?skin-concern=oiliness",
   },
   {
     name: "Lip (Cracked/Darkness)",
-    to: "/shop?min=0&max=100000&selectedSkinConcern=lip-cracked-or-darkness",
+    to: "/shop?skin-concern=lip-cracked-or-darkness",
   },
 ];
 
 const skinIngredients = [
-  { name: "Vitamin C", to: "/shop?selectedSkinIngredent=vitamin-c" },
+  { name: "Vitamin C", to: "/shop?skin-ingredent=vitamin-c" },
   {
     name: "BHA / Salicylic Acid",
-    to: "/shop?selectedSkinIngredent=bha-salicylic-acid",
+    to: "/shop?skin-ingredent=bha-salicylic-acid",
   },
-  { name: "Retinoid / Retinol", to: "/shop?selectedSkinIngredent=retinoid" },
-  { name: "Niacinamide", to: "/shop?selectedSkinIngredent=niacinamide" },
-  { name: "UV Filters", to: "/shop?selectedSkinIngredent=uv-filters" },
-  { name: "Ceramide", to: "/shop?selectedSkinIngredent=ceramide" },
+  { name: "Retinoid / Retinol", to: "/shop?skin-ingredent=retinoid" },
+  { name: "Niacinamide", to: "/shop?skin-ingredent=niacinamide" },
+  { name: "UV Filters", to: "/shop?skin-ingredent=uv-filters" },
+  { name: "Ceramide", to: "/shop?skin-ingredent=ceramide" },
   {
     name: "Hyaluronic Acid",
-    to: "/shop?selectedSkinIngredent=hyaluronic-acid",
+    to: "/shop?skin-ingredent=hyaluronic-acid",
   },
 ];
 
 const skinCareItems = [
-  { name: "Cleanser", to: "/shop?selectedSkinCare=cleanser" },
-  { name: "Toner", to: "/shop?selectedSkinCare=toner" },
-  { name: "Roll On", to: "/shop?selectedSkinCare=roll-on" },
-  { name: "Moisturize", to: "/shop?selectedSkinCare=moisturize" },
-  { name: "SPF", to: "/shop?selectedSkinCare=spf" },
-  { name: "Under Eye", to: "/shop?selectedSkinCare=under-eye" },
+  { name: "Cleanser", to: "/shop?skin-care=cleanser" },
+  { name: "Toner", to: "/shop?skin-care=toner" },
+  { name: "Roll On", to: "/shop?skin-care=roll-on" },
+  { name: "Moisturize", to: "/shop?skin-care=moisturize" },
+  { name: "SPF", to: "/shop?skin-care=spf" },
+  { name: "Under Eye", to: "/shop?skin-care=under-eye" },
 ];
 
 const kits = [
