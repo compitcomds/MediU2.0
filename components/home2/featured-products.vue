@@ -116,24 +116,10 @@ await fetchProductHandles();
             />
           </nuxt-link>
           <div class="flex items-center justify-between gap-3">
-            <nuxt-link
-              :to="`/shop/product/${product.handle}`"
-              class="mt-4 flex rounded-full bg-gray-200 px-2 py-2"
-            >
-              <!-- Heart Icon -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 31 30"
-                fill="none"
-              >
-                <path
-                  d="M15.5724 26.146C-8.74825 12.7035 8.27652 -1.88915 15.5724 7.33835C22.8692 -1.88916 39.894 12.7035 15.5724 26.146Z"
-                  stroke="#1A1A1A"
-                  stroke-width="2.1889"
-                /></svg
-            ></nuxt-link>
+            <WishlistButton
+              :handle="product.handle"
+              class="mt-4 flex h-full w-12 rounded-full bg-gray-200 px-2 py-2"
+            />
 
             <nuxt-link
               :to="`/shop/product/${product.handle}`"

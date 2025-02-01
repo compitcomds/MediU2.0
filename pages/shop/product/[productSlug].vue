@@ -104,9 +104,9 @@
                 >
               </p>
             </div>
-            <div class="mb-4 flex items-center gap-4">
+            <div class="mb-4 flex flex-col gap-4 md:flex-row md:items-center">
               <div
-                class="flex w-1/4 items-center justify-between rounded-lg border px-4 py-2"
+                class="flex w-3/4 items-center justify-between rounded-lg border px-4 py-2 md:w-1/4"
               >
                 <button
                   @click="decreaseQuantity"
@@ -122,12 +122,13 @@
                   +
                 </button>
               </div>
-              <div>
+              <div class="flex items-center gap-4">
                 <ShopAddingToCartBtn
                   v-if="data.availableForSale"
                   :product-id="data.id"
                   :quantity="quantity"
                   :deactivate="invalidDeliveryPincode"
+                  class="text-sm md:text-xl"
                 />
                 <ShopProductCreateAnAlert
                   v-else
@@ -135,6 +136,7 @@
                   :product-id="data.productId"
                   :variant-id="data.id"
                 />
+                <WishlistButton :handle="productHandle" class="h-8" />
               </div>
             </div>
             <hr class="my-4 border-dashed border-gray-300" />

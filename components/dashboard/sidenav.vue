@@ -1,6 +1,5 @@
 <template>
   <aside class="w-full rounded-lg bg-[#f9fafb] p-6 pb-20 lg:w-1/4">
-    <!-- Header Title -->
     <h2
       class="mb-6 text-[1.125rem] text-lg font-semibold text-[238878] text-gray-800"
     >
@@ -91,7 +90,7 @@ const tabs = [
     name: "My Wishlist",
     image: ScrollText,
     alt: "",
-    href: "",
+    href: "/dashboard/wishlist",
   },
   {
     name: "Review",

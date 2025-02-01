@@ -86,6 +86,8 @@ export const registerUser = async (data: {
 export const loginUser = async (data: { email: string; password: string }) => {
   await createLoggedSession(data);
   await getShopifyAccessTokenUsingAppwrite();
+  const userStore = useUserStore();
+  userStore.initialiseUserStore();
 };
 
 export const getUser = async () => account.get();
@@ -108,6 +110,7 @@ export const getShopifyAccessTokenUsingAppwrite = async () => {
 
 async function createLoggedSession(data: { email: string; password: string }) {
   try {
+    await account.deleteSession("current");
     await account.createEmailPasswordSession(data.email, data.password);
   } catch (error: any) {
     await account.createEmailPasswordSession(data.email, data.password);
