@@ -56,7 +56,3 @@ const states = [
   "Puducherry",
 ];
 </script>
-
-<style scoped>
-/* Add custom styles here if needed */
-</style>

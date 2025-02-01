@@ -3,13 +3,12 @@
     class="mx-auto mb-16 flex w-full flex-col px-4 sm:px-6 lg:px-10 lg:py-10 lg:pb-10"
   >
     <div class="mb- rounded-lg bg-white p-6 text-center">
-      <!-- Enhanced Professional Heading -->
       <h1 class="mb-2 text-3xl font-bold text-gray-800">
         Choose Your
         <span class="text-green-600">{{ selfAssessmentStore.step2.name }}</span>
         Problems
       </h1>
-      <p class="text-lg text-gray-600">
+      <p class="text-lg italic text-gray-600">
         We are here to assist you. Please select the issues you are experiencing
         for tailored advice.
       </p>
@@ -221,14 +220,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped>
-/* Additional styles for enhanced aesthetics */
-h1 {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-p {
-  font-style: italic;
-}
-</style>

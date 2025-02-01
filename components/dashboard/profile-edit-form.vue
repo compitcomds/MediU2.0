@@ -282,7 +282,3 @@ const submitPassword = async () => {
   }
 };
 </script>
-
-<style scoped>
-/* Additional styles if necessary */
-</style>

@@ -182,4 +182,3 @@ onMounted(async () => {
   totalItems.value = await getCountOfCartDataItems();
 });
 </script>
-<style scoped></style>

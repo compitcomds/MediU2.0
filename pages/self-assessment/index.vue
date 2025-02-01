@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center bg-gradient-to-r from-blue-100 to-blue-200"
+    class="flex items-center justify-center bg-[#f0f9ff] bg-gradient-to-r from-blue-100 to-blue-200"
   >
     <div class="flex w-full flex-col rounded-lg bg-white p-8 lg:flex-row">
       <!-- Form Section -->
@@ -252,18 +252,3 @@ useHead({
   ],
 });
 </script>
-
-<style>
-body {
-  font-family: "Inter", sans-serif;
-}
-
-.bg-gradient-to-r {
-  background-color: #f0f9ff;
-}
-
-input,
-select {
-  background-color: white;
-}
-</style>

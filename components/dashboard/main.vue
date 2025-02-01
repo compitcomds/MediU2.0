@@ -124,7 +124,3 @@ if (!user) {
   reloadNuxtApp();
 }
 </script>
-
-<style scoped>
-/* Custom styles */
-</style>

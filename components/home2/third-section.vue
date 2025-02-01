@@ -50,5 +50,3 @@ const slides = [
     </button>
   </div>
 </template>
-
-<style scoped></style>

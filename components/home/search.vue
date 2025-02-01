@@ -122,5 +122,3 @@ const clearSearchBox = () => {
   searchQuery.value = "";
 };
 </script>
-
-<style lang="postcss" scoped></style>

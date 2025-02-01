@@ -339,35 +339,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped>
-.custom-checkbox {
-  width: 1.25rem;
-  height: 1.25rem;
-  background-color: white;
-  border: 2px solid #d1d5db;
-  /* Tailwind gray-300 */
-  border-radius: 0.25rem;
-  /* Rounded corners */
-  appearance: none;
-  /* Remove default styles */
-  outline: none;
-  cursor: pointer;
-}
-
-.custom-checkbox:checked {
-  background-color: #238878;
-  /* Custom green color */
-  border-color: #238878;
-}
-
-.custom-checkbox:checked::after {
-  content: "";
-  display: block;
-  width: 0.5rem;
-  height: 0.5rem;
-  margin: 0.25rem;
-  background-color: white;
-  border-radius: 0.125rem;
-}
-</style>

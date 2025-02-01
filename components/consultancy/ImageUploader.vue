@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-start relative">
+  <div class="relative flex flex-col items-start">
     <label
-      class="flex flex-col items-center border-2 border-[#238878] hover:bg-[#238878] text-[#238878] font-bold py-2 px-4 rounded cursor-pointer hover:text-white transition-colors"
+      class="flex cursor-pointer flex-col items-center rounded border-2 border-[#238878] px-4 py-2 font-bold text-[#238878] transition-colors hover:bg-[#238878] hover:text-white"
     >
       <span>Upload an Image</span>
       <input
@@ -12,15 +12,15 @@
         @change="handleFileUpload"
       />
     </label>
-    <div v-if="imageUrl" class="mt-4 relative">
+    <div v-if="imageUrl" class="relative mt-4">
       <img
         :src="imageUrl"
         alt="Image Preview"
-        class="w-64 h-64 object-cover rounded"
+        class="h-64 w-64 rounded object-cover"
       />
       <button
         @click="removeImage"
-        class="absolute top-3 right-1 text-3xl w-10 h-10 flex items-center justify-center bg-white text-red-600 hover:bg-red-600 hover:text-white rounded-full"
+        class="absolute right-1 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-3xl text-red-600 hover:bg-red-600 hover:text-white"
       >
         &times;
       </button>
@@ -63,7 +63,3 @@ const removeImage = () => {
   fileInput.value.value = null;
 };
 </script>
-
-<style scoped>
-/* Additional styling can go here */
-</style>

@@ -96,5 +96,3 @@ const testimonials = [
     </div>
   </div>
 </template>
-
-<style scoped></style>

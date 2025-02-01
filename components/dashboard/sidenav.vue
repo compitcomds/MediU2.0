@@ -112,5 +112,3 @@ const tabs = [
   },
 ];
 </script>
-
-<style scoped></style>

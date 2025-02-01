@@ -16,7 +16,7 @@
         recovery.
       </h1>
       <p
-        class="mx-auto hidden max-w-3xl text-center text-lg text-gray-600 sm:text-xl lg:block"
+        class="mx-auto hidden max-w-3xl text-center text-lg italic text-gray-600 sm:text-xl lg:block"
       >
         We have carefully selected these products to help you on your path to
         better health.
@@ -50,7 +50,7 @@
       <ShopCard :productDetails="products" name="Add To Cart" />
 
       <div
-        class="grid grid-cols-1 place-items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        class="grid grid-cols-1 place-items-center justify-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         <div
           v-for="(detail, index) in products"
@@ -92,7 +92,7 @@
                     {{ detail.currency }} {{ detail.price }}
                   </span>
                   <p
-                    class="mt-1 text-sm font-bold text-gray-500 line-through"
+                    class="mt-1 text-sm font-bold italic text-gray-500 line-through"
                     v-if="detail.discountPrice"
                   >
                     {{ detail.currency }} {{ detail.discountPrice }}
@@ -115,7 +115,9 @@
         </div>
 
         <div v-if="products?.length === 0" class="col-span-full text-center">
-          <p class="text-gray-500">No details available for this problem.</p>
+          <p class="italic text-gray-500">
+            No details available for this problem.
+          </p>
         </div>
       </div>
     </div>
@@ -179,14 +181,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped>
-/* Custom styles for cards, heading, and centering */
-.grid {
-  display: grid;
-  justify-content: center;
-}
-p {
-  font-style: italic;
-}
-</style>

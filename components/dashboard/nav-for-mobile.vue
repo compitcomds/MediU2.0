@@ -27,5 +27,3 @@
 <script setup lang="ts">
 import { ChevronRight } from "lucide-vue-next";
 </script>
-
-<style scoped></style>

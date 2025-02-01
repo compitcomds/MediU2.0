@@ -56,7 +56,3 @@ const copyToClipboard = async (text) => {
   toast.success("Link copied to clipboard! You can share it manually.");
 };
 </script>
-
-<style scoped>
-/* Add your scoped styles here */
-</style>

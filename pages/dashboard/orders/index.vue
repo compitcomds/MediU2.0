@@ -18,5 +18,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped></style>

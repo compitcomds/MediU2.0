@@ -12,7 +12,7 @@
       <input
         type="number"
         id="check-pincode"
-        class="rounded-l-lg border-b-2 border-[#238878] bg-transparent px-4 py-2 text-lg shadow-sm transition-all duration-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#238878]"
+        class="rounded-l-lg border-b-2 border-[#238878] bg-transparent px-4 py-2 text-lg shadow-sm transition-all duration-300 ease-in-out placeholder:text-gray-400 focus:border-[#238878] focus:outline-none focus:ring-2 focus:ring-[#238878] focus:ring-[#238878]/20"
         placeholder="Enter Pincode"
         v-model="pincode"
         min="0"
@@ -21,7 +21,7 @@
       <button
         type="submit"
         :disabled="isSubmitting"
-        class="absolute right-0 top-1/2 block -translate-y-1/2 rounded-r-lg bg-[#238878] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1e8b68] disabled:cursor-not-allowed disabled:bg-gray-400"
+        class="absolute right-0 top-1/2 block -translate-y-1/2 rounded-r-lg bg-[#238878] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#1e8b68] disabled:cursor-not-allowed disabled:bg-gray-400"
       >
         <span v-if="isSubmitting">
           <svg
@@ -57,7 +57,7 @@
     class="mt-4 text-sm"
   >
     <div
-      class="rounded-lg border-l-4 border-[#238878] bg-[#f4f7f6] p-4 shadow-sm"
+      class="rounded-lg border-l-[4px] border-[#238878] bg-[#f4f7f6] p-4 shadow-sm"
     >
       <p class="font-medium text-gray-700">
         Estimated Delivery Date:
@@ -74,7 +74,7 @@
       checkedData.message &&
       !(checkedData.minEtd || checkedData.maxEtd)
     "
-    class="mt-4 rounded-lg border-l-4 border-red-500 bg-[#fff3f3] p-4 text-xs font-medium text-red-500 shadow-sm"
+    class="mt-4 rounded-lg border-l-[4px] border-red-500 bg-[#fff3f3] p-4 text-xs font-medium text-red-500 shadow-sm"
   >
     {{ checkedData.message }}
   </div>
@@ -128,38 +128,3 @@ const blockNegativeSign = (event: KeyboardEvent) => {
   }
 };
 </script>
-
-<style scoped>
-/* Enhanced Input Field */
-input,
-button {
-  transition: all 0.3s ease;
-}
-
-input:focus {
-  border-color: #238878;
-  box-shadow: 0 0 0 2px rgba(35, 136, 120, 0.2);
-}
-
-.border-l-4 {
-  border-left-width: 4px;
-}
-
-.text-red-500 {
-  color: #f87171;
-}
-
-/* Spinning Loader */
-svg.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-</style>

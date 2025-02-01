@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex items-center justify-center bg-gradient-to-r from-blue-100 to-blue-200"
+    class="flex items-center justify-center bg-[#f0f9ff] bg-gradient-to-r from-blue-100 to-blue-200"
   >
-    <div class="bg-white rounded-lg p-8 w-full flex flex-col lg:flex-row">
+    <div class="flex w-full flex-col rounded-lg bg-white p-8 lg:flex-row">
       <!-- Form Section -->
-      <div class="w-full lg:w-1/2 p-6">
+      <div class="w-full p-6 lg:w-1/2">
         <h2
-          class="text-2xl lg:text-4xl font-semibold text-center text-[#238878] mb-6"
+          class="mb-6 text-center text-2xl font-semibold text-[#238878] lg:text-4xl"
         >
           Diagnose Form
         </h2>
@@ -21,7 +21,7 @@
               id="concern"
               v-model="formData.concern"
               required
-              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-white p-3 text-[#238878] transition duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#238878]"
             >
               <option value="">Select</option>
               <option value="skin">Skin</option>
@@ -40,7 +40,7 @@
               id="name"
               v-model="formData.name"
               required
-              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-white p-3 text-[#238878] transition duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#238878]"
             />
           </div>
 
@@ -53,7 +53,7 @@
               id="sex"
               v-model="formData.sex"
               required
-              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-white p-3 text-[#238878] transition duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#238878]"
             >
               <option value="">Select</option>
               <option value="male">Male</option>
@@ -71,7 +71,7 @@
               id="age"
               v-model="formData.age"
               required
-              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-white p-3 text-[#238878] transition duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#238878]"
             />
           </div>
 
@@ -86,7 +86,7 @@
               id="pregnancyStatus"
               v-model="formData.pregnancyStatus"
               required
-              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-white p-3 text-[#238878] transition duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#238878]"
             >
               <option value="">Select</option>
               <option value="yes">Yes</option>
@@ -105,7 +105,7 @@
               id="breastfeeding"
               v-model="formData.breastfeeding"
               required
-              class="mt-1 p-3 w-full text-[#238878] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#238878] focus:border-transparent transition duration-300"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-white p-3 text-[#238878] transition duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#238878]"
             >
               <option value="">Select</option>
               <option value="yes">Yes</option>
@@ -117,16 +117,16 @@
           <button
             @click.prevent="handleNextPage"
             :disabled="!isFormValid"
-            class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#238878] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
+            class="group relative inline-flex items-center justify-start overflow-hidden rounded bg-gray-50 py-3 pl-4 pr-12 font-semibold text-[#238878] transition-all duration-150 ease-in-out hover:pl-10 hover:pr-6"
           >
             <span
-              class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#238878] group-hover:h-full"
+              class="absolute bottom-0 left-0 h-1 w-full bg-[#238878] transition-all duration-150 ease-in-out group-hover:h-full"
             ></span>
             <span
               class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
             >
               <svg
-                class="w-5 h-5 text-green-400"
+                class="h-5 w-5 text-green-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -141,10 +141,10 @@
               </svg>
             </span>
             <span
-              class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200"
+              class="absolute left-0 -translate-x-12 pl-2.5 duration-200 ease-out group-hover:translate-x-0"
             >
               <svg
-                class="w-5 h-5 text-green-400"
+                class="h-5 w-5 text-green-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -167,11 +167,11 @@
       </div>
 
       <!-- Illustration Section -->
-      <div class="hidden lg:flex items-center justify-center w-1/2">
+      <div class="hidden w-1/2 items-center justify-center lg:flex">
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/diagnose.webp"
           alt="Form Illustration"
-          class="w-full h-[500px]"
+          class="h-[500px] w-full"
         />
       </div>
     </div>
@@ -211,7 +211,7 @@ const isFormValid = computed(() => {
   if (showConditionalFields.value) {
     requiredFields.push(
       formData.value.pregnancyStatus,
-      formData.value.breastfeeding
+      formData.value.breastfeeding,
     );
   }
   return requiredFields.every((field) => field !== "");
@@ -222,18 +222,3 @@ const handleNextPage = () => {
   emit("step1Data", formData.value);
 };
 </script>
-
-<style>
-body {
-  font-family: "Inter", sans-serif;
-}
-
-.bg-gradient-to-r {
-  background-color: #f0f9ff;
-}
-
-input,
-select {
-  background-color: white;
-}
-</style>

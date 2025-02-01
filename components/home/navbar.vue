@@ -64,5 +64,3 @@ onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
 });
 </script>
-
-<style scoped></style>

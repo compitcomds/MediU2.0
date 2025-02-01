@@ -1,12 +1,12 @@
 <script setup lang="ts">
 useHead({
-  title: "Mediu | Home",
+  title: "Mediu | Pharmacy | Consultancy | Self Diagnose",
   meta: [
     {
       tagPosition: "head",
       name: "description",
       content:
-        "Mediu is a platform for medical professionals to connect with patients and manage their health records.",
+        "Mediu is a platform for medical professionals to connect with patients and manage their health records along with consultancy in skin, hair, baby care etc. And also, you can self diagnose yourself in Mediu and purchase suitable medicines.",
     },
     {
       tagPosition: "head",

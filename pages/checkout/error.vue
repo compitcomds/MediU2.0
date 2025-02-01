@@ -45,7 +45,3 @@ useHead({
   title: "Checkout - Error - Mediu",
 });
 </script>
-
-<style scoped>
-/* Additional styles if necessary */
-</style>

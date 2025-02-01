@@ -209,23 +209,3 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-@media (max-width: 768px) {
-  .w-full {
-    width: 100%;
-  }
-
-  .lg\:w-5\/12 {
-    width: 100%;
-  }
-
-  .lg\:w-7\/12 {
-    width: 100%;
-  }
-
-  .h-60 {
-    height: auto;
-  }
-}
-</style>

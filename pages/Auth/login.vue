@@ -15,10 +15,10 @@
             Welcome, please login to your account
           </p>
 
-          <div class="grid-container">
+          <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
             <button
               @click="loginWithGoogle"
-              class="grid-item gap-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-600 shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-600 shadow hover:shadow-lg"
             >
               <svg
                 width="22"
@@ -51,17 +51,17 @@
                   </clipPath>
                 </defs>
               </svg>
-              <p>Log In With Google</p>
+              <span>Log In With Google</span>
             </button>
             <button
-              class="grid-item gap-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-600 shadow hover:shadow-lg"
+              class="flex items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-600 shadow hover:shadow-lg"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
                 class="h-5 w-5"
                 alt="Facebook Logo"
               />
-              <p>Log In With Facebook</p>
+              <span>Log In With Facebook</span>
             </button>
           </div>
 
@@ -110,6 +110,7 @@
                   @click.prevent="togglePasswordVisibility"
                   class="focus:outline-none"
                 >
+                  <span class="sr-only">Toggle Password Visibility</span>
                   <svg
                     v-if="showPassword"
                     class="h-5 w-5 text-gray-500"
@@ -158,11 +159,11 @@
 
             <div class="flex items-center justify-between">
               <div class="flex items-center">
-                <a
-                  href="/auth/register"
+                <nuxt-link
+                  :to="{ path: '/auth/register', query: route.query }"
                   for="remember_me"
                   class="ml-2 block text-sm text-blue-600 hover:text-blue-800"
-                  >Don't have an account / Sign Up</a
+                  >Don't have an account / Sign Up</nuxt-link
                 >
               </div>
             </div>
@@ -283,27 +284,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped>
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem; /* Space between grid items */
-  margin-bottom: 1rem;
-}
-
-.grid-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .grid-container {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Two columns on medium screens and above */
-  }
-}
-</style>

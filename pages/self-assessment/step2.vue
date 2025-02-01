@@ -179,20 +179,3 @@ useHead({
   ],
 });
 </script>
-
-<style>
-@keyframes text {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animate-text {
-  background-size: 200% 200%;
-  animation: text 3s ease infinite;
-}
-</style>

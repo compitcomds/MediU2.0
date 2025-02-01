@@ -4,7 +4,7 @@
     ref="navbar"
   >
     <div
-      class="container mx-auto flex w-full items-center justify-center px-4 py-5"
+      class="container mx-auto flex w-full max-w-[1200px] items-center justify-center px-4 py-5"
     >
       <!-- Logo -->
       <div class="w-2/6 text-lg font-semibold">
@@ -294,25 +294,3 @@ onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside); // Remove listener
 });
 </script>
-
-<style scoped>
-/* Container styling */
-.container {
-  max-width: 1200px;
-}
-
-/* Dropdown hover and show/hide */
-.group:hover .group-hover\:block {
-  display: block;
-}
-
-/* Styling for dropdown visibility */
-.group-hover\:block {
-  display: none;
-}
-
-/* Transitions for smooth dropdown animation */
-.transition-all {
-  transition: all 0.3s ease-in-out;
-}
-</style>

@@ -222,9 +222,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped>
-.border-red-500 {
-  border-color: #f56565;
-}
-</style>

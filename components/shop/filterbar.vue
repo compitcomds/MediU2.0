@@ -12,7 +12,7 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+            <p class="text-sm text-[#22423c]">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -29,7 +29,7 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+            <p class="text-sm text-[#22423c]">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -46,7 +46,7 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+            <p class="text-sm text-[#22423c]">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -64,7 +64,7 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+            <p class="text-sm text-[#22423c]">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -82,7 +82,7 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+            <p class="text-sm text-[#22423c]">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -99,7 +99,7 @@
               @change="updateQueryParams"
               class="checkbox me-3 rounded-md [--chkbg:#26504e] [--chkfg:white] checked:border-indigo-800"
             />
-            <p class="font-semiboldbold text-sm">{{ item.name }}</p>
+            <p class="text-sm text-[#22423c]">{{ item.name }}</p>
           </label>
         </div>
       </div>
@@ -256,9 +256,3 @@ const updateQueryParams = () => {
   router.push({ path: route.path, query: { ...route.query, ...query } });
 };
 </script>
-
-<style scoped>
-p {
-  color: #22423c;
-}
-</style>

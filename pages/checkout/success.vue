@@ -24,5 +24,3 @@ useHead({
   title: "Checkout - Success - Mediu",
 });
 </script>
-
-<style scoped></style>

@@ -30,10 +30,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "AppointmentBanner",
-};
-</script>
-
-<style scoped></style>
+<script setup lang="ts"></script>

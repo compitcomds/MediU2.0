@@ -48,5 +48,3 @@ const slides = [
   "https://ccdstest.b-cdn.net/Medi%20u/beauty%20skincare/6.png",
 ];
 </script>
-
-<style scoped></style>

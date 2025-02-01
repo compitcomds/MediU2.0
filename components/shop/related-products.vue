@@ -122,10 +122,3 @@ onMounted(async () => {
   }
 });
 </script>
-
-<style scoped>
-.product-slider-container {
-  max-width: 100%;
-  margin: 0 auto;
-}
-</style>

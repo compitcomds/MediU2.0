@@ -154,7 +154,3 @@ const toggleDialog = () => {
   isDialogOpen.value = !isDialogOpen.value;
 };
 </script>
-
-<style scoped>
-/* Add styles here if needed */
-</style>
