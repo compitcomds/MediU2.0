@@ -23,10 +23,9 @@
         class="group relative max-w-xs flex-shrink-0 overflow-hidden rounded-lg bg-[#238878] shadow-lg"
       >
         <svg
-          class="absolute bottom-0 left-0 mb-8 scale-150 transition-transform group-hover:scale-[1.65]"
+          class="absolute bottom-0 left-0 mb-8 scale-150 opacity-[0.1] transition-transform group-hover:scale-[1.65]"
           viewBox="0 0 375 283"
           fill="none"
-          style="opacity: 0.1"
         >
           <rect
             x="159.52"
@@ -49,15 +48,8 @@
         <div
           class="relative flex items-center justify-center px-5 pt-5 transition-transform group-hover:scale-110"
         >
-          <div
-            class="absolute bottom-0 left-0 -mb-24 ml-3 block h-48 w-48"
-            style="
-              background: radial-gradient(black, transparent 60%);
-              transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1);
-              opacity: 0.2;
-            "
-          ></div>
           <button @click="submitProblem(problem)">
+            <span class="sr-only">{{ problem }}</span>
             <img class="relative rounded" :src="getImageUrl(problem)" alt="" />
           </button>
         </div>

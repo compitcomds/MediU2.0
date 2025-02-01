@@ -4,12 +4,6 @@
       class="relative flex h-auto flex-col items-center justify-between bg-gray-800 p-4 text-white md:flex-row lg:rounded-[30px] lg:p-8 xl:h-[300px]"
     >
       <div
-        class="absolute inset-0 block bg-cover bg-center opacity-30 md:opacity-20 lg:hidden"
-        style="
-          background-image: url(&quot;https://ccdstest.b-cdn.net/Medi%20u/brands/image%202.png&quot;);
-        "
-      ></div>
-      <div
         class="relative z-30 flex flex-col items-center justify-center space-y-6 md:w-1/2 md:space-y-10 lg:items-start"
       >
         <h2
@@ -33,14 +27,8 @@
       >
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/Mam.png"
-          class="z-20 hidden h-72 rounded-lg object-cover sm:h-80 md:h-[420px] lg:block"
+          class="absolute right-auto top-[80%] z-20 hidden h-72 -translate-y-[66%] translate-x-1/2 rounded-lg object-cover sm:h-80 md:h-[420px] lg:block"
           alt="Expert Team"
-          style="
-            position: absolute;
-            top: 80%;
-            right: auto;
-            transform: translate(50%, -66%);
-          "
         />
         <div
           class="absolute z-30 flex items-center justify-center md:mr-48 md:justify-start lg:-mr-10"

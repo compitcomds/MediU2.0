@@ -25,10 +25,9 @@
         class="group relative m-4 w-full flex-shrink-0 overflow-hidden rounded-lg bg-[#238878] shadow-lg md:w-96"
       >
         <svg
-          class="absolute bottom-0 left-0 mb-8 scale-150 transition-transform group-hover:scale-[1.65]"
+          class="absolute bottom-0 left-0 mb-8 scale-150 opacity-[0.1] transition-transform group-hover:scale-[1.65]"
           viewBox="0 0 375 283"
           fill="none"
-          style="opacity: 0.1"
         >
           <rect
             x="159.52"
@@ -52,12 +51,7 @@
           class="relative flex items-center justify-center px-10 pt-10 transition-transform group-hover:scale-110"
         >
           <div
-            class="absolute bottom-0 left-0 -mb-24 ml-3 block h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48"
-            style="
-              background: radial-gradient(black, transparent 60%);
-              transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1);
-              opacity: 0.2;
-            "
+            class="absolute bottom-0 left-0 -mb-24 ml-3 block h-32 w-32 rotate-[20deg] scale-y-[0.6] bg-[radial-gradient(black,transparent_60%)] opacity-20 sm:h-40 sm:w-40 md:h-48 md:w-48"
           ></div>
           <button @click="submitCondition(condition)">
             <img

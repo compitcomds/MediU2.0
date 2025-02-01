@@ -101,8 +101,9 @@
               viewBox="0 0 24 24"
               stroke="currentColor"
               class="h-6 w-6 text-blue-600 transition-transform duration-300"
-              :style="{
-                transform: question.open ? 'rotate(0deg)' : 'rotate(-180deg)',
+              :class="{
+                'rotate-0': question.open,
+                '-rotate-180': !question.open,
               }"
             >
               <path

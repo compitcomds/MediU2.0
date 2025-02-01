@@ -33,9 +33,7 @@
         </div>
 
         <div>
-          <h1 class="text-2xl font-semibold" style="color: #238878">
-            John Doe
-          </h1>
+          <h1 class="text-2xl font-semibold text-[#238878]">John Doe</h1>
           <p class="text-gray-500">johndoe@example.com</p>
         </div>
       </div>
