@@ -205,6 +205,7 @@
       </div>
     </div>
   </section>
+  <CartWishlist />
 </template>
 
 <script setup lang="ts">

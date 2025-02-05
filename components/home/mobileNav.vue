@@ -7,38 +7,37 @@
       class="container mx-auto flex w-full max-w-[1200px] items-center justify-center px-4 py-5"
     >
       <!-- Logo -->
-      <div class="w-2/6 text-lg font-semibold">
+      <nuxt-link to="/" class="w-2/6 text-lg font-semibold">
         <img
           src="https://ccdstest.b-cdn.net/Medi%20u/logos/logo%201.png"
           alt="Logo"
           class="h-10 w-auto"
         />
         <span class="sr-only">Mediu Logo</span>
-      </div>
+      </nuxt-link>
 
       <HomeSearch />
 
       <!-- Burger Menu Icon (Visible on small screens) -->
-      <button
-        @click="toggleMenu"
-        class="block w-1/6 text-end focus:outline-none"
-      >
-        <span class="sr-only">Toggle Menu</span>
-        <svg
-          class="h-6 w-6"
-          fill="none"
-          stroke="#238878"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          ></path>
-        </svg>
-      </button>
+      <div class="w-1/6 text-end">
+        <button @click="toggleMenu" class="focus:outline-none">
+          <span class="sr-only">Toggle Menu</span>
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="#238878"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Dropdown Menu -->

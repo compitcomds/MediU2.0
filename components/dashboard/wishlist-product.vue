@@ -41,7 +41,7 @@ const { data: product } = useLazyAsyncData(`wishlist-${props.handle}`, () =>
           >{{ product.title }}</nuxt-link
         >
       </h3>
-      <p class="mb-2 mt-1 line-clamp-2 text-sm text-gray-600">
+      <p class="mb-4 mt-1 line-clamp-2 text-sm text-gray-600">
         {{ product.description }}
       </p>
       <div class="mt-auto flex items-center justify-between">
