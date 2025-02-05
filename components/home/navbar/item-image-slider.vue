@@ -51,7 +51,7 @@ const slides = [
         <img
           :src="slide.src"
           :alt="slide.alt || 'Item Image'"
-          class="h-full w-full object-fill"
+          class="h-full max-h-64 w-full object-fill"
         />
       </div>
     </div>

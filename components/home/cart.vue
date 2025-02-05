@@ -133,6 +133,7 @@ import { toast } from "vue-sonner";
 import getCountOfCartDataItems from "~/shopify/cart/get-count-items";
 import { getUser, logoutUser, getUserImage } from "~/appwrite/auth";
 import { onClickOutside } from "@vueuse/core";
+
 const isOpen = ref(false);
 const isLoggingOut = ref(false);
 

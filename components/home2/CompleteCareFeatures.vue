@@ -1,9 +1,13 @@
 <template>
-  <div class="mb-10 space-y-6 px-4 lg:mb-28 lg:px-16 xl:px-[163px]">
-    <h2 class="mb-6 text-center text-2xl text-gray-500 lg:text-4xl">
+  <div class="mb-10 px-4 lg:mb-28 lg:px-16 xl:px-[163px]">
+    <h2
+      class="mb-6 text-center font-serif text-2xl text-gray-500 sm:text-3xl md:text-4xl"
+    >
       We Offer
     </h2>
-    <h3 class="text-center text-2xl font-bold text-[#238878] md:text-6xl">
+    <h3
+      class="mb-8 text-center font-serif text-2xl font-bold text-[#238878] md:text-6xl"
+    >
       Complete Care
     </h3>
 

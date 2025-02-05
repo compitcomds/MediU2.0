@@ -9,11 +9,11 @@ const OAUTH_LOGIN_SUCCESS_REDIRECT = import.meta.env
 const OAUTH_LOGIN_ERROR_REDIRECT = import.meta.env
   .VITE_APPWRITE_OAUTH_LOGIN_ERROR_REDIRECT;
 
-export const loginWithGoogle = async () => {
+export const loginWithGoogle = async (back?: string | null) => {
   try {
     account.createOAuth2Session(
       OAuthProvider.Google,
-      OAUTH_LOGIN_SUCCESS_REDIRECT,
+      `${OAUTH_LOGIN_SUCCESS_REDIRECT}${!!back ? "?back=" + back : ""}`,
       OAUTH_LOGIN_ERROR_REDIRECT,
     );
   } catch (error) {}

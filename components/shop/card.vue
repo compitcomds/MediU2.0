@@ -48,7 +48,7 @@
               class="block max-w-full overflow-clip"
             >
               <h3
-                class="font-serif text-sm font-semibold capitalize text-black lg:text-sm"
+                class="text-sm font-semibold capitalize text-black lg:text-sm"
               >
                 {{ product.title }}
               </h3>

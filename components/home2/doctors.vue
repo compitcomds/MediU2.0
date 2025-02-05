@@ -1,13 +1,13 @@
 <template>
   <div
-    class="m-10 bg-[#238878] px-4 py-6 text-white lg:mb-28 lg:px-16 lg:py-16 xl:px-[163px]"
+    class="bg-[#238878] px-4 py-6 text-white md:mb-20 lg:m-10 lg:mb-28 lg:px-16 lg:py-16 xl:px-[163px]"
   >
     <h2
-      class="text-center font-serif text-4xl font-bold md:text-6xl lg:pb-14 lg:text-[70px]"
+      class="text-center font-serif text-2xl font-bold text-white md:text-6xl lg:mb-20"
     >
       Our Doctor's Team
     </h2>
-    <div class="my-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div class="my-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <!-- Card for Dr. Akhil Agarwal -->
       <div
         class="group relative w-full translate-y-0 transform transition-transform duration-300 lg:translate-y-0"

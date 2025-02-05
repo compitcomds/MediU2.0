@@ -13,35 +13,38 @@
           alt="Logo"
           class="h-10 w-auto"
         />
+        <span class="sr-only">Mediu Logo</span>
       </div>
 
       <HomeSearch />
 
       <!-- Burger Menu Icon (Visible on small screens) -->
-      <div class="w-1/6 text-end">
-        <button @click="toggleMenu" class="focus:outline-none">
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            stroke="#238878"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-      </div>
+      <button
+        @click="toggleMenu"
+        class="block w-1/6 text-end focus:outline-none"
+      >
+        <span class="sr-only">Toggle Menu</span>
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="#238878"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
     </div>
 
     <!-- Mobile Dropdown Menu -->
     <div
       v-if="isMenuOpen"
-      class="absolute left-0 top-16 z-40 w-full bg-white px-4 py-2 text-[#238878] shadow-md"
+      class="absolute left-0 top-16 z-40 max-h-[75vh] w-full overflow-y-auto bg-white px-4 py-2 text-[#238878] shadow-md"
     >
       <div
         v-for="(item, index) in menuItems"
@@ -71,7 +74,11 @@
           </svg>
         </div>
 
-        <div v-if="isDropdownOpen(index)" class="pl-4 text-[#238878]">
+        <div
+          v-if="isDropdownOpen(index)"
+          ref="dialogRef"
+          class="pl-4 text-[#238878]"
+        >
           <div
             v-for="(subItem, subIndex) in item.subItems"
             :key="subIndex"
@@ -99,7 +106,7 @@
                 <a
                   v-if="nestedSubItem.link"
                   :href="nestedSubItem.link"
-                  class="text-[#89ccc0] hover:underline"
+                  class="text-[#344e49] hover:text-[#89ccc0] hover:underline"
                 >
                   {{ nestedSubItem.name }}
                 </a>
@@ -115,31 +122,27 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { onClickOutside } from "@vueuse/core";
 
-// Toggle for mobile menu visibility
+const dialogRef = ref(null);
+
+onClickOutside(dialogRef, () => {
+  toggleDropdown();
+});
+
 const isMenuOpen = ref(false);
-
-// Toggle states for dropdown menus
 const dropdownStates = ref([]);
-
-// State to track navbar visibility based on screen size
 const isNavbarVisible = ref(true);
-
-// Reference to the navbar element
 const navbar = ref(null);
 
-// Toggle mobile menu
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-// Toggle dropdowns
 const toggleDropdown = (index) => {
   dropdownStates.value[index] = !dropdownStates.value[index];
 };
 
-// Check if dropdown is open
 const isDropdownOpen = (index) => {
   return dropdownStates.value[index];
 };
@@ -182,7 +185,6 @@ const menuItems = [
           { name: "Serum", link: "/shop" },
         ],
       },
-      // ... other items
     ],
   },
   {
@@ -229,7 +231,6 @@ const menuItems = [
           { name: "Under Eye", link: "/shop" },
         ],
       },
-      // ... other items
     ],
   },
   {
@@ -237,7 +238,7 @@ const menuItems = [
     subItems: [
       {
         name: "Coming Soon",
-        link: "/coming-soon", // Link for Diapers
+        link: "/coming-soon",
       },
     ],
   },
@@ -246,11 +247,11 @@ const menuItems = [
     subItems: [
       {
         name: "First Aid",
-        link: "/coming-soon", // Link for First Aid
+        link: "/coming-soon",
       },
       {
         name: "OTC Medicines",
-        link: "/coming-soon", // Link for OTC Medicines
+        link: "/coming-soon",
       },
     ],
   },
@@ -260,37 +261,34 @@ const menuItems = [
     subItems: [
       {
         name: "Coming Soon",
-        link: "/coming-soon", // Link for Diapers
+        link: "/coming-soon",
       },
     ],
   },
 ];
 
-// Function to check screen size and update navbar visibility
 const updateNavbarVisibility = () => {
   if (window.innerWidth > 800) {
-    isNavbarVisible.value = false; // Hide navbar on screens larger than 800px
+    isNavbarVisible.value = false;
   } else {
-    isNavbarVisible.value = true; // Show navbar on screens 800px and below
+    isNavbarVisible.value = true;
   }
 };
 
-// Function to detect clicks outside the navbar
 const handleClickOutside = (event) => {
   if (navbar.value && !navbar.value.contains(event.target)) {
-    isMenuOpen.value = false; // Close the menu if clicked outside
+    isMenuOpen.value = false;
   }
 };
 
-// Monitor screen resize and outside clicks
 onMounted(() => {
-  updateNavbarVisibility(); // Initial check
+  updateNavbarVisibility();
   window.addEventListener("resize", updateNavbarVisibility);
-  document.addEventListener("click", handleClickOutside); // Listen for outside clicks
+  document.addEventListener("click", handleClickOutside);
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", updateNavbarVisibility);
-  document.removeEventListener("click", handleClickOutside); // Remove listener
+  document.removeEventListener("click", handleClickOutside);
 });
 </script>

@@ -55,7 +55,7 @@
               <!-- Product title -->
               <a :href="`/shop/product/${product.handle}`" class="block">
                 <h3
-                  class="truncate font-serif text-xl font-semibold capitalize text-black lg:text-lg"
+                  class="truncate text-xl font-semibold capitalize text-black lg:text-lg"
                 >
                   {{ product.title }}
                 </h3>

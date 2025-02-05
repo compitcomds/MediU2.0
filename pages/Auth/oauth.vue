@@ -26,14 +26,24 @@
 import { checkIfNewOauthUser } from "~/appwrite/auth";
 
 const router = useRouter();
+const route = useRoute();
 
-try {
-  await checkIfNewOauthUser();
-  router.replace("/dashboard");
-} catch (error: any) {
-  console.log(error.message);
-  router.replace("/auth/login");
-}
+const processOAuthUser = async () => {
+  console.log("Runnig....");
+  try {
+    await checkIfNewOauthUser();
+    await refreshNuxtData(["user"]);
+    console.log("redirecting to...", route.query?.back || "/dashboard");
+    router.replace(route.query?.back || "/dashboard");
+  } catch (error: any) {
+    console.log(error.message);
+    router.replace("/auth/login");
+  }
+};
+
+onMounted(async () => {
+  await processOAuthUser();
+});
 
 useHead({
   title: "OAuth - Mediu",

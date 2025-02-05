@@ -15,7 +15,7 @@
 
         <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           <button
-            @click="loginWithGoogle"
+            @click="handleLoginWithGoogle"
             class="flex items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-600 shadow hover:shadow-lg"
           >
             <svg
@@ -210,6 +210,10 @@ const formData = ref({
 });
 
 const showPassword = ref(false);
+
+const handleLoginWithGoogle = () => {
+  loginWithGoogle(route.query?.back || null);
+};
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;

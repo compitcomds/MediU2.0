@@ -78,11 +78,15 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="mx-auto mb-10 max-w-7xl space-y-6 py-8 font-serif lg:mb-28">
-    <div class="mb-5 flex flex-col lg:mb-10 lg:space-y-6">
-      <h1 class="text-center text-xl text-gray-500 lg:text-4xl">
+    <div class="mb-5 flex flex-col lg:mb-10 lg:gap-y-6">
+      <h1
+        class="text-center font-serif text-2xl text-gray-500 sm:text-3xl md:text-4xl"
+      >
         Glow Getters
       </h1>
-      <h2 class="text-center text-2xl font-bold text-[#238878] lg:text-6xl">
+      <h2
+        class="text-center font-serif text-2xl font-bold text-[#238878] md:text-6xl"
+      >
         Radiant Skin Secrets
       </h2>
     </div>

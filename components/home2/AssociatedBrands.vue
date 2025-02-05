@@ -20,7 +20,9 @@ const slides = [
 </script>
 <template>
   <div class="mb-28">
-    <h1 class="mb-6 text-center text-2xl text-gray-500 sm:text-3xl md:text-4xl">
+    <h1
+      class="mb-6 text-center font-serif text-2xl font-bold text-[#238878] md:text-6xl lg:mb-20"
+    >
       Our Associated Brands
     </h1>
     <div class="embla relative w-full overflow-hidden" ref="emblaRef">
