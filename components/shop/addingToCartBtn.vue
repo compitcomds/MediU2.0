@@ -11,6 +11,7 @@ const props = withDefaults(
     quantity?: number;
     redirectToCart?: boolean;
     deactivate?: boolean;
+    reloadNuxtApp?: boolean;
   }>(),
   {
     as: "button",
@@ -32,9 +33,9 @@ const addProductToCart = async () => {
       cartId,
       quantity: props.quantity,
     });
-    if (props.redirectToCart) {
-      router.push("/cart");
-    }
+
+    if (props.redirectToCart) router.push("/cart");
+
     toast.success("Successfully added to the cart.");
   } catch (error: any) {
     console.error(error);

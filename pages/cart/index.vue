@@ -3,7 +3,7 @@
     <div
       class="mx-auto grid w-full max-w-7xl grid-cols-12 gap-8 px-4 md:px-5 lg:px-6"
     >
-      <div class="col-span-12 max-h-[75vh] overflow-y-auto pr-4 lg:col-span-8">
+      <div class="col-span-12 pr-4 lg:col-span-8">
         <h2
           class="mb-8 text-center text-4xl font-bold leading-10 text-[#238878]"
         >
@@ -221,30 +221,34 @@ const isUpdatingLineItemQuantity = ref(false);
 
 const walletAmount = ref(0);
 
-const cart = ref<{
-  items: any[];
-  subtotalAmount: { currencyCode: string; amount: string };
-  totalAmount: { currencyCode: string; amount: string };
-  totalTaxAmount: { currencyCode: string; amount: string };
-  discountCodes: Array<{
-    applicable: boolean;
-    code: string;
-  }>;
-}>({
-  items: [],
-  subtotalAmount: { currencyCode: "", amount: "" },
-  totalAmount: { currencyCode: "", amount: "" },
-  totalTaxAmount: { currencyCode: "", amount: "" },
-  discountCodes: [],
-});
+// const cart = ref<{
+//   items: any[];
+//   subtotalAmount: { currencyCode: string; amount: string };
+//   totalAmount: { currencyCode: string; amount: string };
+//   totalTaxAmount: { currencyCode: string; amount: string };
+//   discountCodes: Array<{
+//     applicable: boolean;
+//     code: string;
+//   }>;
+// }>({
+//   items: [],
+//   subtotalAmount: { currencyCode: "", amount: "" },
+//   totalAmount: { currencyCode: "", amount: "" },
+//   totalTaxAmount: { currencyCode: "", amount: "" },
+//   discountCodes: [],
+// });
+
+const { cart } = useCart();
 
 const discountCode = ref("");
 const applyingDiscount = ref(false);
 const editDiscountCode = ref(false);
 
-const totalAmount = computed(() => parseFloat(cart.value.totalAmount.amount));
+const totalAmount = computed(() =>
+  parseFloat(cart.value?.totalAmount.amount || "0"),
+);
 const subTotalAmount = computed(() =>
-  parseFloat(cart.value.subtotalAmount.amount),
+  parseFloat(cart.value?.subtotalAmount.amount || "0"),
 );
 const discountApplied = computed(() =>
   calculateDiscountApplied(subTotalAmount.value, totalAmount.value),
@@ -252,7 +256,7 @@ const discountApplied = computed(() =>
 const walletAmountUsed = computed(() =>
   Math.min(
     walletAmount.value,
-    cart.value.items.length > 0 ? totalAmount.value - 1 : 0,
+    !!cart.value && cart.value.items.length > 0 ? totalAmount.value - 1 : 0,
   ),
 );
 const shippingAmount = computed(() => {
@@ -260,12 +264,12 @@ const shippingAmount = computed(() => {
   return Math.round(
     totalAmount.value -
       subTotalAmount.value -
-      parseFloat(cartValue.totalTaxAmount?.amount || "0"),
+      parseFloat(cartValue?.totalTaxAmount?.amount || "0"),
   );
 });
 const taxAmount = computed(() => {
   const cartValue = cart.value;
-  return calculateTaxApplied(cartValue.items, discountApplied.value);
+  return calculateTaxApplied(cartValue?.items || [], discountApplied.value);
 });
 
 const changeQuantity = async (lineId: string, quantity: number) => {
