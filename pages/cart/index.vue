@@ -64,7 +64,6 @@
                 <span class="sr-only">Remove product from cart</span>
               </button>
             </div>
-            <p class="text-gray-500">{{ item.description }}</p>
             <div class="mt-4 flex items-center justify-between">
               <div
                 class="relative flex h-10 w-36 items-center justify-between gap-2 overflow-clip rounded-md border border-gray-600 bg-white text-black md:w-48"
@@ -220,23 +219,6 @@ const userStore = useUserStore();
 const isUpdatingLineItemQuantity = ref(false);
 
 const walletAmount = ref(0);
-
-// const cart = ref<{
-//   items: any[];
-//   subtotalAmount: { currencyCode: string; amount: string };
-//   totalAmount: { currencyCode: string; amount: string };
-//   totalTaxAmount: { currencyCode: string; amount: string };
-//   discountCodes: Array<{
-//     applicable: boolean;
-//     code: string;
-//   }>;
-// }>({
-//   items: [],
-//   subtotalAmount: { currencyCode: "", amount: "" },
-//   totalAmount: { currencyCode: "", amount: "" },
-//   totalTaxAmount: { currencyCode: "", amount: "" },
-//   discountCodes: [],
-// });
 
 const { cart } = useCart();
 
