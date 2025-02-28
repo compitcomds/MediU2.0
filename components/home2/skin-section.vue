@@ -1,47 +1,26 @@
 <script setup lang="ts">
-import getProductsByHandle, {
-  type ProductBasicDetailsType,
-} from "~/shopify/shop/get-products-by-handle";
+import { type ProductBasicDetailsType } from "~/shopify/shop/get-products-by-handle";
+import getProductsByTag from "~/shopify/shop/get-product-by-tags";
 
 const categories = [
-  { value: "sunscreen", title: "Sunscreen" },
-  { value: "moisturizer", title: "Moisturizer" },
-  { value: "serums", title: "Serums" },
+  {
+    value: "sunscreen",
+    title: "Sunscreen",
+    tag: "home-radiant-skin-sunscreen",
+  },
+  {
+    value: "moisturizer",
+    title: "Moisturizer",
+    tag: "home-radiant-skin-moisturizer",
+  },
+  { value: "serums", title: "Serums", tag: "home-radiant-skin-anti-aging" },
 ];
 
-const productHandles: Record<string, string[]> = {
-  sunscreen: [
-    "torrent-suncote-gel-sunscreen",
-    "sunban-matte-gel-spf30-sunscreen",
-    "rivela-lite-sunscreen-spf50-pa-1",
-    "solreva-xl-spf50-sunscreen-serum",
-    "rivela-lite-sunscreen-spf50-pa",
-  ],
-  moisturizer: [
-    "hydrocera-moisturizing-lotion-200ml",
-    "venusia-max-intensive-moisturizing-cream-150gm",
-    "venusia-max-intensive-moisturizing-lotion",
-    "ipca-acne-oc-sebum-regulating-moisturizer-75gm",
-    "skin-fay-oral-moisturizer-30-capsules",
-  ],
-  serums: [
-    "anaboom-serum-anti-hairfall-serum-60-ml",
-    "glo-blanc-retinol-serum",
-    "lot-o-hair-serum",
-    "fixderma-age-reverse-serum",
-    "solreva-xl-spf50-sunscreen-serum",
-  ],
-};
-
 const fetchProductHandles = async () => {
-  const data: Record<string, ProductBasicDetailsType[]> = {
-    hair: [],
-    skin: [],
-    babyCare: [],
-  };
-  for (const key of Object.keys(productHandles)) {
-    const products = await getProductsByHandle(productHandles[key]);
-    data[key] = products;
+  const data: Record<string, ProductBasicDetailsType[]> = {};
+  for (const category of categories) {
+    const products = await getProductsByTag(category.tag);
+    data[category.value] = products;
   }
   return data;
 };

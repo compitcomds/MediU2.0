@@ -1,41 +1,30 @@
 <script setup lang="ts">
-import getProductsByHandle, {
-  type ProductBasicDetailsType,
-} from "~/shopify/shop/get-products-by-handle";
+import { type ProductBasicDetailsType } from "~/shopify/shop/get-products-by-handle";
+import getProductsByTag from "~/shopify/shop/get-product-by-tags";
 
 const categories = [
-  { value: "hairSerum", title: "Hair Serum" },
-  { value: "shampooAndConditioner", title: "Shampoo and Conditioner" },
-  { value: "minoxidil", title: "Minoxidil" },
+  {
+    value: "hairSerum",
+    title: "Hair Serum",
+    tag: "home-hair-care-must-haves-hair-serum",
+  },
+  {
+    value: "shampooAndConditioner",
+    title: "Shampoo and Conditioner",
+    tag: "home-hair-care-must-haves-Shampoo-and-conditioner",
+  },
+  {
+    value: "minoxidil",
+    title: "Minoxidil",
+    tag: "home-hair-care-must-haves-minoxidil",
+  },
 ];
 
-const productHandles: Record<string, string[]> = {
-  minoxidil: ["regain-5"],
-  hairSerum: [
-    "kera-xl-hair-growth-serum-60-ml",
-    "anaboom-serum-anti-hairfall-serum-60-ml",
-    "bontress-pro-plus-scalp-serum-redensyl-procapil-capixyl-anagain",
-    "fi-grow-lotion-hair-growth-serum",
-    "racine-pro-hair-serum-30-ml",
-  ],
-  shampooAndConditioner: [
-    "adorfy-shampoo-dandruff-and-seborrhoeic-dermatitis",
-    "racine-pro-conditioning-shampoo-175ml",
-    "cipla-sebowash-shampoo-anti-dandfruff",
-    "ipca-keraglo-ad-shampoo-anti-dandruff",
-    "glenamrk-lulican-anti-dandruff-shampoo",
-  ],
-};
-
 const fetchProductHandles = async () => {
-  const data: Record<string, ProductBasicDetailsType[]> = {
-    hair: [],
-    skin: [],
-    babyCare: [],
-  };
-  for (const key of Object.keys(productHandles)) {
-    const products = await getProductsByHandle(productHandles[key]);
-    data[key] = products;
+  const data: Record<string, ProductBasicDetailsType[]> = {};
+  for (const category of categories) {
+    const products = await getProductsByTag(category.tag);
+    data[category.value] = products;
   }
   return data;
 };

@@ -1,37 +1,28 @@
 <script setup lang="ts">
-import getProductsByHandle, {
-  type ProductBasicDetailsType,
-} from "~/shopify/shop/get-products-by-handle";
+import { type ProductBasicDetailsType } from "~/shopify/shop/get-products-by-handle";
+import getProductsByTag from "~/shopify/shop/get-product-by-tags";
 
 const categories = [
-  { value: "hair", title: "Hair" },
-  { value: "skin", title: "Skin" },
-  { value: "babyCare", title: "Baby Care" },
+  {
+    value: "hair",
+    title: "Hair",
+    tag: "home-featured-product-hair",
+    featuredTag: "featured-home-hair",
+  },
+  {
+    value: "skin",
+    title: "Skin",
+    tag: "home-featured-product-skin",
+    featuredTag: "featured-home-skin",
+  },
+  {
+    value: "babyCare",
+    title: "Baby Care",
+    tag: "home-featured-product-baby",
+    featuredTag: "featured-home--baby",
+  },
 ];
 
-const productHandles: Record<string, string[]> = {
-  hair: [
-    "renocia-hair-revitalizingconditioner-110ml",
-    "glenmark-hair-4-u-shampoo",
-    "glenmark-hair-4-u-conditioner",
-    "lot-o-hair-serum",
-    "triflow-hair-conditioner-150ml",
-  ],
-  skin: [
-    "adorfy-shampoo-dandruff-and-seborrhoeic-dermatitis",
-    "dermatica-age-neutral-age-defying-cream",
-    "dermatica-aze-proactive-lotion-30-ml",
-    "dermatica-complexion-edt",
-    "dermatica-ray-protect-barelyon-fluid-sunscreen-spf50",
-  ],
-  babyCare: [
-    "ipca-keraglo-ad-shampoo-anti-dandruff",
-    "ipca-keraglo-ad-lotion-50ml",
-    "ipca-cutiyt-g12-lotion-30-ml",
-    "ipca-cutimax-o-oat-moisturizing-lotion-60gm",
-    "ipca-keraglo-men-bottle-of-30-tablets",
-  ],
-};
 const fetchedProducts = useState<Record<string, ProductBasicDetailsType[]>>(
   "featured-products",
   () => ({
@@ -48,9 +39,11 @@ const changeCategory = (newCategory: string) => {
 };
 
 const fetchProductHandles = async () => {
-  for (const key of Object.keys(productHandles)) {
-    const products = await getProductsByHandle(productHandles[key]);
-    fetchedProducts.value[key] = products;
+  for (const category of categories) {
+    const featuredProducts = await getProductsByTag(category.featuredTag);
+    const products = await getProductsByTag(category.tag);
+    fetchedProducts.value[category.value] = [...featuredProducts, ...products];
+    console.log(featuredProducts, products);
   }
 };
 
